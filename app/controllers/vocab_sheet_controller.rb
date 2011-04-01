@@ -1,0 +1,2 @@
+class VocabSheetController < ApplicationController
+end
