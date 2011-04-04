@@ -1,0 +1,37 @@
+!!!
+
+%html.no-js{:lang => "en"}
+
+  %head
+    %meta{:charset => "utf-8"}
+    %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
+
+    = favicon_link_tag
+    = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
+
+    = stylesheet_link_tag :all, :cache => 'nzsl-cache.css'
+
+    %meta{:name => "description", :content => "NZSL Online : Dictionary of New Zealand Sign Language"}
+    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+
+    %title= page_title
+
+    /[if lt IE 8]
+      %link{:href => '/css/ie.css', :rel => 'stylesheet', :type => 'text/css', :rel => 'screen, projection'}
+
+    = javascript_include_tag 'modernizr.min.js'
+    = csrf_meta_tag
+
+  %body
+    %header.layout
+      = yield :header
+    %div#main
+      = yield
+    %footer.layout
+      = yield :footer
+
+    %script{:type => 'text/javascript', :src => '/js/jquery.min.js'}
+    %script{:type => 'text/javascript', :src => '/js/latter.notification.js'}
+    %script{:type => 'text/javascript', :src => '/js/application.js'}
+    = javascript_include_tag :defaults, :cache => 'nzsl-cache.js'
+
