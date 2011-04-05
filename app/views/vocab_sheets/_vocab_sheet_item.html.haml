@@ -1,0 +1,5 @@
+= content_tag :li do
+  = vocab_sheet_item.name
+  = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
+    = submit_tag t('vocab_sheet.item.remove')
+

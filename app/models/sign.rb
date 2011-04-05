@@ -1,10 +1,14 @@
 class Sign
 
+
   require 'open-uri'
   require 'nokogiri'
 
   cattr_accessor :url
   cattr_accessor :element_name
+  cattr_accessor :asset_url
+
+
 
   #Sign attributes
   attr_accessor :id
@@ -19,7 +23,7 @@ class Sign
   attr_accessor :gender_groups
 
   attr_accessor :video
-  attr_accessor :drawing
+  attr_writer :drawing
 
   attr_accessor :recipe
   attr_accessor :usage_notes
@@ -32,10 +36,11 @@ class Sign
 
   Sign.url = "http://nzsl.vuw.ac.nz/dnzsl/freelex/publicsearch"
   Sign.element_name = "entry"
+  Sign.asset_url = "http://nzsl.vuw.ac.nz/dnzsl/freelex/assets/"
 
   def self.find(all_or_first = :all, params)
     #xml_document = Nokogiri::XML(open(url_for_search(params)))
-    xml_document = Nokogiri::XML(open("/home/josh/Projects/nzsl-online/publicsearch_cat.xml"))
+    xml_document = Nokogiri::XML(open(url_for_search(params)))
     entries = xml_document.css(Sign.element_name)
     if all_or_first == :first
       return nil if entries.empty?
@@ -62,6 +67,11 @@ class Sign
     return self.find(:all, params)
   end
 
+  def drawing
+    return Sign.asset_url + self.instance_variable_get("@drawing")
+  end
+
+
 
   private
 
@@ -73,16 +83,16 @@ class Sign
   def self.populate_object_from(data)
     sign = Sign.new
 
-    sign.id = data.value_for_tag("headword_id")
+    sign.id = data.value_for_tag("headwordid")
     sign.gloss_main = data.value_for_tag("glossmain")
     sign.gloss_secondary = data.value_for_tag("glosssecondary")
     sign.gloss_minor = data.value_for_tag("gloss_minor")
     sign.gloss_maori = data.value_for_tag("gloss_maori")
 
     sign.word_classes = data.value_for_tag("SECONDARYWORDCLASS")
-    sign.inflection = data.value_for_tag("inflection")
-    sign.age_groups = data.value_for_tag("variationage")
-    sign.gender_groups = data.value_for_tag("variationgender")
+    sign.inflection = data.value_for_tag("INFLECTION")
+    sign.age_groups = data.value_for_tag("VARIATIONAGE")
+    sign.gender_groups = data.value_for_tag("VARIATIONGENDER")
 
     sign.video = data.value_for_tag("ASSET glossmain")
     sign.drawing = data.value_for_tag("ASSET picture")
@@ -90,10 +100,10 @@ class Sign
     sign.recipe = data.value_for_tag("recipe")
     sign.usage_notes = data.value_for_tag("essay")
 
-    sign.contains_numbers = data.value_for_tag("number_incorp")
-    sign.is_fingerspelling = data.value_for_tag("fingerspelling")
-    sign.is_directional = data.value_for_tag("directional")
-    sign.is_locatable = data.value_for_tag("locatable")
+    sign.contains_numbers = data.value_for_tag("number_incorp").to_bool
+    sign.is_fingerspelling = data.value_for_tag("fingerspelling").to_bool
+    sign.is_directional = data.value_for_tag("directional").to_bool
+    sign.is_locatable = data.value_for_tag("locatable").to_bool
 
     return sign
   end

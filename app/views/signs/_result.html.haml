@@ -1,0 +1,8 @@
+= content_tag :li do
+  = link_to sign_url(result.id) do
+    = image_tag result.drawing
+    = result.gloss_main
+  = form_tag vocab_sheet_items_path do
+    = hidden_field_tag 'sign_id', result.id
+    = submit_tag t('vocab_sheet.item.add')
+

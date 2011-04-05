@@ -1,0 +1,10 @@
+%h1 Your Vocab Sheet
+- if @sheet.items.length > 0
+  = content_tag :ul do
+    = render :partial => 'vocab_sheet_item', :collection => @sheet.items
+- else
+  %div.empty= t('empty')
+%div
+  = form_tag vocab_sheet_path, :method => :delete do
+    = submit_tag t('vocab_sheet.delete')
+

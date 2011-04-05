@@ -2,6 +2,28 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  empty: (This list is empty)
   layout:
     title: NZSL Online
+    meta_descripion: "NZSL Online : Dictionary of New Zealand Sign Language"
+  signs:
+    show:
+        field:
+            contains_numbers: Contains numbers?
+            is_fingerspelling: Fingerspelling?
+            is_directional: Directional?
+            is_locatable: Locatable?
+    search:
+        form:
+            heading: Search
+            description: This file should be replaced, it is simply a testing page to query the search engine
+        basic:
+            keywords: Enter search keywords...
+        submit: Search
+  vocab_sheet:
+    link_to: Your Vocab Sheet
+    item:
+        add: Add to Vocab Sheet
+        remove: Remove
+    delete: Clear Sheet
 

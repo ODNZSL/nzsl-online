@@ -8,9 +8,9 @@ class Item < ActiveRecord::Base
   attr_writer :sign
 
   before_validation do
-    self.name = sign.gloss_main if item.name.nil? or item.name.blank?
-    self.sign_id = sign.id if item.sign_id.nil?
-  do
+    self.name = (self.sign.is_a?(Sign) ? self.sign.gloss_main : nil) if self.name.nil? or self.name.blank?
+    self.sign_id = sign.id if self.sign_id.nil?
+  end
 
   def sign
     @sign ||= Sign.first({:id => self.sign_id})

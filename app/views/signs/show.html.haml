@@ -1,0 +1,32 @@
+%p= @sign.gloss_main
+%p= @sign.gloss_secondary
+%p= @sign.gloss_minor
+%p= @sign.gloss_maori
+%ul
+  - @sign.word_classes.split(/\,(\s+)/).each do |wc|
+    %li= wc
+%p= @sign.inflection
+%ul
+  - @sign.age_groups.split(/\,(\s+)/).each do |wc|
+    %li= wc
+%ul
+  - @sign.gender_groups.split(/\,(\s+)/).each do |wc|
+    %li= wc
+
+%p= image_tag @sign.drawing
+%p= @sign.recipe
+%p= @sign.usage_notes
+
+%p
+  = t('signs.show.field.contains_numbers')
+  = @sign.contains_numbers ? "yes" : "no"
+%p
+  = t('signs.show.field.is_fingerspelling')
+  = @sign.is_fingerspelling ? "yes" : "no"
+%p
+  = t('signs.show.field.is_directional')
+  = @sign.is_directional ? "yes" : "no"
+%p
+  = t('signs.show.field.is_locatable')
+  = @sign.is_locatable ? "yes" : "no"
+
