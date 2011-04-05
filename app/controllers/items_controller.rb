@@ -9,15 +9,21 @@ class ItemsController < ApplicationController
 
     if @item.valid?
       @sheet.items << @item
+      flash[:notice] = t('vocab_sheet.item.add_success')
       redirect_to vocab_sheet_url
     else
+      flash[:error] = t('vocab_sheet.item.add_failure')
       redirect_back_or_default
     end
   end
 
   def destroy
-    debugger
-    @sheet.items.select { |item| item.id = params[:id] }.each(&:destroy)
+    if @item = @sheet.items.destroy(params[:id])
+      flash[:notice] = t('vocab_sheet.item.remove_success')
+    else
+      flash[:error] = t('vocab_sheet.item.remove_failure')
+    end
+
     redirect_back_or_default
   end
 end
