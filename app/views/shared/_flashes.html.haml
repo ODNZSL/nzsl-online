@@ -1,0 +1,4 @@
+%ul#flashes
+  - [:notice, :error].each do |thing|
+    = content_tag :li, flash[thing], :class => "flash #{thing.to_s}" if flash[thing]
+
