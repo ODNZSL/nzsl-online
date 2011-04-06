@@ -7,6 +7,7 @@ class Sign
   cattr_accessor :url
   cattr_accessor :element_name
   cattr_accessor :asset_url
+  cattr_accessor :results_per_page
 
 
 
@@ -26,36 +27,49 @@ class Sign
   attr_writer :drawing
 
   attr_accessor :recipe
+  attr_accessor :hint
   attr_accessor :usage_notes
 
   attr_accessor :contains_numbers
   attr_accessor :is_fingerspelling
   attr_accessor :is_directional
   attr_accessor :is_locatable
+  attr_accessor :two_handed
 
 
   Sign.url = "http://nzsl.vuw.ac.nz/dnzsl/freelex/publicsearch"
   Sign.element_name = "entry"
   Sign.asset_url = "http://nzsl.vuw.ac.nz/dnzsl/freelex/assets/"
+  Sign.results_per_page = 2
 
   def self.find(all_or_first = :all, params)
     #xml_document = Nokogiri::XML(open(url_for_search(params)))
     xml_document = Nokogiri::XML(open(url_for_search(params)))
+    ::Rails.logger.info "SIGN SEARCH: Requesting: #{url_for_search(params)}."
     entries = xml_document.css(Sign.element_name)
     if all_or_first == :first
       return nil if entries.empty?
-      return populate_object_from(entries.first)
+      return  populate_object_from(entries.first)
+      ::Rails.logger.info "SIGN SEARCH: 1 Result returned."
     else
       signs = []
       entries.each do |entry|
         signs << populate_object_from(entry)
       end
-      return signs
+      count = xml_document.css("totalhits").inner_text
+      ::Rails.logger.info "SIGN SEARCH: #{count} Results returned."
+      return [count, signs]
     end
   end
 
   def self.random
     return self.first({:random => 1})
+  end
+
+  def self.paginate(search_query, page_number = 1)
+    start_index = Sign.results_per_page * (page_number - 1) + 1
+    start_index = 1 if start_index < 1
+    self.all(search_query.merge!(:start => start_index, :num => Sign.results_per_page))
   end
 
   #Helper methods
@@ -69,6 +83,10 @@ class Sign
 
   def drawing
     return Sign.asset_url + self.instance_variable_get("@drawing")
+  end
+
+  def self.current_page(per_page, last_result_index, all_result_length)
+    return ((last_result_index / all_result_length.to_f) * (all_result_length / per_page.to_f)).round
   end
 
 
@@ -98,12 +116,14 @@ class Sign
     sign.drawing = data.value_for_tag("ASSET picture")
 
     sign.recipe = data.value_for_tag("recipe")
+    sign.recipe = data.value_for_tag("hint")
     sign.usage_notes = data.value_for_tag("essay")
 
     sign.contains_numbers = data.value_for_tag("number_incorp").to_bool
     sign.is_fingerspelling = data.value_for_tag("fingerspelling").to_bool
     sign.is_directional = data.value_for_tag("directional").to_bool
     sign.is_locatable = data.value_for_tag("locatable").to_bool
+    sign.two_handed = data.value_for_tag("one_or_two_handed").to_bool
 
     return sign
   end

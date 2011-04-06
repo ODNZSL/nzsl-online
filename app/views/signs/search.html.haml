@@ -1,4 +1,7 @@
 %h2 Search results:
+%em= "#{@num_of_results} results."
 %ul
   = render :partial => 'result', :collection => @signs
+
+= pagination_links
 
