@@ -1,11 +1,21 @@
-= content_for :head
-  = javascript_include_tag 'jquery-ui.sortable.js'
-  = stylesheet_link_tag 'smoothness/jquery-ui.css'
+= content_for :scripts do
+  = javascript_include_tag 'jquery-ui.min.js'
   :javascript
     $(function()
     {
-      $('ul#vocab_sheet').sortable().disableSelection();
+      $('ul#vocab_sheet').sortable({axis: 'x', containment: 'parent', update: reorderVocabSheet}).disableSelection();
     });
+
+    var reorderVocabSheet = function(event, ui) {
+      new_order = Array();
+      $('ul#vocab_sheet li input[type=hidden].item_id').each(function() { new_order.push($(this).val()); });
+      $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
+    };
+
+= content_for :head do
+  = stylesheet_link_tag 'smoothness/jquery-ui.css'
+  :css
+    ul#vocab_sheet li { width: 200px; height: 200px; display: inline-block; margin: 10px;}
 
 %h1 Your Vocab Sheet
 - if @sheet.items.length > 0

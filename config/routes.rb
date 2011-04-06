@@ -9,7 +9,11 @@ NzslOnline::Application.routes.draw do
   end
 
   resource :vocab_sheet, :only => [:show, :destroy] do
-    resources :items, :only => [:create, :destroy, :update]
+    resources :items, :only => [:create, :destroy, :update] do
+      collection do
+        post 'reorder'
+      end
+    end
   end
 end
 

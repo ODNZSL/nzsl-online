@@ -40,7 +40,7 @@ class ItemsController < ApplicationController
   def reorder
     params[:items].each_with_index do |id, index|
       #Need to update updated_at column as update_all doesn't do this for some reason
-      @vocab_sheet.items.where(:id => id.to_i).update_all(
+      @sheet.items.where(:id => id.to_i).update_all(
         :position => index + 1,
         :updated_at => Time.now
       )

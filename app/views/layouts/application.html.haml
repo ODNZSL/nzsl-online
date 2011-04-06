@@ -10,6 +10,7 @@
     = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
 
     = stylesheet_link_tag :all, :cache => 'nzsl-cache.css'
+    = yield :head
 
     %meta{:name => "description", :content => t('layout.meta_description')}
     %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
@@ -40,4 +41,5 @@
       = yield :footer
 
     = javascript_include_tag :defaults, :cache => 'nzsl-cache.js'
+    = yield :scripts
 

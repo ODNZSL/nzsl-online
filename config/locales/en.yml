@@ -5,7 +5,7 @@ en:
   empty: (This list is empty)
   layout:
     title: NZSL Online
-    meta_descripion: "NZSL Online : Dictionary of New Zealand Sign Language"
+    meta_description: "NZSL Online : Dictionary of New Zealand Sign Language"
   signs:
     show:
         field:
