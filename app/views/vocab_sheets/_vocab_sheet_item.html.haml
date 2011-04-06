@@ -1,5 +1,7 @@
 = content_tag :li do
-  = vocab_sheet_item.name
+  = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :put do
+    = text_field_tag 'item[name]', vocab_sheet_item.name, :class => 'item-name'
+    = submit_tag t('vocab_sheet.item.update')
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
     = submit_tag t('vocab_sheet.item.remove')
 

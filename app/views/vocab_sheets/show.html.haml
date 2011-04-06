@@ -1,6 +1,15 @@
+= content_for :head
+  = javascript_include_tag 'jquery-ui.sortable.js'
+  = stylesheet_link_tag 'smoothness/jquery-ui.css'
+  :javascript
+    $(function()
+    {
+      $('ul#vocab_sheet').sortable().disableSelection();
+    });
+
 %h1 Your Vocab Sheet
 - if @sheet.items.length > 0
-  = content_tag :ul do
+  = content_tag :ul, :id => 'vocab_sheet' do
     = render :partial => 'vocab_sheet_item', :collection => @sheet.items
 - else
   %div.empty= t('empty')
