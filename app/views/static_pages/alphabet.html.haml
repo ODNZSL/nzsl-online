@@ -1,0 +1,6 @@
+%ul#alphabet
+  - alphabet_listing.each do |letter|
+    %li
+      = image_tag "/images/alphabet/Alphabet.#{letter}.png", :alt => letter
+      = content_tag :span, letter
+    

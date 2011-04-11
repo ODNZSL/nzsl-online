@@ -1,5 +1,4 @@
 NzslOnline::Application.routes.draw do
-
   root :to => "signs#landing"
 
   resources :signs, :only => :show do
@@ -15,5 +14,7 @@ NzslOnline::Application.routes.draw do
       end
     end
   end
+
+  get "/s/:slug" => 'static_pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
 end
 

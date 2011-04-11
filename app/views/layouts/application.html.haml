@@ -27,14 +27,14 @@
     %header.layout
       = yield :header
       = render :partial => 'shared/flashes'
-      = link_to t('vocab_sheet.link_to'), vocab_sheet_url
+      = link_to t('vocab_sheetlink_to'), vocab_sheet_url
     %div#main
       %div#search
         %h1= t('signs.search.form.heading')
         %em= t('signs.search.form.description')
 
         = form_tag search_signs_path, :method => :get do
-          = search_field_tag 'search[s]', session[:search][:query][:s] || t('signs.search.basic.keywords')
+          = search_field_tag 'search[s]', last_search_query || t('signs.search.basic.keywords')
           = submit_tag t('signs.search.submit')
       = yield
     %footer.layout

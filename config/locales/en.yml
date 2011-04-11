@@ -21,7 +21,6 @@ en:
             keywords: Enter search keywords...
         submit: Search
   vocab_sheet:
-    link_to: Your Vocab Sheet
     item:
         add: Add to Vocab Sheet
         add_success: You have added a sign to your Vocab Sheet.

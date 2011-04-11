@@ -5,6 +5,10 @@ gem 'haml'
 gem 'nokogiri'
 gem 'pg'
 gem 'jquery-rails', '>= 0.2.6'
+gem 'rdiscount'
+gem 'capistrano'
+
+#gem 'rationalize', :path => 'rationalize/'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
