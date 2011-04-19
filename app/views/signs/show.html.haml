@@ -29,4 +29,6 @@
 %p
   = t('signs.show.field.is_locatable')
   = @sign.is_locatable ? "yes" : "no"
-
+%p
+  Dimensions
+  = @sign.drawing_dimensions

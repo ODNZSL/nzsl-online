@@ -15,6 +15,6 @@ NzslOnline::Application.routes.draw do
     end
   end
 
-  get "/s/:slug" => 'static_pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
+  get "/:slug" => 'static_pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
 end
 

@@ -1,45 +1,39 @@
-!!!
-
-%html.no-js{:lang => "en"}
-
-  %head
-    %meta{:charset => "utf-8"}
-    %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
-
-    = favicon_link_tag
-    = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
-
-    = stylesheet_link_tag :all, :cache => 'nzsl-cache.css'
-    = yield :head
-
-    %meta{:name => "description", :content => t('layout.meta_description')}
-    %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-
-    %title= page_title
-
-    /[if lt IE 8]
-      %link{:href => '/stylesheets/ie.css', :rel => 'stylesheet', :type => 'text/css', :rel => 'screen, projection'}
-
-    = javascript_include_tag 'modernizr.min.js'
-    = csrf_meta_tag
-
-  %body
-    %header.layout
-      = yield :header
-      = render :partial => 'shared/flashes'
-      = link_to t('vocab_sheetlink_to'), vocab_sheet_url
-    %div#main
-      %div#search
-        %h1= t('signs.search.form.heading')
-        %em= t('signs.search.form.description')
-
-        = form_tag search_signs_path, :method => :get do
-          = search_field_tag 'search[s]', last_search_query || t('signs.search.basic.keywords')
-          = submit_tag t('signs.search.submit')
+!!! 5
+/[if lt IE 7] <html lang="en" class="no-js ie6">
+/[if IE 7 ]    <html lang="en" class="no-js ie7">
+/[if IE 8 ]    <html lang="en" class="no-js ie8">
+/[if IE 9 ]    <html lang="en" class="no-js ie9">
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+%head
+  %meta{:charset => "utf-8"}
+  %title= page_title
+  %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
+  = favicon_link_tag
+  = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
+  = stylesheet_link_tag :all, :cache => 'nzsl-cache.css'
+  = yield :head
+  %meta{:name => "description", :content => t('layout.meta_description')}
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %title= page_title
+  = javascript_include_tag 'modernizr.min.js'
+  = csrf_meta_tag
+%body
+  %header.not_sticky_footer
+    = render :partial => 'shared/header'
+    %div.before_sticky_footer
+      = link_to t('vocab_sheet.link_to'), vocab_sheet_url
       = yield
-    %footer.layout
-      = yield :footer
-
-    = javascript_include_tag :defaults, :cache => 'nzsl-cache.js'
-    = yield :scripts
-
+  %footer.sticky_footer.footer
+    .center.main_column
+      %nav
+        - static_links.each_with_index do |link, i|
+          - if i.zero?
+            = link
+          - else
+            |
+            = link
+      .copyright
+        :markdown
+          Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
+  = javascript_include_tag :defaults, :cache => 'nzsl-cache.js'
+  = yield :scripts

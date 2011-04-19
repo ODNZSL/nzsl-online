@@ -74,7 +74,7 @@ class Sign
 
   #Helper methods
   def self.first(params)
-    return self.find(:first, params)
+    self.find(:first, params)
   end
 
   def self.all(params)
@@ -82,16 +82,14 @@ class Sign
   end
 
   def drawing
-    return Sign.asset_url + self.instance_variable_get("@drawing")
+    Sign.asset_url + @drawing
   end
 
   def self.current_page(per_page, last_result_index, all_result_length)
-    return ((last_result_index / all_result_length.to_f) * (all_result_length / per_page.to_f)).round
+    ((last_result_index / all_result_length.to_f) * (all_result_length / per_page.to_f)).round
   end
 
-
-
-  private
+private
 
   def self.url_for_search(query)
     return Sign.url unless query.is_a?(Hash)

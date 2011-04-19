@@ -1,0 +1,42 @@
+%header.header
+  .logo.center.ir NZSL Online
+  %nav
+    .l.edge
+    .r.edge
+    .center
+      %ul.search_tabs
+        %li.keywords.selected.tab
+          .l
+          Search by Keyword
+          .r
+        %li.signs.tab
+          .l
+          Search by Sign
+          .r
+        %li.advanced.tab
+          .l
+          Advanced Search
+          .r
+        %li.help
+          .l
+          = link_to 'Help', '/help'
+          .r
+      .search_form
+        .bottom_border
+        .keywords
+          = form_tag search_signs_path, :method => :get do
+            = search_field_tag 'search[s]', last_search_query || t('signs.search.basic.keywords')
+            %span.button
+              .r
+              = submit_tag t('signs.search.submit')
+        .signs
+        .advanced
+    .menu.menu_background
+    .menu
+      %ul.center
+        - static_links.each_with_index do |link, i|
+          - if i.zero?
+            %li.first= link
+          - else
+            %li= link
+  = render :partial => 'shared/flashes'
