@@ -1,5 +1,5 @@
 NzslOnline::Application.routes.draw do
-  root :to => "signs#landing"
+  root :to => "static_pages#show"
 
   resources :signs, :only => :show do
     collection do

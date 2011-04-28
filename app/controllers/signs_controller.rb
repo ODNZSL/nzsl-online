@@ -1,29 +1,23 @@
 class SignsController < ApplicationController
 
-  def landing
-    @sign = Sign.first({:random => 1})
-  end
-
   def search
-    if params[:page]
-      @num_of_results, @signs = Sign.paginate(session[:search][:query], params[:page].to_i)
-    else
-      @num_of_results, @signs = Sign.paginate(params[:search])
-    end
-    store_query
+    search_query = process_search_query(params)
+    page_number = params[:p].present? ? params[:p].to_i : 1
+    @results_total, @signs = Sign.paginate(search_query, page_number)
+    session[:search] = {:count => @results_total, :query => search_query, :p => page_number}
   end
 
   def show
     @sign = Sign.first({:id => params[:id]})
   end
-
-
-  private
-
-  def store_query
-    session[:search] = {:count => @num_of_results, :query => params[:search]}
+  
+private
+  def process_search_query params
+    search_keys = %w(s hs l lg usage tag)
+    query = params.select{|k| search_keys.include? k}
+    query.each { |k,v| query[k] = v.is_a?(String) ? v.split(' ') : v }
+    p query
+    return query
   end
-
-
 end
 

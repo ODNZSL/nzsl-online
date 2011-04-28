@@ -1,7 +1,17 @@
-%h2 Search results:
-%em= "#{@num_of_results} results."
-%ul
-  = render :partial => 'result', :collection => @signs
-
-= pagination_links
-
+%h1= "Search results for \"#{h(params[:s])}\""
+%em= "#{@results_total} results."
+%ul.results.clearfix.rule_after
+  - @signs.each_with_index do |result, i|
+    %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
+      = link_to sign_url(result.id), {:class => 'drawing result_drawing'} do
+        .border_killer
+          = image_tag result.drawing, :height => '90px'
+      = link_to sign_url(result.id), {:class => 'main_gloss'} do
+        = result.gloss_main
+      - if result.gloss_secondary.present?
+        %span.h4.secondary_gloss= result.gloss_secondary
+      - if result.word_classes.present?
+        %span.word_class= result.word_classes
+- if @results_total > Sign::RESULTS_PER_PAGE
+  %ul.rule_after.pagination.clearfix
+    = pagination_links

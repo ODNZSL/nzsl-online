@@ -5,38 +5,40 @@
     .r.edge
     .center
       %ul.search_tabs
-        %li.keywords.selected.tab
+        %li.keywords.tab
           .l
-          Search by Keyword
+          = t('search.tabs.keyword')
           .r
-        %li.signs.tab
+        %li.signs.selected.tab
           .l
-          Search by Sign
+          = t('search.tabs.sign')
           .r
         %li.advanced.tab
           .l
-          Advanced Search
+          = t('search.tabs.advanced')
           .r
         %li.help
           .l
-          = link_to 'Help', '/help'
+          = link_to t('search.tabs.help'), '/help'
           .r
-      .search_form
-        .bottom_border
-        .keywords
-          = form_tag search_signs_path, :method => :get do
-            = search_field_tag 'search[s]', last_search_query || t('signs.search.basic.keywords')
-            %span.button
-              .r
-              = submit_tag t('signs.search.submit')
-        .signs
-        .advanced
+      .bottom_border
+      .keywords.search_form.clearfix
+        = form_tag search_signs_path, :method => :get do
+          = render :partial => 'shared/search/keywords'
+          = submit_button
+      .signs.selected.search_form.clearfix
+        = form_tag search_signs_path, :method => :get do
+          = render :partial => 'shared/search/signs'
+          = submit_button
+      .advanced.search_form.clearfix
+        = form_tag search_signs_path, :method => :get do
+          = render :partial => 'shared/search/keywords'
+          .clearfix
+            = render :partial => 'shared/search/signs'
+          = submit_button
     .menu.menu_background
     .menu
       %ul.center
         - static_links.each_with_index do |link, i|
-          - if i.zero?
-            %li.first= link
-          - else
-            %li= link
+          %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
   = render :partial => 'shared/flashes'

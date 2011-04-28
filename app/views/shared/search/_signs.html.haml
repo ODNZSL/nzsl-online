@@ -1,0 +1,34 @@
+
+.sign_attribute_selection.handshapes.text_input
+  = hidden_field_tag :hs, '', {:class => 'selected_field'}
+  /.handshapes_label=t('search.signs.handshapes')
+  %a.dropdown_arrow{:href => 'javascript:void(0);'}
+    ▼
+    .attribute_options.clearfix.dropdown
+      - handshapes.each do |row|
+        %ul.row
+          - row.each do |group|
+            %li.group.rounded
+              = handshape_image group.shift, true
+              - unless group.length.zero?
+                %ul{:class => "sub rounded sub#{group.length}"}
+                  -group.each do |shape|
+                    %li= handshape_image shape
+  .selected_signs_wrapper
+    .selected_signs
+    .default= t('search.signs.default_handshape')
+
+.sign_attribute_selection.locations.text_input
+  = hidden_field_tag :l, '', {:class => 'selected_field'}
+  = hidden_field_tag :lg, '', {:class => 'selected_groups_field'}
+  /.locations_label=t('search.signs.locations')
+  %a.dropdown_arrow{:href => 'javascript:void(0);'}
+    ▼
+    .attribute_options.clearfix.dropdown
+      - locations.each_with_index do |row, i|
+        %ul.row
+          -row.each_with_index do |shape, j|
+            %li.rounded= location_image shape, (i.zero? || j.zero?)
+  .selected_signs_wrapper
+    .selected_signs
+    .default= t('search.signs.default_location')

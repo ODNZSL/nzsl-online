@@ -1,34 +1,55 @@
 module SignsHelper
-
-  #This helper is reliant on information stored in the session to get the 'total' number of results.
-  #From the stored query though, it can get the start number, and the number of results, so can
-  #work out the page number
-  def pagination_links(options = {})
-    options.reverse_merge!(:id => 'pagination')
-    required_session_values = [
-      session[:search][:count].to_i,
-      session[:search][:query]["num"].to_i,
-      session[:search][:query]["start"].to_i
-    ]
-    return content_tag :ul, "", options unless required_session_values.select { |value| value.zero? }.empty?
-    total_results, per_page = session[:search][:count].to_i, session[:search][:query]["num"].to_f
-    total_pages = (total_results / per_page.to_f).round
-    current_page = Sign.current_page(
-      per_page,
-      ((params[:page] || session[:search][:query]["start"]).to_i + session[:search][:query]["num"].to_i) - 1,
-      total_results
-    )
-    pagination_items = []
-    total_pages.times do |index|
-      index = index + 1
-      if index == current_page
-        pagination_items << content_tag(:li, index.to_s, :class => 'selected')
-      else
-        pagination_items << content_tag(:li, link_to(index.to_s, search_signs_path(:search => session[:search][:query], :page => index)))
-      end
-    end
-    return content_tag :ul, pagination_items.join("\n").html_safe, options
+  
+  def render_grammar_notes(sign)
+    ['contains_numbers', 
+     'is_fingerspelling', 
+     'is_directional', 
+     'is_locatable', 
+     'one_or_two_handed', 
+     'inflection_temporal', 
+     'inflection_plural',
+     'inflection_manner_and_degree'].map do |note|
+       sign.send(note.to_sym) ? link_to(t("signs.show.field.#{note}"), "/help##{note}") : nil
+     end.compact.join(', ').html_safe
   end
-
+  
+  def render_transcription(transcription, id)
+    transcription.map do |sign| 
+      if sign.is_a?(String)
+        sign
+      elsif sign[:id] == id
+        content_tag :strong, sign[:gloss]
+      else 
+        link_to h(sign[:gloss]), sign_url(sign[:id])
+      end
+    end.join(' ').html_safe
+  end
+  
+  def render_back_to_search_results
+    referer = URI.split(request.referer) #5 is path, 7 is query. why does this method not return a hash?
+    return unless search_signs_path == referer[5] 
+    link_to t('signs.show.back_to_search_results'), "#{search_signs_path}?#{referer[7]}"
+  end
+  
+  def handshape_image number, main=false
+    handshape_location_image 'handshape', number, main
+  end
+  def location_image number, main=false
+    handshape_location_image 'location', number, main
+  end
+  def handshape_location_image handshape_location, number, main
+    classes = 'image ir rounded'
+    classes << ' main_image' if main
+    if handshape_location == 'handshape'
+      value = number
+    elsif main
+      value = number.split('.')[0]
+    else
+      value = number.split('.')[1]
+    end
+    output = content_tag :div, value, {:style => "background-image:url('/images/#{handshape_location}s/#{handshape_location}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes}
+    output << number.split('.').last if handshape_location == 'location'
+    output
+  end
 end
 

@@ -1,19 +1,20 @@
 module StaticPagesHelper
   
   def alphabet_listing
-    base = ("A".."Z").to_a
-    #Replace P with P_open, P_closed
-    p_index = base.index("P")
-    base.delete_at(p_index)
-    base.insert(p_index, "P_open", "P_closed")
-    
-    c_index = base.index("C")
-    base.delete_at(c_index)
-    base.insert(c_index, "C_half", "C_full")
-    
-    b_index = base.index("B")
-    base.delete_at(b_index)
-    base.insert(b_index, "B_open", "B_closed")
+    #base = ("A".."Z").to_a
+    ##Replace P with P_open, P_closed
+    #p_index = base.index("P")
+    #base.delete_at(p_index)
+    #base.insert(p_index, "P_open", "P_closed")
+    #
+    #c_index = base.index("C")
+    #base.delete_at(c_index)
+    #base.insert(c_index, "C_half", "C_full")
+    #
+    #b_index = base.index("B")
+    #base.delete_at(b_index)
+    #base.insert(b_index, "B_open", "B_closed")
+    %w(A B_open B_closed C_half C_full D E F G H I J K L M N O P_open P_closed Q R S T U V W X Y Z)
   end
   
   

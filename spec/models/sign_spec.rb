@@ -6,7 +6,9 @@ describe "Sign" do
   end
 
   it 'should have set class attributes' do
-    Sign.url.match(/\Ahttp\:/).is_a?(MatchData).should == true
+    
+    SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData).should == true
+    ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData).should == true
     Sign.element_name.is_a?(String).should == true
   end
 

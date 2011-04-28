@@ -1,34 +1,42 @@
-%p= @sign.gloss_main
-%p= @sign.gloss_secondary
-%p= @sign.gloss_minor
-%p= @sign.gloss_maori
-%ul
-  - @sign.word_classes.split(/\,(\s+)/).each do |wc|
-    %li= wc
-%p= @sign.inflection
-%ul
-  - @sign.age_groups.split(/\,(\s+)/).each do |wc|
-    %li= wc
-%ul
-  - @sign.gender_groups.split(/\,(\s+)/).each do |wc|
-    %li= wc
-
-%p= image_tag @sign.drawing
-%p= @sign.recipe
-%p= @sign.usage_notes
-
-%p
-  = t('signs.show.field.contains_numbers')
-  = @sign.contains_numbers ? "yes" : "no"
-%p
-  = t('signs.show.field.is_fingerspelling')
-  = @sign.is_fingerspelling ? "yes" : "no"
-%p
-  = t('signs.show.field.is_directional')
-  = @sign.is_directional ? "yes" : "no"
-%p
-  = t('signs.show.field.is_locatable')
-  = @sign.is_locatable ? "yes" : "no"
-%p
-  Dimensions
-  = @sign.drawing_dimensions
+= render_back_to_search_results
+.drawing.entry_drawing
+  .offset.border_killer
+    = image_tag @sign.drawing, {:height => '180px'}
+.glosses
+  %h1.main_gloss= @sign.gloss_main
+  %h2.secondary_gloss= @sign.gloss_secondary
+  %p.h4.minor_gloss= @sign.gloss_minor
+  %p.h4.maori_gloss= @sign.gloss_maori
+.grammar
+  %p.h4.word_class= @sign.word_classes
+  %p.h4.grammar_notes= render_grammar_notes(@sign)
+= form_tag vocab_sheet_items_path do
+  = hidden_field_tag 'sign_id', @sign.id
+  = submit_button('vocab_sheet.item.add')
+  
+= link_to "", @sign.video, :class => 'video_replace main_video'
+- unless @sign.examples.length.zero?
+  .examples.rule_after
+    %h2= t('signs.show.usage_examples')
+    - @sign.examples.each do |example| 
+      .example.clearfix
+        = link_to "", example[:video], :class => 'video_replace example_video'
+        %p= example[:translation]
+        %p= render_transcription(example[:transcription], @sign.id)
+- if %w(usage_notes hint age_groups related_to).any?{|note| @sign.send(note.to_sym).present? }
+  .notes.rule_after
+    %h2= t('signs.show.notes')
+    %p= @sign.usage_notes
+    - if @sign.hint.present?
+      %p
+        = "#{t('signs.show.hint')}: "
+        %em= @sign.hint
+    - if @sign.age_groups.present?
+      %p
+        = "#{t('signs.show.age_groups')}: "
+        %em= @sign.age_groups
+    =#TODO @sign.usage_tag
+    - if @sign.related_to.present?
+      %p
+        = "#{t('signs.show.related_to')}: "
+        %em= @sign.related_to.upcase
