@@ -7,6 +7,8 @@ gem 'pg'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'rdiscount'
 gem 'capistrano'
+gem 'mini_magick' 
+gem 'whenever'
 
 #gem 'rationalize', :path => 'rationalize/'
 
