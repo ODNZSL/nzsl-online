@@ -186,6 +186,8 @@ body:before {
 .search_form {display:none;}
 .selected {display:block;}
 
+.advanced select {width:400px;margin-top:10px;}
+.advanced .search_box {margin-bottom:10px;}
 .signs {line-height:56px;}
 
 .dropdown {position:absolute;left:-1px;background:#99a0a5;z-index:10;display:none;padding-top:4px;}
@@ -206,7 +208,7 @@ body:before {
 .attribute_options .sub .selected {border-width:1px;margin:-1px -1px 1px 1px;}
 .attribute_options .selected .selected {border-width:0;margin:0 0 2px 2px;}
 
-.sign_attribute_selection {position:relative;float:left;width:181px;min-height:42px;padding:6px 6px 2px;line-height:42px;}
+.sign_attribute_selection {position:relative;float:left;width:181px;min-height:42px;padding:6px 6px 2px;line-height:42px;cursor:pointer;}
 
 .selected_signs_wrapper {float:left;margin-bottom:-4px;width:168px;}
 .selected_signs_wrapper .default {float:left;}
@@ -214,7 +216,6 @@ body:before {
 a.dropdown_arrow {float:right;color:#777;text-decoration:none;width:13px;}
 .selected_signs {display:inline-block;position:relative;vertical-align:middle;}
 .selected_signs .image {margin:0;float:left;width:42px;height:42px;margin:0 0 4px 4px;}
-
 
  /* * * * *\
 |* Button *|

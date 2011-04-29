@@ -111,8 +111,17 @@ module SearchHelper
     'selected' if @query['lg'].present? && @query['lg'].include?(location_group.split('.')[0])
   end
   def selected_tab?(tab)
-    'selected' if tab == 'keywords'
+    case tab
+    when 'keywords'
+      keys = ['s']
+    when 'signs'
+      keys = %w(hs l lg)
+    when 'advanced'
+      keys = %w(hs l lg s tag usage)
+    end
+    return 'selected' if @query.keys.sort == keys
   end
+  
   def display_locations_search_term
     locations.flatten.select{|l| location_selected?(l) }.map{|l| handshape_location_image 'location', l, false, false }.join(' ').html_safe unless @query['l'].blank?
   end
@@ -122,21 +131,28 @@ module SearchHelper
   def display_location_groups_search_term
     location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| handshape_location_image 'location', lg, true, false }.join(' ').html_safe unless @query['lg'].blank?
   end
-  
+  def display_usage_tag_search_term
+    h usage_tags.select{|u| @query['usage'].include?(u.last) }.map(&:first).join(' ') unless @query['usage'].blank?
+  end
+  def display_topic_tag_search_term
+    h topic_tags.select{|u| @query['tag'].include?(u.last) }.map(&:first).join(' ') unless @query['tag'].blank?
+  end
   def locations_search_term
-    h(@query['l'].join(' ')) unless @query['l'].blank?
-  end
+    h @query['l'].join(' ') unless @query['l'].blank?
+  end 
   def handshapes_search_term
-    h(@query['hs'].join(' ')) unless @query['l'].blank?
-  end
+    h @query['hs'].join(' ') unless @query['l'].blank?
+  end 
   def location_groups_search_term
-    h(@query['lg'].join(' ')) unless @query['l'].blank?
-  end
+    h @query['lg'].join(' ') unless @query['l'].blank?
+  end 
   def keywords_search_term
-    h(@query['s'].join(' ')) unless @query['s'].blank?
-  end
+    h @query['s'].join(' ') unless @query['s'].blank?
+  end 
   def usage_tag_search_term
-  end
+    h @query['usage'].join(' ') unless @query['usage'].blank?
+  end 
   def topic_tag_search_term
+    h @query['tag'].join(' ') unless @query['tag'].blank?
   end 
 end

@@ -19,39 +19,49 @@ $(function(){
         autoBuffering: false
       }, 
       plugins: {
-        controls: null
+        controls: {
+          height:20,
+          opacity:0.95,
+          volume:false,
+          mute:false,
+          time:false,
+          stop:false,
+          fastForward:false,
+          slowForward:false,
+          scrubber:true,
+          progressColor:'rgba(0,0,0,0.01)',
+          sliderColor:'rgba(0,0,0,0.01)',
+          durationColor:'rgba(0,0,0,0.01)',
+          bufferColor:'rgba(0,0,0,0.01)', 
+          backgroundColor:'#ffffff',
+          backgroundGradient: [1,0],
+          buttonColor:'#34414b',
+          buttonOverColor: '#6c6f94',
+          backgroundGradient:'medium',
+          autoHide:'never'
+        }
       },
       play: {
         replayLabel: null
-      }// ,
-      //       onFinish: showPlay,
-      //       onStart: showPause
+      }
     })
-    $('a.video_replace').after(
-      $('<div />', {'class':'controls'}).append(
-        $('<a />', {href:'javascript:void(0);', 'class':'play', text: 'Play'}),
-        $('<a />', {href:'javascript:void(0);', 'class':'pause', text: 'Pause'}),
-        $('<a />', {href:'javascript:void(0);', 'class':'slow', text: 'Play in Slow Motion'}),
-        $('<a />', {href:'javascript:void(0);', 'class':'zoom', text: 'Play in full screen'})
-      )
-    );
-    $('.controls a').click(function(){video_control(this)})
   }
   // TODO: delay closing by a second
   $('.sign_attribute_selection').click(function(e){
     e.stopPropagation();
+    var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
     $('.dropdown').hide();
-    $(this).find('.dropdown').show();
+    $(this).find('.dropdown').toggle(hideOrShow);
   });
-  $('.sign_attribute_selection').hover(function(e){
-    $('.dropdown').hide();
-    $(this).find('.dropdown').show();
-  }, function(){
-    $('.dropdown').hide();
-  });
-  $('body').click(function(){
-    $('.dropdown').hide();
-  });
+  //$('.sign_attribute_selection').hover(function(e){
+  //  $('.dropdown').hide();
+  //  $(this).find('.dropdown').show();
+  //}, function(){
+  //  $('.dropdown').hide();
+  //});
+  //$('body').click(function(){
+  //  $('.dropdown').hide();
+  //});
   //handle selecting signs
   var select_sign_attribute = function(sign){
     var wrapper;
