@@ -5,13 +5,14 @@ class ImageProcessor
   def self.retrieve_and_resize(filename, dimensions = [180, 320])
     image = MiniMagick::Image.open(ImageProcessor.remote_filename(filename))
     image.resize dimensions.join("x") + ">"
+    image.shave CROP_IMAGES_BY if CROP_IMAGES
     image.format "png"
     image.write ImageProcessor.local_filename(filename, dimensions)
     return ImageProcessor.local_filename(filename, dimensions)
   end
    
   def self.remote_filename(filename = "")
-    ASSET_SERVER + filename
+    ASSET_URL + filename
   end
   
   def self.create_or_return_path(filename)
