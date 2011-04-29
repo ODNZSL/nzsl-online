@@ -1,4 +1,6 @@
 NzslOnline::Application.routes.draw do
+  get "sign_image/show"
+
   root :to => "static_pages#show"
 
   resources :signs, :only => :show do
@@ -15,6 +17,7 @@ NzslOnline::Application.routes.draw do
     end
   end
 
+  get "/images/signs/:width-:height/*filename" => "sign_image#show"
   get "/:slug" => 'static_pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
 end
 
