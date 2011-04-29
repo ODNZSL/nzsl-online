@@ -1,0 +1,4 @@
+= render :partial => 'shared/search/keywords'
+= render :partial => 'shared/search/signs'
+= select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), '']] + usage_tags, usage_tag_search_term)
+= select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), '']] + topic_tags, topic_tag_search_term)

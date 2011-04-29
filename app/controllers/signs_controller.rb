@@ -5,6 +5,7 @@ class SignsController < ApplicationController
     page_number = params[:p].present? ? params[:p].to_i : 1
     @results_total, @signs = Sign.paginate(search_query, page_number)
     session[:search] = {:count => @results_total, :query => search_query, :p => page_number}
+    @query = session[:search][:query]
   end
 
   def show

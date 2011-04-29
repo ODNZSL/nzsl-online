@@ -5,12 +5,12 @@ class Sign
 
   ELEMENT_NAME = 'entry'
   RESULTS_PER_PAGE = 9
-  VIDEO_EXAMPLES_TOTAL = 3
+  VIDEO_EXAMPLES_TOTAL = 4
   #Sign attributes
   attr_accessor :id, :video, :drawing, :handshape, :location,
                 :gloss_main, :gloss_secondary, :gloss_minor, :gloss_maori, 
                 :word_classes, :inflection, :contains_numbers, :is_fingerspelling, :is_directional, :is_locatable, :one_or_two_handed,
-                :age_groups, :gender_groups, :hint, :usage_notes, :related_to,
+                :age_groups, :gender_groups, :hint, :usage_notes, :related_to, :usage,
                 :examples
   
   def initialize(data = nil)
@@ -39,6 +39,7 @@ class Sign
       self.age_groups = data.value_for_tag("VARIATIONAGE")
       self.gender_groups = data.value_for_tag("VARIATIONGENDER")
       self.hint = data.value_for_tag("hint")
+      self.usage = data.value_for_tag("usage")
       self.usage_notes = data.value_for_tag("essay")
       self.related_to = data.value_for_tag("RELATEDTO")
       self.related_to = "" if self.related_to == 'nzsl'
@@ -64,7 +65,9 @@ class Sign
   def inflection_plural
     !!inflection.match('plural')
   end
-  
+  def borrowed_from
+    related_to unless related_to.downcase == 'nzsl'
+  end
   def self.first(params)
     count, entries = self.search(params)
     return nil if entries.empty?

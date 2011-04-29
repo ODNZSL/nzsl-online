@@ -2,7 +2,6 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  empty: (This list is empty)
   layout:
     title: NZSL Online
     meta_description: "NZSL Online : Dictionary of New Zealand Sign Language"
@@ -22,7 +21,7 @@ en:
         notes: Notes
         hint: Hint
         usage_notes: Usage Notes
-        related_to: Related To
+        related_to: Borrowed From
         age_groups: Age Variation
   search:
       tabs: 
@@ -37,7 +36,12 @@ en:
         locations: 'Locations: '
         default_handshape: Any handshape
         default_location: Any location
+      advanced:
+        topic_tags: 'In Topic:'
+        usage_tags: 'With usage tag:'
       submit: Search
+      results:
+        for: "Search results for:"
   vocab_sheet:
     item:
         add: Add to Vocab Sheet

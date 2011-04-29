@@ -1,34 +1,37 @@
-
 .sign_attribute_selection.handshapes.text_input
-  = hidden_field_tag :hs, '', {:class => 'selected_field'}
-  /.handshapes_label=t('search.signs.handshapes')
+  = hidden_field_tag :hs, handshapes_search_term, {:class => 'selected_field'}
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
     ▼
     .attribute_options.clearfix.dropdown
       - handshapes.each do |row|
         %ul.row
           - row.each do |group|
-            %li.group.rounded
+            %li{:class => "group rounded #{handshape_selected?(group.first)}"}
               = handshape_image group.shift, true
               - unless group.length.zero?
                 %ul{:class => "sub rounded sub#{group.length}"}
                   -group.each do |shape|
-                    %li= handshape_image shape
+                    %li{:class => handshape_selected?(shape)}= handshape_image shape
   .selected_signs_wrapper
     .selected_signs
-    .default= t('search.signs.default_handshape')
+      = display_handshapes_search_term
+    .default= t('search.signs.default_handshape') if @query['hs'].blank?
 
 .sign_attribute_selection.locations.text_input
-  = hidden_field_tag :l, '', {:class => 'selected_field'}
-  = hidden_field_tag :lg, '', {:class => 'selected_groups_field'}
-  /.locations_label=t('search.signs.locations')
+  = hidden_field_tag :l, locations_search_term, {:class => 'selected_field'}
+  = hidden_field_tag :lg, location_groups_search_term, {:class => 'selected_groups_field'}
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
     ▼
     .attribute_options.clearfix.dropdown
       - locations.each_with_index do |row, i|
         %ul.row
           -row.each_with_index do |shape, j|
-            %li.rounded= location_image shape, (i.zero? || j.zero?)
+            - if i.zero? || j.zero?
+              %li{:class => location_group_selected?(shape)}= location_image shape, true
+            - else
+              %li{:class => location_selected?(shape)}= location_image shape
   .selected_signs_wrapper
     .selected_signs
-    .default= t('search.signs.default_location')
+      = display_locations_search_term
+      = display_location_groups_search_term
+    .default= t('search.signs.default_location') if @query['l'].blank? && @query['lg'].blank?

@@ -36,7 +36,7 @@
         = "#{t('signs.show.age_groups')}: "
         %em= @sign.age_groups
     =#TODO @sign.usage_tag
-    - if @sign.related_to.present?
+    - if @sign.borrowed_from
       %p
         = "#{t('signs.show.related_to')}: "
-        %em= @sign.related_to.upcase
+        %em= @sign.borrowed_from.upcase

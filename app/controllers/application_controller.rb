@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-
+  before_filter :set_search_query
   private
 
   def find_or_create_vocab_sheet
@@ -23,6 +23,10 @@ class ApplicationController < ActionController::Base
       format.html { redirect ? redirect_to(redirect) : redirect_back_or_default }
     end
   end
-
+  
+  def set_search_query
+    return @query = session[:search][:query] if session[:search].present? && session[:search][:query].present?
+    return @query = {}
+  end
 end
 

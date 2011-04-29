@@ -5,15 +5,15 @@
     .r.edge
     .center
       %ul.search_tabs
-        %li.keywords.tab
+        %li{:class => "keywords tab #{selected_tab?('keywords')}"}
           .l
           = t('search.tabs.keyword')
           .r
-        %li.signs.selected.tab
+        %li{:class => "signs tab #{selected_tab?('signs')}"}
           .l
           = t('search.tabs.sign')
           .r
-        %li.advanced.tab
+        %li{:class => "advanced tab #{selected_tab?('advanced')}"}
           .l
           = t('search.tabs.advanced')
           .r
@@ -22,19 +22,17 @@
           = link_to t('search.tabs.help'), '/help'
           .r
       .bottom_border
-      .keywords.search_form.clearfix
+      %div{:class => "keywords search_form clearfix #{selected_tab?('keywords')}"}
         = form_tag search_signs_path, :method => :get do
           = render :partial => 'shared/search/keywords'
           = submit_button
-      .signs.selected.search_form.clearfix
+      %div{:class => "signs search_form clearfix #{selected_tab?('signs')}"}
         = form_tag search_signs_path, :method => :get do
           = render :partial => 'shared/search/signs'
           = submit_button
-      .advanced.search_form.clearfix
+      %div{:class => "advanced search_form clearfix #{selected_tab?('advanced')}"}
         = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/keywords'
-          .clearfix
-            = render :partial => 'shared/search/signs'
+          = render :partial => 'shared/search/advanced'
           = submit_button
     .menu.menu_background
     .menu

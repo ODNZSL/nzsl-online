@@ -109,7 +109,7 @@ em {font-style:italic;}
 .example {margin:10px 0 24px;}
 .example_video {width:161px; height:120px;float:left; clear:left; margin-right:16px;}
 
-
+h1.search_results_for {line-height:42px;margin-top:1em;min-height:42px;vertical-align:middle;}
 
 .results {margin:0;margin-right:-20px;width:510px;}
 .results li {display:block; padding:25px 0; float:left; width:150px;margin:0 20px 0 0;}
@@ -212,6 +212,7 @@ body:before {
 .selected_signs_wrapper .default {float:left;}
 .default {color:#777; font-style:italic;}
 a.dropdown_arrow {float:right;color:#777;text-decoration:none;width:13px;}
+.selected_signs {display:inline-block;position:relative;vertical-align:middle;}
 .selected_signs .image {margin:0;float:left;width:42px;height:42px;margin:0 0 4px 4px;}
 
 

@@ -75,7 +75,7 @@ $(function(){
     process_images_for_input(container, selected_images)
   }
   var process_images_for_input = function(container, images){
-    var has_groups = container.find('.selected_groups_field');
+    var has_groups = container.find('.selected_groups_field').length;
     var output = [];
     var output_group = [];
     $(images).each(function(){
@@ -86,10 +86,9 @@ $(function(){
       }
     });
     if (has_groups){
-      container.find('.selected_groups_field').first().val(output_group.join('+'));
+      container.find('.selected_groups_field').first().val(output_group.join(' '));
     }
-    container.find('.selected_field').first().val(output.join('+'));
-    console.log(container.find('.selected_field').val());
+    container.find('.selected_field').first().val(output.join(' '));
   }
   $('.attribute_options').find('.group, .sub, .image').each(function(){
     $(this).click(function(e){

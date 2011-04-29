@@ -1,4 +1,12 @@
-%h1= "Search results for \"#{h(params[:s])}\""
+%h1.search_results_for
+  = t('search.results.for')
+  &ldquo;
+  = keywords_search_term
+  .selected_signs
+    = display_handshapes_search_term
+    = display_locations_search_term
+    = display_location_groups_search_term
+  &rdquo;
 %em= "#{@results_total} results."
 %ul.results.clearfix.rule_after
   - @signs.each_with_index do |result, i|
