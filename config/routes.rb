@@ -17,7 +17,7 @@ NzslOnline::Application.routes.draw do
     end
   end
 
-  get "/images/signs/:width-:height/*filename" => "sign_image#show"
+  get "/images/signs/:width-:height/*filename" => "sign_image#show", :width => /\d+/, :height => /\d+/
   get "/:slug" => 'static_pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
 end
 

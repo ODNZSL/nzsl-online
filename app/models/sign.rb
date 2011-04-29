@@ -17,7 +17,7 @@ class Sign
     if data
       self.id = data.value_for_tag("headwordid")
       self.video = "#{ASSET_URL}#{data.value_for_tag("ASSET glossmain")}"
-      self.drawing = "#{ASSET_URL}#{data.value_for_tag("ASSET picture")}"
+      self.drawing = "#{data.value_for_tag("ASSET picture")}"
       self.handshape = data.value_for_tag("handshape")
       self.location = data.value_for_tag("location")
       

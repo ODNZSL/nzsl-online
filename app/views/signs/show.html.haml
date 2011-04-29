@@ -1,7 +1,7 @@
 = render_back_to_search_results
 .drawing.entry_drawing
-  .offset.border_killer
-    = image_tag @sign.drawing, {:height => '180px'}
+  .offset
+    = image_tag "/images/signs/180-320/#{@sign.drawing}"
 .glosses
   %h1.main_gloss= @sign.gloss_main
   %h2.secondary_gloss= @sign.gloss_secondary

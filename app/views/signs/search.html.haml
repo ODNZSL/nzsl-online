@@ -14,8 +14,7 @@
   - @signs.each_with_index do |result, i|
     %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
       = link_to sign_url(result.id), {:class => 'drawing result_drawing'} do
-        .border_killer
-          = image_tag result.drawing, :height => '90px'
+        = image_tag "/images/signs/150-90/#{result.drawing}"
       = link_to sign_url(result.id), {:class => 'main_gloss'} do
         = result.gloss_main
       - if result.gloss_secondary.present?
