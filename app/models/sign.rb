@@ -66,7 +66,7 @@ class Sign
     !!inflection.match('plural')
   end
   def borrowed_from
-    related_to unless related_to.downcase == 'nzsl'
+    related_to unless related_to.blank?
   end
   def self.first(params)
     count, entries = self.search(params)

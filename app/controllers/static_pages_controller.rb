@@ -1,5 +1,7 @@
 class StaticPagesController < ApplicationController
   
+  before_filter :find_vocab_sheet
+  
   def show
     begin
       render :template => "static_pages/#{template_for_slug(params[:slug])}"

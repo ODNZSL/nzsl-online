@@ -1,5 +1,7 @@
 class SignsController < ApplicationController
 
+  before_filter :find_vocab_sheet
+
   def search
     search_query = process_search_query(params)
     page_number = params[:p].present? ? params[:p].to_i : 1

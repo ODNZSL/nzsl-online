@@ -111,15 +111,14 @@ module SearchHelper
     'selected' if @query['lg'].present? && @query['lg'].include?(location_group.split('.')[0])
   end
   def selected_tab?(tab)
-    case tab
-    when 'keywords'
-      keys = ['s']
-    when 'signs'
-      keys = %w(hs l lg)
-    when 'advanced'
-      keys = %w(hs l lg s tag usage)
+    case @query.keys.sort
+    when ['s'], []
+      'selected' if tab == 'keywords' 
+    when %w(hs l lg)
+      'selected' if tab == 'signs'
+    else
+      'selected' if tab == 'advanced'
     end
-    return 'selected' if @query.keys.sort == keys
   end
   
   def display_locations_search_term

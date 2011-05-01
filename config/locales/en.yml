@@ -39,6 +39,8 @@ en:
       advanced:
         topic_tags: 'In Topic:'
         usage_tags: 'With usage tag:'
+        topic_tags_any: '- Any Topic -'
+        usage_tags_any: '- Any usage -'
       submit: Search
       results:
         for: "Search results for:"
