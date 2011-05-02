@@ -1,6 +1,20 @@
+require 'fileutils'
+
 namespace :sign_images do
   
   dimensions_regex = Regexp.new(/(\d{1,4})x(\d{1,4})/)
+  
+  desc "Clears the cache by deleting all files inside the sign image directory"
+  task :clear_cache => :environment do
+    puts "Removing files in #{SIGN_IMAGE_PATH}....\n"
+    Dir.foreach(SIGN_IMAGE_PATH) do |file|
+      next if file == '.' || file == '..'
+      file = File.join(SIGN_IMAGE_PATH, file)
+      puts "rm #{file}\n"
+      File.directory?(File.join(SIGN_IMAGE_PATH, file)) ? FileUtils.rm_rf(File.join(SIGN_IMAGE_PATH, file)) : FileUtils.rm(File.join(SIGN_IMAGE_PATH, file))
+    end
+    puts "...Done.\n"
+  end
   
   desc "Traverse the directory of sign images, and update if necessary"
   task :refresh_cache => :environment do
