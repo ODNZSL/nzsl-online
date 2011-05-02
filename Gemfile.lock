@@ -48,6 +48,10 @@ GEM
     diff-lcs (1.1.2)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    formtastic (1.2.3)
+      actionpack (>= 2.3.7)
+      activesupport (>= 2.3.7)
+      i18n (~> 0.4)
     haml (3.0.25)
     highline (1.6.1)
     i18n (0.4.2)
@@ -72,6 +76,9 @@ GEM
     net-ssh-gateway (1.0.1)
       net-ssh (>= 1.99.1)
     nokogiri (1.4.4)
+    paperclip (2.3.11)
+      activerecord (>= 2.3.0)
+      activesupport (>= 2.3.2)
     pg (0.10.1)
     polyglot (0.3.1)
     rack (1.2.2)
@@ -132,10 +139,13 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  formtastic
   haml
   jquery-rails (>= 0.2.6)
+  mail
   mini_magick
   nokogiri
+  paperclip
   pg
   rails (= 3.0.1)
   rdiscount

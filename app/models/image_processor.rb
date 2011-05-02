@@ -4,8 +4,8 @@ class ImageProcessor
   
   def self.retrieve_and_resize(filename, dimensions = [180, 320])
     image = MiniMagick::Image.open(ImageProcessor.remote_filename(filename))
-    image.resize dimensions.join("x") + ">"
     image.shave CROP_IMAGES_BY if CROP_IMAGES
+    image.resize dimensions.join("x") + ">"
     image.format "png"
     image.write ImageProcessor.local_filename(filename, dimensions)
     return ImageProcessor.local_filename(filename, dimensions)

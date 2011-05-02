@@ -8,6 +8,9 @@ NzslOnline::Application.routes.draw do
       get 'search'
     end
   end
+  
+  resources :feedback, :only => [:new, :create]
+  get '/feedback' => 'feedback#new'
 
   resource :vocab_sheet, :only => [:show, :destroy] do
     resources :items, :only => [:create, :destroy, :update] do

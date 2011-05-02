@@ -9,8 +9,11 @@ gem 'rdiscount'
 gem 'capistrano'
 gem 'mini_magick' 
 gem 'whenever'
+gem 'formtastic'
+gem 'paperclip'
+gem 'mail'
 
-#gem 'rationalize', :path => 'rationalize/'
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

@@ -10,7 +10,19 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110405215635) do
+ActiveRecord::Schema.define(:version => 20110501233715) do
+
+  create_table "feedbacks", :force => true do |t|
+    t.string   "name"
+    t.text     "message"
+    t.string   "video_file_name"
+    t.integer  "video_file_size"
+    t.string   "video_content_type"
+    t.datetime "video_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "email"
+  end
 
   create_table "items", :force => true do |t|
     t.integer  "sign_id",        :null => false
