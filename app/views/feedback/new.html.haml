@@ -1,0 +1,6 @@
+- semantic_form_for @feedback, :url => feedback_index_path, :html => {:multipart => true} do |form|
+  - form.inputs do
+    = form.input :name 
+    = form.input :message
+    = form.input :video, :hint => "Maximum size 5mb."
+  = form.buttons

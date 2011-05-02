@@ -58,3 +58,6 @@ en:
     delete_success: Your Vocab Sheet has been cleared.
     delete_failure: Your Vocab Sheet could not be cleared - please try again in a second.
 
+  formtastic:
+    submit: Send Feedback
+
