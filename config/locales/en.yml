@@ -32,9 +32,9 @@ en:
       keywords:
         prompt: Enter search keywords&hellip;
       signs: 
-        handshapes: 'Handshapes: '
+        handshapes: 'Hand shapes: '
         locations: 'Locations: '
-        default_handshape: Any handshape
+        default_handshape: Any hand shape
         default_location: Any location
       advanced:
         topic_tags: 'In Topic:'
@@ -45,6 +45,7 @@ en:
       results:
         for: "Search results for:"
   vocab_sheet:
+    title: Vocab Sheet
     item:
         add: Add to Vocab Sheet
         add_success: You have added a sign to your Vocab Sheet.
@@ -55,7 +56,8 @@ en:
         update: Rename
         update_success: You have updated a sign
         update_failure: This sign could not be updated - please try again.
-    link_to: View Vocab Sheet
+    link_to: View
+    print: Print
     delete: Clear Sheet
     delete_success: Your Vocab Sheet has been cleared.
     delete_failure: Your Vocab Sheet could not be cleared - please try again in a second.

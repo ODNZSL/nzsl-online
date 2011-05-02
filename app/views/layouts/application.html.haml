@@ -17,12 +17,14 @@
   %title= page_title
   = javascript_include_tag 'modernizr.min.js', 'flowplayer-3.2.6.min.js'
   = csrf_meta_tag
-%body
+%body{:class => vocab_sheet?}
   .not_sticky_footer
     = render :partial => 'shared/header'
+    
     %div.before_sticky_footer.main_column
       =# link_to t('vocab_sheet.link_to'), vocab_sheet_url
       = yield
+    = render :partial => 'shared/vocab_sheet' if vocab_sheet?
   %footer.sticky_footer.footer
     .center.main_column
       %nav
@@ -30,6 +32,6 @@
       .copyright
         :markdown
           Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
+
   = javascript_include_tag :defaults, :cache => 'nzsl-cache.js'
   = yield :scripts
-  = render :partial => 'shared/vocab_sheet'
