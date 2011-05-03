@@ -8,7 +8,7 @@ set :scm, :git
 default_run_options[:pty] = true 
 set :deploy_via, :copy
 set :copy_cache, true
-set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb"]
+set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs"]
 
 set :port, 10
 set :user, "robertja" 
@@ -28,8 +28,8 @@ namespace :deploy do
 end
 
 after "deploy:update_code" do
-  run "cd #{release_path} && ln -s #{shared_path}/system/cached_sign_images #{release_path}/public/images/signs"
-  run "cd #{release_path} && ln -s #{shared_path}/system/bundle #{release_path}/vendor/bundle"
+  run "cd #{release_path} && ln -s #{shared_path}/cached/images/signs #{release_path}/public/images/"
+  run "cd #{release_path} && ln -s #{shared_path}/bundle #{release_path}/vendor/bundle"
   run "cd #{release_path} && bundle install --deployment --without=development test"
-  run "#{try_sudo} ln -s #{shared_path}/system/database.yml #{release_path}/config/database.yml"
+  run "#{try_sudo} ln -s #{shared_path}/configuration/database.yml #{release_path}/config/database.yml"
 end
