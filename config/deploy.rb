@@ -28,6 +28,7 @@ namespace :deploy do
 end
 
 after "deploy:update_code" do
+  run "cd #{release_path} && ln -s #{shared_path}/system/cached_sign_images #{release_path}/public/images/signs"
   run "cd #{release_path} && ln -s #{shared_path}/system/bundle #{release_path}/vendor/bundle"
   run "cd #{release_path} && bundle install --deployment --without=development test"
   run "#{try_sudo} ln -s #{shared_path}/system/database.yml #{release_path}/config/database.yml"
