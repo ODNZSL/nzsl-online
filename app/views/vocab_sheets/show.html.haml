@@ -3,26 +3,27 @@
   :javascript
     $(function()
     {
-      $('ul#vocab_sheet').sortable({axis: 'x', containment: 'parent', update: reorderVocabSheet}).disableSelection();
+      $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet}).disableSelection();
     });
 
     var reorderVocabSheet = function(event, ui) {
-      new_order = Array();
-      $('ul#vocab_sheet li input[type=hidden].item_id').each(function() { new_order.push($(this).val()); });
+      new_order = [];
+      $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
       $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
     };
 
 = content_for :head do
   = stylesheet_link_tag 'smoothness/jquery-ui.css'
   :css
-    ul#vocab_sheet li { width: 200px; height: 200px; display: inline-block; margin: 10px;}
+    ul#vocab_sheet li {display: block; position:relative; float:left; margin: 10px;}
 
 %h1 Your Vocab Sheet
-- if @sheet.items.length > 0
-  = content_tag :ul, :id => 'vocab_sheet' do
-    = render :partial => 'vocab_sheet_item', :collection => @sheet.items
-- else
-  %div.empty= t('empty')
+.vocab_sheet.vocab_sheet_page
+  - if @sheet.items.length > 0
+    = content_tag :ul, :id => 'vocab_sheet', :class => 'clearfix' do
+      = render :partial => 'vocab_sheets/vocab_sheet_item', :collection => @sheet.items
+  - else
+    %div.empty= t('empty')
 %div
   = form_tag vocab_sheet_path, :method => :delete do
     = submit_tag t('vocab_sheet.delete')

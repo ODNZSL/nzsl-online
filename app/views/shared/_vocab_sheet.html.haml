@@ -1,4 +1,4 @@
-.vocab_sheet
+.vocab_sheet.vocab_sheet_bar
   %h2.title= t('vocab_sheet.title')
   .vocab_sheet_controls
     = link_to vocab_sheet_url, {:class => 'button'} do
@@ -7,13 +7,5 @@
     = link_to vocab_sheet_url({:print => true}), {:class => 'button'} do
       .r
       = t('vocab_sheet.print')
-  %ul
-    - @sheet.items.each do |item|
-      %li.vocab_sheet_item
-        = link_to sign_url(item.sign.id), {:class => 'drawing vocab_sheet_drawing'} do
-          = image_tag "/images/signs/80-80/#{item.sign.drawing}"
-        = link_to sign_url(item.sign.id), {:class => 'main_gloss'} do
-          = item.sign.gloss_main
-        .b
-        = form_tag vocab_sheet_item_path(item), :method => :delete do
-          = submit_tag t('vocab_sheet.item.remove'), {:class => 'remove'}
+  = content_tag :ul do
+    = render :partial => 'shared/vocab_sheet_item', :collection => @sheet.items, :locals => {:modify_gloss => false}

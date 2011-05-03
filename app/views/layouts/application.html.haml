@@ -19,12 +19,10 @@
   = csrf_meta_tag
 %body{:class => vocab_sheet?}
   .not_sticky_footer
-    = render :partial => 'shared/header'
-    
-    %div.before_sticky_footer.main_column
-      =# link_to t('vocab_sheet.link_to'), vocab_sheet_url
-      = yield
     = render :partial => 'shared/vocab_sheet' if vocab_sheet?
+    = render :partial => 'shared/header'
+    %div.before_sticky_footer.main_column
+      = yield
   %footer.sticky_footer.footer
     .center.main_column
       %nav

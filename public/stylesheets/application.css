@@ -127,7 +127,7 @@ h1.search_results_for {line-height:42px;margin-top:1em;min-height:42px;vertical-
 |* Sticky Footer  *| from http://www.cssstickyfooter.com/
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-html, body {height: 100%;}
+html, body {height: 100%; min-width:750px;}
 .not_sticky_footer {min-height: 100%;}
 .before_sticky_footer {overflow:auto;
   padding-bottom: 100px;}  /* must be same height as the footer */
@@ -250,16 +250,23 @@ a.dropdown_arrow {float:right;color:#777;text-decoration:none;width:13px;}
 .vocab_sheet_background .not_sticky_footer, 
 .vocab_sheet_background .sticky_footer {margin-right:121px;}
 .vocab_sheet_background .r.edge {display:none;}
-.vocab_sheet {position:absolute;width:121px;top:0;right:0;overflow:hidden;z-index:10;}
-.column_wrapper {overflow-y:hidden;}
-.vocab_sheet {text-align:center;}
+.vocab_sheet {position:relative;text-align:center;}
 .vocab_sheet ul {margin:0; padding:0;}
-.vocab_sheet .title {line-height:45px; font-size:138.5%;}
-.vocab_sheet_item {background:url('/images/ui/vocab_sheet_item.png') -10px left no-repeat; width:99px; display:block; padding:7px 1px 0; margin:15px 13px 15px; position:relative; overflow:visible;}
+.vocab_sheet_item {display:block; padding:7px 1px 0; position:relative; overflow:visible; z-index:1;}
 .vocab_sheet_item a {text-align:center;display:block;color:#34414b; text-decoration:none;padding:0 5px;}
 .vocab_sheet_item img {display:inline;}
-.vocab_sheet_item .b {background:url('/images/ui/vocab_sheet_item.png') top left no-repeat; height:11px; width:99px; position:absolute; bottom:-11px; left:0;}
+.vocab_sheet_item .b {position:absolute; left:0;}
 .vocab_sheet_item .remove {position:absolute;top:-8px;right:-10px;width:28px;height:25px;background:url('/images/ui/vocab_delete.png');border:0;text-indent:-9999px;overflow:hidden;}
+
+.vocab_sheet_page_item {background:url('/images/ui/vocab_sheet_item_big.png') -20px left no-repeat; width:169px; height:120px; margin:15px 13px 15px 0;}
+.vocab_sheet_page_item .b {background:url('/images/ui/vocab_sheet_item_big.png') top left no-repeat; height:20px; width:169px; bottom:-20px;}
+
+.vocab_sheet_bar {float:right; width:121px; top:0; right:0; overflow:hidden; z-index:10; margin-left:-121px; left:121px;}
+.column_wrapper {overflow-y:hidden;}
+.vocab_sheet_bar .title {line-height:45px; font-size:138.5%;}
+.vocab_sheet_bar_item {background:url('/images/ui/vocab_sheet_item.png') -10px left no-repeat; width:99px; height:120px; margin:15px 13px 15px;}
+.vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') top left no-repeat; height:11px; width:99px; bottom:-11px;}
+
  /* * * * * * *\
 |* Utilities  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

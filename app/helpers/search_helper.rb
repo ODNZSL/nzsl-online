@@ -140,10 +140,10 @@ module SearchHelper
     h @query['l'].join(' ') unless @query['l'].blank?
   end 
   def handshapes_search_term
-    h @query['hs'].join(' ') unless @query['l'].blank?
+    h @query['hs'].join(' ') unless @query['hs'].blank?
   end 
   def location_groups_search_term
-    h @query['lg'].join(' ') unless @query['l'].blank?
+    h @query['lg'].join(' ') unless @query['lg'].blank?
   end 
   def keywords_search_term
     h @query['s'].join(' ') unless @query['s'].blank?
