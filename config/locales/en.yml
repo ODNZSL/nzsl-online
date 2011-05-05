@@ -72,4 +72,6 @@ en:
     delete_failure: Your Vocab Sheet could not be cleared - please try again in a second.
   formtastic:
     submit: Send Feedback
-
+  page_not_found:
+    title: Page not found (404)
+    content: Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later.
