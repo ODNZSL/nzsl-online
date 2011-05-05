@@ -1,42 +1,45 @@
 = render_back_to_search_results
-.drawing.entry_drawing
-  .offset
-    = image_tag "/images/signs/320-180/#{@sign.drawing}"
-.glosses
-  %h1.main_gloss= @sign.gloss_main
-  %h2.secondary_gloss= @sign.gloss_secondary
-  %p.h4.minor_gloss= @sign.gloss_minor
-  %p.h4.maori_gloss= @sign.gloss_maori
-.grammar
-  %p.h4.word_class= @sign.word_classes
-  %p.h4.grammar_notes= render_grammar_notes(@sign)
-= form_tag vocab_sheet_items_path do
-  = hidden_field_tag 'sign_id', @sign.id
-  = submit_button('vocab_sheet.item.add')
-  
-= link_to "", @sign.video, :class => 'video_replace main_video'
-- unless @sign.examples.length.zero?
-  .examples.rule_after
-    %h2= t('signs.show.usage_examples')
-    - @sign.examples.each do |example| 
-      .example.clearfix
-        = link_to "", example[:video], :class => 'video_replace example_video'
-        %p= example[:translation]
-        %p= render_transcription(example[:transcription], @sign.id)
-- if %w(usage_notes hint age_groups related_to).any?{|note| @sign.send(note.to_sym).present? }
-  .notes.rule_after
-    %h2= t('signs.show.notes')
-    %p= @sign.usage_notes
-    - if @sign.hint.present?
-      %p
-        = "#{t('signs.show.hint')}: "
-        %em= @sign.hint
-    - if @sign.age_groups.present?
-      %p
-        = "#{t('signs.show.age_groups')}: "
-        %em= @sign.age_groups
-    =#TODO @sign.usage_tag
-    - if @sign.borrowed_from
-      %p
-        = "#{t('signs.show.related_to')}: "
-        %em= @sign.borrowed_from.upcase
+- if @sign.present?
+  .drawing.entry_drawing
+    .offset
+      = image_tag "/images/signs/320-180/#{@sign.drawing}"
+  .glosses
+    %h1.main_gloss= @sign.gloss_main
+    %h2.secondary_gloss= @sign.gloss_secondary
+    %p.h4.minor_gloss= @sign.gloss_minor
+    %p.h4.maori_gloss= @sign.gloss_maori
+  .grammar
+    %p.h4.word_class= @sign.word_classes
+    %p.h4.grammar_notes= render_grammar_notes(@sign)
+  = form_tag vocab_sheet_items_path do
+    = hidden_field_tag 'sign_id', @sign.id
+    = submit_button('vocab_sheet.item.add')
+  .sign_attributes
+    = handshape_image @sign.handshape
+    = location_image @sign.location
+  = link_to "", @sign.video, :class => 'video_replace main_video'
+  - unless @sign.examples.length.zero?
+    .examples.rule_after
+      %h2= t('signs.show.usage_examples')
+      - @sign.examples.each do |example| 
+        .example.clearfix
+          = link_to "", example[:video], :class => 'video_replace example_video'
+          %p= example[:translation]
+          %p= render_transcription(example[:transcription], @sign.id)
+  - if %w(usage_notes hint age_groups related_to).any?{|note| @sign.send(note.to_sym).present? }
+    .notes.rule_after
+      %h2= t('signs.show.notes')
+      %p= @sign.usage_notes
+      - if @sign.hint.present?
+        %p
+          = "#{t('signs.show.hint')}: "
+          %em= @sign.hint
+      - if @sign.age_groups.present?
+        %p
+          = "#{t('signs.show.age_groups')}: "
+          %em= @sign.age_groups
+      =#TODO @sign.usage_tag
+      - if @sign.borrowed_from
+        %p
+          = "#{t('signs.show.related_to')}: "
+          %em= @sign.borrowed_from.upcase

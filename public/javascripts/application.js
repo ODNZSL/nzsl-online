@@ -46,23 +46,33 @@ $(function(){
       }
     })
   }
+  //handle search menus
+  
+  // switch tabs
+  $('.tab').click(function(){
+    var tab = this.className.match(/(advanced|keywords|signs)/)[0];
+    $('.tab, .search_form').removeClass('selected');
+    $(this).addClass('selected');
+    $('.search_form.'+tab).addClass('selected');
+  });
+  
+  // show dropdown
   // TODO: delay closing by a second
   $('.sign_attribute_selection').click(function(e){
+  
     e.stopPropagation();
     var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
     $('.dropdown').hide();
     $(this).find('.dropdown').toggle(hideOrShow);
   });
-  //$('.sign_attribute_selection').hover(function(e){
-  //  $('.dropdown').hide();
-  //  $(this).find('.dropdown').show();
-  //}, function(){
-  //  $('.dropdown').hide();
-  //});
-  //$('body').click(function(){
-  //  $('.dropdown').hide();
-  //});
-  //handle selecting signs
+  // select sign attributes
+  $('.attribute_options').find('.group, .sub, .image').each(function(){
+    $(this).click(function(e){
+      e.stopPropagation();
+      select_sign_attribute(this);
+      update_selected_signs($(this).closest('.sign_attribute_selection'));
+    });
+  });
   var select_sign_attribute = function(sign){
     var wrapper;
     if ($(sign).hasClass('group')) {
@@ -100,17 +110,13 @@ $(function(){
     }
     container.find('.selected_field').first().val(output.join(' '));
   }
-  $('.attribute_options').find('.group, .sub, .image').each(function(){
-    $(this).click(function(e){
-      e.stopPropagation();
-      select_sign_attribute(this);
-      update_selected_signs($(this).closest('.sign_attribute_selection'));
-    });
-  });
-  $('.tab').click(function(){
-    var tab = this.className.match(/(advanced|keywords|signs)/)[0];
-    $('.tab, .search_form').removeClass('selected');
-    $(this).addClass('selected');
-    $('.search_form.'+tab).addClass('selected');
-  });
+  
+  // reorder vocab sheet items
+  $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})//.disableSelection();
+  var reorderVocabSheet = function(event, ui) {
+    new_order = [];
+    $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
+    $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
+  };
+  
 });

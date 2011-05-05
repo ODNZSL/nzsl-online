@@ -3,14 +3,6 @@ module ApplicationHelper
     return t('layout.title') + (@title ?  " - " + @title : "")
   end
 
-  def last_search_query
-    begin
-      return session[:search][:query][:s]
-    rescue
-      return nil
-    end
-  end
-  
   def static_links
     [{:label => 'Home',        :slug => ''},
      {:label => 'About NZSL',  :slug => 'nzsl'},
@@ -29,10 +21,10 @@ module ApplicationHelper
     end
   end
   
-  def submit_button text = 'search.submit'
+  def submit_button text = 'search.submit', options = {}
     "<div class='button'>
       <div class='r'></div>
-      #{submit_tag(t(text), :name => nil)}
+      #{submit_tag(t(text), options.merge({:name => nil}))}
      </div>".html_safe
   end
 end

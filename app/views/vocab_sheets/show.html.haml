@@ -1,21 +1,8 @@
 = content_for :scripts do
   = javascript_include_tag 'jquery-ui.min.js'
-  :javascript
-    $(function()
-    {
-      $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet}).disableSelection();
-    });
-
-    var reorderVocabSheet = function(event, ui) {
-      new_order = [];
-      $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
-      $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
-    };
-
+  
 = content_for :head do
   = stylesheet_link_tag 'smoothness/jquery-ui.css'
-  :css
-    ul#vocab_sheet li {display: block; position:relative; float:left; margin: 10px;}
 
 %h1 Your Vocab Sheet
 .vocab_sheet.vocab_sheet_page
@@ -24,7 +11,6 @@
       = render :partial => 'vocab_sheets/vocab_sheet_item', :collection => @sheet.items
   - else
     %div.empty= t('empty')
-%div
-  = form_tag vocab_sheet_path, :method => :delete do
-    = submit_tag t('vocab_sheet.delete')
+= form_tag vocab_sheet_path, :method => :delete do
+  = submit_button 'vocab_sheet.delete', :class => 'empty_vocab_sheet'
 

@@ -1,4 +1,4 @@
 = render :partial => 'shared/search/keywords'
 = render :partial => 'shared/search/signs'
-= select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + topic_tags, topic_tag_search_term), :class => 'text_input'
-= select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + usage_tags, usage_tag_search_term), :class => 'text_input'
+= select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + Sign.topic_tags, search_term(:tag)), :class => 'text_input'
+= select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + Sign.usage_tags, search_term(:usage)), :class => 'text_input'

@@ -1,1 +1,10 @@
-hi
+.home_content.typography
+  :markdown
+    The Online Dictionary of New Zealand Sign Language
+    ==================================================
+    This dictionary is a multimedia bilingual resource
+    tool that allows you to search for NZSL signs and 
+    their meanings by english words or the visual 
+    features of signs.
+
+= render :partial => '/signs/sign_of_the_day', :locals => {:sign => Sign.random}

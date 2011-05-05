@@ -1,37 +1,41 @@
 .sign_attribute_selection.handshapes.text_input
-  = hidden_field_tag :hs, handshapes_search_term, {:class => 'selected_field'}
+  = hidden_field_tag :hs, search_term(:hs), {:class => 'selected_field'}
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
     ▼
     .attribute_options.clearfix.dropdown
-      - handshapes.each do |row|
+      .title=t('search.signs.handshapes_help');
+      .close=t('search.close')
+      - Sign.handshapes.each do |row|
         %ul.row
           - row.each do |group|
-            %li{:class => "group rounded #{handshape_selected?(group.first)}"}
+            %li{:class => "group #{handshape_selected?(group.first)}"}
               = handshape_image group.shift, true
               - unless group.length.zero?
-                %ul{:class => "sub rounded sub#{group.length}"}
+                %ul{:class => "sub transition sub#{group.length}"}
                   -group.each do |shape|
-                    %li{:class => handshape_selected?(shape)}= handshape_image shape
+                    %li{:class => " #{handshape_selected?(shape)}"}= handshape_image shape
   .selected_signs_wrapper
     .selected_signs
       = display_handshapes_search_term
-    .default= t('search.signs.default_handshape') if @query['hs'].blank?
+    .default{:style => "display:#{@query[:hs].blank? ? 'block' : 'none'}"}= t('search.signs.default_handshape')
 
 .sign_attribute_selection.locations.text_input
-  = hidden_field_tag :l, locations_search_term, {:class => 'selected_field'}
-  = hidden_field_tag :lg, location_groups_search_term, {:class => 'selected_groups_field'}
+  = hidden_field_tag :l, search_term(:l), {:class => 'selected_field'}
+  = hidden_field_tag :lg, search_term(:lg), {:class => 'selected_groups_field'}
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
     ▼
     .attribute_options.clearfix.dropdown
-      - locations.each_with_index do |row, i|
+      .title=t('search.signs.locations_help');
+      .close=t('search.close')
+      - Sign.locations.each_with_index do |row, i|
         %ul.row
           -row.each_with_index do |shape, j|
             - if i.zero? || j.zero?
-              %li{:class => location_group_selected?(shape)}= location_image shape, true
+              %li{:class => "#{location_group_selected?(shape)}"}= location_image shape, true, true
             - else
-              %li{:class => location_selected?(shape)}= location_image shape
+              %li{:class => "#{location_selected?(shape)}"}= location_image shape, false, true
   .selected_signs_wrapper
     .selected_signs
       = display_locations_search_term
       = display_location_groups_search_term
-    .default= t('search.signs.default_location') if @query['l'].blank? && @query['lg'].blank?
+    .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.signs.default_location')

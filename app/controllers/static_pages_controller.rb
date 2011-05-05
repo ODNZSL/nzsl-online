@@ -5,8 +5,8 @@ class StaticPagesController < ApplicationController
   def show
     begin
       render :template => "static_pages/#{template_for_slug(params[:slug])}"
-    rescue
-      render :status => 404, :template => 'errors/404'
+    rescue ActionView::MissingTemplate
+      render :status => 404, :template => 'static_pages/404'
     end
   end
 
