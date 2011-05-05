@@ -5,64 +5,71 @@ en:
   layout:
     title: NZSL Online
     meta_description: "NZSL Online : Dictionary of New Zealand Sign Language"
+  not_found:
+    title: "Sorry, That page was not found."
+    content: "Please navigate to the page you want with the menu or search for a sign using the search tools"
   signs:
+    sign_of_the_day: Sign of the Day
     show:
-        back_to_search_results: Back to search results
-        field:
-            contains_numbers: contains numbers
-            is_fingerspelling: fingerspelling
-            is_directional: directional
-            is_locatable: locatable
-            one_or_two_handed: one or two handed
-            inflection_plural: inflection for pluralisation
-            inflection_manner_and_degree: inflection for manner and degree
-            inflection_temporal: temporal inflection
-        usage_examples: Usage Examples
-        notes: Notes
-        hint: Hint
-        usage_notes: Usage Notes
-        related_to: Borrowed From
-        age_groups: Age Variation
+      back_to_search_results: Back to search results
+      field:
+        contains_numbers: contains numbers
+        is_fingerspelling: fingerspelling
+        is_directional: directional
+        is_locatable: locatable
+        one_or_two_handed: one or two handed
+        inflection_plural: inflection for pluralisation
+        inflection_manner_and_degree: inflection for manner and degree
+        inflection_temporal: temporal inflection
+      usage_examples: Usage Examples
+      notes: Notes
+      hint: Hint
+      usage_notes: Usage Notes
+      related_to: Borrowed From
+      age_groups: Age Variation
+    not_found:
+      title: "Sorry, That sign was not found."
+      content: "It may have been removed from the database."
   search:
-      tabs: 
-        keyword: Search by Keyword
-        sign: Search by Sign
-        advanced: Advanced Search
-        help: Help
-      keywords:
-        prompt: Enter search keywords&hellip;
-      signs: 
-        handshapes: 'Hand shapes: '
-        locations: 'Locations: '
-        default_handshape: Any hand shape
-        default_location: Any location
-      advanced:
-        topic_tags: 'In Topic:'
-        usage_tags: 'With usage tag:'
-        topic_tags_any: '- Any Topic -'
-        usage_tags_any: '- Any usage -'
-      submit: Search
-      results:
-        for: "Search results for:"
+    close: close
+    tabs: 
+      keyword: Search by Keyword
+      sign: Search by Sign
+      advanced: Advanced Search
+      help: Help
+    keywords:
+      prompt: Enter search keywords&hellip;
+    signs:
+      default_handshape: Any hand shape
+      default_location: Any location
+      handshapes_help: Click a hand shape to search for signs with that shape
+      locations_help: Click a location to search for signs using that location
+    advanced:
+      topic_tags: 'In Topic:'
+      usage_tags: 'With usage tag:'
+      topic_tags_any: '- Any Topic -'
+      usage_tags_any: '- Any usage -'
+    submit: Search
+    results:
+      for: "Search results for:"
   vocab_sheet:
     title: Vocab Sheet
     item:
-        add: Add to Vocab Sheet
-        add_success: You have added a sign to your Vocab Sheet.
-        add_failure: This sign could not be added to your Vocab sheet - please try again in a moment.
-        remove: Remove
-        remove_success: You have removed a sign from your Vocab Sheet.
-        remove_failure: This sign has been removed from your Vocab Sheet.
-        update: Rename
-        update_success: You have updated a sign
-        update_failure: This sign could not be updated - please try again.
+      add: Add to Vocab Sheet
+      add_success: You have added a sign to your Vocab Sheet.
+      add_failure: This sign could not be added to your Vocab sheet - please try again in a moment.
+      remove: Remove
+      remove_success: You have removed a sign from your Vocab Sheet.
+      remove_failure: This sign has been removed from your Vocab Sheet.
+      update: Rename
+      update_success: You have updated a sign
+      update_failure: This sign could not be updated - please try again.
     link_to: View
     print: Print
     empty: Your vocab sheet is empty.
     delete: Clear Sheet
     delete_success: Your Vocab Sheet has been cleared.
     delete_failure: Your Vocab Sheet could not be cleared - please try again in a second.
-
   formtastic:
     submit: Send Feedback
 

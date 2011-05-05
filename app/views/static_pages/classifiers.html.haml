@@ -1,104 +1,105 @@
-:markdown
-  Classifiers
-  ===========
+.typography.rule_after
+  :markdown
+    Classifiers
+    ===========
   
-  Most of the signs in this dictionary are ‘frozen’ or established signs; that is, they are formed
-  and used in predictable ways. But the lexicon of NZSL is greatly expanded by the flexible
-  combination of certain handshapes and movements to represent objects, actions, and visual
-  properties of things and situations. These more creative sign formations are found in most
-  natural signed languages, and they are known as ‘classifiers’ or productive lexicon. Because
-  the exact form and meaning of such signs is specific to a particular context of use and
-  therefore variable, they cannot be recorded as regular entries in the dictionary.
+    Most of the signs in this dictionary are &lsquo;frozen&rsquo; or established signs; that is, they are formed
+    and used in predictable ways. But the lexicon of NZSL is greatly expanded by the flexible
+    combination of certain handshapes and movements to represent objects, actions, and visual
+    properties of things and situations. These more creative sign formations are found in most
+    natural signed languages, and they are known as &lsquo;classifiers&rsquo; or productive lexicon. Because
+    the exact form and meaning of such signs is specific to a particular context of use and
+    therefore variable, they cannot be recorded as regular entries in the dictionary.
 
-  Classifier signs describe and/or represent a noun by depicting its semantic or visual
-  features. For instance, objects that are flat and round (eg, a coin), straight and thin (eg,
-  a picture frame), or spherical (eg, the earth) are represented by handshapes that are
-  manipulated in space to represent a feature of the object’s appearance, size and location.
-  Instrumental or handling classifiers represent how an object is used, with the handshape
-  reflecting something about the object’s shape or how it is held, and the movement showing
-  how it is used (eg, unscrewing a lid or turning a knob).
+    Classifier signs describe and/or represent a noun by depicting its semantic or visual
+    features. For instance, objects that are flat and round (eg, a coin), straight and thin (eg,
+    a picture frame), or spherical (eg, the earth) are represented by handshapes that are
+    manipulated in space to represent a feature of the object’s appearance, size and location.
+    Instrumental or handling classifiers represent how an object is used, with the handshape
+    reflecting something about the object’s shape or how it is held, and the movement showing
+    how it is used (eg, unscrewing a lid or turning a knob).
 
-  Certain classifier handshapes represent closed semantic categories, such as ‘vehicle’,
-  or ‘person’, and these are also used like a pronoun that can be moved to incorporate a verb
-  of motion and location. For example, a flat open handshape with the blade down represents
-  a vehicle, and can be moved in an upward-sloping, zig-zag motion to express ‘a car driving
-  up a steep winding road’. These complex classifier constructions that incorporate an entity
-  and an action are also known as ‘pro-forms’.
+    Certain classifier handshapes represent closed semantic categories, such as &lsquo;vehicle&rsquo;,
+    or &lsquo;person&rsquo;, and these are also used like a pronoun that can be moved to incorporate a verb
+    of motion and location. For example, a flat open handshape with the blade down represents
+    a vehicle, and can be moved in an upward-sloping, zig-zag motion to express ‘a car driving
+    up a steep winding road’. These complex classifier constructions that incorporate an entity
+    and an action are also known as ‘pro-forms’.
 
-  Number and quantity is expressed in some classifiers by a change or reduplication of
-  handshape; eg, three upright fingers moving forward, rather than one, can stand for three
-  persons walking, or two hands can be used to arrange multiple objects in space - eg, two
-  palm-down claw handshapes side by side can represent two or more houses next to each
-  other. Often, two hands are used simultaneously in classifier constructions, with each hand
-  representing parts of the same entity, or two different entities that relate to each other in
-  space (eg, a car parked under a roof, a bird on a rock, two people sitting opposite, a train
-  entering a tunnel).
+    Number and quantity is expressed in some classifiers by a change or reduplication of
+    handshape; eg, three upright fingers moving forward, rather than one, can stand for three
+    persons walking, or two hands can be used to arrange multiple objects in space - eg, two
+    palm-down claw handshapes side by side can represent two or more houses next to each
+    other. Often, two hands are used simultaneously in classifier constructions, with each hand
+    representing parts of the same entity, or two different entities that relate to each other in
+    space (eg, a car parked under a roof, a bird on a rock, two people sitting opposite, a train
+    entering a tunnel).
 
-  Classifiers are a productive source of new vocabulary creation in signed languages, as they
-  can be used to represent new nouns (eg, mobile phone), activities (eg, bungy-jump), and
-  other concepts. Many signs in the established dictionary lexicon that reflect shape or action
-  originate in classifiers, such as TABLE, HAMMER, PLATE, JUMP, MEET, ASSERTIVE.
+    Classifiers are a productive source of new vocabulary creation in signed languages, as they
+    can be used to represent new nouns (eg, [mobile phone](/signs/5581)), activities (eg, [bungy-jump](/signs/6066)), and
+    other concepts. Many signs in the established dictionary lexicon that reflect shape or action
+    originate in classifiers, such as [table](/signs/834), [hammer](/signs/3846), [plate](/signs/5666), [jump](/signs/2974), [meet](/signs/2461), [assertive](/signs/2405).
   
-  Frequently used NZSL classifier handshapes are shown in these pages, according to
-  categories of meaning.
+    Frequently used NZSL classifier handshapes are shown in these pages, according to
+    categories of meaning.
 
-  Classifier types
-  ----------------
+    Classifier types
+    ----------------
 
-%dl#sass-classifiers
-  %dt
-    %h4 Classifiers for specifying size and shape (Size and Shape Specifiers (SASS))
-    %em These handshapes describe how objects look, and/or how they are arranged.
-  - classifiers[:sass].each do |key, value|
-    %dd
-      = image_tag value
-      %span= key
-  %dt
-    %h4 Texture, consistency, and quality classifiers
-    %em These handshapes describe how things feel or look.
-  - classifiers[:texture_consistency].each do |key, value|
-    %dd
-      = image_tag value
-      %span= key
-  %dt
-    %h4 Entity classifiers
-    %em These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
-  - classifiers[:entity].each do |key, value|
+  %dl#sass-classifiers
     %dt
-      %h6= key
-    - value.each do |key2, value2|
+      %h4 Classifiers for specifying size and shape (Size and Shape Specifiers (SASS))
+      %em These handshapes describe how objects look, and/or how they are arranged.
+    - classifiers[:sass].each do |key, value|
       %dd
-        = image_tag value2
-        %span= key2
-
-  %dt
-    %h4 Body parts classifiers
-    %em These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals – paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
-  - classifiers[:body_parts].each do |key, value|
-    %dd
-      = image_tag value
-      %span= key
-  %dt
-    %h4 Mass or quantity classifiers
-    %em These handshapes show groups, numbers, and arrangements of objects; e.g. a line of people or trees, a queue of traffic, an audience of people, masses of sheep, a pile of something, rows of chairs, masses of stars.
-  - classifiers[:mass_or_quantity].each do |key, value|
-    %dd
-      = image_tag value
-      %span= key
-  %dt
-    %h4 Handling or instrumental classifiers
-    %em These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
-  - classifiers[:handling_or_instrumental].each do |key, value|
-    %dd
-      = image_tag value
-      %span= key
-  %dt
-    %h4 Element classifiers
-    %em These proforms describe the appearance and movement of the elements of fire, water, and air.
-  - classifiers[:element].each do |key, value|
+        = image_tag value
+        %span= key
     %dt
-      %h6= key
-    - value.each do |key2, value2|
+      %h4 Texture, consistency, and quality classifiers
+      %em These handshapes describe how things feel or look.
+    - classifiers[:texture_consistency].each do |key, value|
       %dd
-        = image_tag value2
-        %span= key2
+        = image_tag value
+        %span= key
+    %dt
+      %h4 Entity classifiers
+      %em These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
+    - classifiers[:entity].each do |key, value|
+      %dt
+        %h6= key
+      - value.each do |key2, value2|
+        %dd
+          = image_tag value2
+          %span= key2
+
+    %dt
+      %h4 Body parts classifiers
+      %em These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals – paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
+    - classifiers[:body_parts].each do |key, value|
+      %dd
+        = image_tag value
+        %span= key
+    %dt
+      %h4 Mass or quantity classifiers
+      %em These handshapes show groups, numbers, and arrangements of objects; e.g. a line of people or trees, a queue of traffic, an audience of people, masses of sheep, a pile of something, rows of chairs, masses of stars.
+    - classifiers[:mass_or_quantity].each do |key, value|
+      %dd
+        = image_tag value
+        %span= key
+    %dt
+      %h4 Handling or instrumental classifiers
+      %em These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
+    - classifiers[:handling_or_instrumental].each do |key, value|
+      %dd
+        = image_tag value
+        %span= key
+    %dt
+      %h4 Element classifiers
+      %em These proforms describe the appearance and movement of the elements of fire, water, and air.
+    - classifiers[:element].each do |key, value|
+      %dt
+        %h6= key
+      - value.each do |key2, value2|
+        %dd
+          = image_tag value2
+          %span= key2

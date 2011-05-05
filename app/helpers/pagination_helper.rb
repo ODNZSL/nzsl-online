@@ -15,7 +15,7 @@ module PaginationHelper
         page_link = link_text
       end
       if page_link
-        content_tag :li, link_to(link_text, search_signs_path(session[:search][:query].merge(:p => page_link)))
+        content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(session[:search][:query].merge(:p => page_link)))
       else
         content_tag :li, (content_tag :span, link_text, :class => (page == link_text ? 'current a' : 'a'))
       end
