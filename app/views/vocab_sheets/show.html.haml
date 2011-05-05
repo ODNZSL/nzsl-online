@@ -23,7 +23,7 @@
     = content_tag :ul, :id => 'vocab_sheet', :class => 'clearfix' do
       = render :partial => 'vocab_sheets/vocab_sheet_item', :collection => @sheet.items
   - else
-    %div.empty= t('empty')
+    %div.empty= t('vocab_sheet.empty')
 %div
   = form_tag vocab_sheet_path, :method => :delete do
     = submit_tag t('vocab_sheet.delete')

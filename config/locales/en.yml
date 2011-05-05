@@ -58,6 +58,7 @@ en:
         update_failure: This sign could not be updated - please try again.
     link_to: View
     print: Print
+    empty: Your vocab sheet is empty.
     delete: Clear Sheet
     delete_success: Your Vocab Sheet has been cleared.
     delete_failure: Your Vocab Sheet could not be cleared - please try again in a second.
