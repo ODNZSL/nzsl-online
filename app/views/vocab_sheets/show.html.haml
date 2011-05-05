@@ -11,12 +11,5 @@
       = render :partial => 'vocab_sheets/vocab_sheet_item', :collection => @sheet.items
   - else
     %div.empty= t('vocab_sheet.empty')
-%div
-  = form_tag vocab_sheet_path, :method => :delete do
-    = submit_tag t('vocab_sheet.delete')
-=======
-    %div.empty= t('vocab_sheet.empty')
 = form_tag vocab_sheet_path, :method => :delete do
   = submit_button 'vocab_sheet.delete', :class => 'empty_vocab_sheet'
->>>>>>> db16b2f8290e47c8448313354b08a5f4b695927a
-
