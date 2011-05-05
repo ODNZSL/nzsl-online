@@ -8,7 +8,7 @@ class ItemsController < ApplicationController
     @item.sign = Sign.first({:id => params[:sign_id]}) if params[:sign_id]
     @item.name = params[:name].to_s if params[:name]
 
-    if @item.valid?
+    if @item.valid? && !@sheet.items.include?(@item)
       @sheet.items << @item
       flash[:notice] = t('vocab_sheet.item.add_success')
     else
