@@ -5,7 +5,7 @@ module PaginationHelper
     page = session[:search][:p]
   
     links = pages(page, total_pages)
-  
+    query = query_for_query_string
     links.map! do |link_text|
       if link_text == 'previous' && page != 1
         page_link = page - 1
@@ -15,7 +15,7 @@ module PaginationHelper
         page_link = link_text
       end
       if page_link
-        content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(session[:search][:query].merge(:p => page_link)))
+        content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(query.merge(:p => page_link)))
       else
         content_tag :li, (content_tag :span, link_text, :class => (page == link_text ? 'current a' : 'a'))
       end

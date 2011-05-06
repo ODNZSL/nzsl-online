@@ -5,28 +5,14 @@ module SearchHelper
     sign_attribute_image :handshape, number, main
   end
   
-  def location_image number, main=false, label=false
-    sign_attribute_image :location, number, main, label
+  def location_image number, main=false, in_menu=false
+    sign_attribute_image :location, number, main, in_menu
   end
   
-  def sign_attribute_image attribute, number, main, label=false
-    classes = 'image ir rounded'
-    classes << ' main_image' if main
-    if attribute == :handshape
-      classes << ' transition' unless main
-      if main
-        #if it's the first, just search on the first two numbers
-        value = number.split('.')[0,2].join('.')
-      else
-        value = number
-      end
-    elsif main
-      value = number.split('.')[0]
-    else
-      value = number.split('.')[1]
-    end
-    output = content_tag :div, value, {:style => "background-image:url('/images/#{attribute.to_s}s/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes}
-    output << number.split('.').last if attribute == :location && label
+  def sign_attribute_image attribute, number, main, in_menu=false
+    size = (attribute == :location && in_menu) ? '72' : '42'
+    output = content_tag :div, value_for_sign_attribute(number, attribute, main), {:style => "background-image:url('/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes_for_sign_attribute(attribute, main)}
+    output << number.split('.').last if attribute == :location && in_menu
     output
   end
   
@@ -79,5 +65,32 @@ module SearchHelper
 
   def search_term(key)
     h @query[key].join(' ') unless @query[key].blank?
+  end
+  
+private
+  def value_for_sign_attribute number, attribute, main
+    if attribute == :handshape
+      if main
+        #if it's the first, just search on the first two numbers
+        value = number.split('.')[0,2].join('.')
+      else
+        value = number
+      end
+    elsif attribute == :location
+      if main
+        value = number.split('.')[0]
+      else
+        value = number.split('.')[1]
+      end
+    end
+  end
+  def classes_for_sign_attribute attribute, main
+    classes = 'image ir rounded'
+    if main
+      classes << ' main_image'
+    elsif attribute == :handshape
+      classes << ' transition'
+    end
+    classes
   end
 end

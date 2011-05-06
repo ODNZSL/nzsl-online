@@ -27,4 +27,10 @@ module ApplicationHelper
       #{submit_tag(t(text), options.merge({:name => nil}))}
      </div>".html_safe
   end
+  
+  def query_for_query_string
+    query = @query.dup
+    query.each { |k,v| query[k] = v.is_a?(Array) ? v.join(' ') : v }
+    return HashWithIndifferentAccess.new query
+  end
 end

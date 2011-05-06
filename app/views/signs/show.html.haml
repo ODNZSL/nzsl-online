@@ -17,13 +17,13 @@
   .sign_attributes
     = handshape_image @sign.handshape
     = location_image @sign.location
-  = link_to "", @sign.video, :class => 'video_replace main_video'
+  %div= link_to '', @sign.video, :class => 'video_replace main_video'
   - unless @sign.examples.length.zero?
     .examples.rule_after
       %h2= t('signs.show.usage_examples')
       - @sign.examples.each do |example| 
         .example.clearfix
-          = link_to "", example[:video], :class => 'video_replace example_video'
+          %div= link_to '', example[:video], :class => 'video_replace example_video'
           %p= example[:translation]
           %p= render_transcription(example[:transcription], @sign.id)
   - if %w(usage_notes hint age_groups related_to).any?{|note| @sign.send(note.to_sym).present? }

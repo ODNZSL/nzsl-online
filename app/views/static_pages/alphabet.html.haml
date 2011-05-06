@@ -1,6 +1,13 @@
-%ul#alphabet.rule_after
-  - alphabet_listing.each do |letter|
-    %li
-      = image_tag "/images/alphabet/Alphabet.#{letter}.png", :alt => letter
-      = content_tag :span, letter
+%h1 Alphabet
+%div= link_to "", "/images/alphabet/Entire_Alphabet.over_shoulder_black.flv", :class => 'video_replace main_video'
+%p Entire alphabet over the shoulder
+%div= link_to "", "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
+%p Entire alphabet
+%ul.alphabet.rule_after.grid.clearfix
+  - alphabet_listing.each_with_index do |letter, i|
+    %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
+      %div.grid_drawing.drawing
+        = image_tag "/images/alphabet/Alphabet.#{letter}.png", :alt => letter.humanize
+      %div.h2.main_gloss
+        = letter.humanize
     

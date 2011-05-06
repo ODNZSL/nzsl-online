@@ -80,24 +80,37 @@ a:hover, a:hover span { color: #336cbe; border-bottom:1px solid #aac0f8; backgro
  /* * * * * * *\
 |* Typography *| font sizes from http://developer.yahoo.com/yui/3/cssfonts/, boilerplate
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-h1, .h1 {font-size:167%;  display:block;margin-top:43px;}
-h2, .h2 {font-size:153.9%;display:block;}
+h1, .h1 {font-size:167%;  display:block; margin:43px 0 20px;}
+h2, .h2 {font-size:153.9%;display:block; clear:left;}
 h3, .h3 {font-size:123.1%;display:block;}
 h4, .h4 {font-size:108%;  display:block;margin-bottom:0;}
 
-p {margin:0 0 1.2em;}
 em {font-style:italic;}
+.typography  h1, 
+.typography .h1,
+.typography  h2, 
+.typography .h2 {margin-bottom:0.2em;}
 
-.typography {line-height:1.6;}
+.typography p, 
+.typography ol,
+.typography ul, 
+.typography dl {line-height:1.6;margin:0 0 1.2em;}
+
+.typography ul, 
+.typography ol {margin-left:1.6em;}
+
+.typography li {margin:0 0 0.6em;}
+.typography dl {width:250px; margin-left:150px; margin-top:-1.6em;}
+.typography dt {width:150px; position:relative; overflow:visible; left:-150px;top:1.6em;line-height:1.6;}
+.typography dt:after{content:':';}
 
  /* * * * * * * * * *\
 |* Entry & Results  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.results .main_gloss {font-size: 138.5%;}
+.grid .main_gloss {font-size: 138.5%;}
 .glosses .secondary_gloss {font-size:123.1%; display:block;}
 .word_class,
 .maori_gloss {font-style:italic;display:block;}
-.glosses, 
 .grammar {margin-bottom:1.2em;}
 
 a.drawing {border:0; background:transparent;}
@@ -120,10 +133,10 @@ a.drawing {border:0; background:transparent;}
 
 h1.search_results_for {line-height:42px;margin-top:1em;min-height:42px;vertical-align:middle;}
 
-.results {margin:0;margin-right:-20px;width:510px;}
-.results li {display:block; padding:25px 0; float:left; width:150px;margin:0 20px 0 0;}
-.result_drawing {height:90px; width:150px; display:block; margin-bottom:10px;}
-.results .row_start {clear:left;}
+.grid {margin:0;margin-right:-20px;width:510px;}
+.grid li {display:block; padding:25px 0; float:left; width:150px;margin:0 20px 0 0;}
+.grid_drawing {height:90px; width:150px; display:block; margin-bottom:10px;}
+.grid .row_start {clear:left;}
 
 .pagination {margin:-14px 0 0;padding:0;text-align:center;}
 .pagination li {font-size:123.1%;display:inline-block;}
@@ -160,13 +173,21 @@ body:before {
 .ie6 .not_sticky_footer{display:table;height:100%}
 
  /* * * * * *\
+|* Alphabet *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.alphabet li img {height:90px;}
+
+ /* * * * * *\
 |* Homepage *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .sign_of_the_day {text-align:center; float:left; margin:43px 0 0 20px;}
 .sign_of_the_day img {display:inline;}
 .sign_of_the_day .h2 {display:inline;}
+
 .drawing {margin:10px 0;}
+
 .home_content h1 {font-style:italic;}
 .home_content {width:300px; float:left;}
 
@@ -213,34 +234,33 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .signs {line-height:56px;}
 
 .dropdown {position:absolute;top:-1px;background:white;border:1px solid #99a0a5;z-index:10;display:none;padding-top:4px;}
-.handshapes .dropdown {width:458px;left:-1px;}
+.handshapes .dropdown {width:452px;left:-1px;}
 .locations .dropdown {width:536px;right:-1px;}
 .dropdown .title {padding:3px 3px 7px;line-height:1;}
 .dropdown .close {position:absolute;top:5px;right:5px;background:url('/images/ui/close_search.png') right center no-repeat;padding-right:20px;height:15px;line-height:15px;}
 
 .attribute_options .row {clear:left;}
 .attribute_options li {display:block; margin: 0 0 2px 2px; float:left; position:relative; background:white; border:1px solid #bbb;}
-.attribute_options .group {width:72px; height:72px;}
+.attribute_options .group {width:71px; height:71px;}
 .attribute_options .selected {border-color:#598afb;}
 
 .image {background-size:contain; background-position:center center; background-color:white; background-repeat:no-repeat; text-decoration:none; width:42px;height:42px;}
 .handshapes .main_image {margin:5px 15px;}
 
 .attribute_options .selected .sub:hover,
-.sub {top:48px; right:0; height:24px; display:block; margin:0; padding:0; float:left; position:absolute; background:white;}
+.sub {top:48px; right:0; height:23px; display:block; margin:0; padding:0; float:left; position:absolute; background:white;}
 .attribute_options .selected .sub:hover .image,
-.sub .image {width:22px; height:22px;}
+.sub .image {width:21px; height:21px;}
 .sub li,
 .attribute_options .selected .sub li{border-color:white;margin:0;}
-.sub1, .attribute_options .selected .sub1:hover {width:24px;}
-.sub2, .attribute_options .selected .sub2:hover {width:48px;}
-.sub3, .attribute_options .selected .sub3:hover {width:72px;}
-.sub1:hover {width:44px; right:-12px;}
-.sub2:hover {width:88px; right:-24px;}
-.sub3:hover {width:132px;right:-36px;}
+.sub1, .attribute_options .selected .sub1:hover {width:23px;}
+.sub2, .attribute_options .selected .sub2:hover {width:46px;}
+.sub3, .attribute_options .selected .sub3:hover {width:69px;}
+.sub1:hover {width:45px; right:-12px;}
+.sub2:hover {width:90px; right:-24px;}
+.sub3:hover {width:135px;right:-36px;}
 .sub:hover {height:44px;z-index:10; top:38px;}
 .sub:hover .image {width:42px;height:42px;}
-
 
 .locations .image {width:72px;height:72px;}
 .locations .attribute_options li{font-size:8px;text-align:center;line-height:10px;}
@@ -315,7 +335,7 @@ a.dropdown_arrow {float:right; color:#777; text-decoration:none; width:13px; bor
 .r, .l {position:absolute;display:block;top:0;}
 .r {right:0;}
 .l {left:0;}
-.video_replace {background:#99a0a5;display:block;}
+.video_replace {background:#99a0a5; display:block; border:0;}
 
 .rule_after {background:url('/images/ui/hr.png') left bottom no-repeat;padding-bottom:1px;margin-bottom:16px;}
 .rounded {-webkit-border-radius:4px;-moz-border-radius:4px;-o-border-radius:4px;border-radius:4px;}
