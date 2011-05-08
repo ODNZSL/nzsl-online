@@ -8,12 +8,12 @@ class SignImageController < ApplicationController
     )
       send_file(ImageProcessor.local_filename(
         params[:filename],
-        [params[:width], params[:height]]), :type => "image/png")
+        [params[:width], params[:height]]), :type => "image/png", :disposition => 'attachment', :filename => params[:filename])
     else
       begin
         send_file ImageProcessor.retrieve_and_resize(
           params[:filename],
-          [params[:width], params[:height]]), :type => "image/png"
+          [params[:width], params[:height]]), :type => "image/png", :disposition => 'attachment', :filename => params[:filename]
       rescue
         render :nothing => true, :status => 404
       end
