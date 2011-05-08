@@ -57,7 +57,6 @@ $(function(){
   });
   
   // show dropdown
-  // TODO: delay closing by a second
   $('.sign_attribute_selection').click(function(e){
   
     e.stopPropagation();
@@ -72,6 +71,10 @@ $(function(){
       select_sign_attribute(this);
       update_selected_signs($(this).closest('.sign_attribute_selection'));
     });
+  });
+  $(document).click(function(){
+    $('.dropdown').hide();
+    return true; //so bubbles back up;
   });
   var select_sign_attribute = function(sign){
     var wrapper;

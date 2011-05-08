@@ -10,8 +10,8 @@
   = display_topic_tag_search_term
   &rdquo;
 %em= "#{@results_total} results."
-=# render :partial => 'signs/results_grid', {:locals => {:signs => @signs}}
-%ul.grid.results.clearfix.rule_after
+= render :partial => 'signs/signs_grid', {:locals => {:signs => @signs}}
+%ol.grid.results.clearfix.rule_after
   - @signs.each_with_index do |result, i|
     %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
       = link_to sign_url(result.id), {:class => 'drawing grid_drawing'} do
@@ -23,5 +23,5 @@
       - if result.word_classes.present?
         %span.word_class= result.word_classes
 - if @results_total > Sign::RESULTS_PER_PAGE
-  %ul.rule_after.pagination.clearfix
+  %ol.rule_after.pagination.clearfix
     = pagination_links
