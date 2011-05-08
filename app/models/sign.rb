@@ -105,7 +105,7 @@ class Sign
   def self.paginate(search_query, page_number)
     start_index = RESULTS_PER_PAGE * (page_number - 1) + 1
     start_index = 1 if start_index < 1
-    self.all(search_query.merge(:start => start_index, :num => RESULTS_PER_PAGE))
+    self.all_with_count(search_query.merge(:start => start_index, :num => RESULTS_PER_PAGE))
   end
   
   def self.current_page(per_page, last_result_index, all_result_length)
