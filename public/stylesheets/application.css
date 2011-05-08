@@ -85,7 +85,8 @@ h2, .h2 {font-size:153.9%;display:block; clear:left;}
 h3, .h3 {font-size:123.1%;display:block;}
 h4, .h4 {font-size:108%;  display:block;margin-bottom:0;}
 
-em {font-style:italic;}
+em, 
+p.note {font-style:italic;}
 .typography  h1, 
 .typography .h1,
 .typography  h2, 
@@ -133,7 +134,8 @@ a.drawing {border:0; background:transparent;}
 
 h1.search_results_for {line-height:42px;margin-top:1em;min-height:42px;vertical-align:middle;}
 
-.grid {margin:0;margin-right:-20px;width:510px;}
+ol.grid {margin:0 -20px 1.2em 0;width:510px;}
+ol.results {margin:0;}
 .grid li {display:block; padding:25px 0; float:left; width:150px;margin:0 20px 0 0;}
 .grid_drawing {height:90px; width:150px; display:block; margin-bottom:10px;}
 .grid .row_start {clear:left;}
@@ -176,8 +178,8 @@ body:before {
 |* Alphabet *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.alphabet li img {height:90px;}
-
+.alphabet li img,
+.classifiers li img {height:90px;}
  /* * * * * *\
 |* Homepage *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */

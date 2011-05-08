@@ -7,10 +7,11 @@ class ItemsController < ApplicationController
     @item = Item.new
     @item.sign = Sign.first({:id => params[:sign_id]}) if params[:sign_id]
     @item.name = params[:name].to_s if params[:name]
-
-    if @item.valid? && !@sheet.items.include?(@item)
+    if @sheet.items.include?(@item)
+      flash[:notice] = t('vocab_sheet.item.add_duplicate')
+    elsif @item.valid?
       @sheet.items << @item
-      flash[:notice] = t('vocab_sheet.item.add_success')
+      flash[:error] = t('vocab_sheet.item.add_success')
     else
       flash[:error] = t('vocab_sheet.item.add_failure')
     end

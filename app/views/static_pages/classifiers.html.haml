@@ -42,64 +42,30 @@
   
     Frequently used NZSL classifier handshapes are shown in these pages, according to
     categories of meaning.
-
-    Classifier types
-    ----------------
-
-  %dl#sass-classifiers
-    %dt
-      %h4 Classifiers for specifying size and shape (Size and Shape Specifiers (SASS))
-      %em These handshapes describe how objects look, and/or how they are arranged.
-    - classifiers[:sass].each do |key, value|
-      %dd
-        = image_tag value
-        %span= key
-    %dt
-      %h4 Texture, consistency, and quality classifiers
-      %em These handshapes describe how things feel or look.
-    - classifiers[:texture_consistency].each do |key, value|
-      %dd
-        = image_tag value
-        %span= key
-    %dt
-      %h4 Entity classifiers
-      %em These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
-    - classifiers[:entity].each do |key, value|
-      %dt
-        %h6= key
-      - value.each do |key2, value2|
-        %dd
-          = image_tag value2
-          %span= key2
-
-    %dt
-      %h4 Body parts classifiers
-      %em These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals – paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
-    - classifiers[:body_parts].each do |key, value|
-      %dd
-        = image_tag value
-        %span= key
-    %dt
-      %h4 Mass or quantity classifiers
-      %em These handshapes show groups, numbers, and arrangements of objects; e.g. a line of people or trees, a queue of traffic, an audience of people, masses of sheep, a pile of something, rows of chairs, masses of stars.
-    - classifiers[:mass_or_quantity].each do |key, value|
-      %dd
-        = image_tag value
-        %span= key
-    %dt
-      %h4 Handling or instrumental classifiers
-      %em These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
-    - classifiers[:handling_or_instrumental].each do |key, value|
-      %dd
-        = image_tag value
-        %span= key
-    %dt
-      %h4 Element classifiers
-      %em These proforms describe the appearance and movement of the elements of fire, water, and air.
-    - classifiers[:element].each do |key, value|
-      %dt
-        %h6= key
-      - value.each do |key2, value2|
-        %dd
-          = image_tag value2
-          %span= key2
+.typography
+  %h2 Classifier types
+  %h3 Classifiers for specifying size and shape (Size and Shape Specifiers (SASS))
+  %p.note These handshapes describe how objects look, and/or how they are arranged.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:sass]}
+  %h3 Texture, consistency, and quality classifiers
+  %p.note These handshapes describe how things feel or look.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:texture_consistency]}
+  %h3 Entity classifiers
+  %p.note These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
+  - classifiers[:entity].each do |value|
+    %h4= value.first
+    = render :partial => 'static_pages/grid', :locals => {:group => value.last}
+  %h3 Body parts classifiers
+  %p.note These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals – paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:body_parts]}
+  %h3 Mass or quantity classifiers
+  %p.note These handshapes show groups, numbers, and arrangements of objects; e.g. a line of people or trees, a queue of traffic, an audience of people, masses of sheep, a pile of something, rows of chairs, masses of stars.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:mass_or_quantity]}
+  %h3 Handling or instrumental classifiers
+  %p.note These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:handling_or_instrumental]}
+  %h3 Element classifiers
+  %p.note These proforms describe the appearance and movement of the elements of fire, water, and air.
+  - classifiers[:element].each do |value|
+    %h4= value.first
+    = render :partial => 'static_pages/grid', :locals => {:group => value.last}

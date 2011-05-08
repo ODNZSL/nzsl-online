@@ -1,0 +1,8 @@
+%h1 Numbers
+= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(numbers_listing)}
+%h2 Ordinal Number
+= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(ordinal_numbers_listing)}
+%h2 Fractions
+= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(fractions_listing)}
+%h2 Time
+= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(time_listing)}

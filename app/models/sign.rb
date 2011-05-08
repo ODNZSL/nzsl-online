@@ -82,6 +82,9 @@ class Sign
   end
 
   def self.all(params)
+    return self.all_with_count(params)[1]
+  end
+  def self.all_with_count(params)
     signs = []
     count, entries = self.search(params)
     entries.each do |entry|
@@ -89,7 +92,6 @@ class Sign
     end
     return [count, signs]
   end
-  
   def self.find(all_or_first = :first, params)
     if all_or_first == :all || all_or_first == :first
       self.send(all_or_first, params) 
