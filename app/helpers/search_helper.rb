@@ -10,10 +10,12 @@ module SearchHelper
   end
   
   def sign_attribute_image attribute, number, main, in_menu=false
-    size = (attribute == :location && in_menu) ? '72' : '42'
-    output = content_tag :div, value_for_sign_attribute(number, attribute, main), {:style => "background-image:url('/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes_for_sign_attribute(attribute, main)}
-    output << number.split('.').last if attribute == :location && in_menu
-    output
+    if number
+      size = (attribute == :location && in_menu) ? '72' : '42'
+      output = content_tag :div, value_for_sign_attribute(number, attribute, main), {:style => "background-image:url('/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes_for_sign_attribute(attribute, main)}
+      output << number.split('.').last if attribute == :location && in_menu
+      output
+    end
   end
   
   # Sign Attribute is Selected?

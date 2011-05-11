@@ -2,7 +2,7 @@
   = hidden_field_tag :hs, search_term(:hs), {:class => 'selected_field'}
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
     ▼
-    .attribute_options.clearfix.dropdown
+    .attribute_options.clearfix.dropdown{:style => "display:none"}
       .title=t('search.signs.handshapes_help');
       .close=t('search.close')
       - Sign.handshapes.each do |row|
@@ -24,7 +24,7 @@
   = hidden_field_tag :lg, search_term(:lg), {:class => 'selected_groups_field'}
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
     ▼
-    .attribute_options.clearfix.dropdown
+    .attribute_options.clearfix.dropdown{:style => "display:none"}
       .title=t('search.signs.locations_help');
       .close=t('search.close')
       - Sign.locations.each_with_index do |row, i|

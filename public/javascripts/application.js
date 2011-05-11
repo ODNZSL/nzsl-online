@@ -28,7 +28,7 @@ $(function(){
           stop:false,
           fastForward:false,
           slowForward:false,
-          scrubber:true,
+          scrubber:false,
           progressColor:'rgba(0,0,0,0.01)',
           sliderColor:'rgba(0,0,0,0.01)',
           durationColor:'rgba(0,0,0,0.01)',
@@ -47,7 +47,21 @@ $(function(){
     })
   }
   //handle search menus
-  
+  $('.button.normal, .button.slow').click(function(){
+    var show, hide;
+    var videos = $(this).closest('.videos');
+    if ($(this).hasClass('normal')){
+      show = 'slow';
+      hide = 'normal';
+    } else {
+      show = 'normal';
+      hide = 'slow';
+    }
+    videos.find("."+show).show();
+    videos.find("."+hide).hide();
+    flowplayer(videos.find('.video_replace.'+hide)[0]).pause();
+    flowplayer(videos.find('.video_replace.'+show)[0]).play();
+  });
   // switch tabs
   $('.tab').click(function(){
     var tab = this.className.match(/(advanced|keywords|signs)/)[0];
@@ -58,11 +72,12 @@ $(function(){
   
   // show dropdown
   $('.sign_attribute_selection').click(function(e){
-  
     e.stopPropagation();
+    e.preventDefault();
     var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
     $('.dropdown').hide();
     $(this).find('.dropdown').toggle(hideOrShow);
+    return false;
   });
   // select sign attributes
   $('.attribute_options').find('.group, .sub, .image').each(function(){
@@ -72,10 +87,10 @@ $(function(){
       update_selected_signs($(this).closest('.sign_attribute_selection'));
     });
   });
-  $(document).click(function(){
-    $('.dropdown').hide();
-    return true; //so bubbles back up;
-  });
+  //$(document).click(function(){
+  //  $('.dropdown').hide();
+  //  return true; //so bubbles back up;
+  //});
   var select_sign_attribute = function(sign){
     var wrapper;
     if ($(sign).hasClass('group')) {
@@ -115,11 +130,13 @@ $(function(){
   }
   
   // reorder vocab sheet items
-  $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})//.disableSelection();
-  var reorderVocabSheet = function(event, ui) {
-    new_order = [];
-    $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
-    $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
-  };
+  if ($('ul#vocab_sheet').length){
+    $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})//.disableSelection();
+    var reorderVocabSheet = function(event, ui) {
+      new_order = [];
+      $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
+      $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
+    };
+  }
   
 });

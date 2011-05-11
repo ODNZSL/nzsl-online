@@ -1,7 +1,7 @@
 %header.header
   .center
     = link_to 'NZSL Online', '/', {:class => 'logo ir'}
-  = image_tag '/images/ui/logo.png', :class => 'print_logo'
+    = image_tag '/images/ui/logo.png', :class => 'print_logo'
   %nav
     .l.edge
     .r.edge
@@ -41,4 +41,3 @@
       %ul.center
         - static_links.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
-  = render :partial => 'shared/flashes'

@@ -3,7 +3,7 @@
 %p Entire alphabet over the shoulder
 %div= link_to "", "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
 %p Entire alphabet
-%ul.alphabet.rule_after.grid.clearfix
+%ol.alphabet.rule_after.grid.clearfix
   - alphabet_listing.each_with_index do |letter, i|
     %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
       %div.grid_drawing.drawing

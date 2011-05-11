@@ -1,4 +1,7 @@
 class FeedbackController < ApplicationController
+  
+  before_filter :find_vocab_sheet
+  
   def new
     @feedback = Feedback.new
   end
