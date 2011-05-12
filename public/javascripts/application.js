@@ -19,28 +19,26 @@ $(function(){
         autoBuffering: false
       }, 
       plugins: {
-        controls: null
-        //{
-        //  height:20,
-        //  opacity:0.95,
-        //  volume:false,
-        //  mute:false,
-        //  time:false,
-        //  stop:false,
-        //  fastForward:false,
-        //  slowForward:false,
-        //  scrubber:false,
-        //  progressColor:'rgba(0,0,0,0.01)',
-        //  sliderColor:'rgba(0,0,0,0.01)',
-        //  durationColor:'rgba(0,0,0,0.01)',
-        //  bufferColor:'rgba(0,0,0,0.01)', 
-        //  backgroundColor:'#ffffff',
-        //  backgroundGradient: [1,0],
-        //  buttonColor:'#34414b',
-        //  buttonOverColor: '#6c6f94',
-        //  backgroundGradient:'medium',
-        //  autoHide:'never'
-        //}
+        controls: {
+          height:25,
+          opacity:0.5,
+          volume:false,
+          mute:false,
+          time:false,
+          stop:false,
+          fastForward:false,
+          slowForward:false,
+          scrubber:false,
+          backgroundColor:'rgba(0,0,0,0)',
+          backgroundGradient: [1,0],
+          buttonColor:'#ffffff',
+          buttonOverColor: '#ffffff',
+          backgroundGradient:'none',
+          autoHide:'never',
+          tooltips:{
+            buttons:true
+          }
+        }
       },
       play: {
         replayLabel: null
