@@ -26,11 +26,11 @@
       .bottom_border
       %div{:class => "keywords search_form clearfix clearfix_left #{selected_tab?(:keywords)}"}
         = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/keywords'
+          = render :partial => 'shared/search/keywords', :locals => {:id => '1'}
           = submit_button
       %div{:class => "signs search_form clearfix clearfix_left #{selected_tab?(:signs)}"}
         = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/signs'
+          = render :partial => 'shared/search/signs', :locals => {:id => '1'}
           = submit_button
       %div{:class => "advanced search_form clearfix clearfix_left #{selected_tab?(:advanced)}"}
         = form_tag search_signs_path, :method => :get do

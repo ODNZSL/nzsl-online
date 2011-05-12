@@ -46,12 +46,12 @@ en:
   search:
     close: close
     tabs: 
-      keyword: Search by Keyword
-      sign: Search by Sign
+      keyword: Search by English Word
+      sign: Search by Sign Features
       advanced: Advanced Search
       help: Help
     keywords:
-      prompt: Enter search keywords&hellip;
+      prompt: "Enter search keywords&hellip;"
     signs:
       default_handshape: Any hand shape
       default_location: Any location
@@ -89,9 +89,11 @@ en:
   feedback:
     video_size_limit: Maximum size 5mb.
     submit: Send Feedback
+    success: Your feedback has been sent
+    failure: Your feedback didn't send
   page_not_found:
     title: Page not found (404)
-    content: Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later.
+    content: "Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later."
   pagination: 
     next: next
     previous: previous

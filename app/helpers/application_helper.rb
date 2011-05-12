@@ -4,19 +4,19 @@ module ApplicationHelper
   end
 
   def static_links
-    [{:label => t('static.index'),       :slug => ''},
-     {:label => t('static.nzsl'),        :slug => 'nzsl'},
-     {:label => t('static.alphabet'),    :slug => 'alphabet'},
-     {:label => t('static.numbers'),     :slug => 'numbers'},
-     {:label => t('static.classifiers'), :slug => 'classifiers'},
-     {:label => t('static.learning'),    :slug => 'learning'},
-     {:label => t('static.about'),       :slug => 'about'},
-     {:label => t('static.contact_us'),  :slug => 'contact-us'},
-     {:label => t('static.links'),       :slug => 'links'}]
+    [{:label => t('static.index'),       :slug => '/'},
+     {:label => t('static.nzsl'),        :slug => '/nzsl'},
+     {:label => t('static.alphabet'),    :slug => '/alphabet'},
+     {:label => t('static.numbers'),     :slug => '/numbers'},
+     {:label => t('static.classifiers'), :slug => '/classifiers'},
+     {:label => t('static.learning'),    :slug => 'http://www.victoria.ac.nz/llc/edith_dev/nzsl/index.htm'},
+     {:label => t('static.about'),       :slug => '/about'},
+     {:label => t('static.contact_us'),  :slug => '/feedback/new'},
+     {:label => t('static.links'),       :slug => '/links'}]
   end
   
   def render_navigation_link(link)
-    link_to_unless_current(link[:label], "/#{link[:slug]}") do
+    link_to_unless_current(link[:label], "#{link[:slug]}") do
       content_tag :span, link[:label]
     end
   end
@@ -27,10 +27,12 @@ module ApplicationHelper
       #{submit_tag(t(text), options.merge({:name => nil}))}
      </div>".html_safe
   end
+  
   def link_button text, url=nil, options = {}
     url ||='javascript:void(0);'
     link_to "<div class='r'></div>#{t(text)}".html_safe, url, {:class => 'button'}.merge(options)
   end
+  
   def query_for_query_string
     query = @query.dup
     query.each { |k,v| query[k] = v.is_a?(Array) ? v.join(' ') : v }

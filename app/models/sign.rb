@@ -36,6 +36,7 @@ class Sign
       self.is_directional = data.value_for_tag('directional').to_bool
       self.is_locatable = data.value_for_tag('locatable').to_bool
       self.one_or_two_handed = data.value_for_tag('one_or_two_hand').to_bool
+      
       #notes
       self.age_groups = data.value_for_tag('VARIATIONAGE')
       self.gender_groups = data.value_for_tag('VARIATIONGENDER')
@@ -88,6 +89,7 @@ class Sign
   def self.all(params)
     return self.all_with_count(params)[1]
   end
+  
   def self.all_with_count(params)
     signs = []
     count, entries = self.search(params)
@@ -96,6 +98,7 @@ class Sign
     end
     return [count, signs]
   end
+  
   def self.find(all_or_first = :first, params)
     if all_or_first == :all || all_or_first == :first
       self.send(all_or_first, params) 

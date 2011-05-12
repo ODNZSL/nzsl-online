@@ -12,11 +12,19 @@ module SearchHelper
   def sign_attribute_image attribute, number, main, in_menu=false
     if number
       size = (attribute == :location && in_menu) ? '72' : '42'
-      output = content_tag :div, value_for_sign_attribute(number, attribute, main), {:style => "background-image:url('/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes_for_sign_attribute(attribute, main)}
+      output = content_tag :div, :class => classes_for_sign_attribute(attribute, main) do
+        [content_tag(:span, value_for_sign_attribute(number, attribute, main), :class => 'value'),
+         image_tag("/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join
+      end
       output << number.split('.').last if attribute == :location && in_menu
       output
     end
   end
+  
+  #these images have been resized with
+  # mogrify -resize 42x42 -background white -gravity center -extent 42x42 *.png
+  # or
+  # mogrify -resize 72x72 -background white -gravity center -extent 72x72 *.png
   
   # Sign Attribute is Selected?
   
@@ -87,7 +95,7 @@ private
     end
   end
   def classes_for_sign_attribute attribute, main
-    classes = 'image ir rounded'
+    classes = 'image rounded'
     if main
       classes << ' main_image'
     elsif attribute == :handshape

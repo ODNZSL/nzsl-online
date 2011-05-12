@@ -63,22 +63,33 @@ $(function(){
     flowplayer(videos.find('.video_replace.'+show)[0]).play();
   });
   // switch tabs
-  $('.tab').click(function(){
+  $('.tab, .tab_link').click(function(e){
+    e.preventDefault();
     var tab = this.className.match(/(advanced|keywords|signs)/)[0];
     $('.tab, .search_form').removeClass('selected');
-    $(this).addClass('selected');
-    $('.search_form.'+tab).addClass('selected');
+    $('.tab.'+tab+', .search_form.'+tab).addClass('selected');
+  });
+  // show dropdown
+  $(document).click(function(){
+    hide_all_dropdowns();
+    return true; //so bubbles back up;
   });
   
-  // show dropdown
+  var hide_all_dropdowns = function(){
+    $('.dropdown').hide();
+    $('.dropdown_arrow').removeClass('selected');
+  };
+  
   $('.sign_attribute_selection').click(function(e){
     e.stopPropagation();
     e.preventDefault();
     var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
-    $('.dropdown').hide();
+    hide_all_dropdowns();
     $(this).find('.dropdown').toggle(hideOrShow);
+    $(this).find('.dropdown_arrow').toggleClass('selected', hideOrShow)
     return false;
   });
+  
   // select sign attributes
   $('.attribute_options').find('.group, .sub, .image').each(function(){
     $(this).click(function(e){
@@ -87,10 +98,7 @@ $(function(){
       update_selected_signs($(this).closest('.sign_attribute_selection'));
     });
   });
-  //$(document).click(function(){
-  //  $('.dropdown').hide();
-  //  return true; //so bubbles back up;
-  //});
+  
   var select_sign_attribute = function(sign){
     var wrapper;
     if ($(sign).hasClass('group')) {
@@ -107,6 +115,10 @@ $(function(){
     var selected_container = $('<div />', {'class':'selected_signs'});
     var selected_images = container.find('.selected:not(.group.selected .selected)').children('.image')
     selected_images.clone().appendTo(selected_container);
+    /* each of the images needs to be pointing to the smaller image. boom. */
+    selected_container.find('img').each(function(){
+      $(this).attr('src', $(this).attr('src').replace('/72/', '/42/'));
+    });
     container.find('.selected_signs').replaceWith(selected_container);
     //hide "Any" unless we've deselected everything.
     container.find('.default').toggle(selected_images.length == 0);
@@ -128,7 +140,25 @@ $(function(){
     }
     container.find('.selected_field').first().val(output.join(' '));
   }
-  
+  //sensible source-order, javascript-off-friendly placeholder labels.
+  //overlays the label on the input on load. hides it on click/focus.
+  //shows it if there's nothing in the field on blur.
+  if ($('label.input_prompt').length){
+    $('label.input_prompt').each(function(){
+      var label = $(this)
+      var input = $('#'+label.attr('for'));
+      label.css({width:input.outerWidth()+'px',height:input.outerHeight()+'px',position:'absolute',zIndex:99,lineHeight:input.outerHeight()+'px'})
+           .click(function(){
+              label.hide();
+           });
+      input.focus(function(){ label.hide(); })
+           .blur(function(){
+             if (input.val() == ''){
+                label.show();
+             }
+           });
+    });
+  }
   // reorder vocab sheet items
   if ($('ul#vocab_sheet').length){
     $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})//.disableSelection();

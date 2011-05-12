@@ -146,6 +146,6 @@ module StaticPagesHelper
   
   private 
   def classifier_image(partial_image_identifier)
-    return "/images/classifiers/Classifiers.#{partial_image_identifier}.png"
+    return "/images/classifiers/90/Classifiers.#{partial_image_identifier}.png"
   end
 end  
