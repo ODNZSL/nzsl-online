@@ -22,8 +22,8 @@ private
     search_keys = %w(s hs l lg usage tag)
     query = params.select{|k| search_keys.include? k}
     query.each do |k,v| 
-      if v.is_a? String
-        query[k] = [v] if k == 's'
+      if k == 's'
+        query[k] = [v] 
       else
         query[k] = v.split(' ')
       end

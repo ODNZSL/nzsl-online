@@ -31,7 +31,8 @@
           = link_to '', example[:video], :class => 'video_replace example_video normal'
           - if example[:video_slow]
             = link_to '', example[:video_slow], :class => 'video_replace example_video slow'
-          %p= example[:translation]
+          %p
+            %em= example[:translation]
           %p= render_transcription(example[:transcription], @sign.id)
           - if example[:video_slow]
             = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
@@ -49,7 +50,7 @@
           = "#{t('signs.show.age_groups')}: "
           %em= @sign.age_groups
       =#TODO @sign.usage_tag
-      - if @sign.borrowed_from
+      - if @sign.borrowed_from.present?
         %p
           = "#{t('signs.show.related_to')}: "
           %em= @sign.borrowed_from.upcase

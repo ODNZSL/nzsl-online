@@ -176,8 +176,8 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .search_box {-webkit-appearance:textfield; width:400px; height:24px; display:block; float:left;}
 .prompt_input_wrapper{float:left;}
 .text_input {border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa;}
-.text_input:focus {outline:0; border-color:#598afb;}
-.search_form {padding:10px 102px 10px 108px;}
+.text_input:focus {outline:0 !important; border-color:#598afb;}
+.search_form {padding:10px 102px 10px 108px; position:relative;}
 .search_form {display:none;}
 .selected {display:block;}
 
@@ -196,7 +196,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .attribute_options .group {width:71px; height:71px;}
 .attribute_options .selected {border-color:#598afb;}
 
-.image {background-position:center center; background-color:white; background-repeat:no-repeat; text-decoration:none; width:42px;height:42px; text-align:center; line-height:42px;}
+.image {text-decoration:none; width:42px;height:42px; text-align:center; line-height:42px;}
 .image img {vertical-align:middle;}
 .image .value {display:none;}
 .handshapes .main_image {margin:5px 15px;}
@@ -227,16 +227,18 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .input_prompt {text-indent:6px;}
 .default, .input_prompt {color:#777; font-style:italic;}
 .default {position:absolute; top:0; left:0;}
-.selected.dropdown_arrow{background:white; border:1px solid #99a0a5; margin:-1px; height:30px;}
-a.dropdown_arrow {float:right; color:#777; text-decoration:none; width:20px; height:auto; border:0; line-height:35px; background:transparent; position:absolute; z-index:30; margin:0; text-align:center; right: 6px; top:10px;}
+.selected.dropdown_arrow{background-color:white; border:1px solid #99a0a5; margin:-1px; height:30px;}
+a.dropdown_arrow {float:right; text-decoration:none; width:20px; height:35px; border:0; line-height:35px; background:url('/images/ui/arrow.png') no-repeat center 10px; position:absolute; z-index:30; margin:0; text-align:center; right: 6px; top:10px;}
 
-.selected.dropdown_arrow .border_mask {background:white; width:100%; height:3px; top:29px; position:absolute; left:0; z-index:31;}
+a.empty {background:url('/images/ui/clear.png') no-repeat center right; height:16px; width:auto; padding-right:14px; position:relative; border:0; z-index:31px; display:block; position:absolute;top:5px;right:118px;line-height:18px;color:#777;}
+a.empty:hover {border:0;background-color:transparent;color:#555;}
+.selected.dropdown_arrow .border_mask {background-color:white; width:100%; height:3px; top:29px; position:absolute; left:0; z-index:31;}
 
 .selected_signs {display:inline-block; position:relative; vertical-align:middle; height:42px; overflow:hidden; }
 .selected_signs_wrapper .selected_signs {width:193px; margin:-5px -6px 0;}
 .selected_signs .image {margin:0; float:left; width:42px; height:42px; margin:0 0 4px 4px;}
 
-
+.signs .button {position:relative;top:4px;}
  /* * * *\
 |* Grid *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -245,6 +247,9 @@ ol.grid, ul.grid {margin:0 -20px 1.2em 0; width:510px;}
 .grid li {display:block; padding:25px 0; float:left; width:150px; margin:0 20px 0 0;}
 .grid_drawing {height:90px; width:150px; display:block; margin-bottom:10px;}
 .grid .row_start {clear:left;}
+
+.grid4 li {width:107px; padding:16px 0;}
+.grid4 .grid_drawing {height:82px; width:107px;}
 
  /* * * * * * * * * *\
 |* Entry & Results  *|
@@ -255,12 +260,10 @@ ol.grid, ul.grid {margin:0 -20px 1.2em 0; width:510px;}
 .grammar {margin-bottom:1.2em;}
 
 a.drawing {border:0; background:transparent;}
-.drawing img {display:block;}
+.drawing img {display:inline;vertical-align:bottom;}
 .drawing .border_killer {overflow:hidden; float:left;}
 .drawing .border_killer img {margin:-2px;}
 
-/*ol.results {margin:0;}
-*/
 .entry_drawing {float:right; margin:24px 0 20px;}
 .entry_drawing .offset {right:-10%; position:relative;}
 
@@ -268,7 +271,7 @@ a.drawing {border:0; background:transparent;}
 
 .examples {clear:both;}
 .example {margin:10px 0 24px;}
-.example_video {width:161px; height:120px; float:left; clear:left; margin-right:16px;}
+.example_video {width:240px; height:180px; float:left; clear:left; margin-right:16px;}
 
 .videos .slow {display:none;}
 
@@ -339,9 +342,6 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
  /* * * * *\
 |* Pages  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/* Alphabet */
-.alphabet li img,
-.classifiers li img {height:90px;}
 /* Homepage */
 .sign_of_the_day {text-align:center; float:right; margin:45px 0 0; width:150px;}
 .sign_of_the_day img {display:inline;}
@@ -376,7 +376,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
  
 .button,
-.button .r {background-image: url('/images/ui/buttons.png');border:0;}
+.button .r {background-image: url('/images/ui/buttons.png');border:0;cursor:pointer;}
 .button {background-position:-6px top; position:relative; height:24px; display:inline-block; line-height:24px; padding:0 4px 0 10px; color:white; text-decoration:none; font-size:93%; margin:0 6px 0 0;}
 .button .r {background-position:left top; width:7px; right:-7px; height:24px;}
 .button:hover .r {background-position:left -23px;}
@@ -402,6 +402,9 @@ a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
 .rounded {-webkit-border-radius:4px; -moz-border-radius:4px; -o-border-radius:4px; border-radius:4px;}
 .transition {-webkit-transition-duration:0.5s; -webkit-transition-property:width height background; -webkit-transition-time:1s;}
 .vertical_space {padding-bottom:16px;}
+.shadow {-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.5);
+            -moz-box-shadow:0 2px 3px rgba(0,0,0,0.5);
+                 box-shadow:0 2px 3px rgba(0,0,0,0.5);}
 /* boiler-plate utilities */
 
 .ir { display: block; text-indent: -999em; overflow: hidden; background-repeat: no-repeat; text-align: left; direction: ltr; }

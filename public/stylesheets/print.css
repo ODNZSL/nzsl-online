@@ -1,5 +1,5 @@
 /* from boilerplate */
-  .center *, .main_column *{ background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+  body, .center *, .main_column *{ background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
   -ms-filter: none !important; } 
   .center a, .main_column a { color: #444 !important; text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
@@ -20,10 +20,11 @@
   .logo,
   .flashes,
   object,
-  .video_replace,
   .view_print_back_link,
   .remove
   {display:none;}
+  
+  .video_replace {height:auto;}
   a.drawing {text-decoration:none;}
 /* hiding link destinations after text */
   a.drawing:after {content:"";}
@@ -40,3 +41,4 @@
   /* fix rules */
   .rule_after, h1, .h1
   {border-bottom:1px solid black;}
+  
