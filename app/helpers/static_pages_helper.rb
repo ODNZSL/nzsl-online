@@ -63,6 +63,10 @@ module StaticPagesHelper
   def signs_from_array(array)
     array.map{|v| [v[0], Sign.find(:id => v[1])]}.reject{|v| v[1].nil? }
   end
+  def link_sign name, id
+    return link_to name, sign_path(id) if Sign.find(:id => id)
+    return name
+  end
   def classifiers
     {
       :sass => [

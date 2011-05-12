@@ -22,9 +22,9 @@ module SearchHelper
   end
   
   #these images have been resized with
-  # mogrify -resize 42x42 -background white -gravity center -extent 42x42 *.png
+  # mogrify -negate -alpha copy -negate -resize 42x42 -background transparent -gravity center -extent 42x42 *.png
   # or
-  # mogrify -resize 72x72 -background white -gravity center -extent 72x72 *.png
+  # mogrify -negate -alpha copy -negate -resize 72x72 -background transparent -gravity center -extent 72x72 *.png
   
   # Sign Attribute is Selected?
   
