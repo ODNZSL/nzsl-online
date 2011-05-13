@@ -1,14 +1,6 @@
 %h1.search_results_for
   = t('search.results.for')
-  &ldquo;
-  = search_term('s')
-  .selected_signs
-    = display_handshapes_search_term
-    = display_locations_search_term
-    = display_location_groups_search_term
-  = display_usage_tag_search_term
-  = display_topic_tag_search_term
-  &rdquo;
+  &ldquo;#{display_search_term}&rdquo;
 %em= "#{@results_total} results."
 %ol.grid.results.clearfix.rule_after
   - @signs.each_with_index do |result, i|

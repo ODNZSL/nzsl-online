@@ -1,8 +1,48 @@
-%h1 Numbers
-= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(numbers_listing)}
-%h2 Ordinal Number
-= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(ordinal_numbers_listing)}
-%h2 Fractions
-= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(fractions_listing)}
-%h2 Time
-= render :partial => 'static_pages/grid', :locals => {:group => signs_from_array(time_listing)}
+.typography.rule_after
+  :markdown
+    Numbers Signs
+    =============
+  
+    Many numbers have alternate or varying forms in NZSL. Variation in numbers is 
+    linked to age, region, and personal preference of signers. New (Auslan) numbers 
+    were introduced into schools with Australasian Signed English in 1979, 
+    which differed from the number signs used by earlier generations.
+  
+    NZSL has several systems that incorporate number in which a number sign has a 
+    distinct movement and/or location including:
+    
+    * [Cardinal Numbers](#cardinal) (counting)
+    * [Ordinal Numbers](#ordinal) (ordering: 1st)
+    * [Age](#age)
+    * [Clock Time](#clock)
+    * [Calendar Time](#calendar)
+    * [Money](#money)
+    * [Fractions](#fractions)
+- unless numbers[:cardinal].length.zero?
+  .typography
+    %h2#cardinal Cardinal Numbers
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:cardinal]}
+- unless numbers[:ordinal].length.zero?
+  .typography
+    %h2#ordinal Ordinal Numbers
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:ordinal]}
+- unless numbers[:age].length.zero?
+  .typography
+    %h2#age Age
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:age]}
+- unless numbers[:clock].length.zero?
+  .typography
+    %h2#clock Clock Time
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:clock]}
+- unless numbers[:calendar]
+  .typography
+    %h2#calendar Calendar Time
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:calendar]}
+- unless numbers[:money].length.zero?
+  .typography
+    %h2#money Money
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:money]}
+- unless numbers[:fractions].length.zero?
+  .typography
+    %h2#fractions Fractions
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:fractions]}

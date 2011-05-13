@@ -188,7 +188,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .dropdown {position:absolute; top:30px; left:-175px; background:white; border:1px solid #99a0a5; z-index:10; display:none; padding-top:4px;}
 .handshapes .dropdown {width:452px;}
 .locations .dropdown {width:536px; left:-380px;}
-.dropdown .title {padding:3px 3px 7px; line-height:1;}
+.dropdown .title {padding:3px 3px 7px; line-height:1;text-align:left;}
 .dropdown .close {position:absolute; top:5px; right:5px; background:url('/images/ui/close_search.png') right center no-repeat; padding-right:20px; height:15px; line-height:15px;}
 
 .attribute_options .row {clear:left;}
@@ -231,7 +231,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .default, .input_prompt {color:#777; font-style:italic;}
 .default {position:absolute; top:0; left:0;}
 .selected.dropdown_arrow{background-color:white; border:1px solid #99a0a5; margin:-1px; height:30px;}
-a.dropdown_arrow {float:right; text-decoration:none; width:20px; height:35px; border:0; line-height:35px; background:url('/images/ui/arrow.png') no-repeat center 10px; position:absolute; z-index:30; margin:0; text-align:center; right: 6px; top:10px;}
+a.dropdown_arrow {float:right; text-decoration:none; width:20px; height:35px; border:0; line-height:35px; background:url('/images/ui/arrow.png') no-repeat center 10px; position:absolute; z-index:30; margin:0; text-align:center; right: 6px; top:10px; color:#777;}
 
 a.empty {background:url('/images/ui/clear.png') no-repeat center right; height:16px; width:auto; padding-right:14px; position:relative; border:0; z-index:31px; display:block; position:absolute;top:5px;right:118px;line-height:18px;color:#777;}
 a.empty:hover {border:0;background-color:transparent;color:#555;}

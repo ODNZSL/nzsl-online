@@ -77,6 +77,13 @@ module SearchHelper
     h @query[key].join(' ') unless @query[key].blank?
   end
   
+  def display_search_term
+    p [search_term('s'),
+     content_tag(:div, [display_handshapes_search_term, display_locations_search_term, display_location_groups_search_term].compact.join(' ').html_safe, :class => 'selected_signs'),
+     display_usage_tag_search_term,
+     display_topic_tag_search_term].compact.join(' ').html_safe
+    
+  end
 private
   def value_for_sign_attribute number, attribute, main
     if attribute == :handshape
