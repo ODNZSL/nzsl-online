@@ -14,8 +14,7 @@
     * [Cardinal Numbers](#cardinal) (counting)
     * [Ordinal Numbers](#ordinal) (ordering: 1st)
     * [Age](#age)
-    * [Clock Time](#clock)
-    * [Calendar Time](#calendar)
+    * [Time](#time)
     * [Money](#money)
     * [Fractions](#fractions)
 - unless numbers[:cardinal].length.zero?
@@ -30,14 +29,10 @@
   .typography
     %h2#age Age
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:age]}
-- unless numbers[:clock].length.zero?
+- unless numbers[:time].length.zero?
   .typography
-    %h2#clock Clock Time
+    %h2#time Clock Time
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:clock]}
-- unless numbers[:calendar]
-  .typography
-    %h2#calendar Calendar Time
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:calendar]}
 - unless numbers[:money].length.zero?
   .typography
     %h2#money Money
