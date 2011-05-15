@@ -5,6 +5,6 @@ class FeedbackMailer < ActionMailer::Base
   def email(model)
     @feedback = model
     attachments[@feedback.video_file_name] = File.read(@feedback.video.path) if @feedback.video_file_name
-    mail(:subject => "Website Feedback")
+    mail(:subject => "NZSL Website Feedback")
   end
 end
