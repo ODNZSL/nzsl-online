@@ -1,1 +1,3 @@
-= search_field_tag :s, search_term(:s), :class => 'search_box text_input'
+.prompt_input_wrapper
+  = label_tag :"s_#{id}", t('search.keywords.prompt').html_safe, :class => 'input_prompt', :style => "display:#{search_term(:s).present? ? 'none' : 'inline-block'}"
+  = search_field_tag :"s_#{id}", search_term(:s), :class => 'search_box text_input', :name => :s

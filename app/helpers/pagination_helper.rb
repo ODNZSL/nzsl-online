@@ -3,24 +3,20 @@ module PaginationHelper
   def pagination_links
     total_pages = (session[:search][:count].to_f / Sign::RESULTS_PER_PAGE).ceil
     page = session[:search][:p]
-  
-    links = pages(page, total_pages)
-    query = query_for_query_string
-    links.map! do |link_text|
-      if link_text == 'previous' && page != 1
-        page_link = page - 1
-      elsif link_text == 'next' && page != total_pages
-        page_link = page + 1
-      elsif link_text.is_a?(Numeric) && page != link_text
-        page_link = link_text
+    pages(page, total_pages).map do |link_text|
+      if link_text.is_a?(Numeric) && page != link_text
+        link_to_page = link_text
+      elsif link_text == t('pagination.previous') && page != 1
+        link_to_page = page - 1
+      elsif link_text == t('pagination.next') && page != total_pages
+        link_to_page = page + 1
       end
-      if page_link
-        content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(query.merge(:p => page_link)))
+      if link_to_page
+        content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(query_for_query_string.merge(:p => link_to_page)))
       else
         content_tag :li, (content_tag :span, link_text, :class => (page == link_text ? 'current a' : 'a'))
       end
-    end
-    links.join("\n").html_safe
+    end.join("\n").html_safe
   end
 
 private
@@ -51,7 +47,7 @@ private
         end
       end.compact!
     end
-    ['previous'] + pages_to_link + ['next']
+    [t('pagination.previous')] + pages_to_link + [t('pagination.next')]
   end
   
 end

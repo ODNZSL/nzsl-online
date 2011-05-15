@@ -1,8 +1,9 @@
 .sign_attribute_selection.handshapes.text_input
-  = hidden_field_tag :hs, search_term(:hs), {:class => 'selected_field'}
+  = hidden_field_tag :"hs_#{id}", search_term(:hs), :class => 'selected_field', :name => :hs
+  
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
-    ▼
-    .attribute_options.clearfix.dropdown
+    .border_mask
+    .attribute_options.clearfix.dropdown.shadow{:style => "display:none"}
       .title=t('search.signs.handshapes_help');
       .close=t('search.close')
       - Sign.handshapes.each do |row|
@@ -18,13 +19,13 @@
     .selected_signs
       = display_handshapes_search_term
     .default{:style => "display:#{@query[:hs].blank? ? 'block' : 'none'}"}= t('search.signs.default_handshape')
-
 .sign_attribute_selection.locations.text_input
-  = hidden_field_tag :l, search_term(:l), {:class => 'selected_field'}
-  = hidden_field_tag :lg, search_term(:lg), {:class => 'selected_groups_field'}
+  = hidden_field_tag :"l_#{id}", search_term(:l), :class => 'selected_field', :name => :l
+  = hidden_field_tag :"lg_#{id}", search_term(:lg), :class => 'selected_groups_field', :name => :lg
+  
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
-    ▼
-    .attribute_options.clearfix.dropdown
+    .border_mask
+    .attribute_options.clearfix.dropdown.shadow{:style => "display:none"}
       .title=t('search.signs.locations_help');
       .close=t('search.close')
       - Sign.locations.each_with_index do |row, i|
@@ -39,3 +40,5 @@
       = display_locations_search_term
       = display_location_groups_search_term
     .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.signs.default_location')
+
+%a.empty{:href => 'javascript:void(0);'} clear

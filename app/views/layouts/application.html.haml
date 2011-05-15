@@ -10,22 +10,23 @@
   %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
   = favicon_link_tag
   = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
-  = stylesheet_link_tag 'formtastic', 'application', :media => :all
-  = stylesheet_link_tag 'print', :media => :print
+  = stylesheet_link_tag 'application', :media => :all
   = yield :head
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   %title= page_title
   = javascript_include_tag 'modernizr.min.js', 'flowplayer-3.2.6.min.js'
-  = csrf_meta_tag
+  = print_stylesheet_tag params[:print]
 %body{:class => vocab_sheet?}
   .not_sticky_footer
     = render :partial => 'shared/vocab_sheet' if vocab_sheet?
     = render :partial => 'shared/header'
     %div.before_sticky_footer.main_column
+      = render :partial => 'shared/flashes', :locals => {:prefix => ''}
+      = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   %footer.sticky_footer.footer
-    .center.main_column
+    .main_column
       %nav
         = static_links.map { |link| render_navigation_link(link) }.join(' | ').html_safe
       .copyright

@@ -1,4 +1,4 @@
-%ul#flashes
-  - [:notice, :error].each do |thing|
-    = content_tag :li, flash[thing], :class => "flash #{thing.to_s}" if flash[thing]
+- [:"#{prefix}notice", :"#{prefix}error"].each do |ea|
+  - if flash[ea]
+    .flash{:class => "flash #{ea.to_s} rounded"}= flash[ea]
 

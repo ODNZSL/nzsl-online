@@ -1,15 +1,14 @@
 = content_for :scripts do
   = javascript_include_tag 'jquery-ui.min.js'
-  
 = content_for :head do
   = stylesheet_link_tag 'smoothness/jquery-ui.css'
-
+= form_tag vocab_sheet_path, :method => :delete, :class => 'vocab_sheet_buttons' do
+  = link_button 'vocab_sheet.print', {:print => true}
+  = submit_button 'vocab_sheet.delete'
 %h1 Your Vocab Sheet
-.vocab_sheet.vocab_sheet_page
-  - if @sheet.items.length > 0
+- if @sheet.items.length > 0
+  .vocab_sheet.vocab_sheet_page.rule_after.clearfix
     = content_tag :ul, :id => 'vocab_sheet', :class => 'clearfix' do
       = render :partial => 'vocab_sheets/vocab_sheet_item', :collection => @sheet.items
-  - else
-    %div.empty= t('vocab_sheet.empty')
-= form_tag vocab_sheet_path, :method => :delete do
-  = submit_button 'vocab_sheet.delete', :class => 'empty_vocab_sheet'
+- else
+  %em= t('vocab_sheet.empty')

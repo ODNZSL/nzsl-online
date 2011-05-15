@@ -19,11 +19,16 @@ class SignsController < ApplicationController
   
 private
   def process_search_query params
-    #search_keys = [:s,:hs,:l,:lg,:usage,:tag]
     search_keys = %w(s hs l lg usage tag)
     query = params.select{|k| search_keys.include? k}
-    query.each { |k,v| query[k] = v.is_a?(String) ? v.split(' ') : v }
-    return HashWithIndifferentAccess.new query
+    query.each do |k,v| 
+      if k == 's'
+        query[k] = [v] 
+      else
+        query[k] = v.split(' ')
+      end
+    end
+    return HashWithIndifferentAccess.new(query)
   end
 end
 

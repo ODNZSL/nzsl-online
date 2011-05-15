@@ -4,16 +4,18 @@ class ItemsController < ApplicationController
   respond_to :html, :json
 
   def create
-    @item = Item.new
-    @item.sign = Sign.first({:id => params[:sign_id]}) if params[:sign_id]
-    @item.name = params[:name].to_s if params[:name]
-    if @sheet.items.include?(@item)
+    if @sheet.items.any?{|i| i.sign_id == params[:sign_id].to_i}
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
-    elsif @item.valid?
-      @sheet.items << @item
-      flash[:error] = t('vocab_sheet.item.add_success')
     else
-      flash[:error] = t('vocab_sheet.item.add_failure')
+      @item = Item.new
+      @item.sign = Sign.first({:id => params[:sign_id]}) if params[:sign_id]
+      @item.name = params[:name].to_s if params[:name]
+      if @item.valid?
+        @sheet.items << @item
+        flash[:error] = t('vocab_sheet.item.add_success')
+      else
+        flash[:error] = t('vocab_sheet.item.add_failure')
+      end
     end
     respond_with_json_or_redirect(@item)
   end
@@ -31,9 +33,13 @@ class ItemsController < ApplicationController
 
   def destroy
     if @item = @sheet.items.find(params[:id]).destroy
-      flash[:notice] = t('vocab_sheet.item.remove_success')
+      if @sheet.items.length.zero?
+        flash[:vocab_bar_notice] = t('vocab_sheet.delete_success')
+      else
+        flash[:vocab_bar_notice] = t('vocab_sheet.item.remove_success')
+      end
     else
-      flash[:error] = t('vocab_sheet.item.remove_failure')
+      flash[:vocab_bar_error] = t('vocab_sheet.item.remove_failure')
     end
     respond_with_json_or_redirect(@item)
   end

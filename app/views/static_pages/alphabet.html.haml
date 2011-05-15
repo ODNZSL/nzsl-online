@@ -1,13 +1,13 @@
 %h1 Alphabet
-%div= link_to "", "/images/alphabet/Entire_Alphabet.over_shoulder_black.flv", :class => 'video_replace main_video'
-%p Entire alphabet over the shoulder
-%div= link_to "", "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
-%p Entire alphabet
-%ul.alphabet.rule_after.grid.clearfix
+%h3 Entire alphabet over the shoulder
+%div.rule_after.clearfix= link_to "", "/images/alphabet/Entire_Alphabet.over_shoulder_black.flv", :class => 'video_replace main_video'
+%h3 Entire alphabet
+%div.rule_after.clearfix= link_to "", "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
+
+%ol.alphabet.rule_after.grid.grid4.clearfix
   - alphabet_listing.each_with_index do |letter, i|
-    %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
+    %li{:class => (i.multiple_of?(4) ? 'row_start' : nil)}
       %div.grid_drawing.drawing
-        = image_tag "/images/alphabet/Alphabet.#{letter}.png", :alt => letter.humanize
+        = image_tag "/images/alphabet/82/Alphabet.#{letter}.png", :alt => letter.humanize
       %div.h2.main_gloss
         = letter.humanize
-    
