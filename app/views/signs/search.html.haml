@@ -7,15 +7,16 @@
   - @signs.in_groups_of(3) do |row|
     .row_start
       - row.each do |result|
-        %li
-          = link_to sign_url(result.id), {:class => 'drawing grid_drawing'} do
-            = image_tag "/images/signs/150-100/#{result.drawing}"
-          = link_to sign_url(result.id), {:class => 'main_gloss'} do
-            = result.gloss_main
-          - if result.gloss_secondary.present?
-            %span.h4.secondary_gloss= result.gloss_secondary
-          - if result.word_classes.present?
-            %span.word_class= result.word_classes
+        - if result
+          %li
+            = link_to sign_url(result.id), {:class => 'drawing grid_drawing'} do
+              = image_tag "/images/signs/150-100/#{result.drawing}"
+            = link_to sign_url(result.id), {:class => 'main_gloss'} do
+              = result.gloss_main
+            - if result.gloss_secondary.present?
+              %span.h4.secondary_gloss= result.gloss_secondary
+            - if result.word_classes.present?
+              %span.word_class= result.word_classes
 - if @results_total > Sign::RESULTS_PER_PAGE
   %ol.rule_after.pagination.clearfix
     = pagination_links
