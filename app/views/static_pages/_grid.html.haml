@@ -1,4 +1,4 @@
-%ol.grid.clearfix.rule_after.classifiers
+%ol.grid.clearfix.rule_after
   - group.each_with_index do |ea, i|
     %li{:class => (i.multiple_of?(3) ? 'row_start' : nil)}
       - if ea.last.is_a?(String)

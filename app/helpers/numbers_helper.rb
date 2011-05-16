@@ -1,15 +1,6 @@
 module NumbersHelper
-  def numbers
-    {:cardinal => signs_from_array(cardinal_array),
-     :ordinal  => signs_from_array(ordinal_array),
-     :fractions => signs_from_array(fractions_array),
-     :time => signs_from_array(time_array),
-     :age => signs_from_array(age_array),
-     :money => signs_from_array(money_array)
-    }
-  end
-private
-  def cardinal_array
+  
+  def self.cardinal_array
    [[0, 5655],
     [0, 4056],
     [1, 5607],
@@ -81,17 +72,17 @@ private
     ['1,000,000 (million)', 1109],
     ['1,000,000,000 (billion)', 4086]]
   end
-  def ordinal_array
+  def self.ordinal_array
    [['first', 5663],
     ['second', 5438],
     ['third', 5689]]
   end
-  def fractions_array
+  def self.fractions_array
    [['1/2', 6235],
     ['1/3', 6232],
     ['1/4', 6236]]
   end
-  def time_array
+  def self.time_array
    [['One hour', 5425],
     ['One o\'clock', 5662],
     ['Quarter (to / past the hour)', 787],
@@ -100,15 +91,21 @@ private
     ['Half past', 6230],
     ['Past (the hour)', 6229]]
   end
-  def age_array
+  def self.age_array
    [['One year old', 2099]]
   end
-  def money_array
-   [['One dollar', 6233]
+  def self.money_array
+   [['One dollar', 6233],
     ['One dollar', 6234]]
   end
 
-  def signs_from_array(array)
+  def self.signs_from_array(array)
     array.map{|v| [v[0], Sign.find(:id => v[1])]}.reject{|v| v[1].nil? }
   end
+  NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
+             :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array), 
+             :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
+             :time      => NumbersHelper.signs_from_array(NumbersHelper.time_array),
+             :age       => NumbersHelper.signs_from_array(NumbersHelper.age_array),
+             :money     => NumbersHelper.signs_from_array(NumbersHelper.money_array)}
 end

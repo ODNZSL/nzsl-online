@@ -17,27 +17,27 @@
     * [Time](#time)
     * [Money](#money)
     * [Fractions](#fractions)
-- unless numbers[:cardinal].length.zero?
+- unless NUMBERS[:cardinal].length.zero?
   .typography
     %h2#cardinal Cardinal Numbers
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:cardinal]}
-- unless numbers[:ordinal].length.zero?
+- unless NUMBERS[:ordinal].length.zero?
   .typography
     %h2#ordinal Ordinal Numbers
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:ordinal]}
-- unless numbers[:age].length.zero?
+- unless NUMBERS[:age].length.zero?
   .typography
     %h2#age Age
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:age]}
-- unless numbers[:time].length.zero?
+- unless NUMBERS[:time].length.zero?
   .typography
-    %h2#time Clock Time
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:clock]}
-- unless numbers[:money].length.zero?
+    %h2#time Time
+  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:time]}
+- unless NUMBERS[:money].length.zero?
   .typography
     %h2#money Money
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:money]}
-- unless numbers[:fractions].length.zero?
+- unless NUMBERS[:fractions].length.zero?
   .typography
     %h2#fractions Fractions
   = render :partial => 'static_pages/grid', :locals => {:group => numbers[:fractions]}

@@ -195,6 +195,7 @@ class Sign
      ['Maths',                                     47],
      ['Computers',                                 48]]
   end
+  
 private
 
   def self.search(params)
