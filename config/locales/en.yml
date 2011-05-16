@@ -89,6 +89,7 @@ en:
     submit: Send Feedback
   feedback:
     video_size_limit: Maximum size 5mb.
+    email_hint: If provided, must be a valid email address
     submit: Send Feedback
     success: Your feedback has been sent
     failure: Your feedback didn't send
