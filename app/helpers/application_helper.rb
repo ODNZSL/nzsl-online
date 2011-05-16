@@ -22,7 +22,7 @@ module ApplicationHelper
   end
   
   def submit_button text = 'search.submit', options = {}
-    "<div class='button'>
+    "<div class='button input_button'>
       <div class='r'></div>
       #{submit_tag(t(text), options.merge({:name => nil}))}
      </div>".html_safe
@@ -30,7 +30,7 @@ module ApplicationHelper
   
   def link_button text, url=nil, options = {}
     url ||='javascript:void(0);'
-    link_to "<div class='r'></div>#{t(text)}".html_safe, url, {:class => 'button'}.merge(options)
+    link_to "<div class='r'></div>#{t(text)}".html_safe, url, {:class => 'button link_button'}.merge(options)
   end
   
   def query_for_query_string

@@ -26,6 +26,7 @@ private
   def respond_with_json_or_redirect(object, redirect = nil)
     respond_with(object) do |format|
       format.html { redirect ? redirect_to(redirect) : redirect_back_or_default }
+      format.js { render :text => object.to_json }
     end
   end
   

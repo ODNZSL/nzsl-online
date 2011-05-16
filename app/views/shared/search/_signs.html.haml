@@ -40,5 +40,3 @@
       = display_locations_search_term
       = display_location_groups_search_term
     .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.signs.default_location')
-
-%a.empty{:href => 'javascript:void(0);'} clear

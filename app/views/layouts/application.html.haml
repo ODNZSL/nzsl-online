@@ -10,13 +10,13 @@
   %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
   = favicon_link_tag
   = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
+  = javascript_include_tag 'modernizr.min.js'
   = stylesheet_link_tag 'application', :media => :all
   = yield :head
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   %title= page_title
-  = javascript_include_tag 'modernizr.min.js', 'flowplayer-3.2.6.min.js'
-  = print_stylesheet_tag params[:print]
+  = # print_stylesheet_tag params[:print]
 %body{:class => vocab_sheet?}
   .not_sticky_footer
     = render :partial => 'shared/vocab_sheet' if vocab_sheet?
@@ -27,11 +27,11 @@
       = yield
   %footer.sticky_footer.footer
     .main_column
-      %nav
+      .nav
         = static_links.map { |link| render_navigation_link(link) }.join(' | ').html_safe
       .copyright
         :markdown
           Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
 
-  = javascript_include_tag :defaults, :cache => 'nzsl-cache.js'
+  = javascript_include_tag 'flowplayer-3.2.6.min.js', :defaults, :cache => 'nzsl-cache.js'
   = yield :scripts

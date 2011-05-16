@@ -102,10 +102,10 @@ module NumbersHelper
   def self.signs_from_array(array)
     array.map{|v| [v[0], Sign.find(:id => v[1])]}.reject{|v| v[1].nil? }
   end
-  NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
-             :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array), 
-             :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
-             :time      => NumbersHelper.signs_from_array(NumbersHelper.time_array),
-             :age       => NumbersHelper.signs_from_array(NumbersHelper.age_array),
-             :money     => NumbersHelper.signs_from_array(NumbersHelper.money_array)}
+  #NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
+  #           :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array), 
+  #           :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
+  #           :time      => NumbersHelper.signs_from_array(NumbersHelper.time_array),
+  #           :age       => NumbersHelper.signs_from_array(NumbersHelper.age_array),
+  #           :money     => NumbersHelper.signs_from_array(NumbersHelper.money_array)}
 end

@@ -1,8 +1,8 @@
 module PaginationHelper
   #This helper is reliant on information stored in the session to get the results total and the page number
   def pagination_links
-    total_pages = (session[:search][:count].to_f / Sign::RESULTS_PER_PAGE).ceil
-    page = session[:search][:p]
+    total_pages = (@results_total.to_f / Sign::RESULTS_PER_PAGE).ceil
+    page = @page_number
     pages(page, total_pages).map do |link_text|
       if link_text.is_a?(Numeric) && page != link_text
         link_to_page = link_text

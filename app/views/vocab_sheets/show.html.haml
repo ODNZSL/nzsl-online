@@ -6,6 +6,7 @@
   = link_button 'vocab_sheet.print', {:print => true}
   = submit_button 'vocab_sheet.delete'
 %h1 Your Vocab Sheet
+.if_js= t('vocab_sheet.sortable_instruction')
 - if @sheet.items.length > 0
   .vocab_sheet.vocab_sheet_page.rule_after.clearfix
     = content_tag :ul, :id => 'vocab_sheet', :class => 'clearfix' do

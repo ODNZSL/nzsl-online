@@ -66,10 +66,12 @@ $(function(){
   });
   // switch tabs
   $('.tab, .tab_link').click(function(e){
+    
     e.preventDefault();
     var tab = this.className.match(/(advanced|keywords|signs)/)[0];
     $('.tab, .search_form').removeClass('selected');
     $('.tab.'+tab+', .search_form.'+tab).addClass('selected');
+    reset_menu_position()
   });
   // show dropdown
   $(document).click(function(){
@@ -80,6 +82,7 @@ $(function(){
   var hide_all_dropdowns = function(){
     $('.dropdown').hide();
     $('.dropdown_arrow').removeClass('selected shadow');
+    $('.sign_attribute_selection').css('zIndex', '30')
   };
   
   $('.sign_attribute_selection').click(function(e){
@@ -89,6 +92,10 @@ $(function(){
     hide_all_dropdowns();
     $(this).find('.dropdown').toggle(hideOrShow);
     $(this).find('.dropdown_arrow').toggleClass('selected shadow', hideOrShow)
+    if (hideOrShow) {
+      //for IE7 and his layering issues
+      $(this).closest('.sign_attribute_selection').css('zIndex', '100')
+    }
     return false;
   });
   
@@ -149,6 +156,14 @@ $(function(){
     }
     container.find('.selected_field').first().val(output.join(' '));
   }
+  
+  var reset_menu_position = function(){
+    // this is insane.
+    // IE7 was getting not updating the position of the menus when we show and hid search bars
+    // so I'll do it manually.
+    var btm = $('.menu').css('bottom')
+    $('.menu').css('bottom', '0').css('bottom', btm)
+  }
   //sensible source-order, javascript-off-friendly placeholder labels.
   //overlays the label on the input on load. hides it on click/focus.
   //shows it if there's nothing in the field on blur.
@@ -156,7 +171,7 @@ $(function(){
     $('label.input_prompt').each(function(){
       var label = $(this)
       var input = $('#'+label.attr('for'));
-      label.css({width:input.outerWidth()+'px',height:input.outerHeight()+'px',position:'absolute',zIndex:99,lineHeight:input.outerHeight()+'px'})
+      label.css({width:input.outerWidth()+'px',top:'0',left:'0',height:input.outerHeight()+'px',position:'absolute',zIndex:99,lineHeight:input.outerHeight()+'px'})
            .click(function(){
               label.hide();
            });
@@ -167,15 +182,41 @@ $(function(){
              }
            });
     });
+    reset_menu_position();
   }
+  
   // reorder vocab sheet items
   if ($('ul#vocab_sheet').length){
-    $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})//.disableSelection();
+    $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})
+    $('ul#vocab_sheet .button').hide();
     var reorderVocabSheet = function(event, ui) {
       new_order = [];
       $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
-      $.post('#{reorder_vocab_sheet_items_path}', {'items[]': new_order});
+      $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
     };
+    // change the name of vocab sheet items
+    var submit_vocab_item = function(input){
+      input.val($.trim(input.val()));
+      if (input.val() === '') {
+        input.val(input.next('.old_name').val());
+      } else if (input.val() !== input.next('.old_name').val() && input.val() !== ''){
+        var form = input.parent('form')
+        $.post(form.attr('action'), form.serialize(), function(data){
+          input.next('.old_name').val(data);
+          input.val(data);
+          console.log(data)
+        });
+      }
+    }
+    $('ul#vocab_sheet textarea').keypress(function(e){
+      if (e.which == 13) {
+        e.preventDefault()
+        $(this).blur();
+        return false;
+      } else {
+        return true;
+      }
+    }).blur(function(){submit_vocab_item($(this))});
   }
   
 });
