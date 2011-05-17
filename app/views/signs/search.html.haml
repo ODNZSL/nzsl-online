@@ -1,7 +1,8 @@
 %h1.search_results_for
   = t('search.results.for')
   &ldquo;#{display_search_term}&rdquo;
-%em= "#{@results_total} results."
+%em
+  = pluralize @results_total, t('search.results.results')
 /with divs because of IE7
 %ol.grid.results.clearfix.rule_after
   - @signs.in_groups_of(3) do |row|

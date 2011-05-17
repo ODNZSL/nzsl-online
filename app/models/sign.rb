@@ -161,7 +161,6 @@ class Sign
      ['Deaf-related',                              12],
      ['Direction, location and spatial relations', 13],        
      ['Events and celebrations',                   14],
-     ['Family',                                    15],
      ['Food and drink',                            16],
      ['Education',                                 17],
      ['Emotions',                                  18],
