@@ -26,12 +26,13 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   %footer.sticky_footer.footer
-    .main_column
+    .center
       .nav
         = static_links.map { |link| render_navigation_link(link) }.join(' | ').html_safe
-      .copyright
-        :markdown
-          Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
+      .main_column
+        .copyright
+          :markdown
+            Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
 
   = javascript_include_tag 'flowplayer-3.2.6.min.js', :defaults, :cache => 'nzsl-cache.js'
   = yield :scripts
