@@ -74,12 +74,16 @@ module SearchHelper
   end
 
   def search_term(key)
-    h @query[key].join(' ') unless @query[key].blank?
+    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?)
+    h @query[key].join(' ')
   end
   
   def display_search_term
+    debugger
     [search_term('s'),
-     content_tag(:div, [display_handshapes_search_term, display_locations_search_term, display_location_groups_search_term].compact.join(' ').html_safe, :class => 'selected_signs'),
+     display_handshapes_search_term,
+     display_locations_search_term,
+     display_location_groups_search_term,
      display_usage_tag_search_term,
      display_topic_tag_search_term].compact.join(' ').html_safe
     
