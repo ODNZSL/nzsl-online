@@ -162,7 +162,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .search_tabs li.selected .l,
 .search_tabs li.selected .r{background:none;}
 
-.menu { position:absolute; bottom:-30px; left:0; margin:0; padding:0; height:29px; width:100%;z-index:7;}
+.menu { position:absolute; bottom:-30px; left:0; margin:0; padding:0; height:29px; width:100%;z-index:6;}
 .menu_background {background:url('/images/ui/nav.png');z-index:2;}
 .menu .center {z-index:6;}
 .menu li {float:left; background:url('/images/ui/nav.png') bottom left no-repeat; height:29px; list-style-type:none;}
