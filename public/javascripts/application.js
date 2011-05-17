@@ -13,7 +13,7 @@ $(function(){
     }
   }
   if ($('a.video_replace')){
-    flowplayer('a.video_replace', '/flowplayer-3.2.7.swf', {
+    flowplayer('a.video_replace', {src: '/flowplayer-3.2.7.swf', wmode: 'transparent'}, {
       clip: {
         autoPlay: false,
         autoBuffering: false

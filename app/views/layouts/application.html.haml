@@ -16,7 +16,7 @@
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   %title= page_title
-  = # print_stylesheet_tag params[:print]
+  = print_stylesheet_tag params[:print]
 %body{:class => vocab_sheet?}
   .not_sticky_footer
     = render :partial => 'shared/vocab_sheet' if vocab_sheet?

@@ -169,6 +169,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .menu li.first {background:transparent;}
 .menu a, 
 .menu span {text-decoration:none; color:#34414b; line-height:25px; padding:0 8px; height:25px; display:block; margin:1px 0 0; border:0;}
+.menu a:hover {background-color:white;}
 .menu li span {background-color:#ccceda;}
 .bottom_border {width:92px; height:8px; background:url('/images/ui/borders.png') bottom left repeat-x; position:absolute; bottom:-36px; left:0; z-index:9;}
 
@@ -271,7 +272,7 @@ a.drawing {border:0; background:transparent;}
 .entry_drawing {float:right; margin:24px 0 20px;}
 .entry_drawing .offset {right:-10%; position:relative;}
 
-.main_video {width:480px; height:360px; clear:both; margin:16px 0;}
+.main_video {width:480px; height:360px; clear:left; margin:16px 0;}
 
 .examples {clear:both;}
 .example {margin:10px 0 24px;}
@@ -319,22 +320,24 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .vocab_sheet ul {margin:0; padding:0; list-style-type:none;}
 .vocab_sheet_item {display:block; padding:7px 1px 0; position:relative; overflow:visible; z-index:1;}
 .vocab_sheet_item a {text-align:center; display:block;color:#34414b; text-decoration:none; padding:0 5px; background-color:transparent; border:0;}
-.vocab_sheet_item img {display:inline;}
-.vocab_sheet_item textarea {resize:none; text-align:center;}
+.vocab_sheet_item .drawing {margin:5px 0 0;}
+
+.vocab_sheet_item img {display:inline;vertical-align:middle;}
+.vocab_sheet_item textarea {resize:none; text-align:center; width:130px;margin:0 10px; height:2.1em; line-height:1;}
 .no-js .vocab_sheet_item textarea {float:left;width:70px;}
 .vocab_sheet_item .b {position:absolute; left:0;}
 .vocab_sheet_item .remove {position:absolute; top:-8px; right:-10px; width:28px; height:25px; background:url('/images/ui/vocab_delete.png'); border:0; text-indent:-9999px; overflow:hidden;}
-
+.main_column .vocab_sheet_page {padding-bottom:10px;}
 .vocab_sheet_page_item {background:url('/images/ui/vocab_sheet_item_big.png') left -16px no-repeat; width:155px; height:160px; margin:15px 3px 15px 0; float:left;}
 .vocab_sheet_page_item .b {background:url('/images/ui/vocab_sheet_item_big.png') left top  no-repeat; height:16px; width:155px; bottom:-16px;}
 .vocab_sheet_page_item .item_name {margin-bottom:-16px; position:relative; z-index:11;}
-.vocab_sheet_item .drawing {margin:5px 0 0;}
+.vocab_sheet_page_item .drawing {height:120px; vertical-align:middle; line-height:120px;}
 
 .vocab_sheet_bar {float:right; width:121px; top:0; right:0; overflow:hidden; z-index:10; margin-left:-121px; left:121px;}
 .column_wrapper {overflow-y:hidden;}
 .vocab_sheet_bar .title {line-height:45px; font-size:138.5%;}
-.vocab_sheet_bar_item {background:url('/images/ui/vocab_sheet_item.png') -10px left no-repeat; width:99px;  margin:15px 13px 15px;}
-.vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') top left no-repeat; height:11px; width:99px; bottom:-11px;}
+.vocab_sheet_bar_item {background:url('/images/ui/vocab_sheet_item.png') left -10px no-repeat; width:99px;  margin:15px 13px 15px;}
+.vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') left top no-repeat; height:11px; width:99px; bottom:-11px;}
 
 .vocab_sheet_buttons {float:right; margin-top:33px;}
 .vocab_sheet_buttons .button {margin-left:5px;}

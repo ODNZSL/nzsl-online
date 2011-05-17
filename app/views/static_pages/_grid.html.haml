@@ -1,9 +1,9 @@
 /with divs because of IE7
 %ol.grid.results.clearfix.rule_after
-  - @signs.in_groups_of(3) do |row|
+  - group.in_groups_of(3) do |row|
     .row_start
-      - row.each do |result|
-        - if result
+      - row.each do |ea|
+        - if ea
           %li
             - if ea.last.is_a?(String)
               %div.grid_drawing.drawing
