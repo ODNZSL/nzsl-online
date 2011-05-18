@@ -45,13 +45,17 @@ module SearchHelper
   end
   
   def selected_tab?(tab)
-    keys = @query.select{|k,v| v.present? }.keys
-    if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
-      'selected' if tab == :advanced
-    elsif %w(hs l lg).any? {|k| keys.include?(k)}
-      'selected' if tab == :signs
-    else 
-      'selected' if tab == :keywords
+    if params[:tab] == tab.to_s
+      'selected'
+    elsif params[:tab].blank?
+      keys = @query.select{|k,v| v.present? }.keys
+      if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
+        'selected' if tab == :advanced
+      elsif %w(hs l lg).any? {|k| keys.include?(k)}
+        'selected' if tab == :signs
+      else 
+        'selected' if tab == :keywords
+      end
     end
   end
   

@@ -9,15 +9,15 @@
       %ul.search_tabs
         %li{:class => "keywords tab #{selected_tab?(:keywords)}"}
           .l
-          = t('search.tabs.keyword')
+          = link_to t('search.tabs.keyword'), {:tab => 'keywords'}
           .r
         %li{:class => "signs tab #{selected_tab?(:signs)}"}
           .l
-          = t('search.tabs.sign')
+          = link_to t('search.tabs.sign'), {:tab => 'signs'}
           .r
         %li{:class => "advanced tab #{selected_tab?(:advanced)}"}
           .l
-          = t('search.tabs.advanced')
+          = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           .r
         %li.help
           = link_to t('search.tabs.help'), '/help'
@@ -38,6 +38,6 @@
         %a.empty{:href => 'javascript:void(0);'} clear
     .menu.menu_background
     .menu
-      %ul.center
+      %ul#nav.center
         - static_links.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)

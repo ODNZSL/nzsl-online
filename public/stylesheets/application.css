@@ -113,7 +113,7 @@ p.note {font-style:italic;}
 |* Sticky Footer  *| from http://www.cssstickyfooter.com/
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-html, body {height: 100%; min-width:750px;}
+html, body {height: 100%; min-width:780px;}
 .not_sticky_footer {min-height: 100%;}
 .before_sticky_footer {
   overflow:auto;
@@ -140,7 +140,6 @@ body:before {
 |* Layout *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 .main_column {margin:0 auto; position:relative;width:480px; padding-left:108px; padding-right:102px; overflow:visible;}
-
  /* * * * * * * *\
 |* Search & Nav *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -162,6 +161,8 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .search_tabs li.selected .l,
 .search_tabs li.selected .r{background:none;}
 
+.search_tabs .tab a {border-bottom:0; background:transparent; color:#34414b}
+
 .menu { position:absolute; bottom:-30px; left:0; margin:0; padding:0; height:29px; width:100%;z-index:6;}
 .menu_background {background:url('/images/ui/nav.png');z-index:2;}
 .menu .center {z-index:6;}
@@ -176,7 +177,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .search_box {-webkit-appearance:textfield; width:400px; height:24px; display:block; float:left;line-height: 24px;}
 .prompt_input_wrapper{float:left;position:relative;}
 .text_input {border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa;}
-.text_input:focus {outline:0 !important; border-color:#598afb;}
+.text_input:focus {outline:none !important; border-color:#598afb;}
 .search_form {padding:10px 102px 10px 108px; position:relative;}
 
 .search_form .button {position:absolute; bottom:10px; right:102px; z-index:3;}
@@ -312,6 +313,9 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .vocab_sheet_background {background:url('/images/ui/vocab-background.png') right top repeat-y;}
+.vocab_sheet_background .header,
+.vocab_sheet_background .main_column {position:relative;}
+.ie7 .vocab_sheet_background {min-width:811px;} /*690 + 121 because IE7 hates me*/
 .vocab_sheet_background .not_sticky_footer, 
 .vocab_sheet_background .sticky_footer {margin-right:121px;}
 .vocab_sheet_background .r.edge {display:none;}

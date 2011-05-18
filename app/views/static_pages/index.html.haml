@@ -12,11 +12,13 @@
     
     %ul
       %li
-        %a.keywords.tab_link{:href => '#keywords'} English word
+        = link_to 'English word', {:tab => 'keywords'}, {:class => 'keywords tab_link'}
       %li
-        %a.signs.tab_link{:href => '#signs'} Visual features of the sign (handshape and location)
+        = link_to 'Visual features of the sign', {:tab => 'signs'}, {:class => 'signs tab_link'}
+        (handshape and location)
       %li
-        %a.advanced.tab_link{:href => '#advanced'} Advanced: search by topic, grammatical features or by a combination of search terms
+        = link_to 'Advanced:', {:tab => 'advanced'}, {:class => 'advanced tab_link'}
+        search by topic, grammatical features or by a combination of search terms
     %p Browse the tabs for additional information about NZSL and about the dictionary.
 
   = render :partial => '/signs/sign_of_the_day', :locals => {:sign => Sign.random}

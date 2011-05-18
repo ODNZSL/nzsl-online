@@ -106,7 +106,7 @@ module NumbersHelper
     NUMBERS
   end
   NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
-             :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array), 
+             :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array),
              :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
              :time      => NumbersHelper.signs_from_array(NumbersHelper.time_array),
              :age       => NumbersHelper.signs_from_array(NumbersHelper.age_array),
