@@ -1,7 +1,7 @@
 /* from boilerplate */
-  * { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+  body, .center *, .main_column *{ background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
   -ms-filter: none !important; } 
-  a, a:visited { color: #444 !important; text-decoration: underline; }
+  .center a, .main_column a { color: #444 !important; text-decoration: underline; }
   a[href]:after { content: " (" attr(href) ")"; }
   abbr[title]:after { content: " (" attr(title) ")"; }
   .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  
@@ -13,27 +13,35 @@
   h2, h3{ page-break-after: avoid; }
 
 /* hiding useless things */
-  nav, 
+  .nav, 
   .vocab_sheet_bar, 
   .empty_vocab_sheet,
   .button,
   .logo,
-  #flashes,
+  .flashes,
   object,
-  .video_replace,
+  .view_print_back_link,
   .remove
   {display:none;}
+  
+  
+  /* remove shadows of my mind */
+  .shadow, .text_input{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
+  .video_replace {height:auto;}
+  a.drawing {text-decoration:none;}
 /* hiding link destinations after text */
   a.drawing:after {content:"";}
 /* making the vocabsheet have a not editing looking view */
-  .vocab_sheet_page input {border:0;text-align:center;outline:none;}
+  .vocab_sheet_page textarea {border:0;text-align:center;outline:none;}
   /* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
-  .center, 
-  .main_column {width:auto;margin:0;padding:0;}
-  .entry_drawing .offset {right:0;}
   .not_sticky_footer {min-height:0;height:auto;}
   .before_sticky_footer {padding-bottom:0;overflow:visible;}
   .sticky_footer {height:auto;margin-top:0;}
   
   /* show logo for printing */
   .print_logo {display:block;}
+  
+  /* fix rules */
+  .rule_after, h1, .h1
+  {border-bottom:1px solid black;}
+  

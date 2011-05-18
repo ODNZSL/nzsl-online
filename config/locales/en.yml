@@ -2,12 +2,23 @@
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
+  back: Back
   layout:
     title: NZSL Online
     meta_description: "NZSL Online : Dictionary of New Zealand Sign Language"
   not_found:
     title: "Sorry, That page was not found."
     content: "Please navigate to the page you want with the menu or search for a sign using the search tools"
+  static:
+    index: 'Home'
+    nzsl: About NZSL
+    alphabet: Alphabet
+    numbers: Numbers
+    classifiers: Classifiers
+    learning: Learning
+    about: About Us
+    contact_us: Contact Us
+    links: Links
   signs:
     sign_of_the_day: Sign of the Day
     show:
@@ -27,18 +38,20 @@ en:
       usage_notes: Usage Notes
       related_to: Borrowed From
       age_groups: Age Variation
+      in_slow_motion: Play in slow motion
+      at_normal_speed: Play at normal speed
     not_found:
       title: "Sorry, That sign was not found."
       content: "It may have been removed from the database."
   search:
     close: close
     tabs: 
-      keyword: Search by Keyword
-      sign: Search by Sign
+      keyword: Search by English Word
+      sign: Search by Sign Features
       advanced: Advanced Search
       help: Help
     keywords:
-      prompt: Enter search keywords&hellip;
+      prompt: "Enter search keywords&hellip;"
     signs:
       default_handshape: Any hand shape
       default_location: Any location
@@ -52,12 +65,14 @@ en:
     submit: Search
     results:
       for: "Search results for:"
+      results: result
   vocab_sheet:
     title: Vocab Sheet
     item:
       add: Add to Vocab Sheet
       add_success: You have added a sign to your Vocab Sheet.
       add_failure: This sign could not be added to your Vocab sheet - please try again in a moment.
+      add_duplicate: This sign is already in your vocab sheet.
       remove: Remove
       remove_success: You have removed a sign from your Vocab Sheet.
       remove_failure: This sign has been removed from your Vocab Sheet.
@@ -68,10 +83,21 @@ en:
     print: Print
     empty: Your vocab sheet is empty.
     delete: Clear Sheet
-    delete_success: Your Vocab Sheet has been cleared.
-    delete_failure: Your Vocab Sheet could not be cleared - please try again in a second.
+    delete_success: Your Vocab Sheet is empty.
+    delete_failure: Your Vocab Sheet could not be emptied - please try again in a second.
+    sortable_instruction: Drag signs to change the order.
   formtastic:
     submit: Send Feedback
+  feedback:
+    video_size_limit: Maximum size 5mb.
+    email_hint: If provided, must be a valid email address
+    submit: Send Feedback
+    success: Your feedback has been sent
+    failure: Your feedback didn't send
   page_not_found:
     title: Page not found (404)
-    content: Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later.
+    content: "Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later."
+  pagination: 
+    next: next
+    previous: previous
+  change: change

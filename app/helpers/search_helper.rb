@@ -10,11 +10,21 @@ module SearchHelper
   end
   
   def sign_attribute_image attribute, number, main, in_menu=false
-    size = (attribute == :location && in_menu) ? '72' : '42'
-    output = content_tag :div, value_for_sign_attribute(number, attribute, main), {:style => "background-image:url('/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png')", :class => classes_for_sign_attribute(attribute, main)}
-    output << number.split('.').last if attribute == :location && in_menu
-    output
+    if number
+      size = (attribute == :location && in_menu) ? '72' : '42'
+      output = content_tag :div, :class => classes_for_sign_attribute(attribute, main) do
+        [content_tag(:span, value_for_sign_attribute(number, attribute, main), :class => 'value'),
+         image_tag("/images/#{attribute.to_s}s/#{size}/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join
+      end
+      output << number.split('.').last if attribute == :location && in_menu
+      output
+    end
   end
+  
+  #these images have been resized with
+  # mogrify -negate -alpha copy -negate -resize 42x42 -background transparent -gravity center -extent 42x42 *.png
+  # or
+  # mogrify -negate -alpha copy -negate -resize 72x72 -background transparent -gravity center -extent 72x72 *.png
   
   # Sign Attribute is Selected?
   
@@ -35,13 +45,17 @@ module SearchHelper
   end
   
   def selected_tab?(tab)
-    keys = @query.select{|k,v| v.present? }.keys
-    if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
-      'selected' if tab == :advanced
-    elsif %w(hs l lg).any? {|k| keys.include?(k)}
-      'selected' if tab == :signs
-    else 
-      'selected' if tab == :keywords
+    if params[:tab] == tab.to_s
+      'selected'
+    elsif params[:tab].blank?
+      keys = @query.select{|k,v| v.present? }.keys
+      if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
+        'selected' if tab == :advanced
+      elsif %w(hs l lg).any? {|k| keys.include?(k)}
+        'selected' if tab == :signs
+      else 
+        'selected' if tab == :keywords
+      end
     end
   end
   
@@ -64,9 +78,20 @@ module SearchHelper
   end
 
   def search_term(key)
-    h @query[key].join(' ') unless @query[key].blank?
+    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?)
+    h @query[key].join(' ')
   end
   
+  def display_search_term
+    debugger
+    [search_term('s'),
+     display_handshapes_search_term,
+     display_locations_search_term,
+     display_location_groups_search_term,
+     display_usage_tag_search_term,
+     display_topic_tag_search_term].compact.join(' ').html_safe
+    
+  end
 private
   def value_for_sign_attribute number, attribute, main
     if attribute == :handshape
@@ -85,7 +110,7 @@ private
     end
   end
   def classes_for_sign_attribute attribute, main
-    classes = 'image ir rounded'
+    classes = 'image rounded'
     if main
       classes << ' main_image'
     elsif attribute == :handshape

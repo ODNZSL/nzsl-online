@@ -1,8 +1,28 @@
-- semantic_form_for @feedback, :url => feedback_index_path, :html => {:multipart => true} do |form|
-  - form.inputs do
-    = form.input :name, :required => true
-    = form.input :email, :hint => "If provided, must be a valid email address"
-    = form.input :message
-    = form.input :video, :hint => "Maximum size 5mb."
-  = form.buttons do
-    = form.commit_button 'Send Feedback'
+.typography.rule_after
+  :markdown
+    Contact us
+    ==========
+
+    Deaf Studies Research Unit  
+    Victoria University of Wellington  
+    PO Box 600  
+    Wellington  
+    New Zealand  
+
+    Managing Editor: <David.Mckee@vuw.ac.nz>  
+    Database Manager: <Micky.Vale@vuw.ac.nz>
+
+    ### Telephone: ###
+    +64 4 463 5626  
+    +64 4 463 5322
+
+.rule_after.clearfix.vertical_space
+  %h2 Send Feedback
+  - semantic_form_for @feedback, :url => feedback_index_path, :html => {:multipart => true} do |form|
+    - form.inputs do
+      = form.input :name, :required => true, :input_html => {:class => 'text_input'}
+      = form.input :email, :input_html => {:class => 'text_input'}
+      = form.input :message, :input_html => {:class => 'text_input'}
+      = form.input :video, :hint => t("feedback.video_size_limit")
+    = form.buttons do
+      = submit_button('feedback.submit')

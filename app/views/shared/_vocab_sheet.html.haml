@@ -1,11 +1,8 @@
 .vocab_sheet.vocab_sheet_bar
   %h2.title= t('vocab_sheet.title')
-  .vocab_sheet_controls
-    = link_to vocab_sheet_url, {:class => 'button'} do
-      .r
-      = t('vocab_sheet.link_to')
-    = link_to vocab_sheet_url({:print => true}), {:class => 'button'} do
-      .r
-      = t('vocab_sheet.print')
+  .vocab_sheet_controls.clearfix
+    = link_button 'vocab_sheet.link_to', vocab_sheet_url
+    = link_button 'vocab_sheet.print', vocab_sheet_url({:print => true})
+  = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'}
   = content_tag :ul do
     = render :partial => 'shared/vocab_sheet_item', :collection => @sheet.items, :locals => {:modify_gloss => false}

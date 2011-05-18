@@ -7,7 +7,7 @@ class Sign
   RESULTS_PER_PAGE = 9
   VIDEO_EXAMPLES_TOTAL = 4
   #Sign attributes
-  attr_accessor :id, :video, :drawing, :handshape, :location_name,
+  attr_accessor :id, :video, :video_slow, :drawing, :handshape, :location_name,
                 :gloss_main, :gloss_secondary, :gloss_minor, :gloss_maori, 
                 :word_classes, :inflection, :contains_numbers, :is_fingerspelling, :is_directional, :is_locatable, :one_or_two_handed,
                 :age_groups, :gender_groups, :hint, :usage_notes, :related_to, :usage,
@@ -15,40 +15,45 @@ class Sign
   # instance #
   def initialize(data = nil)
     if data
-      self.id = data.value_for_tag("headwordid")
-      self.video = "#{ASSET_URL}#{data.value_for_tag("ASSET glossmain")}"
-      self.drawing = "#{data.value_for_tag("ASSET picture")}"
-      self.handshape = data.value_for_tag("handshape")
-      self.location_name = data.value_for_tag("location")
+      self.id = data.value_for_tag('headwordid')
+      self.video = "#{ASSET_URL}#{data.value_for_tag('ASSET glossmain')}"
+      self.video_slow = "#{ASSET_URL}#{data.value_for_tag('ASSET glossmain_slow')}" if data.value_for_tag('ASSET glossmain_slow').present?
+      self.drawing = data.value_for_tag('ASSET picture')
+      self.handshape = data.value_for_tag('handshape')
+      self.location_name = data.value_for_tag('location')
       
       #gloss
-      self.gloss_main = data.value_for_tag("glossmain")
-      self.gloss_secondary = data.value_for_tag("glosssecondary")
-      self.gloss_minor = data.value_for_tag("gloss_minor")
-      self.gloss_maori = data.value_for_tag("gloss_maori")
+      self.gloss_main = data.value_for_tag('glossmain')
+      self.gloss_secondary = data.value_for_tag('glosssecondary')
+      self.gloss_minor = data.value_for_tag('gloss_minor')
+      self.gloss_maori = data.value_for_tag('gloss_maori')
       
       #grammar
-      self.word_classes = data.value_for_tag("SECONDARYWORDCLASS")
-      self.inflection = data.value_for_tag("INFLECTION")
-      self.contains_numbers = data.value_for_tag("number_incorp").to_bool
-      self.is_fingerspelling = data.value_for_tag("fingerspelling").to_bool
-      self.is_directional = data.value_for_tag("directional").to_bool
-      self.is_locatable = data.value_for_tag("locatable").to_bool
-      self.one_or_two_handed = data.value_for_tag("one_or_two_hand").to_bool
+      self.word_classes = data.value_for_tag('SECONDARYWORDCLASS')
+      self.inflection = data.value_for_tag('INFLECTION')
+      self.contains_numbers = data.value_for_tag('number_incorp').to_bool
+      self.is_fingerspelling = data.value_for_tag('fingerspelling').to_bool
+      self.is_directional = data.value_for_tag('directional').to_bool
+      self.is_locatable = data.value_for_tag('locatable').to_bool
+      self.one_or_two_handed = data.value_for_tag('one_or_two_hand').to_bool
+      
       #notes
-      self.age_groups = data.value_for_tag("VARIATIONAGE")
-      self.gender_groups = data.value_for_tag("VARIATIONGENDER")
-      self.hint = data.value_for_tag("hint")
-      self.usage = data.value_for_tag("usage")
-      self.usage_notes = data.value_for_tag("essay")
-      self.related_to = data.value_for_tag("RELATEDTO")
+      self.age_groups = data.value_for_tag('VARIATIONAGE')
+      self.gender_groups = data.value_for_tag('VARIATIONGENDER')
+      self.hint = data.value_for_tag('hint')
+      self.usage = data.value_for_tag('usage')
+      self.usage_notes = data.value_for_tag('essay')
+      self.related_to = data.value_for_tag('RELATEDTO')
       
       #examples
       self.examples = []
       VIDEO_EXAMPLES_TOTAL.times do |i|
-        self.examples << {:transcription => parse_transcription(data, "videoexample#{i}"), 
-                          :translation => data.value_for_tag("videoexample#{i}translation"),
-                          :video => "#{ASSET_URL}#{data.value_for_tag("ASSET finalexample#{i}")}"} if data.value_for_tag("ASSET finalexample#{i}").present?
+        if data.value_for_tag("ASSET finalexample#{i}").present?
+          self.examples << {:transcription => parse_transcription(data, "videoexample#{i}"), 
+                            :translation => data.value_for_tag("videoexample#{i}translation"),
+                            :video => "#{ASSET_URL}#{data.value_for_tag("ASSET finalexample#{i}")}",
+                            :video_slow => (data.value_for_tag("ASSET finalexample#{i}_slow").present? ? "#{ASSET_URL}#{data.value_for_tag("ASSET finalexample#{i}_slow")}" : nil)}
+        end
       end
     end
     self
@@ -84,6 +89,7 @@ class Sign
   def self.all(params)
     return self.all_with_count(params)[1]
   end
+  
   def self.all_with_count(params)
     signs = []
     count, entries = self.search(params)
@@ -92,6 +98,7 @@ class Sign
     end
     return [count, signs]
   end
+  
   def self.find(all_or_first = :first, params)
     if all_or_first == :all || all_or_first == :first
       self.send(all_or_first, params) 
@@ -154,7 +161,6 @@ class Sign
      ['Deaf-related',                              12],
      ['Direction, location and spatial relations', 13],        
      ['Events and celebrations',                   14],
-     ['Family',                                    15],
      ['Food and drink',                            16],
      ['Education',                                 17],
      ['Emotions',                                  18],
@@ -188,6 +194,7 @@ class Sign
      ['Maths',                                     47],
      ['Computers',                                 48]]
   end
+  
 private
 
   def self.search(params)

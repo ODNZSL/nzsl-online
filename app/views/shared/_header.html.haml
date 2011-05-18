@@ -1,44 +1,43 @@
-%header.header
+.header
   .center
     = link_to 'NZSL Online', '/', {:class => 'logo ir'}
-  = image_tag '/images/ui/logo.png', :class => 'print_logo'
-  %nav
+    = image_tag '/images/ui/logo.png', :class => 'print_logo'
+  .nav
     .l.edge
     .r.edge
     .center
       %ul.search_tabs
         %li{:class => "keywords tab #{selected_tab?(:keywords)}"}
           .l
-          = t('search.tabs.keyword')
+          = link_to t('search.tabs.keyword'), {:tab => 'keywords'}
           .r
         %li{:class => "signs tab #{selected_tab?(:signs)}"}
           .l
-          = t('search.tabs.sign')
+          = link_to t('search.tabs.sign'), {:tab => 'signs'}
           .r
         %li{:class => "advanced tab #{selected_tab?(:advanced)}"}
           .l
-          = t('search.tabs.advanced')
+          = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           .r
         %li.help
-          .l
           = link_to t('search.tabs.help'), '/help'
-          .r
       .bottom_border
       %div{:class => "keywords search_form clearfix clearfix_left #{selected_tab?(:keywords)}"}
         = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/keywords'
+          = render :partial => 'shared/search/keywords', :locals => {:id => '1'}
           = submit_button
       %div{:class => "signs search_form clearfix clearfix_left #{selected_tab?(:signs)}"}
         = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/signs'
+          = render :partial => 'shared/search/signs', :locals => {:id => '1'}
           = submit_button
+        %a.empty{:href => 'javascript:void(0);'} clear
       %div{:class => "advanced search_form clearfix clearfix_left #{selected_tab?(:advanced)}"}
         = form_tag search_signs_path, :method => :get do
           = render :partial => 'shared/search/advanced'
           = submit_button
+        %a.empty{:href => 'javascript:void(0);'} clear
     .menu.menu_background
     .menu
-      %ul.center
+      %ul#nav.center
         - static_links.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
-  = render :partial => 'shared/flashes'

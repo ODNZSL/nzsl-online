@@ -26,12 +26,15 @@ private
   def respond_with_json_or_redirect(object, redirect = nil)
     respond_with(object) do |format|
       format.html { redirect ? redirect_to(redirect) : redirect_back_or_default }
+      format.js { render :text => object.to_json }
     end
   end
   
+  def load_search_query
+    #@query = session[:search][:query] if session[:search].present? && session[:search][:query].present?
+  end
   def set_search_query
-    return @query = session[:search][:query] if session[:search].present? && session[:search][:query].present?
-    return @query = {}
+    @query = {}
   end
 end
 

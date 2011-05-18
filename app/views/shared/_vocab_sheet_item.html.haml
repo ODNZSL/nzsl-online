@@ -5,4 +5,4 @@
     = vocab_sheet_item.name
   .b
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
-    = submit_tag t('vocab_sheet.item.remove'), {:class => 'remove'}
+    %button.remove{:type => 'submit'}= t('vocab_sheet.item.remove')
