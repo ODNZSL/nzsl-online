@@ -65,6 +65,7 @@ en:
     submit: Search
     results:
       for: "Search results for:"
+      results: result
   vocab_sheet:
     title: Vocab Sheet
     item:
@@ -84,10 +85,12 @@ en:
     delete: Clear Sheet
     delete_success: Your Vocab Sheet is empty.
     delete_failure: Your Vocab Sheet could not be emptied - please try again in a second.
+    sortable_instruction: Drag signs to change the order.
   formtastic:
     submit: Send Feedback
   feedback:
     video_size_limit: Maximum size 5mb.
+    email_hint: If provided, must be a valid email address
     submit: Send Feedback
     success: Your feedback has been sent
     failure: Your feedback didn't send
@@ -97,4 +100,4 @@ en:
   pagination: 
     next: next
     previous: previous
-  
+  change: change

@@ -1,26 +1,30 @@
 module PaginationHelper
   #This helper is reliant on information stored in the session to get the results total and the page number
   def pagination_links
-    total_pages = (session[:search][:count].to_f / Sign::RESULTS_PER_PAGE).ceil
-    page = session[:search][:p]
-    pages(page, total_pages).map do |link_text|
-      if link_text.is_a?(Numeric) && page != link_text
+    pages(@page_number, total_pages).map do |link_text|
+      if link_text.is_a?(Numeric) && @page_number != link_text
         link_to_page = link_text
-      elsif link_text == t('pagination.previous') && page != 1
-        link_to_page = page - 1
-      elsif link_text == t('pagination.next') && page != total_pages
-        link_to_page = page + 1
+      elsif link_text == t('pagination.previous') && @page_number != 1
+        link_to_page = @page_number - 1
+      elsif link_text == t('pagination.next') && @page_number != total_pages
+        link_to_page = @page_number + 1
       end
       if link_to_page
         content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(query_for_query_string.merge(:p => link_to_page)))
       else
-        content_tag :li, (content_tag :span, link_text, :class => (page == link_text ? 'current a' : 'a'))
+        content_tag :li, (content_tag :span, link_text, :class => (@page_number == link_text ? 'current a' : 'a'))
       end
     end.join("\n").html_safe
   end
-
+  def page_of_pages
+    if total_pages > 1
+      "page #{@page_number} of #{total_pages}"
+    end
+  end
 private
-
+  def total_pages
+    (@results_total.to_f / Sign::RESULTS_PER_PAGE).ceil
+  end
   def pages(page, total_pages)
     # 1 [2] 3
     # [1] 2 3 4 5 6 7

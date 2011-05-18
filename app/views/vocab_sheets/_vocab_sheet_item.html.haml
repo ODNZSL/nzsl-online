@@ -3,7 +3,9 @@
   = link_to sign_url(vocab_sheet_item.sign.id), {:class => 'drawing vocab_sheet_drawing'} do
     = image_tag "/images/signs/140-120/#{vocab_sheet_item.sign.drawing}"
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :put do
-    = text_area_tag "item[#{vocab_sheet_item.id}][name]", vocab_sheet_item.name, :class => 'item_name text_input'
+    = text_area_tag "item[name]", vocab_sheet_item.name, :class => 'item_name text_input h3', :id => "item_#{vocab_sheet_item.id}_name"
+    = hidden_field_tag "item[#{vocab_sheet_item.id}][old_name]", vocab_sheet_item.name, :class => 'old_name'
+    = submit_button t('change')
   .b
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
-    = submit_tag t('vocab_sheet.item.remove'), {:class => 'remove'}
+    %button.remove{:type => 'submit'}= t('vocab_sheet.item.remove')

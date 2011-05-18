@@ -12,7 +12,7 @@ class ItemsController < ApplicationController
       @item.name = params[:name].to_s if params[:name]
       if @item.valid?
         @sheet.items << @item
-        flash[:error] = t('vocab_sheet.item.add_success')
+        flash[:notice] = t('vocab_sheet.item.add_success')
       else
         flash[:error] = t('vocab_sheet.item.add_failure')
       end
@@ -21,14 +21,21 @@ class ItemsController < ApplicationController
   end
 
   def update
+    
     @item = Item.find(params[:id])
     @item.name = params[:item][:name]
     if @item.save
       flash[:notice] = t('vocab_sheet.item.update_success')
     else
-      flash[:notice] = t('vocab_sheet.item.update_failure')
+      flash[:error] = t('vocab_sheet.item.update_failure')
     end
-    respond_with_json_or_redirect(@item)
+    if request.xhr?
+      flash[:notice] = nil
+      flash[:error] = nil
+      render :text => @item.name
+    else
+      respond_with_json_or_redirect(@item)
+    end
   end
 
   def destroy

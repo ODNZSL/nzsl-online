@@ -13,7 +13,7 @@
   h2, h3{ page-break-after: avoid; }
 
 /* hiding useless things */
-  nav, 
+  .nav, 
   .vocab_sheet_bar, 
   .empty_vocab_sheet,
   .button,
@@ -24,6 +24,9 @@
   .remove
   {display:none;}
   
+  
+  /* remove shadows of my mind */
+  .shadow, .text_input{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
   .video_replace {height:auto;}
   a.drawing {text-decoration:none;}
 /* hiding link destinations after text */

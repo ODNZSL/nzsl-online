@@ -4,8 +4,8 @@ class SignsController < ApplicationController
 
   def search
     search_query = process_search_query(params)
-    page_number = params[:p].present? ? params[:p].to_i : 1
-    @results_total, @signs = Sign.paginate(search_query, page_number)
+    @page_number = params[:p].present? ? params[:p].to_i : 1
+    @results_total, @signs = Sign.paginate(search_query, @page_number)
     #session[:search] = {:count => @results_total, :query => search_query, :p => page_number}
     @query = search_query
   end

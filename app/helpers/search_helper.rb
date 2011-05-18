@@ -45,13 +45,17 @@ module SearchHelper
   end
   
   def selected_tab?(tab)
-    keys = @query.select{|k,v| v.present? }.keys
-    if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
-      'selected' if tab == :advanced
-    elsif %w(hs l lg).any? {|k| keys.include?(k)}
-      'selected' if tab == :signs
-    else 
-      'selected' if tab == :keywords
+    if params[:tab] == tab.to_s
+      'selected'
+    elsif params[:tab].blank?
+      keys = @query.select{|k,v| v.present? }.keys
+      if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
+        'selected' if tab == :advanced
+      elsif %w(hs l lg).any? {|k| keys.include?(k)}
+        'selected' if tab == :signs
+      else 
+        'selected' if tab == :keywords
+      end
     end
   end
   
@@ -74,12 +78,16 @@ module SearchHelper
   end
 
   def search_term(key)
-    h @query[key].join(' ') unless @query[key].blank?
+    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?)
+    h @query[key].join(' ')
   end
   
   def display_search_term
+    debugger
     [search_term('s'),
-     content_tag(:div, [display_handshapes_search_term, display_locations_search_term, display_location_groups_search_term].compact.join(' ').html_safe, :class => 'selected_signs'),
+     display_handshapes_search_term,
+     display_locations_search_term,
+     display_location_groups_search_term,
      display_usage_tag_search_term,
      display_topic_tag_search_term].compact.join(' ').html_safe
     

@@ -1,26 +1,26 @@
 module NumbersHelper
   
   def self.cardinal_array
-   [[0, 5655],
-    [0, 4056],
-    [1, 5607],
-    [2, 5617],
-    [3, 5619],
-    [3, 5665],
-    [3, 5688],
-    [4, 5620],
-    [5, 5621],
-    [6, 5622],
-    [7, 5623],
-    [7, 5691],
-    [7, 5690],
-    [8, 5624],
-    [8, 5692],
-    [8, 5694],
-    [8, 5693],
-    [9, 5696],
-    [9, 5697],
-    [9, 5695],
+   [[0,  5655],
+    [0,  4056],
+    [1,  5607],
+    [2,  5617],
+    [3,  5619],
+    [3,  5665],
+    [3,  5688],
+    [4,  5620],
+    [5,  5621],
+    [6,  5622],
+    [7,  5623],
+    [7,  5691],
+    [7,  5690],
+    [8,  5624],
+    [8,  5692],
+    [8,  5694],
+    [8,  5693],
+    [9,  5696],
+    [9,  5697],
+    [9,  5695],
     [10, 4065],
     [10, 5653],
     [11, 5608],
@@ -62,8 +62,8 @@ module NumbersHelper
     [90, 5730],
     [90, 5714],
     [100, 386],
-    [100, 5709],
-    [100, 5710],
+    [100,5709],
+    [100,5710],
     ['1,000', 2290],
     ['10,000', 6237],
     ['100,000', 6238],
@@ -73,9 +73,9 @@ module NumbersHelper
     ['1,000,000,000 (billion)', 4086]]
   end
   def self.ordinal_array
-   [['first', 5663],
+   [['first',  5663],
     ['second', 5438],
-    ['third', 5689]]
+    ['third',  5689]]
   end
   def self.fractions_array
    [['1/2', 6235],
@@ -83,27 +83,31 @@ module NumbersHelper
     ['1/4', 6236]]
   end
   def self.time_array
-   [['One hour', 5425],
-    ['One o\'clock', 5662],
-    ['Quarter (to / past the hour)', 787],
-    ['Quarter to', 791],
-    ['Quarter past', 788],
-    ['Half past', 6230],
-    ['Past (the hour)', 6229]]
+   [['one hour',     5425],
+    ['one o\'clock', 5662],
+    ['quarter (to / past the hour)', 787],
+    ['quarter to',    791],
+    ['quarter past',  788],
+    ['half past',    6230],
+    ['past (the hour)', 6229]]
   end
   def self.age_array
-   [['One year old', 2099]]
+   [['one year old', 2099]]
   end
   def self.money_array
-   [['One dollar', 6233],
-    ['One dollar', 6234]]
+   [['one dollar', 6233],
+    ['one dollar', 6234]]
   end
 
   def self.signs_from_array(array)
     array.map{|v| [v[0], Sign.find(:id => v[1])]}.reject{|v| v[1].nil? }
   end
+  def numbers
+    NUMBERS
+  end
+  # This is stored in a constant so that it's stored for more than just a single request.
   NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
-             :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array), 
+             :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array),
              :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
              :time      => NumbersHelper.signs_from_array(NumbersHelper.time_array),
              :age       => NumbersHelper.signs_from_array(NumbersHelper.age_array),
