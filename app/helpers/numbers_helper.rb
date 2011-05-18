@@ -105,6 +105,7 @@ module NumbersHelper
   def numbers
     NUMBERS
   end
+  # This is stored in a constant so that it's stored for more than just a single request.
   NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
              :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array),
              :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
