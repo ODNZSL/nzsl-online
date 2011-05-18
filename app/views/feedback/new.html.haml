@@ -18,8 +18,8 @@
 
 .rule_after.clearfix.vertical_space
   %h2 Send Feedback
-  - semantic_form_for @feedback, :url => feedback_index_path, :html => {:multipart => true} do |form|
-    - form.inputs do
+  = semantic_form_for @feedback, :url => feedback_index_path, :html => {:multipart => true} do |form|
+    = form.inputs do
       = form.input :name, :required => true, :input_html => {:class => 'text_input'}
       = form.input :email, :input_html => {:class => 'text_input'}
       = form.input :message, :input_html => {:class => 'text_input'}
