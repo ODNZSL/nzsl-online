@@ -3,7 +3,7 @@ Feedback Form Submission
 
 
 Name: <%= @feedback.name -%>
-<%= "Email: #{@feedback.email}" if @feedback.email %>
+<%= "\nEmail: #{@feedback.email}" if @feedback.email %>
 
 Message:
 <%= @feedback.message if @feedback.message %>
