@@ -9,7 +9,7 @@ module ApplicationHelper
      {:label => t('static.alphabet'),    :slug => '/alphabet'},
      {:label => t('static.numbers'),     :slug => '/numbers'},
      {:label => t('static.classifiers'), :slug => '/classifiers'},
-     {:label => t('static.learning'),    :slug => 'http://www.victoria.ac.nz/llc/edith_dev/nzsl/index.htm'},
+     {:label => t('static.learning'),    :slug => '/learning'},
      {:label => t('static.about'),       :slug => '/about'},
      {:label => t('static.contact_us'),  :slug => '/feedback/new'},
      {:label => t('static.links'),       :slug => '/links'}]
