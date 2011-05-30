@@ -54,9 +54,9 @@
 .typography
   %h3 Entity classifiers
   %p.note These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
-- classifiers[:entity].each do |value|
+- classifiers[:entity].each_with_index do |value, i|
   %h4= value.first
-  = render :partial => 'static_pages/grid', :locals => {:group => value.last}
+  = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:entity].length - 1)}
 .typogarphy
   %h3 Body parts classifiers
   %p.note These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals &mdash; paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
@@ -72,6 +72,6 @@
 .typography
   %h3 Element classifiers
   %p.note These proforms describe the appearance and movement of the elements of fire, water, and air.
-- classifiers[:element].each do |value|
+- classifiers[:element].each_with_index do |value, i|
   %h4= value.first
-  = render :partial => 'static_pages/grid', :locals => {:group => value.last}
+  = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:element].length - 1)}

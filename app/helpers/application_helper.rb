@@ -40,24 +40,29 @@ module ApplicationHelper
   end
   
   def print_stylesheet_tag(print)
-    #if the url looks like ?print=true
+    # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.
     # set the print stylesheet to screen (an excellent preview)
     # bring up the print dialog on load. 
-    #booya. 
+    # booya.
     if print
       "#{stylesheet_link_tag('print', :media => 'all')}
-      <script>
+       <style media='screen'>
+         .view_print_back_link {display:inline-block !important;}
+       </style>".html_safe
+    else
+      stylesheet_link_tag('print', :media => 'print')
+    end
+  end
+  def print_javascripts_tag(print)
+    if print
+      "<script>
         $(window).bind('load', function(){
+          document.printView = true;
           $('.header>.center').prepend($('<a />', {html: '<div class=\"r\"></div>#{t('back')}', click: function(){history.back();return false;}, 'class': 'view_print_back_link button', href:'javascript:void(0);'}))
           window.print();
         });
-      </script>
-      <style media='screen'>
-        .view_print_back_link {display:inline-block !important;}
-      </style>".html_safe
-    else
-      stylesheet_link_tag('print', :media => "print")
+      </script>".html_safe
     end
   end
   

@@ -21,10 +21,9 @@
   .flashes,
   object,
   .view_print_back_link,
-  .remove
+  .remove, 
+  .js .if_js
   {display:none;}
-  
-  
   /* remove shadows of my mind */
   .shadow, .text_input{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
   .video_replace {height:auto;}
@@ -40,8 +39,3 @@
   
   /* show logo for printing */
   .print_logo {display:block;}
-  
-  /* fix rules */
-  .rule_after, h1, .h1
-  {border-bottom:1px solid black;}
-  

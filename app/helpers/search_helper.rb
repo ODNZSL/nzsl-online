@@ -1,12 +1,14 @@
 module SearchHelper
   # Sign Attribute Image Helpers
   
-  def handshape_image number, main=false
-    sign_attribute_image :handshape, number, main
+  def handshape_image number, main=false, simple=false
+    return sign_attribute_image :handshape, number, main unless simple
+    return sign_attribute_image_tag :handshape, number
   end
   
-  def location_image number, main=false, in_menu=false
-    sign_attribute_image :location, number, main, in_menu
+  def location_image number, main=false, in_menu=false, simple=false
+    return sign_attribute_image :location, number, main, in_menu unless simple
+    return sign_attribute_image_tag :location, number
   end
   
   def sign_attribute_image attribute, number, main, in_menu=false
@@ -19,6 +21,10 @@ module SearchHelper
       output << number.split('.').last if attribute == :location && in_menu
       output
     end
+  end
+  
+  def sign_attribute_image_tag attribute, number
+    image_tag("/images/#{attribute.to_s}s/42/#{attribute.to_s}.#{number.downcase.gsub(/[ \/]/, '_')}.png", :class => 'image')
   end
   
   #these images have been resized with
@@ -59,15 +65,15 @@ module SearchHelper
     end
   end
   
-  def display_locations_search_term
+  def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images. 
-    Sign.locations.flatten.select{|l| location_selected?(l) }.map{|l| location_image l, false }.join(' ').html_safe unless @query[:l].blank?
+    Sign.locations.flatten.select{|l| location_selected?(l) }.map{|l| location_image l, false, simple }.join(' ').html_safe unless @query[:l].blank?
   end
-  def display_handshapes_search_term
-    Sign.handshapes.flatten.flatten.select{|hs| handshape_selected?(hs) }.map{|hs| handshape_image hs, (hs.split('.').last == '1') }.join(' ').html_safe unless @query[:hs].blank?
+  def display_handshapes_search_term(simple = false)
+    Sign.handshapes.flatten.flatten.select{|hs| handshape_selected?(hs) }.map{|hs| handshape_image hs, (hs.split('.').last == '1'), simple }.join(' ').html_safe unless @query[:hs].blank?
   end
-  def display_location_groups_search_term
-    Sign.location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| location_image lg, true }.join(' ').html_safe unless @query[:lg].blank?
+  def display_location_groups_search_term(simple = false)
+    Sign.location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| location_image lg, true, simple }.join(' ').html_safe unless @query[:lg].blank?
   end
   def display_usage_tag_search_term
     # reduce the list to the selected
@@ -85,9 +91,9 @@ module SearchHelper
   def display_search_term
     debugger
     [search_term('s'),
-     display_handshapes_search_term,
-     display_locations_search_term,
-     display_location_groups_search_term,
+     display_handshapes_search_term(true),
+     display_locations_search_term(true),
+     display_location_groups_search_term(true),
      display_usage_tag_search_term,
      display_topic_tag_search_term].compact.join(' ').html_safe
     

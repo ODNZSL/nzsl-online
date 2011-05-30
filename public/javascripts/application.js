@@ -187,13 +187,14 @@ $(function(){
   
   // reorder vocab sheet items
   if ($('ul#vocab_sheet').length){
-    $('ul#vocab_sheet').sortable({containment: 'parent', update: reorderVocabSheet})
     $('ul#vocab_sheet .button').hide();
-    var reorderVocabSheet = function(event, ui) {
-      new_order = [];
-      $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
-      $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
-    };
+    if (document.printView){
+      $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
+        new_order = [];
+        $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
+        $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
+      }});
+    }
     // change the name of vocab sheet items
     var submit_vocab_item = function(input){
       input.val($.trim(input.val()));
@@ -204,7 +205,6 @@ $(function(){
         $.post(form.attr('action'), form.serialize(), function(data){
           input.next('.old_name').val(data);
           input.val(data);
-          console.log(data)
         });
       }
     }
@@ -217,6 +217,9 @@ $(function(){
         return true;
       }
     }).blur(function(){submit_vocab_item($(this))});
+    if (document.printView){
+      $('textarea').disable();
+    }
   }
   
 });
