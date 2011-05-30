@@ -27,7 +27,7 @@
     .examples.rule_after
       %h2= t('signs.show.usage_examples')
       - @sign.examples.each do |example| 
-        .example.clearfix.typography.videos
+        .example.clearfix_left.typography.videos
           = link_to '', example[:video], :class => 'video_replace example_video normal'
           - if example[:video_slow]
             = link_to '', example[:video_slow], :class => 'video_replace example_video slow'

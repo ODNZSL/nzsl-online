@@ -8,8 +8,8 @@
 %h1 Your Vocab Sheet
 .if_js= t('vocab_sheet.sortable_instruction')
 - if @sheet.items.length > 0
-  .vocab_sheet.vocab_sheet_page.rule_after.clearfix
-    = content_tag :ul, :id => 'vocab_sheet', :class => 'clearfix' do
+  .vocab_sheet.vocab_sheet_page.rule_after.clearfix_left
+    = content_tag :ul, :id => 'vocab_sheet', :class => 'clearfix_left' do
       = render :partial => 'vocab_sheets/vocab_sheet_item', :collection => @sheet.items
 - else
   %em= t('vocab_sheet.empty')

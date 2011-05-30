@@ -5,7 +5,7 @@
   %em
     = pluralize @results_total, t('search.results.results')
 /with divs because of IE7
-%ol.grid.results.clearfix.rule_after
+%ol.grid.results.clearfix_left.rule_after
   - @signs.in_groups_of(3) do |row|
     .row_start
       - row.each do |result|
@@ -20,5 +20,5 @@
             - if result.word_classes.present?
               %span.word_class= result.word_classes
 - if @results_total > Sign::RESULTS_PER_PAGE
-  %ol.rule_after.pagination.clearfix
+  %ol.rule_after.pagination.clearfix_left
     = pagination_links

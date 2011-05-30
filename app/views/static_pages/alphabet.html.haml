@@ -1,10 +1,10 @@
 %h1 Alphabet
 %h3 Entire alphabet over the shoulder
-%div.rule_after.clearfix.clearfix_left= link_to "", "/images/alphabet/Entire_Alphabet.over_shoulder_black.flv", :class => 'video_replace main_video'
+%div.rule_after.clearfix_left= link_to "", "/images/alphabet/Entire_Alphabet.over_shoulder_black.flv", :class => 'video_replace main_video'
 %h3 Entire alphabet
-%div.rule_after.clearfix.clearfix_left= link_to "", "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
+%div.rule_after.clearfix_left= link_to "", "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
 
-%ol.alphabet.rule_after.grid.grid4.clearfix.clearfix_left
+%ol.alphabet.rule_after.grid.grid4.clearfix_left
   - alphabet_listing.each_with_index do |letter, i|
     %li{:class => (i.multiple_of?(4) ? 'row_start' : nil)}
       %div.grid_drawing.drawing
