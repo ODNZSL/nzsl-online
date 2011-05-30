@@ -281,7 +281,7 @@ a.drawing {border:0; background:transparent;}
 
 .main_video {width:480px; height:360px; clear:left; margin:16px 0;}
 
-.examples {clear:both;}
+.examples {clear:left;}
 .example {margin:10px 0 24px;}
 .example_video {width:240px; height:180px; float:left; clear:left; margin-right:16px;}
 
