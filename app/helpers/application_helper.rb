@@ -57,11 +57,7 @@ module ApplicationHelper
   def print_javascripts_tag(print)
     if print
       "<script>
-        $(window).bind('load', function(){
-          document.printView = true;
-          $('.header>.center').prepend($('<a />', {html: '<div class=\"r\"></div>#{t('back')}', click: function(){history.back();return false;}, 'class': 'view_print_back_link button', href:'javascript:void(0);'}))
-          window.print();
-        });
+        document.printView = true;
       </script>".html_safe
     end
   end

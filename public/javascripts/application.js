@@ -184,7 +184,13 @@ $(function(){
     });
     reset_menu_position();
   }
-  
+  //load print
+  if (document.printView) {
+    $('.header>.center').prepend($('<a />', {html: '<div class=\"r\"></div>back', click: function(){history.back();return false;}, 'class': 'view_print_back_link button', href:'javascript:void(0);'}))
+    $(window).bind('load', function(){
+      window.print();
+    });
+  }
   // reorder vocab sheet items
   if ($('ul#vocab_sheet').length){
     $('ul#vocab_sheet .button').hide();
