@@ -445,7 +445,7 @@ a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
 .visuallyhidden.focusable:active,
 .visuallyhidden.focusable:focus { clip: auto; height: auto; margin: 0; overflow: visible; position: static; width: auto; }
 .invisible { visibility: hidden; }
-.clearfix_left:before, .clearfix_left:after
+.clearfix_left:before, .clearfix_left:after,
 .clearfix:before, .clearfix:after { content: "\0020"; display: block; height: 0; overflow: hidden; }
 .clearfix:after { clear: both; }
 .clearfix_left:after {clear:left;}
