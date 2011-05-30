@@ -188,7 +188,7 @@ $(function(){
   // reorder vocab sheet items
   if ($('ul#vocab_sheet').length){
     $('ul#vocab_sheet .button').hide();
-    if (document.printView){
+    if (!document.printView){
       $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
         new_order = [];
         $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
