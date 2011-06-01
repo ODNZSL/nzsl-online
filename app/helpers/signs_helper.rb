@@ -35,7 +35,7 @@ module SignsHelper
     when '/classifiers'
       link_to t('signs.show.back_to.classifiers'), '/classifiers'
     else
-      false
+      ''
     end
   end
   

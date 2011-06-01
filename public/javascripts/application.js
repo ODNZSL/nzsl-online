@@ -249,7 +249,6 @@ $(function(){
       e.preventDefault();
       var button = $(this);
       var form = button.closest('form');
-      console.log(form)
       $.post(form.attr('action'), form.serialize(), function(data){
         show_vocab_bar();
         $(data).appendTo($('.vocab_sheet_bar ul'));
