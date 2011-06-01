@@ -213,7 +213,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .handshapes .main_image {margin:5px 15px;}
 .attribute_options ul {margin:0;}
 .attribute_options .selected .sub:hover,
-.sub {top:48px; right:0; height:23px; display:block; margin:0; padding:0; float:left; position:absolute; background:white;}
+.sub {top:48px; right:0; height:23px; display:block; margin:0; padding:0; float:left; position:absolute; background:white; border:0;}
 .attribute_options .selected .sub:hover {background:transparent;}
 .attribute_options .selected .sub:hover .image,
 .sub .image {width:21px; height:21px; line-height:1;}
@@ -223,10 +223,10 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .sub1, .attribute_options .selected .sub1:hover {width:23px;}
 .sub2, .attribute_options .selected .sub2:hover {width:46px;}
 .sub3, .attribute_options .selected .sub3:hover {width:69px;}
-.sub1:hover {width:45px; right:-12px;}
-.sub2:hover {width:90px; right:-24px;}
-.sub3:hover {width:135px; right:-36px;}
-.sub:hover {height:44px; z-index:10; top:38px;}
+.sub1:hover {width:44px; right:-12px;}
+.sub2:hover {width:88px; right:-24px;}
+.sub3:hover {width:132px; right:-36px;}
+.sub:hover {height:44px; z-index:10; top:38px;border:1px solid #bbb;}
 .sub:hover .image {width:42px; height:42px; line-height:1;}
 
 .attribute_options .selected, .attribute_options .selected ul {background-color:#e2edfc;}
