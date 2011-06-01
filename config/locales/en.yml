@@ -20,9 +20,13 @@ en:
     contact_us: Contact Us
     links: Links
   signs:
-    sign_of_the_day: Sign of the Day
+    sign_of_the_day: Show me a sign
+    another_sign_of_the_day: Show me another sign
     show:
-      back_to_search_results: Back to search results
+      back_to:
+        search_results: Back to search results
+        numbers: Back to numbers page
+        classifiers: Back to classifiers page
       field:
         contains_numbers: contains numbers
         is_fingerspelling: fingerspelling
@@ -58,9 +62,9 @@ en:
       handshapes_help: Click a hand shape to search for signs with that shape
       locations_help: Click a location to search for signs using that location
     advanced:
-      topic_tags: 'In Topic:'
+      topic_tags: 'In topic:'
       usage_tags: 'With usage tag:'
-      topic_tags_any: '- Any Topic -'
+      topic_tags_any: '- Any topic -'
       usage_tags_any: '- Any usage -'
     submit: Search
     results:
@@ -90,7 +94,7 @@ en:
     submit: Send Feedback
   feedback:
     video_size_limit: Maximum size 5mb.
-    email_hint: If provided, must be a valid email address
+    email_hint: 'If provided, must be a valid email address'
     submit: Send Feedback
     success: Your feedback has been sent
     failure: Your feedback didn't send
@@ -101,3 +105,4 @@ en:
     next: next
     previous: previous
   change: change
+  clear: clear

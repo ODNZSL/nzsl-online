@@ -23,7 +23,7 @@
     |
     %a{:href => '#nav'} Skip to Page Navigation
   .not_sticky_footer
-    = render :partial => 'shared/vocab_sheet' if vocab_sheet?
+    = render :partial => 'shared/vocab_sheet'
     = render :partial => 'shared/header'
     #content.before_sticky_footer.main_column
       = render :partial => 'shared/flashes', :locals => {:prefix => ''}

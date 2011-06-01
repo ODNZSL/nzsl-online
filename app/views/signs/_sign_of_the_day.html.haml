@@ -3,5 +3,8 @@
     %h2= t('signs.sign_of_the_day')
     = link_to sign_url(sign.id), {:class => 'drawing grid_drawing'} do
       = image_tag "/images/signs/150-100/#{sign.drawing}"
-    = link_to sign_url(sign.id), {:class => 'main_gloss h2'} do
-      = sign.gloss_main
+    %p
+      = link_to sign_url(sign.id), {:class => 'main_gloss h2'} do
+        = sign.gloss_main
+    %p
+      = link_to t('signs.another_sign_of_the_day'), '/'

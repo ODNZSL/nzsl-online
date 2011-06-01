@@ -11,6 +11,7 @@ class Item < ActiveRecord::Base
   before_validation do
     self.name = (self.sign.is_a?(Sign) ? self.sign.gloss_main : nil) if self.name.nil? or self.name.blank?
     self.sign_id = sign.id if self.sign_id.nil?
+    self.drawing = sign.drawing
   end
 
   default_scope order("position ASC", "created_at ASC")
@@ -19,7 +20,6 @@ class Item < ActiveRecord::Base
   def sign
     @sign ||= Sign.first({:id => self.sign_id})
   end
-
-
+  
 end
 
