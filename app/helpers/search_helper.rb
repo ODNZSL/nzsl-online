@@ -67,7 +67,7 @@ module SearchHelper
   
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    Sign.locations.flatten.select{|l| location_selected?(l) }.map{|l| location_image l, false, simple }.join(' ').html_safe unless @query[:l].blank?
+    Sign.locations.flatten.select{|l| location_selected?(l) }.map{|l| location_image l, false, false, simple }.join(' ').html_safe unless @query[:l].blank?
   end
   
   def display_handshapes_search_term(simple = false)
@@ -75,7 +75,7 @@ module SearchHelper
   end
   
   def display_location_groups_search_term(simple = false)
-    Sign.location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| location_image lg, true, simple }.join(' ').html_safe unless @query[:lg].blank?
+    Sign.location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| location_image lg, true, false, simple }.join(' ').html_safe unless @query[:lg].blank?
   end
   
   def display_usage_tag_search_term
