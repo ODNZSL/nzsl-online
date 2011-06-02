@@ -85,7 +85,7 @@ a:hover, a:hover span { color: #336cbe; border-bottom:1px solid #aac0f8; backgro
 |* Typography *| font sizes from http://developer.yahoo.com/yui/3/cssfonts/, boilerplate
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 h1, .h1 {font-size:167%;   font-weight:normal; display:block; padding:43px 0 20px;}
-h2, .h2 {font-size:153.9%; font-weight:normal; display:block; clear:left;}
+h2, .h2 {font-size:138.5%; font-weight:normal; display:block; clear:left;}
 h3, .h3 {font-size:123.1%; font-weight:normal; display:block;}
 h4, .h4 {font-size:108%;   font-weight:normal; display:block; margin-bottom:0;}
 
@@ -153,10 +153,10 @@ body:before {
 a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left no-repeat; text-indent:-9999px; border:0;}
 .print_logo {display:none;}
 .header .nav {border:1px solid #99a0a5; border-left:0; border-right:0; background:#eceef0; position:relative; margin-bottom:32px;}
-.bottom_border {width:92px; height:8px; background:url('/images/ui/borders.png') bottom left repeat-x; position:absolute; bottom:-36px; left:0; z-index:9;}
+.bottom_border {width:92px; height:8px; background:url('/images/ui/borders.png') bottom left repeat-x; position:absolute; bottom:-46px; left:0; z-index:9;}
 
 /* tabs */
-.search_tabs {position:absolute; left: 108px;top:-27px; height:28px;width:582px; margin:0 auto;}
+.search_tabs {position:absolute; left: 108px;top:-37px; height:28px;width:582px; margin:0 auto;}
 .search_tabs li {line-height:26px; padding:0 5px; font-size:93%; float:left; list-style-type:none;}
 .search_tabs li.tab {padding:0 9px; margin-right:4px; position:relative; background:url('/images/ui/tab.png') top left repeat-x; font-size:108%; cursor:pointer;}
 .search_tabs li.tab .l,
@@ -179,8 +179,8 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .menu li span {background-color:#ccceda;}
 
 /* search form */
-.search_form {padding:10px 102px 10px 108px; position:relative;}
-.search_form .button {position:absolute; bottom:10px; right:102px; z-index:3;}
+.search_form {margin:10px 169px 10px 108px; position:relative;border-right:1px solid #ccc;}
+.search_form .button {position:absolute; top:0; right:-67px; z-index:3;}
 .search_form {display:none;}
 
 .selected {display:block;}
@@ -213,7 +213,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .handshapes .main_image {margin:5px 15px;}
 .attribute_options ul {margin:0;}
 .attribute_options .selected .sub:hover,
-.sub {top:48px; right:0; height:23px; display:block; margin:0; padding:0; float:left; position:absolute; background:white;}
+.sub {top:48px; right:0; height:23px; display:block; margin:0; padding:0; float:left; position:absolute; background:white; border:0;}
 .attribute_options .selected .sub:hover {background:transparent;}
 .attribute_options .selected .sub:hover .image,
 .sub .image {width:21px; height:21px; line-height:1;}
@@ -223,10 +223,10 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .sub1, .attribute_options .selected .sub1:hover {width:23px;}
 .sub2, .attribute_options .selected .sub2:hover {width:46px;}
 .sub3, .attribute_options .selected .sub3:hover {width:69px;}
-.sub1:hover {width:45px; right:-12px;}
-.sub2:hover {width:90px; right:-24px;}
-.sub3:hover {width:135px; right:-36px;}
-.sub:hover {height:44px; z-index:10; top:38px;}
+.sub1:hover {width:44px; right:-12px;}
+.sub2:hover {width:88px; right:-24px;}
+.sub3:hover {width:132px; right:-36px;}
+.sub:hover {height:44px; z-index:10; top:38px;border:1px solid #bbb;}
 .sub:hover .image {width:42px; height:42px; line-height:1;}
 
 .attribute_options .selected, .attribute_options .selected ul {background-color:#e2edfc;}
@@ -244,7 +244,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .selected.dropdown_arrow{background-color:white; border:1px solid #99a0a5; margin:-1px; height:30px;}
 a.dropdown_arrow {float:right; text-decoration:none; width:20px; height:35px; border:0; line-height:35px; background:url('/images/ui/arrow.png') no-repeat center 10px; position:absolute; z-index:30; margin:0; text-align:center; right: 6px; top:10px; color:#777;}
 
-a.empty {background:url('/images/ui/clear.png') no-repeat center right; height:16px; width:auto; padding-right:14px; position:relative; border:0; z-index:31px; display:block; position:absolute;top:5px;right:118px;line-height:18px;color:#777;}
+a.empty {background:url('/images/ui/clear.png') no-repeat center right; height:16px; width:auto; padding-right:14px; position:relative; border:0; z-index:31px; display:block; position:absolute;top:25px;right:-60px;line-height:18px;color:#777;}
 a.empty:hover {border:0;background-color:transparent;color:#555;}
 .selected.dropdown_arrow .border_mask {background-color:white; width:100%; height:3px; top:29px; position:absolute; left:0; z-index:31;}
 
@@ -281,7 +281,7 @@ a.drawing {border:0; background:transparent;}
 
 .main_video {width:480px; height:360px; clear:left; margin:16px 0;}
 
-.examples {clear:both;}
+.examples {clear:left;}
 .example {margin:10px 0 24px;}
 .example_video {width:240px; height:180px; float:left; clear:left; margin-right:16px;}
 
@@ -304,7 +304,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .pagination .current {color:black;}
 .back_to_results {position:absolute; top:0; left:0;}
 
-
+.entry_head {float:left;width:480px;} /* to clear right without clearing right :) */
  /* * * * *\
 |* Footer *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -346,7 +346,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 
 .vocab_sheet_bar {float:right; width:121px; top:0; right:0; overflow:hidden; z-index:10; margin-left:-121px; left:121px;}
 .column_wrapper {overflow-y:hidden;}
-.vocab_sheet_bar .title {line-height:45px; font-size:138.5%;}
+.vocab_sheet_bar .title {padding:15px 0; font-size:138.5%;}
 .vocab_sheet_bar_item {background:url('/images/ui/vocab_sheet_item.png') left -10px no-repeat; width:99px;  margin:15px 13px 15px;}
 .vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') left top no-repeat; height:11px; width:99px; bottom:-11px;}
 
@@ -369,8 +369,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 /* Homepage */
 .sign_of_the_day {text-align:center; float:right; margin:45px 0 0; width:150px;}
 .sign_of_the_day img {display:inline;}
-.sign_of_the_day .h2 {display:inline;}
-
+.sign_of_the_day .h2 {display:inline}
 .drawing {margin:10px 0;}
 
 .home_content h1 {font-style:italic;}
@@ -432,7 +431,7 @@ a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
             -moz-box-shadow:0 2px 3px rgba(0,0,0,0.5);
                  box-shadow:0 2px 3px rgba(0,0,0,0.5);}
 
-.text_input {border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa;}
+.text_input {border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa, 0 1px 0px white;}
 .text_input:focus {outline:none !important; border-color:#598afb;}
 
 .no-js .if_js {display:none;}

@@ -30,12 +30,12 @@
         = form_tag search_signs_path, :method => :get do
           = render :partial => 'shared/search/signs', :locals => {:id => '1'}
           = submit_button
-        %a.empty{:href => 'javascript:void(0);'} clear
+          %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
       %div{:class => "advanced search_form clearfix_left #{selected_tab?(:advanced)}"}
         = form_tag search_signs_path, :method => :get do
           = render :partial => 'shared/search/advanced'
           = submit_button
-        %a.empty{:href => 'javascript:void(0);'} clear
+          %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
     .menu.menu_background
     .menu
       %ul#nav.center

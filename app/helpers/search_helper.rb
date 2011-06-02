@@ -66,19 +66,23 @@ module SearchHelper
   end
   
   def display_locations_search_term(simple = false)
-    # reduce the list to the selected, turn them all into images. 
-    Sign.locations.flatten.select{|l| location_selected?(l) }.map{|l| location_image l, false, simple }.join(' ').html_safe unless @query[:l].blank?
+    # reduce the list to the selected, turn them all into images.
+    Sign.locations.flatten.select{|l| location_selected?(l) }.map{|l| location_image l, false, false, simple }.join(' ').html_safe unless @query[:l].blank?
   end
+  
   def display_handshapes_search_term(simple = false)
     Sign.handshapes.flatten.flatten.select{|hs| handshape_selected?(hs) }.map{|hs| handshape_image hs, (hs.split('.').last == '1'), simple }.join(' ').html_safe unless @query[:hs].blank?
   end
+  
   def display_location_groups_search_term(simple = false)
-    Sign.location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| location_image lg, true, simple }.join(' ').html_safe unless @query[:lg].blank?
+    Sign.location_groups.select{|lg| location_group_selected?(lg)}.map{|lg| location_image lg, true, false, simple }.join(' ').html_safe unless @query[:lg].blank?
   end
+  
   def display_usage_tag_search_term
     # reduce the list to the selected
     h Sign.usage_tags.select{|u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank?
   end
+  
   def display_topic_tag_search_term
     h Sign.topic_tags.select{|u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank?
   end
@@ -89,16 +93,16 @@ module SearchHelper
   end
   
   def display_search_term
-    debugger
-    [search_term('s'),
-     display_handshapes_search_term(true),
-     display_locations_search_term(true),
-     display_location_groups_search_term(true),
-     display_usage_tag_search_term,
-     display_topic_tag_search_term].compact.join(' ').html_safe
-    
+    @display_search_term ||= [search_term('s'),
+                              display_handshapes_search_term(true),
+                              display_locations_search_term(true),
+                              display_location_groups_search_term(true),
+                              display_usage_tag_search_term,
+                              display_topic_tag_search_term].compact.join(' ').html_safe
   end
+  
 private
+  
   def value_for_sign_attribute number, attribute, main
     if attribute == :handshape
       if main
@@ -115,6 +119,7 @@ private
       end
     end
   end
+  
   def classes_for_sign_attribute attribute, main
     classes = 'image rounded'
     if main
@@ -124,4 +129,5 @@ private
     end
     classes
   end
+
 end

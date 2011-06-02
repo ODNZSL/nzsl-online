@@ -1,6 +1,19 @@
 module NumbersHelper
-  
-  def self.cardinal_array
+  def numbers
+    return @numbers if @numbers.present?
+    @number_signs = {}
+    Sign.all(:tag => 29).each{|s| @number_signs[s.id.to_i] = s}
+    @numbers = {:cardinal  => signs_from_array(cardinal_array),
+                :ordinal   => signs_from_array(ordinal_array),
+                :fractions => signs_from_array(fractions_array),
+                :time      => signs_from_array(time_array),
+                :age       => signs_from_array(age_array),
+                :money     => signs_from_array(money_array)}
+  end
+
+private
+
+  def cardinal_array
    [[0,  5655],
     [0,  4056],
     [1,  5607],
@@ -72,17 +85,17 @@ module NumbersHelper
     ['1,000,000 (million)', 1109],
     ['1,000,000,000 (billion)', 4086]]
   end
-  def self.ordinal_array
+  def ordinal_array
    [['first',  5663],
     ['second', 5438],
     ['third',  5689]]
   end
-  def self.fractions_array
+  def fractions_array
    [['1/2', 6235],
     ['1/3', 6232],
     ['1/4', 6236]]
   end
-  def self.time_array
+  def time_array
    [['one hour',     5425],
     ['one o\'clock', 5662],
     ['quarter (to / past the hour)', 787],
@@ -91,25 +104,15 @@ module NumbersHelper
     ['half past',    6230],
     ['past (the hour)', 6229]]
   end
-  def self.age_array
+  def age_array
    [['one year old', 2099]]
   end
-  def self.money_array
+  def money_array
    [['one dollar', 6233],
     ['one dollar', 6234]]
   end
 
-  def self.signs_from_array(array)
-    array.map{|v| [v[0], Sign.find(:id => v[1])]}.reject{|v| v[1].nil? }
+  def signs_from_array(array)
+    array.map{|v| [v[0], @number_signs[v[1]]]}.reject{|v| v[1].nil? }
   end
-  def numbers
-  #   NUMBERS
-  end
-  # This is stored in a constant so that it's stored for more than just a single request.
-  # NUMBERS = {:cardinal  => NumbersHelper.signs_from_array(NumbersHelper.cardinal_array),
-  #            :ordinal   => NumbersHelper.signs_from_array(NumbersHelper.ordinal_array),
-  #            :fractions => NumbersHelper.signs_from_array(NumbersHelper.fractions_array),
-  #            :time      => NumbersHelper.signs_from_array(NumbersHelper.time_array),
-  #            :age       => NumbersHelper.signs_from_array(NumbersHelper.age_array),
-  #            :money     => NumbersHelper.signs_from_array(NumbersHelper.money_array)}
 end

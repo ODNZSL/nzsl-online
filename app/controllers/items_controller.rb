@@ -17,7 +17,13 @@ class ItemsController < ApplicationController
         flash[:error] = t('vocab_sheet.item.add_failure')
       end
     end
-    respond_with_json_or_redirect(@item)
+    if request.xhr?
+      flash[:notice] = nil
+      flash[:error] = nil
+      render :partial => 'shared/vocab_sheet_item', :locals => {:vocab_sheet_item => @item}
+    else
+      respond_with_json_or_redirect(@item)
+    end
   end
 
   def update
@@ -48,7 +54,13 @@ class ItemsController < ApplicationController
     else
       flash[:vocab_bar_error] = t('vocab_sheet.item.remove_failure')
     end
-    respond_with_json_or_redirect(@item)
+    if request.xhr?
+      flash[:vocab_bar_notice] = nil
+      flash[:vocab_bar_error] = nil
+      render :nothing => true
+    else
+      respond_with_json_or_redirect(@item)
+    end
   end
 
   def reorder

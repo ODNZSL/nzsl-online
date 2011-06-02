@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110501233715) do
+ActiveRecord::Schema.define(:version => 20110531034038) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(:version => 20110501233715) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "position"
+    t.string   "drawing"
   end
 
   create_table "vocab_sheets", :force => true do |t|
