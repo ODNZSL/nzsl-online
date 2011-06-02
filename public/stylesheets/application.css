@@ -153,10 +153,10 @@ body:before {
 a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left no-repeat; text-indent:-9999px; border:0;}
 .print_logo {display:none;}
 .header .nav {border:1px solid #99a0a5; border-left:0; border-right:0; background:#eceef0; position:relative; margin-bottom:32px;}
-.bottom_border {width:92px; height:8px; background:url('/images/ui/borders.png') bottom left repeat-x; position:absolute; bottom:-46px; left:0; z-index:9;}
+.bottom_border {width:92px; height:8px; background:url('/images/ui/borders.png') bottom left repeat-x; position:absolute; bottom:-36px; left:0; z-index:9;}
 
 /* tabs */
-.search_tabs {position:absolute; left: 108px;top:-37px; height:28px;width:582px; margin:0 auto;}
+.search_tabs {position:absolute; left: 108px;top:-27px; height:28px;width:582px; margin:0 auto;}
 .search_tabs li {line-height:26px; padding:0 5px; font-size:93%; float:left; list-style-type:none;}
 .search_tabs li.tab {padding:0 9px; margin-right:4px; position:relative; background:url('/images/ui/tab.png') top left repeat-x; font-size:108%; cursor:pointer;}
 .search_tabs li.tab .l,
@@ -179,8 +179,8 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .menu li span {background-color:#ccceda;}
 
 /* search form */
-.search_form {margin:10px 169px 10px 108px; position:relative;border-right:1px solid #ccc;}
-.search_form .button {position:absolute; top:0; right:-67px; z-index:3;}
+.search_form {padding:10px 0; margin:0 169px 0 108px; position:relative;border-right:1px solid #ccc;}
+.search_form .button {position:absolute; top:10px; right:-67px; z-index:3;}
 .search_form {display:none;}
 
 .selected {display:block;}
@@ -202,8 +202,8 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .dropdown .title {padding:3px 3px 7px; line-height:1;text-align:left;}
 .dropdown .close {position:absolute; top:5px; right:5px; background:url('/images/ui/close_search.png') right center no-repeat; padding-right:20px; height:15px; line-height:15px;}
 
-.attribute_options .row {clear:left;}
-.attribute_options li {display:block; margin: 0 0 2px 2px; float:left; position:relative; border:1px solid #bbb;}
+.attribute_options .row {clear:left; position:relative;z-index:5;}
+.attribute_options li {display:block; margin: 0 0 2px 2px; float:left; position:relative; border:1px solid #bbb;zoom:1;}
 .attribute_options .group {width:71px; height:71px;}
 .attribute_options .selected {border-color:#598afb;}
 
@@ -211,14 +211,14 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .image img {vertical-align:middle;}
 .image .value {display:none;}
 .handshapes .main_image {margin:5px 15px;}
-.attribute_options ul {margin:0;}
+.attribute_options ul {margin:0;z-index:5;}
 .attribute_options .selected .sub:hover,
 .sub {top:48px; right:0; height:23px; display:block; margin:0; padding:0; float:left; position:absolute; background:white; border:0;}
 .attribute_options .selected .sub:hover {background:transparent;}
 .attribute_options .selected .sub:hover .image,
 .sub .image {width:21px; height:21px; line-height:1;}
 .sub .image img {height:100%;}
-.sub li {border-color:white; margin:0;}
+.sub li {border-color:white; margin:0; z-index:12; position:relative;}
 .attribute_options .selected .sub li{border-color:#e2edfc; margin:0;}
 .sub1, .attribute_options .selected .sub1:hover {width:23px;}
 .sub2, .attribute_options .selected .sub2:hover {width:46px;}
@@ -226,10 +226,22 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .sub1:hover {width:44px; right:-12px;}
 .sub2:hover {width:88px; right:-24px;}
 .sub3:hover {width:132px; right:-36px;}
-.sub:hover {height:44px; z-index:10; top:38px;border:1px solid #bbb;}
-.sub:hover .image {width:42px; height:42px; line-height:1;}
+.sub:hover {height:44px; top:38px; border:1px solid #bbb;}
 
+.sub:hover .image {width:42px; height:42px; line-height:1;}
 .attribute_options .selected, .attribute_options .selected ul {background-color:#e2edfc;}
+
+
+/*tryna resolve IE7 z-index issues */
+.attribute_options .row {z-index:1;}
+.attribute_options li {z-index:1;}
+.attribute_options .sub {z-index:1;}
+.sub li {z-index:1;}
+
+
+.attribute_options .row.hover {z-index:2;}
+.attribute_options li.hover {z-index:2;}
+.attribute_options li .sub.hover {z-index:30;}
 
 .locations .image {width:72px; height:72px;}
 .locations .attribute_options li{font-size:8px; text-align:center; line-height:10px;}
@@ -244,7 +256,7 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .selected.dropdown_arrow{background-color:white; border:1px solid #99a0a5; margin:-1px; height:30px;}
 a.dropdown_arrow {float:right; text-decoration:none; width:20px; height:35px; border:0; line-height:35px; background:url('/images/ui/arrow.png') no-repeat center 10px; position:absolute; z-index:30; margin:0; text-align:center; right: 6px; top:10px; color:#777;}
 
-a.empty {background:url('/images/ui/clear.png') no-repeat center right; height:16px; width:auto; padding-right:14px; position:relative; border:0; z-index:31px; display:block; position:absolute;top:25px;right:-60px;line-height:18px;color:#777;}
+a.empty {background:url('/images/ui/clear.png') no-repeat center right; height:16px; width:auto; padding-right:14px; position:relative; border:0; z-index:31px; display:block; position:absolute;top:35px;right:-60px;line-height:18px;color:#777;}
 a.empty:hover {border:0;background-color:transparent;color:#555;}
 .selected.dropdown_arrow .border_mask {background-color:white; width:100%; height:3px; top:29px; position:absolute; left:0; z-index:31;}
 
@@ -268,6 +280,7 @@ ol.grid, ul.grid {margin:0 -20px 1.2em 0; width:510px;}
  /* * * * * * * * * *\
 |* Entry & Results  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+.sign_wrapper {float:left;}
 .glosses .secondary_gloss {font-size:123.1%; display:block;}
 .word_class,
 .maori_gloss {font-style:italic; display:block;}
@@ -281,7 +294,7 @@ a.drawing {border:0; background:transparent;}
 
 .main_video {width:480px; height:360px; clear:left; margin:16px 0;}
 
-.examples {clear:left;}
+.examples {clear:both;}
 .example {margin:10px 0 24px;}
 .example_video {width:240px; height:180px; float:left; clear:left; margin-right:16px;}
 

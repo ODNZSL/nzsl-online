@@ -30,8 +30,8 @@ en:
       field:
         contains_numbers: contains numbers
         is_fingerspelling: fingerspelling
-        is_directional: directional
-        is_locatable: locatable
+        is_directional: person agreement
+        is_locatable: spatial agreement
         one_or_two_handed: one or two handed
         inflection_plural: inflection for pluralisation
         inflection_manner_and_degree: inflection for manner and degree

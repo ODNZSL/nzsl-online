@@ -293,5 +293,12 @@ $(function(){
       }
     }
   }
+  var console_box = $('<div />').css({'position':'absolute','top':'0','left':'0'}).appendTo('body')
+  
+  $('.attribute_options .row, .attribute_options .group, .attribute_options .sub').hover(function(){
+    $(this).addClass('hover')
+  }, function(){
+    $(this).removeClass('hover')
+  });
   setup();
 });
