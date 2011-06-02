@@ -9,7 +9,7 @@ module SignsHelper
      'inflection_temporal', 
      'inflection_plural',
      'inflection_manner_and_degree'].map do |note|
-       sign.send(note.to_sym) ? link_to(t("signs.show.field.#{note}"), "/glossary##{note}") : nil
+       sign.send(note.to_sym) ? link_to(t("signs.show.field.#{note}"), "/help##{note}") : nil
      end.compact.join(', ').html_safe
   end
   
