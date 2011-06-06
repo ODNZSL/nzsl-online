@@ -2,13 +2,19 @@ $(function(){
   var setup = function(){
     setup_videos();
     setup_slow_motion_videos();
+    
     setup_search_tabs();
     setup_sign_selection();
+    setup_handshapes_hover_fix();
     setup_prompt_labels();
+    
     setup_print_view();
+    
     setup_vocab_sheet_page();
     setup_vocab_remove();
     setup_add_to_sheet();
+    
+    setup_feedback_form();
   }
   var setup_videos = function(){
     if ($('a.video_replace')){
@@ -186,7 +192,13 @@ $(function(){
     container.find('.selected_field').first().val(output.join(' '));
     hide_or_show_clear()
   }
-  
+  var setup_handshapes_hover_fix = function(){
+    $('.attribute_options .row, .attribute_options .group, .attribute_options .sub').hover(function(){
+      $(this).addClass('hover')
+    }, function(){
+      $(this).removeClass('hover')
+    });
+  }
   var setup_prompt_labels = function(){
     //sensible source-order, javascript-off-friendly placeholder labels.
     //overlays the label on the input on load. hides it on click/focus.
@@ -293,12 +305,14 @@ $(function(){
       }
     }
   }
-  var console_box = $('<div />').css({'position':'absolute','top':'0','left':'0'}).appendTo('body')
-  
-  $('.attribute_options .row, .attribute_options .group, .attribute_options .sub').hover(function(){
-    $(this).addClass('hover')
-  }, function(){
-    $(this).removeClass('hover')
-  });
+  var setup_feedback_form = function(){
+    var show_feedback_form = function(){
+      
+    }
+    $('#feedback_include_sign, #feedback_change_sign')
+    .change(function(){
+      $('.if_'+$(this).attr('id')).toggle(this.checked)
+    }).trigger('change')
+  }
   setup();
 });

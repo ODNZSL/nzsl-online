@@ -8,7 +8,7 @@ class Feedback < ActiveRecord::Base
     :url => "/no-video",
     :path => ":rails_root/data/uploaded/feedback/:id/:basename.:extension"
   
-  validates_attachment_size :video, :less_than => 5.megabytes, :allow_nil => true
+  validates_attachment_size :video, :less_than => 50.megabytes, :allow_nil => true
 
   
   def send_email

@@ -90,11 +90,7 @@ en:
     delete_success: Your Vocab Sheet is empty.
     delete_failure: Your Vocab Sheet could not be emptied - please try again in a second.
     sortable_instruction: Drag signs to change the order.
-  formtastic:
-    submit: Send Feedback
   feedback:
-    video_size_limit: Maximum size 5mb.
-    email_hint: 'If provided, must be a valid email address'
     submit: Send Feedback
     success: Your feedback has been sent
     failure: Your feedback didn't send
@@ -106,3 +102,29 @@ en:
     previous: previous
   change: change
   clear: clear
+  formtastic:
+    labels:
+      feedback:
+        hearing_level: 'Are you:'
+        nzsl_level: 'Are you a:'
+        
+        include_sign: ' Suggest an NZSL sign to be included in the dictionary'
+        include_describe: "Show the sign on it's own, and the same sign used in a sentence"
+        include_define: "What does this sign mean (in English)?"
+        include_users: "Who uses this sign? (e.g. older, younger, area)"
+        include_comments: Other Comments
+        
+        change_sign: ' Suggest changes for a sign in the dictionary'
+        change_sign_gloss: What is the main gloss for this sign?
+        change_sign_url: What is the URL (web address) for this sign?
+        change_sign_entry: Part of the sign you want to change/add
+        change_comments: comments
+        
+        technical_fault: ' Report a technical fault'
+    hints:
+      feedback:
+        change_sign_url: Go to the entry for this sign in the dictionary and look at the address box. Copy the text and paste here. (e.g. http://nzsl.vuw.ac.nz/signs/1234)
+        email: 'If provided, must be a valid email address'
+        video: 'Maximum size 50mb, Larger files may take some time to upload'
+        
+        

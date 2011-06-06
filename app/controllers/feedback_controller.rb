@@ -11,12 +11,13 @@ class FeedbackController < ApplicationController
       @feedback = Feedback.create(params[:feedback])
       if @feedback.valid?
         @feedback.send_email
-        flash[:notice] = t('feedback.success')
+        @feedback = Feedback.new
+        flash[:feedback_notice] = t('feedback.success')
       else
-        flash[:error] = t('feedback.failure')
+        flash[:feedback_error] = t('feedback.failure')
       end
     rescue
-      flash[:error] = t('feedback.failure')
+      flash[:feedback_error] = t('feedback.failure')
     end
     render :new
   end

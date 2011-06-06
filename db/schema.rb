@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110531034038) do
+ActiveRecord::Schema.define(:version => 20110602220950) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
@@ -22,6 +22,19 @@ ActiveRecord::Schema.define(:version => 20110531034038) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "email"
+    t.string   "hearing_level"
+    t.string   "nzsl_level"
+    t.boolean  "include_sign"
+    t.string   "include_describe"
+    t.string   "include_define"
+    t.string   "include_users"
+    t.text     "include_comments"
+    t.boolean  "change_sign"
+    t.string   "change_sign_gloss"
+    t.string   "change_sign_url"
+    t.string   "change_sign_entry"
+    t.text     "change_comments"
+    t.boolean  "technical_fault"
   end
 
   create_table "items", :force => true do |t|

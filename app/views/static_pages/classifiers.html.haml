@@ -78,7 +78,7 @@
   %p.note These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
 = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:handling_or_instrumental]}
 .typography
-  %h3 Element classifiers
+  %h3#element Element classifiers
   %p.note These proforms describe the appearance and movement of the elements of fire, water, and air.
 - classifiers[:element].each_with_index do |value, i|
   %h4= value.first
