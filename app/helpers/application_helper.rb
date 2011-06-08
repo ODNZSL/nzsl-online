@@ -30,7 +30,7 @@ module ApplicationHelper
   
   def link_button text, url=nil, options = {}
     url ||='javascript:void(0);'
-    link_to "<div class='r'></div>#{t(text)}".html_safe, url, {:class => 'button link_button'}.merge(options)
+    link_to "<div class='r'></div>#{t(text)}".html_safe, url, {:class => ("button link_button #{options[:class]}")}.reverse_merge(options)
   end
   
   def query_for_query_string
@@ -42,14 +42,9 @@ module ApplicationHelper
   def print_stylesheet_tag(print)
     # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.
-    # set the print stylesheet to screen (an excellent preview)
-    # bring up the print dialog on load. 
-    # booya.
     if print
       "#{stylesheet_link_tag('print', :media => 'all')}
-       <style media='screen'>
-         .view_print_back_link {display:inline-block !important;}
-       </style>".html_safe
+       #{stylesheet_link_tag('print_screen', :media => 'screen')}".html_safe
     else
       stylesheet_link_tag('print', :media => 'print')
     end

@@ -9,7 +9,7 @@ class StaticPagesController < ApplicationController
       render :status => 404, :template => 'static_pages/404'
     end
   end
-
+  
 private
 
   def template_for_slug slug

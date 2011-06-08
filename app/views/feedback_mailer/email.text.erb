@@ -1,10 +1,32 @@
 Feedback Form Submission
-------------------------
+========================
 
+Name: <%= @feedback.name %>
+Email: <%= @feedback.email %>
 
-Name: <%= @feedback.name -%>
-<%= "\nEmail: #{@feedback.email}" if @feedback.email %>
+<%= @feedback.hearing_level %>
+<%= @feedback.nzsl_level %>
+
+<% if @feedback.include_sign? -%>
+Inclusion Suggestion
+--------------------
+Description: <%= @feedback.include_describe %>
+Definition: <%= @feedback.include_define %>
+Users: <%= @feedback.include_users %>
+<% end -%>
+
+<% if @feedback.change_sign? -%>
+Change Suggestion
+-----------------
+Main gloss of sign: <%= @feedback.change_sign_gloss %>
+URL of sign: <%= @feedback.change_sign_url %>
+Change: <%= @feedback.change_sign_entry %>
+<% end -%>
+
+<% if @feedback.technical_fault -%>
+Technical Fault
+---------------
+<% end -%>
 
 Message:
 <%= @feedback.message if @feedback.message %>
-

@@ -223,8 +223,8 @@ $(function(){
   }
   var setup_print_view = function(){
     //load print
+    $('textarea, input[type="text"]').attr('readonly', true)
     if (document.printView) {
-      $('.header>.center').prepend($('<a />', {html: '<div class=\"r\"></div>back', click: function(){history.back();return false;}, 'class': 'view_print_back_link button', href:'javascript:void(0);'}))
       $(window).bind('load', function(){
         window.print();
       });
@@ -270,7 +270,7 @@ $(function(){
   var setup_vocab_sheet_page = function(){
     // reorder vocab sheet items
     if ($('ul#vocab_sheet').length){
-      $('ul#vocab_sheet .button').hide();
+      $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView){
         $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
           new_order = [];
@@ -284,14 +284,14 @@ $(function(){
         if (input.val() === '') {
           input.val(input.next('.old_name').val());
         } else if (input.val() !== input.next('.old_name').val() && input.val() !== ''){
-          var form = input.parent('form')
+          var form = input.closest('form')
           $.post(form.attr('action'), form.serialize(), function(data){
             input.next('.old_name').val(data);
             input.val(data);
           });
         }
       }
-      $('ul#vocab_sheet textarea').keypress(function(e){
+      $('.vocab_sheet textarea, input.vocab_sheet_name').keypress(function(e){
         if (e.which == 13) {
           e.preventDefault()
           $(this).blur();

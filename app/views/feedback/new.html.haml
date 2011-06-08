@@ -21,13 +21,13 @@
   = render :partial => 'shared/flashes', :locals => {:prefix => 'feedback_'}
   = semantic_form_for @feedback, :url => feedback_index_path(:anchor => 'feedback'), :html => {:multipart => true} do |form|
     = form.inputs do
-      = form.input :name, :required => true, :input_html => {:class => 'text_input'}
-      = form.input :email, :required => true, :input_html => {:class => 'text_input'}
+      = form.input :name, :required => true, :label => true, :input_html => {:class => 'text_input'}
+      = form.input :email, :required => true, :label => true, :input_html => {:class => 'text_input'}
       = form.input :hearing_level, :label => true, :as => :radio, :collection => ['Deaf', 'Hearing impaired', 'Hearing'], :wrapper_html => {:class => 'inline'}
       = form.input :nzsl_level, :label => true, :as => :radio, :collection => ['Fluent NZSL user', 'NZSL user', 'NZSL learner'], :wrapper_html => {:class => 'inline'}
       = form.input :include_sign, :label => true
       .if_feedback_include_sign.unless_js.sub_form
-        = form.input :include_describe, :label => true, :input_html => {:class => 'text_input'}
+        = form.input :include_describe, :label => true, :hint => true, :input_html => {:class => 'text_input'}
         = form.input :include_define, :label => true, :input_html => {:class => 'text_input'}
         = form.input :include_users, :label => true, :input_html => {:class => 'text_input'}
         =# form.input :include_comments, :label => true, :input_html => {:class => 'text_input'}
@@ -38,7 +38,8 @@
         = form.input :change_sign_entry, :label => true, :as => :radio, :collection => ['Glosses (meaning)', 'How the sign is made', 'Grammar information', 'Usage information', 'Variation Information', 'Other']
         =# form.input :change_comments, :label => true, :input_html => {:class => 'text_input'}
       = form.input :technical_fault, :label => true
-      = form.input :message, :input_html => {:class => 'text_input'}
-      = form.input :video, :hint => true
+      = form.input :video, :hint => true, :label => true
+      = form.input :message, :label => true, :input_html => {:class => 'text_input'}
+      
     = form.buttons do
       = submit_button('feedback.submit')

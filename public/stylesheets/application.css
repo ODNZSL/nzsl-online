@@ -85,9 +85,9 @@ a:hover, a:hover span { color: #336cbe; border-bottom:1px solid #aac0f8; backgro
 |* Typography *| font sizes from http://developer.yahoo.com/yui/3/cssfonts/, boilerplate
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 h1, .h1 {font-size:167%;   font-weight:normal; display:block; padding:43px 0 20px;}
-h2, .h2 {font-size:138.5%; font-weight:normal; display:block; clear:left;}
-h3, .h3 {font-size:123.1%; font-weight:normal; display:block;}
-h4, .h4 {font-size:108%;   font-weight:normal; display:block; margin-bottom:0;}
+h2, .h2 {font-size:131%; font-weight:normal; display:block; clear:left;} /* 138.5 */
+h3, .h3 {font-size:116%; font-weight:normal; display:block;} /* 123.1 */
+h4, .h4 {font-size:93%;   font-weight:normal; display:block; margin-bottom:0; text-transform:uppercase;}
 
 em, 
 p.note {font-style:italic;}
@@ -96,8 +96,9 @@ p.note {font-style:italic;}
 .typography  h2, 
 .typography .h2, 
 .typography  h3,
-.typography .h3{margin-bottom:0.2em;}
+.typography .h3 {margin-bottom:0.2em;}
 
+h2+h3 {margin-top:1em;}
 .typography p, 
 .typography ol,
 .typography ul, 
@@ -142,6 +143,7 @@ body:before {
 |* Layout *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 .main_column {margin:0 auto; position:relative;width:480px; padding-left:108px; padding-right:102px; overflow:visible;}
+
  /* * * * * * * *\
 |* Search & Nav *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -323,6 +325,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .footer {background:url('/images/ui/borders.png') left 90px repeat-x; position:relative; z-index:1;}
+.print_footer {clear:left;}
 .footer .nav {text-align:center; font-size:85%; margin-bottom:9px; white-space:nowrap;}
 .footer .first {border:0;}
 .footer .copyright {font-size:85%; text-align:center;}
@@ -335,7 +338,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .vocab_sheet_background {background:url('/images/ui/vocab-background.png') right top repeat-y;}
 .vocab_sheet_background .header,
 .vocab_sheet_background .main_column {position:relative;} /* haslayout? */
-.ie7 .vocab_sheet_background {min-width:811px;} /*690 + 121 because IE7 hates*/
+.ie7 .vocab_sheet_background {min-width:811px;} /* 690 + 121 because IE7 hates */
 .vocab_sheet_background .not_sticky_footer, 
 .vocab_sheet_background .sticky_footer {margin-right:121px;}
 .vocab_sheet_background .r.edge {display:none;}
@@ -347,11 +350,13 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .vocab_sheet_item .drawing {margin:5px 0 0;}
 
 .vocab_sheet_item img {display:inline;vertical-align:middle;}
-.vocab_sheet_item textarea {resize:none; text-align:center; width:130px;margin:0 10px; height:2.1em; line-height:1;}
-.no-js .vocab_sheet_item textarea {float:left;width:70px;}
+.vocab_sheet_item textarea {resize:none; text-align:center; width:130px;margin:0 10px; height:2.1em; line-height:1; z-index:3;position:relative;}
+.no-js .vocab_sheet_item .button {position:absolute;bottom:40px;right:10px;z-index:15;}
+.no-js .vocab_sheet_name {float:left;}
+.no-js .vocab_sheet_name .button {margin-top:43px;}
 .vocab_sheet_item .b {position:absolute; left:0;}
 .vocab_sheet_item .remove {position:absolute; top:-8px; right:-10px; width:28px; height:25px; background:url('/images/ui/vocab_delete.png'); border:0; text-indent:-9999px; overflow:hidden;}
-.main_column .vocab_sheet_page {padding-bottom:10px;}
+.main_column .vocab_sheet_page {padding-bottom:10px;clear:left;}
 .vocab_sheet_page_item {background:url('/images/ui/vocab_sheet_item_big.png') left -16px no-repeat; width:155px; height:160px; margin:15px 3px 15px 0; float:left;}
 .vocab_sheet_page_item .b {background:url('/images/ui/vocab_sheet_item_big.png') left top  no-repeat; height:16px; width:155px; bottom:-16px;}
 .vocab_sheet_page_item .item_name {margin-bottom:-16px; position:relative; z-index:11;}
@@ -363,7 +368,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .vocab_sheet_bar_item {background:url('/images/ui/vocab_sheet_item.png') left -10px no-repeat; width:99px;  margin:15px 13px 15px;}
 .vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') left top no-repeat; height:11px; width:99px; bottom:-11px;}
 
-.vocab_sheet_buttons {float:right; margin-top:33px;}
+.vocab_sheet_buttons {float:right; margin-top:43px; width:150px;}
 .vocab_sheet_buttons .button {margin-left:5px;}
 .vocab_sheet_controls {margin-left:10px;}
 
@@ -395,21 +400,6 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .tab_link {display:inline; line-height:1.2;}
 
 /* the formtastic default stylesheet wasn't making me happy. */
-/*
-.formtastic {padding:16px 0;}
-.formtastic ol {list-style-type:none; margin-left:0;}
-.formtastic li {margin:0 0 0.6em; float:left; clear:left; width:500px;}
-.formtastic label {width:100px; display:block; float:left; clear:left;}
-.formtastic input, 
-.formtastic textarea {float:left;}
-.formtastic abbr {border-bottom:0;}
-.formtastic .inline-hints, 
-.formtastic .buttons {margin-left:100px; clear:left;float:left;}
-.formtastic .text_input {width:250px;}
-.formtastic .error .text_input {border-color:#f53;}
-.formtastic .inline-errors {float:left; color:#f53;}
-*/
-
 .formtastic {padding:16px 0;}
 .formtastic ol {list-style-type:none; margin-left:0;}
 .formtastic li {margin:0 0 0.6em; width:500px; position:relative;}
@@ -423,14 +413,17 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .formtastic textarea.text_input {width:450px;}
 .formtastic .error .text_input {border-color:#f53;}
 .formtastic .inline-errors {position:absolute; color:#f53;top:0;right:195px;}
+.formtastic .boolean {margin-bottom:10px;}
+.formtastic .inline-hints {font-style:italic;font-size:85%;}
 .formtastic .text .inline-errors {right:45px;}
 .formtastic .sub_form {margin-left:15px;}
  /* * * * *\
 |* Button *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
  
+a .button,
 .button,
-.button .r {background-image: url('/images/ui/buttons.png');border:0 !important;cursor:pointer;}
+.button .r {background-image: url('/images/ui/buttons.png');border:0;cursor:pointer;}
 .button {background-position:-6px top; position:relative; height:24px; display:inline-block; line-height:24px; padding:0 4px 0 10px; color:white; text-decoration:none; font-size:93%; margin:0 6px 0 0; width:auto;float:left;}
 .button .r {background-position:left top; width:7px; right:-7px; height:24px;}
 .button:hover .r {background-position:left -23px;}
@@ -463,8 +456,11 @@ a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
             -moz-box-shadow:0 2px 3px rgba(0,0,0,0.5);
                  box-shadow:0 2px 3px rgba(0,0,0,0.5);}
 
-.text_input {border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa, 0 1px 0px white;}
-.text_input:focus {outline:none !important; border-color:#598afb;}
+.js .text_input_hidden{border:1px solid white;outline:none;}
+.text_input, .text_input_hidden:focus, .no-js .text_input_hidden{border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa, 0 1px 0px white;}
+.text_input:focus, .text_input_hidden:focus{outline:none !important; border-color:#598afb;}
+
+
 
 .no-js .if_js,
 .js .unless_js{display:none;}

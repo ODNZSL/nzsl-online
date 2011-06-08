@@ -29,15 +29,8 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => ''}
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
-  %footer.sticky_footer.footer
-    .center
-      .nav
-        = static_links.map { |link| render_navigation_link(link) }.join(' | ').html_safe
-      .main_column
-        .copyright
-          :markdown
-            Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
-
+  = render :partial => 'shared/footer', :locals => {:last => true}
+  
   = javascript_include_tag 'flowplayer-3.2.6.min.js', :defaults, :cache => 'nzsl-cache.js'
   = print_javascripts_tag params[:print]
   = yield :scripts
