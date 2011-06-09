@@ -21,40 +21,40 @@ $(function(){
   var setup_videos = function(){
     if ($('a.video_replace')){
       $f('a.video_replace', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, {
-        // clip: {
-        //           autoPlay: true,
-        //           autoBuffering: false,
-        //           onFinish: function(){this.getPlugin('play').css({opacity:0})},
-        //           onStart: function(){this.getPlugin('play').css({opacity:0})}
-        //         },
-        //         
-        //         plugins: {
-        //           play:{opacity:0},
-        //           controls: {
-        //             height:25,
-        //             opacity:0.5,
-        //             volume:false,
-        //             mute:false,
-        //             time:false,
-        //             stop:false,
-        //             fastForward:false,
-        //             slowForward:false,
-        //             scrubber:false,
-        //             backgroundColor:'rgba(0,0,0,0)',
-        //             backgroundGradient: [1,0],
-        //             buttonColor:'#ffffff',
-        //             buttonOverColor: '#ffffff',
-        //             backgroundGradient:'none',
-        //             autoHide:'never',
-        //             tooltips:{
-        //               buttons:true
-        //             }
-        //           }
-        //         },
-        //         play: {
-        //           replayLabel: null
-        //         }
-      }).each(function(){this.ipad({simulateiDevice:true});});
+        clip: {
+          autoPlay: true,
+          autoBuffering: false,
+          onFinish: function(){this.getPlugin('play').css({opacity:0})},
+          onStart: function(){this.getPlugin('play').css({opacity:0})}
+        },
+      
+        plugins: {
+          play:{opacity:0},
+          controls: {
+            height:25,
+            opacity:0.5,
+            volume:false,
+            mute:false,
+            time:false,
+            stop:false,
+            fastForward:false,
+            slowForward:false,
+            scrubber:true,
+            backgroundColor:'rgba(0,0,0,0)',
+            backgroundGradient: [1,0],
+            buttonColor:'#ffffff',
+            buttonOverColor: '#ffffff',
+            backgroundGradient:'none',
+            autoHide:'never',
+            tooltips:{
+              buttons:true
+            }
+          }
+        },
+        play: {
+          replayLabel: null
+        }
+      }).each(function(){this.ipad();});
       // $('a.video_replace').click(function(e){
       //         e.preventDefault();
       //       });
