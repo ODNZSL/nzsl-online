@@ -14,6 +14,8 @@ $(function(){
     setup_vocab_remove();
     setup_add_to_sheet();
     
+    setup_size_selection();
+    
     setup_feedback_form();
   }
   var setup_videos = function(){
@@ -53,7 +55,7 @@ $(function(){
         play: {
           replayLabel: null
         }
-      });
+      }).ipad();
       $('a.video_replace').click(function(e){
         e.preventDefault();
       });
@@ -223,8 +225,8 @@ $(function(){
   }
   var setup_print_view = function(){
     //load print
-    $('textarea, input[type="text"]').attr('readonly', true)
     if (document.printView) {
+      $('textarea, input[type="text"]').attr('readonly', true)
       $(window).bind('load', function(){
         window.print();
       });
@@ -301,10 +303,25 @@ $(function(){
         }
       }).blur(function(){submit_vocab_item($(this))});
       if (document.printView){
-        $('textarea').disable();
+        $('textarea').attr('readonly', true);
       }
     }
   }
+  
+  var setup_size_selection = function(){
+    var wrapper = $('.size_controls').first();
+    var highlight_size_selection = function(){
+      wrapper.find('label').removeClass('selected_icon');
+      wrapper.find('label[for="'+$('.size_controls input[type="radio"]:checked').attr('id')+'"]').addClass('selected_icon');
+    }
+    wrapper.find('.button').hide();
+    wrapper.find('input[type="radio"]').click(function(){
+      $(this).closest('form').submit();
+      highlight_size_selection();
+    });
+    highlight_size_selection();
+  }
+  
   var setup_feedback_form = function(){
     var show_feedback_form = function(){
       

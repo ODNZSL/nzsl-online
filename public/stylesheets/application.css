@@ -231,7 +231,9 @@ a.logo {height:71px; width:92px; background:url('/images/ui/logo.png') top left 
 .sub:hover {height:44px; top:38px; border:1px solid #bbb;}
 
 .sub:hover .image {width:42px; height:42px; line-height:1;}
-.attribute_options .selected, .attribute_options .selected ul {background-color:#e2edfc;}
+.attribute_options .selected, 
+.attribute_options .selected ul,
+.selected_icon {background-color:#e2edfc;}
 
 
 /*tryna resolve IE7 z-index issues */
@@ -334,7 +336,9 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
  /* * * * * * * *\
 |* Vocab Sheet  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
+/*  */
+.vocab_sheet_head {margin-left:-108px;margin-right:102px;width:690px;}
+/* Vocab bar background */
 .vocab_sheet_background {background:url('/images/ui/vocab-background.png') right top repeat-y;}
 .vocab_sheet_background .header,
 .vocab_sheet_background .main_column {position:relative;} /* haslayout? */
@@ -342,38 +346,54 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .vocab_sheet_background .not_sticky_footer, 
 .vocab_sheet_background .sticky_footer {margin-right:121px;}
 .vocab_sheet_background .r.edge {display:none;}
-
+/* generic */
 .vocab_sheet {position:relative; text-align:center;}
-.vocab_sheet ul {margin:0; padding:0; list-style-type:none;}
+.vocab_sheet ul {margin:0 -11px 0 0; padding:0; list-style-type:none;}
 .vocab_sheet_item {display:block; padding:7px 1px 0; position:relative; overflow:visible; z-index:1;}
-.vocab_sheet_item a {text-align:center; display:block;color:#34414b; text-decoration:none; padding:0 5px; background-color:transparent; border:0;}
+.vocab_sheet_item a {text-align:center; display:block; color:#34414b; text-decoration:none; padding:0 5px; background-color:transparent; border:0;}
 .vocab_sheet_item .drawing {margin:5px 0 0;}
-
 .vocab_sheet_item img {display:inline;vertical-align:middle;}
-.vocab_sheet_item textarea {resize:none; text-align:center; width:130px;margin:0 10px; height:2.1em; line-height:1; z-index:3;position:relative;}
-.no-js .vocab_sheet_item .button {position:absolute;bottom:40px;right:10px;z-index:15;}
-.no-js .vocab_sheet_name {float:left;}
-.no-js .vocab_sheet_name .button {margin-top:43px;}
-.vocab_sheet_item .b {position:absolute; left:0;}
-.vocab_sheet_item .remove {position:absolute; top:-8px; right:-10px; width:28px; height:25px; background:url('/images/ui/vocab_delete.png'); border:0; text-indent:-9999px; overflow:hidden;}
-.main_column .vocab_sheet_page {padding-bottom:10px;clear:left;}
-.vocab_sheet_page_item {background:url('/images/ui/vocab_sheet_item_big.png') left -16px no-repeat; width:155px; height:160px; margin:15px 3px 15px 0; float:left;}
-.vocab_sheet_page_item .b {background:url('/images/ui/vocab_sheet_item_big.png') left top  no-repeat; height:16px; width:155px; bottom:-16px;}
-.vocab_sheet_page_item .item_name {margin-bottom:-16px; position:relative; z-index:11;}
-.vocab_sheet_page_item .drawing {height:120px; vertical-align:middle; line-height:120px;}
+.vocab_sheet_item .remove {position:absolute;width:28px; height:25px; background:url('/images/ui/vocab_delete.png'); border:0; text-indent:-9999px; overflow:hidden;}
 
+/* bar specific */
 .vocab_sheet_bar {float:right; width:121px; top:0; right:0; overflow:hidden; z-index:10; margin-left:-121px; left:121px;}
 .column_wrapper {overflow-y:hidden;}
 .vocab_sheet_bar .title {padding:15px 0; font-size:138.5%;}
 .vocab_sheet_bar_item {background:url('/images/ui/vocab_sheet_item.png') left -10px no-repeat; width:99px;  margin:15px 13px 15px;}
-.vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') left top no-repeat; height:11px; width:99px; bottom:-11px;}
+.vocab_sheet_bar_item .b {background:url('/images/ui/vocab_sheet_item.png') left top no-repeat; height:11px; width:99px; bottom:-11px; position:absolute; left:0;}
+.vocab_sheet_bar_item .remove {top:-8px;right:-10px;}
 
-.vocab_sheet_buttons {float:right; margin-top:43px; width:150px;}
-.vocab_sheet_buttons .button {margin-left:5px;}
-.vocab_sheet_controls {margin-left:10px;}
+/* sheet specific */
+.vocab_sheet_page_item textarea {resize:none; text-align:center; margin:0 5px; height:2.1em; line-height:1; z-index:3;position:relative;}
+.vocab_sheet_page {padding-bottom:10px;clear:left; width:690px;margin-left:-108px;}
+.vocab_sheet_page_item {border:1px solid #ccc; width:145px; margin:15px 11px 15px 0; float:left;background:white;}
+.vocab_sheet_page_item .item_name {margin-bottom:5px; position:relative; z-index:11;}
+.vocab_sheet_page_item .drawing {vertical-align:middle; padding:0 3px;}
+.vocab_sheet_page_item .remove {top:-10px;right:-14px;}
+/* no-js friendly */
+.no-js .vocab_sheet_item .button {position:absolute;top:10px;left:10px;z-index:15;}
+.no-js .vocab_sheet_name {float:left;}
+.no-js .vocab_sheet_name .button {display:block;float:left;clear:left;margin-top:-10px;}
 
-.vocab_sheet_controls .button {margin-right:10px;}
+/* controls */
+.vocab_sheet_page_controls {float:right; margin-top:43px; width:320px;}
+.no-js .vocab_sheet_page_controls {width:460px;}
+.vocab_sheet_page_controls .button {margin-left:5px;}
 
+.vocab_sheet_bar_controls {margin-left:10px;}
+.vocab_sheet_bar_controls .button {margin-right:10px;}
+
+.size_controls {float:left;margin-left:10px;margin-top:-4px;}
+.size_controls .radio_wrapper {height:32px;line-height:32px;float:left;display:block;}
+.radio_wrapper input {vertical-align:middle;}
+.size_label {width:24px;height:32px;background-image:url('/images/ui/vocab_sheet_icons.png');display:block;float:left;overflow:hidden;margin-right:10px;}
+.size_5_label {background-position:left 0;}
+.size_4_label {background-position:left -32px;}
+.size_3_label {background-position:left -64px;padding-right:1px;}
+.size_2_label {background-position:left -96px;}
+.size_1_label {background-position:left -128px;}
+.size_controls .selected_icon {background-color:#d2e2f9;}
+.js .radio_wrapper {display:none;}
  /* * * * * * * * *\
 |* Flash Notices  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -449,7 +469,7 @@ a .button,
 a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
 .center {width:690px; margin:0 auto; position:relative; z-index:7;} /* html3.2 loves you */
 
-.rule_after {background:url('/images/ui/hr.png') left bottom no-repeat; padding-bottom:1px; margin-bottom:16px;}
+.rule_after {background:url('/images/ui/hr.png') center bottom no-repeat; padding-bottom:1px; margin-bottom:16px;}
 .rounded {-webkit-border-radius:4px; -moz-border-radius:4px; -o-border-radius:4px; border-radius:4px;}
 .vertical_space {padding-bottom:16px;}
 .shadow {-webkit-box-shadow:0 2px 3px rgba(0,0,0,0.5);

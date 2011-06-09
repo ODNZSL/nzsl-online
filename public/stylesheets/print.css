@@ -32,7 +32,8 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   object,
   .view_print_back_link,
   .remove, 
-  .js .if_js
+  .js .if_js,
+  .vocab_sheet_controls
   {display:none;}
 /* remove shadows of my mind */
   .shadow, .text_input, .text_input_hidden, .text_input_hidden:focus{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
@@ -41,12 +42,15 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
 /* hiding link destinations after text */
   a.drawing:after {content:"";}
 /* making the vocabsheet have a not editing looking view */
+  .vocab_sheet_page {margin-left:0;}
+  .vocab_sheet_page_item {border:0;}
   .vocab_sheet_page textarea {border:0 !important;text-align:center;outline:none;}
   .vocab_sheet_name {border:0 !important;outline:none;}
+  div.vocab_sheet_name {position:absolute; left:120px; top:-75px;}
 /* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
   .not_sticky_footer {min-height:0;height:auto;}
   .before_sticky_footer {padding-bottom:0;overflow:visible;}
-  .sticky_footer {height:auto;margin-top:0;}
+  .sticky_footer {height:auto;margin-top:0;margin-bottom:1em;}
   .rule_after {border-bottom:1px solid black;}
 /* show logo for printing */
   .print_logo {display:block;}
@@ -61,4 +65,4 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
     word-wrap: break-word; /* Internet Explorer 5.5+ */
   }
   .center,
-  .main_column {width:800px;padding:0;}
+  .main_column {width:690px;padding:0;}

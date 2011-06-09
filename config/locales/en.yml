@@ -92,6 +92,7 @@ en:
     sortable_instruction: Drag signs to change the order. Click any text label to change it
     name: Your vocab sheet
     change: Change Label
+    update: Update
   feedback:
     submit: Send Feedback
     success: Your feedback has been sent

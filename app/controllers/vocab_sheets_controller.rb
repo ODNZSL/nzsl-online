@@ -3,6 +3,10 @@ class VocabSheetsController < ApplicationController
   before_filter :find_or_create_vocab_sheet
   respond_to :html, :json
   def show
+    @size = params[:size].to_i 
+    @size = session[:vocab_sheet_size].to_i if @size.zero?
+    @size = 4 if @size.zero?
+    session[:vocab_sheet_size] = @size
   end
   
   def update

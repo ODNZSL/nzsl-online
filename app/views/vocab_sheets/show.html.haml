@@ -2,20 +2,27 @@
   = javascript_include_tag 'jquery-ui.min.js'
 = content_for :head do
   = stylesheet_link_tag 'smoothness/jquery-ui.css'
-= form_tag vocab_sheet_path, :method => :delete, :class => 'vocab_sheet_buttons' do
-  = link_button 'vocab_sheet.print', {:print => true}
-  = submit_button 'vocab_sheet.delete'
-= form_tag vocab_sheet_path, :method => :put, :class => 'clearfix_left vocab_sheet_name' do
-  .h1.vocab_sheet_name
-    = text_field_tag "vocab_sheet[name]", (@sheet.name.present? ? @sheet.name : t('vocab_sheet.name')), :class => 'vocab_sheet_name text_input_hidden'
-  = hidden_field_tag "vocab_sheet[old_name]", (@sheet.name.present? ? @sheet.name : t('vocab_sheet.name')), :class => 'old_name'
-  = submit_button('vocab_sheet.change')
-.if_js= t('vocab_sheet.sortable_instruction')
+.vocab_sheet_head
+  .vocab_sheet_controls.vocab_sheet_page_controls
+    = link_button 'vocab_sheet.print', {:print => true}
+    = form_tag vocab_sheet_path, :method => :delete, :class => '' do
+      = submit_button 'vocab_sheet.delete'
+    = form_tag vocab_sheet_path, :method => :get, :class => 'size_controls' do
+      - (1..5).each do |i|
+        %span.radio_wrapper
+          = radio_button_tag 'size', i, @size == i, :id => "size_#{i}"
+        = label_tag "size_#{i}", "fit #{i} across per sheet", :class => "ir size_label size_#{i}_label"
+      = submit_button 'vocab_sheet.update'
+  = render :partial => 'vocab_sheets/vocab_sheet_name'
+  .if_js
+    = t('vocab_sheet.sortable_instruction')
+  
 - if @sheet.items.length > 0
   .vocab_sheet.vocab_sheet_page.rule_after.clearfix_left
+    
     %ul#vocab_sheet.clearfix_left
       - @sheet.items.each_with_index do |vocab_sheet_item, i|
-        - if params[:print] && !i.zero? && i.multiple_of?(20)
+        - if params[:print] && !i.zero? && i.multiple_of?(vocab_sheet_offset_multiple)
           = render :partial => 'shared/print_page_boundary'
         = render :partial => 'vocab_sheets/vocab_sheet_item', :locals => {:vocab_sheet_item => vocab_sheet_item}
 - else

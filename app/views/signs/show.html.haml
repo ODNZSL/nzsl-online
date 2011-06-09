@@ -8,11 +8,11 @@
       .glosses
         %h1.main_gloss= @sign.gloss_main
         %h2.secondary_gloss= @sign.gloss_secondary
-        %p.h4.minor_gloss= @sign.gloss_minor
-        %p.h4.maori_gloss= @sign.gloss_maori
+        %p.h3.minor_gloss= @sign.gloss_minor
+        %p.h3.maori_gloss= @sign.gloss_maori
       .grammar
-        %p.h4.word_class= @sign.word_classes
-        %p.h4.grammar_notes= render_grammar_notes(@sign)
+        %p.h3.word_class= @sign.word_classes
+        %p.h3.grammar_notes= render_grammar_notes(@sign)
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
         = submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
