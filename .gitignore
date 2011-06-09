@@ -6,3 +6,4 @@ config/database.yml
 public/images/signs/**/*
 .rvmrc
 public/videos/*.*
+public/system/videos/*.*
