@@ -7,7 +7,7 @@ set :deploy_to, "/var/rails/#{application}"
 set :scm, :git
 default_run_options[:pty] = true 
 set :deploy_via, :copy
-set :copy_cache, true
+set :copy_cache, '/tmp/deploy-cache/nzsl-online'
 set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs"]
 
 set :port, 10

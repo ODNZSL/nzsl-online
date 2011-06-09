@@ -55,7 +55,7 @@ $(function(){
         play: {
           replayLabel: null
         }
-      }).ipad();
+      });
       $('a.video_replace').click(function(e){
         e.preventDefault();
       });
