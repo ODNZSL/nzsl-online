@@ -419,8 +419,8 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 
 .tab_link {display:inline; line-height:1.2;}
 
-.main_column .video_translation {width:auto;height:auto;background:white; clear:left; margin:-16px 0 16px; float:none;}
-.video_translation video {width:480px;height:360px;}
+.main_column .video_replace_translation {width:auto;height:auto;background:white; clear:left; margin:16px 0; float:none;}
+.video_replace_translation video {width:480px;height:360px;}
 /* the formtastic default stylesheet wasn't making me happy. */
 .formtastic {padding:16px 0;}
 .formtastic ol {list-style-type:none; margin-left:0;}
@@ -468,7 +468,8 @@ a .button,
 .r, .l {position:absolute; display:block;top:0;}
 .r {right:0;}
 .l {left:0;}
-a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
+a.video_replace_entry, 
+a.video_replace_translation {background:#99a0a5; display:block; border:0; float:left;}
 .center {width:690px; margin:0 auto; position:relative; z-index:7;} /* html3.2 loves you */
 
 .rule_after {background:url('/images/ui/hr.png') center bottom no-repeat; padding-bottom:1px; margin-bottom:16px;}

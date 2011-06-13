@@ -104,6 +104,7 @@ en:
     next: next
     previous: previous
   play_this_page: Play this page in NZSL
+  play_this_section: Play this section in NZSL
   clear: clear
   formtastic:
     labels:
@@ -114,7 +115,7 @@ en:
         nzsl_level: 'Are you a:'
         
         include_sign: ' Suggest an NZSL sign to be included in the dictionary'
-        include_describe: "Show the sign on it's own, and the same sign used in a sentence"
+        include_describe: "Show the sign on its own, and the same sign used in a sentence"
         include_define: "What does this sign mean (in English)?"
         include_users: "Who uses this sign? (e.g. older, younger, area)"
         include_comments: Other Comments

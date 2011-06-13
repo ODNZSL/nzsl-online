@@ -69,24 +69,28 @@ $(function(){
                                          autobuffer:"autobuffer"}))
                  .attr('href', 'javascript:void(0);');
         } else {
-          $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_entry_config)
+          $(this).addClass('.video_replace_entry_flash');
         }
       });  
     } 
     if (videos = $('.video_replace_translation')){
-      videos.click(function(){
-        if (Modernizr.video.h264 == 'probably'){
+      videos.click(function(e){
+        var href = $(this).attr('href');
+        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
           $(this).empty()
                  .unbind('click')
-                 .append($('<video />', {src: $(this).attr('href'),
+                 .append($('<video />', {src: href,
                                          autoplay:"autoplay",
                                          autobuffer:"autobuffer",
                                          controls:"controls" }))
-                 .attr('href', 'javascript:void(0);');  
+                 .attr('href', 'javascript:void(0);');
         } else {
-          $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_translation_config) 
+          $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_translation_config)
         }
       });
+      
+      $f('.video_replace_entry_flash', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_entry_config)
+      $('.video_replace_entry_flash').attr('href', 'javascript:void(0);');
     }
   }
   var setup_slow_motion_videos = function(){
