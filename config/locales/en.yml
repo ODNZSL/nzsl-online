@@ -103,7 +103,7 @@ en:
   pagination: 
     next: next
     previous: previous
-  
+  play_this_page: Play this page in NZSL
   clear: clear
   formtastic:
     labels:

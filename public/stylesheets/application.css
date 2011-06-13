@@ -296,12 +296,12 @@ a.drawing {border:0; background:transparent;}
 .entry_drawing {float:right; margin:24px 0 20px;}
 .entry_drawing .offset {right:-10%; position:relative;}
 
-.main_video {width:480px; height:360px; clear:left; margin:16px 0;}
-
+.main_video {clear:left; margin:16px 0;}
+.main_video, .main_video video {width:480px; height:360px; }
 .examples {clear:both;}
 .example {margin:10px 0 24px;}
-.example_video {width:240px; height:180px; float:left; clear:left; margin-right:16px;}
-
+.example_video {float:left; clear:left; margin-right:16px;}
+.example_video, .example_video video {width:240px;height:180px;}
 .videos .slow {display:none;}
 
 .videos .button {float:right;}
@@ -405,7 +405,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 |* Pages  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* Homepage */
-.sign_of_the_day {text-align:center; float:right; margin:45px 0 0; width:150px;}
+.sign_of_the_day {text-align:center; float:right; margin:0; width:150px;}
 .sign_of_the_day img {display:inline;}
 .sign_of_the_day .h2 {display:inline}
 .drawing {margin:10px 0;}
@@ -419,6 +419,8 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 
 .tab_link {display:inline; line-height:1.2;}
 
+.main_column .video_translation {width:auto;height:auto;background:white; clear:left; margin:-16px 0 16px; float:none;}
+.video_translation video {width:480px;height:360px;}
 /* the formtastic default stylesheet wasn't making me happy. */
 .formtastic {padding:16px 0;}
 .formtastic ol {list-style-type:none; margin-left:0;}
@@ -444,6 +446,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 a .button,
 .button,
 .button .r {background-image: url('/images/ui/buttons.png');border:0;cursor:pointer;}
+a .button,
 .button {background-position:-6px top; position:relative; height:24px; display:inline-block; line-height:24px; padding:0 4px 0 10px; color:white; text-decoration:none; font-size:93%; margin:0 6px 0 0; width:auto;float:left;}
 .button .r {background-position:left top; width:7px; right:-7px; height:24px;}
 .button:hover .r {background-position:left -23px;}
@@ -453,7 +456,6 @@ a .button,
 .button:visited {color:white;}
 .button input, 
 .button button {background:transparent; border:0; color:white; padding:0; height:24px; width:auto; line-height:24px; margin:0; display:block; overflow:visible;}
-
 .ie7 .input_button {margin:0;}
 .button button::-moz-focus-inner,
 .button input::-moz-focus-inner {padding: 0px; border: 0px}

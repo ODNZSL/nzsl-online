@@ -20,9 +20,9 @@
         = handshape_image @sign.handshape
         = location_image @sign.location
     .videos
-      = link_to '>', @sign.video, :class => 'video_replace main_video normal'
+      = link_to '', @sign.video, :class => 'video_replace main_video normal video_replace_entry'
       - if @sign.video_slow.present?
-        = link_to '>', @sign.video_slow, :class => 'video_replace main_video slow'
+        = link_to '', @sign.video_slow, :class => 'video_replace main_video slow video_replace_entry'
         = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
         = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
     - unless @sign.examples.length.zero?
@@ -30,9 +30,9 @@
         %h2= t('signs.show.usage_examples')
         - @sign.examples.each do |example| 
           .example.clearfix.typography.videos
-            = link_to '>', example[:video], :class => 'video_replace example_video normal'
+            = link_to '', example[:video], :class => 'video_replace example_video normal video_replace_entry'
             - if example[:video_slow]
-              = link_to '>', example[:video_slow], :class => 'video_replace example_video slow'
+              = link_to '', example[:video_slow], :class => 'video_replace example_video slow video_replace_entry'
             %p
               %em= example[:translation]
             %p= render_transcription(example[:transcription], @sign.id)

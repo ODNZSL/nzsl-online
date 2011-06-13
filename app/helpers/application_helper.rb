@@ -33,6 +33,10 @@ module ApplicationHelper
     link_to "<div class='r'></div>#{t(text)}".html_safe, url, {:class => ("button link_button #{options[:class]}")}.reverse_merge(options)
   end
   
+  def div_button text, options = {}
+    content_tag :div, "<div class='r'></div>#{t(text)}".html_safe, {:class => ("button link_button #{options[:class]}")}.reverse_merge(options)
+  end
+  
   def query_for_query_string
     query = @query.dup
     query.each { |k,v| query[k] = v.is_a?(Array) ? v.join(' ') : v }
@@ -49,6 +53,7 @@ module ApplicationHelper
       stylesheet_link_tag('print', :media => 'print')
     end
   end
+  
   def print_javascripts_tag(print)
     if print
       "<script>
@@ -57,4 +62,7 @@ module ApplicationHelper
     end
   end
   
+  def video_translation filename
+    link_to div_button('play_this_page'), "/system/videos/#{filename}.mp4", :class => 'video_replace video_translation normal clearfix_left video_replace_translation'
+  end
 end

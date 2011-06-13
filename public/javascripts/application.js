@@ -17,47 +17,73 @@ $(function(){
     setup_size_selection();
     
     setup_feedback_form();
+    
+    setup_video_translation_button();
   }
   var setup_videos = function(){
-    if ($('a.video_replace')){
-      $f('a.video_replace', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, {
-        clip: {
-          autoPlay: true,
-          autoBuffering: false,
-          onFinish: function(){this.getPlugin('play').css({opacity:0})},
-          onStart: function(){this.getPlugin('play').css({opacity:0})}
-        },
-      
-        plugins: {
-          play:{opacity:0},
-          controls: {
-            height:25,
-            opacity:0.5,
-            volume:false,
-            mute:false,
-            time:false,
-            stop:false,
-            fastForward:false,
-            slowForward:false,
-            scrubber:true,
-            backgroundColor:'rgba(0,0,0,0)',
-            backgroundGradient: [1,0],
-            buttonColor:'#ffffff',
-            buttonOverColor: '#ffffff',
-            backgroundGradient:'none',
-            autoHide:'never',
-            tooltips:{
-              buttons:true
-            }
+    var videos;
+    var hidePlay = function(){this.getPlugin('play').css({opacity:0})};
+    var flowplayer_entry_config = {
+      clip: {
+        autoPlay: false,
+        autoBuffering: true,
+        onFinish: hidePlay,
+        onStart:  hidePlay
+      },
+      plugins: {
+        play:{opacity:0},
+        controls: {
+          height:25,
+          opacity:0.5,
+          volume:false,
+          mute:false,
+          time:false,
+          stop:false,
+          fastForward:false,
+          slowForward:false,
+          scrubber:false,
+          backgroundColor:'rgba(0,0,0,0)',
+          backgroundGradient: [1,0],
+          buttonColor:'#ffffff',
+          buttonOverColor: '#ffffff',
+          backgroundGradient:'none',
+          autoHide:'never',
+          tooltips:{
+            buttons:true
           }
-        },
-        play: {
-          replayLabel: null
         }
-      }).each(function(){this.ipad();});
-      // $('a.video_replace').click(function(e){
-      //         e.preventDefault();
-      //       });
+      },
+      play: {
+        replayLabel: null
+      }
+    };
+    var flowplayer_translation_config = $.extend(true, {}, flowplayer_entry_config) //clone
+    flowplayer_translation_config.plugins.controls.scrubber = true; // this is much longer
+    if (videos = $('.video_replace_entry')){
+      videos.each(function(){
+        var href = $(this).attr('href');
+        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
+          $(this).empty()
+                 .append($('<video />', {src: href,
+                                         controls:"controls" }))
+                 .attr('href', 'javascript:void(0);');
+        } else {
+          $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_entry_config)
+        }
+      });  
+    } 
+    if (videos = $('.video_replace_translation')){
+      videos.click(function(){
+        if (Modernizr.video.h264 == 'probably'){
+          $(this).empty()
+                 .unbind('click')
+                 .append($('<video />', {src: $(this).attr('href'),
+                                         controls:"controls" }))
+                 .attr('href', 'javascript:void(0);');  
+        } else {
+          $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_translation_config) 
+        }
+      });
     }
   }
   var setup_slow_motion_videos = function(){
@@ -329,6 +355,12 @@ $(function(){
     .change(function(){
       $('.if_'+$(this).attr('id')).toggle(this.checked)
     }).trigger('change')
+  }
+  
+  var setup_video_translation_button = function(){
+    $('.video_replace_translation').click(function(){
+      $(this).width(480).height(360);
+    });
   }
   setup();
 });
