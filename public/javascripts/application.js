@@ -65,7 +65,8 @@ $(function(){
         if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
           $(this).empty()
                  .append($('<video />', {src: href,
-                                         controls:"controls" }))
+                                         controls:"controls",
+                                         autobuffer:"autobuffer"}))
                  .attr('href', 'javascript:void(0);');
         } else {
           $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_entry_config)
@@ -78,6 +79,8 @@ $(function(){
           $(this).empty()
                  .unbind('click')
                  .append($('<video />', {src: $(this).attr('href'),
+                                         autoplay:"autoplay",
+                                         autobuffer:"autobuffer",
                                          controls:"controls" }))
                  .attr('href', 'javascript:void(0);');  
         } else {
