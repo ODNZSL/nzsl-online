@@ -17,13 +17,30 @@ $(function(){
     setup_size_selection();
     
     setup_feedback_form();
-    
-    setup_video_translation_button();
   }
   var setup_videos = function(){
     var videos;
+    if (videos = $('.video_replace')){
+      videos.each(function(){
+        var wrapper = $(this);
+        var href = wrapper.attr('href');
+        var hidden = wrapper.hasClass('translation_video');
+        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
+          wrapper.empty()
+                 .append($('<video />', {src: href,
+                                         controls:"controls",
+                                         autobuffer:(hidden ? undefined : "autobuffer")}))
+        } else {
+          if (hidden){
+            wrapper.addClass('.video_replace_hidden_flash');
+          } else {
+            wrapper.addClass('.video_replace_flash');            
+          }
+        }
+      });
+    }
     var hidePlay = function(){this.getPlugin('play').css({opacity:0})};
-    var flowplayer_entry_config = {
+    var flowplayer_config = {
       clip: {
         autoPlay: false,
         autoBuffering: true,
@@ -57,57 +74,36 @@ $(function(){
         replayLabel: null
       }
     };
-    var flowplayer_translation_config = $.extend(true, {}, flowplayer_entry_config) //clone
-    flowplayer_translation_config.plugins.controls.scrubber = true; // this is much longer
-    if (videos = $('.video_replace_entry')){
-      videos.each(function(){
-        var href = $(this).attr('href');
-        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
-          $(this).empty()
-                 .append($('<video />', {src: href,
-                                         controls:"controls",
-                                         autobuffer:"autobuffer"}))
-                 .attr('href', 'javascript:void(0);');
-        } else {
-          $(this).addClass('.video_replace_entry_flash');
-        }
-      });  
-    } 
-    if (videos = $('.video_replace_translation')){
-      videos.click(function(e){
-        var href = $(this).attr('href');
-        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
-          $(this).empty()
-                 .unbind('click')
-                 .append($('<video />', {src: href,
-                                         autoplay:"autoplay",
-                                         autobuffer:"autobuffer",
-                                         controls:"controls" }))
-                 .attr('href', 'javascript:void(0);');
-        } else {
-          $f(this, {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_translation_config)
-        }
-      });
-      
-      $f('.video_replace_entry_flash', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_entry_config)
-      $('.video_replace_entry_flash').attr('href', 'javascript:void(0);');
-    }
+    var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
+    flowplayer_hidden_config.clip.autoBuffering = false;
+    $f('.video_replace_hidden_flash', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config)
+    $f('.video_replace_flash', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config)
+    $('.video_replace').attr('href', 'javascript:void(0);');
   }
   var setup_slow_motion_videos = function(){
-    $('.button.normal, .button.slow').click(function(){
-      var show, hide;
+    $('.button.normal, .button.slow, .button.translation_button').click(function(){
+      var show, hide, video;
       var videos = $(this).closest('.videos');
       if ($(this).hasClass('normal')){
         show = 'slow';
         hide = 'normal';
-      } else {
+      } else if ($(this).hasClass('slow')) {
         show = 'normal';
         hide = 'slow';
+      } else {
+        show = 'translation_video'
+        hide = 'translation_button'
       }
       videos.find("."+show).show();
       videos.find("."+hide).hide();
-      flowplayer(videos.find('.video_replace.'+hide)[0]).pause();
-      flowplayer(videos.find('.video_replace.'+show)[0]).play();
+      if (video = videos.find('.video_replace.'+hide)[0]) {
+        flowplayer(video).pause();
+        $(video).find('video').pause();
+      }
+      if (video = videos.find('.video_replace.'+show)[0]) {
+        flowplayer(video).play();
+        $(video).find('video').play();
+      }
     });
   }
   var reset_menu_position = function(){
@@ -361,19 +357,9 @@ $(function(){
   }
   
   var setup_feedback_form = function(){
-    var show_feedback_form = function(){
-      
-    }
-    $('#feedback_include_sign, #feedback_change_sign')
-    .change(function(){
-      $('.if_'+$(this).attr('id')).toggle(this.checked)
+    $('#feedback_include_sign, #feedback_change_sign').change(function(){
+      $('.if_'+$(this).attr('id')).toggle(this.checked);
     }).trigger('change')
-  }
-  
-  var setup_video_translation_button = function(){
-    $('.video_replace_translation').click(function(){
-      $(this).width(480).height(360);
-    });
   }
   setup();
 });

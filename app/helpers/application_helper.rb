@@ -63,6 +63,9 @@ module ApplicationHelper
   end
   
   def video_translation filename, label='play_this_page'
-    link_to div_button(label), "/system/videos/#{filename}.mp4", :class => 'clearfix_left video_replace_translation', :id => "video_#{filename.gsub('-', '_')}"
+    content_tag :div, 
+      [link_to('', "/system/videos/#{h filename}.mp4", :class => 'video_replace translation_video main_video', :id => "video_#{h filename.gsub('-', '_')}"), 
+       link_button(label, nil, :class => 'translation_button')].join(' ').html_safe, 
+      :class => 'videos clearfix_left'
   end
 end
