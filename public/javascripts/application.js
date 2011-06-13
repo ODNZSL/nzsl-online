@@ -131,9 +131,11 @@ $(function(){
       hide_all_dropdowns();
       return true; //so bubbles back up;
     });
+    
     $('.sign_attribute_selection').click(function(e){
       e.stopPropagation();
       e.preventDefault();
+      
       var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
       hide_all_dropdowns();
       $(this).find('.dropdown').toggle(hideOrShow);
@@ -154,8 +156,10 @@ $(function(){
         
       });
     });
-    
-    $('.search_form form').find('.text_input').change(hide_or_show_clear);
+    $('.search_form form').each(function(){
+      toggle_clear(this)
+    }).find('.text_input, .selected_field, .selected_groups_field')
+      .change(function(){toggle_clear($(this).closest('form'))});
     
     $('.empty').click(function(){
       var tab = $(this).closest('.search_form');
@@ -167,13 +171,15 @@ $(function(){
     });
   }
   
-  var hide_or_show_clear = function(){
-    var values = ''
-    var form = $(this).closest('form')
-    form.find('.text_input, .selected_field, .selected_groups_field').each(function(){
-      values += $(this).val();
+  var toggle_clear = function(form){
+    var show = false;
+    $(form).find('.text_input, .selected_field, .selected_groups_field').each(function(){
+      if($(this).val()){
+        show = true;
+        return show;
+      }
     });
-    form.find('.empty').toggle(values.length)
+    $(form).find('.empty').toggle(show)
   }
   
   var hide_all_dropdowns = function(){
@@ -224,7 +230,7 @@ $(function(){
       container.find('.selected_groups_field').first().val(output_group.join(' '));
     }
     container.find('.selected_field').first().val(output.join(' '));
-    hide_or_show_clear()
+    toggle_clear(container.closest('form'));
   }
   var setup_handshapes_hover_fix = function(){
     $('.attribute_options .row, .attribute_options .group, .attribute_options .sub').hover(function(){

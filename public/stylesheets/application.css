@@ -288,8 +288,9 @@ ol.grid, ul.grid {margin:0 -20px 1.2em 0; width:510px;}
 .glosses .secondary_gloss {font-size:123.1%; display:block;}
 .word_class,
 .maori_gloss {font-style:italic; display:block;}
-.grammar {margin-bottom:1.2em;}
-
+h1.main_gloss {padding-bottom:0;}
+.grammar,
+.glosses {margin-bottom:1.2em;}
 a.drawing {border:0; background:transparent;}
 .drawing img {display:inline;vertical-align:bottom;}
 
@@ -322,6 +323,8 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .back_to_results {position:absolute; top:0; left:0;}
 
 .entry_head {float:left;width:480px;} /* to clear right without clearing right :) */
+
+.back_to_search_results {position:absolute;top:0;left:108px;}
  /* * * * *\
 |* Footer *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -420,6 +423,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .tab_link {display:inline; line-height:1.2;}
 
 .main_column .video_replace_translation {width:auto;height:auto;background:white; clear:left; margin:16px 0; float:none;}
+.main_column h1 + .video_replace_translation {margin:-16px 0 16px;}
 .video_replace_translation video {width:480px;height:360px;}
 /* the formtastic default stylesheet wasn't making me happy. */
 .formtastic {padding:16px 0;}
