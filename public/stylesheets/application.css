@@ -66,7 +66,7 @@ input[type="checkbox"] { vertical-align: bottom; }
 label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
 button, input, select, textarea { margin: 0; }
 input:valid, textarea:valid   {  }
-input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0px 0px 5px red; -webkit-box-shadow: 0px 0px 5px red; box-shadow: 0px 0px 5px red; }
+input:invalid, textarea:invalid { border-radius: 1px; -moz-box-shadow: 0 0 5px red; -webkit-box-shadow: 0 0 5px red; box-shadow: 0 0 5px red; }
 .no-boxshadow input:invalid, .no-boxshadow textarea:invalid { background-color: #f0dddd; }
 
 /*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
@@ -298,11 +298,11 @@ a.drawing {border:0; background:transparent;}
 .entry_drawing .offset {right:-10%; position:relative;}
 
 .main_video {clear:left; margin:16px 0;}
-.main_video, .main_video video {width:480px; height:360px; }
+.main_video, .main_video video, .main_video embed{width:480px; height:360px; }
 .examples {clear:both;}
 .example {margin:10px 0 24px;}
 .example_video {float:left; clear:left; margin-right:16px;}
-.example_video, .example_video video {width:240px;height:180px;}
+.example_video, .example_video video, .example_video embed{width:240px;height:180px;}
 .videos .slow {display:none;}
 
 .videos .button {float:right;}
@@ -379,7 +379,7 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .no-js .vocab_sheet_name .button {display:block;float:left;clear:left;margin-top:-10px;}
 
 /* controls */
-.vocab_sheet_page_controls {float:right; margin-top:43px; width:320px;}
+.vocab_sheet_page_controls {float:right; margin-top:43px; width:330px;}
 .no-js .vocab_sheet_page_controls {width:460px;}
 .vocab_sheet_page_controls .button {margin-left:5px;}
 
@@ -396,7 +396,8 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .size_2_label {background-position:left -96px;}
 .size_1_label {background-position:left -128px;}
 .size_controls .selected_icon {background-color:#d2e2f9;}
-.js .radio_wrapper {display:none;}
+.radio_wrapper {display:none;}
+.js .size_controls .button {display:none;}
  /* * * * * * * * *\
 |* Flash Notices  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -464,7 +465,7 @@ a .button,
 .button button {background:transparent; border:0; color:white; padding:0; height:24px; width:auto; line-height:24px; margin:0; display:block; overflow:visible;}
 .ie7 .input_button {margin:0;}
 .button button::-moz-focus-inner,
-.button input::-moz-focus-inner {padding: 0px; border: 0px}
+.button input::-moz-focus-inner {padding: 0; border: 0}
  /* * * * * * *\
 |* Utilities  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -484,7 +485,7 @@ a.video_replace {background:#99a0a5; display:block; border:0; float:left;}
             -moz-box-shadow:0 2px 3px rgba(0,0,0,0.5);
                  box-shadow:0 2px 3px rgba(0,0,0,0.5);}
 .js .text_input_hidden{border:1px solid white;outline:none;}
-.text_input, .text_input_hidden:focus, .no-js .text_input_hidden{border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa, 0 1px 0px white;}
+.text_input, .text_input_hidden:focus, .no-js .text_input_hidden{border:1px solid #99a0a5; background:white; margin-right:10px; -webkit-box-shadow: inset 0 1px 5px #aaa, 0 1px 0 white;}
 .text_input:focus, .text_input_hidden:focus{outline:none !important; border-color:#598afb;}
 
 

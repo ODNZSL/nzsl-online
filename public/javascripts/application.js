@@ -98,11 +98,15 @@ $(function(){
       videos.find("."+hide).hide();
       if (video = videos.find('.video_replace.'+hide)[0]) {
         flowplayer(video).pause();
-        $(video).find('video').pause();
+        if (video = $(video).find('video')){
+          video.pause();
+        }
       }
       if (video = videos.find('.video_replace.'+show)[0]) {
         flowplayer(video).play();
-        $(video).find('video').play();
+        if (video = $(video).find('video')){
+          video.play();
+        }
       }
     });
   }
@@ -344,14 +348,17 @@ $(function(){
   
   var setup_size_selection = function(){
     var wrapper = $('.size_controls').first();
+    
     var highlight_size_selection = function(){
+      
       wrapper.find('label').removeClass('selected_icon');
       wrapper.find('label[for="'+$('.size_controls input[type="radio"]:checked').attr('id')+'"]').addClass('selected_icon');
     }
     wrapper.find('.button').hide();
-    wrapper.find('input[type="radio"]').click(function(){
+    wrapper.find('input[type="radio"]').change(function(){
       $(this).closest('form').submit();
       highlight_size_selection();
+      
     });
     highlight_size_selection();
   }
