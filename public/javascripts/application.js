@@ -25,7 +25,7 @@ $(function(){
         var wrapper = $(this);
         var href = wrapper.attr('href');
         var hidden = wrapper.hasClass('translation_video');
-        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/)){
+        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/) && window.location.hash != "#flash"){
           wrapper.empty()
                  .append($('<video />', {src: href,
                                          controls:"controls",
@@ -41,6 +41,7 @@ $(function(){
     }
     var hidePlay = function(){this.getPlugin('play').css({opacity:0})};
     var flowplayer_config = {
+      key: '#$c1ee98f7e52a995b8d9',
       clip: {
         autoPlay: false,
         autoBuffering: true,
@@ -58,7 +59,7 @@ $(function(){
           stop:false,
           fastForward:false,
           slowForward:false,
-          scrubber:false,
+          scrubber:true,
           backgroundColor:'rgba(0,0,0,0)',
           backgroundGradient: [1,0],
           buttonColor:'#ffffff',
@@ -76,8 +77,8 @@ $(function(){
     };
     var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
     flowplayer_hidden_config.clip.autoBuffering = false;
-    $f('.video_replace_hidden_flash', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config)
-    $f('.video_replace_flash', {src: '/flowplayer-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config)
+    $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config)
+    $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config)
     $('.video_replace').attr('href', 'javascript:void(0);');
   }
   var setup_slow_motion_videos = function(){
