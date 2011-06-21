@@ -9,33 +9,28 @@
     .r.edge
     .center
       %ul.search_tabs
-        %li{:class => "keywords tab #{selected_tab?(:keywords)}"}
+        %li{:class => "tab #{tab_class(:keywords)}"}
           .l
           = link_to t('search.tabs.keyword'), {:tab => 'keywords'}
           .r
-        %li{:class => "signs tab #{selected_tab?(:signs)}"}
+        %li{:class => "tab #{tab_class(:signs)}"}
           .l
           = link_to t('search.tabs.sign'), {:tab => 'signs'}
           .r
-        %li{:class => "advanced tab #{selected_tab?(:advanced)}"}
+        %li{:class => "tab #{tab_class(:advanced)}"}
           .l
           = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           .r
         %li.help
           = link_to t('search.tabs.help'), '/help'
       .bottom_border
-      %div{:class => "keywords search_form clearfix_left #{selected_tab?(:keywords)}"}
+      %div{:class => "search_form clearfix_left"}
         = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/keywords', :locals => {:id => '1'}
-          = submit_button
-      %div{:class => "signs search_form clearfix_left #{selected_tab?(:signs)}"}
-        = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/signs', :locals => {:id => '1'}
-          = submit_button
-          %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
-      %div{:class => "advanced search_form clearfix_left #{selected_tab?(:advanced)}"}
-        = form_tag search_signs_path, :method => :get do
-          = render :partial => 'shared/search/advanced'
+          = render :partial => 'shared/search/keywords'
+          = render :partial => 'shared/search/signs'
+          %div{:class => "search_field_selects search_field #{tab_class(:advanced)}"}
+            = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + Sign.topic_tags, search_term(:tag)), :class => "text_input"
+            = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + Sign.usage_tags, search_term(:usage)), :class => "text_input"
           = submit_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
     .menu.menu_background

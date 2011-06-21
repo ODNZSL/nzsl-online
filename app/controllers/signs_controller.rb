@@ -1,7 +1,8 @@
 class SignsController < ApplicationController
-
+  require 'open-uri'
+  
   before_filter :find_vocab_sheet
-
+  
   def search
     search_query = process_search_query(params)
     @page_number = params[:p].present? ? params[:p].to_i : 1
@@ -16,7 +17,13 @@ class SignsController < ApplicationController
       render :status => 404, :template => 'signs/404'
     end
   end
-  
+  def autocomplete
+    if params[:term].present?
+      render :json => open("#{AUTOCOMPLETE_URL}?q=#{CGI::escape(params[:term])}&limit=10"){|f| f.read}.split("\n")
+    else
+      render :nothing
+    end
+  end
 private
   def process_search_query params
     search_keys = %w(s hs l lg usage tag)
@@ -30,5 +37,6 @@ private
     end
     return HashWithIndifferentAccess.new(query)
   end
+  
 end
 

@@ -6,6 +6,7 @@ NzslOnline::Application.routes.draw do
   resources :signs, :only => :show do
     collection do
       get 'search'
+      get 'autocomplete'
     end
   end
   

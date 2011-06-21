@@ -17,6 +17,8 @@ $(function(){
     setup_size_selection();
     
     setup_feedback_form();
+    
+    setup_keyword_autocomplete();
   }
   var setup_videos = function(){
     var videos;
@@ -34,7 +36,7 @@ $(function(){
           if (hidden){
             wrapper.addClass('.video_replace_hidden_flash');
           } else {
-            wrapper.addClass('.video_replace_flash');            
+            wrapper.addClass('.video_replace_flash');
           }
         }
       });
@@ -122,8 +124,8 @@ $(function(){
     $('.tab, .tab_link').click(function(e){
       e.preventDefault();
       var tab = this.className.match(/(advanced|keywords|signs)/)[0];
-      $('.tab, .search_form').removeClass('selected');
-      $('.tab.'+tab+', .search_form.'+tab).addClass('selected');
+      $('.tab, .search_field').removeClass('selected');
+      $('.tab.'+tab+', .search_field.'+tab).addClass('selected');
       reset_menu_position()
     });
   }
@@ -154,7 +156,6 @@ $(function(){
         e.stopPropagation();
         select_sign_attribute(this);
         update_selected_signs($(this).closest('.sign_attribute_selection'));
-        
       });
     });
     $('.search_form form').each(function(){
@@ -368,6 +369,16 @@ $(function(){
     $('#feedback_include_sign, #feedback_change_sign').change(function(){
       $('.if_'+$(this).attr('id')).toggle(this.checked);
     }).trigger('change')
+  }
+  var setup_keyword_autocomplete = function(){
+    var input = $('#s')
+    input.autocomplete({
+       source: '/signs/autocomplete',
+       delay:10,
+       minLength:3,
+       appendTo:input.parent(),
+      }
+    );
   }
   setup();
 });
