@@ -466,7 +466,7 @@ a .button,
 .button:active { background-position:-6px -46px; color:white; border:0; background-color:transparent; }
 .button:visited { color:white; }
 .button input, 
-.button button { background:transparent; border:0; color:white; padding:0; height:24px; width:auto; line-height:24px; margin:0; display:block; overflow:visible; }
+.button button { background:transparent; border:0; color:white; padding:0; height:24px; width:auto; line-height:24px; margin:0; display:block; overflow:visible; outline:0;}
 .ie7 .input_button { margin:0; }
 .button button::-moz-focus-inner,
 .button input::-moz-focus-inner { padding: 0; border: 0 }

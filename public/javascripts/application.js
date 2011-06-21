@@ -170,6 +170,7 @@ $(function(){
       tab.find('.default, .input_prompt').show();
       tab.find('.selected_field, .selected_groups_field, .text_input').val(null);
       tab.find('select').select('');
+      tab.find('.empty').hide();
     });
   }
   
@@ -373,12 +374,11 @@ $(function(){
   var setup_keyword_autocomplete = function(){
     var input = $('#s')
     input.autocomplete({
-       source: '/signs/autocomplete',
-       delay:10,
-       minLength:3,
-       appendTo:input.parent(),
-      }
-    );
+      source: '/signs/autocomplete',
+      delay:10,
+      minLength:3,
+      appendTo:input.parent()
+    });
   }
   setup();
 });
