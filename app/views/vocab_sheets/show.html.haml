@@ -7,12 +7,9 @@
     = link_button 'vocab_sheet.print', {:print => true}
     = form_tag vocab_sheet_path, :method => :delete, :class => '' do
       = submit_button 'vocab_sheet.delete'
-    = form_tag vocab_sheet_path, :method => :get, :class => 'size_controls' do
+    .size_controls
       - (1..5).each do |i|
-        %span.radio_wrapper
-          = radio_button_tag 'size', i, @size == i, :id => "size_#{i}"
-        = label_tag "size_#{i}", "fit #{i} across per sheet", :class => "ir size_label size_#{i}_label"
-      = submit_button 'vocab_sheet.update'
+        = link_to "size_#{i}", vocab_sheet_path(:size => i), :class => "ir size_label size_#{i}_label#{@size == i ? " selected_icon" : ''}"
   = render :partial => 'vocab_sheets/vocab_sheet_name'
   .if_js
     = t('vocab_sheet.sortable_instruction')

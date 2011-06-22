@@ -25,8 +25,8 @@ class Sign
       #gloss
       self.gloss_main = data.value_for_tag('glossmain')
       self.gloss_secondary = data.value_for_tag('glosssecondary')
-      self.gloss_minor = data.value_for_tag('gloss_minor')
-      self.gloss_maori = data.value_for_tag('gloss_maori')
+      self.gloss_minor = data.value_for_tag('glossminor')
+      self.gloss_maori = data.value_for_tag('glossmaori')
       
       #grammar
       self.word_classes = data.value_for_tag('SECONDARYWORDCLASS')

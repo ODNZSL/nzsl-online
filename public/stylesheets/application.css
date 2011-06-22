@@ -392,15 +392,14 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 .size_controls {float:left; margin-left:10px; margin-top:-4px;}
 .size_controls .radio_wrapper {height:32px; line-height:32px; float:left; display:block;}
 .radio_wrapper input {vertical-align:middle;}
-.size_label {width:24px; height:32px; background-image:url('/images/ui/vocab_sheet_icons.png'); display:block; float:left; overflow:hidden; margin-right:10px;}
+.size_label, .size_label:hover {width:24px; height:32px; background-image:url('/images/ui/vocab_sheet_icons.png'); display:block; float:left; overflow:hidden; margin-right:10px; border:0;}
 .size_5_label {background-position:left 0;}
 .size_4_label {background-position:left -32px;}
 .size_3_label {background-position:left -64px; padding-right:1px;}
 .size_2_label {background-position:left -96px;}
 .size_1_label {background-position:left -128px;}
 .size_controls .selected_icon {background-color:#d2e2f9;}
-.radio_wrapper {display:none;}
-.js .size_controls .button {display:none;}
+
  /* * * * * * * * *\
 |* Flash Notices  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
