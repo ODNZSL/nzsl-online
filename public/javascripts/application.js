@@ -1,8 +1,10 @@
 $(function(){
+  var use_video;
   var setup = function(){
+    setup_use_video();
     setup_videos();
     setup_slow_motion_videos();
-    
+    setup_help_videos();
     setup_search_tabs();
     setup_sign_selection();
     setup_handshapes_hover_fix();
@@ -13,12 +15,13 @@ $(function(){
     setup_vocab_sheet_page();
     setup_vocab_remove();
     setup_add_to_sheet();
-    
-    setup_size_selection();
-    
+        
     setup_feedback_form();
     
     setup_keyword_autocomplete();
+  }
+  var setup_use_video = function(){
+    use_video = navigator.userAgent.match(/iphone/i) && navigator.userAgent.match(/ipad/i)
   }
   var setup_videos = function(){
     var videos;
@@ -26,7 +29,7 @@ $(function(){
       videos.each(function(){
         var wrapper = $(this);
         var href = wrapper.attr('href');
-        var hidden = wrapper.hasClass('translation_video');
+        var hidden = wrapper.hasClass('hidden_video');
         if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/) && window.location.hash != "#flash"){
           wrapper.empty()
                  .append($('<video />', {src: href,
@@ -45,11 +48,15 @@ $(function(){
     var flowplayer_config = {
       key: '#$c1ee98f7e52a995b8d9',
       clip: {
+        onFail: function(a,b,c){
+          console.log(a,b,c);
+        },
         autoPlay: false,
         autoBuffering: true,
         onFinish: hidePlay,
         onStart:  hidePlay
       },
+      
       plugins: {
         play:{opacity:0},
         controls: {
@@ -68,6 +75,7 @@ $(function(){
           buttonOverColor: '#ffffff',
           backgroundGradient:'none',
           autoHide:'never',
+          
           tooltips:{
             buttons:true
           }
@@ -79,8 +87,8 @@ $(function(){
     };
     var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
     flowplayer_hidden_config.clip.autoBuffering = false;
-    $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config)
-    $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config)
+    $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config).each(function(){this.ipad()});
+    $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config).each(function(){this.ipad()});
     $('.video_replace').attr('href', 'javascript:void(0);');
   }
   var setup_slow_motion_videos = function(){
@@ -94,24 +102,49 @@ $(function(){
         show = 'normal';
         hide = 'slow';
       } else {
-        show = 'translation_video'
-        hide = 'translation_button'
+        show = 'translation_video';
+        hide = 'translation_button';
       }
-      videos.find("."+show).show();
       videos.find("."+hide).hide();
-      if (video = videos.find('.video_replace.'+hide)[0]) {
-        flowplayer(video).pause();
-        if (video = $(video).find('video')){
-          video.pause();
-        }
-      }
-      if (video = videos.find('.video_replace.'+show)[0]) {
-        flowplayer(video).play();
-        if (video = $(video).find('video')){
-          video.play();
-        }
-      }
+      videos.find("."+show).show();
+      play_video(show, videos);
+      pause_video(hide, videos);
     });
+  }
+  var setup_help_videos = function(){
+    var wrapper = $('.playlist');
+    wrapper.find('.video_links a').click(function(){
+      var video_class = this.className;
+      wrapper.find('video_links a').css({fontWeight:'normal'});
+      $(this).css({fontWeight:'bold'});
+      var old_video = wrapper.find('.video_replace.selected')
+      pause_video('selected', wrapper)
+      old_video.hide().removeClass('selected');
+      var new_video = wrapper.find('.video_replace.'+video_class)
+      new_video.show().addClass('selected');
+      play_video('selected', wrapper)
+    });
+  }
+  var play_video = function(video_class, wrapper){
+    var video, video_element;
+    if (video = wrapper.find('.video_replace.'+video_class)[0]) {
+      if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
+        video_element.play();
+      } else {
+        console.log(video)
+        flowplayer(video).play();
+      }
+    }
+  }
+  var pause_video = function(video_class, wrapper){
+    var video, video_element;
+    if (video = wrapper.find('.video_replace.'+video_class)[0]) {
+      if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
+        video_element.pause();
+      } else {
+        flowplayer(video).pause();
+      }
+    }
   }
   var reset_menu_position = function(){
     // this is insane.

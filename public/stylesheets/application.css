@@ -428,8 +428,8 @@ h1.search_results_for {line-height:42px; margin-top:1em; min-height:42px; vertic
 h1 + .videos {margin:-16px 0 16px;}
 .videos .translation_button {float:none; clear:left;}
 .no-js .translation_button {display:none;}
-.videos .translation_video {display:none;}
-
+.videos .hidden_video {display:none;}
+.videos .selected {display:block;}
 /* the formtastic default stylesheet wasn't making me happy. */
 .formtastic {padding:16px 0;}
 .formtastic ol {list-style-type:none; margin-left:0;}
