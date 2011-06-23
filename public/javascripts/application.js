@@ -30,7 +30,7 @@ $(function(){
         var wrapper = $(this);
         var href = wrapper.attr('href');
         var hidden = wrapper.hasClass('hidden_video');
-        if (Modernizr.video.h264 == 'probably' && href.match(/mp4$/) && window.location.hash != "#flash"){
+        if (window.location.hash == "#skipflash"){
           wrapper.empty()
                  .append($('<video />', {src: href,
                                          controls:"controls",
