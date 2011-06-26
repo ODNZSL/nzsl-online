@@ -115,7 +115,7 @@ $(function(){
     var wrapper = $('.playlist');
     wrapper.find('.video_links a').click(function(){
       var video_class = this.className;
-      wrapper.find('video_links a').css({fontWeight:'normal'});
+      wrapper.find('.video_links a').css({fontWeight:'normal'});
       $(this).css({fontWeight:'bold'});
       var old_video = wrapper.find('.video_replace.selected')
       pause_video('selected', wrapper)
