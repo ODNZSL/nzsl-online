@@ -29,15 +29,18 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => ''}
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
-  %footer.sticky_footer.footer
-    .center
-      .nav
-        = static_links.map { |link| render_navigation_link(link) }.join(' | ').html_safe
-      .main_column
-        .copyright
-          :markdown
-            Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz>
-
-  = javascript_include_tag 'flowplayer-3.2.6.min.js', :defaults, :cache => 'nzsl-cache.js'
+  = render :partial => 'shared/footer', :locals => {:last => true}
+  
+  = javascript_include_tag 'flowplayer-3.2.6.min.js', 'flowplayer.ipad-3.2.2.min.js', 'jquery', 'jquery-ui.min.js', 'rails', 'application', :cache => 'nzsl-cache'
   = print_javascripts_tag params[:print]
   = yield :scripts
+  :javascript
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24185042-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

@@ -12,6 +12,7 @@ gem 'whenever'
 gem 'formtastic'
 gem 'paperclip'
 gem 'mail'
+gem 'mongrel'
 
 
 

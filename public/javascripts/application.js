@@ -1,8 +1,10 @@
 $(function(){
+  var use_video;
   var setup = function(){
+    setup_use_video();
     setup_videos();
     setup_slow_motion_videos();
-    
+    setup_help_videos();
     setup_search_tabs();
     setup_sign_selection();
     setup_handshapes_hover_fix();
@@ -13,68 +15,136 @@ $(function(){
     setup_vocab_sheet_page();
     setup_vocab_remove();
     setup_add_to_sheet();
-    
+        
     setup_feedback_form();
+    
+    setup_keyword_autocomplete();
+  }
+  var setup_use_video = function(){
+    use_video = navigator.userAgent.match(/iphone/i) && navigator.userAgent.match(/ipad/i)
   }
   var setup_videos = function(){
-    if ($('a.video_replace')){
-      flowplayer('a.video_replace', {src: '/flowplayer-3.2.7.swf', wmode: 'transparent'}, {
-        clip: {
-          autoPlay: false,
-          autoBuffering: true,
-          /* hide the centre logo. */
-          onFinish: function(){this.getPlugin('play').css({opacity:0})},
-          onStart: function(){this.getPlugin('play').css({opacity:0})}
-        },
-        
-        plugins: {
-          play:{opacity:0},
-          controls: {
-            height:25,
-            opacity:0.5,
-            volume:false,
-            mute:false,
-            time:false,
-            stop:false,
-            fastForward:false,
-            slowForward:false,
-            scrubber:false,
-            backgroundColor:'rgba(0,0,0,0)',
-            backgroundGradient: [1,0],
-            buttonColor:'#ffffff',
-            buttonOverColor: '#ffffff',
-            backgroundGradient:'none',
-            autoHide:'never',
-            tooltips:{
-              buttons:true
-            }
+    var videos;
+    if (videos = $('.video_replace')){
+      videos.each(function(){
+        var wrapper = $(this);
+        var href = wrapper.attr('href');
+        var hidden = wrapper.hasClass('hidden_video');
+        if (window.location.hash == "#skipflash"){
+          wrapper.empty()
+                 .append($('<video />', {src: href,
+                                         controls:"controls",
+                                         autobuffer:(hidden ? undefined : "autobuffer")}))
+        } else {
+          if (hidden){
+            wrapper.addClass('.video_replace_hidden_flash');
+          } else {
+            wrapper.addClass('.video_replace_flash');
           }
-        },
-        play: {
-          replayLabel: null
         }
       });
-      $('a.video_replace').click(function(e){
-        e.preventDefault();
-      });
     }
+    var hidePlay = function(){this.getPlugin('play').css({opacity:0})};
+    var flowplayer_config = {
+      key: '#$c1ee98f7e52a995b8d9',
+      clip: {
+        onFail: function(a,b,c){
+          console.log(a,b,c);
+        },
+        autoPlay: false,
+        autoBuffering: true,
+        onFinish: hidePlay,
+        onStart:  hidePlay
+      },
+      
+      plugins: {
+        play:{opacity:0},
+        controls: {
+          height:25,
+          opacity:0.5,
+          volume:false,
+          mute:false,
+          time:false,
+          stop:false,
+          fastForward:false,
+          slowForward:false,
+          scrubber:true,
+          backgroundColor:'rgba(0,0,0,0)',
+          backgroundGradient: [1,0],
+          buttonColor:'#ffffff',
+          buttonOverColor: '#ffffff',
+          backgroundGradient:'none',
+          autoHide:'never',
+          
+          tooltips:{
+            buttons:true
+          }
+        }
+      },
+      play: {
+        replayLabel: null
+      }
+    };
+    var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
+    flowplayer_hidden_config.clip.autoBuffering = false;
+    $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config).each(function(){this.ipad()});
+    $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config).each(function(){this.ipad()});
+    $('.video_replace').attr('href', 'javascript:void(0);');
   }
   var setup_slow_motion_videos = function(){
-    $('.button.normal, .button.slow').click(function(){
-      var show, hide;
+    $('.button.normal, .button.slow, .button.translation_button').click(function(){
+      var show, hide, video;
       var videos = $(this).closest('.videos');
       if ($(this).hasClass('normal')){
         show = 'slow';
         hide = 'normal';
-      } else {
+      } else if ($(this).hasClass('slow')) {
         show = 'normal';
         hide = 'slow';
+      } else {
+        show = 'translation_video';
+        hide = 'translation_button';
       }
-      videos.find("."+show).show();
       videos.find("."+hide).hide();
-      flowplayer(videos.find('.video_replace.'+hide)[0]).pause();
-      flowplayer(videos.find('.video_replace.'+show)[0]).play();
+      videos.find("."+show).show();
+      play_video(show, videos);
+      pause_video(hide, videos);
     });
+  }
+  var setup_help_videos = function(){
+    var wrapper = $('.playlist');
+    wrapper.find('.video_links a').click(function(){
+      var video_class = this.className;
+      wrapper.find('.video_links a').css({fontWeight:'normal'});
+      $(this).css({fontWeight:'bold'});
+      var old_video = wrapper.find('.video_replace.selected')
+      pause_video('selected', wrapper)
+      old_video.hide().removeClass('selected');
+      var new_video = wrapper.find('.video_replace.'+video_class)
+      new_video.show().addClass('selected');
+      play_video('selected', wrapper)
+    });
+  }
+  var play_video = function(video_class, wrapper){
+    var video, video_element;
+    if (video = wrapper.find('.video_replace.'+video_class)[0]) {
+      if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
+        video_element.play();
+      } else {
+        console.log(video)
+        flowplayer(video).play();
+      }
+    }
+  }
+  var pause_video = function(video_class, wrapper){
+    var video, video_element;
+    if (video = wrapper.find('.video_replace.'+video_class)[0]) {
+      if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
+        video_element.pause();
+      } else {
+        flowplayer(video).pause();
+      }
+    }
   }
   var reset_menu_position = function(){
     // this is insane.
@@ -87,8 +157,8 @@ $(function(){
     $('.tab, .tab_link').click(function(e){
       e.preventDefault();
       var tab = this.className.match(/(advanced|keywords|signs)/)[0];
-      $('.tab, .search_form').removeClass('selected');
-      $('.tab.'+tab+', .search_form.'+tab).addClass('selected');
+      $('.tab, .search_field').removeClass('selected');
+      $('.tab.'+tab+', .search_field.'+tab).addClass('selected');
       reset_menu_position()
     });
   }
@@ -97,9 +167,11 @@ $(function(){
       hide_all_dropdowns();
       return true; //so bubbles back up;
     });
+    
     $('.sign_attribute_selection').click(function(e){
       e.stopPropagation();
       e.preventDefault();
+      
       var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
       hide_all_dropdowns();
       $(this).find('.dropdown').toggle(hideOrShow);
@@ -117,11 +189,12 @@ $(function(){
         e.stopPropagation();
         select_sign_attribute(this);
         update_selected_signs($(this).closest('.sign_attribute_selection'));
-        
       });
     });
-    
-    $('.search_form form').find('.text_input').change(hide_or_show_clear);
+    $('.search_form form').each(function(){
+      toggle_clear(this)
+    }).find('.text_input, .selected_field, .selected_groups_field')
+      .change(function(){toggle_clear($(this).closest('form'))});
     
     $('.empty').click(function(){
       var tab = $(this).closest('.search_form');
@@ -130,16 +203,19 @@ $(function(){
       tab.find('.default, .input_prompt').show();
       tab.find('.selected_field, .selected_groups_field, .text_input').val(null);
       tab.find('select').select('');
+      tab.find('.empty').hide();
     });
   }
   
-  var hide_or_show_clear = function(){
-    var values = ''
-    var form = $(this).closest('form')
-    form.find('.text_input, .selected_field, .selected_groups_field').each(function(){
-      values += $(this).val();
+  var toggle_clear = function(form){
+    var show = false;
+    $(form).find('.text_input, .selected_field, .selected_groups_field').each(function(){
+      if($(this).val()){
+        show = true;
+        return show;
+      }
     });
-    form.find('.empty').toggle(values.length)
+    $(form).find('.empty').toggle(show)
   }
   
   var hide_all_dropdowns = function(){
@@ -190,7 +266,7 @@ $(function(){
       container.find('.selected_groups_field').first().val(output_group.join(' '));
     }
     container.find('.selected_field').first().val(output.join(' '));
-    hide_or_show_clear()
+    toggle_clear(container.closest('form'));
   }
   var setup_handshapes_hover_fix = function(){
     $('.attribute_options .row, .attribute_options .group, .attribute_options .sub').hover(function(){
@@ -224,7 +300,7 @@ $(function(){
   var setup_print_view = function(){
     //load print
     if (document.printView) {
-      $('.header>.center').prepend($('<a />', {html: '<div class=\"r\"></div>back', click: function(){history.back();return false;}, 'class': 'view_print_back_link button', href:'javascript:void(0);'}))
+      $('textarea, input[type="text"]').attr('readonly', true)
       $(window).bind('load', function(){
         window.print();
       });
@@ -270,7 +346,7 @@ $(function(){
   var setup_vocab_sheet_page = function(){
     // reorder vocab sheet items
     if ($('ul#vocab_sheet').length){
-      $('ul#vocab_sheet .button').hide();
+      $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView){
         $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
           new_order = [];
@@ -284,14 +360,14 @@ $(function(){
         if (input.val() === '') {
           input.val(input.next('.old_name').val());
         } else if (input.val() !== input.next('.old_name').val() && input.val() !== ''){
-          var form = input.parent('form')
+          var form = input.closest('form')
           $.post(form.attr('action'), form.serialize(), function(data){
             input.next('.old_name').val(data);
             input.val(data);
           });
         }
       }
-      $('ul#vocab_sheet textarea').keypress(function(e){
+      $('.vocab_sheet textarea, input.vocab_sheet_name').keypress(function(e){
         if (e.which == 13) {
           e.preventDefault()
           $(this).blur();
@@ -301,18 +377,24 @@ $(function(){
         }
       }).blur(function(){submit_vocab_item($(this))});
       if (document.printView){
-        $('textarea').disable();
+        $('textarea').attr('readonly', true);
       }
     }
   }
+  
   var setup_feedback_form = function(){
-    var show_feedback_form = function(){
-      
-    }
-    $('#feedback_include_sign, #feedback_change_sign')
-    .change(function(){
-      $('.if_'+$(this).attr('id')).toggle(this.checked)
+    $('#feedback_include_sign, #feedback_change_sign').change(function(){
+      $('.if_'+$(this).attr('id')).toggle(this.checked);
     }).trigger('change')
+  }
+  var setup_keyword_autocomplete = function(){
+    var input = $('#s')
+    input.autocomplete({
+      source: '/signs/autocomplete',
+      delay:10,
+      minLength:3,
+      appendTo:input.parent()
+    });
   }
   setup();
 });

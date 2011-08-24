@@ -16,7 +16,7 @@
             = link_to sign_url(result.id), {:class => 'main_gloss'} do
               = result.gloss_main
             - if result.gloss_secondary.present?
-              %span.h4.secondary_gloss= result.gloss_secondary
+              %span.h3.secondary_gloss= result.gloss_secondary
             - if result.word_classes.present?
               %span.word_class= result.word_classes
 - if @results_total > Sign::RESULTS_PER_PAGE

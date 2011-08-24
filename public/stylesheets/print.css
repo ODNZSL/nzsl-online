@@ -1,16 +1,26 @@
 /* from boilerplate */
-  body, .center *, .main_column *{ background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
-  -ms-filter: none !important; } 
-  .center a, .main_column a { color: #444 !important; text-decoration: underline; }
-  a[href]:after { content: " (" attr(href) ")"; }
+  /*(removed a couple of rules)*/
+  a[href]:after { content: " (" attr(href) ")"; text-decoration:none;}
   abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after { content: ""; }  
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after, a.button:after, .copyright a:after{ content: ""; }  
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
   thead { display: table-header-group; }
   tr, img { page-break-inside: avoid; }
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
+  
+/* modding boilerplate */
+
+body,
+.vocab_sheet *, 
+.rule_after, .video_replace { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
+-ms-filter: none !important; } 
+.center a, 
+.main_column a { color: #444 !important; text-decoration: underline; border:0;}
+a.button {color:white !important; text-decoration:none;}
+a.main_gloss {text-decoration:none;}
+a.main_gloss:after {font-size:10px;line-height:10px;}
 
 /* hiding useless things */
   .nav, 
@@ -22,20 +32,37 @@
   object,
   .view_print_back_link,
   .remove, 
-  .js .if_js
+  .js .if_js,
+  .vocab_sheet_controls
   {display:none;}
-  /* remove shadows of my mind */
-  .shadow, .text_input{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
+/* remove shadows of my mind */
+  .ui-widget, .shadow, .text_input, .text_input_hidden, .text_input_hidden:focus{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
   .video_replace {height:auto;}
   a.drawing {text-decoration:none;}
 /* hiding link destinations after text */
   a.drawing:after {content:"";}
 /* making the vocabsheet have a not editing looking view */
-  .vocab_sheet_page textarea {border:0;text-align:center;outline:none;}
-  /* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
+  .vocab_sheet_page {margin-left:0;}
+  .vocab_sheet_page_item {border:0;}
+  .vocab_sheet_page textarea {border:0 !important;text-align:center;outline:none;}
+  .vocab_sheet_name {border:0 !important;outline:none;}
+  div.vocab_sheet_name {position:absolute; left:120px; top:-75px;}
+/* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
   .not_sticky_footer {min-height:0;height:auto;}
   .before_sticky_footer {padding-bottom:0;overflow:visible;}
-  .sticky_footer {height:auto;margin-top:0;}
-  
-  /* show logo for printing */
+  .sticky_footer {height:auto;margin-top:0;margin-bottom:1em;}
+  .rule_after {border-bottom:1px solid black;}
+/* show logo for printing */
   .print_logo {display:block;}
+  .footer {page-break-after:always;}
+  h1, .h1 {padding-top:23px;}
+  
+  .video_replace {
+    white-space: pre-wrap; /* css-3 */
+    white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+    white-space: -pre-wrap; /* Opera 4-6 */
+    white-space: -o-pre-wrap; /* Opera 7 */
+    word-wrap: break-word; /* Internet Explorer 5.5+ */
+  }
+  .center,
+  .main_column {width:690px;padding:0;}

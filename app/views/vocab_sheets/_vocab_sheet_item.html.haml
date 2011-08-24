@@ -1,11 +1,10 @@
-%li.vocab_sheet_item.vocab_sheet_page_item
+%li.vocab_sheet_item.vocab_sheet_page_item.shadow.rounded{:style => "width:#{vocab_sheet_item_width}px;height:#{vocab_sheet_item_height}"}
   = hidden_field_tag "item[#{vocab_sheet_item.id}][id]", vocab_sheet_item.id, :class => 'item_id'
-  = link_to sign_url(vocab_sheet_item.sign_id), {:class => 'drawing vocab_sheet_drawing'} do
-    = image_tag "/images/signs/140-120/#{vocab_sheet_item.drawing}"
+  = link_to sign_url(vocab_sheet_item.sign_id), {:class => 'drawing vocab_sheet_drawing', :style => "line-height:#{vocab_sheet_image_height}px;height:#{vocab_sheet_image_height}px"} do
+    = image_tag "/images/signs/#{vocab_sheet_image_width}-#{vocab_sheet_image_height}/#{vocab_sheet_item.drawing}"
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :put do
-    = text_area_tag "item[name]", vocab_sheet_item.name, :class => 'item_name text_input h3', :id => "item_#{vocab_sheet_item.id}_name"
+    = text_area_tag "item[name]", vocab_sheet_item.name, :class => 'item_name text_input h3', :id => "item_#{vocab_sheet_item.id}_name", :style => "width:#{vocab_sheet_label_width}px;height:#{vocab_sheet_label_height}px;font-size:#{vocab_sheet_label_fontsize}px"
     = hidden_field_tag "item[#{vocab_sheet_item.id}][old_name]", vocab_sheet_item.name, :class => 'old_name'
-    = submit_button t('change')
-  .b
+    = submit_button('vocab_sheet.change')
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
     %button.remove{:type => 'submit'}= t('vocab_sheet.item.remove')

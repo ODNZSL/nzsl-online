@@ -50,19 +50,21 @@ module SearchHelper
     'selected' if @query[:lg].present? && @query[:lg].include?(location_group.split('.')[0])
   end
   
-  def selected_tab?(tab)
-    if params[:tab] == tab.to_s
-      'selected'
+  def tab_class(*classes)
+    if params[:tab].present? && classes.include?(params[:tab].to_sym)
+      selected = true
     elsif params[:tab].blank?
       keys = @query.select{|k,v| v.present? }.keys
       if %w(tag usage).any? {|k| keys.include?(k)} || (keys.include?('s') && keys.length > 1)
-        'selected' if tab == :advanced
+        selected = classes.include?(:advanced)
       elsif %w(hs l lg).any? {|k| keys.include?(k)}
-        'selected' if tab == :signs
+        selected = classes.include?(:signs)
       else 
-        'selected' if tab == :keywords
+        selected = classes.include?(:keywords)
       end
     end
+    classes << (selected ? :selected : '')
+    classes.join(' ')
   end
   
   def display_locations_search_term(simple = false)

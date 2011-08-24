@@ -6,3 +6,5 @@ config/database.yml
 public/images/signs/**/*
 .rvmrc
 .DS_Store
+public/videos/*.*
+public/system/videos/*.*

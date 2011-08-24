@@ -1,6 +1,6 @@
 .vocab_sheet.vocab_sheet_bar{:style =>  (vocab_sheet? ? '' : 'display:none')}
   %h2.title= t('vocab_sheet.title')
-  .vocab_sheet_controls.clearfix
+  .vocab_sheet_controls.vocab_sheet_bar_controls.clearfix
     = link_button 'vocab_sheet.link_to', vocab_sheet_url
     = link_button 'vocab_sheet.print', vocab_sheet_url({:print => true})
   = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'}

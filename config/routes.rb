@@ -6,13 +6,14 @@ NzslOnline::Application.routes.draw do
   resources :signs, :only => :show do
     collection do
       get 'search'
+      get 'autocomplete'
     end
   end
   
   resources :feedback, :only => [:new, :create]
   get '/feedback' => 'feedback#new'
 
-  resource :vocab_sheet, :only => [:show, :destroy] do
+  resource :vocab_sheet, :only => [:show, :destroy, :update] do
     resources :items, :only => [:create, :destroy, :update] do
       collection do
         post 'reorder'

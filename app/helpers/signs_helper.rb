@@ -29,11 +29,11 @@ module SignsHelper
     referer = URI.split(request.referer) #5 is path, 7 is query. why does this method not return a hash?
     case referer[5]
     when search_signs_path
-      link_to t('signs.show.back_to.search_results'), "#{search_signs_path}?#{h referer[7]}"
+      link_to t('signs.show.back_to.search_results'), "#{search_signs_path}?#{h referer[7]}", :class => 'back_to_search_results'
     when '/numbers'
-      link_to t('signs.show.back_to.numbers'), '/numbers'
+      link_to t('signs.show.back_to.numbers'), '/numbers', :class => 'back_to_search_results'
     when '/classifiers'
-      link_to t('signs.show.back_to.classifiers'), '/classifiers'
+      link_to t('signs.show.back_to.classifiers'), '/classifiers', :class => 'back_to_search_results'
     else
       ''
     end

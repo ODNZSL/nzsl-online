@@ -1,9 +1,24 @@
-%h1 Alphabet
-%h3 Entire alphabet over the shoulder
-%div.rule_after.clearfix_left= link_to image_tag('/images/alphabet/alphabet-poster-signer.jpg'), "/images/alphabet/Entire_Alphabet.over_shoulder_black.flv", :class => 'video_replace main_video'
-%h3 Entire alphabet
-%div.rule_after.clearfix_left= link_to image_tag('/images/alphabet/alphabet-poster-viewer.jpg'), "/images/alphabet/Entire_Alphabet.wide_shot.flv", :class => 'video_replace main_video'
-
+.typography.rule_after
+  %h1 Fingerspelling
+  = video_translation('fingerspelling')
+  :markdown
+    Fingerspelling is a way of representing written English words within sign language through a manual alphabet. NZSL uses the two-handed British manual alphabet. In NZSL, fingerspelling is mostly used for proper nouns (names of people and places), and sometimes for terms for which there is no established sign equivalent. As a general rule, NZSL signers prefer to express referents by signs rather than fingerspelling, if a sign is available.   
+    
+    Fingerspelling in NZSL is used often more by younger Deaf people than by older generations, because fingerspelling was not present (either formally or informally) in New Zealand schools until after 1979. Many Deaf senior citizens in New Zealand do not use fingerspelling at all; instead they may trace letters in the air with the index finger, or use lip-patterns and/or voice to convey an English word. The use of fingerspelling in NZSL appears to be currently increasing, particularly as NZSL becomes more commonly used in educational and professional contexts that involve contact with written and spoken English. Within the Deaf community, competence in fingerspelling may vary according to individual&rsquo;s English Literacy and their sign language acquisition background.
+  
+  
+    The two-handed manual alphabet is shown here from the signer&rsquo;s own point of view (looking towards the palm of the hands), and from a viewer&rsquo;s perspective - looking at another signer&rsquo;s hands. Signers usually simultaneously mouth the word as they fingerspell it, normally articulating the syllables as they are spelled out rather than individual letters.
+  .videos
+    %h3 Alphabet from the viewer&rsquo;s perspective
+    = link_to image_tag('/images/alphabet/alphabet-poster-viewer.jpg'), "/system/videos/alphabet-wide.flv", :class => 'video_replace main_video'
+    %h3 Alphabet from the signer&rsquo;s perspective
+    = link_to image_tag('/images/alphabet/alphabet-poster-signer.jpg'), "/system/videos/alphabet-over-shoulder.flv", :class => 'video_replace main_video'
+  :markdown
+    For practice reading fingerspelled words in a sentence, see these online activities:
+    
+    * <http://www.victoria.ac.nz/llc/edith_dev/nzsl/vol4/ex13_1.htm>
+    * <http://www.victoria.ac.nz/llc/edith_dev/nzsl/vol4/ex15_1.htm>
+    
 %ol.alphabet.rule_after.grid.grid4.clearfix_left
   - alphabet_listing.each_with_index do |letter, i|
     %li{:class => (i.multiple_of?(4) ? 'row_start' : nil)}
