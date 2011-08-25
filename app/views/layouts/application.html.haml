@@ -25,7 +25,7 @@
   .not_sticky_footer
     = render :partial => 'shared/vocab_sheet'
     = render :partial => 'shared/header'
-    #content.before_sticky_footer.main_column
+    #content.before_sticky_footer.main_column.clearfix_left.clearfix
       = render :partial => 'shared/flashes', :locals => {:prefix => ''}
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
