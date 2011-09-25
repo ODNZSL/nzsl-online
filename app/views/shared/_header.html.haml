@@ -22,7 +22,7 @@
           = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           .r
         %li.help
-          = link_to t('search.tabs.help'), '/help'
+          = link_to t('search.tabs.help'), Setting.get_as_path(:help)
       .bottom_border
       %div{:class => "search_form clearfix_left"}
         = form_tag search_signs_path, :method => :get do
@@ -36,5 +36,5 @@
     .menu.menu_background
     .menu
       %ul#nav.center
-        - static_links.each_with_index do |link, i|
+        - Page.in_nav.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)

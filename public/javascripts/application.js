@@ -1,6 +1,7 @@
 $(function(){
   var use_video;
   var setup = function(){
+    setup_ckeditor_video_links();
     setup_use_video();
     setup_videos();
     setup_slow_motion_videos();
@@ -20,6 +21,37 @@ $(function(){
     
     setup_keyword_autocomplete();
   }
+  var setup_ckeditor_video_links = function(){
+    var videos;
+    //standard link (alphabet pages)
+    if (videos = $(".ckeditor_content a").filter(':contains(-video-)')){
+      videos.addClass('video_replace main_video').each(function(){
+        var video = $(this);
+        console.log(video)
+        video.html(video.html().replace(/^\s*-video-\s*/, ''));
+      }).not('li a').wrap($('<div />', {'class':'videos clearfix_left'}));
+    }
+    //list link
+    var list;
+    if (list = $('.ckeditor_content ul').has('.video_replace')){
+      list.wrap($('<div />', {'class':'playlist'}));
+      var video_bucket = $('<div />', {'class':'videos clearfix_left'})
+      list.find('a').each(function(i){
+        var link = $(this);
+        var link_class = link.text().toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-video'
+        link.addClass(link_class);
+        var video = link.clone();
+        video.attr('id', link_class).addClass('hidden_video').empty().appendTo(video_bucket);
+        if (i === 0){
+          video.removeClass('hidden_video').addClass('selected')
+          link.css({fontWeight:'bold'});
+        }
+        link.attr('href', 'javascript:void(0)').removeClass('video_replace main_video')
+      });
+      list.before(video_bucket);
+    }
+  }
+
   var setup_use_video = function(){
     use_video = navigator.userAgent.match(/iphone/i) && navigator.userAgent.match(/ipad/i)
   }
@@ -113,16 +145,16 @@ $(function(){
   }
   var setup_help_videos = function(){
     var wrapper = $('.playlist');
-    wrapper.find('.video_links a').click(function(){
+    wrapper.find('ul a').click(function(e){
       var video_class = this.className;
-      wrapper.find('.video_links a').css({fontWeight:'normal'});
+      wrapper.find('ul a').css({fontWeight:'normal'});
       $(this).css({fontWeight:'bold'});
       var old_video = wrapper.find('.video_replace.selected')
       pause_video('selected', wrapper)
       old_video.hide().removeClass('selected');
       var new_video = wrapper.find('.video_replace.'+video_class)
       new_video.show().addClass('selected');
-      play_video('selected', wrapper)
+      play_video('selected', wrapper);
     });
   }
   var play_video = function(video_class, wrapper){

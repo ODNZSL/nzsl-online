@@ -2,22 +2,10 @@ module ApplicationHelper
   def page_title
     return t('layout.title') + (@title ?  " - " + @title : "")
   end
-
-  def static_links
-    [{:label => t('static.index'),       :slug => '/'},
-     {:label => t('static.nzsl'),        :slug => '/nzsl'},
-     {:label => t('static.alphabet'),    :slug => '/alphabet'},
-     {:label => t('static.numbers'),     :slug => '/numbers'},
-     {:label => t('static.classifiers'), :slug => '/classifiers'},
-     {:label => t('static.learning'),    :slug => '/learning'},
-     {:label => t('static.about'),       :slug => '/about'},
-     {:label => t('static.contact_us'),  :slug => '/feedback/new'},
-     {:label => t('static.links'),       :slug => '/links'}]
-  end
   
   def render_navigation_link(link)
-    link_to_unless_current(link[:label], "#{link[:slug]}") do
-      content_tag :span, link[:label]
+    link_to_unless_current(link.label, link.path) do
+      content_tag :span, link.label
     end
   end
   
@@ -62,10 +50,10 @@ module ApplicationHelper
     end
   end
   
-  def video_translation filename, label='play_this_page'
+  def video_translation part
     content_tag :div, 
-      [content_tag(:div, '', :href => "/system/videos/#{h filename}.mp4", :class => 'video_replace translation_video main_video hidden_video', :id => "video_#{h filename.gsub('-', '_')}"),
-       link_button(label, nil, :class => 'translation_button')].join(' ').html_safe, 
+      [content_tag(:div, '', :href => part.translation_path, :class => 'video_replace translation_video main_video hidden_video'),
+       link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')].join(' ').html_safe, 
       :class => 'videos clearfix_left'
   end
 end

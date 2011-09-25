@@ -1,0 +1,8 @@
+%h1 Editing page
+= link_to 'View', @page.path
+
+= render 'form'
+
+%h1 Page Parts
+
+= render :partial => 'admin/page_parts/list', :locals => {:page_parts => @page.page_parts}

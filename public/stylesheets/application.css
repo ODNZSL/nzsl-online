@@ -509,3 +509,5 @@ body .video_replace { background:#99a0a5; display:block; border:0; float:left; }
 .clearfix:after { clear: both; }
 .clearfix_left:after {clear:left;}
 .clearfix, .clearfix_left{ zoom: 1; }
+
+.footer_fullview_link {float:left;margin-bottom:-5px;}

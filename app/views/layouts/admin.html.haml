@@ -1,0 +1,47 @@
+!!! 5
+/[if lt IE 7] <html lang="en" class="no-js ie6">
+/[if IE 7 ]    <html lang="en" class="no-js ie7">
+/[if IE 8 ]    <html lang="en" class="no-js ie8">
+/[if IE 9 ]    <html lang="en" class="no-js ie9">
+<!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
+%head
+  %meta{:charset => "utf-8"}
+  %title= page_title
+  %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
+  = favicon_link_tag
+  = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
+  = javascript_include_tag 'modernizr.min.js'
+  = stylesheet_link_tag 'application', 'admin',  :media => :all
+  = yield :head
+  %meta{:name => "description", :content => t('layout.meta_description')}
+  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %title= page_title
+  = print_stylesheet_tag params[:print]
+%body{:class => vocab_sheet?}
+  .not_sticky_footer
+    = render :partial => 'shared/vocab_sheet'
+    .header
+      .center
+        - if params[:print]
+          = link_button 'back', {:print => false}, :class => 'view_print_back_link'
+        = link_to 'NZSL Online', '/', {:class => 'logo ir'}
+        = image_tag '/images/ui/logo-serrated.png', :class => 'print_logo'
+    #content.before_sticky_footer.main_column.clearfix_left.clearfix
+      = render :partial => 'shared/flashes', :locals => {:prefix => ''}
+      = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
+      = yield
+  %footer.sticky_footer.footer
+  = javascript_include_tag 'jquery', 'jquery-ui.min.js', 'rails', 'admin/admin.js'
+  = print_javascripts_tag params[:print]
+  = yield :scripts
+  = javascript_include_tag 'admin/ckeditor/ckeditor.js', 'admin/ckeditor/adapters/jquery.js', :cache => 'ckeditor-cache'
+  :javascript
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24185042-1']);
+    _gaq.push(['_trackPageview']);
+    
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();

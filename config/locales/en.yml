@@ -134,5 +134,10 @@ en:
         change_sign_url: Go to the entry for this sign in the dictionary and look at the address box. Copy the text and paste here. (e.g. http://nzsl.vuw.ac.nz/signs/1234)
         email: 'If provided, must be a valid email address'
         video: 'Maximum size 50MB &mdash; larger files may take some time to upload'
-        
-        
+  admin:
+    save: Save
+    setting:
+      help: Search help
+      glossary: Glossary
+      '404': Page not Found
+      footer: Footer

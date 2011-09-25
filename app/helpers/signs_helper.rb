@@ -1,15 +1,17 @@
 module SignsHelper
   
   def render_grammar_notes(sign)
-    ['contains_numbers', 
-     'is_fingerspelling', 
-     'is_directional', 
-     'is_locatable', 
-     'one_or_two_handed', 
-     'inflection_temporal', 
-     'inflection_plural',
-     'inflection_manner_and_degree'].map do |note|
-       sign.send(note.to_sym) ? link_to(t("signs.show.field.#{note}"), "/help##{note}") : nil
+    [:contains_numbers, 
+     :is_fingerspelling, 
+     :is_directional, 
+     :is_locatable, 
+     :one_or_two_handed, 
+     :inflection_temporal, 
+     :inflection_plural,
+     :inflection_manner_and_degree].map do |note|
+       if sign.send(note)
+         link_to(t("signs.show.field.#{note}"), "#{Setting.get_as_path(:glossary)}##{note}")
+       end
      end.compact.join(', ').html_safe
   end
   

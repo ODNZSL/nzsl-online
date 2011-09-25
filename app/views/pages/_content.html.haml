@@ -1,0 +1,13 @@
+.typography
+  %h1= @page.title
+  - if @page.multiple_page_parts?
+    - @page.page_parts.each do |page_part|
+      .rule_after
+        %h2= page_part.title 
+        = video_translation(page_part) if page_part.translation_path.present?
+        .ckeditor_content
+          != page_part.body
+  - else
+    = video_translation(@page.first_part) if @page.first_part.translation_path.present?
+    .rule_after.ckeditor_content
+      != @page.page_parts.first.body

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110607221003) do
+ActiveRecord::Schema.define(:version => 20110922042900) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
@@ -45,6 +45,34 @@ ActiveRecord::Schema.define(:version => 20110607221003) do
     t.datetime "updated_at"
     t.integer  "position"
     t.string   "drawing"
+  end
+
+  create_table "page_parts", :force => true do |t|
+    t.string   "title"
+    t.integer  "order"
+    t.text     "body"
+    t.string   "translation_path"
+    t.integer  "page_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "pages", :force => true do |t|
+    t.string   "title"
+    t.string   "slug"
+    t.string   "label"
+    t.integer  "order"
+    t.string   "template"
+    t.boolean  "show_in_nav"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "settings", :force => true do |t|
+    t.string   "key"
+    t.string   "value"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "vocab_sheets", :force => true do |t|

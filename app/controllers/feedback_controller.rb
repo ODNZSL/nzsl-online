@@ -12,14 +12,15 @@ class FeedbackController < ApplicationController
       if @feedback.valid?
         @feedback.send_email
         @feedback = Feedback.new
-        flash[:feedback_notice] = t('feedback.success')
+        flash.now[:feedback_notice] = t('feedback.success')
       else
-        flash[:feedback_error] = t('feedback.failure')
+        flash.now[:feedback_error] = t('feedback.failure')
       end
     rescue
-      flash[:feedback_error] = t('feedback.failure')
+      flash.now[:feedback_error] = t('feedback.failure')
     end
-    render :new
+    @page = Page.find(params[:page_id].to_i)
+    render :template => "pages/#{@page.template}"
   end
   
 end

@@ -1,0 +1,15 @@
+%h1 Settings
+
+= form_tag admin_settings_path, :method => :put, :class => 'formtastic' do |f|
+  %fieldset.inputs
+    - ['help', 'glossary', '404', 'footer'].each do |setting|
+      %ol
+        %li.string.required
+        %label{:for => "settings_#{setting}"}=t "admin.setting.#{setting}"
+        = select_tag "settings[#{setting}]", options_for_select(Page.all.map{|p| [p.label, p.slug]}, Setting.get(setting)), :class => 'text_input';
+  %fieldset.buttons
+    %ol
+      %li
+        = submit_button('admin.save')
+%br
+= link_to 'Back', admin_pages_path

@@ -1,0 +1,18 @@
+/with divs because of IE7
+- no_rule_after ||= false
+%ol{:class => "grid results clearfix#{no_rule_after ? '' : ' rule_after'}"}
+  - group.in_groups_of(3) do |row|
+    .row_start
+      - row.each do |ea|
+        - if ea
+          %li
+            - if ea.last.is_a?(String)
+              %div.grid_drawing.drawing
+                = image_tag ea.last, :alt => ea.first
+              %div.h2.main_gloss
+                = ea.first
+            - else 
+              = link_to sign_url(ea.last.id), {:class => 'drawing grid_drawing'} do
+                = image_tag "/images/signs/150-100/#{ea.last.drawing}", :alt => ea.first
+              = link_to sign_url(ea.last.id), {:class => 'main_gloss'} do
+                = ea.first

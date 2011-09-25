@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
-  protect_from_forgery
-  before_filter :set_search_query
+  # protect_from_forgery
+  before_filter :set_search_query, :get_footer_content
 
 private
 
@@ -35,6 +35,9 @@ private
   end
   def set_search_query
     @query = {}
+  end
+  def get_footer_content
+    @footer_content = Page.find_by_slug(Setting.get(:footer)).first_part
   end
 end
 

@@ -1,0 +1,8 @@
+= semantic_form_for [:admin, @page, @page_part] do |f|
+  = f.inputs do
+    = f.input :title, :required => true, :label => true, :input_html => {:class => 'text_input'}
+    = f.input :translation_path, :label => true, :input_html => {:class => 'text_input'}
+    = f.input :body, :required => true, :label => true, :input_html => {:class => 'text_input ckeditor'}
+  = submit_button('admin.save')
+    
+  = link_to 'Cancel', admin_page_page_parts_path(@page)

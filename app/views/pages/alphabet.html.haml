@@ -1,0 +1,8 @@
+= render :partial => 'pages/content'
+%ol.alphabet.rule_after.grid.grid4.clearfix_left
+  - alphabet_listing.each_with_index do |letter, i|
+    %li{:class => (i.multiple_of?(4) ? 'row_start' : nil)}
+      %div.grid_drawing.drawing
+        = image_tag "/images/alphabet/82/Alphabet.#{letter}.png", :alt => letter.humanize
+      %div.h2.main_gloss
+        = letter.humanize

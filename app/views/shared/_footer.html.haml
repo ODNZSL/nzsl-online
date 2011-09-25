@@ -1,8 +1,8 @@
 %footer{:class => (last ? 'sticky_footer footer' : 'print_footer footer')}
   .center
     .nav
-      = static_links.map { |link| render_navigation_link(link) }.join(' | ').html_safe
+      = Page.in_nav.map { |link| render_navigation_link(link) }.join(' | ').html_safe
     .main_column
       .copyright
-        :markdown
-          [(View notice in NZSL)](/copyright) Printing or electronic copying of vocabulary sheets or individual images is permitted for individual use, or by teachers for use in their own classroom. Wider distribution or re-publication of  any images or text from NZSL Online requires prior permission from the Managing Editor: <David.McKee@vuw.ac.nz> 
+        = link_to '(View in NZSL)', @footer_content.page.path, :class => 'footer_fullview_link'
+        != @footer_content.body
