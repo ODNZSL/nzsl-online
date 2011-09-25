@@ -6,13 +6,13 @@ gem 'nokogiri'
 gem 'pg'
 gem 'jquery-rails', '>= 0.2.6'
 gem 'rdiscount'
-gem 'capistrano'
-gem 'mini_magick' 
+gem 'mini_magick'
 gem 'whenever'
 gem 'formtastic'
 gem 'paperclip'
 gem 'mail'
 gem 'mongrel'
+gem 'i18n'
 
 
 
@@ -23,5 +23,7 @@ group :development, :test do
    gem 'sqlite3'
    gem 'rspec-rails', '~> 2.4'
    gem 'ruby-debug19'
+   gem 'capistrano'
+   gem 'capistrano-ext'
 end
 

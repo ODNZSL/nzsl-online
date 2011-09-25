@@ -44,6 +44,8 @@ GEM
       net-ssh (>= 2.0.14)
       net-ssh-gateway
       net-ssh-gateway (>= 1.0.0)
+    capistrano-ext (1.2.1)
+      capistrano (>= 1.0.0)
     columnize (0.3.2)
     daemons (1.0.10)
     diff-lcs (1.1.2)
@@ -144,8 +146,10 @@ PLATFORMS
 
 DEPENDENCIES
   capistrano
+  capistrano-ext
   formtastic
   haml
+  i18n
   jquery-rails (>= 0.2.6)
   mail
   mini_magick
