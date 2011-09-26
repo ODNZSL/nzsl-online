@@ -33,7 +33,7 @@ class Admin::PagePartsController < ApplicationController
 
   def destroy
     @page_part.destroy
-    redirect_to admin_page_page_parts_url(@page)
+    redirect_to edit_admin_page_path(@page)
   end
   
   def reorder

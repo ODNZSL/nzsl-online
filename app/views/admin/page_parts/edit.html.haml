@@ -1,2 +1,7 @@
-%h1 Editing page part
+%h1 
+  Editing
+  %em= @page_part.title
+  of
+  %em= @page.label
+  page
 = render 'form'

@@ -1,8 +1,14 @@
-%h1 Editing page
+%h1
+  Editing 
+  %em= @page.label
+  page
 = link_to 'View', @page.path
 
 = render 'form'
 
-%h1 Page Parts
+%h1
+  Parts of 
+  %em= @page.label
+  page
 
 = render :partial => 'admin/page_parts/list', :locals => {:page_parts => @page.page_parts}

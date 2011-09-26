@@ -6,5 +6,4 @@
     = f.input :template, :label => true, :as => :select, :collection => Page.templates.map{|t| [t.humanize.titleize, t]}, :include_blank => false
     = f.input :show_in_nav, :label => true
   = submit_button('admin.save')
-  &nbsp;
-  = link_to 'Cancel', admin_pages_path
+  = link_to 'Cancel', admin_pages_path, :class => 'cancel'

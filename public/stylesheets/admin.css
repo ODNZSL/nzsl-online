@@ -1,4 +1,4 @@
-.record {width:100%; list-style-type:none; padding:0; margin:0;}
+.record {width:100%; list-style-type:none; padding:0; margin:0; border-top:1px solid #ddd;}
 .record li {height:40px;line-height:40px;font-size:1.3em;border-bottom:1px solid #ddd;}
 .record li:hover {background:#fcfcfc;}
 /*.record li:nth-child(2n+1) {background:#eee;}*/
@@ -8,3 +8,6 @@
 .record .delete:hover {border:0;opacity:0.8;background-color:#fee;}
 
 .formtastic .text_input {width:500px;}
+
+.cancel {float:left;line-height:24px;height:24px;margin-left:10px; font-size:10px;padding:0 5px; border:0;}
+.cancel:hover {border:0;}
