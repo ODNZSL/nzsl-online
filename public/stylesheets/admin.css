@@ -7,7 +7,8 @@
 .record .delete {float:right;width:40px;height:40px;background:url('/images/ui/clear.png') no-repeat center center;display:block;border:0;padding:0;}
 .record .delete:hover {border:0;opacity:0.8;background-color:#fee;}
 
-.formtastic .text_input {width:500px;}
+.formtastic .text_input {width:500px; line-height:30px; font-size:16px;}
+.formtastic textarea.text_input {line-height:18px;font-size:13px;width:500px;}
 
 .cancel {float:left;line-height:24px;height:24px;margin-left:10px; font-size:10px;padding:0 5px; border:0;}
 .cancel:hover {border:0;}

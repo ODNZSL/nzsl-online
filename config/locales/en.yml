@@ -108,6 +108,8 @@ en:
   clear: clear
   formtastic:
     labels:
+      page:
+        show_in_nav: ' Show in navigation'
       feedback:
         name: 'Name:'
         email: 'Email:'

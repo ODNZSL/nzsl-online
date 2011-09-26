@@ -7,7 +7,9 @@ CKEDITOR.editorConfig = function( config )
 {
 	config.language = 'en';
   config.height = '400px';
-  config.width  = '400px';
+  config.width  = '500px';
+  config.bodyClass = 'typography';
+  config.contentsCss = '/stylesheets/typography.css';
   config.toolbar = [
     ['Source'],
     ['Cut','Copy','Paste','PasteText','PasteFromWord'],

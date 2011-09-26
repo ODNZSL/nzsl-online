@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   # protect_from_forgery
-
+  require 'digest/sha1'
 private
 
   def find_or_create_vocab_sheet
@@ -50,5 +50,10 @@ private
     return
   end
   
+  def authenticate
+    authenticate_or_request_with_http_basic do |username, password|
+      Digest::SHA1.hexdigest(password) == NZSL_ADMIN_ACCESS[username] if NZSL_ADMIN_ACCESS[username].present?
+    end
+  end
 end
 

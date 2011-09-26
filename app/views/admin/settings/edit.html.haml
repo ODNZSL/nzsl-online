@@ -7,9 +7,8 @@
         %li.string.required
         %label{:for => "settings_#{setting}"}=t "admin.setting.#{setting}"
         = select_tag "settings[#{setting}]", options_for_select(Page.all.map{|p| [p.label, p.id]}, Setting.get(setting)), :class => 'text_input';
-  %fieldset.buttons
-    %ol
-      %li
-        = submit_button('admin.save')
-%br
-= link_to 'Back', admin_pages_path
+  
+  %br
+    = submit_button('admin.save')
+    = link_to 'Cancel', admin_pages_path, :class => 'cancel'
+  

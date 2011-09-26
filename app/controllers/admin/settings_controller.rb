@@ -1,6 +1,6 @@
 class Admin::SettingsController < ApplicationController
   layout 'admin'
-  before_filter :set_title
+  before_filter :authenticate, :set_title
   
   def show
     redirect_to edit_admin_settings_path

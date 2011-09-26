@@ -8,3 +8,4 @@ public/images/signs/**/*
 .DS_Store
 public/videos/*.*
 public/system/videos/*.*
+config/initializers/access.rb

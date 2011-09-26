@@ -3,7 +3,8 @@
     = f.input :title, :required => true, :label => true, :input_html => {:class => 'text_input'}, :hint => 'At the top of the page and in the title bar.'
     = f.input :slug, :label => true, :input_html => {:class => 'text_input'}, :hint => 'the url - must be lowercase and/or numbers or dashes only.'
     = f.input :label, :label => true, :input_html => {:class => 'text_input'}, :hint => 'In the navigation - should be short.'
-    = f.input :template, :label => true, :as => :select, :collection => Page.templates.map{|t| [t.humanize.titleize, t]}, :include_blank => false
     = f.input :show_in_nav, :label => true
+    = f.input :template, :label => true, :as => :select, :collection => Page.templates.map{|t| [t.humanize.titleize, t]}, :include_blank => false, :input_html => {:class => 'text_input'}
+
   = submit_button('admin.save')
   = link_to 'Cancel', admin_pages_path, :class => 'cancel'

@@ -1,5 +1,5 @@
 class Admin::PagePartsController < ApplicationController
-  before_filter :get_page, :set_title
+  before_filter :authenticate, :get_page, :set_title
   before_filter :get_page_part, :only => [:edit, :show, :update, :destroy]
   layout 'admin'
   def index
