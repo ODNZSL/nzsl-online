@@ -27,7 +27,6 @@ $(function(){
     if (videos = $(".ckeditor_content a").filter(':contains(-video-)')){
       videos.addClass('video_replace main_video').each(function(){
         var video = $(this);
-        console.log(video)
         video.html(video.html().replace(/^\s*-video-\s*/, ''));
       }).not('li a').wrap($('<div />', {'class':'videos clearfix_left'}));
     }
@@ -81,7 +80,6 @@ $(function(){
       key: '#$c1ee98f7e52a995b8d9',
       clip: {
         onFail: function(a,b,c){
-          console.log(a,b,c);
         },
         autoPlay: false,
         autoBuffering: true,
@@ -163,7 +161,6 @@ $(function(){
       if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
         video_element.play();
       } else {
-        console.log(video)
         flowplayer(video).play();
       }
     }

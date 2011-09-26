@@ -21,4 +21,5 @@ private
   def set_title
     @title = 'Administrate Settings'
   end
+  
 end
