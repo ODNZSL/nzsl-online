@@ -44,6 +44,10 @@ class Page < ActiveRecord::Base
     page_parts.first
   end
   
+  def self.in_nav
+    where(:show_in_nav => true).where("(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
+  end
+  
 private
   
   def strip_text
