@@ -36,7 +36,7 @@ private
     @query = {}
   end
   def get_footer_content
-    @footer_content = Page.find_by_slug(Setting.get(:footer)).first_part
+    @footer = Page.find(Setting.get(:footer))
   end
 end
 

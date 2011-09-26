@@ -22,7 +22,7 @@
           = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           .r
         %li.help
-          = link_to t('search.tabs.help'), Setting.get_as_path(:help)
+          = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path)
       .bottom_border
       %div{:class => "search_form clearfix_left"}
         = form_tag search_signs_path, :method => :get do

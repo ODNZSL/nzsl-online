@@ -9,7 +9,7 @@ class Page < ActiveRecord::Base
   validates :title, :label, :presence => true
   validates :slug, :presence => true, 
                    :uniqueness => true,
-                   :format => {:with => /\A(\/|[a-z\-\_]*)\Z/}, 
+                   :format => {:with => /\A(\/|[a-z0-9\-\_]*)\Z/}, 
                    :exclusion => {:in => RESTRICTED_SLUGS}
   
   validates :order, :numericality => {:integer_only => true, :allow_nil => true}

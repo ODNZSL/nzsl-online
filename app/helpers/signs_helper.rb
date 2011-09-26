@@ -10,7 +10,7 @@ module SignsHelper
      :inflection_plural,
      :inflection_manner_and_degree].map do |note|
        if sign.send(note)
-         link_to(t("signs.show.field.#{note}"), "#{Setting.get_as_path(:glossary)}##{note}")
+         link_to(t("signs.show.field.#{note}"), "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}")
        end
      end.compact.join(', ').html_safe
   end

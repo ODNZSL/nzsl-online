@@ -10,6 +10,8 @@ class PagesController < ApplicationController
       render :template => "pages/#{@page.template}"
     elsif @page = Page.find(Setting.get(:'404'))
       render :template => "pages/#{@page.template}", :status => 404
+    else
+      render :text => '404 and template not found', :status => 404
     end
   end
 end
