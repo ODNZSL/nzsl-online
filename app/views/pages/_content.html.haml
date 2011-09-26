@@ -7,7 +7,7 @@
         = video_translation(page_part) if page_part.translation_path.present?
         .ckeditor_content
           != page_part.body
-  - else
+  - elsif @page.first_part
     = video_translation(@page.first_part) if @page.first_part.translation_path.present?
     .rule_after.ckeditor_content
-      != @page.page_parts.first.body
+      != @page.first_part.body
