@@ -31,10 +31,10 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   %footer.sticky_footer.footer
-  = javascript_include_tag 'jquery', 'jquery-ui.min.js', 'rails', 'admin/admin.js'
+  = javascript_include_tag 'jquery', 'jquery-ui.min.js', 'rails', 'admin/admin.js', 'admin/ckeditor/ckeditor.js', 'admin/ckeditor/adapters/jquery.js'
   = print_javascripts_tag params[:print]
   = yield :scripts
-  = javascript_include_tag 'admin/ckeditor/ckeditor.js', 'admin/ckeditor/adapters/jquery.js', :cache => 'ckeditor-cache'
+  = javascript_include_tag 
   :javascript
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24185042-1']);
