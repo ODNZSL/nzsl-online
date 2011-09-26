@@ -1,6 +1,6 @@
 class VocabSheetsController < ApplicationController
 
-  before_filter :find_or_create_vocab_sheet, :set_search_query, :get_footer_content
+  before_filter :find_or_create_vocab_sheet, :set_search_query, :get_footer_content, :set_title
   respond_to :html, :json
   def show
     @size = params[:size].to_i 
@@ -33,6 +33,11 @@ class VocabSheetsController < ApplicationController
       flash[:error] = t('vocab_sheet.delete_failure')
     end
     redirect_back_or_default
+  end
+  
+private
+  def set_title
+    @title = @sheet.name
   end
 end
 

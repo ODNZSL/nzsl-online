@@ -1,5 +1,6 @@
 class Admin::SettingsController < ApplicationController
   layout 'admin'
+  before_filter :set_title
   
   def show
     redirect_to edit_admin_settings_path
@@ -13,5 +14,11 @@ class Admin::SettingsController < ApplicationController
       flash[:notice] = 'Settings were successfully saved.'
     end
     render :edit
+  end
+
+private
+
+  def set_title
+    @title = 'Administrate Settings'
   end
 end

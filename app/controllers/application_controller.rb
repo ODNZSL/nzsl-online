@@ -32,11 +32,23 @@ private
   def load_search_query
     #@query = session[:search][:query] if session[:search].present? && session[:search][:query].present?
   end
+  
   def set_search_query
     @query = {}
   end
+  
   def get_footer_content
     @footer = Page.find(Setting.get(:footer))
   end
+  
+  def render_404
+    if @page = Page.find(Setting.get(:'404'))
+      render :template => "pages/#{@page.template}", :status => 404
+    else
+      render :text => '404 - page not found', :status => 404
+    end
+    return
+  end
+  
 end
 

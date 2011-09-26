@@ -14,9 +14,11 @@ class SignsController < ApplicationController
   def show
     @sign = Sign.first({:id => params[:id]})
     if @sign.blank?
-      render :status => 404, :template => 'signs/404'
+      render_404
     end
+    @title = @sign.gloss_main
   end
+  
   def autocomplete
     if params[:term].present?
       render :json => open("#{AUTOCOMPLETE_URL}?q=#{CGI::escape(params[:term])}&limit=10"){|f| f.read}.split("\n")
@@ -24,7 +26,9 @@ class SignsController < ApplicationController
       render :nothing
     end
   end
+
 private
+  
   def process_search_query params
     search_keys = %w(s hs l lg usage tag)
     query = params.select{|k| search_keys.include? k}

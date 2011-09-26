@@ -1,6 +1,6 @@
 module ApplicationHelper
   def page_title
-    return t('layout.title') + (@title ?  " - " + @title : "")
+    "#{@title}#{' -' if @title} #{t('layout.title')}"
   end
   
   def render_navigation_link(link)

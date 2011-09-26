@@ -5,7 +5,7 @@ NzslOnline::Application.routes.draw do
       collection do
         post 'reorder'
       end
-      resources :page_parts, :except => [:show] do
+      resources :page_parts, :except => [:show, :index] do
         collection do
           post 'reorder'
         end

@@ -20,7 +20,8 @@ class FeedbackController < ApplicationController
       flash.now[:feedback_error] = t('feedback.failure')
     end
     @page = Page.find(params[:page_id].to_i)
+    @title = @page.title
     render :template => "pages/#{@page.template}"
   end
-  
+
 end

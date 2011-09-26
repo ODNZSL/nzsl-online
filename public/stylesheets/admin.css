@@ -1,10 +1,10 @@
 .record {width:100%; list-style-type:none; padding:0; margin:0;}
-.record li {height:40px;line-height:40px;font-size:1.3em;padding-left:10px;}
-.record li:nth-child(2n+1) {background:#eee;}
-
-.delete {float:right;width:40px;height:40px;background:url('/images/ui/clear.png') no-repeat center center;display:block;border:0;}
-.delete:hover {border:0;opacity:0.8;background-color:transparent;}
+.record li {height:40px;line-height:40px;font-size:1.3em;border-bottom:1px solid #ddd;}
+.record li:hover {background:#fcfcfc;}
+/*.record li:nth-child(2n+1) {background:#eee;}*/
+.record li a {height:40px;padding-left:10px;width:430px;display:block;float:left;border-width:0;}
+.record li a:hover {border-width:1px;}
+.record .delete {float:right;width:40px;height:40px;background:url('/images/ui/clear.png') no-repeat center center;display:block;border:0;padding:0;}
+.record .delete:hover {border:0;opacity:0.8;background-color:#fee;}
 
 .formtastic .text_input {width:500px;}
-
-.inline_with_button

@@ -1,5 +1,6 @@
 class Admin::PagesController < ApplicationController
   before_filter :get_page, :only => [:edit, :update, :destroy]
+  before_filter :set_title
   layout 'admin'
 
   def index
@@ -51,5 +52,7 @@ private
   def get_page
     @page = Page.find(params[:id])
   end
-
+  def set_title
+    @title = "Administrate pages"
+  end
 end

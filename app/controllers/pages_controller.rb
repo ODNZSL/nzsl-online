@@ -4,14 +4,12 @@ class PagesController < ApplicationController
   
   def show
     if @page = Page.find_by_slug(params[:slug])
-      if @page.template == 'feedback'
-        @feedback = Feedback.new
-      end
+      @title = @page.title
+      @feedback = Feedback.new if @page.template == 'feedback'
       render :template => "pages/#{@page.template}"
-    elsif @page = Page.find(Setting.get(:'404'))
-      render :template => "pages/#{@page.template}", :status => 404
     else
-      render :text => '404 and template not found', :status => 404
+      render_404
     end
   end
+    
 end

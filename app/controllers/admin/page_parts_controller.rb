@@ -1,5 +1,5 @@
 class Admin::PagePartsController < ApplicationController
-  before_filter :get_page
+  before_filter :get_page, :set_title
   before_filter :get_page_part, :only => [:edit, :show, :update, :destroy]
   layout 'admin'
   def index
@@ -17,7 +17,7 @@ class Admin::PagePartsController < ApplicationController
     @page_part = PagePart.new(params[:page_part])
     @page_part.page = @page
     if @page_part.save
-      redirect_to admin_page_page_parts_path(@page), :notice => 'Page part was successfully created.'
+      redirect_to edit_admin_page_path(@page), :notice => 'Page part was successfully created.'
     else
       render :action => :new
     end
@@ -25,7 +25,7 @@ class Admin::PagePartsController < ApplicationController
 
   def update
     if @page_part.update_attributes(params[:page_part])
-      redirect_to admin_page_page_parts_path(@page), :notice => 'Page part was successfully updated.'
+      redirect_to edit_admin_page_path(@page), :notice => 'Page part was successfully updated.'
     else
       render :action => :edit
     end
@@ -54,5 +54,8 @@ private
   end
   def get_page
     @page = Page.find(params[:page_id])
+  end
+  def set_title
+    @title = "Administrate page parts"
   end
 end
