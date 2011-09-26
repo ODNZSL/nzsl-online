@@ -1,6 +1,6 @@
 class StaticPagesController < ApplicationController
   
-  before_filter :find_vocab_sheet
+  before_filter :find_vocab_sheet, :set_search_query, :get_footer_content
   
   def show
     begin

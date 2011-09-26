@@ -1,7 +1,7 @@
 class SignsController < ApplicationController
   require 'open-uri'
   
-  before_filter :find_vocab_sheet
+  before_filter :find_vocab_sheet, :set_search_query, :get_footer_content
   
   def search
     search_query = process_search_query(params)

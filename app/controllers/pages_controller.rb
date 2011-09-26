@@ -1,4 +1,7 @@
 class PagesController < ApplicationController
+  
+  before_filter :set_search_query, :get_footer_content
+  
   def show
     if @page = Page.find_by_slug(params[:slug])
       if @page.template == 'feedback'

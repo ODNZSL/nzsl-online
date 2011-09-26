@@ -22,7 +22,7 @@ class Page < ActiveRecord::Base
   
   validates :template, :presence => true, :inclusion => {:in => Page.templates}
   
-  default_scope order("'pages'.'order' ASC")
+  default_scope order('"pages"."order" ASC')
   
   named_scope :in_nav, where(:show_in_nav => true)
   

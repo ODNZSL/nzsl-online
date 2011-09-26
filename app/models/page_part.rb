@@ -6,7 +6,7 @@ class PagePart < ActiveRecord::Base
   validates :title, :presence => true
   validates :order, :numericality => {:integer_only => true, :allow_nil => true}
 
-  default_scope order("'page_parts'.'order' ASC")
+  default_scope order('"page_parts"."order" ASC')
 
   def slug
     title.downcase.dasherize
