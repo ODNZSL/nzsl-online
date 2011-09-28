@@ -69,8 +69,8 @@ button {  width: auto; overflow: visible; }
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
 body, select, input, textarea {  color: #34414b; font-family:Georgia, serif;}
-a, a:active, a:visited,
-a span, a:active span, a:visited span { color: #4179c9; text-decoration:none; border-bottom:1px solid #b9ccf9; }
+a:link, a:active, a:visited,
+a:link span, a:active span, a:visited span { color: #4179c9; text-decoration:none; border-bottom:1px solid #b9ccf9; }
 a:hover, a:hover span { color: #336cbe; border-bottom:1px solid #aac0f8; background-color:#e2edfc; }
 
  /* * * * * * *\
@@ -104,5 +104,9 @@ h2+h3 { margin-top:1em; }
 .typography dt { width:150px; position:relative; overflow:visible; left:-150px;top:1.6em;line-height:1.6; }
 .typography dt:after { content:':'; }
 
+.typography blockquote { background: #eee; padding:15px 15px 1px;margin:15px 0;}
+
+/* ckeditor adds anchors as <a name> rather than <h3 id>*/
+.typography a[name]:hover {background:transparent;border:0;color:#34414B;}
 /* specifics for editor */
 body.typography {padding:10px;}

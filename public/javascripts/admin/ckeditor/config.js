@@ -18,7 +18,7 @@ CKEDITOR.editorConfig = function( config )
     'NumberedList','BulletedList','-',
     'Outdent','Indent','Blockquote'],
     //'CreateDiv','-',
-    ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
+    //['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
     ['Link','Unlink','Anchor'],
     ['Image','Embed','Table','-','HorizontalRule','-','SpecialChar']
   ];

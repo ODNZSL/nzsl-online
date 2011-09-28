@@ -4,6 +4,6 @@
       = Page.in_nav.map { |link| render_navigation_link(link) }.join(' | ').html_safe
     .main_column
       .copyright
-        - if @footer
+        - if @footer && @footer.first_part
           = link_to '(View in NZSL)', @footer.path, :class => 'footer_fullview_link'
           != @footer.first_part.body
