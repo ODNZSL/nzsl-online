@@ -1,11 +1,13 @@
 .typography
   %h1= @page.title
-  = video_translation(@page.page_parts.first) if @page.page_parts.first.translation_path.present?
+  = video_translation(@page.first_part) if @page.first_part.present? &&  @page.first_part.translation_path.present?
   .rule_after.clearfix_left
-    .home_content.ckeditor_content
-      != @page.page_parts.first.body
+    - if @page.first_part.present?
+      .home_content.ckeditor_content
+        != @page.first_part.body
     = render :partial => '/signs/sign_of_the_day', :locals => {:sign => Sign.random}
-  - @page.page_parts[1..-1].each do |page_part|
+  - @page.page_parts.each_with_index do |page_part, i|
+    - next if i.zero?
     .rule_after
       %h2= page_part.title
       = video_translation(page_part) if page_part.translation_path.present?
