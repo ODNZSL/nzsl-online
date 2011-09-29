@@ -15,7 +15,6 @@
   = yield :head
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
-  %title= page_title
   = print_stylesheet_tag params[:print]
 %body{:class => vocab_sheet?}
   .visuallyhidden
@@ -31,7 +30,7 @@
       = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
   
-  = javascript_include_tag 'flowplayer-3.2.6.min.js', 'flowplayer.ipad-3.2.2.min.js', 'jquery', 'jquery-ui.min.js', 'rails', 'application', :cache => 'nzsl-cache'
+  = javascript_include_tag 'flowplayer-3.2.6.js', 'flowplayer.ipad-3.2.2.min.js', 'jquery', 'jquery-ui.min.js', 'rails', 'application', :cache => 'nzsl-cache'
   = print_javascripts_tag params[:print]
   = yield :scripts
   :javascript

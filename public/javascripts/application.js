@@ -56,11 +56,15 @@ $(function(){
   }
   var setup_videos = function(){
     var videos;
+    var id_offset = 0;
+    
     if (videos = $('.video_replace')){
       videos.each(function(){
         var wrapper = $(this);
         var href = wrapper.attr('href');
         var hidden = wrapper.hasClass('hidden_video');
+        wrapper.attr('id', 'video_'+id_offset);
+        id_offset += 1;
         if (window.location.hash == "#skipflash"){
           wrapper.empty()
                  .append($('<video />', {src: href,
