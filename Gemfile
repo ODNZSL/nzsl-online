@@ -25,5 +25,6 @@ group :development, :test do
    gem 'ruby-debug19'
    gem 'capistrano'
    gem 'capistrano-ext'
+   gem 'rvm-capistrano'
 end
 
