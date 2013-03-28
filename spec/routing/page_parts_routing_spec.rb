@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe PagePartsController do
+describe Admin::PagePartsController do
   describe "routing" do
 
     it "recognizes and generates #index" do

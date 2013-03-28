@@ -49,8 +49,8 @@ en:
       content: "It may have been removed from the database."
   search:
     close: close
-    tabs: 
-      keyword: Search by English Word
+    tabs:
+      keyword: Search by word (English/Maori)
       sign: Search by Sign Features
       advanced: Advanced Search
       help: Help
@@ -100,7 +100,7 @@ en:
   page_not_found:
     title: Page not found (404)
     content: "Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later."
-  pagination: 
+  pagination:
     next: next
     previous: previous
   play_this_page: Play this page in NZSL
@@ -115,19 +115,19 @@ en:
         email: 'Email:'
         hearing_level: 'Are you:'
         nzsl_level: 'Are you a:'
-        
+
         include_sign: ' Suggest an NZSL sign to be included in the dictionary'
         include_describe: "Show the sign on its own, and the same sign used in a sentence"
         include_define: "What does this sign mean (in English)?"
         include_users: "Who uses this sign? (e.g. older, younger, area)"
         include_comments: Other Comments
-        
+
         change_sign: ' Suggest changes for a sign in the dictionary'
         change_sign_gloss: What is the main gloss for this sign?
         change_sign_url: What is the URL (web address) for this sign?
         change_sign_entry: Part of the sign you want to change/add
         change_comments: comments
-        
+
         technical_fault: ' Report a technical fault'
         video: 'Video:'
         message: 'Message:'

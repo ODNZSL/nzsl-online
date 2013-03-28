@@ -1,4 +1,4 @@
 - [:"#{prefix}notice", :"#{prefix}error"].each do |ea|
   - if flash[ea]
-    .flash{:class => "flash #{ea.to_s} rounded"}= flash.delete(ea)
+    .flash{:class => "flash #{ea.to_s} rounded"}= flash[ea]
 

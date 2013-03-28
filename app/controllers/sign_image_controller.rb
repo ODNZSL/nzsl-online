@@ -1,10 +1,7 @@
 class SignImageController < ApplicationController
   def show
     if File.exists?(
-        ImageProcessor.local_filename(
-          params[:filename],
-          [params[:width], params[:height]]
-        )
+        ImageProcessor.local_filename( params[:filename], [params[:width].to_i, params[:height].to_i] )
     )
     send_file(ImageProcessor.local_filename(
       params[:filename],
