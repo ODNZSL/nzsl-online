@@ -1,3 +1,4 @@
+# encoding: UTF-8
 # This file is auto-generated from the current state of the database. Instead
 # of editing this file, please use the migrations feature of Active Record to
 # incrementally modify your database, and then regenerate this schema definition.
@@ -19,8 +20,8 @@ ActiveRecord::Schema.define(:version => 20110922042900) do
     t.integer  "video_file_size"
     t.string   "video_content_type"
     t.datetime "video_updated_at"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
     t.string   "email"
     t.string   "hearing_level"
     t.string   "nzsl_level"
@@ -41,8 +42,8 @@ ActiveRecord::Schema.define(:version => 20110922042900) do
     t.integer  "sign_id",        :null => false
     t.integer  "vocab_sheet_id", :null => false
     t.string   "name",           :null => false
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
     t.integer  "position"
     t.string   "drawing"
   end
@@ -53,8 +54,8 @@ ActiveRecord::Schema.define(:version => 20110922042900) do
     t.text     "body"
     t.string   "translation_path"
     t.integer  "page_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",       :null => false
+    t.datetime "updated_at",       :null => false
   end
 
   create_table "pages", :force => true do |t|
@@ -64,20 +65,20 @@ ActiveRecord::Schema.define(:version => 20110922042900) do
     t.integer  "order"
     t.string   "template"
     t.boolean  "show_in_nav"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
   end
 
   create_table "settings", :force => true do |t|
     t.string   "key"
     t.string   "value"
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "vocab_sheets", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
     t.string   "name"
   end
 

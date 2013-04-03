@@ -1,15 +1,15 @@
-require "whenever/capistrano"
 require "bundler/capistrano"
+require "whenever/capistrano"
 
 set :application, "nzsl-online"
-set :repository,  "git@github.com:3months/nzsl-online.git"
+set :repository,  "./"
 set :deploy_to, "/var/rails/#{application}"
 
-set :scm, :git
+set :scm, :none
 default_run_options[:pty] = true
 set :deploy_via, :copy
-set :copy_cache, '/tmp/deploy-cache/nzsl-online'
-set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs"]
+# set :copy_cache, '/tmp/deploy-cache/nzsl-online'
+set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs", ".bundle", "db/*.sqlite3", "log/*.log", "tmp/**/*", ".rvmrc", ".DS_Store", "public/videos/", "public/system/videos/", "config/initializers/access.rb"]
 
 set :stages, %w(production draft)
 set :default_stage, "draft"
