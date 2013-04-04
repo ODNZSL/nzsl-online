@@ -1,3 +1,5 @@
+# encoding: UTF-8
+
 # Sample localization file for English. Add more files in this directory for other locales.
 # See http://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
@@ -50,7 +52,7 @@ en:
   search:
     close: close
     tabs:
-      keyword: Search by word (English/Maori)
+      keyword: Search by word (English/Māori)
       sign: Search by Sign Features
       advanced: Advanced Search
       help: Help

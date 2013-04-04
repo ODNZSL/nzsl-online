@@ -16,7 +16,7 @@ class ImageProcessor
   end
 
   def self.remote_filename(filename = "")
-    ASSET_URL + filename + '.png'
+    ASSET_URL + filename
   end
 
   def self.create_or_return_path(filename)
