@@ -201,7 +201,7 @@ a.drawing {border:0; background:transparent;}
 .entry_drawing {float:right; margin:24px 0 20px;}
 .entry_drawing .offset {right:-10%; position:relative;}
 
-.main_video {clear:left; margin:16px 0;}
+.main_video {clear:left; margin:16px 0; float: left}
 .main_video, .main_video video, .main_video embed{width:480px; height:360px; }
 .examples {clear:both;}
 .example {margin:10px 0 24px;}
