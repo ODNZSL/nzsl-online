@@ -3,6 +3,8 @@
     = image_tag "signs/80-80/#{vocab_sheet_item.drawing}"
   = link_to sign_url(vocab_sheet_item.sign_id), {:class => 'main_gloss'} do
     = vocab_sheet_item.name
+  = link_to sign_url(vocab_sheet_item.sign_id), {:class => 'maori_gloss'} do
+    = vocab_sheet_item.maori_name
   .b
   = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
     %button.remove{:type => 'submit'}= t('vocab_sheet.item.remove')
