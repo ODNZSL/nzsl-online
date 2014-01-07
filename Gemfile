@@ -18,6 +18,12 @@ gem 'mail'
 gem 'i18n'
 gem 'sqlite3'
 
+group :assets do
+  gem 'sass-rails'
+  gem 'coffee-rails'
+  gem 'uglifier'
+  gem 'modernizr-rails'
+end
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators

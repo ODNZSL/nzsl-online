@@ -2,7 +2,7 @@
   .sign_of_the_day
     %h2= t('signs.sign_of_the_day')
     = link_to sign_url(sign.id), {:class => 'drawing grid_drawing'} do
-      = image_tag "/images/signs/150-100/#{sign.drawing}"
+      = image_tag "signs/150-100/#{sign.drawing}"
     %p
       = link_to sign_url(sign.id), {:class => 'main_gloss h2'} do
         = sign.gloss_main

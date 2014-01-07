@@ -1,6 +1,6 @@
 %li.vocab_sheet_item.vocab_sheet_bar_item
   = link_to sign_url(vocab_sheet_item.sign_id), {:class => 'drawing vocab_sheet_drawing'} do
-    = image_tag "/images/signs/80-80/#{vocab_sheet_item.drawing}"
+    = image_tag "signs/80-80/#{vocab_sheet_item.drawing}"
   = link_to sign_url(vocab_sheet_item.sign_id), {:class => 'main_gloss'} do
     = vocab_sheet_item.name
   .b

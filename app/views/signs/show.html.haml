@@ -4,7 +4,7 @@
     .entry_head
       .drawing.entry_drawing
         .offset
-          = image_tag "/images/signs/320-180/#{@sign.drawing}"
+          = image_tag "signs/320-180/#{@sign.drawing}"
       .glosses
         %h1.main_gloss= @sign.gloss_main
         %h2.secondary_gloss= @sign.gloss_secondary
@@ -20,7 +20,10 @@
         = handshape_image @sign.handshape
         = location_image @sign.location
     .videos
-      = link_to '', @sign.video, :class => 'video_replace main_video normal'
+      .video_replace.main_video.normal
+        %video{preload: 'none'}
+          %source{type: 'video/mp4', src: @sign.video}
+      -# = link_to '', @sign.video, :class => 'video_replace main_video normal'
       - if @sign.video_slow.present?
         = link_to '', @sign.video_slow, :class => 'video_replace main_video slow'
         = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
@@ -28,7 +31,7 @@
     - unless @sign.examples.length.zero?
       .examples.rule_after.clearfix
         %h2= t('signs.show.usage_examples')
-        - @sign.examples.each do |example| 
+        - @sign.examples.each do |example|
           .example.clearfix.typography.videos
             = link_to '', example[:video], :class => 'video_replace example_video normal'
             - if example[:video_slow]

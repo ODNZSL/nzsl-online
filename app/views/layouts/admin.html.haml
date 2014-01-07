@@ -25,21 +25,21 @@
         - if params[:print]
           = link_button 'back', {:print => false}, :class => 'view_print_back_link'
         = link_to 'NZSL Online', '/', {:class => 'logo ir'}
-        = image_tag '/images/ui/logo-serrated.png', :class => 'print_logo'
+        = image_tag 'ui/logo-serrated.png', :class => 'print_logo'
     #content.before_sticky_footer.main_column.clearfix_left.clearfix
       = render :partial => 'shared/flashes', :locals => {:prefix => ''}
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   %footer.sticky_footer.footer
-  = javascript_include_tag 'jquery', 'jquery-ui.min.js', 'rails', 'admin/admin.js', 'admin/ckeditor/ckeditor.js', 'admin/ckeditor/adapters/jquery.js'
+  = javascript_include_tag 'application', 'admin/admin.js', 'admin/ckeditor/ckeditor.js', 'admin/ckeditor/adapters/jquery.js'
   = print_javascripts_tag params[:print]
   = yield :scripts
-  = javascript_include_tag 
+  = javascript_include_tag
   :javascript
     var _gaq = _gaq || [];
     _gaq.push(['_setAccount', 'UA-24185042-1']);
     _gaq.push(['_trackPageview']);
-    
+
     (function() {
     var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
     ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';

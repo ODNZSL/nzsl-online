@@ -12,7 +12,7 @@
         - if result
           %li
             = link_to sign_url(result.id), {:class => 'drawing grid_drawing'} do
-              = image_tag "/images/signs/150-100/#{result.drawing}"
+              = image_tag "signs/150-100/#{result.drawing}"
             = link_to sign_url(result.id), {:class => 'main_gloss'} do
               = result.gloss_main
             - if result.gloss_maori

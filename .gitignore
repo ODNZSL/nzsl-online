@@ -9,3 +9,11 @@ public/images/signs/**/*
 public/videos/*.*
 public/system/videos/*.*
 config/initializers/access.rb
+.sass-cache/
+
+app/assets/images/alphabet/
+app/assets/images/classifiers/
+app/assets/images/handshapes/
+app/assets/images/locations/
+app/assets/images/signs/
+

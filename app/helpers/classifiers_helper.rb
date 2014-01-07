@@ -79,8 +79,8 @@ module ClassifiersHelper
       ]
     }
   end
-private 
+private
   def classifier_image(partial_image_identifier)
-    return "/images/classifiers/90/Classifiers.#{partial_image_identifier}.png"
+    return "/assets/classifiers/90/Classifiers.#{partial_image_identifier}.png"
   end
 end
