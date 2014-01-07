@@ -63,7 +63,7 @@ module ApplicationHelper
 
   def video_translation part
     content_tag :div,
-      [content_tag(:div, '', :href => part.translation_path, :class => 'video_replace translation_video main_video hidden_video'),
+      [flow_video_tag(part.translation_path, wrapper_class: 'translation_video main_video hidden_video'),
        link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')].join(' ').html_safe,
       :class => 'videos clearfix_left'
   end

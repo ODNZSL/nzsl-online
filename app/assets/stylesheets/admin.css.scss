@@ -4,7 +4,7 @@
 /*.record li:nth-child(2n+1) {background:#eee;}*/
 .record li a {height:40px;padding-left:10px;width:430px;display:block;float:left;border-width:0;}
 .record li a:hover {border-width:1px;}
-.record .delete {float:right;width:40px;height:40px;background:url('/images/ui/clear.png') no-repeat center center;display:block;border:0;padding:0;}
+.record .delete {float:right;width:40px;height:40px;background: image_url('ui/clear.png') no-repeat center center;display:block;border:0;padding:0;}
 .record .delete:hover {border:0;opacity:0.8;background-color:#fee;}
 
 .formtastic .text_input {width:500px; line-height:30px; font-size:16px; height:30px;}

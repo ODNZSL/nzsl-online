@@ -10,7 +10,8 @@
     The two-handed manual alphabet is shown here from the signer&rsquo;s own point of view (looking towards the palm of the hands), and from a viewer&rsquo;s perspective - looking at another signer&rsquo;s hands. Signers usually simultaneously mouth the word as they fingerspell it, normally articulating the syllables as they are spelled out rather than individual letters.
   .videos
     %h3 Alphabet from the viewer&rsquo;s perspective
-    = link_to image_tag('alphabet/alphabet-poster-viewer.jpg'), "/system/videos/alphabet-wide.flv", :class => 'video_replace main_video'
+    = flow_video_tag("/system/videos/alphabet-wide.flv", wrapper_class: "main_video")
+    -# = link_to image_tag('alphabet/alphabet-poster-viewer.jpg'), "/system/videos/alphabet-wide.flv", :class => 'video_replace main_video'
     %h3 Alphabet from the signer&rsquo;s perspective
     = link_to image_tag('alphabet/alphabet-poster-signer.jpg'), "/system/videos/alphabet-over-shoulder.flv", :class => 'video_replace main_video'
   :markdown
