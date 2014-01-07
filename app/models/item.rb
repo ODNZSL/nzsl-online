@@ -8,8 +8,23 @@ class Item < ActiveRecord::Base
 
   attr_writer :sign
 
+
+  def maori_name
+    update_maori_name_if_missing()
+    super
+  end
+
+  def update_maori_name_if_missing
+    if read_attribute(:maori_name).nil? && self.persisted?
+      self.maori_name = sign.gloss_maori
+      self.save
+    end
+  end
+
+
   before_validation do
     self.name = (self.sign.is_a?(Sign) ? self.sign.gloss_main : nil) if self.name.nil? or self.name.blank?
+    self.maori_name = (self.sign.is_a?(Sign) ? self.sign.gloss_maori : nil) if self.maori_name.nil? or self.maori_name.blank?
     self.sign_id = sign.id if self.sign_id.nil?
     self.drawing = sign.drawing
   end

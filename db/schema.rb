@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110922042900) do
+ActiveRecord::Schema.define(:version => 20140107222018) do
 
   create_table "feedbacks", :force => true do |t|
     t.string   "name"
@@ -46,6 +46,7 @@ ActiveRecord::Schema.define(:version => 20110922042900) do
     t.datetime "updated_at",     :null => false
     t.integer  "position"
     t.string   "drawing"
+    t.string   "maori_name"
   end
 
   create_table "page_parts", :force => true do |t|
