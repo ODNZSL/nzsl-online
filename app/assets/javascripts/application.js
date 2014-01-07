@@ -1,7 +1,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require dd_belatedpng
 //= require flowplayer-5.4.6
 //= require_self
 
@@ -91,7 +90,6 @@ $(function(){
       key: '#$c1ee98f7e52a995b8d9',
       clip: {
         onFail: function(a,b,c){
-          debugger;
         },
         autoPlay: false,
         autoBuffering: true,
@@ -129,9 +127,9 @@ $(function(){
     };
     var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
     flowplayer_hidden_config.clip.autoBuffering = false;
-    $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config); //.each(function(){this.ipad()});
-    $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config); //.each(function(){this.ipad()});
-    $('.video_replace').attr('href', 'javascript:void(0);');
+    // $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config); //.each(function(){this.ipad()});
+    // $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config); //.each(function(){this.ipad()});
+    // $('.video_replace').attr('href', 'javascript:void(0);');
   }
   var setup_slow_motion_videos = function(){
     $('.button.normal, .button.slow, .button.translation_button').click(function(){

@@ -20,12 +20,15 @@
         = handshape_image @sign.handshape
         = location_image @sign.location
     .videos
-      .video_replace.main_video.normal
-        %video{preload: 'none'}
+      .flowplayer.main_video.normal
+        %video
           %source{type: 'video/mp4', src: @sign.video}
       -# = link_to '', @sign.video, :class => 'video_replace main_video normal'
       - if @sign.video_slow.present?
-        = link_to '', @sign.video_slow, :class => 'video_replace main_video slow'
+        .flowplayer.main_video.slow
+          %video
+            %source{type: 'video/mp4', src: @sign.video_slow}
+        -# = link_to '', @sign.video_slow, :class => 'video_replace main_video slow'
         = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
         = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
     - unless @sign.examples.length.zero?
