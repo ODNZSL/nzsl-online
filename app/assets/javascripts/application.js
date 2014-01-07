@@ -1,8 +1,51 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery-ui
-//= require flowplayer-5.4.6
+//= require flowplayer-5.4.6.min
 //= require_self
+
+(function() {
+  var hidePlay = function(){this.getPlugin('play').css({opacity:0});};
+
+  window.flowplayer.conf = {
+    key: ['#$c1ee98f7e52a995b8d9', '$c1ee98f7e52a995b8d9'],
+    clip: {
+      onFail: function(a,b,c){
+      },
+      autoPlay: false,
+      autoBuffering: true,
+      onFinish: hidePlay,
+      onStart:  hidePlay
+    },
+    swf: '/flowplayer.commercial-5.4.6.swf',
+    plugins: {
+      play:{opacity:0},
+      controls: {
+        height:25,
+        opacity:0.5,
+        volume:false,
+        mute:false,
+        time:false,
+        stop:false,
+        fastForward:false,
+        slowForward:false,
+        scrubber:true,
+        backgroundColor:'rgba(0,0,0,0)',
+        backgroundGradient:'none',
+        buttonColor:'#ffffff',
+        buttonOverColor: '#ffffff',
+        autoHide:'never',
+
+        tooltips:{
+          buttons:true
+        }
+      }
+    },
+    play: {
+      replayLabel: null
+    }
+  };
+})();
 
 $(function(){
   var use_video;
@@ -55,16 +98,16 @@ $(function(){
       });
       list.before(video_bucket);
     }
-  }
+  };
 
   var setup_use_video = function(){
-    use_video = navigator.userAgent.match(/iphone/i) && navigator.userAgent.match(/ipad/i)
-  }
+    use_video = navigator.userAgent.match(/iphone/i) && navigator.userAgent.match(/ipad/i);
+  };
   var setup_videos = function(){
     var videos;
     var id_offset = 0;
 
-    if (videos = $('.video_replace')){
+    if (videos = $('.video_replace')) {
       videos.each(function(){
         var wrapper = $(this);
         var href = wrapper.attr('href');
@@ -85,48 +128,9 @@ $(function(){
         }
       });
     }
-    var hidePlay = function(){this.getPlugin('play').css({opacity:0})};
-    var flowplayer_config = {
-      key: '#$c1ee98f7e52a995b8d9',
-      clip: {
-        onFail: function(a,b,c){
-        },
-        autoPlay: false,
-        autoBuffering: true,
-        onFinish: hidePlay,
-        onStart:  hidePlay
-      },
 
-      plugins: {
-        play:{opacity:0},
-        controls: {
-          height:25,
-          opacity:0.5,
-          volume:false,
-          mute:false,
-          time:false,
-          stop:false,
-          fastForward:false,
-          slowForward:false,
-          scrubber:true,
-          backgroundColor:'rgba(0,0,0,0)',
-          backgroundGradient: [1,0],
-          buttonColor:'#ffffff',
-          buttonOverColor: '#ffffff',
-          backgroundGradient:'none',
-          autoHide:'never',
-
-          tooltips:{
-            buttons:true
-          }
-        }
-      },
-      play: {
-        replayLabel: null
-      }
-    };
-    var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
-    flowplayer_hidden_config.clip.autoBuffering = false;
+    //var flowplayer_hidden_config = $.extend(true, {}, flowplayer_config)
+    //flowplayer_hidden_config.clip.autoBuffering = false;
     // $f('.video_replace_hidden_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_hidden_config); //.each(function(){this.ipad()});
     // $f('.video_replace_flash', {src: '/flowplayer.commercial-3.2.7.swf' , wmode: 'transparent'}, flowplayer_config); //.each(function(){this.ipad()});
     // $('.video_replace').attr('href', 'javascript:void(0);');
@@ -335,31 +339,31 @@ $(function(){
       });
       reset_menu_position();
     }
-  }
+  };
   var setup_print_view = function(){
     //load print
     if (document.printView) {
-      $('textarea, input[type="text"]').attr('readonly', true)
+      $('textarea, input[type="text"]').attr('readonly', true);
       $(window).bind('load', function(){
         window.print();
       });
     }
-  }
+  };
   var hide_vocab_bar_if_empty = function(){
     var bar = $('.vocab_sheet_bar');
     if (bar.length && bar.find('.vocab_sheet_bar_item').length === 0) {
       bar.hide();
       $('body').removeClass('vocab_sheet_background');
     }
-  }
+  };
   var show_vocab_bar = function(){
     if ($('.vocab_sheet_bar').length){
       $('.vocab_sheet_bar').show();
       $('body').addClass('vocab_sheet_background');
     }
-  }
+  };
   var setup_vocab_remove = function(){
-    $('.remove').live('click', function(e){
+    $('.remove').on('click', function(e){
       e.preventDefault();
       var button = $(this);
       var form = button.closest('form');
@@ -368,9 +372,8 @@ $(function(){
         $(this).remove();
         hide_vocab_bar_if_empty();
       });
-
     });
-  }
+  };
   var setup_add_to_sheet = function(){
     $('.add_to_sheet').click(function(e){
       e.preventDefault();
