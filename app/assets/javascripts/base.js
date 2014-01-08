@@ -76,7 +76,7 @@ $(function(){
         wrapper.attr('id', 'video_'+id_offset);
         id_offset += 1;
         var sourceElement = $('<source />', {src: href});
-        var videoElement  = $('<video />', {controls:"controls", autobuffer:(hidden ? undefined : "autobuffer"), loop: wrapper.data('loop')}).append(sourceElement);
+        var videoElement  = $('<video />', {controls:"controls", preload:!hidden, loop: wrapper.data('loop')}).append(sourceElement);
         wrapper.empty().append(videoElement);
       });
     }
