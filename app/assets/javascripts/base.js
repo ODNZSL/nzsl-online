@@ -1,40 +1,11 @@
 (function() {
-  var hidePlay = function(){this.getPlugin('play').css({opacity:0});};
-
   window.flowplayer.conf = {
     key: ['#$c1ee98f7e52a995b8d9', '$c1ee98f7e52a995b8d9'],
     clip: {
-      onFail: function(a,b,c){
-      },
       autoPlay: false,
-      autoBuffering: true,
-      onFinish: hidePlay,
-      onStart:  hidePlay
+      autoBuffering: true
     },
     swf: '/flowplayer.commercial-5.4.6.swf',
-    plugins: {
-      play:{opacity:0},
-      controls: {
-        height:25,
-        opacity:0.5,
-        volume:false,
-        mute:false,
-        time:false,
-        stop:false,
-        fastForward:false,
-        slowForward:false,
-        scrubber:true,
-        backgroundColor:'rgba(0,0,0,0)',
-        backgroundGradient:'none',
-        buttonColor:'#ffffff',
-        buttonOverColor: '#ffffff',
-        autoHide:'never',
-
-        tooltips:{
-          buttons:true
-        }
-      }
-    },
     play: {
       replayLabel: null
     }
@@ -42,10 +13,8 @@
 })();
 
 $(function(){
-  var use_video;
   var setup = function(){
     setup_ckeditor_video_links();
-    setup_use_video();
     setup_videos();
     setup_slow_motion_videos();
     setup_help_videos();
@@ -66,45 +35,57 @@ $(function(){
   };
 
   var setup_ckeditor_video_links = function(){
-    if (window.CKEDITOR) {
-      CKEDITOR.on('instanceReady', function (evt){
-        var videos = $(evt.editor.document.$.body).find('a').filter(':contains(-video-)');
-        //standard link (alphabet pages)
-        if (videos) {
-          videos.addClass('video_replace main_video').each(function(){
-            var video = $(this);
-            video.html(video.html().replace(/^\s*-video-\s*/, ''));
-          }).not('li a').wrap($('<div />', {'class':'videos clearfix_left'}));
+    var videos = $(".ckeditor_content a").filter(':contains(-video-)');
+    //standard link (alphabet pages)
+    if (videos){
+      videos.addClass('video_replace main_video').each(function(){
+        var video = $(this);
+        video.html(video.html().replace(/^\s*-video-\s*/, ''));
+      }).not('li a').wrap($('<div />', {'class':'videos clearfix_left'}));
+    }
+    //list link
+    var list = $('.ckeditor_content ul').has('.video_replace');
+    if (list) {
+      list.wrap($('<div />', {'class':'playlist'}));
+      var video_bucket = $('<div />', {'class':'videos clearfix_left'});
+      list.find('a').each(function(i){
+        var link = $(this);
+        var link_class = link.text().toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-video';
+        link.addClass(link_class);
+        var video = link.clone();
+        video.attr('id', link_class).addClass('hidden_video').empty().appendTo(video_bucket);
+        if (i === 0){
+          video.removeClass('hidden_video').addClass('selected');
+          link.css({fontWeight:'bold'});
         }
-        //list link
-        var list = $(evt.editor.document.$.body).find('ul').has('.video_replace');
-        if (list) {
-          list.wrap($('<div />', {'class':'playlist'}));
-          var video_bucket = $('<div />', {'class':'videos clearfix_left'});
-          list.find('a').each(function(i){
-            var link = $(this);
-            var link_class = link.text().toLowerCase().replace(/[^a-z0-9]+/g, '-') + '-video';
-            link.addClass(link_class);
-            var video = link.clone();
-            video.attr('id', link_class).addClass('hidden_video').empty().appendTo(video_bucket);
-            if (i === 0){
-              video.removeClass('hidden_video').addClass('selected');
-              link.css({fontWeight:'bold'});
-            }
-            link.attr('href', 'void(0)').removeClass('video_replace main_video');
-          });
-          list.before(video_bucket);
-        }
+        link.attr('href', 'javascript:void(0)').removeClass('video_replace main_video');
       });
-
+      list.before(video_bucket);
     }
   };
 
-  var setup_use_video = function(){
-    use_video = navigator.userAgent.match(/iphone/i) && navigator.userAgent.match(/ipad/i);
-  };
   var setup_videos = function(){
+    var videos = $('.video_replace');
+    var id_offset = 0;
+
+    if (videos) {
+      videos.each(function(){
+        var wrapper = $(this);
+        var href = wrapper.attr('href');
+        var hidden = wrapper.hasClass('hidden_video');
+        wrapper.attr('id', 'video_'+id_offset);
+        id_offset += 1;
+        var sourceElement = $('<source />', {src: href});
+        var videoElement  = $('<video />', {controls:"controls", autobuffer:(hidden ? undefined : "autobuffer"), loop: wrapper.data('loop')}).append(sourceElement);
+        wrapper.empty().append(videoElement);
+      });
+    }
+
+    var flowplayer_hidden_config = $.extend(true, {}, window.flowplayer.conf);
+    flowplayer_hidden_config.clip.autoBuffering = false;
+    $('.video_replace_hidden_flash, .video_replace_flash, .video_replace').flowplayer();
   };
+
   var setup_slow_motion_videos = function(){
     $('.button.normal, .button.slow, .button.translation_button').click(function(){
       var show, hide, video;
@@ -121,10 +102,11 @@ $(function(){
       }
       videos.find("."+hide).hide();
       videos.find("."+show).show();
-      play_video(show, videos);
       pause_video(hide, videos);
+      play_video(show, videos);
     });
   };
+
   var setup_help_videos = function(){
     var wrapper = $('.playlist');
     wrapper.find('ul a').click(function(e){
@@ -139,42 +121,38 @@ $(function(){
       play_video('selected', wrapper);
     });
   };
+
   var play_video = function(video_class, wrapper){
-    var video, video_element;
-    if (video = wrapper.find('.video_replace.'+video_class)[0]) {
-      if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
-        video_element.play();
-      } else {
-        flowplayer(video).play();
-      }
+    var video = wrapper.find('.video_replace.'+video_class)[0];
+    if (video) {
+      flowplayer(video).play();
     }
   };
+
   var pause_video = function(video_class, wrapper){
-    var video, video_element;
-    if (video = wrapper.find('.video_replace.'+video_class)[0]) {
-      if (video_element = $(video).find('video, embed[type="video/divx"]')[0]){
-        video_element.pause();
-      } else {
-        flowplayer(video).pause();
-      }
+    var video = wrapper.find('.video_replace.'+video_class)[0];
+    if (video) {
+      flowplayer(video).stop();
     }
   };
+
   var reset_menu_position = function(){
     // this is insane.
     // IE7 was getting not updating the position of the menus when we show and hid search bars
     // so I'll do it manually. This forces it to redraw.
-    var bottom = $('.menu').css('bottom')
-    $('.menu').css('bottom', '0').css('bottom', bottom)
-  }
+    var bottom = $('.menu').css('bottom');
+    $('.menu').css('bottom', '0').css('bottom', bottom);
+  };
+
   var setup_search_tabs = function(){
     $('.tab, .tab_link').click(function(e){
       e.preventDefault();
       var tab = this.className.match(/(advanced|keywords|signs)/)[0];
       $('.tab, .search_field').removeClass('selected');
       $('.tab.'+tab+', .search_field.'+tab).addClass('selected');
-      reset_menu_position()
+      reset_menu_position();
     });
-  }
+  };
   var setup_sign_selection = function(){
     $(document).click(function(){
       hide_all_dropdowns();
@@ -188,10 +166,10 @@ $(function(){
       var hideOrShow = $(this).find('.dropdown').css('display') == 'none';
       hide_all_dropdowns();
       $(this).find('.dropdown').toggle(hideOrShow);
-      $(this).find('.dropdown_arrow').toggleClass('selected shadow', hideOrShow)
+      $(this).find('.dropdown_arrow').toggleClass('selected shadow', hideOrShow);
       if (hideOrShow) {
         //for IE7 and his layering issues
-        $(this).closest('.sign_attribute_selection').css('zIndex', '100')
+        $(this).closest('.sign_attribute_selection').css('zIndex', '100');
       }
       return false;
     });
@@ -205,20 +183,20 @@ $(function(){
       });
     });
     $('.search_form form').each(function(){
-      toggle_clear(this)
+      toggle_clear(this);
     }).find('.text_input, .selected_field, .selected_groups_field')
-      .change(function(){toggle_clear($(this).closest('form'))});
+      .change(function(){toggle_clear($(this).closest('form'));});
 
     $('.empty').click(function(){
       var tab = $(this).closest('.search_form');
       tab.find('.selected_signs').empty();
-      tab.find('.dropdown .selected').removeClass('selected')
+      tab.find('.dropdown .selected').removeClass('selected');
       tab.find('.default, .input_prompt').show();
       tab.find('.selected_field, .selected_groups_field, .text_input').val(null);
       tab.find('select').select('');
       tab.find('.empty').hide();
     });
-  }
+  };
 
   var toggle_clear = function(form){
     var show = false;
@@ -228,13 +206,13 @@ $(function(){
         return show;
       }
     });
-    $(form).find('.empty').toggle(show)
-  }
+    $(form).find('.empty').toggle(show);
+  };
 
   var hide_all_dropdowns = function(){
     $('.dropdown').hide();
     $('.dropdown_arrow').removeClass('selected shadow');
-    $('.sign_attribute_selection').css('zIndex', '30')
+    $('.sign_attribute_selection').css('zIndex', '30');
   };
 
   var select_sign_attribute = function(sign){
@@ -248,11 +226,11 @@ $(function(){
       wrapper = $(sign).closest('li:not(.sub)');
     }
     wrapper.toggleClass('selected');
-  }
+  };
 
   var update_selected_signs = function(container) {
     var selected_container = $('<div />', {'class':'selected_signs'});
-    var selected_images = container.find('.selected:not(.group.selected .selected)').children('.image')
+    var selected_images = container.find('.selected:not(.group.selected .selected)').children('.image');
     selected_images.clone().appendTo(selected_container);
     /* each of the images needs to be pointing to the smaller image. boom. */
     selected_container.find('img').each(function(){
@@ -260,9 +238,9 @@ $(function(){
     });
     container.find('.selected_signs').replaceWith(selected_container);
     //hide "Any" unless we've deselected everything.
-    container.find('.default').toggle(selected_images.length == 0);
-    process_images_for_input(container, selected_images)
-  }
+    container.find('.default').toggle(selected_images.length === 0);
+    process_images_for_input(container, selected_images);
+  };
 
   var process_images_for_input = function(container, images){
     var has_groups = container.find('.selected_groups_field').length;
@@ -280,14 +258,16 @@ $(function(){
     }
     container.find('.selected_field').first().val(output.join(' '));
     toggle_clear(container.closest('form'));
-  }
+  };
+
   var setup_handshapes_hover_fix = function(){
     $('.attribute_options .row, .attribute_options .group, .attribute_options .sub').hover(function(){
-      $(this).addClass('hover')
+      $(this).addClass('hover');
     }, function(){
-      $(this).removeClass('hover')
+      $(this).removeClass('hover');
     });
-  }
+  };
+
   var setup_prompt_labels = function(){
     //sensible source-order, javascript-off-friendly placeholder labels.
     //overlays the label on the input on load. hides it on click/focus.
