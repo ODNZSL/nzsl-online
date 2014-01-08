@@ -1,5 +1,5 @@
 $(function(){
-  $('.ckeditor').ckeditor();
+  // $('.ckeditor').ckeditor();
   $('ul.record').sortable({containment: 'parent', update: function(event, ui) {
     new_order = [];
     $('ul.record li').each(function() { new_order.push($(this).attr('id').replace('id', '')); });
