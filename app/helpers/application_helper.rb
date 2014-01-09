@@ -9,14 +9,21 @@ module ApplicationHelper
     end
   end
 
-  def flow_video_tag(source, options = {})
+  # def flow_video_tag(source, options = {})
+  #   options.symbolize_keys!
+
+  #   source_tag = content_tag(:source, nil, type: 'video/mp4', src: source)
+  #   wrapper_class = "flowplayer #{options.delete(:wrapper_class)}"
+  #   content_tag(:div, class: wrapper_class) do
+  #     content_tag(:video, source_tag, loop: !!options[:loop])
+  #   end
+  # end
+
+  def flow_video_tag(source, options)
     options.symbolize_keys!
 
-    source_tag = content_tag(:source, nil, type: 'video/mp4', src: source)
-    wrapper_class = "flowplayer #{options.delete(:wrapper_class)}"
-    content_tag(:div, class: wrapper_class) do
-      content_tag(:video, source_tag, loop: !!options[:loop])
-    end
+    wrapper_class = "video_replace #{options.delete(:wrapper_class)}"
+    content_tag(:a, nil, href: source, class: wrapper_class, data: {loop: !!options[:loop]})
   end
 
 
@@ -63,8 +70,12 @@ module ApplicationHelper
 
   def video_translation part
     content_tag :div,
-      [flow_video_tag(part.translation_path, wrapper_class: 'translation_video main_video hidden_video'),
+      [flow_video_tag(path_to_url(part.translation_path), wrapper_class: 'translation_video main_video hidden_video'),
        link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')].join(' ').html_safe,
       :class => 'videos clearfix_left'
+  end
+
+  def path_to_url(path)
+    "#{request.protocol}#{request.host_with_port.sub(/:80$/,"")}/#{path.sub(/^\//,"")}"
   end
 end

@@ -40,7 +40,7 @@ NzslOnline::Application.configure do
   # In production, Apache or nginx will already do this
   config.serve_static_assets = false
 
-  config.assets.precompile += %w( print.css print_screen.css admin.css )
+  config.assets.precompile += %w( print.css print_screen.css admin.css admin.js )
 
   # Enable serving of images, stylesheets, and javascripts from an asset server
   # config.action_controller.asset_host = "http://assets.example.com"
