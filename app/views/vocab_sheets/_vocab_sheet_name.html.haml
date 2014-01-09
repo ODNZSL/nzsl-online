@@ -1,6 +1,5 @@
 = form_tag vocab_sheet_path, :method => :put, :class => 'clearfix_left vocab_sheet_name' do
   .h1.vocab_sheet_name
     = text_field_tag "vocab_sheet[name]", (@sheet.name.present? ? @sheet.name : t('vocab_sheet.name')), :class => 'vocab_sheet_name text_input'
-  = hidden_field_tag "vocab_sheet[old_name]", (@sheet.name.present? ? @sheet.name : t('vocab_sheet.name')), :class => 'old_name'
+    = hidden_field_tag "vocab_sheet[old_name]", (@sheet.name.present? ? @sheet.name : t('vocab_sheet.name')), :class => 'old_name'
   = submit_button('vocab_sheet.change')
-    

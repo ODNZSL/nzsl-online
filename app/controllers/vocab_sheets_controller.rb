@@ -19,7 +19,7 @@ class VocabSheetsController < ApplicationController
     if request.xhr?
       flash[:notice] = nil
       flash[:error] = nil
-      render :text => @sheet.name
+      render :json => @sheet
     else
       respond_with_json_or_redirect(@sheet)
     end

@@ -10,6 +10,7 @@ class ItemsController < ApplicationController
       @item = Item.new
       @item.sign = Sign.first({:id => params[:sign_id]}) if params[:sign_id]
       @item.name = params[:name].to_s if params[:name]
+      @item.maori_name = params[:maori_name].to_s if params[:maori_name]
       if @item.valid?
         @sheet.items << @item
         flash[:notice] = t('vocab_sheet.item.add_success')
@@ -27,9 +28,9 @@ class ItemsController < ApplicationController
   end
 
   def update
-    
     @item = Item.find(params[:id])
-    @item.name = params[:item][:name]
+    @item.name = params[:item][:name] if params[:item][:name]
+    @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name] 
     if @item.save
       flash[:notice] = t('vocab_sheet.item.update_success')
     else
@@ -38,7 +39,7 @@ class ItemsController < ApplicationController
     if request.xhr?
       flash[:notice] = nil
       flash[:error] = nil
-      render :text => @item.name
+      render :json => @item
     else
       respond_with_json_or_redirect(@item)
     end
