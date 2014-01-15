@@ -17,7 +17,6 @@ gem 'paperclip'
 gem 'mail'
 gem 'i18n'
 gem 'sqlite3'
-gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails'
