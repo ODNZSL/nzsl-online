@@ -18,6 +18,7 @@ gem 'mail'
 gem 'i18n'
 gem 'sqlite3'
 gem 'therubyracer', :platforms => :ruby
+gem 'libv8', '~> 3.11.8'
 
 group :assets do
   gem 'sass-rails'
