@@ -11,6 +11,7 @@ set :deploy_via, :copy
 # set :copy_cache, '/tmp/deploy-cache/nzsl-online'
 set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs", ".bundle", "db/*.sqlite3", "log/*.log", "tmp/**/*", ".rvmrc", ".DS_Store", "public/videos/", "public/system/videos/", "config/initializers/access.rb"]
 set :use_sudo, false
+set :copy_local_tar, "/usr/local/bin/gnutar" if `uname` =~ /Darwin/
 
 set :stages, %w(production draft)
 set :default_stage, "draft"
