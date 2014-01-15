@@ -9,7 +9,7 @@ class ImageProcessor
 
     #Reset page size to cropped image to avoid offset issue.
     # See here: http://studio.imagemagick.org/pipermail/magick-bugs/2008-May/002933.html
-    image.set("page", "#{image['width']}X#{image['height']}+0+0")
+    # image.set("page", "#{image['width']}X#{image['height']}+0+0")
     image.resize dimensions.join("x") + ">"
     image.format "png"
     image.write ImageProcessor.local_filename(filename, dimensions)
