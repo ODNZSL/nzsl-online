@@ -13,3 +13,5 @@ config/initializers/access.rb
 .sass-cache/
 
 .DS_Store
+
+public/assets
