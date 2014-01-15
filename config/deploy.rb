@@ -1,6 +1,5 @@
 require "bundler/capistrano"
 # require "whenever/capistrano"
-require 'capistrano/local_precompile'
 
 set :application, "nzsl-online"
 set :repository,  "./"
@@ -11,6 +10,7 @@ default_run_options[:pty] = true
 set :deploy_via, :copy
 # set :copy_cache, '/tmp/deploy-cache/nzsl-online'
 set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs", ".bundle", "db/*.sqlite3", "log/*.log", "tmp/**/*", ".rvmrc", ".DS_Store", "public/videos/", "public/system/videos/", "config/initializers/access.rb"]
+set :use_sudo, false
 
 set :stages, %w(production draft)
 set :default_stage, "draft"
@@ -23,7 +23,7 @@ namespace :deploy do
    task :start do ; end
    task :stop do ; end
    task :restart, :roles => :app, :except => { :no_release => true } do
-     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
+     run "touch #{File.join(current_path,'tmp','restart.txt')}"
    end
 end
 

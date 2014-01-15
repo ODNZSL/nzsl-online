@@ -17,6 +17,7 @@ gem 'paperclip'
 gem 'mail'
 gem 'i18n'
 gem 'sqlite3'
+gem 'therubyracer'
 
 group :assets do
   gem 'sass-rails'
@@ -24,6 +25,7 @@ group :assets do
   gem 'uglifier'
   gem 'modernizr-rails'
 end
+
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -34,6 +36,5 @@ group :development, :test do
    gem 'capistrano'
    gem 'capistrano-ext'
    gem 'rvm-capistrano'
-   gem 'capistrano-local-precompile', require: false
 end
 
