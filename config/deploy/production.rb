@@ -2,7 +2,7 @@
 #Technical contact: ITS
 
 set :port, 10
-set :user, "robertja"
+set :user, "extrabid"
 set :branch, "master"
 
 set :whenever_command, "#{try_sudo} whenever --user root"
