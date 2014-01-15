@@ -43,7 +43,7 @@ namespace :rabid do
     run_locally("rm -rf public/assets/*")
     run_locally("bundle exec rake assets:precompile")
     run_locally("touch assets.tgz && rm assets.tgz")
-    run_locally("tar zcvf assets.tgz public/assets/")
+    run_locally("#{copy_local_tar} zcvf assets.tgz public/assets/")
     run_locally("mv assets.tgz public/assets/")
   end
 
