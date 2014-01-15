@@ -29,7 +29,7 @@ end
 after "deploy:update_code" do
   run "cd #{release_path} && ln -s #{shared_path}/cached/images/signs #{release_path}/public/images/"
   run "cd #{release_path} && ln -s #{shared_path}/bundle #{release_path}/vendor/bundle"
-  run "#{try_sudo} ln -s #{shared_path}/configuration/database.yml #{release_path}/config/database.yml"
-  run "#{try_sudo} ln -s #{shared_path}/configuration/access.rb #{release_path}/config/initializers/access.rb"
+  run "ln -s #{shared_path}/configuration/database.yml #{release_path}/config/database.yml"
+  run "ln -s #{shared_path}/configuration/access.rb #{release_path}/config/initializers/access.rb"
 end
 

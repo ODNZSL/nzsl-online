@@ -6,6 +6,7 @@ set :user, "extrabid"
 set :branch, "master"
 
 set :whenever_command, "#{try_sudo} whenever --user root"
+set :whenever_command, "whenever"
 
 role :web, "nzsl.vuw.ac.nz"                          # Your HTTP server, Apache/etc
 role :app, "nzsl.vuw.ac.nz"                          # This may be the same as your `Web` server
