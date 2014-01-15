@@ -34,5 +34,6 @@ group :development, :test do
    gem 'capistrano'
    gem 'capistrano-ext'
    gem 'rvm-capistrano'
+   gem 'capistrano-local-precompile', require: false
 end
 

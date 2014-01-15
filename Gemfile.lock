@@ -38,6 +38,8 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
+    capistrano-local-precompile (0.0.2)
+      capistrano
     chronic (0.9.1)
     climate_control (0.0.3)
       activesupport (>= 3.0)
@@ -166,6 +168,7 @@ PLATFORMS
 DEPENDENCIES
   capistrano
   capistrano-ext
+  capistrano-local-precompile
   coffee-rails
   debugger
   formtastic
