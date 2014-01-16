@@ -5,12 +5,12 @@ end
 
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.13'
+gem 'rails', '~> 3.2.16'
 gem 'haml'
 gem 'nokogiri'
 gem 'jquery-rails'
 gem 'rdiscount', '~> 1.6.8'
-gem 'mini_magick'
+gem 'mini_magick', '~> 3.4.0'
 gem 'whenever'
 gem 'formtastic'
 gem 'paperclip'
@@ -33,7 +33,7 @@ end
 # and rake tasks are available in development mode:
 group :development, :test do
    gem 'rspec-rails', '~> 2.4'
-   gem 'debugger'
+   # gem 'debugger'
    gem 'capistrano'
    gem 'capistrano-ext'
    gem 'rvm-capistrano'
