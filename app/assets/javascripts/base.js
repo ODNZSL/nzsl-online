@@ -1,6 +1,6 @@
 (function() {
   window.flowplayer.conf = {
-    key: ['#$c1ee98f7e52a995b8d9', '$c1ee98f7e52a995b8d9'],
+    key: ['$141428546790204', '#$c1ee98f7e52a995b8d9'],
     clip: {
       autoPlay: false,
       autoBuffering: true
