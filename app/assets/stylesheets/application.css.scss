@@ -377,7 +377,7 @@ a .button,
 .r, .l { position:absolute; display:block; top:0; }
 .r { right:0; }
 .l { left:0; }
-body .video_replace { background:#000; display:block; border:0; float:left; }
+body .video_replace { display:block; border:0; float:left; }
 .center { width:690px; margin:0 auto; position:relative; z-index:7; } /* html3.2 loves you */
 
 .rule_after { background: image_url('ui/hr.png') center bottom no-repeat; padding-bottom:1px; margin-bottom:16px; }
