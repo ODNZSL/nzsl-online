@@ -6,6 +6,7 @@
       autoBuffering: true
     },
     swf: '/flowplayer.commercial-5.4.6.swf',
+    analytics: 'UA-24185042-1',
     play: {
       replayLabel: null
     }
