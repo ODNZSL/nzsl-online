@@ -271,7 +271,7 @@ $(function(){
     //shows it if there's nothing in the field on blur.
     if ($('label.input_prompt').length){
       $('label.input_prompt').each(function(){
-        var label = $(this)
+        var label = $(this);
         var input = $('#'+label.attr('for'));
         label.css({width:input.outerWidth()+'px',top:'0',left:'0',height:input.outerHeight()+'px',position:'absolute',zIndex:99,lineHeight:input.outerHeight()+'px'})
              .click(function(){
@@ -279,7 +279,7 @@ $(function(){
              });
         input.focus(function(){ label.hide(); })
              .blur(function(){
-               if (input.val() == ''){
+               if (input.val() === ''){
                   label.show();
                }
              });
@@ -300,16 +300,16 @@ $(function(){
   var setup_feedback_form = function(){
     $('#feedback_include_sign, #feedback_change_sign').change(function(){
       $('.if_'+$(this).attr('id')).toggle(this.checked);
-    }).trigger('change')
-  }
+    }).trigger('change');
+  };
   var setup_keyword_autocomplete = function(){
-    var input = $('#s')
+    var input = $('#s');
     input.autocomplete({
       source: '/signs/autocomplete',
       delay:10,
       minLength:3,
       appendTo:input.parent()
     });
-  }
+  };
   setup();
 });

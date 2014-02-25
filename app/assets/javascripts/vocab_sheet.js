@@ -43,9 +43,9 @@
           item_maori_name.val(old_maori_name.val());
         }
 
-        var form_empty = (  item_name.val()  === '' && 
+        var form_empty = (  item_name.val()  === '' &&
                             item_maori_name.val()  === ''  );
-        var form_unchanged =  ( item_name.val() === old_name.val() && 
+        var form_unchanged =  ( item_name.val() === old_name.val() &&
                                 item_maori_name.val() === old_maori_name.val() );
 
         if ( ! form_empty && ! form_unchanged ) {
