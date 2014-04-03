@@ -57,3 +57,7 @@
           %p
             = "#{t('signs.show.related_to')}: "
             %em= @sign.borrowed_from.upcase
+
+- content_for(:scripts) do
+  :javascript
+    $(function() { $(".js-ga-link-submission").on('click', ga_link_submission); });

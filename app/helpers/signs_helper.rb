@@ -10,7 +10,7 @@ module SignsHelper
      :inflection_plural,
      :inflection_manner_and_degree].map do |note|
        if sign.send(note)
-         attrs = { onclick: "_gaq.push(['_trackEvent', 'Sign', 'Click', 'glossary #{note}']);" }
+         attrs = { class: 'js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Sign', 'Click', 'glossary #{note}']);" }
          #link_to(t("signs.show.field.#{note}"), "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
          link_to(t("signs.show.field.#{note}"), "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs )
        end
@@ -24,7 +24,7 @@ module SignsHelper
       elsif sign[:id] == id
         content_tag :strong, sign[:gloss]
       else
-        link_to h(sign[:gloss]), sign_url(sign[:id])
+        link_to h(sign[:gloss]), sign_url(sign[:id]), class: 'js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Sign', 'Click', 'example #{sign[:id]}']);"
       end
     end.join(' ').html_safe
   end
