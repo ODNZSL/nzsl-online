@@ -38,20 +38,6 @@
 };
 
 
-var send_search_analytics = function(form) {
-  var search_string = search_analytics_string();
-
-  _gaq.push(['_trackEvent', 'Search', 'Params', search_string]);
-
-  setTimeout(function() {
-    $(form).attr('onsubmit', '');
-    $(form).submit();
-  }, 200);
-
-  return false;
-};
-
-
 var ga_form_submission = function(event) {
   var form = this;
 
