@@ -11,9 +11,10 @@
       - row.each do |result|
         - if result
           %li
-            = link_to sign_url(result.id), {:class => 'drawing grid_drawing', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{result.gloss_main}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
+            - query_text = @query[:s].join(" ")
+            = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
               = image_tag "signs/150-100/#{result.drawing}"
-            = link_to sign_url(result.id), {:class => 'main_gloss', onclick: "_gaq.push(['_trackEvent', 'Search', '#{result.gloss_main}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
+            = link_to sign_url(result.id), {:class => 'main_gloss js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
               = result.gloss_main
             - if result.gloss_maori
               %span.h3.maori_gloss= result.gloss_maori
