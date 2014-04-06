@@ -22,7 +22,7 @@
           = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           .r
         %li.help
-          = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path)
+          = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help'}]);"
       .bottom_border
       %div{:class => "search_form clearfix_left"}
         = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission" do
@@ -40,6 +40,8 @@
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
 
 
+-# Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do
   :javascript
     $(function() { $(".js-ga-form-submission").on('submit', ga_form_submission); });
+    $(function() { $(".js-ga-link-submission").on('click', ga_link_submission); });
