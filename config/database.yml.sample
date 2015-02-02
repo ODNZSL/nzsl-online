@@ -1,9 +1,6 @@
 development: &dev
   adapter : sqlite3
-  database: nzsl_development
-  timeout : 5000
-  pool    : 5
-  host    : localhost
+  database: db/nzsl_development.sqlite3 
   encoding: unicode
 
 # Warning: The database defined as "test" will be erased and
@@ -11,12 +8,12 @@ development: &dev
 # Do not set this db to the same as development or production.
 test:
   <<: *dev
-  database: nzsl_test
+  database: db/nzsl_test.sqlite3
 
 staging:
   <<: *dev
-  database: nzsl_staging
+  database: db/nzsl_staging.sqlite3
 
 production:
   <<: *dev
-  database: nzsl_production
+  database: db/nzsl_production.sqlite3
