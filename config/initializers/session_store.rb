@@ -4,5 +4,5 @@ NzslOnline::Application.config.session_store :cookie_store, :key => '_nzsl-onlin
 
 # Use the database for sessions instead of the cookie-based default,
 # which shouldn't be used to store highly confidential information
-# (create the session table with "rake db:sessions:create")
+# (create the session table with "rails generate session_migration")
 # NzslOnline::Application.config.session_store :active_record_store
