@@ -50,7 +50,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.6.3)
-    diff-lcs (1.2.1)
+    diff-lcs (1.2.5)
     erubis (2.7.0)
     execjs (2.0.2)
     formtastic (2.2.1)
@@ -116,17 +116,23 @@ GEM
     rdoc (3.12.2)
       json (~> 1.4)
     ref (1.0.5)
-    rspec-core (2.13.1)
-    rspec-expectations (2.13.0)
-      diff-lcs (>= 1.1.3, < 2.0)
-    rspec-mocks (2.13.0)
-    rspec-rails (2.13.0)
-      actionpack (>= 3.0)
-      activesupport (>= 3.0)
-      railties (>= 3.0)
-      rspec-core (~> 2.13.0)
-      rspec-expectations (~> 2.13.0)
-      rspec-mocks (~> 2.13.0)
+    rspec-core (3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.0)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-rails (3.2.0)
+      actionpack (>= 3.0, <= 4.2)
+      activesupport (>= 3.0, <= 4.2)
+      railties (>= 3.0, <= 4.2)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.0)
     rvm-capistrano (1.2.7)
       capistrano (>= 2.0.0)
     sass (3.2.12)
@@ -139,7 +145,7 @@ GEM
       multi_json (~> 1.0)
       rack (~> 1.0)
       tilt (~> 1.1, != 1.3.0)
-    sqlite3 (1.3.7)
+    sqlite3 (1.3.10)
     subexec (0.2.3)
     therubyracer (0.11.4)
       libv8 (~> 3.11.8.12)
@@ -176,10 +182,10 @@ DEPENDENCIES
   paperclip
   rails (~> 3.2.18)
   rdiscount (~> 1.6.8)
-  rspec-rails (~> 2.4)
+  rspec-rails (~> 3.2.0)
   rvm-capistrano
   sass-rails
-  sqlite3
+  sqlite3 (~> 1.3.10)
   therubyracer
   uglifier
   whenever
