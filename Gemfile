@@ -16,7 +16,7 @@ gem 'formtastic'
 gem 'paperclip'
 gem 'mail'
 gem 'i18n'
-gem 'sqlite3'
+gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', :platforms => :ruby
 gem 'libv8', '~> 3.11.8'
 

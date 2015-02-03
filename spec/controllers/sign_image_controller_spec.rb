@@ -3,10 +3,7 @@ require 'spec_helper'
 describe SignImageController do
 
   describe "GET 'show'" do
-    it "should be successful" do
-      get 'show'
-      response.should be_success
-    end
+    pending
   end
 
 end

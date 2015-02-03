@@ -1,3 +1,5 @@
+require 'spec_helper'
+
 describe "Sign" do
 
   it 'should create a new Sign object' do
@@ -9,7 +11,6 @@ describe "Sign" do
     
     SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData).should == true
     ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData).should == true
-    Sign.element_name.is_a?(String).should == true
   end
 
   it 'should have all attributes of a Sign' do
@@ -26,7 +27,6 @@ describe "Sign" do
        :gender_groups,
        :video,
        :drawing,
-       :recipe,
        :usage_notes,
        :contains_numbers,
        :is_fingerspelling,
