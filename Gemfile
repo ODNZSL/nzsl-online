@@ -37,5 +37,6 @@ group :development, :test do
    gem 'capistrano'
    gem 'capistrano-ext'
    gem 'rvm-capistrano'
+   gem 'simplecov', require: false
 end
 
