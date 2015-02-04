@@ -65,5 +65,14 @@ describe "Sign" do
 
   it 'must find multiple Signs with a simple search string'
 
+  it 'must not throw errors' do
+    #call the classmethods
+    Sign.usage_tags
+    Sign.topic_tags
+    Sign.locations
+    Sign.location_groups
+    #TODO check returned result
+  end
+
 end
 
