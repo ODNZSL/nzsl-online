@@ -2,18 +2,38 @@ require 'spec_helper'
 
 describe "Sign" do
 
-  it 'should create a new Sign object' do
+  it 'must create a new Sign object' do
     sign = Sign.new
     expect(sign.is_a?(Sign)).to eq(true)
   end
 
-  it 'should have set class attributes' do
+  it 'saves a new sign' do
+    sign = Sign.new
+    expect(sign.is_a?(Sign)).to eq(true)
+    #TODO test passing data into initalizing
+  end
+
+  it 'retrieves two random signs' do
+    signOne = Sign.random
+    signTwo = Sign.random
+    expect(signOne.is_a?(Sign)).to eq(true)
+    expect(signTwo.is_a?(Sign)).to eq(true)
+    expect(signOne.id).not_to eq(signTwo.id)
+
+  end
+
+  it 'finds a sign' do
+    sign = Sign.first(id: 1000)
+    expect(sign.is_a?(Sign)).to eq(true)
+  end
+
+  it 'must have set class attributes' do
     
     expect(SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
     expect(ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
   end
 
-  it 'should have all attributes of a Sign' do
+  it 'must have all attributes of a Sign' do
     #As per the spec'd requirements of DNZSL:
     required_attributes = [
        :id,
@@ -41,9 +61,9 @@ describe "Sign" do
   end
 
 
-  it 'should find a single Sign with a simple search string'
+  it 'must find a single Sign with a simple search string'
 
-  it 'should find multiple Signs with a simple search string'
+  it 'must find multiple Signs with a simple search string'
 
 end
 
