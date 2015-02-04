@@ -38,5 +38,7 @@ group :development, :test do
    gem 'capistrano-ext'
    gem 'rvm-capistrano'
    gem 'simplecov', require: false
+   gem 'rb-readline'
+
 end
 
