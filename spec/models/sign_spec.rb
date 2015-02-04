@@ -61,7 +61,13 @@ describe "Sign" do
   end
 
 
-  it 'must find a single Sign with a simple search string'
+  it 'must find a single Sign with a simple search string' do
+    params = {
+      
+    }
+    search_result = Sign.search(params)
+  end
+
 
   it 'must find multiple Signs with a simple search string'
 
