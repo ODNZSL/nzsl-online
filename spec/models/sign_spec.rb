@@ -4,13 +4,13 @@ describe "Sign" do
 
   it 'should create a new Sign object' do
     sign = Sign.new
-    sign.is_a?(Sign).should == true
+    expect(sign.is_a?(Sign)).to eq(true)
   end
 
   it 'should have set class attributes' do
     
-    SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData).should == true
-    ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData).should == true
+    expect(SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
+    expect(ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
   end
 
   it 'should have all attributes of a Sign' do
@@ -35,8 +35,8 @@ describe "Sign" do
     ]
     sign = Sign.new
     required_attributes.each do |att|
-      sign.respond_to?(att).should == true
-      sign.respond_to?(att.to_s + "=", "").should == true
+      expect(sign.respond_to?(att)).to eq(true)
+      expect(sign.respond_to?(att.to_s + "=", "")).to eq(true)
     end
   end
 
