@@ -5,7 +5,7 @@ end
 
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.18'
+gem 'rails', '~> 4.2.0'
 gem 'haml'
 gem 'nokogiri'
 gem 'jquery-rails'
