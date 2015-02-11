@@ -2,7 +2,7 @@ class Feedback < ActiveRecord::Base
   validates_presence_of :name
   validates_presence_of :message
   
-  validates_format_of :email, :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i, :allow_nil => true
+  validates_format_of :email, :with => /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i, :allow_nil => true
   
   has_attached_file :video,
     :url => "/no-video",
