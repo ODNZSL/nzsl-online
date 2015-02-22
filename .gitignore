@@ -14,4 +14,7 @@ config/initializers/access.rb
 
 .DS_Store
 
+*.swp
+*~
+
 public/assets
