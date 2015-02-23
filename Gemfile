@@ -12,13 +12,12 @@ gem 'jquery-rails'
 gem 'rdiscount', '~> 1.6.8'
 gem 'mini_magick', '~> 3.4.0'
 gem 'whenever'
-gem 'formtastic'
+gem 'formtastic', '~>2.3.0'
 gem 'paperclip'
 gem 'mail'
 gem 'i18n'
 gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', :platforms => :ruby
-gem 'libv8', '~> 3.11.8'
 
 group :assets do
   gem 'sass-rails'
@@ -33,6 +32,7 @@ end
 # and rake tasks are available in development mode:
 group :development, :test do
    gem 'rspec-rails', '~> 3.2.0'
+   gem 'pry-rails'
    # gem 'debugger'
    gem 'capistrano'
    gem 'capistrano-ext'
