@@ -5,7 +5,7 @@ end
 
 source 'http://rubygems.org'
 
-gem 'rails', '~> 3.2.18'
+gem 'rails', '~> 4.2.0'
 gem 'haml'
 gem 'nokogiri'
 gem 'jquery-rails'
@@ -32,10 +32,13 @@ end
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-   gem 'rspec-rails', '~> 2.4'
+   gem 'rspec-rails', '~> 3.2.0'
    # gem 'debugger'
    gem 'capistrano'
    gem 'capistrano-ext'
    gem 'rvm-capistrano'
+   gem 'simplecov', require: false
+   gem 'rb-readline'
+
 end
 
