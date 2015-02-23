@@ -13,7 +13,7 @@ NzslOnline::Application.routes.draw do
     end
     resource :settings, :except => [:destroy, :create]
   end
-  match '/admin', :to => redirect('/admin/pages')
+  get '/admin', :to => redirect('/admin/pages')
 
   root :to => "pages#show"
 
