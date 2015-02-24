@@ -66,10 +66,10 @@ describe "Sign" do
       
     }
     search_result = Sign.search(params)
+    puts search_result
+    expect(search_result).to eq(true)
   end
 
-
-  it 'must find multiple Signs with a simple search string'
 
   it 'must not throw errors' do
     #call the classmethods

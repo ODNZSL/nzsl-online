@@ -1,20 +1,20 @@
 NzslOnline::Application.routes.draw do
 
-#  namespace :admin do
-#    resources :pages, :except => [:show] do
-#      collection do
-#        post 'reorder'
-#      end
-#      resources :page_parts, :except => [:show, :index] do
-#        collection do
-#          post 'reorder'
-#        end
-#      end
-#    end
-#    resource :settings, :except => [:destroy, :create]
-#  end
-#  match '/admin', :to => redirect('/admin/pages')
-#
+  namespace :admin do
+    resources :pages, :except => [:show] do
+      collection do
+        post 'reorder'
+      end
+      resources :page_parts, :except => [:show, :index] do
+        collection do
+          post 'reorder'
+        end
+      end
+    end
+    resource :settings, :except => [:destroy, :create]
+  end
+  get '/admin', :to => redirect('/admin/pages')
+
   root :to => "pages#show"
 
   resources :signs, :only => :show do
