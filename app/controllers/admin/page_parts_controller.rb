@@ -24,7 +24,7 @@ class Admin::PagePartsController < ApplicationController
   end
 
   def update
-    if @page_part.update_attributes(params[:page_part])
+    if @page_part.update_attributes(page_part_params)
       redirect_to edit_admin_page_path(@page), :notice => 'Page part was successfully updated.'
     else
       render :action => :edit
@@ -57,5 +57,8 @@ private
   end
   def set_title
     @title = "Administrate page parts"
+  end
+  def page_part_params
+    params.require(:page_part).permit(:title, :translation_path, :body)
   end
 end
