@@ -50,6 +50,7 @@ GEM
     climate_control (0.0.3)
     cocaine (0.5.1)
       climate_control (>= 0.0.3, < 1.0)
+    coderay (1.1.0)
     coffee-rails (3.2.2)
       coffee-script (>= 2.2.0)
     coffee-script (2.2.0)
@@ -78,6 +79,7 @@ GEM
     mail (2.5.4)
       mime-types (~> 1.16)
       treetop (~> 1.4.8)
+    method_source (0.8.2)
     mime-types (1.25.1)
     mini_magick (3.4)
       subexec (~> 0.2.1)
@@ -98,6 +100,12 @@ GEM
       cocaine (~> 0.5.0)
       mime-types
     polyglot (0.3.4)
+    pry (0.10.1)
+      coderay (~> 1.1.0)
+      method_source (~> 0.8.1)
+      slop (~> 3.4)
+    pry-rails (0.3.3)
+      pry (>= 0.9.10)
     rack (1.6.0)
     rack-test (0.6.3)
       rack (>= 1.0)
@@ -155,6 +163,7 @@ GEM
       multi_json (~> 1.0)
       simplecov-html (~> 0.8.0)
     simplecov-html (0.8.0)
+    slop (3.6.0)
     sprockets (2.12.3)
       hike (~> 1.2)
       multi_json (~> 1.0)
@@ -190,16 +199,16 @@ DEPENDENCIES
   capistrano
   capistrano-ext
   coffee-rails
-  formtastic
+  formtastic (~> 2.3.0)
   haml
   i18n
   jquery-rails
-  libv8 (~> 3.11.8)
   mail
   mini_magick (~> 3.4.0)
   modernizr-rails
   nokogiri
   paperclip
+  pry-rails
   rails (~> 4.2.0)
   rb-readline
   rdiscount (~> 1.6.8)
