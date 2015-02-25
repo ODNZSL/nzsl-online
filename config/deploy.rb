@@ -16,15 +16,13 @@ set :use_sudo, false
 set :copy_local_tar, "tar"
 set :copy_local_tar, "/usr/local/bin/gtar" if `uname` =~ /Darwin/
 
-set :stages, %w(production draft)
-set :default_stage, "draft"
-require 'capistrano/ext/multistage'
-
-
 #Make the remote and local dirs different, so we can test by deploying to localhost
 set :remote_copy_dir, "/tmp/deploy-remote"
 set :copy_dir, "/tmp/deploy-local"
 
+set :stages, %w(production staging draft)
+set :default_stage, "staging"
+require 'capistrano/ext/multistage'
 
 namespace :deploy do
    task :start do ; end

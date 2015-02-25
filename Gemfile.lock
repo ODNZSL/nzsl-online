@@ -60,7 +60,7 @@ GEM
     docile (1.1.5)
     erubis (2.7.0)
     execjs (2.0.2)
-    formtastic (2.2.1)
+    formtastic (2.3.1)
       actionpack (>= 3.0)
     globalid (0.3.0)
       activesupport (>= 4.1.0)
