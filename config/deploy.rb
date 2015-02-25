@@ -70,6 +70,8 @@ namespace :rabid do
 
      #create log file folder on server, (or cold deploy will fail)
      run("mkdir -p #{shared_path}/log")
+
+     run("mkdir -p /var/rails/nzsl-online && mkdir -p /var/rails/nzsl-online/releases")
    end
 end
 
