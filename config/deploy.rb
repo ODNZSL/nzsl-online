@@ -12,15 +12,17 @@ set :deploy_via, :copy
 set :copy_exclude, [".git", "config/database.yml", "config/deploy.rb", "public/images/signs", ".bundle", "db/*.sqlite3", "log/*.log", "tmp/**/*", ".rvmrc", ".DS_Store", "public/videos/", "public/system/videos/", "config/initializers/access.rb"]
 set :use_sudo, false
 
-# If this breaks you need to `brew install gnu-tar`
+# If this breaks on a mac, you need to `brew install gnu-tar`
+set :copy_local_tar, "tar"
 set :copy_local_tar, "/usr/local/bin/gtar" if `uname` =~ /Darwin/
 
-set :stages, %w(production draft)
-set :default_stage, "draft"
+#Make the remote and local dirs different, so we can test by deploying to localhost
+set :remote_copy_dir, "/tmp/deploy-remote"
+set :copy_dir, "/tmp/deploy-local"
+
+set :stages, %w(production staging draft)
+set :default_stage, "staging"
 require 'capistrano/ext/multistage'
-
-
-
 
 namespace :deploy do
    task :start do ; end
@@ -33,7 +35,11 @@ end
 after "deploy:update_code" do
   run "cd #{release_path} && ln -s #{shared_path}/cached/images/signs #{release_path}/public/images/"
   run "cd #{release_path} && ln -s #{shared_path}/bundle #{release_path}/vendor/bundle"
+
+  #our database config is not in git
   run "ln -s #{shared_path}/configuration/database.yml #{release_path}/config/database.yml"
+
+  #and our user/pass file is not in git
   run "ln -s #{shared_path}/configuration/access.rb #{release_path}/config/initializers/access.rb"
 end
 
@@ -52,6 +58,23 @@ namespace :rabid do
     upload("public/assets/assets.tgz", release_path + '/assets.tgz')
     run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
   end
+   desc "Make local and remote dirs"
+   task :make_dirs do
+     #note we make the local and remote folders different, so we can deploy to localhost
+
+     #local build folder
+     run_locally("mkdir -p #{copy_dir}")
+
+     #remote landing folder for tar ball
+     run("mkdir -p #{remote_copy_dir}")
+
+     #create log file folder on server, (or cold deploy will fail)
+     run("mkdir -p #{shared_path}/log")
+
+     run("mkdir -p /var/rails/nzsl-online && mkdir -p /var/rails/nzsl-online/releases")
+   end
 end
+
+before "deploy:update_code", "rabid:make_dirs"
 before "deploy:update_code", "rabid:compress_assets"
 after "deploy:symlink", "rabid:upload_assets"
