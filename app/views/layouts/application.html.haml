@@ -30,7 +30,7 @@
       = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
 
-  = javascript_include_tag 'application'
+
   = print_javascripts_tag params[:print]
   = yield :scripts
   :javascript

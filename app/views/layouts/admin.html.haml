@@ -31,7 +31,7 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   %footer.sticky_footer.footer
-  / # = javascript_include_tag 'admin'
+
   = print_javascripts_tag params[:print]
   = yield :scripts
   = javascript_include_tag
