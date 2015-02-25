@@ -21,6 +21,9 @@ set :default_stage, "draft"
 require 'capistrano/ext/multistage'
 
 
+#Make the remote and local dirs different, so we can test by deploying to localhost
+set :remote_copy_dir, "/tmp/deploy-remote"
+set :copy_dir, "/tmp/deploy-local"
 
 
 namespace :deploy do
@@ -53,6 +56,21 @@ namespace :rabid do
     upload("public/assets/assets.tgz", release_path + '/assets.tgz')
     run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
   end
+   desc "Make local and remote dirs"
+   task :make_dirs do
+     #note we make the local and remote folders different, so we can deploy to localhost
+
+     #local build folder
+     run_locally("mkdir -p #{copy_dir}")
+
+     #remote landing folder for tar ball
+     run("mkdir -p #{remote_copy_dir}")
+
+     #create log file folder on server, (or cold deploy will fail)
+     run("mkdir -p #{shared_path}/log")
+   end
 end
+
+before "deploy:update_code", "rabid:make_dirs"
 before "deploy:update_code", "rabid:compress_assets"
 after "deploy:symlink", "rabid:upload_assets"
