@@ -15,7 +15,7 @@ class Admin::PagesController < ApplicationController
   end
  
   def create
-    @page = Page.new(params[:page])
+    @page = Page.new(page_params)
     if @page.save
       redirect_to admin_pages_path, :notice => 'Page was successfully created.'
     else

@@ -14,7 +14,7 @@ class Admin::PagePartsController < ApplicationController
   end
 
   def create
-    @page_part = PagePart.new(params[:page_part])
+    @page_part = PagePart.new(page_part_params)
     @page_part.page = @page
     if @page_part.save
       redirect_to edit_admin_page_path(@page), :notice => 'Page part was successfully created.'
