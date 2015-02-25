@@ -4,6 +4,6 @@
 //= require vocab_sheet
 //= require search_analytics
 
-//= require admin/ckeditor/ckeditor
-//= require admin/ckeditor/adapters/jquery
-//= require admin/admin
+//= require ckeditor/ckeditor
+//= require ckeditor/adapters/jquery
+//= require admin
