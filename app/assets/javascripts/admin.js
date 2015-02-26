@@ -1,4 +1,5 @@
 $(function(){
+
   // $('.ckeditor').ckeditor();
   $('ul.record').sortable({containment: 'parent', update: function(event, ui) {
     new_order = [];

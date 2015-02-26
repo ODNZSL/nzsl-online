@@ -39,8 +39,9 @@
         - Page.in_nav.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
 
+%script{:src => "http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"}
 
--# Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
+/ Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do
   :javascript
     $(function() { $(".js-ga-form-submission").on('submit', ga_form_submission); });
