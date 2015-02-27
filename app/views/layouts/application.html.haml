@@ -8,10 +8,12 @@
   %meta{:charset => "utf-8"}
   %title= page_title
   %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
-  = favicon_link_tag
+  / = favicon_link_tag
   -# = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
+  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
+  = javascript_include_tag "application", "data-turbolinks-track" => false
   = javascript_include_tag :modernizr
-  = stylesheet_link_tag :application, :media => :all
+
   = yield :head
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
@@ -30,7 +32,7 @@
       = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
 
-  = javascript_include_tag 'application'
+
   = print_javascripts_tag params[:print]
   = yield :scripts
   :javascript

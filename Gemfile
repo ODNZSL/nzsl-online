@@ -9,6 +9,7 @@ gem 'rails', '~> 4.2.0'
 gem 'haml'
 gem 'nokogiri'
 gem 'jquery-rails'
+gem 'jquery-ui-rails'
 gem 'rdiscount', '~> 1.6.8'
 gem 'mini_magick', '~> 3.4.0'
 gem 'whenever'
@@ -18,12 +19,12 @@ gem 'mail'
 gem 'i18n'
 gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', :platforms => :ruby
+gem 'modernizr-rails'
 
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
   gem 'uglifier'
-  gem 'modernizr-rails'
 end
 
 

@@ -15,7 +15,7 @@ class Admin::PagesController < ApplicationController
   end
  
   def create
-    @page = Page.new(params[:page])
+    @page = Page.new(page_params)
     if @page.save
       redirect_to admin_pages_path, :notice => 'Page was successfully created.'
     else
@@ -24,7 +24,7 @@ class Admin::PagesController < ApplicationController
   end
 
   def update
-    if @page.update_attributes(params[:page])
+    if @page.update_attributes(page_params)
       redirect_to admin_pages_path, :notice => 'Page was successfully updated.'
     else
       render :action => :edit
@@ -54,5 +54,8 @@ private
   end
   def set_title
     @title = "Administrate pages"
+  end
+  def page_params
+    params.require(:page).permit(:title, :slug, :label, :show_in_nav, :template)
   end
 end
