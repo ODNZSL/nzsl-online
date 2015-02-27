@@ -20,6 +20,7 @@ gem 'i18n'
 gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', :platforms => :ruby
 gem 'modernizr-rails'
+gem 'ckeditor_rails'
 
 group :assets do
   gem 'sass-rails'

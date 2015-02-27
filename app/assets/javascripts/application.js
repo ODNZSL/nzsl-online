@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require ckeditor-jquery
 //= require jquery-ui
 //= require flowplayer-5.4.6
 
@@ -9,3 +10,4 @@
 //= require search_analytics
 
 //= require admin
+
