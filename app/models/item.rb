@@ -29,7 +29,7 @@ class Item < ActiveRecord::Base
     self.drawing = sign.drawing
   end
 
-  default_scope order("position ASC", "created_at ASC")
+  default_scope {order("position ASC", "created_at ASC")}
 
 
   def sign
