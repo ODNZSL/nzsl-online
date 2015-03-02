@@ -2,7 +2,7 @@ class Setting < ActiveRecord::Base
   
   def self.update_all(params)
     params.each do |k,v| 
-      Setting.find_or_create_by_key(k).update_attributes({:value => v})
+      Setting.where(key: k).first_or_create.update_attributes(value: v)
     end
   end
   
