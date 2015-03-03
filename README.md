@@ -1,11 +1,10 @@
-=== NZSL 
+# NZSL 
 
 New Zealand Sign Language Dictionary consists of 2 major units
-# Ruby on Rails Website (this repo)
-# Freelex, and open source project for maintaining the signs lexicon data.
+* Ruby on Rails Website (this repo)
+* Freelex, and open source project for maintaining the signs lexicon data.
 
-
-=== Deployment
+## Deployment
 
 Current servers (2015-03-03)
 
@@ -23,6 +22,6 @@ Deploy to servers using Capistrana.
 ```
 
 
-=== Notes
+## Notes
 
 * The development application uses [mailcatcher](http://mailcatcher.me/) to intercept outgoing mail
