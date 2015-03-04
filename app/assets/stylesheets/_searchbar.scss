@@ -1,0 +1,13 @@
+
+.ui-autocomplete {
+  color: #4179c9;
+  font-size: 100%;
+  font-family: Georgia, serif;
+  li{
+    &:hover, &:active {
+      border: 1px solid #b9ccf9;
+      color: #4179c9;
+      background-color: #b9ccf9;
+    }
+  }
+}
