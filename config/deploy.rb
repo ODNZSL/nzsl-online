@@ -41,6 +41,9 @@ after "deploy:update_code" do
 
   #and our user/pass file is not in git
   run "ln -s #{shared_path}/configuration/access.rb #{release_path}/config/initializers/access.rb"
+  
+  run "ln -s #{shared_path}/configuration/unicorn.rb #{release_path}/config/unicorn.rb"
+
 end
 
 namespace :rabid do
