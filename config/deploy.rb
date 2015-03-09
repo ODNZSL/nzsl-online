@@ -72,6 +72,8 @@ namespace :rabid do
      run("mkdir -p #{shared_path}/log")
 
      run("mkdir -p /var/rails/nzsl-online && mkdir -p /var/rails/nzsl-online/releases")
+
+     run("mkdir -p /var/rails/nzsl-online/shared/system")
    end
 end
 
