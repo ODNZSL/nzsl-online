@@ -41,6 +41,13 @@ after "deploy:update_code" do
 
   #and our user/pass file is not in git
   run "ln -s #{shared_path}/configuration/access.rb #{release_path}/config/initializers/access.rb"
+  
+  #unicorn config (for those env that use unicorn)
+  run "ln -s #{shared_path}/configuration/unicorn.rb #{release_path}/config/unicorn.rb"
+
+  #link in our database
+  run("ln -s #{shared_path}/nzsl_development.sqlite3 #{release_path}/db/nzsl_development.sqlite3")
+
 end
 
 namespace :rabid do
@@ -58,8 +65,8 @@ namespace :rabid do
     upload("public/assets/assets.tgz", release_path + '/assets.tgz')
     run "cd #{release_path}; tar zxvf assets.tgz; rm assets.tgz"
   end
-   desc "Make local and remote dirs"
-   task :make_dirs do
+  desc "Make local and remote dirs"
+  task :make_dirs do
      #note we make the local and remote folders different, so we can deploy to localhost
 
      #local build folder
@@ -73,8 +80,14 @@ namespace :rabid do
 
      run("mkdir -p /var/rails/nzsl-online && mkdir -p /var/rails/nzsl-online/releases")
    end
+  desc "make pid dir"
+  task :make_pid_dir do
+    #make the folder the pid file is kept in
+    run("mkdir -p /var/rails/nzsl-online/current/pids/")
+  end
 end
 
 before "deploy:update_code", "rabid:make_dirs"
 before "deploy:update_code", "rabid:compress_assets"
 after "deploy:symlink", "rabid:upload_assets"
+after "deploy:symlink", "rabid:make_pid_dir"
