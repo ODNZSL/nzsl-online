@@ -39,9 +39,11 @@ group :development, :test do
    # gem 'debugger'
    gem 'capistrano'
    gem 'capistrano-ext'
-   gem 'rvm-capistrano'
    gem 'simplecov', require: false
    gem 'rb-readline'
 
 end
 
+group :staging do
+  gem 'unicorn'
+end
