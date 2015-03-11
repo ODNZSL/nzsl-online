@@ -13,7 +13,10 @@
         - row.each do |result|
           - if result
             %li
-              - query_text = @query[:s].join(" ")
+              - if @query[:s]
+                - query_text = @query[:s].join(" ")
+              - else
+                - query_text = " "
               = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                 = image_tag "signs/150-100/#{result.drawing}"
               .videos
