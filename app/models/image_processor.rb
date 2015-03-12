@@ -4,9 +4,17 @@ class ImageProcessor
   require 'fileutils'
 
   def self.retrieve_and_resize(filename, dimensions = [180, 320])
-    image = MiniMagick::Image.open(ImageProcessor.remote_filename(filename))
-    image.shave CROP_IMAGES_BY if CROP_IMAGES
-
+    puts "Fetching " + filename
+    remote_filename = ImageProcessor.remote_filename(filename)
+    begin
+      image = MiniMagick::Image.open(remote_filename)
+      image.shave CROP_IMAGES_BY if CROP_IMAGES
+    rescue Exception => e
+      puts e
+      puts "perhaps image magick isn't installed, or is not on the PATH"
+      raise
+    end
+ 
     #Reset page size to cropped image to avoid offset issue.
     # See here: http://studio.imagemagick.org/pipermail/magick-bugs/2008-May/002933.html
     width  = image['width']
