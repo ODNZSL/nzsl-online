@@ -7,8 +7,6 @@ public/images/signs/**/*
 .rvmrc
 .DS_Store
 public/system
-public/videos/*.*
-public/system/videos/*.*
 config/initializers/access.rb
 .sass-cache/
 public/.DS_Store
