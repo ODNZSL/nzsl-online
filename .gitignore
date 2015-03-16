@@ -9,7 +9,7 @@ public/images/signs/**/*
 config/initializers/access.rb
 .sass-cache/
 public/.DS_Store
-
+public/system/images
 .DS_Store
 
 *.swp
