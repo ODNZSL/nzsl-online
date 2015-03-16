@@ -11,6 +11,7 @@ public/videos/*.*
 public/system/videos/*.*
 config/initializers/access.rb
 .sass-cache/
+public/.DS_Store
 
 .DS_Store
 
