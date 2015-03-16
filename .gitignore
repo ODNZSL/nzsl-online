@@ -6,7 +6,6 @@ config/database.yml
 public/images/signs/**/*
 .rvmrc
 .DS_Store
-public/system
 config/initializers/access.rb
 .sass-cache/
 public/.DS_Store
