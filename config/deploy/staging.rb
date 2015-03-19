@@ -1,6 +1,5 @@
 set :user, "nzsl"
-# set :branch, "feature/rails-4"
-set :branch, "rl/fix-flowplayer"
+set :branch, "feature/rails-4"
 
 set :whenever_command, "#{try_sudo} whenever --user root"
 set :whenever_command, "whenever"
