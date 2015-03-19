@@ -4,6 +4,8 @@
     %br
     New Zealand Sign Language
   = video_translation(@page.first_part) if @page.first_part.present? &&  @page.first_part.translation_path.present?
+
+
   .rule_after.clearfix_left
     - if @page.first_part.present?
       .home_content.ckeditor_content

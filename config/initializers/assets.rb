@@ -15,3 +15,4 @@ Rails.application.config.assets.precompile += %w( admin.css )
 Rails.application.config.assets.precompile += %w( application.css )
 Rails.application.config.assets.precompile += %w( print_screen.css )
 Rails.application.config.assets.precompile += %w( smoothness/jquery-ui.css )
+Rails.application.config.assets.paths << "#{Rails.root}/app/assets/videos"
