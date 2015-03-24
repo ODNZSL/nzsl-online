@@ -5,12 +5,8 @@
     New Zealand Sign Language
   / # = video_translation(@page.first_part) if @page.first_part.present? &&  @page.first_part.translation_path.present?
 
-  - if @page.first_part.present?
-    .translation_video.main_video.hidden_video
-      .flowplayer{"data-ratio" => "0.75"}
-        %video
-          %source{:src => "#{asset_path("front-page.webm")}", :type => "video/webm"}
-          %source{:src => "#{asset_path("front-page.mp4")}", :type => "video/mp4"}
+  - if @page.first_part.present? &&  @page.first_part.translation_path.present?
+    = render partial: "shared/translation_video", locals: {page_part: @page.first_part}  
 
 
   .rule_after.clearfix_left
