@@ -17,6 +17,7 @@ $(function(){
   var setup = function(){
     setup_ckeditor_video_links();
     setup_videos();
+    setup_translation_videos();
     setup_slow_motion_videos();
     setup_help_videos();
     setup_search_tabs();
@@ -101,6 +102,15 @@ $(function(){
       videos.find("."+show).show();
       pause_video(hide, videos);
       play_video(show, videos);
+    });
+  };
+
+  var setup_translation_videos = function(){
+    $('.translation_video').hide();
+
+    $('.button.translation_button').click(function(){
+      $('.button.translation_button').hide();
+      $('.translation_video').show();
     });
   };
 

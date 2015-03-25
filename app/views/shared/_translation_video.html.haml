@@ -1,0 +1,6 @@
+.clearfix_left
+  .flowplayer.translation_video{"data-ratio" => "0.75"}
+    %video.hidden_video
+      %source{:src => "#{asset_path(page_part.translation_path + ".webm")}", :type => "video/webm"}
+      %source{:src => "#{asset_path(page_part.translation_path + ".mp4")}", :type => "video/mp4"}
+  = link_button((page_part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')
