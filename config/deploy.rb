@@ -34,6 +34,9 @@ end
 
 after "deploy:update_code" do
   run "cd #{release_path} && ln -s #{shared_path}/cached/images/signs #{release_path}/public/images/"
+ 
+  run "cd #{release_path} && ln -s #{shared_path}/videos #{release_path}/public/videos"
+ 
   run "cd #{release_path} && ln -s #{shared_path}/bundle #{release_path}/vendor/bundle"
 
   #our database config is not in git
