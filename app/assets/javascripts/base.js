@@ -73,8 +73,10 @@ $(function(){
         var hidden = wrapper.hasClass('hidden_video');
         wrapper.attr('id', 'video_'+id_offset);
         id_offset += 1;
-        var sourceElement = $('<source />', {src: href});
-        var videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(sourceElement);
+        var mp4SourceElement = $('<source />', {src: href + ".mp4"});
+        var webmSourceElement = $('<source />', {src: href + ".webm"});
+        var flvSourceElement = $('<source />', {src: href + ".flv"});
+        var videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(webmSourceElement, mp4SourceElement, flvSourceElement);
         wrapper.empty().append(videoElement);
       });
     }
