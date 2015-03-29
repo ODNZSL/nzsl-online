@@ -34,6 +34,9 @@ end
 
 after "deploy:update_code" do
   run "cd #{release_path} && ln -s #{shared_path}/cached/images/signs #{release_path}/public/images/"
+ 
+  run "cd #{release_path} && ln -s #{shared_path}/videos #{release_path}/public/videos"
+ 
   run "cd #{release_path} && ln -s #{shared_path}/bundle #{release_path}/vendor/bundle"
 
   #our database config is not in git
@@ -54,7 +57,8 @@ namespace :rabid do
   desc "Compress assets in a local file"
   task :compress_assets do
     run_locally("rm -rf public/assets/*")
-    run_locally("bundle exec rake assets:precompile")
+    # this precompile task is done in production env to ensure that the assets have the digests on them 
+    run_locally("bundle exec rake assets:precompile RAILS_ENV=production")
     run_locally("touch assets.tgz && rm assets.tgz")
     run_locally("#{copy_local_tar} zcvf assets.tgz public/assets/")
     run_locally("mv assets.tgz public/assets/")
