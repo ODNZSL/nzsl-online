@@ -73,13 +73,20 @@ $(function(){
         var hidden = wrapper.hasClass('hidden_video');
         wrapper.attr('id', 'video_'+id_offset);
         id_offset += 1;
+
         var videoElement;
-        if (href.includes(".flv")) {
+        if (href.includes("freelex")) {
+          // don't do anything special for videos from freelex
+          var sourceElement = $('<source />', {src: href});
+          videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(sourceElement);
+        }
+        else if (href.includes(".flv")) {
           // special case for flv videos
           var flvSourceElement = $('<source />', {src: href});
           videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(flvSourceElement);
         }
         else {
+          // embed the mp4 and webm videos
           var mp4SourceElement = $('<source />', {src: href + ".mp4"});
           var webmSourceElement = $('<source />', {src: href + ".webm"});
           videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(webmSourceElement, mp4SourceElement);
@@ -94,7 +101,7 @@ $(function(){
   };
 
   var setup_slow_motion_videos = function(){
-    $('.button.normal, .button.slow, .button.translation_button').click(function(){
+    $('.button.normal, .button.slow').click(function(){
       var show, hide, video;
       var videos = $(this).closest('.videos');
       if ($(this).hasClass('normal')){
@@ -103,9 +110,6 @@ $(function(){
       } else if ($(this).hasClass('slow')) {
         show = 'normal';
         hide = 'slow';
-      } else {
-        show = 'translation_video';
-        hide = 'translation_button';
       }
       videos.find("."+hide).hide();
       videos.find("."+show).show();
