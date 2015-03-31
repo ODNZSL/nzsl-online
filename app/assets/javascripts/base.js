@@ -115,12 +115,14 @@ $(function(){
   };
 
   var setup_translation_videos = function(){
+    // hides all videos on page
     $('.translation_video').hide();
 
     $('.button.translation_button').click(function(){
-      $('.button.translation_button').hide();
-      $('.translation_video').show();
-    });
+      $(this).hide();
+      $(this).prev('.translation_video').show();
+      flowplayer($(this).prev('.translation_video')).play();
+    })
   };
 
   var setup_help_videos = function(){
