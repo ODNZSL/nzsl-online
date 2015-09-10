@@ -35,13 +35,19 @@ end
 # and rake tasks are available in development mode:
 group :development, :test do
    gem 'rspec-rails', '~> 3.2.0'
+
+   # for debugging
+   gem 'pry-byebug'
    gem 'pry-rails'
    # gem 'debugger'
    gem 'capistrano'
    gem 'capistrano-ext'
    gem 'simplecov', require: false
    gem 'rb-readline'
+
+   # for checking images in specs
    gem 'fastimage'
+  
 end
 
 group :staging do
