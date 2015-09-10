@@ -45,6 +45,6 @@ class ImageProcessor
 
   def self.local_filename(filename = '', dimensions = [180, 320])
     File.join(ImageProcessor.create_or_return_path(filename),
-              dimensions.join('x') + "-#{filename.gsub(/[\/\\]/, "-")}")
+              dimensions.join('x') + "-#{filename.gsub(%r{[\/\\]}, '-')}")
   end
 end
