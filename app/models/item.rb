@@ -1,5 +1,4 @@
 class Item < ActiveRecord::Base
-
   validates_presence_of :sign_id, :name
   validates_numericality_of :sign_id
   validates_numericality_of :position, :greater_than => 0, :allow_nil => true
@@ -8,19 +7,16 @@ class Item < ActiveRecord::Base
 
   attr_writer :sign
 
-
   def maori_name
-    update_maori_name_if_missing()
+    update_maori_name_if_missing
     super
   end
 
   def update_maori_name_if_missing
-    if read_attribute(:maori_name).nil? && self.persisted?
-      self.maori_name = sign.gloss_maori
-      self.save
-    end
+    return unless read_attribute(:maori_name).nil? && self.persisted?
+    self.maori_name = sign.gloss_maori
+    save
   end
-
 
   before_validation do
     self.name = (self.sign.is_a?(Sign) ? self.sign.gloss_main : nil) if self.name.nil? or self.name.blank?
@@ -29,12 +25,9 @@ class Item < ActiveRecord::Base
     self.drawing = sign.drawing
   end
 
-  default_scope {order("position ASC", "created_at ASC")}
-
+  default_scope { order('position ASC', 'created_at ASC') }
 
   def sign
-    @sign ||= Sign.first({:id => self.sign_id})
+    @sign ||= Sign.first(id: sign_id)
   end
-  
 end
-
