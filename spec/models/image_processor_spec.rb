@@ -27,4 +27,10 @@ describe 'ImageProcessor' do
 
     expect(ImageProcessor.remote_filename(filename)).to start_with('http://')
   end
+  it 'works out the local path to image' do
+    expect(ImageProcessor.local_filename(filename)).to eq('/home/brenda/projects/nzsl/public/system/images/signs/1935/180x320-1935-picture-W99-69.png')
+  end
+  it 'create_or_return_path' do
+#    ImageProcessor.create_or_return_path(filename)
+  end
 end
