@@ -37,7 +37,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_footer_content
-    @footer = Page.find(Setting.get(:footer))
+    footer = Setting.get(:footer)
+    @footer = Page.find(footer) if footer
   end
 
   def render_404
