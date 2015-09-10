@@ -1,12 +1,12 @@
+## a sign in New Zealand Sign Language
 class Sign
-
   require 'open-uri'
   require 'nokogiri'
 
   ELEMENT_NAME = 'entry'
   RESULTS_PER_PAGE = 9
   VIDEO_EXAMPLES_TOTAL = 4
-  #Sign attributes
+  # Sign attributes
   attr_accessor :id, :video, :video_slow, :drawing, :handshape, :location_name,
                 :gloss_main, :gloss_secondary, :gloss_minor, :gloss_maori,
                 :word_classes, :inflection, :contains_numbers, :is_fingerspelling, :is_directional, :is_locatable, :one_or_two_handed,
@@ -22,13 +22,13 @@ class Sign
       self.handshape = data.value_for_tag('handshape')
       self.location_name = data.value_for_tag('location')
 
-      #gloss
+      # gloss
       self.gloss_main = data.value_for_tag('glossmain')
       self.gloss_secondary = data.value_for_tag('glosssecondary')
       self.gloss_minor = data.value_for_tag('glossminor')
       self.gloss_maori = data.value_for_tag('glossmaori')
 
-      #grammar
+      # grammar
       self.word_classes = data.value_for_tag('SECONDARYWORDCLASS')
       self.inflection = data.value_for_tag('INFLECTION')
       self.contains_numbers = data.value_for_tag('number_incorp').to_bool
@@ -37,7 +37,7 @@ class Sign
       self.is_locatable = data.value_for_tag('locatable').to_bool
       self.one_or_two_handed = data.value_for_tag('one_or_two_hand').to_bool
 
-      #notes
+      # notes
       self.age_groups = data.value_for_tag('VARIATIONAGE')
       self.gender_groups = data.value_for_tag('VARIATIONGENDER')
       self.hint = data.value_for_tag('hint')
@@ -45,7 +45,7 @@ class Sign
       self.usage_notes = data.value_for_tag('essay')
       self.related_to = data.value_for_tag('RELATEDTO')
 
-      #examples
+      # examples
       self.examples = []
       VIDEO_EXAMPLES_TOTAL.times do |i|
         if data.value_for_tag("ASSET finalexample#{i}").present?
@@ -231,7 +231,7 @@ private
     transcription
   end
 
-  #Extend Nokogiri with helper method for fetching value
+  # Extend Nokogiri with helper method for fetching value
   Nokogiri::XML::Element.class_eval do
     def value_for_tag(tag_name)
       tag = self.css(tag_name).first
