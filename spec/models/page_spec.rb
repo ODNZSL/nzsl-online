@@ -53,9 +53,9 @@ describe 'Page' do
                       slug: '   so-true', # leading white space
                       label: 'Test all the things',
                       template: 'standard')
-      expect do
-        page.save!
-      end.to raise_error ActiveRecord::RecordInvalid
+
+      page.save!
+      expect(page.slug.blank?).to eq(false)
     end
   end
 
