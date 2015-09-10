@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
 
   has_many :page_parts
 
-  after_validation :strip_text, :slug_and_label_from_title
+  before_validation :slug_and_label_from_title, :strip_text
 
   validates :title, :label, presence: true
   validates :slug, presence: true,
@@ -46,7 +46,10 @@ class Page < ActiveRecord::Base
     page_parts.first
   end
 
+  ##
+  # Find pages that should display in navigation
   def self.in_nav
+    binding.pry
     where(show_in_nav: true).where(
       "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
   end
