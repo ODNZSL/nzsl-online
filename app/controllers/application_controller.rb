@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
 
   def redirect_back_or_default
     redirect_to :back
-  rescue RedirectBackError
+  rescue ActionController::RedirectBackError
     redirect_to root_path
   end
 
