@@ -52,16 +52,28 @@ describe 'Page' do
                  template: 'Made up').save!
       end.to raise_error ActiveRecord::RecordInvalid
     end
-  end
 
-  describe 'clean up data' do
-    it 'cleans up title' do
+    it 'cleans up whitespate' do
+      page = Page.new(title: '  extra white space   ',
+                      slug: 'so-true',
+                      label: "\n    Test all the things\r",
+                      template: 'standard')
+      page.save!
+
+      expect(page.title).to eq('extra white space')
+      expect(page.label).to eq('Test all the things')
     end
 
-    it 'cleans up slug' do
+    it 'checks slug is valid' do
+      page = Page.new(title: 'extra white space',
+                      slug: '   so-true', # leading white space
+                      label: 'Test all the things',
+                      template: 'standard')
+      expect do
+        page.save!
+      end.to raise_error ActiveRecord::RecordInvalid
     end
   end
-
 
 #   it 'determines if page has multiple parts' do
 #   	pending
