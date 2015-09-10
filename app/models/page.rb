@@ -6,7 +6,7 @@ class Page < ActiveRecord::Base
 
   has_many :page_parts
 
-  before_validation :strip_text, :slug_and_label_from_title
+  after_validation :strip_text, :slug_and_label_from_title
 
   validates :title, :label, presence: true
   validates :slug, presence: true,
