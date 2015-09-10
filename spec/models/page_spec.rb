@@ -28,22 +28,6 @@ describe 'Page' do
       end.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'requires a label' do
-      expect do
-        Page.new(title: 'Automated testing rocks',
-                 slug: 'so-true',
-                 template: 'standard').save!
-      end.to raise_error ActiveRecord::RecordInvalid
-    end
-
-    it 'requires a label' do
-      expect do
-        Page.new(title: 'Automated testing rocks',
-                 slug: 'so-true',
-                 template: 'standard').save!
-      end.to raise_error ActiveRecord::RecordInvalid
-    end
-
     it 'validates template is in our list' do
       expect do
         Page.new(title: 'Automated testing rocks',
