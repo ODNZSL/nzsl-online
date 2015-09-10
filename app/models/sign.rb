@@ -152,48 +152,48 @@ class Sign
   end
 
   def self.topic_tags
-   [["Actions and activities",                     5],
-    ["Animals",                                    7],
-    ["Body and appearance",                        9],
-    ["Clothes",                                   10],
-    ["Colours",                                   11],
-    ["Communication and cognition",                6],
-    ["Computers",                                 48],
-    ["Countries, cities and nationalities",       21],
-    ["Deaf-related",                              12],
-    ["Direction, location and spatial relations", 13],
-    ["Education",                                 17],
-    ["Emotions",                                  18],
-    ["Events and celebrations",                   14],
-    ["Family",                                    20],
-    ["Food and drink",                            16],
-    ["Government and politics",                   22],
-    ["Health",                                    23],
-    ["House and garden",                           8],
-    ["Idioms and phrases",                        24],
-    ["Language and Linguistics",                  45],
-    ["Law and crime",                             25],
-    ["Maori culture and concepts",                26],
-    ["Materials",                                 27],
-    ["Maths",                                     47],
-    ["Miscellaneous",                             44],
-    ["Money",                                     28],
-    ["Nature and environment",                    19],
-    ["Numbers",                                   29],
-    ["People and relationships",                  46],
-    ["Places",                                    30],
-    ["Pronouns",                                  31],
-    ["Qualities, description and comparison",     33],
-    ["Quantity and measure",                      34],
-    ["Questions",                                 35],
-    ["Religions",                                 32],
-    ["Science",                                   38],
-    ["Sex and sexuality",                         36],
-    ["Sports, recreation and hobbies",            37],
-    ["Time",                                      39],
-    ["Travel and transportation",                 40],
-    ["Weather",                                   41],
-    ["Work",                                      42]]
+   [['Actions and activities',                     5],
+    ['Animals',                                    7],
+    ['Body and appearance',                        9],
+    ['Clothes',                                   10],
+    ['Colours',                                   11],
+    ['Communication and cognition',                6],
+    ['Computers',                                 48],
+    ['Countries, cities and nationalities',       21],
+    ['Deaf-related',                              12],
+    ['Direction, location and spatial relations', 13],
+    ['Education',                                 17],
+    ['Emotions',                                  18],
+    ['Events and celebrations',                   14],
+    ['Family',                                    20],
+    ['Food and drink',                            16],
+    ['Government and politics',                   22],
+    ['Health',                                    23],
+    ['House and garden',                           8],
+    ['Idioms and phrases',                        24],
+    ['Language and Linguistics',                  45],
+    ['Law and crime',                             25],
+    ['Maori culture and concepts',                26],
+    ['Materials',                                 27],
+    ['Maths',                                     47],
+    ['Miscellaneous',                             44],
+    ['Money',                                     28],
+    ['Nature and environment',                    19],
+    ['Numbers',                                   29],
+    ['People and relationships',                  46],
+    ['Places',                                    30],
+    ['Pronouns',                                  31],
+    ['Qualities, description and comparison',     33],
+    ['Quantity and measure',                      34],
+    ['Questions',                                 35],
+    ['Religions',                                 32],
+    ['Science',                                   38],
+    ['Sex and sexuality',                         36],
+    ['Sports, recreation and hobbies',            37],
+    ['Time',                                      39],
+    ['Travel and transportation',                 40],
+    ['Weather',                                   41],
+    ['Work',                                      42]]
   end
 
 private
@@ -201,12 +201,13 @@ private
   def self.search(params)
     xml_document = Nokogiri::XML(open(url_for_search(params)))
     entries = xml_document.css(ELEMENT_NAME)
-    count = xml_document.css("totalhits").inner_text.to_i
+    count = xml_document.css('totalhits').inner_text.to_i
     return [count, entries]
   end
 
   def self.url_for_search(query)
-    # The handling of arrays in query strings is different in the API than in rails
+    # The handling of arrays in query strings is different
+    # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
     query_string = []
     query.each do |k, v|
