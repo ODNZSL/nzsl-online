@@ -1,6 +1,8 @@
 ## A page within our basic CMS
 class Page < ActiveRecord::Base
-  RESTRICTED_SLUGS = %w(admin signs feedback sign_image images javascripts stylesheets system 500 favicon flowplayer-3 flowplayer robots crossdomain) #top level routes & public dir.
+  RESTRICTED_SLUGS = %w(admin signs feedback sign_image images javascripts
+                        stylesheets system 500 favicon flowplayer-3 flowplayer
+                        robots crossdomain) # top level routes & public dir.
 
   has_many :page_parts
 
@@ -9,7 +11,7 @@ class Page < ActiveRecord::Base
   validates :title, :label, presence: true
   validates :slug, presence: true,
                    uniqueness: true,
-                   format: { with: /\A(\/|[a-z0-9\-\_]*)\Z/ },
+                   format: { with: %r{\A(\/|[a-z0-9\-\_]*)\Z} },
                    exclusion => { in: RESTRICTED_SLUGS }
 
   validates :order, numericality: { integer_only: true, allow_nil: true }
