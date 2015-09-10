@@ -49,7 +49,6 @@ class Page < ActiveRecord::Base
   ##
   # Find pages that should display in navigation
   def self.in_nav
-    binding.pry
     where(show_in_nav: true).where(
       "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
   end
