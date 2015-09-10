@@ -23,7 +23,8 @@ describe 'ImageProcessor' do
     expect(actual_width).to be <= width
     expect(actual_height).to be <= height
   end
-  # it 'works out the full url to image' do
-  # 	expect(ImageProcessor.remote_filename(filename)).to
-  # end
+  it 'works out the remote path to image' do
+
+    expect(ImageProcessor.remote_filename(filename)).to start_with('http://')
+  end
 end
