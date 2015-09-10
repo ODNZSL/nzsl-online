@@ -54,9 +54,9 @@ class Page < ActiveRecord::Base
   private
 
   def strip_text
-    title.strip!
-    slug.strip!
-    label.strip!
+    title.strip! if title
+    slug.strip! if slug
+    label.strip! if label
   end
 
   def slug_and_label_from_title
