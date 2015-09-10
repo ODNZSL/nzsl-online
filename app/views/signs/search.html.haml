@@ -4,24 +4,36 @@
 %p
   %em
     = pluralize @results_total, t('search.results.results')
-/with divs because of IE7
-%ol.grid.results.clearfix_left.rule_after
-  - @signs.in_groups_of(3) do |row|
-    .row_start
-      - row.each do |result|
-        - if result
-          %li
-            - query_text = @query[:s].join(" ")
-            = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
-              = image_tag "signs/150-100/#{result.drawing}"
-            = link_to sign_url(result.id), {:class => 'main_gloss js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
-              = result.gloss_main
-            - if result.gloss_maori
-              %span.h3.maori_gloss= result.gloss_maori
-            - if result.gloss_secondary.present?
-              %span.h3.secondary_gloss= result.gloss_secondary
-            - if result.word_classes.present?
-              %span.word_class= result.word_classes
+
+.search_results
+  /with divs because of IE7
+  %ol.grid.results.clearfix_left.rule_after
+    - @signs.in_groups_of(3) do |row|
+      .row_start
+        - row.each do |result|
+          - if result
+            %li
+              - if @query[:s]
+                - query_text = @query[:s].join(" ")
+              - else
+                - query_text = " "
+              = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
+                = image_tag "signs/150-100/#{result.drawing}"
+              .videos
+                = flow_video_tag result.video, wrapper_class: "search_result_video normal", loop: true
+
+                - if result.video_slow.present?
+                  = flow_video_tag result.video_slow, wrapper_class: "search_result_video slow"
+                  = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
+                  = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
+              = link_to sign_url(result.id), {:class => 'main_gloss js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
+                = result.gloss_main
+              - if result.gloss_maori
+                %span.h3.maori_gloss= result.gloss_maori
+              - if result.gloss_secondary.present?
+                %span.h3.secondary_gloss= result.gloss_secondary
+              - if result.word_classes.present?
+                %span.word_class= result.word_classes
 - if @results_total > Sign::RESULTS_PER_PAGE
   %ol.rule_after.pagination.clearfix_left
     = pagination_links

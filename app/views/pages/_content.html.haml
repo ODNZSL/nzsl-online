@@ -4,10 +4,12 @@
     - @page.page_parts.each do |page_part|
       .rule_after
         %h2= page_part.title 
-        = video_translation(page_part) if page_part.translation_path.present?
+        - if page_part.translation_path.present?
+          = render partial: "shared/translation_video", locals: {page_part: page_part}  
         .ckeditor_content
           != page_part.body
   - elsif @page.first_part
-    = video_translation(@page.first_part) if @page.first_part.translation_path.present?
+    - if @page.first_part.translation_path.present?
+      = render partial: "shared/translation_video", locals: {page_part: @page.first_part}  
     .rule_after.ckeditor_content
       != @page.first_part.body

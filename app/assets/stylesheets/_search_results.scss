@@ -1,0 +1,28 @@
+.search_results {
+  .search_result_video {
+    float:left; 
+    clear:left; 
+    margin-right:16px; 
+    margin-bottom:10px;
+    margin-top: 10px;
+  }
+  .search_result_video, 
+  .search_result_video video, 
+  .search_result_video embed {
+    width:140px; 
+    height:105px;
+  }
+
+  .videos .button {
+    margin-right: 18px;
+    margin-bottom: 5px;
+    float:left;
+  }
+
+  .drawing img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    vertical-align: bottom;
+  }
+}

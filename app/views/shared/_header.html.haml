@@ -40,7 +40,7 @@
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
 
 
--# Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
+/ Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do
   :javascript
     $(function() { $(".js-ga-form-submission").on('submit', ga_form_submission); });

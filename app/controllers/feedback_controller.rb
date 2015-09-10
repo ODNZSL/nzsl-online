@@ -8,7 +8,7 @@ class FeedbackController < ApplicationController
   
   def create
     begin
-      @feedback = Feedback.create(params[:feedback])
+      @feedback = Feedback.create(feedback_params)
       if @feedback.valid?
         @feedback.send_email
         @feedback = Feedback.new
@@ -23,5 +23,10 @@ class FeedbackController < ApplicationController
     @title = @page.title
     render :template => "pages/#{@page.template}"
   end
+
+  private
+    def feedback_params
+      params.require(:feedback).permit(:name, :message, :video, :email)
+    end
 
 end

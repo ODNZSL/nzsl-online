@@ -1,3 +1,5 @@
+= link_to 'Back to Index', admin_pages_path
+
 %h1
   Editing 
   %em= @page.label
@@ -12,3 +14,4 @@
   page
 
 = render :partial => 'admin/page_parts/list', :locals => {:page_parts => @page.page_parts}
+

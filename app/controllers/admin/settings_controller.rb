@@ -22,4 +22,7 @@ private
     @title = 'Administrate Settings'
   end
   
+  def settings_params
+    params.require(:settings).permit(:key, :value)
+  end
 end
