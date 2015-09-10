@@ -75,38 +75,29 @@ describe 'Page' do
     end
   end
 
-#   it 'determines if page has multiple parts' do
-#   	pending
-#   # def multiple_page_parts?
-#     # page_parts.length > 1
-#   end
+  it 'determines page does not multiple parts' do
+    expect(valid_page.multiple_page_parts?).to eq(false)
+  end
 
-#   it 'finds the first part of the page' do
-#   	pending
-#   # def first_part
-#     # page_parts.first
-#   end
+  it 'finds the pages that must show in nav' do
+    pages = Page.in_nav
+    expect(pages.length).to eq(0)
 
-#   it 'does soemthing with in nav ???' do
-#   	pending
-#   # def self.in_nav
-#     # where(show_in_nav: true).where(
-#       # "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
-#   end
+    page = Page.new(title: 'extra white space',
+                    slug: '   so-true', # leading white space
+                    label: 'Test all the things',
+                    template: 'standard',
+                    show_in_nav: true)
+    page.save
+    pages = Page.in_nav
+    expect(pages.length).to eq(1)
+  end
 
-#   it 'removes extra text from titles, slugs, labels'
-# 	pending
-#   # def strip_text
-#     # title.strip!
-#     # slug.strip!
-#     # label.strip!
-#   end
-
-#   it 'calculates slug and label from title' do
-#   	pending
-#   # def slug_and_label_from_title
-#     # self.slug = title.downcase.gsub(/[^a-z0-9]/, '-') if slug.blank?
-#     # self.label = title if label.blank?
-#   end
-
+  it 'calculates slug and label from title' do
+    page = Page.new(title: 'calculate the slug and title please',
+                    template: 'standard')
+    page.save
+    expect(page.slug).to eq('calculate-the-slug-and-title-please')
+    expect(page.label).to eq('calculate the slug and title please')
+  end
 end
