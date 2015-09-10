@@ -5,7 +5,6 @@ class ImageProcessor
   require 'fileutils'
 
   def self.retrieve_and_resize(filename, dimensions = [180, 320])
-    puts 'Fetching ' + filename
     remote_filename = ImageProcessor.remote_filename(filename)
     begin
       image = MiniMagick::Image.open(remote_filename)
