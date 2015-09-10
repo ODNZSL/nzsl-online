@@ -12,7 +12,7 @@ class Page < ActiveRecord::Base
   validates :slug, presence: true,
                    uniqueness: true,
                    format: { with: %r{\A(\/|[a-z0-9\-\_]*)\Z} },
-                   exclusion => { in: RESTRICTED_SLUGS }
+                   exclusion: { in: RESTRICTED_SLUGS }
 
   validates :order, numericality: { integer_only: true, allow_nil: true }
 
