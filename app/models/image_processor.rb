@@ -2,7 +2,6 @@
 class ImageProcessor
   require 'mini_magick'
   require 'open-uri'
-  require 'fileutils'
 
   def self.retrieve_and_resize(filename, dimensions = [180, 320])
     remote_filename = ImageProcessor.remote_filename(filename)
@@ -32,7 +31,7 @@ class ImageProcessor
 
   def self.create_or_return_path(filename)
     # ensure the sign path exists
-    FileUtils.mkdir_p(SIGN_IMAGE_PATH) unless File.exist?(SIGN_IMAGE_PATH)
+    Dir.mkdir(SIGN_IMAGE_PATH) unless Dir.exist?(SIGN_IMAGE_PATH)
 
     # It is expected that filename is in the 1212/sdsd.png format
     file_parts = filename.split File::SEPARATOR
@@ -40,7 +39,7 @@ class ImageProcessor
 
     sign_dir = File.join(SIGN_IMAGE_PATH, file_parts[0])
 
-    mkdir sign_dir unless Dir.exist?(sign_dir)
+    Dir.mkdir sign_dir unless Dir.exist?(sign_dir)
     sign_dir
   end
 
