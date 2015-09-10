@@ -37,7 +37,7 @@ describe 'Page' do
       end.to raise_error ActiveRecord::RecordInvalid
     end
 
-    it 'cleans up whitespate' do
+    it 'cleans up whitespace' do
       page = Page.new(title: '  extra white space   ',
                       slug: 'so-true',
                       label: "\n    Test all the things\r",
