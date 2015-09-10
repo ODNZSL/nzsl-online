@@ -17,6 +17,6 @@ class PagePart < ActiveRecord::Base
 
   def strip_text
     title.strip!
-    translation_path.strip!
+    translation_path.strip! if translation_path
   end
 end
