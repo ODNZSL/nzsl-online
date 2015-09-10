@@ -34,8 +34,8 @@ class Page < ActiveRecord::Base
   end
 
   def self.find_by_slug(slug)
-    return where(slug: '/').first if slug.blank?
-    where(slug: slug).first
+    return find_by(slug: '/') if slug.blank?
+    find_by(slug: slug)
   end
 
   def multiple_page_parts?

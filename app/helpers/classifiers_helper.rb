@@ -1,7 +1,7 @@
 module ClassifiersHelper
   def classifiers
     {
-      :sass => [
+      sass: [
         ['spot on face', classifier_image('SASS.spot_on_face')],
         ['square shape', classifier_image('SASS.square_shape')],
         ['square frame edge', classifier_image('SASS.square_frame_edge')],
@@ -12,7 +12,7 @@ module ClassifiersHelper
         ['thick round length (e.g. pole)', classifier_image('SASS.thick_round_length')],
         ['very thick and round (e.g. trunk, pillar)', classifier_image('SASS.very_thick_round')]
       ],
-      :texture_consistency => [
+      texture_consistency: [
         ['sandy', classifier_image('texture_consistency_quality.tactile.sandy')],
         ['sticky', classifier_image('texture_consistency_quality.tactile.sticky')],
         ['wet', classifier_image('texture_consistency_quality.tactile.wet')],
@@ -20,7 +20,7 @@ module ClassifiersHelper
         ['twinkly', classifier_image('texture_consistency_quality.visual.twinkly')],
         ['sunshine', classifier_image('texture_consistency_quality.visual.sunshine')]
       ],
-      :entity => [
+      entity: [
         ['vehicle', [
           ['into garage', classifier_image('entity.vehicle.into_garage')],
           ['nose-to-tail collision', classifier_image('entity.vehicle.nose_to_tail_collision')],
@@ -41,18 +41,18 @@ module ClassifiersHelper
           ['plane take-off', classifier_image('entity.plane.plane_take_off')]
         ]]
       ],
-      :body_parts => [
+      body_parts: [
         ['flap wings', classifier_image('body_parts.wings.flap')],
         ['whiplash', classifier_image('body_parts.neck_and_head.whiplash')],
         ['Claw', classifier_image('body_parts.claw')],
         ['open/shut beak (e.g. duck, goose)', classifier_image('body_parts.wide_beak_open_shut')]
       ],
-      :mass_or_quantity => [
+      mass_or_quantity: [
         ['pile of stuff', classifier_image('mass_or_quantity.stuff.heap_pile')],
         ['line of people', classifier_image('mass_or_quantity.persons.line')],
         ['heavy traffic', classifier_image('mass_or_quantity.vehicles.heavy_traffic')]
       ],
-      :handling_or_instrumental => [
+      handling_or_instrumental: [
         ['computer-mouse', classifier_image('handling_or_instrumental.computer_mouse')],
         ['game-remote', classifier_image('handling_or_instrumental.game_remote')],
         ['bat', classifier_image('handling_or_instrumental.bat')],
@@ -60,7 +60,7 @@ module ClassifiersHelper
         ['holding softball', classifier_image('handling_or_instrumental.holding_objects.softball')],
         ['holding basketball', classifier_image('handling_or_instrumental.holding_objects.basketball')]
       ],
-      :element => [
+      element: [
         ['Fire', [
           ['candle-flame', classifier_image('element.fire.candle_flame')],
           ['small-fire', classifier_image('element.fire.small_fire')],
@@ -74,13 +74,15 @@ module ClassifiersHelper
         ]],
         ['Air', [
           ['gentle breeze', classifier_image('element.air.gentle_breeze')],
-          ['strong wind', classifier_image('element.air.strong_wind')],
+          ['strong wind', classifier_image('element.air.strong_wind')]
         ]]
       ]
     }
   end
-private
+
+  private
+
   def classifier_image(partial_image_identifier)
-    return "classifiers/90/Classifiers.#{partial_image_identifier}.png"
+    "classifiers/90/Classifiers.#{partial_image_identifier}.png"
   end
 end
