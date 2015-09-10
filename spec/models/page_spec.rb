@@ -84,11 +84,13 @@ describe 'Page' do
     expect(pages.length).to eq(0)
 
     page = Page.new(title: 'extra white space',
-                    slug: '   so-true', # leading white space
-                    label: 'Test all the things',
                     template: 'standard',
-                    show_in_nav: true)
-    page.save
+                    show_in_nav: true,
+                    page_parts: [PagePart.new(title: 'part of a page')]
+                   )
+    page.save!
+
+    # retrieve the pages that should show in nav
     pages = Page.in_nav
     expect(pages.length).to eq(1)
   end
