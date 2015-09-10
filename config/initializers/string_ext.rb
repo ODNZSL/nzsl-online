@@ -4,4 +4,3 @@ String.class_eval do
     ActiveRecord::Type::Boolean.new.type_cast_from_database(self)
   end
 end
-

@@ -1,43 +1,41 @@
 NzslOnline::Application.routes.draw do
-
   namespace :admin do
-    resources :pages, :except => [:show] do
+    resources :pages, except: [:show] do
       collection do
         post 'reorder'
       end
-      resources :page_parts, :except => [:show, :index] do
+      resources :page_parts, except: [:show, :index] do
         collection do
           post 'reorder'
         end
       end
     end
-    resource :settings, :except => [:destroy, :create]
+    resource :settings, except: [:destroy, :create]
   end
-  get '/admin', :to => redirect('/admin/pages')
+  get '/admin', to: redirect('/admin/pages')
 
-  root :to => "pages#show"
+  root to: 'pages#show'
 
-  resources :signs, :only => :show do
+  resources :signs, only: :show do
     collection do
       get 'search'
       get 'autocomplete'
     end
   end
 
-  resources :feedback, :only => [:create]
+  resources :feedback, only: [:create]
 
-  resource :vocab_sheet, :only => [:show, :destroy, :update] do
-    resources :items, :only => [:create, :destroy, :update] do
+  resource :vocab_sheet, only: [:show, :destroy, :update] do
+    resources :items, only: [:create, :destroy, :update] do
       collection do
         post 'reorder'
       end
     end
   end
 
-  get "sign_image/show"
-  get "/images/signs/:width-:height/*filename" => "sign_image#show", :width => /\d+/, :height => /\d+/, :format => false
-  get "/assets/signs/:width-:height/*filename" => "sign_image#show", :width => /\d+/, :height => /\d+/, :format => false
+  get 'sign_image/show'
+  get '/images/signs/:width-:height/*filename' => 'sign_image#show', :width => /\d+/, :height => /\d+/, :format => false
+  get '/assets/signs/:width-:height/*filename' => 'sign_image#show', :width => /\d+/, :height => /\d+/, :format => false
 
-  get "/:slug" => 'pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
+  get '/:slug' => 'pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
 end
-
