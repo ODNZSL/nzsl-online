@@ -13,11 +13,11 @@ describe 'Sign' do
   end
 
   it 'retrieves two random signs' do
-    signOne = Sign.random
-    signTwo = Sign.random
-    expect(signOne.is_a?(Sign)).to eq(true)
-    expect(signTwo.is_a?(Sign)).to eq(true)
-    expect(signOne.id).not_to eq(signTwo.id)
+    sign_one = Sign.random
+    sign_two = Sign.random
+    expect(sign_one.is_a?(Sign)).to eq(true)
+    expect(sign_two.is_a?(Sign)).to eq(true)
+    expect(sign_one.id).not_to eq(signTwo.id)
   end
 
   it 'finds a sign' do
