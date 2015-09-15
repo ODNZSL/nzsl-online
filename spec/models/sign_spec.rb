@@ -58,13 +58,18 @@ describe 'Sign' do
   end
 
   it 'must find a single Sign with a simple search string' do
-    # TODO: fix this test
-    # params = {
-
-    # }
-    # search_result = Sign.search(params)
-    # puts search_result
-    # expect(search_result).to eq(true)
+    search_query = {
+      's' => ['hello'],
+      'hs' => [],
+      'l' => [],
+      'lg' => [],
+      'tag' => [],
+      'usage' => []
+    }
+    page_number = 1
+    search_result = Sign.paginate(search_query, page_number)
+    # we get at least one result
+    expect(search_result.length).to be > 0
   end
 
   it 'must not throw errors' do
