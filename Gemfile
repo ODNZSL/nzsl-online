@@ -47,7 +47,8 @@ group :development, :test do
 
    # for checking images in specs
    gem 'fastimage'
-  
+
+   gem 'rubocop', '~> 0.34.0', require: false
 end
 
 group :staging do
