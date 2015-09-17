@@ -41,7 +41,7 @@ group :development, :test do
    gem 'capistrano-ext'
    gem 'simplecov', require: false
    gem 'rb-readline'
-
+   gem 'fastimage'
 end
 
 group :staging do

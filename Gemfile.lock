@@ -36,6 +36,7 @@ GEM
       minitest (~> 5.1)
       thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
+    addressable (2.3.8)
     arel (6.0.0)
     builder (3.2.2)
     capistrano (2.14.2)
@@ -63,6 +64,8 @@ GEM
     docile (1.1.5)
     erubis (2.7.0)
     execjs (2.0.2)
+    fastimage (1.7.0)
+      addressable (~> 2.3, >= 2.3.5)
     formtastic (2.3.1)
       actionpack (>= 3.0)
     globalid (0.3.0)
@@ -210,6 +213,7 @@ DEPENDENCIES
   capistrano-ext
   ckeditor_rails
   coffee-rails
+  fastimage
   formtastic (~> 2.3.0)
   haml
   i18n
