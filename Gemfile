@@ -44,6 +44,6 @@ group :development, :test do
    gem 'fastimage'
 end
 
-group :staging do
+group :staging, :production do
   gem 'unicorn'
 end
