@@ -5,7 +5,7 @@ end
 
 source 'http://rubygems.org'
 
-gem 'rails', '~> 4.2.0'
+gem 'rails', '4.2.4'
 gem 'haml'
 gem 'nokogiri'
 gem 'jquery-rails'
@@ -51,6 +51,6 @@ group :development, :test do
    gem 'rubocop', '~> 0.34.0', require: false
 end
 
-group :staging do
+group :staging, :production do
   gem 'unicorn'
 end

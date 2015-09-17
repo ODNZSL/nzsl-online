@@ -8,6 +8,11 @@ set :branch, 'master'
 set :whenever_command, "#{try_sudo} whenever --user root"
 set :whenever_command, 'whenever'
 
-role :web, 'nzsl.vuw.ac.nz'                          # Your HTTP server, Apache/etc
-role :app, 'nzsl.vuw.ac.nz'                          # This may be the same as your `Web` server
-role :db,  'nzsl.vuw.ac.nz', primary: true # This is where Rails migrations will run
+# Your HTTP server, Apache/etc
+role :web, 'vuwunicosldedp3.ods.vuw.ac.nz'
+
+# This may be the same as your `Web` server
+role :app, 'vuwunicosldedp3.ods.vuw.ac.nz'
+
+# This is where Rails migrations will run
+role :db,  'vuwunicosldedp3.ods.vuw.ac.nz', primary: true
