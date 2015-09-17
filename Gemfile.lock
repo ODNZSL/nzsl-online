@@ -222,7 +222,7 @@ DEPENDENCIES
   nokogiri
   paperclip
   pry-rails
-  rails (~> 4.2.4)
+  rails (= 4.2.4)
   rb-readline
   rdiscount (~> 1.6.8)
   responders (~> 2.0)
