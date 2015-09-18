@@ -5,12 +5,14 @@ describe 'ImageProcessor' do
   let(:filename) do
     '1935/picture-W99-69.png'
   end
+
   it 'retrieves an image' do
     width = 100
     height = 100
     file = ImageProcessor.retrieve_and_resize(filename, [width, height])
     expect(File.exist?(file)).to be(true)
   end
+  
   it 'resizes an image' do
     width = 100
     height = 100
