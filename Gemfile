@@ -42,6 +42,8 @@ group :development, :test do
    gem 'simplecov', require: false
    gem 'rb-readline'
 
+  # catches email sending, and logs instead
+  gem 'letter_opener'
 end
 
 group :staging, :production do
