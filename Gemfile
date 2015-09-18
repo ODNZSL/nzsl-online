@@ -49,6 +49,9 @@ group :development, :test do
    gem 'fastimage'
 
    gem 'rubocop', '~> 0.34.0', require: false
+
+  # catches email sending, and logs instead
+  gem 'letter_opener'
 end
 
 group :staging, :production do
