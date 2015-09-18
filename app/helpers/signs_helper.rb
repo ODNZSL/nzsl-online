@@ -29,8 +29,8 @@ module SignsHelper
 
   def render_back_to_search_results
     if request.referer
-      referer = URI.split(request.referer) # 5 is path, 7 is query. why does this method not return a hash?
-      case referer[5]
+      referer = URI(request.referer)
+      case referer.path
       when search_signs_path
         link_to t('signs.show.back_to.search_results'), "#{search_signs_path}?#{h referer[7]}", class: 'back_to_search_results'
       when '/numbers'
