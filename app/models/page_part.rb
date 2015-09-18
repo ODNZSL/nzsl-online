@@ -1,10 +1,11 @@
+## Part of a page, in our basic as CMS
 class PagePart < ActiveRecord::Base
   belongs_to :page
-  
+
   before_validation :strip_text
 
-  validates :title, :presence => true
-  validates :order, :numericality => {:integer_only => true, :allow_nil => true}
+  validates :title, presence: true
+  validates :order, numericality: { integer_only: true, allow_nil: true }
 
   default_scope { order('"page_parts"."order" ASC') }
 
@@ -12,11 +13,10 @@ class PagePart < ActiveRecord::Base
     title.downcase.dasherize
   end
 
-private
+  private
 
   def strip_text
-    self.title.strip!
-    self.translation_path.strip!
+    title.strip!
+    translation_path.strip! if translation_path
   end
-
 end

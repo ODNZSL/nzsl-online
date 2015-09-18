@@ -1,14 +1,13 @@
 class ItemsController < ApplicationController
-
-  before_filter :find_or_create_vocab_sheet, :set_search_query, :get_footer_content
+  before_action :find_or_create_vocab_sheet, :set_search_query, :get_footer_content
   respond_to :html, :json
 
   def create
-    if @sheet.items.any?{|i| i.sign_id == params[:sign_id].to_i}
+    if @sheet.items.any? { |i| i.sign_id == params[:sign_id].to_i }
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
     else
       @item = Item.new
-      @item.sign = Sign.first({:id => params[:sign_id]}) if params[:sign_id]
+      @item.sign = Sign.first(id: params[:sign_id]) if params[:sign_id]
       @item.name = params[:name].to_s if params[:name]
       @item.maori_name = params[:maori_name].to_s if params[:maori_name]
       if @item.valid?
@@ -21,7 +20,7 @@ class ItemsController < ApplicationController
     if request.xhr?
       flash[:notice] = nil
       flash[:error] = nil
-      render :partial => 'shared/vocab_sheet_item', :locals => {:vocab_sheet_item => @item}
+      render partial: 'shared/vocab_sheet_item', locals: { vocab_sheet_item: @item }
     else
       respond_with_json_or_redirect(@item)
     end
@@ -30,7 +29,7 @@ class ItemsController < ApplicationController
   def update
     @item = Item.find(params[:id])
     @item.name = params[:item][:name] if params[:item][:name]
-    @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name] 
+    @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name]
     if @item.save
       flash[:notice] = t('vocab_sheet.item.update_success')
     else
@@ -39,7 +38,7 @@ class ItemsController < ApplicationController
     if request.xhr?
       flash[:notice] = nil
       flash[:error] = nil
-      render :json => @item
+      render json: @item
     else
       respond_with_json_or_redirect(@item)
     end
@@ -58,7 +57,7 @@ class ItemsController < ApplicationController
     if request.xhr?
       flash[:vocab_bar_notice] = nil
       flash[:vocab_bar_error] = nil
-      render :nothing => true
+      render nothing: true
     else
       respond_with_json_or_redirect(@item)
     end
@@ -66,13 +65,12 @@ class ItemsController < ApplicationController
 
   def reorder
     params[:items].each_with_index do |id, index|
-      #Need to update updated_at column as update_all doesn't do this for some reason
-      @sheet.items.where(:id => id.to_i).update_all(
-        :position => index + 1,
-        :updated_at => Time.now
+      # Need to update updated_at column as update_all doesn't do this for some reason
+      @sheet.items.where(id: id.to_i).update_all(
+        position: index + 1,
+        updated_at: Time.now
       )
     end
-    render :nothing => true
+    render nothing: true
   end
 end
-

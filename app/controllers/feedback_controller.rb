@@ -1,11 +1,10 @@
 class FeedbackController < ApplicationController
-  
-  before_filter :find_vocab_sheet, :set_search_query, :get_footer_content
-  
+  before_action :find_vocab_sheet, :set_search_query, :get_footer_content
+
   def new
     @feedback = Feedback.new
   end
-  
+
   def create
     begin
       @feedback = Feedback.create(feedback_params)
@@ -21,12 +20,12 @@ class FeedbackController < ApplicationController
     end
     @page = Page.find(params[:page_id].to_i)
     @title = @page.title
-    render :template => "pages/#{@page.template}"
+    render template: "pages/#{@page.template}"
   end
 
   private
-    def feedback_params
-      params.require(:feedback).permit(:name, :message, :video, :email)
-    end
 
+  def feedback_params
+    params.require(:feedback).permit(:name, :message, :video, :email)
+  end
 end

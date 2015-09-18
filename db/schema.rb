@@ -9,19 +9,19 @@
 # from scratch. The latter is a flawed and unsustainable approach (the more migrations
 # you'll amass, the slower it'll run and the greater likelihood for issues).
 #
-# It's strongly recommended to check this file into your version control system.
+# It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20140107222018) do
+ActiveRecord::Schema.define(version: 20140107222018) do
 
-  create_table "feedbacks", :force => true do |t|
+  create_table "feedbacks", force: :cascade do |t|
     t.string   "name"
     t.text     "message"
     t.string   "video_file_name"
     t.integer  "video_file_size"
     t.string   "video_content_type"
     t.datetime "video_updated_at"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "email"
     t.string   "hearing_level"
     t.string   "nzsl_level"
@@ -38,48 +38,48 @@ ActiveRecord::Schema.define(:version => 20140107222018) do
     t.boolean  "technical_fault"
   end
 
-  create_table "items", :force => true do |t|
-    t.integer  "sign_id",        :null => false
-    t.integer  "vocab_sheet_id", :null => false
-    t.string   "name",           :null => false
-    t.datetime "created_at",     :null => false
-    t.datetime "updated_at",     :null => false
+  create_table "items", force: :cascade do |t|
+    t.integer  "sign_id",        null: false
+    t.integer  "vocab_sheet_id", null: false
+    t.string   "name",           null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.integer  "position"
     t.string   "drawing"
     t.string   "maori_name"
   end
 
-  create_table "page_parts", :force => true do |t|
+  create_table "page_parts", force: :cascade do |t|
     t.string   "title"
     t.integer  "order"
     t.text     "body"
     t.string   "translation_path"
     t.integer  "page_id"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "pages", :force => true do |t|
+  create_table "pages", force: :cascade do |t|
     t.string   "title"
     t.string   "slug"
     t.string   "label"
     t.integer  "order"
     t.string   "template"
     t.boolean  "show_in_nav"
-    t.datetime "created_at",  :null => false
-    t.datetime "updated_at",  :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "settings", :force => true do |t|
+  create_table "settings", force: :cascade do |t|
     t.string   "key"
     t.string   "value"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "vocab_sheets", :force => true do |t|
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+  create_table "vocab_sheets", force: :cascade do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
     t.string   "name"
   end
 

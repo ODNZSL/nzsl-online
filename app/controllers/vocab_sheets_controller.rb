@@ -1,14 +1,13 @@
 class VocabSheetsController < ApplicationController
-
-  before_filter :find_or_create_vocab_sheet, :set_search_query, :get_footer_content, :set_title
+  before_action :find_or_create_vocab_sheet, :set_search_query, :get_footer_content, :set_title
   respond_to :html, :json
   def show
-    @size = params[:size].to_i 
+    @size = params[:size].to_i
     @size = session[:vocab_sheet_size].to_i if @size.zero?
     @size = 4 if @size.zero?
     session[:vocab_sheet_size] = @size
   end
-  
+
   def update
     @sheet.name = params[:vocab_sheet][:name]
     if @sheet.save
@@ -19,12 +18,12 @@ class VocabSheetsController < ApplicationController
     if request.xhr?
       flash[:notice] = nil
       flash[:error] = nil
-      render :json => @sheet
+      render json: @sheet
     else
       respond_with_json_or_redirect(@sheet)
     end
   end
-  
+
   def destroy
     if @sheet.destroy
       session[:vocab_sheet_id] = nil
@@ -34,10 +33,10 @@ class VocabSheetsController < ApplicationController
     end
     redirect_back_or_default
   end
-  
-private
+
+  private
+
   def set_title
     @title = @sheet.name
   end
 end
-

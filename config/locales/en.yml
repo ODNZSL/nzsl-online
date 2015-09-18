@@ -84,6 +84,9 @@ en:
       update: Rename
       update_success: You have updated a sign
       update_failure: This sign could not be updated - please try again.
+    sheet:
+      update_success: Vocab sheet updated.
+      update_failure: Failure. Vocab sheet not updated."
     link_to: View
     print: Print
     empty: Your vocab sheet is empty.

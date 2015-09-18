@@ -35,6 +35,9 @@ end
 # and rake tasks are available in development mode:
 group :development, :test do
    gem 'rspec-rails', '~> 3.2.0'
+
+   # for debugging
+   gem 'pry-byebug'
    gem 'pry-rails'
    # gem 'debugger'
    gem 'capistrano'
@@ -42,8 +45,10 @@ group :development, :test do
    gem 'simplecov', require: false
    gem 'rb-readline'
 
-   # used in spec
+   # for checking images in specs
    gem 'fastimage'
+
+   gem 'rubocop', '~> 0.34.0', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
