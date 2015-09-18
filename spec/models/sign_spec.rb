@@ -17,7 +17,7 @@ describe 'Sign' do
     sign_two = Sign.random
     expect(sign_one.is_a?(Sign)).to eq(true)
     expect(sign_two.is_a?(Sign)).to eq(true)
-    expect(sign_one.id).not_to eq(signTwo.id)
+    expect(sign_one.id).not_to eq(sign_two.id)
   end
 
   it 'finds a sign' do
