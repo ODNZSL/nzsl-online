@@ -42,6 +42,9 @@ group :development, :test do
    gem 'simplecov', require: false
    gem 'rb-readline'
 
+   # used in spec
+   gem 'fastimage'
+
   # catches email sending, and logs instead
   gem 'letter_opener'
 end

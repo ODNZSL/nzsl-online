@@ -64,7 +64,9 @@ GEM
     diff-lcs (1.2.5)
     docile (1.1.5)
     erubis (2.7.0)
-    execjs (2.6.0)
+    execjs (2.0.2)
+    fastimage (1.7.0)
+      addressable (~> 2.3, >= 2.3.5)
     formtastic (2.3.1)
       actionpack (>= 3.0)
     globalid (0.3.6)
@@ -216,6 +218,7 @@ DEPENDENCIES
   capistrano-ext
   ckeditor_rails
   coffee-rails
+  fastimage
   formtastic (~> 2.3.0)
   haml
   i18n
