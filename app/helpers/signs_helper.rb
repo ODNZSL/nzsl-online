@@ -28,18 +28,20 @@ module SignsHelper
   end
 
   def render_back_to_search_results
-    if request.referer
-      referer = URI(request.referer)
-      case referer.path
-      when search_signs_path
-        link_to t('signs.show.back_to.search_results'), "#{search_signs_path}?#{h referer[7]}", class: 'back_to_search_results'
-      when '/numbers'
-        link_to t('signs.show.back_to.numbers'), '/numbers', class: 'back_to_search_results'
-      when '/classifiers'
-        link_to t('signs.show.back_to.classifiers'), '/classifiers', class: 'back_to_search_results'
-      else
-        ''
-      end
+    return unless request.referer
+
+    referer = URI(request.referer)
+    case referer.path
+    when search_signs_path
+      link_to t('signs.show.back_to.search_results'),
+              "#{search_signs_path}?#{h referer.query}",
+              class: 'back_to_search_results'
+    when '/numbers'
+      link_to t('signs.show.back_to.numbers'), '/numbers', class: 'back_to_search_results'
+    when '/classifiers'
+      link_to t('signs.show.back_to.classifiers'), '/classifiers', class: 'back_to_search_results'
+    else
+      ''
     end
   end
 end
