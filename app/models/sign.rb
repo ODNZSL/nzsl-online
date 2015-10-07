@@ -12,19 +12,8 @@ class Sign
                 :word_classes, :inflection, :contains_numbers,
                 :is_fingerspelling, :is_directional, :is_locatable,
                 :one_or_two_handed, :age_groups, :gender_groups, :hint,
-                :usage_notes, :related_to, :usage, :examples
-
-  def inflection_temporal
-    !!inflection.match('temporal')
-  end
-
-  def inflection_manner_and_degree
-    !!inflection.match('manner')
-  end
-
-  def inflection_plural
-    !!inflection.match('plural')
-  end
+                :usage_notes, :related_to, :usage, :examples,
+                :inflection_temporal, :inflection_manner_and_degree, :inflection_plural
 
   def borrowed_from
     related_to unless related_to == 'nzsl'

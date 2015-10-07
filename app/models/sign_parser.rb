@@ -15,7 +15,15 @@ class SignParser
     parse_tags
     parse_booleans
     parse_examples
+    build_inflections
+
     @sign
+  end
+
+  def build_inflections
+    @sign.inflection_plural = @sign.inflection.match('plural')
+    @sign.inflection_temporal = @sign.inflection.match('temporal')
+    @sign.inflection_manner_and_degree = @sign.inflection.match('manner')
   end
 
   def parse_video
