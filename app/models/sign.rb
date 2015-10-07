@@ -44,7 +44,7 @@ class Sign
   def self.first(params)
     _count, entries = search(params)
     return nil if entries.empty?
-    Sign.new(entries.first)
+    SignParser.new(entries.first).build_sign
   end
 
   def self.all(params)
