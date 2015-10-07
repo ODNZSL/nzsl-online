@@ -1,5 +1,5 @@
 class VocabSheetsController < ApplicationController
-  before_action :find_or_create_vocab_sheet, :set_search_query, :get_footer_content, :set_title
+  before_action :find_or_create_vocab_sheet, :set_search_query, :footer_content, :set_title
   respond_to :html, :json
   def show
     @size = params[:size].to_i

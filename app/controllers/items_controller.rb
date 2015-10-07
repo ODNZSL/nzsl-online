@@ -1,5 +1,5 @@
 class ItemsController < ApplicationController
-  before_action :find_or_create_vocab_sheet, :set_search_query, :get_footer_content
+  before_action :find_or_create_vocab_sheet, :set_search_query, :footer_content
   respond_to :html, :json
 
   def create
