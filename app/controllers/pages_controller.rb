@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-  before_action :set_search_query, :get_footer_content
+  before_action :set_search_query, :footer_content
 
   def show
     if @page = Page.find_by_slug(params[:slug])

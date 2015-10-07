@@ -1,5 +1,5 @@
 class FeedbackController < ApplicationController
-  before_action :find_vocab_sheet, :set_search_query, :get_footer_content
+  before_action :find_vocab_sheet, :set_search_query, :footer_content
 
   def new
     @feedback = Feedback.new
