@@ -36,7 +36,6 @@ class SignParser
     }.symbolize_keys.each do |key, tag|
       value = @data.value_for_tag(tag)
       @sign.send("#{key}=", value)
-      # @sign.instance_variable_set(key, value)
     end
   end
 
