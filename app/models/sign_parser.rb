@@ -33,14 +33,14 @@ class SignParser
   end
 
   def parse_tags
-    { age_groups: 'VARIATIONAGE',      gender_groups: 'VARIATIONGENDER',
-      hint: 'hint',                    usage: 'usage',
-      usage_notes: 'essay',            related_to: 'RELATEDTO',
-      gloss_main:    'glossmain',      gloss_secondary: 'glosssecondary',
-      gloss_minor:   'glossminor',     gloss_maori:   'glossmaori',
-      drawing:       'ASSET picture',  handshape:     'handshape',
-      location_name: 'location',       word_classes:  'SECONDARYWORDCLASS',
-      inflection:     'INFLECTION'
+    { age_groups:    'VARIATIONAGE',      gender_groups: 'VARIATIONGENDER',
+      hint:          'hint',              usage: 'usage',
+      usage_notes:   'essay',             related_to: 'RELATEDTO',
+      gloss_main:    'glossmain',         gloss_secondary: 'glosssecondary',
+      gloss_minor:   'glossminor',        gloss_maori:   'glossmaori',
+      drawing:       'ASSET picture',     handshape:     'handshape',
+      location_name: 'location',          word_classes:  'SECONDARYWORDCLASS',
+      inflection:    'INFLECTION'
     }.symbolize_keys.each do |key, tag|
       value = @data.value_for_tag(tag)
       @sign.send("#{key}=", value)
