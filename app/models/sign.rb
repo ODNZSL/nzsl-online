@@ -5,7 +5,7 @@ class Sign
 
   ELEMENT_NAME = 'entry'
   RESULTS_PER_PAGE = 9
-  VIDEO_EXAMPLES_TOTAL = 4
+
   # Sign attributes
   attr_accessor :id, :video, :video_slow, :drawing, :handshape, :location_name,
                 :gloss_main, :gloss_secondary, :gloss_minor, :gloss_maori,
@@ -13,54 +13,11 @@ class Sign
                 :is_fingerspelling, :is_directional, :is_locatable,
                 :one_or_two_handed, :age_groups, :gender_groups, :hint,
                 :usage_notes, :related_to, :usage, :examples
-  # instance #
-  def initialize(data = nil)
-    return self unless data # no data means nothing to do
-
-    self.id = data.value_for_tag('headwordid')
-    self.video = "#{ASSET_URL}#{data.value_for_tag('ASSET glossmain')}"
-    self.video_slow = "#{ASSET_URL}#{data.value_for_tag('ASSET glossmain_slow')}" if data.value_for_tag('ASSET glossmain_slow').present?
-    self.drawing = data.value_for_tag('ASSET picture')
-    self.handshape = data.value_for_tag('handshape')
-    self.location_name = data.value_for_tag('location')
-
-    # gloss
-    self.gloss_main = data.value_for_tag('glossmain')
-    self.gloss_secondary = data.value_for_tag('glosssecondary')
-    self.gloss_minor = data.value_for_tag('glossminor')
-    self.gloss_maori = data.value_for_tag('glossmaori')
-
-    # grammar
-    self.word_classes = data.value_for_tag('SECONDARYWORDCLASS')
-    self.inflection = data.value_for_tag('INFLECTION')
-    self.contains_numbers = data.value_for_tag('number_incorp').to_bool
-    self.is_fingerspelling = data.value_for_tag('fingerspelling').to_bool
-    self.is_directional = data.value_for_tag('directional').to_bool
-    self.is_locatable = data.value_for_tag('locatable').to_bool
-    self.one_or_two_handed = data.value_for_tag('one_or_two_hand').to_bool
-
-    # notes
-    self.age_groups = data.value_for_tag('VARIATIONAGE')
-    self.gender_groups = data.value_for_tag('VARIATIONGENDER')
-    self.hint = data.value_for_tag('hint')
-    self.usage = data.value_for_tag('usage')
-    self.usage_notes = data.value_for_tag('essay')
-    self.related_to = data.value_for_tag('RELATEDTO')
-
-    # examples
-    self.examples = []
-    VIDEO_EXAMPLES_TOTAL.times do |i|
-      next unless data.value_for_tag("ASSET finalexample#{i}").present?
-
-      examples << { transcription: parse_transcription(data, "videoexample#{i}"),
-                    translation: data.value_for_tag("videoexample#{i}translation"),
-                    video: "#{ASSET_URL}#{data.value_for_tag("ASSET finalexample#{i}")}",
-                    video_slow: (data.value_for_tag("ASSET finalexample#{i}_slow").present? ? "#{ASSET_URL}#{data.value_for_tag("ASSET finalexample#{i}_slow")}" : nil)
-                  }
-    end
-
-    self
-  end
+  # # instance #
+  # def initialize(data = nil)
+  #   return self unless data # no data means nothing to do
+  #   SignParser.new(data)
+  # end
 
   def inflection_temporal
     !!inflection.match('temporal')
@@ -98,7 +55,7 @@ class Sign
     signs = []
     count, entries = search(params)
     entries.each do |entry|
-      signs << Sign.new(entry)
+      signs << SignParser.new(entry).build_sign
     end
     [count, signs]
   end
@@ -227,23 +184,5 @@ class Sign
     "#{SIGN_URL}?#{query_string.join('&')}"
   end
 
-  def parse_transcription(data, tag)
-    transcription = []
-    data.css(tag).children.each do |item|
-      if item.is_a?(Nokogiri::XML::Text)
-        transcription += item.content.split(' ')
-      else
-        transcription << { id: item['id'], gloss: item.children.first.content }
-      end
-    end
-    transcription
-  end
 
-  # Extend Nokogiri with helper method for fetching value
-  Nokogiri::XML::Element.class_eval do
-    def value_for_tag(tag_name)
-      tag = css(tag_name).first
-      tag.is_a?(Nokogiri::XML::Node) ? tag.content : ''
-    end
-  end
 end
