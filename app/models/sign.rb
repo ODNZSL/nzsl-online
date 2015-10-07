@@ -13,11 +13,6 @@ class Sign
                 :is_fingerspelling, :is_directional, :is_locatable,
                 :one_or_two_handed, :age_groups, :gender_groups, :hint,
                 :usage_notes, :related_to, :usage, :examples
-  # # instance #
-  def initialize(data = nil)
-    return self unless data # no data means nothing to do
-    SignParser.new(data).build_sign
-  end
 
   def inflection_temporal
     !!inflection.match('temporal')
