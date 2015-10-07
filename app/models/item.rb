@@ -1,7 +1,7 @@
 class Item < ActiveRecord::Base
-  validates_presence_of :sign_id, :name
-  validates_numericality_of :sign_id
-  validates_numericality_of :position, greater_than: 0, allow_nil: true
+  validates :sign_id, :name, presence: true
+  validates :sign_id, :position, numericality: true
+  validates :position, greater_than: 0, allow_nil: true
 
   belongs_to :vocab_sheet
 
