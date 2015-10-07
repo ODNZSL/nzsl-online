@@ -1,5 +1,6 @@
 class SignParser
   VIDEO_EXAMPLES_TOTAL = 4
+
   def initialize(data)
     @data = data
   end
@@ -10,55 +11,46 @@ class SignParser
 
     @sign.id = @data.value_for_tag('headwordid')
 
-    parse_gloss
     parse_video
-    parse_images
-    parse_grammar
-    parse_extras
+    parse_tags
+    parse_booleans
     parse_examples
-
     @sign
-  end
-
-  def parse_gloss
-    # gloss
-    @sign.gloss_main = @data.value_for_tag('glossmain')
-    @sign.gloss_secondary = @data.value_for_tag('glosssecondary')
-    @sign.gloss_minor = @data.value_for_tag('glossminor')
-    @sign.gloss_maori = @data.value_for_tag('glossmaori')
   end
 
   def parse_video
     @sign.video = "#{ASSET_URL}#{@data.value_for_tag('ASSET glossmain')}"
-    @sign.video_slow = "#{ASSET_URL}#{@data.value_for_tag('ASSET glossmain_slow')}" if @data.value_for_tag('ASSET glossmain_slow').present?
+    glossmain_slow = @data.value_for_tag('ASSET glossmain_slow')
+    @sign.video_slow = "#{ASSET_URL}#{@data.value_for_tag('ASSET glossmain_slow')}" if glossmain_slow.present?
   end
 
-  def parse_images
-    @sign.drawing = @data.value_for_tag('ASSET picture')
-    @sign.handshape = @data.value_for_tag('handshape')
-    @sign.location_name = @data.value_for_tag('location')
+  def parse_tags
+    { age_groups: 'VARIATIONAGE',      gender_groups: 'VARIATIONGENDER',
+      hint: 'hint',                    usage: 'usage',
+      usage_notes: 'essay',            related_to: 'RELATEDTO',
+      gloss_main:    'glossmain',      gloss_secondary: 'glosssecondary',
+      gloss_minor:   'glossminor',     gloss_maori:   'glossmaori',
+      drawing:       'ASSET picture',  handshape:     'handshape',
+      location_name: 'location',       word_classes:  'SECONDARYWORDCLASS',
+      inflection:     'INFLECTION'
+    }.symbolize_keys.each do |key, tag|
+      value = @data.value_for_tag(tag)
+      @sign.send("#{key}=", value)
+      # @sign.instance_variable_set(key, value)
+    end
   end
 
-  def parse_grammar
-    # grammar
-    @sign.word_classes = @data.value_for_tag('SECONDARYWORDCLASS')
-    @sign.inflection = @data.value_for_tag('INFLECTION')
-
-    @sign.contains_numbers = @data.value_for_tag('number_incorp').to_bool
-    @sign.is_fingerspelling = @data.value_for_tag('fingerspelling').to_bool
-    @sign.is_directional = @data.value_for_tag('directional').to_bool
-    @sign.is_locatable = @data.value_for_tag('locatable').to_bool
-    @sign.one_or_two_handed = @data.value_for_tag('one_or_two_hand').to_bool
-  end
-
-  def parse_extras
-    # notes
-    @sign.age_groups = @data.value_for_tag('VARIATIONAGE')
-    @sign.gender_groups = @data.value_for_tag('VARIATIONGENDER')
-    @sign.hint = @data.value_for_tag('hint')
-    @sign.usage = @data.value_for_tag('usage')
-    @sign.usage_notes = @data.value_for_tag('essay')
-    @sign.related_to = @data.value_for_tag('RELATEDTO')
+  def parse_booleans
+    {
+      contains_numbers: 'number_incorp',
+      is_fingerspelling: 'fingerspelling',
+      is_directional: 'directional',
+      is_locatable: 'locatable',
+      one_or_two_handed: 'one_or_two_hand'
+    }.each do |key, tag|
+      value = @data.value_for_tag(tag).to_bool
+      @sign.send("#{key}=", value)
+    end
   end
 
   def parse_examples
