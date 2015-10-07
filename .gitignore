@@ -18,3 +18,5 @@ public/system/images
 public/assets
 *~
 *.swp
+
+coverage/*
