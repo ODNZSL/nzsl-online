@@ -3,7 +3,7 @@ class ItemsController < ApplicationController
   respond_to :html, :json
 
   def create
-    if @sheet.items.any? { |i| i.sign_id == params[:sign_id].to_i }
+    if @sheet.includes_sign?(sign_id: params[:sign_id].to_i)
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
     else
       @item = Item.new
