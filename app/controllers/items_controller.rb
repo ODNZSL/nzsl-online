@@ -17,12 +17,10 @@ class ItemsController < ApplicationController
         flash[:error] = t('vocab_sheet.item.add_failure')
       end
     end
-    if request.xhr?
-      flash[:notice] = nil
-      flash[:error] = nil
-      render partial: 'shared/vocab_sheet_item', locals: { vocab_sheet_item: @item }
-    else
-      respond_with_json_or_redirect(@item)
+
+    respond_to do |format|
+      format.html { respond_with_json_or_redirect(@item) }
+      format.json { render partial: 'shared/vocab_sheet_item', locals: { vocab_sheet_item: @item } }
     end
   end
 
@@ -35,12 +33,10 @@ class ItemsController < ApplicationController
     else
       flash[:error] = t('vocab_sheet.item.update_failure')
     end
-    if request.xhr?
-      flash[:notice] = nil
-      flash[:error] = nil
-      render json: @item
-    else
-      respond_with_json_or_redirect(@item)
+
+    respond_to do |format|
+      format.html { respond_with_json_or_redirect(@item) }
+      format.json { render json: @item }
     end
   end
 
@@ -56,12 +52,10 @@ class ItemsController < ApplicationController
     else
       flash[:vocab_bar_error] = t('vocab_sheet.item.remove_failure')
     end
-    if request.xhr?
-      flash[:vocab_bar_notice] = nil
-      flash[:vocab_bar_error] = nil
-      render nothing: true
-    else
-      respond_with_json_or_redirect(@item)
+
+    respond_to do |format|
+      format.html { respond_with_json_or_redirect(@item) }
+      format.json { render nothing: true }
     end
   end
 
