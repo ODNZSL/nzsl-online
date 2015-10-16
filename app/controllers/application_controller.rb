@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     @query = {}
   end
 
-  def get_footer_content
+  def footer_content
     footer = Setting.get(:footer)
     @footer = Page.find(footer) if footer
   end
