@@ -41,7 +41,7 @@ class Admin::PagesController < ApplicationController
       # Need to update updated_at column as update_all doesn't do this for some reason
       Page.where(id: id.to_i).update_all(
         order: index + 1,
-        updated_at: Time.now
+        updated_at: Time.zone.now
       )
     end
     render nothing: true
