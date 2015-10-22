@@ -1,6 +1,6 @@
 class Admin::PagePartsController < ApplicationController
-  before_action :authenticate, :get_page, :set_title
-  before_action :get_page_part, only: [:edit, :show, :update, :destroy]
+  before_action :authenticate, :fetch_page, :set_title
+  before_action :fetch_page_part, only: [:edit, :show, :update, :destroy]
   layout 'admin'
   def index
     @page_parts = @page.page_parts
@@ -49,11 +49,11 @@ class Admin::PagePartsController < ApplicationController
 
   private
 
-  def get_page_part
+  def fetch_page_part
     @page_part = PagePart.find(params[:id])
   end
 
-  def get_page
+  def fetch_page
     @page = Page.find(params[:page_id])
   end
 
