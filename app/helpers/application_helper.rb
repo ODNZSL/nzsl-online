@@ -23,8 +23,10 @@ module ApplicationHelper
     options.symbolize_keys!
 
     wrapper_class = "video_replace #{options.delete(:wrapper_class)}"
-    content_tag(:a, nil, href: source, class: wrapper_class,
-      data: { loop: !!options[:loop] })
+    content_tag(:a, nil,
+                href: source,
+                class: wrapper_class,
+                data: { loop: options[:loop] })
   end
 
   def submit_button(text = 'search.submit', options = {})
@@ -67,10 +69,11 @@ module ApplicationHelper
   end
 
   def video_translation(part)
-    content_tag :div, [flow_video_tag(asset_path(part.translation_path),
-                wrapper_class: 'translation_video main_video hidden_video'),
-                link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil,
-                class: 'translation_button')].join(' ').html_safe,
-                class: 'videos clearfix_left'
+    content_tag :div, [
+      flow_video_tag(asset_path(part.translation_path), wrapper_class: 'translation_video main_video hidden_video'),
+      link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'),
+                  nil,
+                  class: 'translation_button')
+    ].join(' ').html_safe, class: 'videos clearfix_left'
   end
 end
