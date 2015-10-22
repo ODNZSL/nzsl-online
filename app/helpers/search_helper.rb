@@ -1,4 +1,4 @@
-module SearchHelper
+module SearchHelper # rubocop:disable ModuleLength
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
@@ -54,7 +54,7 @@ module SearchHelper
     'selected' if @query[:lg].present? && @query[:lg].include?(location_group.split('.')[0])
   end
 
-  def tab_class(*classes)
+  def tab_class(*classes) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
     if params[:tab].present? && classes.include?(params[:tab].to_sym)
       selected = true
     elsif params[:tab].blank?
