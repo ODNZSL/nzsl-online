@@ -10,7 +10,8 @@ module PaginationHelper
         link_to_page = @page_number + 1
       end
       if link_to_page
-        content_tag :li, link_to(content_tag(:span, link_text), search_signs_path(query_for_query_string.merge(p: link_to_page)))
+        content_tag :li, link_to(content_tag(:span, link_text),
+                                 search_signs_path(query_for_query_string.merge(p: link_to_page)))
       else
         content_tag :li, (content_tag :span, link_text, class: (@page_number == link_text ? 'current a' : 'a'))
       end
