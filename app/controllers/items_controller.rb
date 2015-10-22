@@ -3,11 +3,12 @@ class ItemsController < ApplicationController
   respond_to :html, :json
 
   def create
-    if @sheet.items.any? { |i| i.sign_id == params[:sign_id].to_i }
+    sign_id = params[:sign_id].to_i
+    if @sheet.includes_sign?(sign_id: sign_id)
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
     else
       @item = Item.new
-      @item.sign = Sign.first(id: params[:sign_id]) if params[:sign_id]
+      @item.sign = Sign.first(id: sign_id)
       @item.name = params[:name].to_s if params[:name]
       @item.maori_name = params[:maori_name].to_s if params[:maori_name]
       if @item.valid?
