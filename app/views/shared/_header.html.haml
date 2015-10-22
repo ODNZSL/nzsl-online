@@ -29,8 +29,8 @@
           = render :partial => 'shared/search/keywords'
           = render :partial => 'shared/search/signs'
           %div{:class => "search_field_selects search_field #{tab_class(:advanced)}"}
-            = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + Sign.topic_tags, search_term(:tag)), :class => "text_input"
-            = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + Sign.usage_tags, search_term(:usage)), :class => "text_input"
+            = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + SignMenu.topic_tags, search_term(:tag)), :class => "text_input"
+            = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "text_input"
           = submit_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
     .menu.menu_background
