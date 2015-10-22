@@ -1,4 +1,4 @@
-module NumbersHelper
+module NumbersHelper # rubocop:disable Metrics/ModuleLength
   def numbers
     return @numbers if @numbers.present?
     @number_signs = {}
@@ -13,7 +13,7 @@ module NumbersHelper
 
   private
 
-  def cardinal_array
+  def cardinal_array # rubocop:disable Metrics/MethodLength
     [[0,  5655],
      [0,  4056],
      [1,  5607],
