@@ -144,8 +144,6 @@ class Sign
       ['Work',                                      42]]
   end
 
-  private
-
   def self.search(params)
     xml_document = Nokogiri::XML(open(url_for_search(params)))
     entries = xml_document.css(ELEMENT_NAME)
