@@ -4,6 +4,8 @@ New Zealand Sign Language Dictionary consists of 2 major units
 * Ruby on Rails Website (this repo)
 * Freelex, and open source project for maintaining the signs lexicon data.
 
+[ ![Codeship Status for rabidtech/nzsl](https://codeship.com/projects/e3e03080-8d5e-0132-422a-669677a474c3/status?branch=master)](https://codeship.com/projects/60682)
+
 ## Deployment
 
 Current servers (2015-03-03)
