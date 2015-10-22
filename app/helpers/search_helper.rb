@@ -111,19 +111,17 @@ module SearchHelper
 
   def value_for_sign_attribute(number, attribute, main)
     if attribute == :handshape
-      if main
-        # if it's the first, just search on the first two numbers
-        value = number.split('.')[0, 2].join('.')
-      else
-        value = number
-      end
-    elsif attribute == :location
-      if main
-        value = number.split('.')[0]
-      else
-        value = number.split('.')[1]
-      end
+      # if it's the first, just search on the first two numbers
+      return number.split('.')[0, 2].join('.') if main
+      return number
     end
+
+    return unless attribute == :location
+
+    # location
+    return number.split('.')[0] if main
+
+    number.split('.')[1]
   end
 
   def classes_for_sign_attribute(attribute, main)
