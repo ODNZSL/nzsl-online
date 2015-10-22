@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   before_action :find_or_create_vocab_sheet, :set_search_query, :footer_content
   respond_to :html, :json
 
-  def create
+  def create # rubocop:disable Metrics/AbcSize
     sign_id = params[:sign_id].to_i
     if @sheet.includes_sign?(sign_id: sign_id)
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
@@ -29,7 +29,7 @@ class ItemsController < ApplicationController
     end
   end
 
-  def update
+  def update # rubocop:disable Metrics/AbcSize
     @item = Item.find(params[:id])
     @item.name = params[:item][:name] if params[:item][:name]
     @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name]
@@ -47,8 +47,10 @@ class ItemsController < ApplicationController
     end
   end
 
-  def destroy
-    if @item = @sheet.items.find(params[:id]).destroy
+  def destroy # rubocop:disable Metrics/AbcSize
+    @item = @sheet.items.find(params[:id])
+
+    if @item.destroy
       if @sheet.items.length.zero?
         flash[:vocab_bar_notice] = t('vocab_sheet.delete_success')
       else

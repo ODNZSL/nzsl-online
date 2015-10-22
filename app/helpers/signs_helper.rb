@@ -1,5 +1,5 @@
 module SignsHelper
-  def render_grammar_notes(sign)
+  def render_grammar_notes(sign) # rubocop:disable MethodLength
     [:contains_numbers,
      :is_fingerspelling,
      :is_directional,
@@ -27,7 +27,7 @@ module SignsHelper
     end.join(' ').html_safe
   end
 
-  def render_back_to_search_results
+  def render_back_to_search_results # rubocop:disable Metrics/AbcSize
     return unless request.referer
 
     referer = URI(request.referer)

@@ -1,5 +1,5 @@
 module ClassifiersHelper
-  def classifiers
+  def classifiers # rubocop:disable Metrics/AbcSize, MethodLength
     {
       sass: [
         ['spot on face', classifier_image('SASS.spot_on_face')],

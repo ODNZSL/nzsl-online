@@ -1,5 +1,5 @@
 module NumbersHelper
-  def numbers
+  def numbers # rubocop:disable Metrics/AbcSize
     return @numbers if @numbers.present?
     @number_signs = {}
     Sign.all(tag: 29).each { |s| @number_signs[s.id.to_i] = s }
@@ -118,6 +118,10 @@ module NumbersHelper
   end
 
   def signs_from_array(array)
-    array.map { |v| [v[0], @number_signs[v[1]]] }.reject { |v| v[1].nil? }
+    signs = array.map do |v|
+      [v[0], @number_signs[v[1]]]
+    end
+
+    signs.reject { |v| v[1].nil? }
   end
 end
