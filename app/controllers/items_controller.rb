@@ -9,8 +9,10 @@ class ItemsController < ApplicationController
     else
       @item = Item.new
       @item.sign = Sign.first(id: sign_id)
+      @item.sign_id = sign_id
       @item.name = params[:name].to_s if params[:name]
       @item.maori_name = params[:maori_name].to_s if params[:maori_name]
+      @item.position = 1 # added at position one.
       if @item.valid?
         @sheet.items << @item
         flash[:notice] = t('vocab_sheet.item.add_success')
