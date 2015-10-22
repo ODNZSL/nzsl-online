@@ -2,13 +2,15 @@ module SearchHelper # rubocop:disable ModuleLength
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
-    return sign_attribute_image :handshape, number, main unless simple
-    sign_attribute_image_tag :handshape, number
+    return sign_attribute_image_tag :handshape, number if simple
+
+    sign_attribute_image :handshape, number, main
   end
 
   def location_image(number, main = false, in_menu = false, simple = false)
-    return sign_attribute_image :location, number, main, in_menu unless simple
-    sign_attribute_image_tag :location, number
+    return sign_attribute_image_tag :location, number if simple
+
+    sign_attribute_image :location, number, main, in_menu
   end
 
   def sign_attribute_image(attribute, number, main, in_menu = false)
