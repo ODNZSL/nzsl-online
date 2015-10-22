@@ -74,10 +74,10 @@ describe 'Sign' do
 
   it 'must not throw errors' do
     # call the classmethods
-    Sign.usage_tags
-    Sign.topic_tags
-    Sign.locations
-    Sign.location_groups
+    SignMenu.usage_tags
+    SignMenu.topic_tags
+    SignMenu.locations
+    SignMenu.location_groups
     # TODO: check returned result
   end
 end
