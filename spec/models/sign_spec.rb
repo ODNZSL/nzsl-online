@@ -71,5 +71,4 @@ describe 'Sign' do
     # we get at least one result
     expect(search_result.length).to be > 0
   end
-
 end
