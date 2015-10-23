@@ -42,8 +42,12 @@ class ApplicationController < ActionController::Base
   end
 
   def render_404
-    render template: "pages/#{@page.template}", status: 404 if @page == Page.find(Setting.get(:'404'))
-    render text: '404 - page not found', status: 404
+    @page = Page.find(Setting.get(:'404'))
+    if @page
+      render template: "pages/#{@page.template}", status: 404
+    else
+      render text: '404 - page not found', status: 404
+    end
   end
 
   def authenticate

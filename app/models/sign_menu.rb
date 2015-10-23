@@ -34,7 +34,11 @@ class SignMenu
      ['rare',      5]]
   end
 
+<<<<<<< HEAD
   def self.topic_tags # rubocop:disable Metrics/MethodLength
+=======
+  def self.topic_tags
+>>>>>>> origin/master
     [
       ['Actions and activities',                     5],
       ['Animals',                                    7],
