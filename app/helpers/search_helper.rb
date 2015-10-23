@@ -70,24 +70,24 @@ module SearchHelper
 
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    Sign.locations.flatten.select { |l| location_selected?(l) }.map { |l| location_image l, false, false, simple }.join(' ').html_safe unless @query[:l].blank?
+    SignMenu.locations.flatten.select { |l| location_selected?(l) }.map { |l| location_image l, false, false, simple }.join(' ').html_safe unless @query[:l].blank?
   end
 
   def display_handshapes_search_term(simple = false)
-    Sign.handshapes.flatten.flatten.select { |hs| handshape_selected?(hs) }.map { |hs| handshape_image hs, (hs.split('.').last == '1'), simple }.join(' ').html_safe unless @query[:hs].blank?
+    SignMenu.handshapes.flatten.flatten.select { |hs| handshape_selected?(hs) }.map { |hs| handshape_image hs, (hs.split('.').last == '1'), simple }.join(' ').html_safe unless @query[:hs].blank?
   end
 
   def display_location_groups_search_term(simple = false)
-    Sign.location_groups.select { |lg| location_group_selected?(lg) }.map { |lg| location_image lg, true, false, simple }.join(' ').html_safe unless @query[:lg].blank?
+    SignMenu.location_groups.select { |lg| location_group_selected?(lg) }.map { |lg| location_image lg, true, false, simple }.join(' ').html_safe unless @query[:lg].blank?
   end
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h Sign.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank?
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank?
   end
 
   def display_topic_tag_search_term
-    h Sign.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank?
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank?
   end
 
   def search_term(key)

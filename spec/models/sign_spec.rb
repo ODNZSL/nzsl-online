@@ -71,13 +71,4 @@ describe 'Sign' do
     # we get at least one result
     expect(search_result.length).to be > 0
   end
-
-  it 'must not throw errors' do
-    # call the classmethods
-    Sign.usage_tags
-    Sign.topic_tags
-    Sign.locations
-    Sign.location_groups
-    # TODO: check returned result
-  end
 end
