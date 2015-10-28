@@ -34,7 +34,7 @@ class SignMenu
      ['rare',      5]]
   end
 
-  def self.topic_tags
+  def self.topic_tags # rubocop:disable Metrics/MethodLength
     [
       ['Actions and activities',                     5],
       ['Animals',                                    7],
