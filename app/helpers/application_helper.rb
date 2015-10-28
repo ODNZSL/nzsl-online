@@ -57,9 +57,12 @@ module ApplicationHelper
   def print_stylesheet_tag(print)
     # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.
-    return stylesheet_link_tag('print', media: 'print') unless print
-
-    "#{stylesheet_link_tag('print', media: 'all')}#{stylesheet_link_tag('print_screen', media: 'screen')}".html_safe
+    if print
+      return "#{stylesheet_link_tag('print', media: 'all')}
+              #{stylesheet_link_tag('print_screen', media: 'screen')}".html_safe
+    else
+      return stylesheet_link_tag('print', media: 'print')
+    end
   end
 
   def print_javascripts_tag(print)
@@ -69,11 +72,10 @@ module ApplicationHelper
   end
 
   def video_translation(part)
-    content_tag :div, [
-      flow_video_tag(asset_path(part.translation_path), wrapper_class: 'translation_video main_video hidden_video'),
-      link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'),
-                  nil,
-                  class: 'translation_button')
-    ].join(' ').html_safe, class: 'videos clearfix_left'
+    content_tag :div, [flow_video_tag(asset_path(part.translation_path),
+                wrapper_class: 'translation_video main_video hidden_video'),
+                link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil,
+                class: 'translation_button')].join(' ').html_safe,
+                class: 'videos clearfix_left'
   end
 end
