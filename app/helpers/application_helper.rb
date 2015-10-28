@@ -55,9 +55,12 @@ module ApplicationHelper
   def print_stylesheet_tag(print)
     # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.
-    return stylesheet_link_tag('print', media: 'print') unless print
-
-    "#{stylesheet_link_tag('print', media: 'all')}#{stylesheet_link_tag('print_screen', media: 'screen')}".html_safe
+    if print
+      return "#{stylesheet_link_tag('print', media: 'all')}
+              #{stylesheet_link_tag('print_screen', media: 'screen')}".html_safe
+    else
+      return stylesheet_link_tag('print', media: 'print')
+    end
   end
 
   def print_javascripts_tag(print)
