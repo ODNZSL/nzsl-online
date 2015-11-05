@@ -22,8 +22,3 @@ Deploy to servers using Capistrana.
 ```
 	nzsld$ bundle exec cap deploy staging
 ```
-
-
-## Notes
-
-* The development application uses [mailcatcher](http://mailcatcher.me/) to intercept outgoing mail
