@@ -40,7 +40,7 @@ group :development, :test do
    gem 'pry-byebug'
    gem 'pry-rails'
    # gem 'debugger'
-   gem 'capistrano'
+   gem 'capistrano', '~> 2.14.2'
    gem 'capistrano-ext'
    gem 'simplecov', require: false
    gem 'rb-readline'
