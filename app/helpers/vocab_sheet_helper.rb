@@ -32,7 +32,8 @@ module VocabSheetHelper
   end
 
   def vocab_sheet_offset_multiple
-    @vocab_sheet_offset_height ||= ((950.to_f / (39 + vocab_sheet_item_height)).floor * @size) # 950 is the page height I'm apparently getting away with.
+    # 950 is the page height I'm apparently getting away with.
+    @vocab_sheet_offset_height ||= ((950.to_f / (39 + vocab_sheet_item_height)).floor * @size)
   end
 
   def vocab_sheet_pages

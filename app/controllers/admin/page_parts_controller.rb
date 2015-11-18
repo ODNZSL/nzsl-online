@@ -2,6 +2,7 @@ class Admin
   class PagePartsController < ApplicationController
     before_action :authenticate, :fetch_page, :set_title
     before_action :fetch_page_part, only: [:edit, :show, :update, :destroy]
+    layout 'admin'
     def index
       @page_parts = @page.page_parts
     end
