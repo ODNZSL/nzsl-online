@@ -1,4 +1,4 @@
-module NumbersHelper # rubocop:disable Metrics/ModuleLength
+module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
     return @numbers if @numbers.present?
     @number_signs = {}
