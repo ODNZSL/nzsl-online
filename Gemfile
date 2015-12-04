@@ -38,7 +38,6 @@ group :development, :test do
   # for debugging
   gem 'pry-byebug'
   gem 'pry-rails'
-  # gem 'debugger'
   gem 'capistrano', '~> 2.14.2'
   gem 'capistrano-ext'
   gem 'simplecov', require: false
