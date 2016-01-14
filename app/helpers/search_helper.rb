@@ -2,25 +2,27 @@ module SearchHelper # rubocop:disable ModuleLength
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
-    return sign_attribute_image :handshape, number, main unless simple
-    sign_attribute_image_tag :handshape, number
+    return sign_attribute_image_tag :handshape, number if simple
+
+    sign_attribute_image :handshape, number, main
   end
 
   def location_image(number, main = false, in_menu = false, simple = false)
-    return sign_attribute_image :location, number, main, in_menu unless simple
-    sign_attribute_image_tag :location, number
+    return sign_attribute_image_tag :location, number if simple
+
+    sign_attribute_image :location, number, main, in_menu
   end
 
   def sign_attribute_image(attribute, number, main, in_menu = false)
-    if number
-      size = (attribute == :location && in_menu) ? '72' : '42'
-      output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
-        [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-         image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe
-      end
-      output << number.split('.').last if attribute == :location && in_menu
-      output
+    return unless number
+
+    size = (attribute == :location && in_menu) ? '72' : '42'
+    output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
+      [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
+       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe
     end
+    output << number.split('.').last if attribute == :location && in_menu
+    output
   end
 
   def sign_attribute_image_tag(attribute, number)
@@ -35,12 +37,13 @@ module SearchHelper # rubocop:disable ModuleLength
   # Sign Attribute is Selected?
 
   def handshape_selected?(shape)
-    if @query[:hs].present?
-      query_hs = @query[:hs]
-      # if it's the first, the search is just on the first two numbers
-      query_hs = @query[:hs].map { |q| "#{q}.1" } if shape.split('.').last == '1'
-      'selected' if query_hs.include?(shape)
-    end
+    return unless @query[:hs].present?
+    query_hs = @query[:hs]
+
+    # if it's the first, the search is just on the first two numbers
+    query_hs = @query[:hs].map { |q| "#{q}.1" } if shape.split('.').last == '1'
+
+    'selected' if query_hs.include?(shape)
   end
 
   def location_selected?(location)
