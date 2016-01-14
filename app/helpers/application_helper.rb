@@ -70,10 +70,13 @@ module ApplicationHelper
   end
 
   def video_translation(part)
+    link_text = (part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page')
     content_tag :div, [flow_video_tag(asset_path(part.translation_path),
-                wrapper_class: 'translation_video main_video hidden_video'),
-                link_button((part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil,
-                class: 'translation_button')].join(' ').html_safe,
+                                      wrapper_class: 'translation_video main_video hidden_video'),
+                       link_button(link_text,
+                                   nil,
+                                   class: 'translation_button')
+                      ].join(' ').html_safe,
                 class: 'videos clearfix_left'
   end
 end
