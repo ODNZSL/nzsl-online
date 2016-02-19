@@ -7,4 +7,7 @@
 #   Mayor.create(:name => 'Daley', :city => cities.first)
 
 not_found_page = Page.create!(title: 'Page not found', template: 'home')
-Setting.create!(key: "404", value: not_found_.id)
+Setting.create!(key: :"404", value: not_found_page.id)
+
+help_page = Page.create!(title: "Help page", template: 'standard')
+Setting.create!(key: "help", value: help_page.id)
