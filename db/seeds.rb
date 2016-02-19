@@ -5,3 +5,6 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+not_found_page = Page.create!(title: 'Page not found', template: 'home')
+Setting.create!(key: "404", value: not_found_.id)
