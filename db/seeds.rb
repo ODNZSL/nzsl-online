@@ -5,3 +5,12 @@
 #
 #   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
 #   Mayor.create(:name => 'Daley', :city => cities.first)
+
+not_found_page = Page.create!(title: 'Page not found', template: 'home')
+Setting.create!(key: :"404", value: not_found_page.id)
+
+help_page = Page.create!(title: "Help page", template: 'standard')
+Setting.create!(key: "help", value: help_page.id)
+
+glossary_page = Page.create!(title: "Glossary", template: 'standard')
+Setting.create!(key: "glossary", value: glossary_page.id)
