@@ -23,8 +23,10 @@ module ApplicationHelper
     options.symbolize_keys!
 
     wrapper_class = "video_replace #{options.delete(:wrapper_class)}"
-    content_tag(:a, nil, href: source, class: wrapper_class,
-      data: { loop: !!options[:loop] })
+    content_tag(:a, nil,
+                href: source,
+                class: wrapper_class,
+                data: { loop: options[:loop] })
   end
 
   def submit_button(text = 'search.submit', options = {})
