@@ -10,7 +10,7 @@ NzslOnline::Application.routes.draw do
         end
       end
     end
-    resource :settings, except: [:destroy, :create]
+    resource :settings, except: [:destroy, :create, :new]
   end
   get '/admin', to: redirect('/admin/pages')
 
