@@ -45,6 +45,9 @@ group :development, :test do
 
   # catches email sending, and logs instead
   gem 'letter_opener'
+
+  # scans code for silly mistakes
+  gem 'brakeman'
 end
 
 group :staging, :production do
