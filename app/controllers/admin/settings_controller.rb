@@ -1,4 +1,4 @@
-class Admin::SettingsController < ApplicationController
+class Admin::SettingsController < ApplicationController # rubocop:disable Style/ClassAndModuleChildren
   layout 'admin'
   before_action :authenticate, :set_title
 

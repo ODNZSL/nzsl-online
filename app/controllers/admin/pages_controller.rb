@@ -1,4 +1,4 @@
-class Admin::PagesController < ApplicationController
+class Admin::PagesController < ApplicationController # rubocop:disable Style/ClassAndModuleChildren
   before_action :fetch_page, only: [:edit, :update, :destroy]
   before_action :set_title, :authenticate
   layout 'admin'
