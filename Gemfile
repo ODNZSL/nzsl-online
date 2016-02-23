@@ -51,6 +51,12 @@ group :development, :test do
 
   #reruns the specs on code change
   gem 'rerun'
+
+  # factories
+  gem 'factory_girl_rails'
+
+  # For real looking data in tests
+  gem 'faker'
 end
 
 group :staging, :production do
