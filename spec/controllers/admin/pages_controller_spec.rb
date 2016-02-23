@@ -6,7 +6,7 @@ RSpec.describe Admin::PagesController, type: :controller do
 
   let(:page) { FactoryGirl.create(:page) }
   let(:valid_page_params) do
-    { title: "updated page title" }
+    { title: 'updated page title' }
   end
 
   before { NZSL_ADMIN_ACCESS[username] = Digest::SHA1.hexdigest(password) }
@@ -32,7 +32,7 @@ RSpec.describe Admin::PagesController, type: :controller do
       end
       it { expect(response).to redirect_to(admin_pages_url) }
       it { expect(assigns(:page)).to eq(page) }
-      it "updates the page" do
+      it 'updates the page' do
         page.reload
         expect(page.title).to eq(valid_page_params[:title])
       end
