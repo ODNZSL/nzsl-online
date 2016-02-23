@@ -25,6 +25,11 @@ RSpec.describe Admin::PagesController, type: :controller do
       it { expect(response).to have_http_status(:success) }
       it { expect(response).to render_template(:edit) }
     end
+
+    describe '#update' do
+      before { patch :update, id: page.to_param, page: valid_page_params }
+      it { expect(response).to redirect_to(admin_pages_url) }
+    end
   end
 
   context 'Not logged in' do
