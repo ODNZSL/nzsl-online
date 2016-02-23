@@ -34,9 +34,21 @@ RSpec.describe Admin::SettingsController, type: :controller do
   context "when HTTP auth credentials are good" do
     before do
       basic_auth 'test', 'test'
-      get :show
     end
-    it { expect(response).to have_http_status(:success) }
-    it { expect(response).to render_template(:show) }
+    describe 'GET #show' do
+      before do
+        get :show
+      end
+      it { expect(response).to have_http_status(:redirect) }
+    end
+
+    describe 'GET #edit' do
+      before do
+        get :edit
+      end
+      it { expect(response).to have_http_status(:success) }
+      it { expect(response).to render_template(:edit) }
+    end
+
   end
 end
