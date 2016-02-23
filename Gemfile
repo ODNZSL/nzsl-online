@@ -48,6 +48,9 @@ group :development, :test do
 
   # scans code for silly mistakes
   gem 'brakeman'
+
+  #reruns the specs on code change
+  gem 'rerun'
 end
 
 group :staging, :production do
