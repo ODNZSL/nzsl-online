@@ -27,8 +27,15 @@ RSpec.describe Admin::PagesController, type: :controller do
     end
 
     describe '#update' do
-      before { patch :update, id: page.to_param, page: valid_page_params }
+      before do
+        patch :update, id: page.to_param, page: valid_page_params
+      end
       it { expect(response).to redirect_to(admin_pages_url) }
+      it { expect(assigns(:page)).to eq(page) }
+      it "updates the page" do
+        page.reload
+        expect(page.title).to eq(valid_page_params[:title])
+      end
     end
   end
 
