@@ -7,7 +7,9 @@ RSpec.describe Admin::SettingsController, type: :controller do
 
   let(:setting) { FactoryGirl.create(:setting) }
   let(:valid_params) do
-    { "#{setting.key}": 'newvalue' }
+    params = {}
+    params[setting.key] = 'newvalue'
+    params
   end
   context 'when HTTP auth credentials are good' do
     before do
