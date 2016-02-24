@@ -30,7 +30,7 @@ RSpec.describe Admin::SettingsController, type: :controller do
 
     describe '#update' do
       before { patch :update, settings: valid_params }
-      it { expect(response).to have_http_status(:success) }
+      it { expect(response).to have_http_status(302) }
       it 'updates the setting' do
         setting.reload
         expect(setting.value).to eq('newvalue')
