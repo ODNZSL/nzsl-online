@@ -13,7 +13,7 @@ class Admin::SettingsController < ApplicationController # rubocop:disable Style/
     if Setting.update_all(params[:settings])
       flash[:notice] = 'Settings were successfully saved.'
     end
-    render :edit
+    redirect_to edit_admin_settings_path
   end
 
   private
