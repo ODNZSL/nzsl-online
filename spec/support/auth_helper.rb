@@ -1,4 +1,3 @@
-NZSL_ADMIN_ACCESS = {} unless NZSL_ADMIN_ACCESS
 module SpecHelpers
   module AuthHelper
     def basic_auth(user, password)
