@@ -6,26 +6,19 @@ RSpec.describe Admin::SettingsController, type: :controller do
   before { NZSL_ADMIN_ACCESS[username] = Digest::SHA1.hexdigest(password) }
 
   let(:setting) { FactoryGirl.create(:setting) }
-  let(:valid_params) do
-    params = {}
-    params[setting.key] = 'newvalue'
-    params
-  end
+  let(:valid_params) { { setting.key => 'newvalue' } }
+
   context 'when HTTP auth credentials are good' do
     before do
       basic_auth 'test', 'test'
     end
     describe 'GET #show' do
-      before do
-        get :show
-      end
+      before { get :show }
       it { expect(response).to have_http_status(:redirect) }
     end
 
     describe 'GET #edit' do
-      before do
-        get :edit
-      end
+      before { get :edit }
       it { expect(response).to have_http_status(:success) }
       it { expect(response).to render_template(:edit) }
     end
