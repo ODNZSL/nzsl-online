@@ -1,4 +1,4 @@
-(function(){
+$( document ).ready(function() {
   var setup_vocab_sheet_page = function(){
     // reorder vocab sheet items
     if ($('ul#vocab_sheet').length){
@@ -25,7 +25,6 @@
         }
       };
 
-      // change the name of vocab sheet items
       var submit_vocab_item_names = function(input){
         var form = input.closest('form');
         var item_name =       form.children('.item_name');
@@ -80,4 +79,4 @@
   };
 
   setup_vocab_sheet_page();
-})();
+});
