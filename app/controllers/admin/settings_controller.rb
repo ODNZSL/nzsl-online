@@ -24,7 +24,7 @@ module Admin
     end
 
     def settings_params
-      params.require(:settings)
+      params.require(:settings).permit('help', 'glossary', '404', 'footer')
     end
   end
 end
