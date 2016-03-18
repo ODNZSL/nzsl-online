@@ -103,7 +103,7 @@ GEM
     method_source (0.8.2)
     mime-types (2.99.1)
     mimemagic (0.3.0)
-    mini_magick (3.4)
+    mini_magick (3.6.0)
       subexec (~> 0.2.1)
     mini_portile2 (2.0.0)
     minitest (5.8.4)
@@ -250,7 +250,7 @@ DEPENDENCIES
   jquery-ui-rails
   letter_opener
   mail
-  mini_magick (~> 3.4.0)
+  mini_magick (~> 3.6.0)
   modernizr-rails
   nokogiri
   paperclip
