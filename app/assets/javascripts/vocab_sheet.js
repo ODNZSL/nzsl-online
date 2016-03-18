@@ -25,6 +25,7 @@ $( document ).ready(function() {
         }
       };
 
+      // change the name of vocab sheet items
       var submit_vocab_item_names = function(input){
         var form = input.closest('form');
         var item_name =       form.children('.item_name');
