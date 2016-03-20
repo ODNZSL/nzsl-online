@@ -2,7 +2,7 @@
 
 FactoryGirl.define do
   factory :setting do
-    key { Faker::App.name }
+    key { 'help' }
     value { Faker::App.version }
   end
 end
