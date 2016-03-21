@@ -3,17 +3,20 @@ class SignImageController < ApplicationController
     @local_filename = ImageProcessor.new(filename: filename_param,
                                          height: height_param,
                                          width: width_param).resize_and_cache
-
     send_file(@local_filename,
               type: 'image/png',
               disposition: 'attachment',
               filename: filename_param)
+  rescue OpenURI::HTTPError
+    return head(:not_found)
+  rescue RuntimeError
+    return head(:forbidden)
   end
 
   private
 
   def filename_param
-    sign_image_params[:filename] if %r{^[\d]+\/[a-zA-z\-0-9]+\.png$}.match(sign_image_params[:filename])
+    return sign_image_params[:filename] if %r{^[\d]+\/[a-zA-z\-0-9]+\.png$}.match(sign_image_params[:filename])
     fail 'Invalid filename'
   end
 
