@@ -1,0 +1,63 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Weak Hash",
+      "warning_code": 90,
+      "fingerprint": "60c3202f13c9de4ef218b3e94c28e13b419995bdcd7859c787554179400a3c48",
+      "message": "Weak hashing algorithm (SHA1) used",
+      "file": "app/controllers/application_controller.rb",
+      "line": 55,
+      "link": "http://brakemanscanner.org/docs/warning_types/weak_hash/",
+      "code": "Digest::SHA1.hexdigest(password)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "ApplicationController",
+        "method": "authenticate"
+      },
+      "user_input": "password",
+      "confidence": "High",
+      "note": ""
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "70bb58c94fb2f7c9bf34ef37cd4578392226115a4ea739a7bbaa5ee077891e61",
+      "message": "Model attribute used in file name",
+      "file": "app/controllers/sign_image_controller.rb",
+      "line": 6,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(ImageProcessor.new(:filename => filename_param, :height => height_param, :width => width_param).resize_and_cache, :type => \"image/png\", :disposition => \"attachment\", :filename => filename_param)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SignImageController",
+        "method": "show"
+      },
+      "user_input": "ImageProcessor.new(:filename => filename_param, :height => height_param, :width => width_param).resize_and_cache",
+      "confidence": "Medium",
+      "note": ""
+    },
+    {
+      "warning_type": "File Access",
+      "warning_code": 16,
+      "fingerprint": "be8fd0d547f415242d54614684da6c42fa88c1a8cfbe7a049b780360a3c05dd1",
+      "message": "Model attribute used in file name",
+      "file": "app/controllers/sign_image_controller.rb",
+      "line": 7,
+      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
+      "code": "send_file(ImageProcessor.new(:filename => filename_param, :height => height_param, :width => width_param).resize_and_cache, :type => \"image/png\", :disposition => \"inline\", :filename => filename_param)",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "SignImageController",
+        "method": "show"
+      },
+      "user_input": "ImageProcessor.new(:filename => filename_param, :height => height_param, :width => width_param).resize_and_cache",
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2016-04-15 01:43:43 +0000",
+  "brakeman_version": "3.2.1"
+}
