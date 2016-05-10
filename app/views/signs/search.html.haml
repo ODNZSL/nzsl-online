@@ -22,10 +22,6 @@
               .videos
                 = flow_video_tag result.video, wrapper_class: "search_result_video normal", loop: true
 
-                - if result.video_slow.present?
-                  = flow_video_tag result.video_slow, wrapper_class: "search_result_video slow"
-                  = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
-                  = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
               = link_to sign_url(result.id), {:class => 'main_gloss js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                 = result.gloss_main
               - if result.gloss_maori
