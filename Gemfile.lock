@@ -103,7 +103,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
     mimemagic (0.3.0)
-    mini_magick (3.4)
+    mini_magick (3.6.0)
       subexec (~> 0.2.1)
     mini_portile2 (2.0.0)
     minitest (5.9.0)
@@ -248,7 +248,7 @@ DEPENDENCIES
   jquery-ui-rails
   letter_opener
   mail
-  mini_magick (~> 3.4.0)
+  mini_magick (~> 3.6.0)
   modernizr-rails
   nokogiri
   paperclip
@@ -269,4 +269,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.10.6
+   1.12.4
