@@ -1,4 +1,4 @@
-(function(){
+$( document ).ready(function() {
   var setup_vocab_sheet_page = function(){
     // reorder vocab sheet items
     if ($('ul#vocab_sheet').length){
@@ -80,4 +80,4 @@
   };
 
   setup_vocab_sheet_page();
-})();
+});
