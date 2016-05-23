@@ -1,6 +1,24 @@
 {
   "ignored_warnings": [
     {
+      "warning_type": "Cross Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "2ca8c36a9fa138ec824356b3de7017ad76ffb53b165efa336cd07d99a8f1759f",
+      "message": "Unescaped model attribute",
+      "file": "app/views/shared/_footer.html.haml",
+      "line": 4,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Page.in_nav.map do\n render_navigation_link(link)\n end.join(\" | \")",
+      "render_path": [{"type":"controller","class":"ApplicationController","method":"footer_content","line":42,"file":"app/controllers/application_controller.rb"},{"type":"template","name":"layouts/application","line":33,"file":"app/views/layouts/application.html.haml"}],
+      "location": {
+        "type": "template",
+        "template": "shared/_footer"
+      },
+      "user_input": "Page.in_nav.map",
+      "confidence": "Weak",
+      "note": ""
+    },
+    {
       "warning_type": "Weak Hash",
       "warning_code": 90,
       "fingerprint": "60c3202f13c9de4ef218b3e94c28e13b419995bdcd7859c787554179400a3c48",
@@ -76,6 +94,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-05-23 12:35:30 +1200",
+  "updated": "2016-05-24 10:37:59 +1200",
   "brakeman_version": "3.3.0"
 }
