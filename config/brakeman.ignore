@@ -39,6 +39,24 @@
       "note": ""
     },
     {
+      "warning_type": "Cross Site Scripting",
+      "warning_code": 2,
+      "fingerprint": "78b5ce358c1326783992ee40028ea95f50cebf7414d86624905ae3ed4413ea41",
+      "message": "Unescaped model attribute",
+      "file": "app/views/shared/_footer.html.haml",
+      "line": 9,
+      "link": "http://brakemanscanner.org/docs/warning_types/cross_site_scripting",
+      "code": "Page.find(Setting.get(:footer)).first_part.body",
+      "render_path": [{"type":"controller","class":"ApplicationController","method":"footer_content","line":42,"file":"app/controllers/application_controller.rb"},{"type":"template","name":"layouts/application","line":33,"file":"app/views/layouts/application.html.haml"}],
+      "location": {
+        "type": "template",
+        "template": "shared/_footer"
+      },
+      "user_input": null,
+      "confidence": "High",
+      "note": ""
+    },
+    {
       "warning_type": "File Access",
       "warning_code": 16,
       "fingerprint": "be8fd0d547f415242d54614684da6c42fa88c1a8cfbe7a049b780360a3c05dd1",
@@ -58,6 +76,6 @@
       "note": ""
     }
   ],
-  "updated": "2016-04-15 01:43:43 +0000",
-  "brakeman_version": "3.2.1"
+  "updated": "2016-05-23 12:35:30 +1200",
+  "brakeman_version": "3.3.0"
 }
