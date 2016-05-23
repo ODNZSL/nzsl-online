@@ -51,7 +51,7 @@ module Admin
     private
 
     def fetch_page_part
-      @page_part = PagePart.find(params[:id])
+      @page_part = @page.page_parts.find(params[:id])
     end
 
     def fetch_page
