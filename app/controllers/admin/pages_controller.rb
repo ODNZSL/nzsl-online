@@ -1,4 +1,4 @@
-class Admin
+module Admin
   class PagesController < ApplicationController
     before_action :fetch_page, only: [:edit, :update, :destroy]
     before_action :set_title, :authenticate

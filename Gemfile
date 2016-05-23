@@ -45,6 +45,18 @@ group :development, :test do
 
   # catches email sending, and logs instead
   gem 'letter_opener'
+
+  # scans code for silly mistakes
+  gem 'brakeman'
+
+  #reruns the specs on code change
+  gem 'rerun'
+
+  # factories
+  gem 'factory_girl_rails'
+
+  # For real looking data in tests
+  gem 'faker'
 end
 
 group :staging, :production do
