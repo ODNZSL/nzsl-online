@@ -1,7 +1,7 @@
 %footer{:class => (last ? 'sticky_footer footer' : 'print_footer footer')}
   .center
     .nav
-      = Page.in_nav.map { |link| render_navigation_link(link) }.join(' | ').html_safe
+      = Page.in_nav.map { |link| render_navigation_link(link) }.join(' | ')
     .main_column
       .copyright
         - if @footer && @footer.first_part

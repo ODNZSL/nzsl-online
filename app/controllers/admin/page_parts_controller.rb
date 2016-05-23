@@ -1,4 +1,4 @@
-class Admin
+module Admin
   class PagePartsController < ApplicationController
     before_action :authenticate, :fetch_page, :set_title
     before_action :fetch_page_part, only: [:edit, :show, :update, :destroy]
@@ -51,7 +51,7 @@ class Admin
     private
 
     def fetch_page_part
-      @page_part = PagePart.find(params[:id])
+      @page_part = @page.page_parts.find(params[:id])
     end
 
     def fetch_page

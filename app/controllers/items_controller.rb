@@ -30,7 +30,7 @@ class ItemsController < ApplicationController
   end
 
   def update # rubocop:disable Metrics/AbcSize
-    @item = Item.find(params[:id])
+    @item = @sheet.items.find(params[:id])
     @item.name = params[:item][:name] if params[:item][:name]
     @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name]
     if @item.save

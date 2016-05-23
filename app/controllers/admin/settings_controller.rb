@@ -1,4 +1,4 @@
-class Admin
+module Admin
   class SettingsController < ApplicationController
     layout 'admin'
     before_action :authenticate, :set_title
@@ -11,10 +11,10 @@ class Admin
     end
 
     def update
-      if Setting.update_all(params[:settings])
+      if Setting.update_all(settings_params)
         flash[:notice] = 'Settings were successfully saved.'
       end
-      render :edit
+      redirect_to edit_admin_settings_path
     end
 
     private
@@ -24,7 +24,7 @@ class Admin
     end
 
     def settings_params
-      params.require(:settings).permit(:key, :value)
+      params.require(:settings).permit('help', 'glossary', '404', 'footer')
     end
   end
 end
