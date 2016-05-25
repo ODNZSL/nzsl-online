@@ -8,6 +8,9 @@ set :branch, 'master'
 set :whenever_command, "#{try_sudo} whenever --user root"
 set :whenever_command, 'whenever'
 
+require 'capistrano-rbenv'
+set :rbenv_ruby_version, '2.2.3'
+
 # Your HTTP server, Apache/etc
 role :web, 'vuwunicosldedp3.ods.vuw.ac.nz'
 

@@ -52,6 +52,11 @@ GEM
       net-ssh-gateway (>= 1.1.0)
     capistrano-ext (1.2.1)
       capistrano (>= 1.0.0)
+    capistrano-platform-resources (0.1.3)
+      capistrano (< 3)
+    capistrano-rbenv (1.0.5)
+      capistrano (< 3)
+      capistrano-platform-resources (>= 0.1.3)
     chronic (0.10.2)
     ckeditor_rails (4.5.3)
       railties (>= 3.0)
@@ -258,6 +263,7 @@ DEPENDENCIES
   brakeman
   capistrano (~> 2.14.2)
   capistrano-ext
+  capistrano-rbenv
   ckeditor_rails
   coffee-rails
   factory_girl_rails
@@ -290,6 +296,9 @@ DEPENDENCIES
   uglifier
   unicorn
   whenever
+
+RUBY VERSION
+   ruby 2.2.3p173
 
 BUNDLED WITH
    1.12.4

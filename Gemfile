@@ -1,7 +1,5 @@
 source 'https://rubygems.org'
 
-ruby '2.2.3' # see also .ruby_version
-
 gem 'rails', '4.2.6'
 gem 'haml'
 gem 'nokogiri'
@@ -37,6 +35,7 @@ group :development, :test do
   gem 'pry-rails'
   gem 'capistrano', '~> 2.14.2'
   gem 'capistrano-ext'
+  gem 'capistrano-rbenv'
   gem 'simplecov', require: false
   gem 'rb-readline'
 
