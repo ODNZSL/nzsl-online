@@ -1,5 +1,7 @@
 source 'https://rubygems.org'
 
+ruby '2.2.3' # see also .ruby_version
+
 gem 'rails', '4.2.6'
 gem 'haml'
 gem 'nokogiri'
