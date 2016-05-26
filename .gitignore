@@ -20,5 +20,3 @@ public/assets
 *.swp
 
 coverage/*
-
-config/secrets.yml
