@@ -58,6 +58,12 @@ namespace :rabid do
     run_locally('rm -rf public/assets/*')
     # this precompile task is done in production env to ensure that the assets have the digests on them
     run_locally('bundle exec rake assets:precompile RAILS_ENV=production')
+
+    # workaround for assumption that the small images have the same hash as the large
+    run_locally('cd public/assets/images/locations/ &&
+                for f in 72/*; do FILENAME=`basename $f .png`; HASH=${FILENAME##*-};
+                START=${FILENAME%-*}; cp `ls 42/$START*` 42/$START-$HASH.png; done;')
+
     run_locally('touch assets.tgz && rm assets.tgz')
     run_locally("#{copy_local_tar} zcvf assets.tgz public/assets/")
     run_locally('mv assets.tgz public/assets/')
