@@ -60,7 +60,7 @@ namespace :rabid do
     run_locally('bundle exec rake assets:precompile RAILS_ENV=production')
 
     # workaround for assumption that the small images have the same hash as the large
-    run_locally('cd public/assets/images/locations/ &&
+    run_locally('cd public/assets/locations/ &&
                 for f in 72/*; do FILENAME=`basename $f .png`; HASH=${FILENAME##*-};
                 START=${FILENAME%-*}; cp `ls 42/$START*` 42/$START-$HASH.png; done;')
 
