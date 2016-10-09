@@ -11,6 +11,7 @@ pipelines:
           - bundle install
           - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
           - cp config/secrets.codeship.yml config/secrets.yml
+          - cp config/database.yml.sample config/database.yml
           - RAILS_ENV=test bundle exec rake db:schema:load
           - echo "require 'digest/sha1'" > config/initializers/access.rb
           - echo "NZSL_ADMIN_ACCESS = { 'text' => Digest::SHA1.hexdigest('test') }" >> config/initializers/access.rb
