@@ -73,25 +73,6 @@
       "user_input": null,
       "confidence": "High",
       "note": ""
-    },
-    {
-      "warning_type": "File Access",
-      "warning_code": 16,
-      "fingerprint": "be8fd0d547f415242d54614684da6c42fa88c1a8cfbe7a049b780360a3c05dd1",
-      "message": "Model attribute used in file name",
-      "file": "app/controllers/sign_image_controller.rb",
-      "line": 7,
-      "link": "http://brakemanscanner.org/docs/warning_types/file_access/",
-      "code": "send_file(ImageProcessor.new(:filename => filename_param, :height => height_param, :width => width_param).resize_and_cache, :type => \"image/png\", :disposition => \"inline\", :filename => filename_param)",
-      "render_path": null,
-      "location": {
-        "type": "method",
-        "class": "SignImageController",
-        "method": "show"
-      },
-      "user_input": "ImageProcessor.new(:filename => filename_param, :height => height_param, :width => width_param).resize_and_cache",
-      "confidence": "Medium",
-      "note": ""
     }
   ],
   "updated": "2016-05-24 10:37:59 +1200",
