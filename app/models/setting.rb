@@ -10,4 +10,16 @@ class Setting < ActiveRecord::Base
     setting = find_by_key(key.to_s)
     setting.value if setting
   end
+
+  def self.create_from_csv(row)
+    id, key, value, created_at, updated_at = row
+
+    Setting.create!(
+      id: id,
+      key: key,
+      value: value,
+      updated_at: updated_at,
+      created_at: created_at
+    )
+  end
 end

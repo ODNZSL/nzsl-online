@@ -27,5 +27,20 @@ def load_page_parts
   Rails.logger.info 'Finished loading page parts'
 end
 
+def load_settings
+  Setting.transaction do
+    source_path = Rails.root.join('db', 'seeds')
+    Dir.glob("#{source_path}/settings.csv").each do |settings_file|
+      Rails.logger.info "Loading page parts from #{settings_file}..."
+      CSV.foreach(settings_file) do |row|
+        setting = Setting.create_from_csv(row)
+        Rails.logger.info "\tCreated #{setting.slug} setting"
+      end
+    end
+  end
+  Rails.logger.info 'Finished loading settings'
+end
+
 load_pages
 load_page_parts
+load_settings
