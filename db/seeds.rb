@@ -34,7 +34,7 @@ def load_settings
       Rails.logger.info "Loading page parts from #{settings_file}..."
       CSV.foreach(settings_file) do |row|
         setting = Setting.create_from_csv(row)
-        Rails.logger.info "\tCreated #{setting.slug} setting"
+        Rails.logger.info "\tCreated #{setting.key} setting"
       end
     end
   end
