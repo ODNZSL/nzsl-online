@@ -1,16 +1,31 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ :name => 'Chicago' }, { :name => 'Copenhagen' }])
-#   Mayor.create(:name => 'Daley', :city => cities.first)
+require 'csv'
+def load_pages
+  Page.transaction do
+    source_path = Rails.root.join('db', 'seeds')
+    Dir.glob("#{source_path}/pages.csv").each do |pages_file|
+      Rails.logger.info "Loading pages from #{pages_file}..."
+      CSV.foreach(pages_file) do |row|
+        page = Page.create_from_csv(row)
+        Rails.logger.info "\tCreated #{page.slug} page"
+      end
+    end
+  end
+  Rails.logger.info 'Finished loading pages'
+end
 
-not_found_page = Page.create!(title: 'Page not found', template: 'home')
-Setting.create!(key: :"404", value: not_found_page.id)
+def load_page_parts
+  PagePart.transaction do
+    source_path = Rails.root.join('db', 'seeds')
+    Dir.glob("#{source_path}/page_parts.csv").each do |page_parts_file|
+      Rails.logger.info "Loading page parts from #{page_parts_file}..."
+      CSV.foreach(page_parts_file) do |row|
+        page_part = PagePart.create_from_csv(row)
+        Rails.logger.info "\tCreated #{page_part.slug} page_part"
+      end
+    end
+  end
+  Rails.logger.info 'Finished loading page parts'
+end
 
-help_page = Page.create!(title: 'Help page', template: 'standard')
-Setting.create!(key: 'help', value: help_page.id)
-
-glossary_page = Page.create!(title: 'Glossary', template: 'standard')
-Setting.create!(key: 'glossary', value: glossary_page.id)
+load_pages
+load_page_parts
