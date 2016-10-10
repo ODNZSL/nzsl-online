@@ -54,21 +54,31 @@ module SearchHelper # rubocop:disable ModuleLength
     'selected' if @query[:lg].present? && @query[:lg].include?(location_group.split('.')[0])
   end
 
-  def tab_class(*classes) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
-    if params[:tab].present? && classes.include?(params[:tab].to_sym)
-      selected = true
-    elsif params[:tab].blank?
-      keys = @query.select { |_k, v| v.present? }.keys
-      if %w(tag usage).any? { |k| keys.include?(k) } || (keys.include?('s') && keys.length > 1)
-        selected = classes.include?(:advanced)
-      elsif %w(hs l lg).any? { |k| keys.include?(k) }
-        selected = classes.include?(:signs)
-      else
-        selected = classes.include?(:keywords)
-      end
+  def tab_class(*classes)
+    if params['tab'].blank?
+      selected = tab_selected?(classes)
+    else
+      tab = params['tab'][0..20]
+      # note: comparing as a string, to avoid a DOS ruby bug
+      # see http://brakemanscanner.org/docs/warning_types/denial_of_service/
+      selected = true if classes.map(&:to_s).include?(tab)
     end
+
     classes << (selected ? :selected : '')
     classes.join(' ')
+  end
+
+  def tab_selected?(classes)
+    keys = @query.select { |_k, v| v.present? }.keys
+    if %w(tag usage).any? { |k| keys.include?(k) } || (keys.include?('s') && keys.length > 1)
+      selected = classes.include?(:advanced)
+    elsif %w(hs l lg).any? { |k| keys.include?(k) }
+      selected = classes.include?(:signs)
+    else
+      selected = classes.include?(:keywords)
+    end
+
+    selected
   end
 
   def display_locations_search_term(simple = false)
