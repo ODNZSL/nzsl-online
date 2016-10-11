@@ -53,6 +53,22 @@ class Page < ActiveRecord::Base
       "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
   end
 
+  def self.create_from_csv(row)
+    id, title, slug, label, order, template, show_in_nav, created_at, updated_at = row
+
+    Page.create!(
+      id: id,
+      title: title,
+      slug: slug,
+      label: label,
+      order: order,
+      template: template,
+      show_in_nav: show_in_nav,
+      updated_at: updated_at,
+      created_at: created_at
+    )
+  end
+
   private
 
   def strip_text
