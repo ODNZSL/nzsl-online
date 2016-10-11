@@ -13,6 +13,21 @@ class PagePart < ActiveRecord::Base
     title.downcase.dasherize
   end
 
+  def self.create_from_csv(row)
+    id, title, order, body, translation_path, page_id, created_at, updated_at = row
+
+    PagePart.create!(
+      id: id,
+      title: title,
+      order: order,
+      body: body,
+      translation_path: translation_path,
+      page_id: page_id,
+      created_at: created_at,
+      updated_at: updated_at
+    )
+  end
+
   private
 
   def strip_text
