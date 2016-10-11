@@ -55,13 +55,12 @@ module SearchHelper # rubocop:disable ModuleLength
   end
 
   def tab_class(*classes)
-    if params['tab'].blank?
+    if params[:tab].blank?
       selected = tab_selected?(classes)
     else
-      tab = params['tab'][0..20]
       # note: comparing as a string, to avoid a DOS ruby bug
       # see http://brakemanscanner.org/docs/warning_types/denial_of_service/
-      selected = true if classes.map(&:to_s).include?(tab)
+      selected = true if classes.map(&:to_s).include?(params[:tab])
     end
 
     classes << (selected ? :selected : '')
