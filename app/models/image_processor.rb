@@ -13,7 +13,7 @@ class ImageProcessor
   end
 
   def resize_and_cache
-    return @local_filename if File.exist?(@local_filename)
+    return @local_filename if local_file_exists && local_file_age_in_days < 1
 
     image = MiniMagick::Image.open(@remote_filename)
     image.shave CROP_IMAGES_BY if CROP_IMAGES
@@ -31,6 +31,14 @@ class ImageProcessor
   end
 
   private
+
+  def local_file_exists
+    File.exist?(@local_filename)
+  end
+
+  def local_file_age_in_days
+    (Time.zone.now - File.stat(@local_filename).mtime).to_i / 86_400.0
+  end
 
   def create_or_return_path(filename)
     # ensure the sign path exists
