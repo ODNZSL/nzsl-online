@@ -14,7 +14,11 @@ class ImageProcessor
 
   def resize_and_cache
     return @local_filename if local_file_exists && local_file_age_in_days < 1
+    resize
+    @local_filename
+  end
 
+  def resize
     image = MiniMagick::Image.open(@remote_filename)
     image.shave CROP_IMAGES_BY if CROP_IMAGES
 
@@ -26,8 +30,6 @@ class ImageProcessor
     image.resize dimensions.join('x') + '>'
     image.format 'png'
     image.write @local_filename
-
-    @local_filename
   end
 
   private
