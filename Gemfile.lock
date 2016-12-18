@@ -143,6 +143,7 @@ GEM
       mimemagic (= 0.3.0)
     parser (2.3.1.0)
       ast (~> 2.2)
+    pg (0.18.4)
     powerpack (0.1.1)
     pry (0.10.3)
       coderay (~> 1.1.0)
@@ -280,6 +281,7 @@ DEPENDENCIES
   modernizr-rails
   nokogiri
   paperclip
+  pg
   pry-byebug
   pry-rails
   rails (~> 4.2.6)
@@ -298,4 +300,4 @@ DEPENDENCIES
   whenever
 
 BUNDLED WITH
-   1.12.4
+   1.13.3
