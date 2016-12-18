@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
-ruby '2.3.1'
+ruby '2.3.3'
 
 gem 'rails', '~> 4.2.6'
-
+gem 'rails_12factor'
 # Use Postgresql as the database for Active Record
 gem 'pg'
 
