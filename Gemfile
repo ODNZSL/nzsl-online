@@ -17,7 +17,6 @@ gem 'paperclip'
 gem 'mail'
 gem 'i18n'
 gem 'responders', '~> 2.0'
-gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'ckeditor_rails'
