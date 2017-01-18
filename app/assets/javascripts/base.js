@@ -1,6 +1,5 @@
 $(function(){
   var setup = function(){
-        debugger
     setup_ckeditor_video_links();
     setup_videos();
     setup_translation_videos();
@@ -80,6 +79,7 @@ $(function(){
         wrapper.empty().append(videoElement);
       });
     }
+  };
 
   var setup_slow_motion_videos = function(){
     $('.button.normal, .button.slow').click(function(){
@@ -101,13 +101,11 @@ $(function(){
 
   var setup_translation_videos = function(){
     // hides all videos on page
-
     $('.translation_video').hide();
 
     $('.button.translation_button').click(function(){
       $(this).hide();
       $(this).prev('.translation_video').show();
-      ($(this).prev('.translation_video')).play();
     })
   };
 
