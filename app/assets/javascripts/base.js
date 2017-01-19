@@ -92,8 +92,8 @@ $(function(){
         show = 'normal';
         hide = 'slow';
       }
-      videos.find("."+hide).hide();
-      videos.find("."+show).show();
+      videos.find("."+hide).toggle(hide);
+      videos.find("."+show).toggle(show);
       pause_video(hide, videos);
       play_video(show, videos);
     });

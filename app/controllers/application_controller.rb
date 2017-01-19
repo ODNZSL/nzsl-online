@@ -1,6 +1,22 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   require 'digest/sha1'
+  require "browser"
+
+  before_filter :check_browser_support
+
+  def check_browser_support
+    Browser.modern_rules.clear
+    Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 40 }
+    Browser.modern_rules << -> b { b.firefox? && b.version.to_i >= 40 }
+    Browser.modern_rules << -> b { b.safari? && b.version.to_i >= 9 }
+    Browser.modern_rules << -> b { b.ie? && b.version.to_i >= 10 }
+
+    unless browser.modern?
+      flash[:notice] = %Q[Your browser is not supported. This may mean that some features of NZSL Online will not display properly.
+                          <a href="https://updatemybrowser.org/"> Would you like to upgrade your browser? </a>].html_safe
+    end
+  end
 
   private
 
