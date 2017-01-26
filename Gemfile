@@ -17,7 +17,7 @@ gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'ckeditor_rails'
-
+gem 'browser'
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
