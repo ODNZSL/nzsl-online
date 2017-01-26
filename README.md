@@ -23,7 +23,7 @@ Deploy to servers using Capistrana.
 Staging:
 
 ```
-	nzsld$ bundle exec cap staging deploy
+  nzsld$ bundle exec cap staging deploy
 ```
 
 Production

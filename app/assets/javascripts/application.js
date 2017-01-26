@@ -2,7 +2,6 @@
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require jquery-ui
-//= require flowplayer-5.4.6
 
 //= require base
 //= require vocab_bar
@@ -10,4 +9,3 @@
 //= require search_analytics
 
 //= require admin
-
