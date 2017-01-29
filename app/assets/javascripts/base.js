@@ -1,18 +1,3 @@
-(function() {
-  window.flowplayer.conf = {
-    key: ['$141428546790204', '#$c1ee98f7e52a995b8d9'],
-    clip: {
-      autoPlay: false,
-      autoBuffering: true
-    },
-    swf: '/flowplayer.commercial-5.4.6.swf',
-    analytics: 'UA-24185042-1',
-    play: {
-      replayLabel: null
-    }
-  };
-})();
-
 $(function(){
   var setup = function(){
     setup_ckeditor_video_links();
@@ -94,10 +79,6 @@ $(function(){
         wrapper.empty().append(videoElement);
       });
     }
-
-    var flowplayer_hidden_config = $.extend(true, {}, window.flowplayer.conf);
-    flowplayer_hidden_config.clip.autoBuffering = false;
-    $('.video_replace_hidden_flash, .video_replace_flash, .video_replace').flowplayer();
   };
 
   var setup_slow_motion_videos = function(){
@@ -111,8 +92,8 @@ $(function(){
         show = 'normal';
         hide = 'slow';
       }
-      videos.find("."+hide).hide();
-      videos.find("."+show).show();
+      videos.find("."+hide).toggle(hide);
+      videos.find("."+show).toggle(show);
       pause_video(hide, videos);
       play_video(show, videos);
     });
@@ -125,7 +106,6 @@ $(function(){
     $('.button.translation_button').click(function(){
       $(this).hide();
       $(this).prev('.translation_video').show();
-      flowplayer($(this).prev('.translation_video')).play();
     })
   };
 
@@ -147,14 +127,14 @@ $(function(){
   var play_video = function(video_class, wrapper){
     var video = wrapper.find('.video_replace.'+video_class)[0];
     if (video) {
-      flowplayer(video).play();
+      video.children[0].play();
     }
   };
 
   var pause_video = function(video_class, wrapper){
     var video = wrapper.find('.video_replace.'+video_class)[0];
     if (video) {
-      flowplayer(video).stop();
+      video.children[0].pause();
     }
   };
 
