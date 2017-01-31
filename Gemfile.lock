@@ -50,6 +50,7 @@ GEM
       aws-sdk-core (= 2.7.3)
     aws-sigv4 (1.0.0)
     brakeman (3.3.0)
+    browser (2.3.0)
     builder (3.2.2)
     byebug (9.0.4)
     capistrano (2.14.2)
@@ -271,6 +272,7 @@ PLATFORMS
 DEPENDENCIES
   aws-sdk (~> 2)
   brakeman
+  browser
   capistrano (~> 2.14.2)
   capistrano-ext
   capistrano-rbenv

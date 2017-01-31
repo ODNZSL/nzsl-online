@@ -18,6 +18,7 @@ gem 'therubyracer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'ckeditor_rails'
 gem 'aws-sdk', '~> 2'
+gem 'browser'
 
 group :assets do
   gem 'sass-rails'

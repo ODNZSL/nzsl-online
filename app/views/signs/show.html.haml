@@ -20,10 +20,11 @@
         = handshape_image @sign.handshape
         = location_image @sign.location
     .videos
-      = flow_video_tag @sign.video, wrapper_class: "main_video normal", loop: true
-
+      %video.main_video.normal{controls: true, preload: true, loop: true}
+        %source{type: "video/mp4", src:  @sign.video}
       - if @sign.video_slow.present?
-        = flow_video_tag @sign.video_slow, wrapper_class: "main_video slow"
+        %video.main_video.slow{controls: true, preload: true, loop: true}
+          %source{type: "video/mp4", src:  @sign.video_slow}
         = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
         = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
     - unless @sign.examples.length.zero?
@@ -31,9 +32,11 @@
         %h2= t('signs.show.usage_examples')
         - @sign.examples.each do |example|
           .example.clearfix.typography.videos
-            = flow_video_tag example[:video], wrapper_class: "example_video normal"
+            %video.example_video.normal{controls: true, preload: true, loop: true}
+              %source{type: "video/mp4", src:  example[:video]}
             - if example[:video_slow]
-              = flow_video_tag example[:video_slow], wrapper_class: "example_video slow"
+              %video.example_video.slow{controls: true, preload: true, loop: true}
+                %source{type: "video/mp4", src:  example[:video_slow]}
             %p
               %em= example[:translation]
             %p= render_transcription(example[:transcription], @sign.id)
