@@ -31,7 +31,7 @@ end
 # and rake tasks are available in development mode:
 group :development, :test do
   gem 'rspec-rails'
-
+  gem 'dotenv-rails'
   # for debugging
   gem 'pry-byebug'
   gem 'pry-rails'
