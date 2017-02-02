@@ -1,6 +1,11 @@
 source 'https://rubygems.org'
+ruby '2.3.3'
 
 gem 'rails', '~> 4.2.6'
+gem 'rails_12factor'
+# Use Postgresql as the database for Active Record
+gem 'pg'
+
 gem 'haml'
 gem 'nokogiri'
 gem 'jquery-rails'
@@ -13,7 +18,6 @@ gem 'paperclip'
 gem 'mail'
 gem 'i18n'
 gem 'responders', '~> 2.0'
-gem 'sqlite3', '~> 1.3.10'
 gem 'therubyracer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'ckeditor_rails'
