@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
 
   def check_browser_support
     setup_browser_rules
-    binding.pry
     return if browser.modern?
     flash[:notice] = %(Your browser is not supported. This may mean that some features of NZSL Online will
                       not display properly. <a href="https://updatemybrowser.org/"> Would you like to
