@@ -19,9 +19,8 @@
                 - query_text = " "
               = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                 = image_tag "signs/150-100/#{result.drawing}"
-              .videos
-                = flow_video_tag result.video, wrapper_class: "search_result_video normal", loop: true
-
+              %video.search_result_video.normal{controls: true, preload: true, loop: true}
+                %source{type: "video/mp4", src:  result.video}
               = link_to sign_url(result.id), {:class => 'main_gloss js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                 = result.gloss_main
               - if result.gloss_maori
