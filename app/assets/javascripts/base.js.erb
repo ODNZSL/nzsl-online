@@ -61,8 +61,8 @@ $(function(){
         id_offset += 1;
 
         var videoElement;
-        if (href.includes("freelex")) {
-
+        //if (href.includes("freelex")) {
+        if (~href.indexOf("freelex")) {
           // don't do anything special for videos from freelex
           var sourceElement = $('<source />', {src: href});
           videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(sourceElement);
@@ -76,7 +76,7 @@ $(function(){
         else {
 
           // embed the mp4 and webm videos
-          
+
           var mp4SourceElement = $('<source />', {src:  "<%= Rails.application.secrets.s3_bucket_url %>" + href + ".mp4"});
           var webmSourceElement = $('<source />', {src: "<%= Rails.application.secrets.s3_bucket_url %>" + href + ".webm"});
           videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(webmSourceElement, mp4SourceElement);
