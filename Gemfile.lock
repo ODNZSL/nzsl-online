@@ -147,7 +147,7 @@ GEM
     net-ssh (4.0.1)
     net-ssh-gateway (2.0.0)
       net-ssh (>= 4.0.0)
-    nokogiri (1.7.0.1)
+    nokogiri (1.7.1)
       mini_portile2 (~> 2.1.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
@@ -325,4 +325,4 @@ RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.3
+   1.14.5
