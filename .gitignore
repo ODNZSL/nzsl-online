@@ -19,3 +19,4 @@ public/assets
 *.swp
 
 coverage/*
+.env
