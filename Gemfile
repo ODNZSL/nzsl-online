@@ -23,6 +23,7 @@ gem 'modernizr-rails'
 gem 'ckeditor_rails'
 gem 'aws-sdk', '~> 2'
 gem 'browser'
+gem 'foundation-rails'
 
 group :assets do
   gem 'sass-rails'
