@@ -9,3 +9,6 @@
 //= require search_analytics
 
 //= require admin
+//= require foundation
+
+$(document).foundation();
