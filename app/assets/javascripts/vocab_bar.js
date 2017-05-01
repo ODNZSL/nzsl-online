@@ -1,4 +1,5 @@
-(function(){
+$(document).ready(function() {
+
   var hide_vocab_bar_if_empty = function(){
     var bar = $('.vocab_sheet_bar');
     if (bar.length && bar.find('.vocab_sheet_bar_item').length === 0) {
@@ -6,6 +7,21 @@
       $('body').removeClass('vocab_sheet_background');
     }
   };
+
+  var hide_vocab_bar_on_mobile = function () {
+    var w = $(window).width();
+    var bar = $('.vocab_sheet_bar');
+    if(w < 768) {
+      bar.hide();
+      $('body').removeClass('vocab_sheet_background');
+    } else if (w >= 768) {
+      show_vocab_bar();
+    }
+  }
+
+  $(window).resize(function() {
+    hide_vocab_bar_on_mobile();
+  })
 
   var show_vocab_bar = function(){
     if ($('.vocab_sheet_bar').length){
@@ -41,4 +57,5 @@
 
   setup_vocab_remove();
   setup_add_to_sheet();
-})();
+  hide_vocab_bar_on_mobile();
+})
