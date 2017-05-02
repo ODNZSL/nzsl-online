@@ -1,10 +1,10 @@
 - if sign.present?
-  .sign_of_the_day
+  .sign_of_the_day.medium-3
     %h2= t('signs.sign_of_the_day')
-    = link_to sign_url(sign.id), {:class => 'drawing grid_drawing'} do
+    = link_to sign_url(sign.id), {:class => 'drawing'} do
       = image_tag "signs/150-100/#{sign.drawing}"
     %p
-      = link_to sign_url(sign.id), {:class => 'main_gloss h2'} do
+      = link_to sign_url(sign.id), {:class => 'h2'} do
         = sign.gloss_main
     %p
       = link_to t('signs.another_sign_of_the_day'), '/'
