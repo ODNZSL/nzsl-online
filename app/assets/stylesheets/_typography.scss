@@ -2,8 +2,8 @@
 
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code, del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var, b, i, dl, dt, dd, ol, ul, li,
+abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp,
+small, strong, sub, sup, var, b, i, dl, dt, dd, ol, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure,
@@ -12,7 +12,7 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 100%;
+  font-size: 1em;
   font: inherit;
   vertical-align: baseline;
 }
@@ -22,9 +22,9 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-blockquote, q { quotes: none; }
+// blockquote, q { quotes: none; }
 
-blockquote:before, blockquote:after,
+// blockquote:before, blockquote:after,
 q:before, q:after {
   content: '';
   content: none;
@@ -66,7 +66,7 @@ body { font-size: 13px; }
 
 // html { overflow-y: scroll; }
 
-a:hover, a:active { outline: none; }
+// a:hover, a:active { outline: none; }
 
 // ul, ol { margin-left: 2em; }
 // ul { list-style-type: none; }
@@ -75,7 +75,7 @@ a:hover, a:active { outline: none; }
 
 // strong, th { font-weight: bold; }
 
-td { vertical-align: top; }
+// td { vertical-align: top; }
 
 sub, sup {
   font-size: 0.75em;
@@ -163,7 +163,7 @@ a:visited span {
 a:hover,
 a:hover span {
   color: #336cbe;
-  border-bottom:1px solid #aac0f8;
+  // border-bottom:1px solid #aac0f8;
   background-color:#e2edfc;
 }
 
