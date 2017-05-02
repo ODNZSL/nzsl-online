@@ -3,7 +3,7 @@
 /*
 *= require jquery-ui
 */
-
+@import "variables";
 @import "typography";
 @import "flowplayer";
 @import "searchbar";
@@ -20,34 +20,39 @@
 |* Sticky Footer  *| from http://www.cssstickyfooter.com/
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 ul {
-  list-style: none;
   overflow: auto;
   overflow-y: hidden;
+  overflow-x: hidden;
 }
-.grid-image-caption,
+
+.no-bullet {
+  list-style: none;
+  padding: 0;
+}
+.videos {
+  margin: 0 auto;
+}
+.inline-block { display: inline-block; }
+
 .grid-image {
   margin: 0 auto;
   display: block;
   height: 90px;
 }
 
-.grid-image-caption { width: 80%; }
-.image-caption {
-  width: 100%;
+.image-caption,
+.grid-image-caption {
+  width: 80%;
   display: block;
-  text-decoration: underline;
   border-bottom: none;
+  margin: 0 auto;
 }
+
 .grid-stack {
   float: left;
-  height: 155px;
+  height: 150px;
   text-align: left;
-  // .stack-image {
-  //   height: 100px;
-  //   margin-bottom: 10px;
-  // }
  }
-// image { width: 100%; }
 
 // --------------------------------------
 
@@ -86,9 +91,8 @@ body:before {
   height:100%;
 }
 
-/* * * * *\
-|* Layout *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+// Layout
+// -----------------
 .main_column {
   margin:0 auto;
   position:relative;
@@ -98,11 +102,10 @@ body:before {
   overflow:visible;
 }
 
-/* * * * * * * *\
-|* Search & Nav *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-/* Header */
+// Search & Nav
+//
+// Header
+// -----------------
 .header {
   position:relative;
   z-index:3;
@@ -151,7 +154,9 @@ a.logo {
   z-index:9;
 }
 
-/* tabs */
+// Tabs
+// -----------------
+
 .search_tabs {
   position:absolute;
   left: 108px;
@@ -206,7 +211,8 @@ a.logo {
 .search_tabs .tab a:active,
 .search_tabs .tab a:focus { outline: 0; }
 
-/* menu */
+// Menu
+// -----------------
 .menu {
   position: absolute;
   bottom: -30px;
@@ -251,7 +257,9 @@ a.logo {
 
 .menu li span { background-color: #ccceda; }
 
-/* search form */
+// Search
+// -----------------
+
 .search_form {
   padding: 10px 0;
   margin: 0 169px 0 108px;
@@ -280,7 +288,9 @@ a.logo {
 
 .search_field_selects select { margin-bottom:10px; }
 
-/* keywords */
+// Keywords
+// -----------------
+
 .search_box {
   -webkit-appearance: textfield;
   width: 400px;
@@ -315,10 +325,14 @@ a.logo {
   display: block;
 }
 
-/* advanced */
+// Advanced
+// -----------------
+
 .advanced select { width: 400px; }
 
-/* signs */
+// Signs
+// -----------------
+
 .signs { line-height: 56px; }
 
 .dropdown {
@@ -613,16 +627,16 @@ a.empty:hover {
   margin: 0 0 4px 4px;
 }
 
-/* * * *\
-|* Grid *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-.grid .main_gloss { font-size: 138.5%; }
+// Grid
+// -----------------
 
-ol.grid,
-ul.grid {
-  margin: 0 -20px 1.2em 0;
-  width: 510px;
-}
+// .grid .main_gloss { font-size: 138.5%; }
+
+// ol.grid,
+// ul.grid {
+//   margin: 0 -20px 1.2em 0;
+//   width: 510px;
+// }
 
 .grid li {
   display: block;
@@ -632,12 +646,12 @@ ul.grid {
   margin: 0 20px 0 0;
 }
 
-.grid_drawing {
-  height: 90px;
-  width: 150px;
-  display: block;
-  margin-bottom: 10px;
-}
+// .grid_drawing {
+//   height: 90px;
+//   width: 150px;
+//   display: block;
+//   margin-bottom: 10px;
+// }
 
 .grid .row_start { clear:left; }
 
@@ -678,10 +692,10 @@ a.drawing {
   background: transparent;
 }
 
-.drawing img {
-  display: inline;
-  vertical-align: bottom;
-}
+// .drawing img {
+  // display: inline;
+  // vertical-align: bottom;
+// }
 
 .entry_drawing {
   float: right;
@@ -811,9 +825,9 @@ h1.search_results_for {
 
 .footer .nav {
   text-align: center;
-  font-size: 85%;
-  margin-bottom: 9px;
-  white-space: nowrap;
+  font-size: 0.85em;
+  margin-bottom: 10px;;
+  // white-space: nowrap;
 }
 
 .footer .first { border: 0; }
@@ -1082,11 +1096,16 @@ h1.search_results_for {
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /* Homepage */
 .sign_of_the_day {
+  @media screen and (max-width: $medium-screen) {
+    margin: 0 auto;
+    float: none;
+  }
   text-align: center;
   float: right;
   margin: 0;
   width: 150px;
 }
+
 
 .sign_of_the_day img { display: inline; }
 
