@@ -8,10 +8,10 @@
   - if @page.first_part.present? &&  @page.first_part.translation_path.present?
     = render partial: "shared/translation_video", locals: {page_part: @page.first_part}
 
-
-  .rule_after.clearfix_left
-    - if @page.first_part.present?
-      != @page.first_part.body
+  .rule_after
+    .medium-8.inline-block
+      - if @page.first_part.present?
+        != @page.first_part.body
     = render :partial => '/signs/sign_of_the_day', :locals => {:sign => Sign.random}
   - @page.page_parts.each_with_index do |page_part, i|
     - next if i.zero?
