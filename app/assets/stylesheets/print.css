@@ -2,36 +2,36 @@
   /*(removed a couple of rules)*/
   a[href]:after { content: " (" attr(href) ")"; text-decoration:none;}
   abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after, a.button:after, .copyright a:after{ content: ""; }  
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after, a.button:after, .copyright a:after{ content: ""; }
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
   thead { display: table-header-group; }
   tr, img { page-break-inside: avoid; }
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3{ page-break-after: avoid; }
-  
+
 /* modding boilerplate */
 
 body,
-.vocab_sheet *, 
+.vocab_sheet *,
 .rule_after, .video_replace { background: transparent !important; color: black !important; text-shadow: none !important; filter:none !important;
--ms-filter: none !important; } 
-.center a, 
+-ms-filter: none !important; }
+.center a,
 .main_column a { color: #444 !important; text-decoration: underline; border:0;}
 a.button {color:white !important; text-decoration:none;}
 a.main_gloss {text-decoration:none;}
 a.main_gloss:after {font-size:10px;line-height:10px;}
 
 /* hiding useless things */
-  .nav, 
-  .vocab_sheet_bar, 
+  .nav,
+  .vocab_sheet_bar,
   .empty_vocab_sheet,
   .button,
   .logo,
   .flashes,
   object,
   .view_print_back_link,
-  .remove, 
+  .remove,
   .js .if_js,
   .vocab_sheet_controls
   {display:none;}
@@ -56,7 +56,7 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   .print_logo {display:block;}
   .footer {page-break-after:always;}
   h1, .h1 {padding-top:23px;}
-  
+
   .video_replace {
     white-space: pre-wrap; /* css-3 */
     white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
