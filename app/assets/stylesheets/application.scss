@@ -860,11 +860,11 @@ h1.search_results_for {
 |* Vocab Sheet  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 /*  */
-.vocab_sheet_head {
-  margin-left: -108px;
-  margin-right: 102px;
-  width: 690px;
-}
+// .vocab_sheet_head {
+//   margin-left: -108px;
+//   margin-right: 102px;
+//   width: 690px;
+// }
 
 /* Vocab bar background */
 .vocab_sheet_background {
@@ -990,7 +990,7 @@ h1.search_results_for {
   padding-bottom: 10px;
   clear: left;
   width: 690px;
-  margin-left: -108px;
+  margin: 0 auto;
 }
 
 .vocab_sheet_page_item {
