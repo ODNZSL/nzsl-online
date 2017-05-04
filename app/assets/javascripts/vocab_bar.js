@@ -1,45 +1,20 @@
 $(document).ready(function() {
 
-  var hide_vocab_bar_if_empty = function(){
-   var bar = $('.vocab_sheet_bar');
-   if (bar.length && bar.find('.vocab_sheet_bar_item').length === 0) {
-     bar.hide();
-     $('body').removeClass('vocab_sheet_background');
-   }
- };
+  var hide_vocab_sheet_on_mobile = function() {
+    var bar = $('.vocab_sheet_bar');
+    var windowWidth = $(window).width();
+    if((windowWidth < 768) || (bar.length && bar.find('.vocab_sheet_bar_item').length === 0)) {
+      bar.hide();
+      $('.not_sticky_footer').removeClass('vocab_sheet_background');
+    } else if ((windowWidth > 767) && ($('.vocab_sheet_bar').length)) {
+      bar.show();
+      $('.not_sticky_footer').addClass('vocab_sheet_background');
+    }
+  }
 
- var show_vocab_bar = function(){
-   if ($('.vocab_sheet_bar').length){
-     $('.vocab_sheet_bar').show();
-     $('body').addClass('vocab_sheet_background');
-   }
- };
+  $(window).resize(function() {
+    hide_vocab_sheet_on_mobile();
+  })
 
- var setup_vocab_remove = function(){
-   $('.remove').on('click', function(e){
-     e.preventDefault();
-     var button = $(this);
-     var form = button.closest('form');
-     $.post(form.attr('action'), form.serialize());
-     button.closest('.vocab_sheet_item').animate({height:0}, 200, function(){
-       $(this).remove();
-       hide_vocab_bar_if_empty();
-     });
-   });
- };
-
- var setup_add_to_sheet = function(){
-   $('.add_to_sheet').click(function(e){
-     e.preventDefault();
-     var button = $(this);
-     var form = button.closest('form');
-     $.post(form.attr('action'), form.serialize(), function(data){
-       show_vocab_bar();
-       $(data).appendTo($('.vocab_sheet_bar ul'));
-     });
-   });
- };
-
- setup_vocab_remove();
- setup_add_to_sheet();
+  hide_vocab_sheet_on_mobile();
 });
