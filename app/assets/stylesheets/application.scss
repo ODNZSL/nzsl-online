@@ -64,7 +64,9 @@ ul {
 html, body {
   height: 100%;
   width: 100%;
-  min-width: 320px;
+  min-width: $small-screen;
+  max-width: $large-screen;
+  margin: 0 auto;
 }
 
 .not_sticky_footer {
@@ -729,6 +731,11 @@ a.drawing {
   // height: 360px;
   width: 100%;
   max-width: 480px;
+}
+
+video {
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 .examples { clear: both; }
