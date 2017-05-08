@@ -1,26 +1,26 @@
 %footer{:class => (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
   .sub-footer
-    .sub-footer-content.medium-8.medium-centered.large-8
+    .sub-footer-content.small-10.small-centered.medium-8.large-7
       %h2.title
         Download the NZSL Dictionary App
-      = image_tag "img/app_store.svg"
-      = image_tag "img/google_store.svg"
+      = image_tag "img/app_store.svg", :class=>"small-5"
+      = image_tag "img/google_store.svg", :class=>"small-5"
   .nav
-    .medium-10.medium-centered
-      .footer-columns.medium-4
+    .small-10.small-centered.large-9
+      .footer-columns.small-12.medium-4.nav-link
         %h3.title
           Learn More
         = Page.in_nav.map { |link| render_navigation_link(link) }.join(' ').html_safe
-      .footer-columns.medium-4
+      .footer-columns.small-12.medium-4
         %h3.title
           Recommended Sites
         = image_tag "img/logo-learnnzsl", :class=>"small-8 small-centered"
-      .footer-columns.medium-4
+      .footer-columns.small-12.medium-4
         %h3.title
           Follow Us
-        .social-media
-          = image_tag "img/icon-facebook.svg"
-          = image_tag "img/icon-twitter.svg"
+        .social-media.nav-link
+          = link_to((image_tag "img/icon-facebook.svg"), "#")
+          = link_to((image_tag "img/icon-twitter.svg"), "#")
         .github
           = image_tag "img/icon-github.svg"
           %div
@@ -28,8 +28,13 @@
               This is an Open Source project
             %p
               Text about what type of open source and contribute to it via github site.
-  .copyright.small-12
-    .medium-6.medium-centered
+  .copyright
+    .small-10.small-centered.medium-6
       - if @footer && @footer.first_part
-        /= link_to '(View in NZSL)', @footer.path, :class => 'footer_fullview_link'
-        != @footer.first_part.body
+        = image_tag "http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
+        .nav-link
+          = link_to '(View in NZSL)', @footer.path
+          = link_to "NZSL Online by", "http://purl.org/dc/dcmitype/InteractiveResource"
+          = link_to "Deaf Studies Research Unit, Victoria University of Wellington", "http://www.victoria.ac.nz/lals/research/projects/dsru.aspx"
+          is licensed under a
+          = link_to "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.","http://creativecommons.org/licenses/by-nc-sa/3.0"
