@@ -3,14 +3,14 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid #ddd;
+  border-top: 1px solid $dark-oat-grey;
 }
 
 .record li {
   height: 40px;
   line-height: 40px;
   font-size: 1.3em;
-  border-bottom: 1px solid #ddd;
+  border-bottom: 1px solid $dark-oat-grey;
 }
 
 .record li:hover { background: #fcfcfc; }
@@ -38,7 +38,7 @@
 .record .delete:hover {
   border: 0;
   opacity: 0.8;
-  background-color: #fee;
+  background-color: $light-pale-pink;
 }
 
 .formtastic .text_input {

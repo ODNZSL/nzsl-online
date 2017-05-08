@@ -4,6 +4,7 @@
 *= require jquery-ui
 */
 @import "variables";
+@import "color";
 @import "typography";
 @import "flowplayer";
 @import "searchbar";
@@ -275,7 +276,7 @@ a.logo {
   padding: 10px 0;
   margin: 0 169px 0 108px;
   position: relative;
-  border-right: 1px solid #ccc;
+  border-right: 1px solid $light-med-grey;
 }
 
 .search_form .button {
@@ -1001,7 +1002,7 @@ h1.search_results_for {
 }
 
 .vocab_sheet_page_item {
-  border: 1px solid #ccc;
+  border: 1px solid $light-med-grey;
   width: 145px;
   margin: 15px 11px 15px 0;
   float: left;
