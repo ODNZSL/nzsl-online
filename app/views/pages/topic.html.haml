@@ -1,13 +1,15 @@
 = render :partial => 'pages/content'
 .typography
   %h2 List of Topics
-%ol
+%ol.small-12
   - SignMenu.topic_tags.each do |topic|
-    %li= link_to topic[0], search_signs_path(tag: topic[1])
+    %li.medium-4.topic-li-style
+      = link_to topic[0], search_signs_path(tag: topic[1])
 
 .typography
   %h2 List of Usage tags
 %ol
   - SignMenu.usage_tags.each do |u|
     %li= link_to u[0], search_signs_path(tag: u[1])
+
 
