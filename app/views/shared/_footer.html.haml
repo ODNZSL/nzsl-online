@@ -1,9 +1,35 @@
-%footer{:class => (last ? 'sticky_footer footer small-11 small-centered' : 'print_footer footer small-11 small-centered')}
-  %div
-    .nav
-      = Page.in_nav.map { |link| render_navigation_link(link) }.join(' | ').html_safe
-    %div
-      .copyright
-        - if @footer && @footer.first_part
-          = link_to '(View in NZSL)', @footer.path, :class => 'footer_fullview_link'
-          != @footer.first_part.body
+%footer{:class => (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
+  .sub-footer
+    .sub-footer-content.medium-8.medium-centered.large-8
+      %h2.title
+        Download the NZSL Dictionary App
+      = image_tag "img/app_store.svg"
+      = image_tag "img/google_store.svg"
+  .nav
+    .medium-10.medium-centered
+      .footer-columns.medium-4
+        %h3.title
+          Learn More
+        = Page.in_nav.map { |link| render_navigation_link(link) }.join(' ').html_safe
+      .footer-columns.medium-4
+        %h3.title
+          Recommended Sites
+        = image_tag "img/logo-learnnzsl", :class=>"small-8 small-centered"
+      .footer-columns.medium-4
+        %h3.title
+          Follow Us
+        .social-media
+          = image_tag "img/icon-facebook.svg"
+          = image_tag "img/icon-twitter.svg"
+        .github
+          = image_tag "img/icon-github.svg"
+          %div
+            %h4
+              This is an Open Source project
+            %p
+              Text about what type of open source and contribute to it via github site.
+  .copyright.small-12
+    .medium-6.medium-centered
+      - if @footer && @footer.first_part
+        /= link_to '(View in NZSL)', @footer.path, :class => 'footer_fullview_link'
+        != @footer.first_part.body
