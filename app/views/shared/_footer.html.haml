@@ -10,7 +10,8 @@
       .footer-columns.small-12.medium-4.nav-link
         %h3.title
           Learn More
-        = Page.in_nav.map { |link| render_navigation_link(link) }.join(' ').html_safe
+          - Page.in_nav.each do |link|
+            = render_navigation_link(link)
       .footer-columns.small-12.medium-4
         %h3.title
           Recommended Sites
