@@ -1,10 +1,10 @@
 %footer{class: (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
   .sub-footer
-    .sub-footer-content.small-10.small-centered.medium-8.large-7
+    .sub-footer-content.small-10.small-centered.medium-8.large-7.nav-link
       %h2.title
         Download the NZSL Dictionary App
-      = image_tag "img/app_store.svg", class:"small-5"
-      = image_tag "img/google_store.svg", class:"small-5"
+      = link_to((image_tag "img/app_store.svg", class:"small-5"), "https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8", target:"_blank")
+      = link_to((image_tag "img/google_store.svg", class:"small-5"), "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en", target:"_blank" )
   .nav
     .small-10.small-centered.large-9
       .footer-columns.small-12.medium-4.nav-link
@@ -15,13 +15,13 @@
       .footer-columns.small-12.medium-4.nav-link
         %h3.title
           Recommended Sites
-        = link_to((image_tag "img/logo-learnnzsl", class:"small-8 small-centered"), "http://www.learnnzsl.nz")
+        = link_to((image_tag "img/logo-learnnzsl", class:"small-8 small-centered"), "http://www.learnnzsl.nz", target:"_blank")
       .footer-columns.small-12.medium-4
         %h3.title
           Follow Us
         .social-media.nav-link.column-block
-          = link_to((image_tag "img/icon-facebook.svg"), "#")
-          = link_to((image_tag "img/icon-twitter.svg"), "#")
+          = link_to((image_tag "img/icon-facebook.svg"), "https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/", target:"_blank")
+          = link_to((image_tag "img/icon-twitter.svg"), "https://twitter.com/nzsldict", target:"_blank")
         .github
           = image_tag "img/icon-github.svg"
           %div

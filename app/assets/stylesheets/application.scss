@@ -863,7 +863,7 @@ footer {
   .sub-footer {
     background: $light-med-grey;
     &-content {
-      height: 180px;
+      height: 250px;
       .title {
         color: black;
         font-size: 2em;
@@ -872,10 +872,10 @@ footer {
       }
       img {
         margin: 10px 0 0 0;
-        max-width: 270px;
-        &:nth-child(2) { float: left; }
-        &:nth-child(3) { float: right; }
+        max-width: 300px;
       }
+      a:first-child img { float: left; }
+      a:last-child img { float: right; }
     }
   }
   .first { border: 0; }
