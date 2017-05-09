@@ -1,10 +1,10 @@
-%footer{:class => (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
+%footer{class: (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
   .sub-footer
     .sub-footer-content.small-10.small-centered.medium-8.large-7
       %h2.title
         Download the NZSL Dictionary App
-      = image_tag "img/app_store.svg", :class=>"small-5"
-      = image_tag "img/google_store.svg", :class=>"small-5"
+      = image_tag "img/app_store.svg", class:"small-5"
+      = image_tag "img/google_store.svg", class:"small-5"
   .nav
     .small-10.small-centered.large-9
       .footer-columns.small-12.medium-4.nav-link
@@ -15,7 +15,7 @@
       .footer-columns.small-12.medium-4
         %h3.title
           Recommended Sites
-        = image_tag "img/logo-learnnzsl", :class=>"small-8 small-centered"
+        = image_tag "img/logo-learnnzsl", class:"small-8 small-centered"
       .footer-columns.small-12.medium-4
         %h3.title
           Follow Us
