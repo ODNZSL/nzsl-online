@@ -1,8 +1,8 @@
-%footer{:class => (last ? 'sticky_footer footer' : 'print_footer footer')}
-  .center
+%footer{:class => (last ? 'sticky_footer footer small-11 small-centered' : 'print_footer footer small-11 small-centered')}
+  %div
     .nav
       = Page.in_nav.map { |link| render_navigation_link(link) }.join(' | ').html_safe
-    .main_column
+    %div
       .copyright
         - if @footer && @footer.first_part
           = link_to '(View in NZSL)', @footer.path, :class => 'footer_fullview_link'
