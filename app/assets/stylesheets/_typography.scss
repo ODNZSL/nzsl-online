@@ -12,8 +12,8 @@ time, mark, audio, video {
   margin: 0;
   padding: 0;
   border: 0;
-  font-size: 1em;
-  font: inherit;
+  font-size: $global-font-size;
+  font-family: "Montserrat";
   vertical-align: baseline;
 }
 
@@ -25,14 +25,15 @@ footer, header, hgroup, menu, nav, section {
 // blockquote, q { quotes: none; }
 
 // blockquote:before, blockquote:after,
-q:before, q:after {
+q:before,
+q:after {
   content: '';
-  content: none;
+  // content: none;
 }
 
 ins, mark {
-  background-color: #ff9;
-  color: #34414b;
+  background-color: $bright-yellow;
+  color: $blue-grey;
   text-decoration: none;
 }
 
@@ -51,7 +52,7 @@ table {
 hr {
   display: block;
   height: 1px; border: 0;
-  border-top: 1px solid #ccc;
+  border-top: 1px solid $light-med-grey;
   margin: 1em 0;
   padding: 0;
 }
@@ -128,11 +129,11 @@ textarea:invalid {
 }
 
 .no-boxshadow input:invalid,
-.no-boxshadow textarea:invalid { background-color: #f0dddd; }
+.no-boxshadow textarea:invalid { background-color: $pale-pink; }
 
 /*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }*/
-a:link { -webkit-tap-highlight-color: #FF5E99; }
+a:link { -webkit-tap-highlight-color: $bright-pink; }
 
 button {
   width: auto;
@@ -141,13 +142,13 @@ button {
 
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
-body,
-select,
-input,
-textarea {
-  color: #34414b;
-  font-family:Georgia, serif;
-}
+// body,
+// select,
+// input,
+// textarea {
+//   color: $blue-grey;
+//   font-family:Georgia, serif;
+// }
 
 a,
 a:active,
@@ -155,16 +156,16 @@ a:visited,
 a span,
 a:active span,
 a:visited span {
-  color: #4179c9;
+  color: $sky-blue;
   text-decoration:none;
-  border-bottom:1px solid #b9ccf9;
+  border-bottom:1px solid $pale-blue;
 }
 
 a:hover,
 a:hover span {
-  color: #336cbe;
+  color: $dark-sky-blue;
   // border-bottom:1px solid #aac0f8;
-  background-color:#e2edfc;
+  background-color: $light-pale-blue;
 }
 
  /* * * * * * *\
@@ -230,14 +231,14 @@ h4,
     &:after { content:':'; }
   }
   blockquote {
-    background: #eee;
+    background: $oat-grey;
     padding: 15px 15px 1px;
     margin: 15px 0;
   }
   a[name], a[name]:hover {
     background: transparent;
     border: 0;
-    color: #34414B;
+    color: $blue-grey;
   }
 }
 

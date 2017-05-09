@@ -18,6 +18,7 @@
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   = print_stylesheet_tag params[:print]
+  %link{ href:"https://fonts.googleapis.com/css?family=Montserrat:300", rel:"stylesheet" }
 %body.small-12
   .visuallyhidden
     %a{:href => '#content'} Skip to Content
@@ -31,7 +32,6 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
-
 
   = print_javascripts_tag params[:print]
   = yield :scripts
