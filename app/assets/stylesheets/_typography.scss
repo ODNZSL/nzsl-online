@@ -13,7 +13,7 @@ time, mark, audio, video {
   padding: 0;
   border: 0;
   font-size: $global-font-size;
-  font: inherit;
+  font-family: "Montserrat";
   vertical-align: baseline;
 }
 
@@ -142,13 +142,13 @@ button {
 
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
-body,
-select,
-input,
-textarea {
-  color: $blue-grey;
-  font-family:Georgia, serif;
-}
+// body,
+// select,
+// input,
+// textarea {
+//   color: $blue-grey;
+//   font-family:Georgia, serif;
+// }
 
 a,
 a:active,
