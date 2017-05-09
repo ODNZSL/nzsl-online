@@ -838,7 +838,8 @@ h1.search_results_for {
 // Katie's CSS
 // -------------------------------
 
-.nav-link a {
+.nav-link a,
+.nav-link span {
   color: $light-grey;
   text-decoration: none;
   border-bottom: none;
@@ -909,7 +910,6 @@ footer {
           width: calc(100% - 52px);
           display: inline-block;
           float: left;
-          padding-top: 10px;
           h4 {
             margin-bottom: 10px;
           }

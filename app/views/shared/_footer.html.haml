@@ -10,16 +10,16 @@
       .footer-columns.small-12.medium-4.nav-link
         %h3.title
           Learn More
-          - Page.in_nav.each do |link|
-            = render_navigation_link(link)
-      .footer-columns.small-12.medium-4
+        - Page.in_nav.each do |link|
+          = render_navigation_link(link)
+      .footer-columns.small-12.medium-4.nav-link
         %h3.title
           Recommended Sites
-        = image_tag "img/logo-learnnzsl", class:"small-8 small-centered"
+        = link_to((image_tag "img/logo-learnnzsl", class:"small-8 small-centered"), "http://www.learnnzsl.nz")
       .footer-columns.small-12.medium-4
         %h3.title
           Follow Us
-        .social-media.nav-link
+        .social-media.nav-link.column-block
           = link_to((image_tag "img/icon-facebook.svg"), "#")
           = link_to((image_tag "img/icon-twitter.svg"), "#")
         .github
