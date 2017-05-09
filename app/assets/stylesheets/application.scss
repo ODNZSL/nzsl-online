@@ -842,6 +842,7 @@ h1.search_results_for {
   color: $light-grey;
   text-decoration: none;
   border-bottom: none;
+  font-size: $global-font-size;
   &:hover {
     color: white;
     background-color: initial;
