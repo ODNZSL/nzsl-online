@@ -1,12 +1,12 @@
 $li-hightlight-blue: rgba(185, 204, 249, 0.4);
 
 .ui-autocomplete {
-  color: #4179c9;
+  color: $sky-blue;
   font-size: 100%;
   font-family: Georgia, serif;
   .ui-state-focus {
     border: 1px solid $li-hightlight-blue;
-    color: #4179c9;
+    color: $sky-blue;
     background: $li-hightlight-blue;
   }
 }
