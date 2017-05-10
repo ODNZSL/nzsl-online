@@ -10,6 +10,7 @@
 @import "flowplayer";
 @import "searchbar";
 @import "search_results";
+@import "topic_style";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -1441,22 +1442,3 @@ body .video_replace {
 .clearfix, .clearfix_left { zoom: 1; }
 
 .footer_fullview_link {float:left;margin-bottom:-5px;}
-
-.topic-li-style {
-  padding-bottom: 6px;
-  list-style: none;
-}
-
-.ol-topic-style {
-	list-style: none;
-	margin-left: 0px;
-}
-
-.ol-usage-style {
-	list-style: none;
-}
-
-.usage-li-style {
-  padding-bottom: 6px;
-  list-style: none;
-}
