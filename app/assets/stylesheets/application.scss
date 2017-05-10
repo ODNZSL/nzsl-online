@@ -419,6 +419,16 @@ body .video_replace { display:block; border:0; float:left; }
 .footer_fullview_link {float:left;margin-bottom:-5px;}
 
 .topic-li-style {
-  float: left;
+  padding-bottom: 6px;
+  list-style: none;
+}
+
+.ol-topic-style {
+	list-style: none;
+	margin-left: 0px;
+}
+
+.ol-usage-style {
+	list-style: none;
 }
 

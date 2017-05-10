@@ -1,14 +1,35 @@
 = render :partial => 'pages/content'
 .typography
   %h2 List of Topics
-%ol.small-12
-  - SignMenu.topic_tags.each do |topic|
-    %li.medium-4.topic-li-style
-      = link_to topic[0], search_signs_path(tag: topic[1])
+.row.small-up-1.large-up-4
+  .column.column-block
+    %ol.ol-topic-style
+      - SignMenu.topic_tags_first.each do |topic|
+        %li.topic-li-style
+          / = image_tag "img/fi-asl.svg"
+          = link_to topic[0], search_signs_path(tag: topic[1])
+          = topic[2]
+          / = Sign.count({tag: topic[1]})
+  .column.column-block
+    %ol.ol-topic-style
+      - SignMenu.topic_tags_second.each do |topic|
+        %li.topic-li-style
+          / = image_tag "img/fi-asl.svg"
+          = link_to topic[0], search_signs_path(tag: topic[1])
+          = topic[2]
+  .column.column-block
+    %ol.ol-topic-style
+      - SignMenu.topic_tags_third.each do |topic|
+        %li.topic-li-style
+          / = image_tag "img/fi-asl.svg"
+          = link_to topic[0], search_signs_path(tag: topic[1])
+          = topic[2]
+
+
 
 .typography
   %h2 List of Usage tags
-%ol
+%ol.ol-usage-style
   - SignMenu.usage_tags.each do |u|
     %li= link_to u[0], search_signs_path(tag: u[1])
 
