@@ -3,20 +3,20 @@
     .sub-footer-content.small-10.small-centered.medium-8.large-8.nav-link
       %h3.title
         Download the NZSL Dictionary App
-      = link_to((image_tag "img/app_store.svg", class:"small-5"), "https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8", target:"_blank")
-      = link_to((image_tag "img/google_store.svg", class:"small-5"), "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en", target:"_blank" )
+      = link_to((image_tag "img/app_store.svg", class:"small-10 medium-5"), "https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8", target:"_blank")
+      = link_to((image_tag "img/google_store.svg", class:"small-10 medium-5"), "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en", target:"_blank" )
   .nav
     .small-10.small-centered.medium-10
-      .footer-columns.small-12.medium-4.nav-link
+      .footer-columns.small-6.medium-4.nav-link
         %h4.title
           Learn More
         - Page.in_nav.each do |link|
           = render_navigation_link(link)
-      .footer-columns.small-12.medium-4.nav-link
+      .footer-columns.small-10.medium-4.nav-link
         %h4.title
           Recommended Sites
-        = link_to((image_tag "img/logo-learnnzsl", class:"small-8 small-centered"), "http://www.learnnzsl.nz", target:"_blank")
-      .footer-columns.small-12.medium-4
+        = link_to((image_tag "img/logo-learnnzsl", class:"small-10 learnnzsl"), "http://www.learnnzsl.nz", target:"_blank")
+      .footer-columns.small-10.medium-4
         %h4.title
           Follow Us
         .social-media.nav-link.column-block
