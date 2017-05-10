@@ -1,5 +1,5 @@
-.nav-link a,
-.nav-link span {
+.footer-link a,
+.footer-link span {
   color: $light-grey;
   text-decoration: none;
   border-bottom: none;
@@ -10,46 +10,42 @@
   }
 }
 
-.social-media a { display: inline-block; }
-
-.print_footer { clear: left; }
-
 footer {
   color: $light-grey;
-  .title {
+  img { @include center-element; }
+
+  .social-media a { display: inline-block; }
+
+  .social-media img { margin: 10px; }
+
+  .print_footer { clear: left; }
+
+  .footer-heading {
     @include montserrat-bold;
     padding: 20px 0;
   }
-  .sub-footer {
+  .sub-footer-container {
     background: $light-med-grey;
-    &-content {
+    .sub-footer-content {
       padding: 10px 0 20px 0;
-      .title {
+      .footer-heading {
         color: black;
         text-align: center;
       }
-      img {
-        margin: 0 auto;
-        padding-bottom: 20px;
-        max-width: 280px;
-        display: block;
-      }
+      img { padding: 10px 0; }
     }
   }
   .first { border: 0; }
+
   .copyright {
     background-color: $dark-grey;
     border-top: 1px solid white;
     padding: 20px 0;
     overflow: auto;
-    img {
-      @include center-element;
-    }
-    .nav-link {
-      padding: 10px 0;
-    }
+    .footer-link { padding: 10px 0;}
   }
-  .nav {
+
+  .footer-container {
     background-color: $dark-grey;
     overflow: auto;
     padding: 30px 0 20px;
@@ -57,7 +53,6 @@ footer {
       margin: 0 auto;
       .learnnzsl {
         max-width: 180px;
-        @include center-element;
       }
       a:before {
         content: "\A";
@@ -65,7 +60,10 @@ footer {
         padding: 5px;
       }
       .github {
-        img { float: left; }
+        img {
+          float: left;
+          margin: 0 10px;
+        }
         div {
           width: calc(100% - 52px);
           display: inline-block;
@@ -78,7 +76,7 @@ footer {
 
 @media screen and (min-width: $medium-screen) {
   footer {
-    .nav .footer-columns {
+    .footer-container .footer-columns {
       float: left;
       .learnnzsl { margin: initial; }
     }
@@ -87,13 +85,13 @@ footer {
         float: left;
         display: inline-block;
       }
-      .nav-link {
+      .footer-link {
         float: left;
         width: calc(100% - 110px);
         padding: 0 10px;
       }
     }
-    .sub-footer .sub-footer-content {
+    .sub-footer-container .sub-footer-content {
       img { display: inline-block; }
       a:first-child img { float: left; }
       a:nth-child(2) img { float: right; }

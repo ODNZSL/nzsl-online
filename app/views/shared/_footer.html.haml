@@ -1,25 +1,25 @@
 %footer{class: (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
-  .sub-footer
-    .sub-footer-content.small-10.small-centered.medium-8.large-8.nav-link
-      %h3.title
+  .sub-footer-container
+    .sub-footer-content.small-10.small-centered.medium-8.large-8.footer-link
+      %h3.footer-heading
         Download the NZSL Dictionary App
       = link_to((image_tag "img/app_store.svg", class:"small-10 medium-5"), "https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8", target:"_blank")
       = link_to((image_tag "img/google_store.svg", class:"small-10 medium-5"), "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en", target:"_blank" )
-  .nav
+  .footer-container
     .small-10.small-centered.medium-10
-      .footer-columns.small-6.medium-4.nav-link
-        %h4.title
+      .footer-columns.small-6.medium-4.footer-link
+        %h4.footer-heading
           Learn More
         - Page.in_nav.each do |link|
           = render_navigation_link(link)
-      .footer-columns.small-10.medium-4.nav-link
-        %h4.title
+      .footer-columns.small-10.medium-4.footer-link
+        %h4.footer-heading
           Recommended Sites
         = link_to((image_tag "img/logo-learnnzsl", class:"small-10 learnnzsl"), "http://www.learnnzsl.nz", target:"_blank")
       .footer-columns.small-10.medium-4
-        %h4.title
+        %h4.footer-heading
           Follow Us
-        .social-media.nav-link.column-block
+        .social-media.footer-link.column-block
           = link_to((image_tag "img/icon-facebook.svg"), "https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/", target:"_blank")
           = link_to((image_tag "img/icon-twitter.svg"), "https://twitter.com/nzsldict", target:"_blank")
         .github
@@ -33,7 +33,7 @@
     .small-10.small-centered.medium-8.large-6
       - if @footer && @footer.first_part
         = image_tag "http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"
-        .nav-link
+        .footer-link
           = link_to "NZSL Online by", "https://purl.org/dc/dcmitype/InteractiveResource"
           = link_to "Deaf Studies Research Unit, Victoria University of Wellington", "https://www.victoria.ac.nz/lals/research/projects/dsru.aspx"
           is licensed under a
