@@ -30,7 +30,7 @@ ul {
   overflow-y: hidden;
   overflow-x: hidden;
 }
-
+li,p  { margin: 0; }
 .no-bullet {
   list-style: none;
   padding: 0;
@@ -861,15 +861,17 @@ img {
 
 footer {
   color: $light-grey;
+  .title {
+    @include montserrat-bold;
+    padding: 20px 0;
+  }
   .sub-footer {
     background: $light-med-grey;
     &-content {
       height: 250px;
       .title {
-        @include montserrat-bold;
         color: black;
         text-align: center;
-        padding: 20px 0;
       }
       img {
         margin: 10px 0 0 0;
@@ -901,19 +903,12 @@ footer {
         display: block;
         padding: 5px;
       }
-      .title {
-        @include montserrat-bold;
-        margin: 15px 0;
-      }
       .github {
         img { float: left; }
         div {
           width: calc(100% - 52px);
           display: inline-block;
           float: left;
-          h4 {
-            margin-bottom: 10px;
-          }
         }
       }
     }
@@ -953,17 +948,17 @@ footer {
 }
 
 .vocab_sheet ul {
-  margin: 0 -11px 0 0;
+  // margin: 0 -11px 0 0;
   padding: 0;
   list-style-type: none;
 }
 
 .vocab_sheet_item {
-  display: block;
-  padding: 7px 1px 0;
+  // display: block;
+  // padding: 7px 1px 0;
   position: relative;
-  overflow: visible;
-  z-index: 1;
+  // overflow: visible;
+  // z-index: 1;
 }
 
 .vocab_sheet_item a {
@@ -971,12 +966,12 @@ footer {
   display: block;
   color: #34414b;
   text-decoration: none;
-  padding: 0 5px;
+  // padding: 0 5px;
   background-color: transparent;
   border: 0;
 }
 
-.vocab_sheet_item .drawing { margin: 5px 0 0; }
+// .vocab_sheet_item .drawing { margin: 5px 0 0; }
 
 // .vocab_sheet_item img {
   // display: inline;
@@ -1013,15 +1008,15 @@ footer {
 .column_wrapper { overflow-y: hidden; }
 
 .vocab_sheet_bar .title {
-  padding:15px 0;
-  font-size:138.5%;
+  // padding:15px 0;
+  // font-size:138.5%;
 }
 
 .vocab_sheet_bar_item {
   background: left -10px no-repeat;
   background-image: image_url('ui/vocab_sheet_item.png');
   width: 99px;
-  margin: 15px 13px 15px;
+  margin: 15px auto;
 }
 
 .vocab_sheet_bar_item .b {
@@ -1083,8 +1078,8 @@ footer {
 }
 
 .vocab_sheet_page_item .remove {
-  top: -10px;
-  right: -14px;
+  // top: -10px;
+  // right: -14px;
 }
 
 /* no-js friendly */
