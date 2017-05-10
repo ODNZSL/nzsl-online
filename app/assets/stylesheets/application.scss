@@ -866,8 +866,8 @@ footer {
     &-content {
       height: 250px;
       .title {
+        @include montserrat-bold;
         color: black;
-        font-size: 2em;
         text-align: center;
         padding: 20px 0;
       }
@@ -902,7 +902,7 @@ footer {
         padding: 5px;
       }
       .title {
-        font-size: 1.5em;
+        @include montserrat-bold;
         margin: 15px 0;
       }
       .github {
