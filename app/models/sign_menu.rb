@@ -81,7 +81,7 @@ class SignMenu
   end
   def self.topic_tags_first
     [
-      ['Actions and activities',                      5, 825],
+      ['Actions and activities',                     5],
       ['Animals',                                    7],
       ['Body and appearance',                        9],
       ['Clothes',                                   10],
