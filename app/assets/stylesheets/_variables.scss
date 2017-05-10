@@ -7,3 +7,21 @@ $light-grey: #E5E5E5;
 $light-med-grey: #CCC;
 $med-grey: #999;
 $dark-grey: #666;
+
+$h1-font-size: 1.8em;
+$h2-font-size: 1.6em;
+$h3-font-size: 1.4em;
+$h4-font-size: 1.2em;
+$h5-font-size: 1.1em;
+$h6-font-size: 1em;
+
+@mixin montserrat-light {
+  font-family: "Montserrat";
+  font-weight: 300;
+  font-size: 14px;
+}
+
+@mixin montserrat-bold {
+  font-family: "Montserrat";
+  font-weight: 500;
+}
