@@ -172,7 +172,11 @@ a:hover span {
  /* * * * * * *\
 |* Typography *| font sizes from http://developer.yahoo.com/yui/3/cssfonts/, boilerplate
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-h1, h2, h3, h4, h5, h6 { @include montserrat-light; }
+h1, h2, h3, h4, h5, h6 {
+  @include montserrat-light;
+  margin: 0;
+  padding: 0;
+}
 h1, .h1 { font-size: $h1-font-size; }
 h2, .h2 { font-size: $h2-font-size; }
 h3, .h3 { font-size: $h3-font-size; }
