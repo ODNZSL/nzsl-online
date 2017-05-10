@@ -1,21 +1,22 @@
-/*  HTML5 ✰ Boilerplate  */
-
-html, body, div, span, object, iframe,
-h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp,
-small, strong, sub, sup, var, b, i, dl, dt, dd, ol, li,
-fieldset, form, label, legend,
-table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section, summary,
-time, mark, audio, video {
-  margin: 0;
-  padding: 0;
-  border: 0;
-  font-size: $global-font-size;
-  font-family: "Montserrat";
-  vertical-align: baseline;
+.strong {
+  font-weight: 500;
 }
+/*  HTML5 ✰ Boilerplate  */
+//
+// html, body, div, span, object, iframe,
+// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+// abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp,
+// small, strong, sub, sup, var, b, i, dl, dt, dd, ol, li,
+// fieldset, form, label, legend,
+// table, caption, tbody, tfoot, thead, tr, th, td,
+// article, aside, canvas, details, figcaption, figure,
+// footer, header, hgroup, menu, nav, section, summary,
+// time, mark, audio, video {
+  // margin: 0;
+  // padding: 0;
+  // border: 0;
+  // vertical-align: baseline;
+// }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -59,7 +60,7 @@ hr {
 
 input, select { vertical-align: middle; }
 
-body { font-size: 13px; }
+body { @include montserrat-light; }
 
 // select, input, textarea, button { font:99% sans-serif; }
 
@@ -171,47 +172,20 @@ a:hover span {
  /* * * * * * *\
 |* Typography *| font sizes from http://developer.yahoo.com/yui/3/cssfonts/, boilerplate
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-h1,
-.h1 {
-  font-size: 1.67em;
-  font-weight: normal;
-  display: block;
-  padding: 43px 0 20px;
-}
-
-h2,
-.h2 {
-  font-size: 1.31em;
-  font-weight: normal;
-  display: block;
-  clear: left;
-}
-
-h3,
-.h3 {
-  font-size: 1.16em;
-  font-weight: normal;
-  display: block;
-}
-
-h4,
-.h4 {
-  font-size: 0.93em;
-  font-weight: normal;
-  display: block;
-  margin-bottom: 0;
-  text-transform: uppercase;
-}
-
-// em,
-// p.note { font-style: italic; }
+h1, h2, h3, h4, h5, h6 { @include montserrat-light; }
+h1, .h1 { font-size: $h1-font-size; }
+h2, .h2 { font-size: $h2-font-size; }
+h3, .h3 { font-size: $h3-font-size; }
+h4, .h4 { font-size: $h4-font-size; }
+h5 { font-size: $h5-font-size; }
+h6 { font-size: $h6-font-size; }
 
 .typography {
-  h1, .h1, h2, .h2, h3, .h3 { margin-bottom:0.2em; }
-  p, ol, ul, dl {
-    line-height:1.6;
-    margin:0 0 1.2em;
-  }
+  // h1, .h1, h2, .h2, h3, .h3 { margin-bottom:0.2em; }
+  // p, ol, ul, dl {
+  //   line-height:1.6;
+  //   margin:0 0 1.2em;
+  // }
   li {
     margin: 0 0 0.6em;
     word-wrap: break-word;
