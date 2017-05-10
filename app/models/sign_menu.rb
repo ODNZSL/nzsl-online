@@ -1,4 +1,4 @@
-class SignMenu
+class SignMenu # rubocop:disable Metrics/ClassLength
   def self.handshapes
     [
       [['1.1.1', '1.1.2', '1.1.3'], ['1.2.1', '1.2.2'], ['1.3.1', '1.3.2'], ['1.4.1']],
@@ -79,6 +79,7 @@ class SignMenu
       ['Weather',                                   41],
       ['Work',                                      42]]
   end
+
   def self.topic_tags_first
     [
       ['Actions and activities',                     5],
@@ -95,8 +96,8 @@ class SignMenu
       ['Emotions',                                  18],
       ['Events and celebrations',                   14],
       ['Family',                                    20]]
-
   end
+
   def self.topic_tags_second
     [
       ['Food and drink',                            16],
@@ -114,6 +115,7 @@ class SignMenu
       ['Nature and environment',                    19],
       ['Numbers',                                   29]]
   end
+
   def self.topic_tags_third
     [
       ['People and relationships',                  46],
