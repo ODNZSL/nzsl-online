@@ -25,3 +25,8 @@ $h6-font-size: 1em;
   font-family: "Montserrat";
   font-weight: 500;
 }
+
+@mixin center-element {
+  margin: 0 auto;
+  display: block;
+}
