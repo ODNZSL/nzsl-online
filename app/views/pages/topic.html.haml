@@ -1,23 +1,20 @@
 = render :partial => 'pages/content'
-.row.small-up-1.medium-up-4
-  .column
+.row.small-up-1.large-up-4
+  .column.topics-columns
     %ol.ol-topic-style
       - SignMenu.topic_tags_first.each do |topic|
         %li.topic-li-style
           = link_to topic[0], search_signs_path(tag: topic[1])
-          = topic[2]
-  .column
+  .column.topics-columns
     %ol.ol-topic-style
       - SignMenu.topic_tags_second.each do |topic|
         %li.topic-li-style
           = link_to topic[0], search_signs_path(tag: topic[1])
-          = topic[2]
-  .column
+  .column.topics-columns
     %ol.ol-topic-style
       - SignMenu.topic_tags_third.each do |topic|
         %li.topic-li-style
           = link_to topic[0], search_signs_path(tag: topic[1])
-          = topic[2]
 
 
 
