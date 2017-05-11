@@ -1,25 +1,30 @@
 .topic-li-style {
-  padding-bottom: 6px;
+  float: left;
   list-style: none;
+  a {
+    line-height: 20px;
+    border-bottom: none;
+  }
 }
 
 .ol-topic-style {
-  float: left;
   list-style: none;
   margin-left: 0px;
 }
 
+.topic-h2-style {
+  margin: 25px 0 5px;
+}
+
 .ol-usage-style {
   list-style: none;
+  a {
+    line-height: 20px;
+    border-bottom: none;
+  }
 }
 
 .usage-li-style {
-  padding-bottom: 6px;
   list-style: none;
 }
 
-.topics-columns {
-  -webkit-column-width: 200px;
-     -moz-column-width: 200px;
-          column-width: 200px;
-}
