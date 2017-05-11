@@ -1,3 +1,3 @@
-%div{:class => "search_field prompt_input_wrapper #{tab_class(:advanced, :keywords)}"}
-  = label_tag :s, t('search.keywords.prompt').html_safe, :class => 'input_prompt', :style => "display:#{search_term(:s).present? ? 'none' : 'inline-block'}"
-  = search_field_tag :s, search_term(:s), :class => 'search_box text_input'
+%div{:class => "small-12 small-centered #{tab_class(:advanced, :keywords)}"}
+  = label_tag :s, "Sign Search", class:"text-center search-label"
+  = search_field_tag :s, search_term(:s), class:"small-12 small-centered search-field", placeholder:"Search by English or Māori keywords"
