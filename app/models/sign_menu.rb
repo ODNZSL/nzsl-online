@@ -36,7 +36,7 @@ class SignMenu # rubocop:disable Metrics/ClassLength
 
   def self.topic_tags # rubocop:disable Metrics/MethodLength
     [
-      ['Actions and activities',                     5, 825],
+      ['Actions and activities',                     5],
       ['Animals',                                    7],
       ['Body and appearance',                        9],
       ['Clothes',                                   10],
