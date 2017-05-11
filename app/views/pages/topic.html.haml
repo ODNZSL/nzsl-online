@@ -1,16 +1,13 @@
-= render :partial => 'pages/content'
-.medium-10
-  .column
+.topic-container.medium-11.medium-centered
+  = render :partial => 'pages/content'
+  %ol
+    - SignMenu.topic_tags.each do |topic|
+      %li.topic-li-style.small-12.medium-6.large-4
+        = link_to topic[0], search_signs_path(tag: topic[1])
+  %h2
+    List of Usage tags
+  .usage-tags
     %ol
-      - SignMenu.topic_tags.each do |topic|
-        %li.topic-li-style.small-12.medium-6.large-4
-          = link_to topic[0], search_signs_path(tag: topic[1])
-
-.typography.topic-h2-style
-  %h2 List of Usage tags
-%ol
-  - SignMenu.usage_tags.each do |u|
-    %li.topic-usage-style
-      = link_to u[0], search_signs_path(usage: u[1])
-
-
+      - SignMenu.usage_tags.each do |u|
+        %li.topic-li-style
+          = link_to u[0], search_signs_path(usage: u[1])
