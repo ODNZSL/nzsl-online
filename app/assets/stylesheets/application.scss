@@ -146,10 +146,10 @@ a.logo {
 .print_logo { display:none; }
 
 .header .nav {
-  border:1px solid #99a0a5;
-  border-left:0;
-  border-right:0;
-  background:#eceef0;
+  // border:1px solid #99a0a5;
+  // border-left:0;
+  // border-right:0;
+  background: $dark-grey;
   position:relative;
   // margin-bottom:32px;
 }
@@ -1331,10 +1331,10 @@ body .video_replace {
 }
 
 .center {
-  width: 690px;
-  margin: 0 auto;
+  // width: 690px;
+  // margin: 0 auto;
   position: relative;
-  z-index: 7;
+  // z-index: 7;
 } /* html3.2 loves you */
 
 .rule_after {
