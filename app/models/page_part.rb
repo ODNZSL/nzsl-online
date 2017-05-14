@@ -16,7 +16,7 @@ class PagePart < ActiveRecord::Base
   def self.create_from_csv(row)
     id, title, order, body, translation_path, page_id, created_at, updated_at = row
 
-    PagePart.create!(
+    PagePart.where(id: id).first_or_create(
       id: id,
       title: title,
       order: order,

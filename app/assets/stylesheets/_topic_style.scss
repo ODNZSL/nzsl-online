@@ -1,0 +1,13 @@
+.topic-container{
+  h2 { margin: 20px 0; }
+  ol { overflow: auto; }
+  .topic-li-style {
+    float: left;
+    list-style: none;
+    a {
+      line-height: 2;
+      border-bottom: none;
+    }
+  }
+  .usage-tags .topic-li-style { float: none; }
+}
