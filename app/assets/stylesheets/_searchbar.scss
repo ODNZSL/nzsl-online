@@ -11,13 +11,40 @@ $li-hightlight-blue: rgba(185, 204, 249, 0.4);
   }
 }
 
-.search{
+.search {
+  &-container {
+    form { position: relative; }
+  }
   &-field {
     border-radius: 25px;
     border: none;
     height: 25px;
+    padding-left: 10px;
   }
   &-label {
     text-align: center;
+    padding: 25px 0;
+    display: block;
+    color: white;
+  }
+  &-button {
+    background-color: initial;
+    border: none;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    i {
+      font-size: 32px;
+      color: white;
+    }
+  }
+  &-tab {
+    text-align: center;
+    padding: 20px 0;
+    a {
+      color: white;
+      text-decoration: underline;
+      border: none;
+    }
   }
 }
