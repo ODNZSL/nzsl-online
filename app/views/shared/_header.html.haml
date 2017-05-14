@@ -15,12 +15,14 @@
         = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered medium-8" do
           = render :partial => 'shared/search/keywords'
           /= render :partial => 'shared/search/signs'
+
           %div{:class => "search-tab #{tab_class(:advanced)}"}
             = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
-          %div{:class => "#{tab_class(:advanced)}"}
 
-            = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + SignMenu.topic_tags, search_term(:tag)), :class => "text_input"
-            = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "text_input"
+          %div{:class => "#{tab_class(:advanced)}"}
+            = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + SignMenu.topic_tags, search_term(:tag)), :class => "text_input medium-3"
+            = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "text_input medium-3"
+
           = submit_search_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
     .menu.menu_background
