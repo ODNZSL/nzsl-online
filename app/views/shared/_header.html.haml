@@ -2,35 +2,26 @@
   .center
     - if params[:print]
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
-    /= link_to 'NZSL Online', '/', {:class => 'logo ir'}
-    /= image_tag 'ui/logo-serrated.png', :class => 'print_logo'
   .nav
-    /.l.edge
-    /.r.edge
     .center
       %ul
         %li{:class => "tab #{tab_class(:keywords)}"}
-          .l
           = link_to t('search.tabs.keyword'), {:tab => 'keywords'}
-          .r
         %li{:class => "tab #{tab_class(:signs)}"}
-          .l
           = link_to t('search.tabs.sign'), {:tab => 'signs'}
-          .r
-        %li{:class => "tab #{tab_class(:advanced)}"}
-          .l
-          = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
-          .r
         %li.help
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
-      .small-12
-        = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered " do
+      .search-container.small-12
+        = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered medium-8" do
           = render :partial => 'shared/search/keywords'
-          = render :partial => 'shared/search/signs'
+          /= render :partial => 'shared/search/signs'
+          %div{:class => "search-tab #{tab_class(:advanced)}"}
+            = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
           %div{:class => "#{tab_class(:advanced)}"}
+
             = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + SignMenu.topic_tags, search_term(:tag)), :class => "text_input"
             = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "text_input"
-          = submit_button
+          = submit_search_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
     .menu.menu_background
       %ul#nav.center
