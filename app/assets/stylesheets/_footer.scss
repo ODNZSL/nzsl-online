@@ -84,7 +84,10 @@ footer {
 @media screen and (min-width: $medium-screen) {
   footer {
     .footer-container {
-      .github img { margin-left: 0; }
+      .github {
+        margin: 10px 0;
+        img { margin-left: 0;}
+      }
       .footer-columns {
         float: left;
         .learnnzsl { margin: initial; }
