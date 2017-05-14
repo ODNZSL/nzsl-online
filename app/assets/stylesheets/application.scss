@@ -10,6 +10,7 @@
 @import "flowplayer";
 @import "searchbar";
 @import "search_results";
+@import "footer";
 @import "topic_style";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
@@ -31,7 +32,7 @@ ul {
   overflow-y: hidden;
   overflow-x: hidden;
 }
-
+li,p  { margin: 0; }
 .no-bullet {
   list-style: none;
   padding: 0;
@@ -61,13 +62,16 @@ ul {
   text-align: left;
  }
 
+ img {
+   display: inline;
+   margin: 5px 10px;
+ }
 // --------------------------------------
 
 html, body {
   height: 100%;
   width: 100%;
   min-width: $small-screen;
-  max-width: $large-screen;
   margin: 0 auto;
 }
 
@@ -76,17 +80,17 @@ html, body {
   min-height: 100%;
  }
 
-.before_sticky_footer {
+// .before_sticky_footer {
   // overflow:auto;
-  padding-bottom: 100px; /* must be same height as the footer */
-}
+  // padding-bottom: 100px; /* must be same height as the footer */
+// }
 
-.sticky_footer {
-  position: relative;
-  margin-top: -100px; /* negative value of footer height */
-  height: 100px;
-  clear:both;
-}
+// .sticky_footer {
+  // position: relative;
+  // margin-top: -100px; /* negative value of footer height */
+  // height: 100px;
+  // clear:both;
+// }
 
 /* Opera Fix */
 body:before {
@@ -97,22 +101,22 @@ body:before {
   margin-top:-32767px;
 }
 
-/* IE Fix */
-.ie6 .not_sticky_footer {
-  display:table;
-  height:100%;
-}
+// /* IE Fix */
+// .ie6 .not_sticky_footer {
+//   display:table;
+//   height:100%;
+// }
 
 // Layout
 // -----------------
-.main_column {
-  margin:0 auto;
-  position:relative;
-  width:480px;
-  padding-left:108px;
-  padding-right:102px;
-  overflow:visible;
-}
+// .main_column {
+//   margin:0 auto;
+//   position:relative;
+//   width:480px;
+//   padding-left:108px;
+//   padding-right:102px;
+//   overflow:visible;
+// }
 
 // Search & Nav
 //
@@ -413,7 +417,7 @@ a.logo {
   line-height: 42px;
 }
 
-.image img { vertical-align: middle; }
+// .image img { vertical-align: middle; }
 
 .image .value { display: none; }
 
@@ -447,7 +451,7 @@ a.logo {
   line-height: 1;
 }
 
-.sub .image img { height: 100%; }
+// .sub .image img { height: 100%; }
 
 .sub li {
   border-color: white;
@@ -783,7 +787,7 @@ h1.search_results_for {
   vertical-align: middle;
 }
 
-.search_results_for img { vertical-align: middle; }
+// .search_results_for img { vertical-align: middle; }
 
 .pagination {
   margin: -1.2em 0 0;
@@ -833,42 +837,14 @@ h1.search_results_for {
   left: 108px;
 }
 
-/* * * * *\
-|* Footer *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+// Footer
+// -------------------------------
 
-.footer {
-  background: left 90px repeat-x;
-  background-image: image_url('ui/borders.png');
-  position: relative;
-  z-index: 1;
-}
 
-.print_footer { clear: left; }
+// Vocab Sheet
+// -------------------------------
 
-.footer .nav {
-  text-align: center;
-  font-size: 0.85em;
-  margin-bottom: 10px;;
-  // white-space: nowrap;
-}
 
-.footer .first { border: 0; }
-
-.footer .copyright {
-  font-size: 85%;
-  text-align: center;
-}
-
-.footer a {
-  color: #34414b;
-  border-bottom: 1px solid #909fab;
-}
-
-/* * * * * * * *\
-|* Vocab Sheet  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-/*  */
 // .vocab_sheet_head {
 //   margin-left: -108px;
 //   margin-right: 102px;
@@ -898,17 +874,17 @@ h1.search_results_for {
 }
 
 .vocab_sheet ul {
-  margin: 0 -11px 0 0;
+  // margin: 0 -11px 0 0;
   padding: 0;
   list-style-type: none;
 }
 
 .vocab_sheet_item {
-  display: block;
-  padding: 7px 1px 0;
+  // display: block;
+  // padding: 7px 1px 0;
   position: relative;
-  overflow: visible;
-  z-index: 1;
+  // overflow: visible;
+  // z-index: 1;
 }
 
 .vocab_sheet_item a {
@@ -916,17 +892,17 @@ h1.search_results_for {
   display: block;
   color: #34414b;
   text-decoration: none;
-  padding: 0 5px;
+  // padding: 0 5px;
   background-color: transparent;
   border: 0;
 }
 
-.vocab_sheet_item .drawing { margin: 5px 0 0; }
+// .vocab_sheet_item .drawing { margin: 5px 0 0; }
 
-.vocab_sheet_item img {
-  display: inline;
-  vertical-align: middle;
-}
+// .vocab_sheet_item img {
+  // display: inline;
+  // vertical-align: middle;
+// }
 
 .vocab_sheet_item .remove {
   position: absolute;
@@ -941,7 +917,7 @@ h1.search_results_for {
 /* bar specific */
 .vocab_sheet_bar {
   // float: right;
-  width: 121px;
+  width: 120px;
   // top: 0;
   top: 155px;
   position: absolute;
@@ -958,15 +934,15 @@ h1.search_results_for {
 .column_wrapper { overflow-y: hidden; }
 
 .vocab_sheet_bar .title {
-  padding:15px 0;
-  font-size:138.5%;
+  // padding:15px 0;
+  // font-size:138.5%;
 }
 
 .vocab_sheet_bar_item {
   background: left -10px no-repeat;
   background-image: image_url('ui/vocab_sheet_item.png');
   width: 99px;
-  margin: 15px 13px 15px;
+  margin: 15px auto;
 }
 
 .vocab_sheet_bar_item .b {
@@ -1028,8 +1004,8 @@ h1.search_results_for {
 }
 
 .vocab_sheet_page_item .remove {
-  top: -10px;
-  right: -14px;
+  // top: -10px;
+  // right: -14px;
 }
 
 /* no-js friendly */
@@ -1135,7 +1111,7 @@ h1.search_results_for {
 }
 
 
-.sign_of_the_day img { display: inline; }
+// .sign_of_the_day img { display: inline; }
 
 .sign_of_the_day .h2 { display: inline; }
 
@@ -1441,4 +1417,7 @@ body .video_replace {
 
 .clearfix, .clearfix_left { zoom: 1; }
 
-.footer_fullview_link {float:left;margin-bottom:-5px;}
+// .footer_fullview_link {
+  // float: left;
+  // margin-bottom: -5px;
+// }
