@@ -19,16 +19,16 @@
       .footer-columns.small-10.medium-4
         %h4.footer-heading
           Follow Us
-        .social-media.footer-link.column-block
+        .social-media.footer-link
           = link_to((image_tag "img/icon-facebook.svg"), "https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/", target:"_blank")
           = link_to((image_tag "img/icon-twitter.svg"), "https://twitter.com/nzsldict", target:"_blank")
-        .github
-          = image_tag "img/icon-github.svg"
-          %div
-            %p.strong
-              This is an Open Source project
-            %p
-              Text about what type of open source and contribute to it via github site.
+      .github.small-12.medium-4
+        = image_tag "img/icon-github.svg"
+        %div
+          %p.strong
+            This is an Open Source project
+          %p
+            Text about what type of open source and contribute to it via github site.
   .copyright
     .small-10.small-centered.medium-8.large-6
       - if @footer && @footer.first_part

@@ -14,15 +14,19 @@ footer {
   color: $light-grey;
   img { @include center-element; }
 
-  .social-media a { display: inline-block; }
-
-  .social-media img { margin: 10px; }
+  .social-media {
+    width: 115px;
+    @include center-element;
+    a { display: inline-block; }
+    img { margin: 10px; }
+  }
 
   .print_footer { clear: left; }
 
   .footer-heading {
     @include montserrat-bold;
     padding: 20px 0;
+    text-align: center;
   }
   .sub-footer-container {
     background: $light-med-grey;
@@ -59,16 +63,19 @@ footer {
         display: block;
         padding: 5px;
       }
-      .github {
-        img {
-          float: left;
-          margin: 0 10px;
-        }
-        div {
-          width: calc(100% - 52px);
-          display: inline-block;
-          float: left;
-        }
+    }
+    .github {
+      margin: 15px auto;
+      overflow: auto;
+      max-width: 340px;
+      img {
+        float: left;
+        margin: 0 10px;
+      }
+      div {
+        width: calc(100% - 52px);
+        display: inline-block;
+        float: left;
       }
     }
   }
@@ -76,9 +83,13 @@ footer {
 
 @media screen and (min-width: $medium-screen) {
   footer {
-    .footer-container .footer-columns {
-      float: left;
-      .learnnzsl { margin: initial; }
+    .footer-container {
+      .github img { margin-left: 0; }
+      .footer-columns {
+        float: left;
+        .learnnzsl { margin: initial; }
+        h4 { text-align: left; }
+      }
     }
     .copyright {
       img {
@@ -95,6 +106,10 @@ footer {
       img { display: inline-block; }
       a:first-child img { float: left; }
       a:nth-child(2) img { float: right; }
+    }
+    .social-media {
+      margin: 0;
+      img { margin: 0 20px 30px 0; }
     }
   }
 }
