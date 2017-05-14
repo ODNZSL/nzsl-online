@@ -36,6 +36,12 @@ module ApplicationHelper
      </div>".html_safe
   end
 
+  def submit_search_button(text = 'search.submit', options = {})
+    "<button type='submit' class='search-button'>
+      <i class='fi-magnifying-glass'></i>
+    </button>".html_safe
+  end
+
   def link_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
     link_to "<div class='r'></div>#{t(text)}".html_safe,
