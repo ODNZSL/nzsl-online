@@ -30,3 +30,13 @@ $h6-font-size: 1em;
   margin: 0 auto;
   display: block;
 }
+
+.caret {
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 15px solid black;
+  display: block;
+  margin: 0 auto;
+}
