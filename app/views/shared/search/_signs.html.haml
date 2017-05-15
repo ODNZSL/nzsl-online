@@ -1,7 +1,6 @@
-%div{:class => "search_field sign_attribute_selection handshapes text_input #{tab_class(:advanced, :signs)}"}
+%div{:class => "sign-search-button advanced-search-button handshapes #{tab_class(:advanced, :signs)}"}
   = hidden_field_tag :hs, search_term(:hs), :class => 'selected_field'
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
-    .border_mask
     .attribute_options.clearfix.dropdown.shadow{:style => "display:none"}
       .title=t('search.signs.handshapes_help');
       .close=t('search.close')
@@ -15,14 +14,15 @@
                   -group.each do |shape|
                     %li{:class => " #{handshape_selected?(shape)}"}= handshape_image shape
   .selected_signs_wrapper
-    .selected_signs
-      = display_handshapes_search_term
+    /.selected_signs
+    = display_handshapes_search_term
     .default{:style => "display:#{@query[:hs].blank? ? 'block' : 'none'}"}= t('search.signs.default_handshape')
-%div{:class => "search_field sign_attribute_selection locations text_input #{tab_class(:advanced, :signs)}"}
+    %span.caret
+
+%div{:class => "advanced-search-button sign-search-button locations #{tab_class(:advanced, :signs)}"}
   = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
   = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
-    .border_mask
     .attribute_options.clearfix.dropdown.shadow{:style => "display:none"}
       .title=t('search.signs.locations_help');
       .close=t('search.close')
@@ -34,7 +34,8 @@
             - else
               %li{:class => "#{location_selected?(shape)}"}= location_image shape, false, true
   .selected_signs_wrapper
-    .selected_signs
-      = display_locations_search_term
-      = display_location_groups_search_term
+    /.selected_signs
+    = display_locations_search_term
+    = display_location_groups_search_term
     .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.signs.default_location')
+    %span.caret
