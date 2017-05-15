@@ -43,22 +43,22 @@ $li-hightlight-blue: rgba(185, 204, 249, 0.4);
     padding: 20px 0;
     a {
       color: white;
-      text-decoration: underline;
+      text-decoration: none;
       border: none;
     }
   }
 }
 
-.advanced-search {
-  &-button {
+@media screen and (min-width: $medium-screen) {
+  .advanced-search-button {
     position: relative;
     float: left;
-    height: 80px;
+    height: 60px;
     background-color: $light-grey;
     margin: 0 5px;
     width: calc(50% - 10px);
-    max-width: 200px;
+    max-width: 240px;
     cursor: pointer;
-    border-radius: 15px;
+    border-radius: 2px;
   }
 }
