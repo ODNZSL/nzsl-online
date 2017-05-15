@@ -48,3 +48,17 @@ $li-hightlight-blue: rgba(185, 204, 249, 0.4);
     }
   }
 }
+
+.advanced-search {
+  &-button {
+    position: relative;
+    float: left;
+    height: 80px;
+    background-color: $light-grey;
+    margin: 0 5px;
+    width: calc(50% - 10px);
+    max-width: 200px;
+    cursor: pointer;
+    border-radius: 15px;
+  }
+}
