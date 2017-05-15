@@ -342,11 +342,6 @@ a.logo {
   display: block;
 }
 
-// Advanced
-// -----------------
-
-// .advanced select { width: 400px; }
-
 // Signs
 // -----------------
 
@@ -354,8 +349,8 @@ a.logo {
 
 .dropdown {
   position: absolute;
-  top: 30px;
-  left: -175px;
+  top: 80px;
+  left: 0;
   background: white;
   border: 1px solid #99a0a5;
   z-index: 10;
@@ -366,8 +361,8 @@ a.logo {
 .handshapes .dropdown { width: 452px; }
 
 .locations .dropdown {
-  width:536px;
-  left:-380px;
+  width: 510px;
+  left: -335px;
 }
 
 .dropdown .title {
@@ -526,26 +521,20 @@ a.logo {
   line-height: 10px;
 }
 
-.sign_attribute_selection {
-  position: relative;
-  float: left;
-  width: 181px;
-  min-height: 42px;
-  padding: 6px 6px 2px;
-  line-height: 42px;
-  cursor: pointer;
-  z-index: 30;
-}
+// .sign_attribute_selection {
+//   position: relative;
+//   float: left;
+//   width: 181px;
+//   min-height: 42px;
+//   padding: 6px 6px 2px;
+//   line-height: 42px;
+//   cursor: pointer;
+//   z-index: 30;
+// }
 
-.selected_signs_wrapper {
-  float: left;
-  margin-bottom: -4px;
-  width: 168px;
-  z-index: 1;
-  position: relative;
-}
+.selected_signs_wrapper { text-align: center; }
 
-.selected_signs_wrapper .default { float: left; }
+// .selected_signs_wrapper .default { float: left; }
 
 .input_prompt { text-indent: 6px; }
 
@@ -554,36 +543,7 @@ a.logo {
   font-style: italic;
 }
 
-.default {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-.selected.dropdown_arrow {
-  background-color: white;
-  border: 1px solid #99a0a5;
-  margin: -1px;
-  height: 30px;
-}
-
-a.dropdown_arrow {
-  float: right;
-  text-decoration: none;
-  width: 20px;
-  height: 35px;
-  border: 0;
-  line-height: 35px;
-  background: no-repeat center 10px;
-  background-image: image_url('ui/arrow.png');
-  position: absolute;
-  z-index: 30;
-  margin: 0;
-  text-align: center;
-  right: 6px;
-  top: 10px;
-  color: #777;
-}
+.dropdown_arrow { border: none; }
 
 a.empty {
   background: no-repeat center right;
@@ -874,35 +834,20 @@ h1.search_results_for {
 }
 
 .vocab_sheet ul {
-  // margin: 0 -11px 0 0;
   padding: 0;
   list-style-type: none;
 }
 
-.vocab_sheet_item {
-  // display: block;
-  // padding: 7px 1px 0;
-  position: relative;
-  // overflow: visible;
-  // z-index: 1;
-}
+.vocab_sheet_item { position: relative; }
 
 .vocab_sheet_item a {
   text-align: center;
   display: block;
   color: #34414b;
   text-decoration: none;
-  // padding: 0 5px;
   background-color: transparent;
   border: 0;
 }
-
-// .vocab_sheet_item .drawing { margin: 5px 0 0; }
-
-// .vocab_sheet_item img {
-  // display: inline;
-  // vertical-align: middle;
-// }
 
 .vocab_sheet_item .remove {
   position: absolute;
@@ -916,27 +861,15 @@ h1.search_results_for {
 
 /* bar specific */
 .vocab_sheet_bar {
-  // float: right;
   width: 120px;
-  // top: 0;
-  top: 155px;
+  top: 400px;
   position: absolute;
   right: 0;
   height: 100%;
-  // background: right top repeat-y;
-  // background-image: image_url('ui/vocab-background.png');
-  // overflow: hidden;
   z-index: 10;
-  // margin-left: -121px;
-  // left: 121px;
 }
 
 .column_wrapper { overflow-y: hidden; }
-
-.vocab_sheet_bar .title {
-  // padding:15px 0;
-  // font-size:138.5%;
-}
 
 .vocab_sheet_bar_item {
   background: left -10px no-repeat;
@@ -1416,8 +1349,3 @@ body .video_replace {
 .clearfix_left:after { clear: left;}
 
 .clearfix, .clearfix_left { zoom: 1; }
-
-// .footer_fullview_link {
-  // float: left;
-  // margin-bottom: -5px;
-// }
