@@ -15,10 +15,10 @@
       .search-container.small-12
         = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered medium-8" do
           = render :partial => 'shared/search/keywords'
-          %div{:class => "search-tab #{tab_class(:advanced)}"}
+          %div{:class => "search-tab #{tab_class(:advanced)}show-for-medium"}
             = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
-          %div{:class => "#{tab_class(:advanced)}clearfix small-9 small-centered"}
-            .advanced-search-container
+          %div{:class => "#{tab_class(:advanced)}clearfix medium-12 small-centered"}
+            .advanced-search-container.show-for-medium
               = render :partial => 'shared/search/signs'
           = submit_search_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
