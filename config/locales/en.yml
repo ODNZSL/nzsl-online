@@ -59,8 +59,8 @@ en:
     keywords:
       prompt: "Enter search keywords&hellip;"
     signs:
-      default_handshape: Any hand shape
-      default_location: Any location
+      default_handshape: By Hand Shape
+      default_location: By Body Location
       handshapes_help: Click a hand shape to search for signs with that shape
       locations_help: Click a location to search for signs using that location
     advanced:
