@@ -166,7 +166,7 @@ $(function(){
       return true; //so bubbles back up;
     });
 
-    $('.sign_attribute_selection').click(function(e){
+    $('.sign-search-button').click(function(e){
       e.stopPropagation();
       e.preventDefault();
 
@@ -176,7 +176,7 @@ $(function(){
       $(this).find('.dropdown_arrow').toggleClass('selected shadow', hideOrShow);
       if (hideOrShow) {
         //for IE7 and his layering issues
-        $(this).closest('.sign_attribute_selection').css('zIndex', '100');
+        $(this).closest('.sign-search-button').css('zIndex', '100');
       }
       return false;
     });
