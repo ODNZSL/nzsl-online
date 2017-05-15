@@ -4,7 +4,21 @@
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
     / = link_to 'NZSL Online', '/', {:class => 'logo ir'}
     / = image_tag 'ui/logo-serrated.png', :class => 'print_logo'
-  .global_header
+  .small-12.header-bg-colour
+    .logo-container
+      .logo-img-container.font-style
+        .nzsl-brand-logo
+          = image_tag "img/brandlogo.svg", class: "brand-logo-style"
+      .logo-text-container
+        %h1.logo-text-one
+          New Zealand Sign Language Dictionary
+        %h2.logo-text-two
+          Te Papakupu o Te Reo Turi o Aotearoa
+    .header-nav-menu
+      %ul#nav.center
+        - Page.in_nav.each_with_index do |link, i|
+          %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
+
 
   .nav
     .l.edge
@@ -35,10 +49,7 @@
             = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "text_input"
           = submit_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
-    .menu.menu_background
-      %ul#nav.center
-        - Page.in_nav.each_with_index do |link, i|
-          %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
+    / .menu.menu_background
 
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.

@@ -1,7 +1,52 @@
-.global_header {
-  height:50px;
-  background:#F0F0F0;
-  border:1px solid #CCC;
-  width:960px;
-  margin:0px auto;
+.font-style {
+  font-family: "Montserrat";
+  font-weight: 500;
+}
+
+
+
+.header-nav-menu li {
+  position: relative;
+  float: left;
+  background: bottom left no-repeat;
+  // background-image: image_url('ui/nav.png');
+  height: 29px;
+  list-style-type: none;
+}
+.header-bg-colour {
+  background-color: $dark-grey;
+}
+
+.logo-container {
+  color: $light-grey;
+  overflow: auto;
+  width: 40%;
+  // float: left;
+  text-align: center;
+
+  .logo-img-container {
+    float: left;
+    width: 18%;
+    outline: 1px solid red;
+
+    .nzsl-brand-logo {
+      display: block;
+      float: left;
+      padding: 1% 0 -1%;
+    }
+  }
+
+  .logo-text-container {
+    width: 70%;
+    outline: 1px solid red;
+    .logo-text-one {
+      padding: 5% 0 2%;
+      outline: 1px solid red;
+    }
+    .logo-text-two {
+      padding-bottom: 5%;
+      outline: 1px solid red;
+    }
+  }
+
 }
