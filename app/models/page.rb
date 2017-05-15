@@ -56,7 +56,7 @@ class Page < ActiveRecord::Base
   def self.create_from_csv(row)
     id, title, slug, label, order, template, show_in_nav, created_at, updated_at = row
 
-    Page.create!(
+    Page.where(id: id).first_or_create(
       id: id,
       title: title,
       slug: slug,

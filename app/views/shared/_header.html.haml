@@ -34,7 +34,6 @@
           = submit_button
           %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
     .menu.menu_background
-    .menu
       %ul#nav.center
         - Page.in_nav.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
