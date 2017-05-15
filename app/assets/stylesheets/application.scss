@@ -3,8 +3,8 @@
 /*
 *= require jquery-ui
 */
-@import "variables";
 @import "color";
+@import "variables";
 @import "foundation_and_overrides";
 @import "typography";
 @import "flowplayer";
@@ -543,6 +543,11 @@ a.logo {
   font-style: italic;
 }
 
+.default {
+  font-size: $h6-font-size;
+  padding-left: 10px;
+  font-style: normal;
+}
 .dropdown_arrow { border: none; }
 
 a.empty {
