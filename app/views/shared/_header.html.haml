@@ -3,29 +3,35 @@
     - if params[:print]
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
   .nav
-    .center
-      %ul
-        %li{:class => "tab #{tab_class(:keywords)}"}
-          = link_to t('search.tabs.keyword'), {:tab => 'keywords'}
-        %li{:class => "tab #{tab_class(:signs)}"}
-          = link_to t('search.tabs.sign'), {:tab => 'signs'}
-        %li.help
-          = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
+    /.center
+    /%ul
+    /%li{:class => "tab #{tab_class(:keywords)}"}
+    /= link_to t('search.tabs.keyword'), {:tab => 'keywords'}
+    /%li{:class => "tab #{tab_class(:signs)}"}
+    /= link_to t('search.tabs.sign'), {:tab => 'signs'}
+    /%li.help
+    /= link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
 
-      .search-container.small-12
-        = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered medium-8" do
-          = render :partial => 'shared/search/keywords'
-          %div{:class => "search-tab #{tab_class(:advanced)}show-for-medium"}
-            = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
-          %div{:class => "#{tab_class(:advanced)}clearfix medium-12 small-centered"}
-            .advanced-search-container.show-for-medium
-              = render :partial => 'shared/search/signs'
-          = submit_search_button
-          %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
-    .menu.menu_background
-      %ul#nav.center
-        - Page.in_nav.each_with_index do |link, i|
-          %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
+    .search-container.small-12
+      = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered medium-8" do
+        = render :partial => 'shared/search/keywords'
+        %div{:class => "search-tab #{tab_class(:advanced)}show-for-medium"}
+          = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
+        %div{:class => "#{tab_class(:advanced)}clearfix medium-10 small-centered advanced-search-container show-for-medium hide"}
+          = render :partial => 'shared/search/signs'
+          %div{:class => "#{tab_class(:advanced)}"}
+            .advanced-search-button
+              = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + SignMenu.topic_tags, search_term(:tag)), :class => "float-left no-select-styles"
+              %span.caret
+            .advanced-search-button
+              = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "float-left no-select-styles"
+              %span.caret
+        = submit_search_button
+        %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
+  .menu.menu_background
+    %ul#nav.center
+      - Page.in_nav.each_with_index do |link, i|
+        %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
 
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
