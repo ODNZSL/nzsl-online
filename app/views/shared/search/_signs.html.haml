@@ -1,11 +1,11 @@
-%div{:class => "sign-search-button advanced-search-button handshapes #{tab_class(:advanced, :signs)}"}
+%div{:class => "sign-search-button advanced-search-button handshapes float-left #{tab_class(:advanced, :signs)}"}
   = hidden_field_tag :hs, search_term(:hs), :class => 'selected_field'
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
-    .attribute_options.clearfix.dropdown.shadow{:style => "display:none"}
+    .attribute_options.clearfix.dropdown.float-left{:style => "display:none"}
       .title=t('search.signs.handshapes_help');
       .close=t('search.close')
       - SignMenu.handshapes.each do |row|
-        %ul.row
+        %ul
           - row.each do |group|
             %li{:class => "group #{handshape_selected?(group.first)}"}
               = handshape_image group.shift, true
@@ -20,15 +20,15 @@
     .default{:style => "display:#{@query[:hs].blank? ? 'block' : 'none'}"}= t('search.signs.default_handshape')
     %span.caret
 
-%div{:class => "advanced-search-button sign-search-button locations #{tab_class(:advanced, :signs)}"}
+%div{:class => "advanced-search-button sign-search-button locations float-left #{tab_class(:advanced, :signs)}"}
   = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
   = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
   %a.dropdown_arrow{:href => 'javascript:void(0);'}
-    .attribute_options.clearfix.dropdown.shadow{:style => "display:none"}
+    .attribute_options.clearfix.dropdown.float-left{:style => "display:none"}
       .title=t('search.signs.locations_help');
       .close=t('search.close')
       - SignMenu.locations.each_with_index do |row, i|
-        %ul.row
+        %ul
           -row.each_with_index do |shape, j|
             - if i.zero? || j.zero?
               %li{:class => "#{location_group_selected?(shape)}"}= location_image shape, true, true
