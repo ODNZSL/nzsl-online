@@ -1,6 +1,6 @@
 $small-screen: 320px;
 $medium-screen: 640px;
-$large-screen: 1200px;
+$large-screen: 1024px;
 $xlarge-screen: 1440px;
 
 $light-grey: #E5E5E5;
@@ -14,6 +14,7 @@ $h3-font-size: 1.4em;
 $h4-font-size: 1.2em;
 $h5-font-size: 1.1em;
 $h6-font-size: 1em;
+$subtitle-font-size: 0.85em;
 
 @mixin montserrat-light {
   font-family: "Montserrat";
@@ -40,4 +41,11 @@ $h6-font-size: 1em;
   position: absolute;
   top: 20px;
   right: 20px;
+}
+
+.no-select-styles {
+  border: none;
+  color: $dark-grey;
+  border-image: none;
+  background-color: white;
 }
