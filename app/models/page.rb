@@ -47,10 +47,17 @@ class Page < ActiveRecord::Base
   end
 
   ##
-  # Find pages that should display in navigation
+  # Find pages that should display in footer navigation
   def self.in_nav
     where(show_in_nav: true).where(
       "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
+  end
+
+  ##
+  # Find pages that should display in header navigation
+  def self.header_nav
+    where(show_in_nav: true).where(
+      "slug IN('topics', 'alphabet', 'numbers', 'classifiers', 'help')")
   end
 
   def self.create_from_csv(row)
