@@ -5,48 +5,45 @@
 
 
 
-.header-nav-menu li {
-  position: relative;
-  float: left;
-  background: bottom left no-repeat;
-  // background-image: image_url('ui/nav.png');
-  height: 29px;
-  list-style-type: none;
-}
 .header-bg-colour {
   background-color: $dark-grey;
-}
-
-.logo-container {
-  color: $light-grey;
-  overflow: auto;
-  width: 40%;
-  // float: left;
-  text-align: center;
-
-  .logo-img-container {
+  padding-bottom: 8%;
+  .header-nav-menu li {
+    font-family: "Montserrat";
+    font-weight: 300;
     float: left;
-    width: 18%;
-    outline: 1px solid red;
+    list-style-type: none;
+    padding: 30px;
+    font-size: 15px;
+    line-height: 1em;
+    a {
+      text-decoration: none;
+      color: $light-grey;
+      border-bottom: none;
+    }
+  }
+  .logo-container {
+    color: $light-grey;
+    overflow: auto;
+    width: 35%;
+    float: left;
 
-    .nzsl-brand-logo {
-      display: block;
+
+    .logo-img-container {
       float: left;
-      padding: 1% 0 -1%;
     }
-  }
 
-  .logo-text-container {
-    width: 70%;
-    outline: 1px solid red;
-    .logo-text-one {
-      padding: 5% 0 2%;
-      outline: 1px solid red;
+    .logo-text-container {
+      text-align: center;
+      .logo-text-one {
+        padding: 5% 0 2%;
+        font-size: $h3-font-size;
+      }
+      .logo-text-two {
+        font-size: $h4-font-size;
+      }
     }
-    .logo-text-two {
-      padding-bottom: 5%;
-      outline: 1px solid red;
-    }
-  }
 
+  }
 }
+
