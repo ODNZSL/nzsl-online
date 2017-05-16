@@ -14,24 +14,26 @@ $li-hightlight-blue: rgba(185, 204, 249, 0.4);
 .search {
   &-container {
     form { position: relative; }
+    // height: 400px;
   }
   &-field {
     border-radius: 25px;
     border: none;
-    height: 25px;
+    height: 30px;
     padding-left: 10px;
   }
   &-label {
     text-align: center;
-    padding: 25px 0;
+    padding: 70px 0 15px;
     display: block;
     color: white;
+    font-size: $h3-font-size;
   }
   &-button {
     background-color: initial;
     border: none;
     position: absolute;
-    top: 55px;
+    top: 104px;
     right: 0;
     i {
       font-size: 32px;
@@ -40,7 +42,8 @@ $li-hightlight-blue: rgba(185, 204, 249, 0.4);
   }
   &-tab {
     text-align: center;
-    padding: 20px 0;
+    padding: 20px 0 10px 0;
+    font-size: $subtitle-font-size;
     a {
       color: white;
       text-decoration: none;
@@ -49,16 +52,26 @@ $li-hightlight-blue: rgba(185, 204, 249, 0.4);
   }
 }
 
+.hide { display: none; }
+.show { display: inline-block; }
+
 @media screen and (min-width: $medium-screen) {
   .advanced-search-button {
     position: relative;
-    float: left;
-    height: 60px;
-    background-color: $light-grey;
-    margin: 0 5px;
-    width: calc(50% - 10px);
-    max-width: 240px;
+    height: 65px;
+    background-color: white;
+    margin: 0 2.5px;
+    width: calc(25% - 5px);
     cursor: pointer;
     border-radius: 2px;
+    @include montserrat-light;
+    font-size: $subtitle-font-size;
+    color: $dark-grey;
   }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }
