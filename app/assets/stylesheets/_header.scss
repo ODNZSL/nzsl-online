@@ -70,37 +70,51 @@ header {
     width: 90%;
     margin-top: 2%;
   }
-  .toggle-menu {
-    font-size: 30px;
-    padding: 5px;
-    display: none;
-    width: 100%;
-    height: 100%;
-    overflow: hidden;
-    background-color: $primary-blue;
-    ul {
-      padding-left: 0;
-      margin-top: 95px;
-      li {
-         list-style-type: none;
-         padding: 15px 10px;
-         text-align: center;
-         vertical-align: middle;
-        a {
-           color: $light-grey;
-           text-decoration: none;
-           border: none;
-        }
-        a::hover{
-         background-color: none;
-        }
-      }
-    }
-    html {
-      overflow: hidden;
-    }
-  }
+}
 
+/*Overlay*/
+.overlay {
+    height: 100%;
+    width: 0;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: $primary-blue;
+    overflow-x: hidden;
+    transition: 0.5s;
+}
+
+.overlay-content {
+    position: relative;
+    top: 25%;
+    width: 100%;
+    text-align: center;
+    margin-top: 30px;
+    li {
+      list-style-type: none;
+    }
+}
+
+.overlay a {
+    padding: 8px;
+    text-decoration: none;
+    font-size: 36px;
+    color: $light-grey;
+    display: block;
+    transition: 0.3s;
+    border-bottom: none;
+}
+
+.overlay a:hover, .overlay a:focus {
+    color: $dark-grey;
+}
+
+.overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
 }
 
 

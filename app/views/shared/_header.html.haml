@@ -1,11 +1,3 @@
-/ %body
-/   #toggle-menu
-/     X
-/     %ul.show-list
-/       - Page.header_nav.each_with_index do |link, i|
-/         %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
-/       %li.help
-/         = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
 %header
   .center
     - if params[:print]
@@ -21,7 +13,15 @@
     = image_tag "img/hamburger.svg"
   .logo-text
     New Zealand Sign Language dictionary
-
+#myNav.overlay
+  %a.closebtn{:href => "javascript:void(0)", :onclick => "closeNav()"} ×
+  .overlay-content
+    %ul
+      - Page.header_nav.each_with_index do |link, i|
+        %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
+      %li.help
+        = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
+%span{:onclick => "openNav()"} open
 
 
 
