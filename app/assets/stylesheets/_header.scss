@@ -1,49 +1,109 @@
-.font-style {
-  font-family: "Montserrat";
-  font-weight: 500;
+
+header {
+ background: $primary-blue;
+ width: 100%;
+ height: 16%;
+ top: 0;
+ left: 0;
 }
+.header-nav {
+  width: 100%;
+  float: left;
+  text-align: center;
 
 
+  .menu-list {
+    @include montserrat-light;
 
-.header-bg-colour {
-  background-color: $dark-grey;
-  padding-bottom: 8%;
-  .header-nav-menu li {
-    font-family: "Montserrat";
-    font-weight: 300;
-    float: left;
-    list-style-type: none;
-    padding: 30px;
-    font-size: 15px;
-    line-height: 1em;
-    a {
-      text-decoration: none;
-      color: $light-grey;
-      border-bottom: none;
-    }
-  }
-  .logo-container {
-    color: $light-grey;
+    width: 100%;
     overflow: auto;
-    width: 35%;
-    float: left;
-
-
-    .logo-img-container {
-      float: left;
-    }
-
-    .logo-text-container {
-      text-align: center;
-      .logo-text-one {
-        padding: 5% 0 2%;
-        font-size: $h3-font-size;
+    text-align: center;
+    ul {
+      display: inline-block;
+      li {
+         display: inline;
+         list-style-type: none;
+         float: left;
+         padding: 10px;
+        a {
+           color: $light-grey;
+           text-decoration: none;
+           border: none;
+        }
+        a::hover{
+         background-color: none;
+        }
       }
-      .logo-text-two {
-        font-size: $h4-font-size;
-      }
     }
-
   }
+
 }
+.hamburger-menu-icon {
+  display: none;
+  float: left;
+  z-index: 10;
+}
+
+.logo-text {
+  @include montserrat-bold;
+  color: $light-grey;
+  width: 100%;
+  float: left;
+  text-align: center;
+}
+.toggle-menu {
+  display: none;
+}
+
+@media screen and (max-width: $medium-screen) {
+  .menu-list {
+    display: none;
+  }
+  .hamburger-menu-icon {
+    display: block;
+    width: 10%;
+    float: left;
+    margin-top: 7%;
+    cursor: pointer;
+  }
+  .logo-text {
+    width: 90%;
+    margin-top: 2%;
+  }
+  .toggle-menu {
+    font-size: 30px;
+    padding: 5px;
+    display: none;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-color: $primary-blue;
+    ul {
+      padding-left: 0;
+      margin-top: 95px;
+      li {
+         list-style-type: none;
+         padding: 15px 10px;
+         text-align: center;
+         vertical-align: middle;
+        a {
+           color: $light-grey;
+           text-decoration: none;
+           border: none;
+        }
+        a::hover{
+         background-color: none;
+        }
+      }
+    }
+    html {
+      overflow: hidden;
+    }
+  }
+
+}
+
+
+
+
 
