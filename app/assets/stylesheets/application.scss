@@ -352,8 +352,7 @@ a.logo {
   top: 70px;
   left: 0;
   background: white;
-  border: 1px solid #99a0a5;
-  // z-index: 10;
+  border: 1px solid $light-grey;
   display: none;
   padding: 5px;
 }
@@ -368,6 +367,26 @@ a.logo {
   left: -275px;
   ul { padding: 10px 0; }
 }
+
+.topic .dropdown,
+.usage .dropdown {
+  padding: 0;
+  min-width: 190px;
+  width: 100%;
+  border: none;
+  border: 1px solid $light-grey;
+  max-height: 400px;
+  overflow: scroll;
+  overflow-x: hidden;
+  ul { margin: 0; }
+  li {
+    border-bottom: 1px solid $light-grey;
+    padding-left: 5px;
+    line-height: 2.5;
+  }
+}
+
+.usage .dropdown { overflow-y: hidden; }
 
 .dropdown .title {
   padding: 3px 3px 7px;
