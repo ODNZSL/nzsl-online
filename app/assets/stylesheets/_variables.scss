@@ -35,12 +35,12 @@ $subtitle-font-size: 0.85em;
 .caret {
   width: 0;
   height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 15px solid $pink;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  border-top: 10px solid $pink;
   position: absolute;
-  top: 20px;
-  right: 20px;
+  top: 25px;
+  right: 5px;
 }
 
 .no-select-styles {
