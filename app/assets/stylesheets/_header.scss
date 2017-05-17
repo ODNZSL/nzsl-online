@@ -1,0 +1,17 @@
+.header {
+  position:relative;
+  .nav {
+    background: $primary-blue;
+    position:relative;
+  }
+  .edge {
+    background: left top repeat-y;
+    background-image: image_url('ui/edges.png');
+    width:72px;
+    height:100%;
+    z-index:5;
+    padding-bottom:30px;
+    top:-1px;
+  }
+  .l { background-position:right top; }
+}
