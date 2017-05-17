@@ -31,13 +31,14 @@
                 .clearfix.dropdown.float-left.text_input
                   %ul.no-bullet
                     - SignMenu.usage_tags.each do |name, i|
-                      %li
-                        = name
+                      = link_to search_term(:usage)
+                        %li
+                          = name
               .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.usage_tags')
               %span.caret
 
           = submit_search_button
-          %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
+          %a.show-for-medium.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do
