@@ -17,21 +17,37 @@
         = render :partial => 'shared/search/keywords'
         %div{:class => "search-tab #{tab_class(:advanced)}show-for-medium"}
           = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
-        %div{:class => "#{tab_class(:advanced)}clearfix medium-10 small-centered advanced-search-container show-for-medium hide"}
+        %div{:class => "#{tab_class(:advanced)} clearfix medium-12 small-centered hide advanced-search-container show-for-medium"}
           = render :partial => 'shared/search/signs'
           %div{:class => "#{tab_class(:advanced)}"}
-            .advanced-search-button
-              = select_tag :tag, options_for_select([[t('search.advanced.topic_tags'), ''], [t('search.advanced.topic_tags_any'), '']] + SignMenu.topic_tags, search_term(:tag)), :class => "float-left no-select-styles"
+
+            %div{:class => "advanced-search-button sign-search-button topic float-left #{tab_class(:advanced, :signs)}"}
+              = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
+              = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
+              %a.dropdown_arrow{:href => 'javascript:void(0);'}
+                .clearfix.dropdown.float-left
+                  %ul.no-bullet
+                    - SignMenu.topic_tags.each do |name, i|
+                      %li
+                        = name
+              .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.topic_tags')
               %span.caret
-            .advanced-search-button
-              = select_tag :usage, options_for_select([[t('search.advanced.usage_tags'), ''], [t('search.advanced.usage_tags_any'), '']] + SignMenu.usage_tags, search_term(:usage)), :class => "float-left no-select-styles"
+
+            %div{:class => "advanced-search-button sign-search-button usage float-left #{tab_class(:advanced, :signs)}"}
+              = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
+              = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
+              %a.dropdown_arrow{:href => 'javascript:void(0);'}
+                .clearfix.dropdown.float-left
+                  %ul.no-bullet
+                    - SignMenu.usage_tags.each do |name, i|
+                      %li
+                        = name
+              .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.usage_tags')
               %span.caret
+
+
         = submit_search_button
         %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
-  .menu.menu_background
-    %ul#nav.center
-      - Page.in_nav.each_with_index do |link, i|
-        %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
 
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
