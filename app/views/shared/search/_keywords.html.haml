@@ -1,3 +1,3 @@
-%div{:class => "small-9 small-centered #{tab_class(:advanced, :keywords)}"}
-  = label_tag :s, "Sign Search", class:"text-center search-label"
-  = search_field_tag :s, search_term(:s), class:"small-12 small-centered search-field", placeholder:"Search by English or Māori keywords"
+%div{:class => "search_field prompt_input_wrapper small-9 small-centered #{tab_class(:advanced, :keywords)}"}
+  = label_tag :s, "Sign Search", :class => 'text-center search-label input_prompt'
+  = search_field_tag :s, search_term(:s), :class => 'small-12 small-centered search-field search_box text_input', placeholder:"Search by English or Māori keywords"
