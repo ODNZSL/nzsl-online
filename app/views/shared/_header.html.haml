@@ -3,29 +3,20 @@
     - if params[:print]
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
   .nav
-    /.center
-    /%ul
-    /%li{:class => "tab #{tab_class(:keywords)}"}
-    /= link_to t('search.tabs.keyword'), {:tab => 'keywords'}
-    /%li{:class => "tab #{tab_class(:signs)}"}
-    /= link_to t('search.tabs.sign'), {:tab => 'signs'}
-    /%li.help
-    /= link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
+    .search-container.small-12.small-centered.medium-9.large-7
+      %div{:class => "search_form clearfix_left"}
+        = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission" do
+          = render :partial => 'shared/search/keywords'
+          %div{:class => "search-tab #{tab_class(:advanced)} show-for-medium"}
+            = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
+          %div{:class => "#{tab_class(:advanced)} clearfix medium-12 medium-centered advanced-search-container show-for-medium hide"}
+            = render :partial => 'shared/search/signs'
 
-    .search-container.small-12
-      = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission small-11 small-centered medium-8" do
-        = render :partial => 'shared/search/keywords'
-        %div{:class => "search-tab #{tab_class(:advanced)}show-for-medium"}
-          = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
-        %div{:class => "#{tab_class(:advanced)} clearfix medium-12 small-centered hide advanced-search-container show-for-medium"}
-          = render :partial => 'shared/search/signs'
-          %div{:class => "#{tab_class(:advanced)}"}
-
-            %div{:class => "advanced-search-button sign-search-button topic float-left #{tab_class(:advanced, :signs)}"}
+            %div{:class => "sign_attribute_selection advanced-search-button sign-search-button search_field topic float-left #{tab_class(:advanced, :signs)}"}
               = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
               = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
               %a.dropdown_arrow{:href => 'javascript:void(0);'}
-                .clearfix.dropdown.float-left
+                .clearfix.dropdown.float-left.text_input
                   %ul.no-bullet
                     - SignMenu.topic_tags.each do |name, i|
                       %li
@@ -33,11 +24,11 @@
               .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.topic_tags')
               %span.caret
 
-            %div{:class => "advanced-search-button sign-search-button usage float-left #{tab_class(:advanced, :signs)}"}
+            %div{:class => "sign_attribute_selection advanced-search-button sign-search-button usage float-left #{tab_class(:advanced, :signs)}"}
               = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
               = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
               %a.dropdown_arrow{:href => 'javascript:void(0);'}
-                .clearfix.dropdown.float-left
+                .clearfix.dropdown.float-left.text_input
                   %ul.no-bullet
                     - SignMenu.usage_tags.each do |name, i|
                       %li
@@ -45,10 +36,8 @@
               .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.usage_tags')
               %span.caret
 
-
-        = submit_search_button
-        %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
-
+          = submit_search_button
+          %a.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do
