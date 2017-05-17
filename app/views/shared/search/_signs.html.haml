@@ -13,11 +13,9 @@
                 %ul{:class => "sub transition sub#{group.length}"}
                   -group.each do |shape|
                     %li{:class => " #{handshape_selected?(shape)}"}= handshape_image shape
-  .selected_signs_wrapper
-    .selected_signs
-      = display_handshapes_search_term
-    .default{:style => "display:#{@query[:hs].blank? ? 'block' : 'none'}"}= t('search.signs.default_handshape')
-    %span.caret
+  = display_handshapes_search_term
+  .default= t('search.signs.default_handshape')
+  %span.caret
 
 %div{:class => "sign-search-button advanced-search-button search_field sign_attribute_selection locations float-left text_input #{tab_class(:advanced, :signs)}"}
   = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
@@ -33,9 +31,7 @@
               %li{:class => "#{location_group_selected?(shape)}"}= location_image shape, true, true
             - else
               %li{:class => "#{location_selected?(shape)}"}= location_image shape, false, true
-  .selected_signs_wrapper
-    .selected_signs
       = display_locations_search_term
       = display_location_groups_search_term
-    .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.signs.default_location')
+    .default= t('search.signs.default_location')
     %span.caret
