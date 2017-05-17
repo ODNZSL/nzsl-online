@@ -64,7 +64,7 @@ en:
       handshapes_help: Click a hand shape to search for signs with that shape
       locations_help: Click a location to search for signs using that location
     advanced:
-      topic_tags: 'Topic:'
+      topic_tags: 'Topic'
       usage_tags: 'Linguistic Usage'
       topic_tags_any: '- Any topic -'
       usage_tags_any: '- Any usage -'
