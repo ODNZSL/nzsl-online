@@ -35,8 +35,6 @@
             - else
               %li{:class => "#{location_selected?(shape)}"}= location_image shape, false, true
   %div
-    /.selected_signs_wrapper
-    /.selected_signs
     = display_locations_search_term
     = display_location_groups_search_term
     .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.signs.default_location')
