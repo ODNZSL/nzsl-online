@@ -8,7 +8,7 @@ $(function(){
     setup_search_tabs();
     setup_sign_selection();
     setup_handshapes_hover_fix();
-    setup_prompt_labels();
+    // setup_prompt_labels();
 
     setup_print_view();
 
@@ -238,7 +238,7 @@ $(function(){
   var update_selected_signs = function(container) {
     var selected_container = $('<div />', {'class':'selected_signs'});
     var selected_images = container.find('.selected:not(.group.selected .selected)').children('.image');
-    selected_images.clone().appendTo(selected_container);
+    // selected_images.clone().appendTo(selected_container);
     /* each of the images needs to be pointing to the smaller image. boom. */
     selected_container.find('img').each(function(){
       $(this).attr('src', $(this).attr('src').replace('/72/', '/42/'));
@@ -275,27 +275,30 @@ $(function(){
     });
   };
 
-  var setup_prompt_labels = function(){
-    //sensible source-order, javascript-off-friendly placeholder labels.
-    //overlays the label on the input on load. hides it on click/focus.
-    //shows it if there's nothing in the field on blur.
-    if ($('label.input_prompt').length){
-      $('label.input_prompt').each(function(){
-        var label = $(this);
-        var input = $('#'+label.attr('for'));
-        label.click(function(){
-                label.hide();
-             });
-        input.focus(function(){ label.hide(); })
-             .blur(function(){
-               if (input.val() === ''){
-                  label.show();
-               }
-             });
-      });
-      reset_menu_position();
-    }
-  };
+  // var setup_prompt_labels = function(){
+  //   //sensible source-order, javascript-off-friendly placeholder labels.
+  //   //overlays the label on the input on load. hides it on click/focus.
+  //   //shows it if there's nothing in the field on blur.
+  //   if ($('label.input_prompt').length){
+  //     $('label.input_prompt').each(function(){
+  //       var label = $(this);
+  //       var input = $('#'+label.attr('for'));
+  //       label.click(function(){
+  //               label.hide();
+  //            });
+  //       input.focus(function(){ label.hide(); })
+  //            .blur(function(){
+  //              if (input.val() === ''){
+  //                 label.show();
+  //              }
+  //            });
+  //     });
+  //     reset_menu_position();
+  //   }
+  // };
+
+
+
   var setup_print_view = function(){
     //load print
     if (document.printView) {
