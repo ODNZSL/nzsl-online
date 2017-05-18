@@ -31,7 +31,7 @@
               %li{:class => "#{location_group_selected?(shape)}"}= location_image shape, true, true
             - else
               %li{:class => "#{location_selected?(shape)}"}= location_image shape, false, true
-      = display_locations_search_term
-      = display_location_groups_search_term
-    .default= t('search.signs.default_location')
-    %span.caret
+  = display_locations_search_term
+  = display_location_groups_search_term
+  .default= t('search.signs.default_location')
+  %span.caret
