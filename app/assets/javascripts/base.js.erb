@@ -255,12 +255,9 @@ $(function(){
     var output = [];
     var output_group = [];
     $(images).each(function(){
-      console.log("images", images)
       if (has_groups && $(this).hasClass('main_image')){
-        console.log('output group: ', output_group, 'has groups: ', has_groups)
         output_group.push($(this).text());
       } else {
-        console.log('output: ', output)
         output.push($(this).text());
       }
     });
