@@ -9,6 +9,8 @@
           = render :partial => 'shared/search/keywords'
           %div{:class => "search-tab #{tab_class(:advanced)} show-for-medium"}
             = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
+            %span.small-caret
+
           %div{:class => "#{tab_class(:advanced)} clearfix medium-12 medium-centered advanced-search-container show-for-medium hide"}
             = render :partial => 'shared/search/signs'
 
@@ -31,7 +33,7 @@
                 .clearfix.dropdown.float-left.text_input
                   %ul.no-bullet
                     - SignMenu.usage_tags.each do |name, i|
-                      = link_to search_term(:usage)
+                      %a
                         %li
                           = name
               .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.usage_tags')
