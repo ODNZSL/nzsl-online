@@ -11,11 +11,10 @@ header {
 
   .menu-list {
     @include montserrat-light;
-
     width: 100%;
     overflow: auto;
     text-align: center;
-    a:hover{
+    a:hover {
      background-color: initial;
      cursor: pointer;
     }
@@ -37,7 +36,10 @@ header {
 
 }
 .hamburger-menu-icon {
+  width: 10%;
   z-index: 10;
+  margin: 2% 0;
+  cursor: pointer;
 }
 
 .logo-text {
@@ -47,21 +49,12 @@ header {
   float: left;
   text-align: center;
 }
-.toggle-menu {
-  display: none;
-}
 
 @media screen and (max-width: $medium-screen) {
   .menu-list {
     display: none;
   }
-  .hamburger-menu-icon {
-    // display: block;
-    width: 10%;
-    // float: left;
-    margin-top: 7%;
-    cursor: pointer;
-  }
+
   .logo-text {
     width: 90%;
     margin-top: 2%;
@@ -83,7 +76,7 @@ header {
 
 .overlay-content {
     position: relative;
-    top: 25%;
+    top: 14%;
     width: 100%;
     text-align: center;
     margin-top: 30px;
@@ -92,21 +85,28 @@ header {
     }
 }
 
-.overlay a {
+.overlay
+a {
+  @include montserrat-light;
     padding: 8px;
     text-decoration: none;
-    font-size: 36px;
+    font-size: 20px;
     color: $light-grey;
     display: block;
     transition: 0.3s;
     border-bottom: none;
 }
 
+a:hover {
+  background-color: initial;
+}
+
 .overlay a:hover, .overlay a:focus {
     color: $dark-grey;
 }
 
-.overlay .closebtn {
+.overlay
+.closebtn {
     position: absolute;
     top: 20px;
     right: 45px;

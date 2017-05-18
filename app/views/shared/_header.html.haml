@@ -13,20 +13,14 @@
     = image_tag "img/hamburger.svg", onclick: "openNav()"
   .logo-text
     New Zealand Sign Language dictionary
-#myNav.overlay.hide-for-medium
+#mobileNav.overlay.hide-for-medium
   %a.closebtn{:href => "javascript:void(0)", :onclick => "closeNav()"} ×
   .overlay-content
     %ul
-      - Page.header_nav.each_with_index do |link, i|
+      - Page.in_nav.each_with_index do |link, i|
         %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
       %li.help
         = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
-
-
-
-
-
-
 
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.

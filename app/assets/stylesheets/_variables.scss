@@ -27,6 +27,11 @@ $h6-font-size: 1em;
   font-weight: 500;
 }
 
+@mixin montserrat-regular {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
 @mixin center-element {
   margin: 0 auto;
   display: block;
