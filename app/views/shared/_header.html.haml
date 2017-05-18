@@ -15,27 +15,25 @@
             = render :partial => 'shared/search/signs'
 
             %div{:class => "sign_attribute_selection advanced-search-button sign-search-button search_field topic float-left #{tab_class(:advanced, :signs)}"}
-              = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
-              = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
+              = text_field_tag :topic, search_term(:topic), :class => 'selected_field'
               %a.dropdown_arrow{:href => 'javascript:void(0);'}
                 .clearfix.dropdown.float-left.text_input
                   %ul.no-bullet
                     - SignMenu.topic_tags.each do |name, i|
-                      %li
+                      %li{id: "topic-#{i}", class: "topic-dropdown"}
                         = name
               .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.topic_tags')
               %span.caret
 
             %div{:class => "sign_attribute_selection advanced-search-button sign-search-button usage float-left #{tab_class(:advanced, :signs)}"}
-              = hidden_field_tag :l, search_term(:l), :class => 'selected_field'
-              = hidden_field_tag :lg, search_term(:lg), :class => 'selected_groups_field'
+              = text_field_tag :usage, search_term(:usage), :class => 'selected_field'
+
               %a.dropdown_arrow{:href => 'javascript:void(0);'}
                 .clearfix.dropdown.float-left.text_input
                   %ul.no-bullet
                     - SignMenu.usage_tags.each do |name, i|
-                      %a
-                        %li
-                          = name
+                      %li{id: "usage-#{i}", class: "usage-dropdown"}
+                        = name
               .default{:style => "display:#{@query[:l].blank? && @query[:lg].blank? ? 'block' : 'none'}"}= t('search.advanced.usage_tags')
               %span.caret
 
