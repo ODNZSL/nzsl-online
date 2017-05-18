@@ -17,7 +17,8 @@
     font-size: $h3-font-size;
   }
   &-button {
-    background-color: initial;
+    background-color: $peach;
+    border-radius: 5px;
     border: none;
     position: absolute;
     top: 5px;
@@ -28,7 +29,7 @@
     -ms-transform: scale(-1, 1);
     transform: scale(-1, 1);
     i {
-      font-size: 32px;
+      font-size: 28px;
       color: white;
     }
   }
@@ -36,10 +37,16 @@
     text-align: center;
     padding: 20px 0 10px 0;
     font-size: $subtitle-font-size;
+    .small-caret {
+      margin-left: 10px;
+      top: 12px;
+      position: relative;
+    }
     a {
       color: white;
       text-decoration: none;
       border: none;
+      &:hover { background-color: initial; }
     }
   }
 }
@@ -49,21 +56,22 @@
 
 @media screen and (min-width: $medium-screen) {
   .search-button {
-    top: 60px;
+    top: 65px;
     right: 50px;
   }
   .advanced-search-container { padding-bottom: 10px; }
   .advanced-search-button {
     position: relative;
     height: 65px;
-    background-color: white;
+    background-color: $light-blue;
     margin: 0 2.5px;
     width: calc(25% - 5px);
     cursor: pointer;
-    border-radius: 2px;
+    border-radius: 5px;
     @include montserrat-light;
     font-size: $subtitle-font-size;
-    color: $dark-grey;
+    .default { color: white; }
+    a { border-bottom: none; }
   }
   .show-for-medium.empty {
     top: 80px;
