@@ -81,18 +81,6 @@ html, body {
   min-height: 100%;
  }
 
-// .before_sticky_footer {
-  // overflow:auto;
-  // padding-bottom: 100px; /* must be same height as the footer */
-// }
-
-// .sticky_footer {
-  // position: relative;
-  // margin-top: -100px; /* negative value of footer height */
-  // height: 100px;
-  // clear:both;
-// }
-
 /* Opera Fix */
 body:before {
   content:"";
@@ -101,23 +89,6 @@ body:before {
   width:0;
   margin-top:-32767px;
 }
-
-// /* IE Fix */
-// .ie6 .not_sticky_footer {
-//   display:table;
-//   height:100%;
-// }
-
-// Layout
-// -----------------
-// .main_column {
-//   margin:0 auto;
-//   position:relative;
-//   width:480px;
-//   padding-left:108px;
-//   padding-right:102px;
-//   overflow:visible;
-// }
 
 // Search & Nav
 //
@@ -135,86 +106,10 @@ a.logo {
 
 .print_logo { display:none; }
 
-
-// .bottom_border {
-//   width:92px;
-//   height:8px;
-//   background: bottom left repeat-x;
-//   background-image: image_url('ui/borders.png');
-//   position:absolute;
-//   bottom:-36px;
-//   left:0;
-//   z-index:9;
-// }
-
-// Tabs
-// -----------------
-
-// .search_tabs {
-//   position:absolute;
-//   left: 108px;
-//   top:-27px;
-//   height:28px;
-//   width:582px;
-//   margin:0 auto;
-// }
-
-// .search_tabs li {
-//   line-height:26px;
-//   padding:0 5px;
-//   font-size:93%;
-//   float:left;
-//   list-style-type:none;
-// }
-
-// .search_tabs li.tab {
-//   padding:0 9px;
-//   margin-right:4px;
-//   position:relative;
-//   background: image_url('ui/tab.png') top left repeat-x;
-//   font-size:108%;
-//   cursor:pointer;
-// }
-
-// .search_tabs li.tab .l,
-// .search_tabs li.tab .r {
-//   background: bottom left no-repeat;
-//   background-image: image_url('ui/tab.png');
-//   width:1px;
-//   height:26px;
-// }
-
-// .search_tabs li.selected {
-//   padding:0 9px;
-//   border:1px solid #99a0a5;
-//   border-bottom-color:#eceef0;
-//   background:#eceef0;
-//   top:-1px;
-// }
-
-// .search_tabs li.selected .l,
-// .search_tabs li.selected .r { background:none; }
-//
-// .search_tabs .tab a {
-//   border-bottom:0;
-//   background:transparent;
-//   color:#34414b;
-// }
-// 
-// .search_tabs .tab a:active,
-// .search_tabs .tab a:focus { outline: 0; }
-
 // Menu
 // -----------------
 .menu {
-  // position: absolute;
   position: relative;
-  // bottom: -30px;
-  // left: 0;
-  // margin: 0;
-  // padding: 0;
-  // height: 29px;
-  // width: 100%;
   z-index: 6;
 }
 
@@ -254,25 +149,6 @@ a.logo {
 // Search
 // -----------------
 
-// .search_form {
-//   padding: 10px 0;
-//   margin: 0 169px 0 108px;
-//   position: relative;
-//   border-right: 1px solid $light-med-grey;
-// }
-//
-// .search_form .button {
-//   position: absolute;
-//   top: 10px;
-//   right: -67px;
-//   z-index: 3;
-// }
-
-// .search_field {
-//   display: none;
-//   margin-bottom: 10px;
-// }
-
 .selected { display: block; }
 
 .search_field_selects {
@@ -284,21 +160,6 @@ a.logo {
 
 // Keywords
 // -----------------
-
-// .search_box {
-//   -webkit-appearance: textfield;
-//   width: 400px;
-//   height: 24px;
-//   display: block;
-//   float: left;
-//   line-height: 24px;
-// }
-
-// .prompt_input_wrapper {
-//   float: left;
-//   position: relative;
-//   z-index: 35;
-// }
 
 .prompt_input_wrapper ul {
   position: absolute;
@@ -531,31 +392,8 @@ a.logo {
   line-height: 10px;
 }
 
-// .sign_attribute_selection {
-//   position: relative;
-//   float: left;
-//   width: 181px;
-//   min-height: 42px;
-//   padding: 6px 6px 2px;
-//   line-height: 42px;
-//   cursor: pointer;
-//   z-index: 30;
-// }
-
-// .selected_signs_wrapper {
-// float: left;
-// margin-bottom: -4px;
-// width: 168px;
-// z-index: 1;
-// position: relative;
-// }
-// .selected_signs_wrapper { text-align: center; }
-
 .selected_signs_wrapper .default { float: left; }
 
-// .input_prompt { text-indent: 6px; }
-
-// .input_prompt,
 .default {
   color: #777;
   font-style: italic;
@@ -566,7 +404,6 @@ a.logo {
   padding-left: 10px;
   font-style: normal;
 }
-// .dropdown_arrow { border: none; }
 
 a.empty {
   background: no-repeat center right;
@@ -601,24 +438,6 @@ a.empty:hover {
   z-index: 31;
 }
 
-// .selected_signs {
-//   display: inline-block;
-//   position: relative;
-//   vertical-align: middle;
-//   height: 42px;
-//   overflow: hidden;
-// }
-//
-// .ie7 .selected_signs {
-//   display: inline;
-//   zoom: 1;
-// }
-//
-// .selected_signs_wrapper .selected_signs {
-//   width:193px;
-//   margin:-5px -6px 0;
-// }
-
 .selected_signs .image {
   margin: 0;
   float: left;
@@ -630,14 +449,6 @@ a.empty:hover {
 // Grid
 // -----------------
 
-// .grid .main_gloss { font-size: 138.5%; }
-
-// ol.grid,
-// ul.grid {
-//   margin: 0 -20px 1.2em 0;
-//   width: 510px;
-// }
-
 .grid li {
   display: block;
   padding: 25px 0;
@@ -645,14 +456,6 @@ a.empty:hover {
   width: 150px;
   margin: 0 20px 0 0;
 }
-
-// .grid_drawing {
-//   height: 90px;
-//   width: 150px;
-//   display: block;
-//   margin-bottom: 10px;
-// }
-
 .grid .row_start { clear:left; }
 
 .grid4 li {
@@ -668,8 +471,6 @@ a.empty:hover {
 /* * * * * * * * * *\
 |* Entry & Results  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-// .sign_wrapper { float:left; }
 
 .glosses .secondary_gloss {
   font-size: 123.1%;
@@ -692,18 +493,7 @@ a.drawing {
   background: transparent;
 }
 
-// .drawing img {
-  // display: inline;
-  // vertical-align: bottom;
-// }
-
-// .entry_drawing {
-//   float: right;
-//   margin: 24px 0 20px;
-// }
-
 .entry_drawing .offset {
-  // right: -10%;
   position: relative;
 }
 
@@ -749,13 +539,6 @@ video {
 
 .videos .button { float: right; }
 
-// .sign_attributes {
-//   position: absolute;
-//   top: 43px;
-//   left: 0;
-//   width: 92px;
-// }
-
 .sign_attributes .image {
   // float: left;
   // margin-left: 4px;
@@ -769,8 +552,6 @@ h1.search_results_for {
   min-height: 42px;
   vertical-align: middle;
 }
-
-// .search_results_for img { vertical-align: middle; }
 
 .pagination {
   margin: -1.2em 0 0;
@@ -809,20 +590,11 @@ h1.search_results_for {
   left: 0;
 }
 
-// .entry_head {
-//   float:left;
-//   width:480px;
-// } /* to clear right without clearing right :) */
-
 .back_to_search_results {
   position: absolute;
   top: 0;
   left: 108px;
 }
-
-// Footer
-// -------------------------------
-
 
 // Vocab Sheet
 // -------------------------------
@@ -1270,13 +1042,6 @@ body .video_replace {
   // z-index: 7;
 } /* html3.2 loves you */
 
-// .rule_after {
-//   background: center bottom no-repeat;
-//   background-image: image_url('ui/hr.png');
-//   padding-bottom: 1px;
-//   margin-bottom: 16px;
-// }
-
 .rounded {
   -webkit-border-radius: 4px;
   -moz-border-radius: 4px;
@@ -1296,21 +1061,6 @@ body .video_replace {
   border: 1px solid white;
   outline: none;
 }
-
-// // .text_input,
-// .text_input_hidden:focus,
-// .no-js .text_input_hidden {
-//   border:1px solid #99a0a5;
-//   background:white;
-//   margin-right:10px;
-//   -webkit-box-shadow: inset 0 1px 5px #aaa, 0 1px 0 white;
-// }
-//
-// .text_input:focus,
-// .text_input_hidden:focus {
-//   outline: none !important;
-//   border-color: #598afb;
-// }
 
 .no-js .if_js,
 .js .unless_js { display: none; }

@@ -23,13 +23,9 @@ footer, header, hgroup, menu, nav, section {
   display: block;
 }
 
-// blockquote, q { quotes: none; }
-
-// blockquote:before, blockquote:after,
 q:before,
 q:after {
   content: '';
-  // content: none;
 }
 
 ins, mark {
@@ -62,23 +58,6 @@ input, select { vertical-align: middle; }
 
 body { @include montserrat-light; }
 
-// select, input, textarea, button { font:99% sans-serif; }
-
-// pre, code, kbd, samp { font-family: monospace, sans-serif; }
-
-// html { overflow-y: scroll; }
-
-// a:hover, a:active { outline: none; }
-
-// ul, ol { margin-left: 2em; }
-// ul { list-style-type: none; }
-
-// small { font-size: 0.85em; }
-
-// strong, th { font-weight: bold; }
-
-// td { vertical-align: top; }
-
 sub, sup {
   font-size: 0.75em;
   line-height: 0;
@@ -97,9 +76,6 @@ pre {
 }
 
 textarea { overflow: auto; }
-
-.ie6 legend,
-.ie7 legend { margin-left: -7px; }
 
 input[type="radio"] { vertical-align: bottom; }
 
@@ -134,7 +110,7 @@ textarea:invalid {
 
 /*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }*/
-a:link { -webkit-tap-highlight-color: $bright-pink; }
+// a:link { -webkit-tap-highlight-color: $bright-pink; }
 
 button {
   width: auto;
@@ -143,30 +119,22 @@ button {
 
 .ie7 img { -ms-interpolation-mode: bicubic; }
 
-// body,
-// select,
-// input,
-// textarea {
-//   color: $blue-grey;
-//   font-family:Georgia, serif;
-// }
-
 a,
 a:active,
 a:visited,
 a span,
 a:active span,
 a:visited span {
-  color: $sky-blue;
+  color: $link-blue;
   text-decoration:none;
   border-bottom:1px solid $pale-blue;
 }
 
 a:hover,
 a:hover span {
-  color: $dark-sky-blue;
+  color: $link-blue;
   // border-bottom:1px solid #aac0f8;
-  background-color: $light-pale-blue;
+  // background-color: $light-pale-blue;
 }
 
  /* * * * * * *\
@@ -185,11 +153,6 @@ h5 { font-size: $h5-font-size; }
 h6 { font-size: $h6-font-size; }
 
 .typography {
-  // h1, .h1, h2, .h2, h3, .h3 { margin-bottom:0.2em; }
-  // p, ol, ul, dl {
-  //   line-height:1.6;
-  //   margin:0 0 1.2em;
-  // }
   li {
     margin: 0 0 0.6em;
     word-wrap: break-word;
@@ -221,37 +184,3 @@ h6 { font-size: $h6-font-size; }
 }
 
 h2+h3 { margin-top:1em; }
-
-// .typography ul,
-// .typography ol { margin-left:1.6em; }
-// .typography ul {  list-style: decimal; }
-
-// .typography
-
-// .typography dt {
-//   width: 150px;
-//   position: relative;
-//   overflow: visible;
-//   left: -150px;
-//   top: 1.6em;
-//   line-height: 1.6;
-// }
-
-// .typography dt:after { content:':'; }
-
-// .typography blockquote {
-//   background: #eee;
-//   padding: 15px 15px 1px;
-//   margin: 15px 0;
-// }
-
-/* ckeditor adds anchors as <h3><a name></h3> rather than <h3 id> */
-// .typography a[name],
-// .typography a[name]:hover {
-//   background: transparent;
-//   border: 0;
-//   color: #34414B;
-// }
-/* specifics for editor */
-
-// body.typography { padding: 10px; }
