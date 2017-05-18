@@ -7,6 +7,6 @@ $(document).ready(function() {
   $('.topic-dropdown').click(function(e) {
     e.preventDefault;
     var id = $(this).attr('id');
-    $('#topic').val(id)
+    $('#tag').val(id)
   })
 })
