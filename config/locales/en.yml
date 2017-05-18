@@ -54,7 +54,7 @@ en:
     tabs:
       keyword: Search by word (English/Māori)
       sign: Search by Sign Features
-      advanced: Advanced Search
+      advanced: Advanced Search Options
       help: Help
     keywords:
       prompt: "Enter search keywords&hellip;"
