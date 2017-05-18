@@ -2,8 +2,8 @@
   .center
     - if params[:print]
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
-  .header-nav
-    .menu-list
+  .header-nav.small-12.float-left
+    .menu-list.show-for-medium.text-center
       %ul
         - Page.header_nav.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
@@ -11,11 +11,11 @@
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
   .hamburger-menu-icon.hide-for-medium.float-left
     = image_tag "img/hamburger.svg", onclick: "openNav()"
-  .logo-text
+  .logo-text.small-12.text-center.float-left
     New Zealand Sign Language dictionary
 #mobileNav.overlay.hide-for-medium
-  %a.closebtn{:href => "javascript:void(0)", :onclick => "closeNav()"} ×
-  .overlay-content
+  %a.closebtn{href: "#", onclick: "closeNav()"} ×
+  .overlay-content.small-12.text-center
     %ul
       - Page.in_nav.each_with_index do |link, i|
         %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)

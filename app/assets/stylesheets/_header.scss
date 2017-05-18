@@ -3,58 +3,48 @@ header {
  background: $primary-blue;
  overflow: auto;
 }
-.header-nav {
+
+.menu-list {
+  @include montserrat-light;
   width: 100%;
-  float: left;
-  text-align: center;
-
-
-  .menu-list {
-    @include montserrat-light;
-    width: 100%;
-    overflow: auto;
-    text-align: center;
-    a:hover {
-     background-color: initial;
-     cursor: pointer;
-    }
-    ul {
-      display: inline-block;
-      li {
-         display: inline;
-         list-style-type: none;
-         float: left;
-         padding: 10px;
-        a {
-           color: $light-grey;
-           text-decoration: none;
-           border: none;
-        }
+  overflow: auto;
+  a:hover {
+   background-color: initial;
+   cursor: pointer;
+  }
+  ul {
+    display: inline-block;
+    li {
+       display: inline;
+       list-style-type: none;
+       float: left;
+       padding: 10px;
+      a {
+         color: $light-grey;
+         text-decoration: none;
+         border: none;
       }
     }
   }
-
 }
+
 .hamburger-menu-icon {
-  width: 10%;
-  z-index: 10;
-  margin: 2% 0;
-  cursor: pointer;
+  width: calc(10% - 1px);
+  padding: 15px 0;
+  border-right: 1px solid $light-grey;
+  img {
+    display: block;
+    margin: 0 auto;
+  }
 }
 
 .logo-text {
   @include montserrat-bold;
   color: $light-grey;
-  width: 100%;
   float: left;
-  text-align: center;
 }
 
 @media screen and (max-width: $medium-screen) {
-  .menu-list {
-    display: none;
-  }
-
   .logo-text {
     width: 90%;
     margin-top: 2%;
@@ -64,7 +54,6 @@ header {
 /*Overlay*/
 .overlay {
     height: 100%;
-    width: 0;
     position: fixed;
     z-index: 1;
     left: 0;
@@ -76,9 +65,7 @@ header {
 
 .overlay-content {
     position: relative;
-    top: 14%;
-    width: 100%;
-    text-align: center;
+    top: 10%;
     margin-top: 30px;
     li {
       list-style-type: none;
