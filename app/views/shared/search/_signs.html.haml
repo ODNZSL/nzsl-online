@@ -13,7 +13,6 @@
                 %ul{:class => "sub transition sub#{group.length}"}
                   -group.each do |shape|
                     %li{:class => " #{handshape_selected?(shape)}"}= handshape_image shape
-  = display_handshapes_search_term
   .default= t('search.signs.default_handshape')
   %span.caret
 
@@ -31,7 +30,5 @@
               %li{:class => "#{location_group_selected?(shape)}"}= location_image shape, true, true
             - else
               %li{:class => "#{location_selected?(shape)}"}= location_image shape, false, true
-  = display_locations_search_term
-  = display_location_groups_search_term
   .default= t('search.signs.default_location')
   %span.caret
