@@ -41,7 +41,10 @@
               %span.caret
 
           = submit_search_button
-          %a.show-for-medium.empty.if_js{:href => 'javascript:void(0);'}= t('clear')
+          %a.show-for-medium.empty.if_js{:href => 'javascript:void(0);'}
+            clear
+            %span
+              &times
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do

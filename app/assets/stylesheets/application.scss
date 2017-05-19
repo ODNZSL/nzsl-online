@@ -405,27 +405,19 @@ a.logo {
 }
 
 a.empty {
-  background: no-repeat center right;
-  background-image: image_url('ui/clear.png');
-  height: 16px;
-  width: auto;
-  padding-right: 14px;
-  position: relative;
   border: 0;
-  z-index: 31px;
   display: block;
   position: absolute;
-  top: 35px;
-  right: -60px;
-  line-height: 18px;
-  color: #777;
+  span {
+    font-size: $h3-font-size;
+    top: 3px;
+    position: relative;
+    border: none;
+    color: white;
+  }
 }
 
-a.empty:hover {
-  border: 0;
-  background-color: transparent;
-  color: #555;
-}
+a.empty:hover { border: 0; }
 
 .selected.dropdown_arrow .border_mask {
   background-color: white;
