@@ -105,8 +105,8 @@ textarea:invalid {
   box-shadow: 0 0 5px red;
 }
 
-.no-boxshadow input:invalid,
-.no-boxshadow textarea:invalid { background-color: $pale-pink; }
+// .no-boxshadow input:invalid,
+// .no-boxshadow textarea:invalid { background-color: $pale-pink; }
 
 /*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }*/
@@ -127,7 +127,7 @@ a:active span,
 a:visited span {
   color: $link-blue;
   text-decoration:none;
-  border-bottom:1px solid $pale-blue;
+  border-bottom:1px solid $link-blue;
 }
 
 a:hover,
