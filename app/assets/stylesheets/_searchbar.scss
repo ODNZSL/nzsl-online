@@ -1,6 +1,7 @@
 .search {
   &-container {
     form { position: relative; }
+    margin-bottom: 10px;
   }
   &-field {
     border-radius: 25px;
@@ -34,7 +35,7 @@
     }
   }
   &-tab {
-    text-align: center;
+    // text-align: center;
     padding: 20px 0 10px 0;
     font-size: $subtitle-font-size;
     .small-caret {
@@ -44,16 +45,11 @@
     }
     a {
       color: white;
-      text-decoration: none;
       border: none;
-      &:hover { background-color: initial; }
     }
   }
 }
-
-.hide { display: none; }
-.show { display: inline-block; }
-
+.advanced-search-container { display: none; }
 @media screen and (min-width: $medium-screen) {
   .search-button {
     top: 65px;
@@ -70,8 +66,17 @@
     border-radius: 5px;
     @include montserrat-light;
     font-size: $subtitle-font-size;
+
     .default { color: white; }
+
     a { border-bottom: none; }
+
+    .usage-dropdown,
+    .topic-dropdown {
+      &:hover {
+        background-color: $light-blue;
+      }
+    }
   }
   .show-for-medium.empty {
     top: 80px;

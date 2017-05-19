@@ -28,6 +28,9 @@
 
 // Katie's CSS
 // --------------------------
+.hide { display: none; }
+.show { display: inline-block; }
+
 ul {
   overflow: auto;
   overflow-y: hidden;
@@ -58,9 +61,7 @@ li,p  { margin: 0; }
 }
 
 .grid-stack {
-  float: left;
   height: 150px;
-  text-align: left;
  }
 
  img {
@@ -211,13 +212,11 @@ a.logo {
   min-width: 190px;
   width: 100%;
   border: none;
-  border: 1px solid $light-grey;
   max-height: 400px;
   overflow: scroll;
   overflow-x: hidden;
   ul { margin: 0; }
   li {
-    border-bottom: 1px solid $light-grey;
     padding-left: 5px;
     line-height: 2.5;
   }
