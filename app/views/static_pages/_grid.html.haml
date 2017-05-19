@@ -5,7 +5,7 @@
     - group.in_groups_of(3) do |row|
       - row.each do |ea|
         - if ea
-          %li.small-6.medium-4.grid-stack
+          %li.small-6.medium-4.grid-stack.float-left.text-left
             - if ea.last.is_a?(String)
               %div
                 = image_tag ea.last, :alt => ea.first, class: "grid-image"
