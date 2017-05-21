@@ -10,6 +10,7 @@
 @import "flowplayer";
 @import "searchbar";
 @import "search_results";
+@import "search_result";
 @import "footer";
 @import "topic_style";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
@@ -830,16 +831,6 @@ h1.search_results_for {
 //   float:left;
 //   width:480px;
 // } /* to clear right without clearing right :) */
-
-.back_to_search_results {
-  // position: absolute;
-  // top: 0;
-  // left: 108px;
-}
-
-// Footer
-// -------------------------------
-
 
 // Vocab Sheet
 // -------------------------------

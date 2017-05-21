@@ -1,61 +1,62 @@
-.small-12.text-center
-  %h1.main_gloss= @sign.gloss_main
+.search-result_container
+  .small-12.text-center.search-result-title
+    %h1.main_gloss= @sign.gloss_main
 
-= render_back_to_search_results
-- if @sign.present?
-  .entry_head
-    = image_tag "signs/320-180/#{@sign.drawing}"
-    .glosses
-      %h2.secondary_gloss= @sign.gloss_secondary
-      %p.h3.minor_gloss= @sign.gloss_minor
-      %p.h3.maori_gloss= @sign.gloss_maori
-    .grammar
-      %p.h3.word_class= @sign.word_classes
-      %p.h3.grammar_notes= render_grammar_notes(@sign)
-    = form_tag vocab_sheet_items_path do
-      = hidden_field_tag 'sign_id', @sign.id
-      = submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
-    .sign_attributes
-      = handshape_image @sign.handshape
-      = location_image @sign.location
-  .videos
-    %video.main_video.normal{controls: true, preload: true, loop: true}
-      %source{type: "video/mp4", src:  @sign.video}
-    - if @sign.video_slow.present?
-      %video.main_video.slow{controls: true, preload: true, loop: true}
-        %source{type: "video/mp4", src:  @sign.video_slow}
-      = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
-      = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
-  - unless @sign.examples.length.zero?
-    .examples.rule_after.clearfix
-      %h2= t('signs.show.usage_examples')
-      - @sign.examples.each do |example|
-        .example.clearfix.typography.videos
-          %video.example_video.normal{controls: true, preload: true, loop: true}
-            %source{type: "video/mp4", src:  example[:video]}
-          - if example[:video_slow]
-            %video.example_video.slow{controls: true, preload: true, loop: true}
-              %source{type: "video/mp4", src:  example[:video_slow]}
+  = render_back_to_search_results
+  - if @sign.present?
+    .entry_head
+      = image_tag "signs/320-180/#{@sign.drawing}"
+      .glosses
+        %h2.secondary_gloss= @sign.gloss_secondary
+        %p.h3.minor_gloss= @sign.gloss_minor
+        %p.h3.maori_gloss= @sign.gloss_maori
+      .grammar
+        %p.h3.word_class= @sign.word_classes
+        %p.h3.grammar_notes= render_grammar_notes(@sign)
+      = form_tag vocab_sheet_items_path do
+        = hidden_field_tag 'sign_id', @sign.id
+        = submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
+      .sign_attributes
+        = handshape_image @sign.handshape
+        = location_image @sign.location
+    .videos
+      %video.main_video.normal{controls: true, preload: true, loop: true}
+        %source{type: "video/mp4", src:  @sign.video}
+      - if @sign.video_slow.present?
+        %video.main_video.slow{controls: true, preload: true, loop: true}
+          %source{type: "video/mp4", src:  @sign.video_slow}
+        = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
+        = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
+    - unless @sign.examples.length.zero?
+      .examples.rule_after.clearfix
+        %h2= t('signs.show.usage_examples')
+        - @sign.examples.each do |example|
+          .example.clearfix.typography.videos
+            %video.example_video.normal{controls: true, preload: true, loop: true}
+              %source{type: "video/mp4", src:  example[:video]}
+            - if example[:video_slow]
+              %video.example_video.slow{controls: true, preload: true, loop: true}
+                %source{type: "video/mp4", src:  example[:video_slow]}
+            %p
+              %em= example[:translation]
+            %p= render_transcription(example[:transcription], @sign.id)
+            - if example[:video_slow]
+              = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
+              = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
+    - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
+      .notes.rule_after.typography
+        %h2= t('signs.show.notes')
+        %p= @sign.usage_notes
+        - if @sign.hint.present?
           %p
-            %em= example[:translation]
-          %p= render_transcription(example[:transcription], @sign.id)
-          - if example[:video_slow]
-            = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
-            = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
-  - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
-    .notes.rule_after.typography
-      %h2= t('signs.show.notes')
-      %p= @sign.usage_notes
-      - if @sign.hint.present?
-        %p
-          = "#{t('signs.show.hint')}: "
-          %em= @sign.hint
-      - if @sign.age_groups.present?
-        %p
-          = "#{t('signs.show.age_groups')}: "
-          %em= @sign.age_groups
-      =#TODO @sign.usage_tag
-      - if @sign.borrowed_from.present?
-        %p
-          = "#{t('signs.show.related_to')}: "
-          %em= @sign.borrowed_from.upcase
+            = "#{t('signs.show.hint')}: "
+            %em= @sign.hint
+        - if @sign.age_groups.present?
+          %p
+            = "#{t('signs.show.age_groups')}: "
+            %em= @sign.age_groups
+        =#TODO @sign.usage_tag
+        - if @sign.borrowed_from.present?
+          %p
+            = "#{t('signs.show.related_to')}: "
+            %em= @sign.borrowed_from.upcase
