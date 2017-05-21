@@ -1,8 +1,15 @@
-.topic-container{
+.topic-container {
   h2 { margin: 20px 0; }
-  ol { overflow: auto; }
+  ol {
+    overflow: auto;
+    column-width: 200px;
+    -webkit-column-width: 200px;
+    -moz-column-width: 200px;
+  }
+  li {
+    width: 100%;
+  }
   .topic-li-style {
-    float: left;
     list-style: none;
     a {
       line-height: 2;
