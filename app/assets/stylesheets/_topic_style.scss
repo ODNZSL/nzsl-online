@@ -6,9 +6,6 @@
     -webkit-column-width: 200px;
     -moz-column-width: 200px;
   }
-  li {
-    width: 100%;
-  }
   .topic-li-style {
     list-style: none;
     a {
@@ -16,5 +13,4 @@
       border-bottom: none;
     }
   }
-  .usage-tags .topic-li-style { float: none; }
 }
