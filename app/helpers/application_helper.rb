@@ -36,7 +36,7 @@ module ApplicationHelper
      </div>".html_safe
   end
 
-  def submit_search_button()
+  def submit_search_button
     "<button type='submit' class='search-button'>
       <i class='fi-magnifying-glass'></i>
     </button>".html_safe
