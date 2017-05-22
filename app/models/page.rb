@@ -30,8 +30,6 @@ class Page < ActiveRecord::Base
 
   scope :in_nav, -> { where(show_in_nav: true) }
 
-  scope :in_header_nav, -> { where(show_in_nav: true) }
-
   def path
     return '/' if slug == '/'
     "/#{slug}/"
