@@ -4,20 +4,24 @@ header {
  overflow: auto;
 }
 
+.header-logo,
+.tablet-logo {
+  width: 40%;
+}
+
 .menu-list {
   @include montserrat-light;
-  width: 100%;
+  width: 60%;
   overflow: auto;
+  margin: 10px;
   a:hover {
    background-color: initial;
-   cursor: pointer;
   }
   ul {
     display: inline-block;
     li {
        display: inline;
        list-style-type: none;
-       float: left;
        padding: 10px;
       a {
          color: $light-grey;
@@ -38,20 +42,7 @@ header {
   }
 }
 
-.logo-text {
-  @include montserrat-bold;
-  color: $light-grey;
-  float: left;
-}
-
-@media screen and (max-width: $medium-screen) {
-  .logo-text {
-    width: 90%;
-    margin-top: 2%;
-  }
-}
-
-/*Overlay*/
+//Overlay
 .overlay {
     height: 100%;
     position: fixed;
