@@ -58,7 +58,7 @@ header {
 
 //Overlay
 .overlay {
-  display: block;
+  width: 0;
   height: 100%;
   position: fixed;
   z-index: 1;
@@ -79,8 +79,7 @@ header {
   }
 }
 
-.overlay
-a {
+.overlay a {
   @include montserrat-light;
   padding: 8px;
   text-decoration: none;
@@ -98,8 +97,3 @@ a {
     right: 45px;
     font-size: 60px;
 }
-
-
-
-
-
