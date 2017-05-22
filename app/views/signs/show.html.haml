@@ -13,8 +13,8 @@
       - if @sign.video_slow.present?
         %video.main_video.slow{controls: true, preload: true, loop: true}
           %source{type: "video/mp4", src:  @sign.video_slow}
-        = orange_link_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-        = orange_link_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+        = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+        = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
     .sign-container.float-right.medium-6.text-center
       = image_tag "signs/320-180/#{@sign.drawing}"
       .glosses
@@ -26,7 +26,7 @@
         /%p.h3.grammar_notes= render_grammar_notes(@sign)
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
-        = submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
+        = orange_submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
