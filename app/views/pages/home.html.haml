@@ -1,4 +1,4 @@
-.typography
+.typography.small-12.small-centered.medium-10.large-8
   %h1
     The Online Dictionary of
     %br
@@ -8,7 +8,7 @@
   - if @page.first_part.present? &&  @page.first_part.translation_path.present?
     = render partial: "shared/translation_video", locals: {page_part: @page.first_part}
 
-  .rule_after
+  .row
     .medium-8.inline-block
       - if @page.first_part.present?
         != @page.first_part.body

@@ -1,25 +1,26 @@
 = render :partial => 'pages/content'
-- unless numbers[:cardinal].length.zero?
-  .typography
-    %h2#cardinal Cardinal Numbers
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:cardinal]}
-- unless numbers[:ordinal].length.zero?
-  .typography
-    %h2#ordinal Ordinal Numbers
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:ordinal]}
-- unless numbers[:age].length.zero?
-  .typography
-    %h2#age Age
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:age]}
-- unless numbers[:time].length.zero?
-  .typography
-    %h2#time Time
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:time]}
-- unless numbers[:money].length.zero?
-  .typography
-    %h2#money Money
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:money]}
-- unless numbers[:fractions].length.zero?
-  .typography
-    %h2#fractions Fractions
-  = render :partial => 'static_pages/grid', :locals => {:group => numbers[:fractions]}
+.small-12.small-centered.medium-10.large-8
+  - unless numbers[:cardinal].length.zero?
+    .typography
+      %h2#cardinal Cardinal Numbers
+    = render :partial => 'static_pages/grid', :locals => {:group => numbers[:cardinal]}
+  - unless numbers[:ordinal].length.zero?
+    .typography
+      %h2#ordinal Ordinal Numbers
+    = render :partial => 'static_pages/grid', :locals => {:group => numbers[:ordinal]}
+  - unless numbers[:age].length.zero?
+    .typography
+      %h2#age Age
+    = render :partial => 'static_pages/grid', :locals => {:group => numbers[:age]}
+  - unless numbers[:time].length.zero?
+    .typography
+      %h2#time Time
+    = render :partial => 'static_pages/grid', :locals => {:group => numbers[:time]}
+  - unless numbers[:money].length.zero?
+    .typography
+      %h2#money Money
+    = render :partial => 'static_pages/grid', :locals => {:group => numbers[:money]}
+  - unless numbers[:fractions].length.zero?
+    .typography
+      %h2#fractions Fractions
+    = render :partial => 'static_pages/grid', :locals => {:group => numbers[:fractions]}

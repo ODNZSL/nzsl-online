@@ -1,5 +1,6 @@
 = render :partial => 'pages/content'
-.rule_after.clearfix_left.vertical_space
+.rule_after.clearfix_left.vertical_space.small-12.small-centered.medium-10.large-8
+
   %h2#feedback Send Feedback
   = render :partial => 'shared/flashes', :locals => {:prefix => 'feedback_'}
   = semantic_form_for @feedback, :url => feedback_index_path(:anchor => 'feedback'), :html => {:multipart => true} do |form|
