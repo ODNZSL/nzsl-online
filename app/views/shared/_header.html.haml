@@ -4,21 +4,21 @@
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
   .header-nav.small-12
     .header-logo.float-left.show-for-large
-      = image_tag "img/desktoplogo.png"
+      = image_tag "img/desktop_logo.png"
     .tablet-logo.float-left.show-for-medium-only
-      = image_tag "img/mobilelogo.png"
+      = image_tag "img/mobile_logo.png"
     .menu-list.show-for-medium
       %ul.float-right
-        - Page.header_nav.each_with_index do |link, i|
+        - Page.in_header_nav.each_with_index do |link, i|
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
         %li.help
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
-  .hamburger-menu-icon.hide-for-medium.float-left
+  .hamburger-menu-icon.show-for-small-only.float-left
     = image_tag "img/hamburger.svg", onclick: "openNav()"
   .mobile-logo.text-center.show-for-small-only
-    = image_tag "img/mobilelogo.png"
-#mobileNav.overlay.hide-for-medium
-  %a.closebtn{href: "#", onclick: "closeNav()"} ×
+    = image_tag "img/mobile_logo.png"
+#mobileNav.overlay.hide-for-small.hide-for-medium
+  %a.closebtn{href: "#", onclick: "closeNav()"} &times;
   .overlay-content.small-12.text-center
     %ul
       - Page.in_nav.each_with_index do |link, i|

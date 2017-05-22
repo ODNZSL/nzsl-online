@@ -7,6 +7,10 @@ header {
 .header-logo,
 .tablet-logo {
   width: 40%;
+
+  img {
+    @include center-element;
+  }
 }
 
 .menu-list {
@@ -14,28 +18,38 @@ header {
   width: 60%;
   overflow: auto;
   margin: 10px;
+
   a:hover {
-   background-color: initial;
+    background-color: initial;
   }
+
+  a:visited,
+  a:active {
+    color: none;
+  }
+
   ul {
     display: inline-block;
+
     li {
-       display: inline;
-       list-style-type: none;
-       padding: 10px;
+      display: inline;
+      list-style-type: none;
+      padding: 10px;
+
       a {
-         color: $light-grey;
-         text-decoration: none;
-         border: none;
+        color: $light-grey;
+        text-decoration: none;
+        border: 0;
       }
     }
   }
 }
 
 .hamburger-menu-icon {
-  width: calc(10% - 1px);
-  padding: 15px 0;
   border-right: 1px solid $light-grey;
+  padding: 15px 0;
+  width: calc(10% - 1px);
+
   img {
     @include center-element;
   }
@@ -43,35 +57,37 @@ header {
 
 //Overlay
 .overlay {
-    height: 100%;
-    position: fixed;
-    z-index: 1;
-    left: 0;
-    top: 0;
-    background-color: $primary-blue;
-    overflow-x: hidden;
-    transition: 0.5s;
+  display: block;
+  height: 100%;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  background-color: $primary-blue;
+  overflow-x: hidden;
+  transition: .5s;
 }
 
 .overlay-content {
-    position: relative;
-    top: 10%;
-    margin-top: 30px;
-    li {
-      list-style-type: none;
-    }
+  position: relative;
+  top: 10%;
+  margin-top: 30px;
+
+  li {
+    list-style-type: none;
+  }
 }
 
 .overlay
 a {
   @include montserrat-light;
-    padding: 8px;
-    text-decoration: none;
-    font-size: 20px;
-    color: $light-grey;
-    display: block;
-    transition: 0.3s;
-    border-bottom: none;
+  padding: 8px;
+  text-decoration: none;
+  font-size: 20px;
+  color: $light-grey;
+  display: block;
+  transition: 0.3s;
+  border-bottom: none;
 }
 
 a:hover {
