@@ -96,7 +96,6 @@ input,
 select,
 textarea { margin: 0; }
 
-// input:valid, textarea:valid   {  }
 input:invalid,
 textarea:invalid {
   border-radius: 1px;
@@ -105,19 +104,10 @@ textarea:invalid {
   box-shadow: 0 0 5px red;
 }
 
-// .no-boxshadow input:invalid,
-// .no-boxshadow textarea:invalid { background-color: $pale-pink; }
-
-/*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }*/
-// a:link { -webkit-tap-highlight-color: $bright-pink; }
-
 button {
   width: auto;
   overflow: visible;
 }
-
-.ie7 img { -ms-interpolation-mode: bicubic; }
 
 a,
 a:active,
@@ -133,8 +123,6 @@ a:visited span {
 a:hover,
 a:hover span {
   color: $link-blue;
-  // border-bottom:1px solid #aac0f8;
-  // background-color: $light-pale-blue;
 }
 
  /* * * * * * *\
@@ -142,9 +130,10 @@ a:hover span {
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 h1, h2, h3, h4, h5, h6 {
   @include montserrat-light;
-  margin: 0;
+  margin: 10px 0;
   padding: 0;
 }
+
 h1, .h1 { font-size: $h1-font-size; }
 h2, .h2 { font-size: $h2-font-size; }
 h3, .h3 { font-size: $h3-font-size; }
