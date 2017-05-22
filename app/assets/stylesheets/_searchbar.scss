@@ -35,7 +35,6 @@
     }
   }
   &-tab {
-    // text-align: center;
     padding: 20px 0 10px 0;
     font-size: $subtitle-font-size;
     .small-caret {
@@ -57,6 +56,7 @@
   }
   .advanced-search-container { padding-bottom: 10px; }
   .advanced-search-button {
+    @include montserrat-light;
     position: relative;
     height: 65px;
     background-color: $light-blue;
@@ -64,12 +64,11 @@
     width: calc(25% - 5px);
     cursor: pointer;
     border-radius: 5px;
-    @include montserrat-light;
     font-size: $subtitle-font-size;
 
     .default { color: white; }
 
-    a { border-bottom: none; }
+    // a { border-bottom: none; }
 
     .usage-dropdown,
     .topic-dropdown {
@@ -84,10 +83,4 @@
     right: -10px;
     color: white;
   }
-}
-
-select {
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
 }
