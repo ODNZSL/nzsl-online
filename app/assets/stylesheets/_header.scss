@@ -58,7 +58,7 @@ header {
 
 //Overlay
 .overlay {
-  display: block;
+  display: none;
   height: 100%;
   position: fixed;
   z-index: 1;
@@ -90,14 +90,6 @@ a {
   transition: 0.3s;
   border-bottom: none;
 }
-
-// a:hover {
-//   background-color: initial;
-// }
-
-// .overlay a:hover, .overlay a:focus {
-//     color: $dark-grey;
-// }
 
 .overlay
 .closebtn {
