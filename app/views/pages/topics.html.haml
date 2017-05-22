@@ -2,12 +2,12 @@
   = render :partial => 'pages/content'
   %ol
     - SignMenu.topic_tags.each do |topic|
-      %li.topic-li-style.small-12.medium-6.large-4
+      %li.topic-li-style.small-12.float-left
         = link_to topic[0], search_signs_path(tag: topic[1])
   %h2
     Linguistic Usage
   .usage-tags
     %ol
       - SignMenu.usage_tags.each do |u|
-        %li.topic-li-style
+        %li.topic-li-style.clearfix
           = link_to u[0], search_signs_path(usage: u[1])
