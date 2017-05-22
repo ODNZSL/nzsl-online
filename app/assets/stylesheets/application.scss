@@ -36,12 +36,15 @@ ul {
   overflow: auto;
   overflow-y: hidden;
   overflow-x: hidden;
+  list-style: none;
 }
-li,p  { margin: 0; }
+li, p  { margin: 0; }
+
 .no-bullet {
   list-style: none;
   padding: 0;
 }
+
 .videos {
   margin: 0 auto;
 }
@@ -577,13 +580,6 @@ h1.search_results_for {
 
 // Vocab Sheet
 // -------------------------------
-
-
-// .vocab_sheet_head {
-//   margin-left: -108px;
-//   margin-right: 102px;
-//   width: 690px;
-// }
 
 /* Vocab bar background */
 .vocab_sheet_background {
