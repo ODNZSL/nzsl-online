@@ -14,22 +14,7 @@
       }
       span { color: $link-blue; }
     }
-    .videos {
-      display: inline-block;
-      .link_button {
-        i {
-          font-size: 22px;
-          margin: 0 5px;
-        }
-        background-color: $peach;
-        border: none;
-        color: white;
-        border-radius: 5px;
-        padding: 5px 5px 10px 5px;
-        font-size: $subtitle-font-size;
-      }
-    }
-
+    .videos { display: inline-block; }
     .sign-container {
       border: 1px solid $light-grey;
       position: relative;
@@ -48,5 +33,39 @@
         }
       }
     }
+  }
+}
+
+.orange_video_button {
+  i {
+    font-size: 22px;
+    margin: 0 5px;
+    position: relative;
+    top: 3px;
+  }
+  background-color: $peach;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 0 10px 5px 10px;
+  font-size: $subtitle-font-size;
+}
+
+.orange_link_button{
+  float: left;
+  border: none;
+  position: relative;
+  bottom: 8px;
+  color: $peach;
+  font-size: $subtitle-font-size;
+  &:hover {
+    color: $dark-grey;
+    i { background: $med-grey; }
+  }
+  i {
+    margin-right: 7px;
+    background-color: $peach;
+    color: white;
+    padding: 8px 13px;
   }
 }
