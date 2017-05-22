@@ -1,12 +1,91 @@
-$li-hightlight-blue: rgba(185, 204, 249, 0.4);
-
-.ui-autocomplete {
-  color: $sky-blue;
-  font-size: 100%;
-  font-family: Georgia, serif;
-  .ui-state-focus {
-    border: 1px solid $li-hightlight-blue;
-    color: $sky-blue;
-    background: $li-hightlight-blue;
+.search {
+  &-container {
+    form { position: relative; }
   }
+  &-field {
+    border-radius: 25px;
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+    margin: 10px 0;
+  }
+  &-label {
+    text-align: center;
+    padding: 20px 0 15px;
+    display: block;
+    color: white;
+    font-size: $h3-font-size;
+  }
+  &-button {
+    background-color: $peach;
+    border-radius: 5px;
+    border: none;
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    i {
+      font-size: 28px;
+      color: white;
+    }
+  }
+  &-tab {
+    // text-align: center;
+    padding: 20px 0 10px 0;
+    font-size: $subtitle-font-size;
+    .small-caret {
+      margin-left: 10px;
+      top: 12px;
+      position: relative;
+    }
+    a {
+      color: white;
+      border: none;
+    }
+  }
+}
+.advanced-search-container { display: none; }
+@media screen and (min-width: $medium-screen) {
+  .search-button {
+    top: 65px;
+    right: 50px;
+  }
+  .advanced-search-container { padding-bottom: 10px; }
+  .advanced-search-button {
+    position: relative;
+    height: 65px;
+    background-color: $light-blue;
+    margin: 0 2.5px;
+    width: calc(25% - 5px);
+    cursor: pointer;
+    border-radius: 5px;
+    @include montserrat-light;
+    font-size: $subtitle-font-size;
+
+    .default { color: white; }
+
+    a { border-bottom: none; }
+
+    .usage-dropdown,
+    .topic-dropdown {
+      &:hover {
+        background-color: $light-blue;
+      }
+    }
+  }
+  .show-for-medium.empty {
+    top: 80px;
+    right: -10px;
+    color: white;
+  }
+}
+
+select {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
 }

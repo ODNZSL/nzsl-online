@@ -36,11 +36,24 @@ module ApplicationHelper
      </div>".html_safe
   end
 
+  def submit_search_button
+    "<button type='submit' class='search-button'>
+      <i class='fi-magnifying-glass'></i>
+    </button>".html_safe
+  end
+
   def link_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
     link_to "<div class='r'></div>#{t(text)}".html_safe,
             url,
             { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
+  end
+
+  def orange_link_button(text, url = nil, options = {})
+    url ||= 'javascript:void(0);'
+    link_to "<i class='fi-play'></i>#{t(text)}".html_safe,
+            url,
+            { class: ("link_button #{options[:class]}") }.reverse_merge(options)
   end
 
   def div_button(text, options = {})

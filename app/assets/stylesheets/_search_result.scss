@@ -1,11 +1,51 @@
 .search-result {
   &-title {
-    background-color: $light-blue;
-    padding: 20px 0;
+    background-color: $pale-blue;
+    padding: 25px 0;
   }
-  .back_to_search_results {
-    // position: absolute;
-    // top: 0;
-    // left: 108px;
+  &-container {
+    .back-button-container {
+      margin: 15px 0;
+      a {
+        text-decoration: none;
+        border-bottom: none;
+        margin-left: 10px;
+      }
+      span { color: $link-blue; }
+    }
+    .videos {
+      display: inline-block;
+      .link_button {
+        i {
+          font-size: 22px;
+          margin: 0 5px;
+        }
+        background-color: $peach;
+        border: none;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 5px 10px 5px;
+        font-size: $subtitle-font-size;
+      }
+    }
+
+    .sign-container {
+      border: 1px solid $light-grey;
+      position: relative;
+      img {
+        margin: 30px auto;
+        display: block;
+      }
+      .sign_attributes {
+        position: absolute;
+        top: 0;
+        left: 10px;
+        .image { width: initial; }
+        img {
+          display: block;
+          margin: 20px 10px;
+        }
+      }
+    }
   }
 }

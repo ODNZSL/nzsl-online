@@ -1,32 +1,35 @@
-.search-result_container
+.search-result-container
   .small-12.text-center.search-result-title
-    %h1.main_gloss= @sign.gloss_main
-
-  = render_back_to_search_results
+    %h1
+      = @sign.gloss_main
+  .back-button-container
+    = render_back_to_search_results
+    %span.float-left
+      &larr;
   - if @sign.present?
-    .entry_head
+    .videos.medium-5.float-left
+      %video.main_video.normal{controls: true, preload: true, loop: true}
+        %source{type: "video/mp4", src:  @sign.video}
+      - if @sign.video_slow.present?
+        %video.main_video.slow{controls: true, preload: true, loop: true}
+          %source{type: "video/mp4", src:  @sign.video_slow}
+        = orange_link_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+        = orange_link_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+    .sign-container.float-right.medium-6.text-center
       = image_tag "signs/320-180/#{@sign.drawing}"
       .glosses
-        %h2.secondary_gloss= @sign.gloss_secondary
-        %p.h3.minor_gloss= @sign.gloss_minor
-        %p.h3.maori_gloss= @sign.gloss_maori
+        %h2= @sign.gloss_secondary
+        /%p.h3.minor_gloss= @sign.gloss_minor
+        %p.h3= @sign.gloss_maori
       .grammar
-        %p.h3.word_class= @sign.word_classes
-        %p.h3.grammar_notes= render_grammar_notes(@sign)
+        /%p.h3.word_class= @sign.word_classes
+        /%p.h3.grammar_notes= render_grammar_notes(@sign)
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
         = submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
-    .videos
-      %video.main_video.normal{controls: true, preload: true, loop: true}
-        %source{type: "video/mp4", src:  @sign.video}
-      - if @sign.video_slow.present?
-        %video.main_video.slow{controls: true, preload: true, loop: true}
-          %source{type: "video/mp4", src:  @sign.video_slow}
-        = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
-        = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
     - unless @sign.examples.length.zero?
       .examples.rule_after.clearfix
         %h2= t('signs.show.usage_examples')
