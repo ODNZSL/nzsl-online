@@ -32,22 +32,21 @@
 .hide { display: none; }
 .show { display: inline-block; }
 
-ul {
-  overflow: auto;
-  overflow-y: hidden;
-  overflow-x: hidden;
-  list-style: none;
-}
-li, p  { margin: 0; }
+li { margin: 0; }
 
 .no-bullet {
   list-style: none;
   padding: 0;
+  margin-left: auto;
+  overflow: auto;
+  overflow-y: hidden;
+  overflow-x: hidden;
 }
 
 .videos {
   margin: 0 auto;
 }
+
 .inline-block { display: inline-block; }
 
 .grid-image {
@@ -83,7 +82,7 @@ html, body {
 
 .not_sticky_footer {
   position: relative;
-  min-height: 100%;
+  margin-bottom: 20px;
  }
 
 /* Opera Fix */
@@ -605,6 +604,7 @@ h1.search_results_for {
 
 .vocab_sheet ul {
   padding: 0;
+  margin-left: auto;
   list-style-type: none;
 }
 
