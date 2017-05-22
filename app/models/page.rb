@@ -4,6 +4,8 @@ class Page < ActiveRecord::Base
                         stylesheets system 500 favicon flowplayer-3 flowplayer
                         robots crossdomain) # top level routes & public dir.
 
+  HEADER_NAV = %w(topics alphabet numbers classifiers)
+
   has_many :page_parts
 
   before_validation :slug_and_label_from_title, :strip_text
@@ -27,6 +29,8 @@ class Page < ActiveRecord::Base
   default_scope { order('"pages"."order" ASC') }
 
   scope :in_nav, -> { where(show_in_nav: true) }
+
+  scope :in_header_nav, -> { where(show_in_nav: true) }
 
   def path
     return '/' if slug == '/'
@@ -55,9 +59,8 @@ class Page < ActiveRecord::Base
 
   ##
   # Find pages that should display in header navigation
-  def self.header_nav
-    where(show_in_nav: true).where(
-      "slug IN('topics', 'alphabet', 'numbers', 'classifiers', 'help')")
+  def self.in_header_nav
+    where(show_in_nav: true).where(slug: HEADER_NAV)
   end
 
   def self.create_from_csv(row)
