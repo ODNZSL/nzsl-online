@@ -20,17 +20,17 @@
   = print_stylesheet_tag params[:print]
   %link{ href:"https://fonts.googleapis.com/css?family=Montserrat:300,400,500", rel:"stylesheet" }
 %body
-  / .visuallyhidden
-  /   %a{:href => '#content'} Skip to Content
-  /   |
-  /   %a{:href => '#nav'} Skip to Page Navigation
+  .visuallyhidden
+    %a{:href => '#content'} Skip to Content
+    |
+    %a{:href => '#nav'} Skip to Page Navigation
   %div{ :class => "not_sticky_footer row #{vocab_sheet?}"}
-  = render :partial => 'shared/header'
-  #content.before_sticky_footer.small-11.small-centered.medium-10.large-8.large-offset-2
-    = render :partial => 'shared/vocab_sheet'
-    = render :partial => 'shared/flashes', :locals => {:prefix => ''}
-    = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
-    = yield
+    = render :partial => 'shared/header'
+    #content.before_sticky_footer.small-11.small-centered.medium-10.large-8.large-offset-2
+      = render :partial => 'shared/vocab_sheet'
+      = render :partial => 'shared/flashes', :locals => {:prefix => ''}
+      = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
+      = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
 
   = print_javascripts_tag params[:print]
