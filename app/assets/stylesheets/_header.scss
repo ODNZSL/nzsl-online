@@ -79,7 +79,7 @@ header {
   }
 }
 
-.overlay a {
+.overlay a, .overlay span {
   @include montserrat-light;
   padding: 8px;
   text-decoration: none;
