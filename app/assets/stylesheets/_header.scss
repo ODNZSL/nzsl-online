@@ -24,7 +24,8 @@ header {
   }
 
   a:visited,
-  a:active {
+  a:active,
+  a:focus {
     color: none;
   }
 
@@ -90,13 +91,13 @@ a {
   border-bottom: none;
 }
 
-a:hover {
-  background-color: initial;
-}
+// a:hover {
+//   background-color: initial;
+// }
 
-.overlay a:hover, .overlay a:focus {
-    color: $dark-grey;
-}
+// .overlay a:hover, .overlay a:focus {
+//     color: $dark-grey;
+// }
 
 .overlay
 .closebtn {

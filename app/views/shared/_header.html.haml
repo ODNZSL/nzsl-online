@@ -17,14 +17,14 @@
     = image_tag "img/hamburger.svg", onclick: "openNav()"
   .mobile-logo.text-center.show-for-small-only
     = image_tag "img/mobile_logo.png"
-#mobileNav.overlay.hide-for-small.hide-for-medium
-  %a.closebtn{href: "#", onclick: "closeNav()"} &times;
-  .overlay-content.small-12.text-center
-    %ul
-      - Page.in_nav.each_with_index do |link, i|
-        %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
-      %li.help
-        = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
+  #mobileNav.overlay.small-12.hide-for-medium.hide-for-small
+    %a.closebtn{href: "#", onclick: "closeNav()"} &times;
+    .overlay-content.small-12.text-center
+      %ul
+        - Page.in_nav.each_with_index do |link, i|
+          %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
+        %li.help
+          = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
 
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
