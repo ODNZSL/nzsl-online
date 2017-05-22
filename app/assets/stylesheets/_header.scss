@@ -37,8 +37,7 @@ header {
   padding: 15px 0;
   border-right: 1px solid $light-grey;
   img {
-    display: block;
-    margin: 0 auto;
+    @include center-element;
   }
 }
 
