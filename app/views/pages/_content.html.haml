@@ -1,15 +1,15 @@
-.typography
+.typography.small-12.small-centered.medium-10.large-8
   %h1= @page.title
   - if @page.multiple_page_parts?
     - @page.page_parts.each do |page_part|
       .rule_after
-        %h2= page_part.title 
+        %h2= page_part.title
         - if page_part.translation_path.present?
-          = render partial: "shared/translation_video", locals: {page_part: page_part}  
+          = render partial: "shared/translation_video", locals: {page_part: page_part}
         .ckeditor_content
           != page_part.body
   - elsif @page.first_part
     - if @page.first_part.translation_path.present?
-      = render partial: "shared/translation_video", locals: {page_part: @page.first_part}  
+      = render partial: "shared/translation_video", locals: {page_part: @page.first_part}
     .rule_after.ckeditor_content
       != @page.first_part.body
