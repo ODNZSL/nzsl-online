@@ -13,6 +13,7 @@
 @import "footer";
 @import "topic_style";
 @import "header";
+@import "search_result_grid";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -779,13 +780,6 @@ video {
   // margin-left: 4px;
   position: relative;
   display: inline-block;
-}
-
-h1.search_results_for {
-  line-height: 42px;
-  margin-top: 1em;
-  min-height: 42px;
-  vertical-align: middle;
 }
 
 // .search_results_for img { vertical-align: middle; }
