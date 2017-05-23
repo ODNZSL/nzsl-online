@@ -88,10 +88,15 @@
     .default { color: white; }
     .usage-dropdown,
     .topic-dropdown {
-      &:hover {
-        background-color: $pale-blue;
+      width: 100%;
+      height: auto;
+      &:hover { background-color: $pale-blue; }
+    }
+    &.topic,
+    &.usage {
+      .selected {
+        background-color: initial;
       }
-      &:visited { background-color: red;}
     }
   }
   .show-for-medium.empty {
