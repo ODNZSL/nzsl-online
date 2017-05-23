@@ -46,8 +46,8 @@ module ApplicationHelper
     url ||= 'javascript:void(0);'
     link_to "<div class='r'></div>#{t(text)}".html_safe,
             url,
-            { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
-            { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
+            { class: ("button orange_link_button #{options[:class]}") }.reverse_merge(options)
+            { class: ("button orange_link_button #{options[:class]}") }.reverse_merge(options)
   end
 
   def orange_video_button(text, url = nil, options = {})
