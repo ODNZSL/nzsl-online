@@ -4,8 +4,18 @@
     padding: 25px 0;
   }
   &-container {
+    .glosses-container {
+      h2 {
+        @include montserrat-bold;
+        font-size: $h3-font-size;
+      }
+      .word_class {
+        color: $light-med-grey;
+        font-size: $h4-font-size;
+      }
+    }
     .back-button-container {
-      margin: 15px 0;
+      margin: 30px 0;
       position: relative;
       a {
         text-decoration: none;
