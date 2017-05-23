@@ -83,13 +83,13 @@
     cursor: pointer;
     border-radius: 5px;
     font-size: $subtitle-font-size;
+    a:hover { opacity: 1; }
 
     .default { color: white; }
-
     .usage-dropdown,
     .topic-dropdown {
       &:hover {
-        background-color: $light-blue;
+        background-color: $pale-blue;
       }
       &:visited { background-color: red;}
     }
