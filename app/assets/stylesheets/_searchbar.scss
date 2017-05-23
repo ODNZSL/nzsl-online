@@ -2,13 +2,15 @@
   &-container {
     form { position: relative; }
     margin-bottom: 10px;
+    background-color: $primary-blue;
+    float: right;
   }
   &-field {
     border-radius: 25px;
     border: none;
     height: 30px;
     padding: 0 10px;
-    margin: 10px 0;
+    display: inline-block;
   }
   &-label {
     text-align: center;
@@ -18,20 +20,19 @@
     font-size: $h3-font-size;
   }
   &-button {
-    background-color: $peach;
-    border-radius: 5px;
     border: none;
     position: absolute;
-    top: 5px;
-    right: 10px;
+    top: 0;
+    right: 10%;
+    background-color: initial;
     -moz-transform: scale(-1, 1);
     -webkit-transform: scale(-1, 1);
     -o-transform: scale(-1, 1);
     -ms-transform: scale(-1, 1);
     transform: scale(-1, 1);
     i {
-      font-size: 28px;
-      color: white;
+      font-size: 22px;
+      color: $primary-blue;
     }
   }
   &-tab {
@@ -49,10 +50,27 @@
   }
 }
 .advanced-search-container { display: none; }
+
 @media screen and (min-width: $medium-screen) {
-  .search-button {
-    top: 65px;
-    right: 50px;
+  .search-container { float: none; }
+  .search-buttons-container {
+    width: 100px;
+    overflow: auto;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    .search-button {
+      background-color: $peach;
+      border-radius: 5px;
+      top: initial;
+      right: initial;
+      position: relative;
+      float: left;
+      i {
+        font-size: 28px;
+        color: white;
+      }
+    }
   }
   .advanced-search-container { padding-bottom: 10px; }
   .advanced-search-button {
@@ -68,8 +86,6 @@
 
     .default { color: white; }
 
-    // a { border-bottom: none; }
-
     .usage-dropdown,
     .topic-dropdown {
       &:hover {
@@ -79,8 +95,12 @@
     }
   }
   .show-for-medium.empty {
-    top: 80px;
-    right: -10px;
+    position: relative;
+    float: right;
     color: white;
+    top: 10px;
   }
+}
+@media screen and (min-width: $large-screen) {
+  .search-buttons-container { right: 7%;}
 }
