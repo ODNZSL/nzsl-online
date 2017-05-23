@@ -46,8 +46,8 @@ module ApplicationHelper
     url ||= 'javascript:void(0);'
     link_to "<div class='r'></div>#{t(text)}".html_safe,
             url,
-            { class: ("button orange_link_button #{options[:class]}") }.reverse_merge(options)
-            { class: ("button orange_link_button #{options[:class]}") }.reverse_merge(options)
+            { class: ("button #{options[:class]}") }.reverse_merge(options)
+            { class: ("button #{options[:class]}") }.reverse_merge(options)
   end
 
   def orange_video_button(text, url = nil, options = {})
@@ -96,9 +96,9 @@ module ApplicationHelper
     link_text = (part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page')
     content_tag :div, [flow_video_tag(asset_path(part.translation_path),
                                       wrapper_class: 'translation_video main_video hidden_video'),
-                       link_button(link_text,
+                       orange_video_button(link_text,
                                    nil,
-                                   class: 'translation_button')
+                                   class: 'translation_button float-left')
                       ].join(' ').html_safe,
                 class: 'videos clearfix_left'
   end
