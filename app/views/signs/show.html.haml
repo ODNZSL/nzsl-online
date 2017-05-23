@@ -8,22 +8,25 @@
       &larr;
   - if @sign.present?
     .videos.medium-5.float-left
-      %video.main_video.normal{controls: true, preload: true, loop: true}
+      %video.main_video.normal{preload: true, loop: true}
         %source{type: "video/mp4", src:  @sign.video}
       - if @sign.video_slow.present?
         %video.main_video.slow{controls: true, preload: true, loop: true}
           %source{type: "video/mp4", src:  @sign.video_slow}
         = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
         = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
-    .sign-container.float-right.medium-6.text-center
-      = image_tag "signs/320-180/#{@sign.drawing}"
-      .glosses
+      .glosses-container.glosses.small-12.float-left
         %h2= @sign.gloss_secondary
-        /%p.h3.minor_gloss= @sign.gloss_minor
-        %p.h3= @sign.gloss_maori
+        %h4.minor_gloss= @sign.gloss_minor
+        %h4= @sign.gloss_maori
+        %h4.word_class= @sign.word_classes
+
+    .sign-container.float-right.medium-5.text-center
+      = image_tag "signs/320-180/#{@sign.drawing}"
+      .glosses-container.glosses.row
+        %h2= @sign.gloss_secondary
+        %h2= @sign.gloss_maori
       .grammar
-        /%p.h3.word_class= @sign.word_classes
-        /%p.h3.grammar_notes= render_grammar_notes(@sign)
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
         = orange_submit_button('vocab_sheet.item.add', :class => 'add_to_sheet')
@@ -44,8 +47,8 @@
               %em= example[:translation]
             %p= render_transcription(example[:transcription], @sign.id)
             - if example[:video_slow]
-              = link_button('signs.show.in_slow_motion', nil, :class => 'button normal')
-              = link_button('signs.show.at_normal_speed', nil, :class => 'button slow')
+              = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+              = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
     - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
       .notes.rule_after.typography
         %h2= t('signs.show.notes')
