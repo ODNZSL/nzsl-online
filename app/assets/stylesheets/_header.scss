@@ -1,109 +1,98 @@
-<<<<<<< HEAD
-.header {
-  position:relative;
-  .nav {
-    background: $primary-blue;
-    position:relative;
-  }
-}
-=======
-
 header {
- background: $primary-blue;
- overflow: auto;
-}
-
-.header-logo,
-.tablet-logo {
-  width: 40%;
-
-  img {
-    @include center-element;
-  }
-}
-
-.menu-list {
-  @include montserrat-light;
-  width: 60%;
-  overflow: auto;
-  margin: 10px;
-
-  a:hover {
-    background-color: initial;
-  }
-
-  a:visited,
-  a:active,
-  a:focus {
-    color: none;
-  }
-
-  ul {
+  background: $primary-blue;
+  height: 65px;
+  .mobile-logo {
     display: inline-block;
+    width: 80%;
+    img {
+      width: 120px;
+      margin: 5px 0 0 0;
+    }
+  }
+  .menu-list {
+    @include montserrat-light;
+    width: 60%;
+    overflow: auto;
+    margin: 0 10px;
+    ul {
+      display: inline-block;
 
-    li {
-      display: inline;
-      list-style-type: none;
-      padding: 10px;
+      li {
+        display: inline;
+        list-style-type: none;
+        padding: 10px;
 
-      a {
-        color: $light-grey;
-        text-decoration: none;
-        border: 0;
+        a {
+          color: $light-grey;
+          text-decoration: none;
+          border: 0;
+        }
       }
     }
   }
-}
+  .hamburger-menu-icon {
+    border-right: 1px solid $light-grey;
+    width: calc(15% - 1px);
+    max-width: 50px;
+    top: 0;
+    height: 100%;
+    img {
+      @include center-element;
+      top: 25px;
+      position: relative;
+    }
+  }
 
-.hamburger-menu-icon {
-  border-right: 1px solid $light-grey;
-  padding: 15px 0;
-  width: calc(10% - 1px);
+  .overlay {
+    width: 0;
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    background-color: $primary-blue;
+    overflow-x: hidden;
+    transition: .5s;
+  }
 
-  img {
-    @include center-element;
+  .overlay-content {
+    position: relative;
+    top: 10%;
+    margin-top: 30px;
+
+    li {
+      list-style-type: none;
+    }
+  }
+
+  .overlay a, .overlay span {
+    @include montserrat-light;
+    padding: 8px;
+    text-decoration: none;
+    font-size: 20px;
+    color: $light-grey;
+    display: block;
+    transition: 0.3s;
+    border-bottom: none;
+  }
+
+  .overlay
+  .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 45px;
+      font-size: 60px;
   }
 }
 
-//Overlay
-.overlay {
-  width: 0;
-  height: 100%;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  background-color: $primary-blue;
-  overflow-x: hidden;
-  transition: .5s;
-}
-
-.overlay-content {
-  position: relative;
-  top: 10%;
-  margin-top: 30px;
-
-  li {
-    list-style-type: none;
+@media screen and (min-width: $medium-screen) {
+  header {
+    height: auto;
+    .header-nav { padding-top: 10px; }
+  }
+  .header-logo,
+  .tablet-logo {
+    width: 40%;
+    img { @include center-element; }
   }
 }
-
-.overlay a, .overlay span {
-  @include montserrat-light;
-  padding: 8px;
-  text-decoration: none;
-  font-size: 20px;
-  color: $light-grey;
-  display: block;
-  transition: 0.3s;
-  border-bottom: none;
-}
-
-.overlay
-.closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
-}
->>>>>>> staging
