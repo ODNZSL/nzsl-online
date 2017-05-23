@@ -1,8 +1,16 @@
 h1.search_results_container {
   @include montserrat-bold;
-  // background: $primary-blue;
   line-height: 42px;
-  // margin-top: 1em;
   padding: 10px 0;
   vertical-align: middle;
 }
+
+.grid li {
+  display: block;
+  padding: 25px 0;
+  float: left;
+  width: 150px;
+  margin: 0 20px 0 0;
+}
+
+.grid .row_start { clear:left; }
