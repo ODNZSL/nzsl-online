@@ -7,6 +7,7 @@
 //= require vocab_bar
 //= require vocab_sheet
 //= require search_analytics
+//= require header
 
 //= require admin
 //= require foundation

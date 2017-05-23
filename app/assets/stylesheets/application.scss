@@ -12,6 +12,7 @@
 @import "search_results";
 @import "footer";
 @import "topic_style";
+@import "header";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -123,21 +124,21 @@ body:before {
 // Header
 // -----------------
 .header {
-  position:relative;
+  // position:relative;
   z-index:3;
 }
 
-.header .edge {
-  background: left top repeat-y;
-  background-image: image_url('ui/edges.png');
-  width:72px;
-  height:100%;
-  z-index:5;
-  padding-bottom:30px;
-  top:-1px;
-}
+// .header .edge {
+//   background: left top repeat-y;
+//   background-image: image_url('ui/edges.png');
+//   width:72px;
+//   height:100%;
+//   z-index:5;
+//   padding-bottom:30px;
+//   top:-1px;
+// }
 
-.header .l { background-position:right top; }
+// .header .l { background-position:right top; }
 
 a.logo {
   height:71px;
@@ -150,14 +151,14 @@ a.logo {
 
 .print_logo { display:none; }
 
-.header .nav {
-  border:1px solid #99a0a5;
-  border-left:0;
-  border-right:0;
-  background:#eceef0;
-  position:relative;
-  // margin-bottom:32px;
-}
+// .header .nav {
+//   border:1px solid #99a0a5;
+//   border-left:0;
+//   border-right:0;
+//   background:#eceef0;
+//   position:relative;
+//   // margin-bottom:32px;
+// }
 
 .bottom_border {
   width:92px;

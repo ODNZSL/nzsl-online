@@ -134,7 +134,6 @@ textarea:invalid {
 
 /*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
 ::selection { background:#FF5E99; color:#fff; text-shadow: none; }*/
-a:link { -webkit-tap-highlight-color: $bright-pink; }
 
 button {
   width: auto;
@@ -164,9 +163,7 @@ a:visited span {
 
 a:hover,
 a:hover span {
-  color: $dark-sky-blue;
-  // border-bottom:1px solid #aac0f8;
-  background-color: $light-pale-blue;
+  opacity: 0.8;
 }
 
  /* * * * * * *\
