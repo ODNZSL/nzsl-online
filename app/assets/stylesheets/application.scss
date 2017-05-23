@@ -13,6 +13,7 @@
 @import "search_results";
 @import "footer";
 @import "topic_style";
+@import "header";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -96,6 +97,24 @@ body:before {
 // Header
 // -----------------
 
+.header {
+  // position:relative;
+  z-index:3;
+}
+
+// .header .edge {
+//   background: left top repeat-y;
+//   background-image: image_url('ui/edges.png');
+//   width:72px;
+//   height:100%;
+//   z-index:5;
+//   padding-bottom:30px;
+//   top:-1px;
+// }
+
+// .header .l { background-position:right top; }
+
+
 a.logo {
   height:71px;
   width:92px;
@@ -106,6 +125,83 @@ a.logo {
 }
 
 .print_logo { display:none; }
+
+// .header .nav {
+//   border:1px solid #99a0a5;
+//   border-left:0;
+//   border-right:0;
+//   background:#eceef0;
+//   position:relative;
+//   // margin-bottom:32px;
+// }
+
+.bottom_border {
+  width:92px;
+  height:8px;
+  background: bottom left repeat-x;
+  background-image: image_url('ui/borders.png');
+  position:absolute;
+  bottom:-36px;
+  left:0;
+  z-index:9;
+}
+
+// Tabs
+// -----------------
+
+.search_tabs {
+  position:absolute;
+  left: 108px;
+  top:-27px;
+  height:28px;
+  width:582px;
+  margin:0 auto;
+}
+
+.search_tabs li {
+  line-height:26px;
+  padding:0 5px;
+  font-size:93%;
+  float:left;
+  list-style-type:none;
+}
+
+.search_tabs li.tab {
+  padding:0 9px;
+  margin-right:4px;
+  position:relative;
+  background: image_url('ui/tab.png') top left repeat-x;
+  font-size:108%;
+  cursor:pointer;
+}
+
+.search_tabs li.tab .l,
+.search_tabs li.tab .r {
+  background: bottom left no-repeat;
+  background-image: image_url('ui/tab.png');
+  width:1px;
+  height:26px;
+}
+
+.search_tabs li.selected {
+  padding:0 9px;
+  border:1px solid #99a0a5;
+  border-bottom-color:#eceef0;
+  background:#eceef0;
+  top:-1px;
+}
+
+.search_tabs li.selected .l,
+.search_tabs li.selected .r { background:none; }
+
+.search_tabs .tab a {
+  border-bottom:0;
+  background:transparent;
+  color:#34414b;
+}
+
+.search_tabs .tab a:active,
+.search_tabs .tab a:focus { outline: 0; }
 
 // Menu
 // -----------------
