@@ -96,7 +96,6 @@ input,
 select,
 textarea { margin: 0; }
 
-// input:valid, textarea:valid   {  }
 input:invalid,
 textarea:invalid {
   border-radius: 1px;
@@ -104,13 +103,6 @@ textarea:invalid {
   -webkit-box-shadow: 0 0 5px red;
   box-shadow: 0 0 5px red;
 }
-
-// .no-boxshadow input:invalid,
-// .no-boxshadow textarea:invalid { background-color: $pale-pink; }
-
-/*::-moz-selection{ background: #FF5E99; color:#fff; text-shadow: none; }
-::selection { background:#FF5E99; color:#fff; text-shadow: none; }*/
-// a:link { -webkit-tap-highlight-color: $bright-pink; }
 
 button {
   width: auto;
