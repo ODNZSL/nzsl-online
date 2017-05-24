@@ -1,8 +1,10 @@
-h1.search_results_container {
+.search_results_container {
   @include montserrat-bold;
+  overflow: auto;
   line-height: 42px;
   padding: 10px 0 0;
   width: auto;
+  outline: 1px solid red;
   // vertical-align: middle;
 }
 
@@ -26,7 +28,7 @@ h1.search_results_container {
   margin: 0 20px 25px 0;
   outline: 1px solid $primary-blue;
 }
-li:hover {
+.grid li:hover {
   outline: 3px solid $primary-blue;
 }
 

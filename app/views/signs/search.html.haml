@@ -1,16 +1,16 @@
-%h1.search_results_container.small-12.text-center
+.search_results_container.text-center
   = @results_total
   = t('search.results.for')
   &ldquo;#{display_search_term}&rdquo;
 
-  .search_results.small-12
+  .search_results
     /with divs because of IE7
-    %ol.grid.small-12
-      - @signs.in_groups_of(4) do |row|
+    %ol.grid
+      - @signs.in_groups_of(3) do |row|
         .row_start
           - row.each do |result|
             - if result
-              %li
+              %li.small-12.medium-4.large-3
                 - if @query[:s]
                   - query_text = @query[:s].join(" ")
                 - else
