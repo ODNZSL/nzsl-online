@@ -16,15 +16,15 @@
         = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
         = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
       .glosses-container.glosses.small-12.float-left
-        %h2= @sign.gloss_secondary
-        %h4.minor_gloss= @sign.gloss_minor
-        %h4= @sign.gloss_maori
+        %h2.gloss_main= @sign.gloss_main
+        %h2.gloss_secondary= @sign.gloss_secondary
+        %h2.gloss_maori= @sign.gloss_maori
         %h4.word_class= @sign.word_classes
 
     .sign-container.float-right.medium-5.text-center
       = image_tag "signs/320-180/#{@sign.drawing}"
       .glosses-container.glosses.row
-        %h2= @sign.gloss_secondary
+        %h2= @sign.gloss_main
         %h2= @sign.gloss_maori
       .grammar
       = form_tag vocab_sheet_items_path do

@@ -7,7 +7,12 @@
     .glosses-container {
       h2 {
         @include montserrat-bold;
-        font-size: $h3-font-size;
+        font-size: $h5-font-size;
+      }
+      .gloss_maori,
+      .gloss_secondary {
+        font-weight: 300;
+        font-style: italic;
       }
       .word_class {
         color: $light-med-grey;
@@ -78,9 +83,4 @@
     color: white;
     padding: 8px 13px;
   }
-}
-.back_to_search_results {
-  position: absolute;
-  top: 0;
-  left: 108px;
 }
