@@ -7,7 +7,7 @@ h1.search_results_container {
 
 .grid li {
   display: block;
-  padding: 0 0 25px;
+  // padding: 0 0 25px;
   float: left;
   width: 280px;
   height: 450px;
@@ -16,3 +16,35 @@ h1.search_results_container {
 }
 
 .grid .row_start { clear:left; }
+
+
+
+// .drawing img {
+//   padding: 2px;
+// }
+
+
+.link_and_drawing_container {
+  width: 100%;
+
+  .show_link {
+    width: 40%;
+    margin-left: 10px;
+  }
+
+  .grid_drawing {
+    height: 82px;
+    width: 60%;
+  }
+  .drawing {
+    img {
+      padding: 2px;
+      margin-top: 20px;
+    }
+  }
+
+  a.drawing {
+    border: 0;
+    background: transparent;
+  }
+}
