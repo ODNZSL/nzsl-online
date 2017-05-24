@@ -541,25 +541,7 @@ a.empty:hover { border: 0; }
   width: 107px;
 }
 
-/* * * * * * * * * *\
-|* Entry & Results  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.glosses .secondary_gloss {
-  font-size: 123.1%;
-  display: block;
-}
-
-.word_class,
-.maori_gloss {
-  font-style: italic;
-  display: block;
-}
-
-h1.main_gloss { padding-bottom: 0; }
-
-.grammar,
-.glosses { margin-bottom: 1.2em; }
 
 // .entry_drawing {
 //   float: right;
@@ -626,6 +608,11 @@ h1.search_results_for {
   margin-top: 1em;
   min-height: 42px;
   vertical-align: middle;
+}
+
+.glosses {
+  font-size: 123.1%;
+  display: block;
 }
 
 .pagination {

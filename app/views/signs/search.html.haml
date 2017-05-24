@@ -1,7 +1,8 @@
 .search_results_container.text-center
-  = @results_total
-  = t('search.results.for')
-  &ldquo;#{display_search_term}&rdquo;
+  .result_text_container.small-12
+    = @results_total
+    = t('search.results.for')
+    &ldquo;#{display_search_term}&rdquo;
 
   .search_results
     /with divs because of IE7
@@ -17,17 +18,18 @@
                   - query_text = " "
                 %video.search_result_video.normal{controls: true, preload: true, loop: true}
                   %source{type: "video/mp4", src:  result.video}
-                = link_to sign_url(result.id), {:class => 'main_gloss js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
-                  = result.gloss_main
-                - if result.gloss_maori
-                  %span.h3.maori_gloss= result.gloss_maori
-                - if result.gloss_secondary.present?
-                  %span.h3.secondary_gloss= result.gloss_secondary
-                - if result.word_classes.present?
-                  %span.word_class= result.word_classes
+                .gloss_container.float-left
+                  = link_to sign_url(result.id), {:class => 'main_gloss small-12 text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
+                    = result.gloss_main
+                  - if result.gloss_secondary.present?
+                    .secondary_gloss.text-left= result.gloss_secondary
+                  - if result.gloss_maori
+                    .maori_gloss.small-12.text-left= result.gloss_maori
+                  - if result.word_classes.present?
+                    .word_class.small-12.text-left= result.word_classes
                 .link_and_drawing_container
                   .link_container
-                    = link_to "Learn more >", sign_url(result.id), {class: "show_link"}
+                    = link_to "learn more >", sign_url(result.id), {class: "show_link"}
                   .drawing_container
                     = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                       = image_tag "signs/150-100/#{result.drawing}"
