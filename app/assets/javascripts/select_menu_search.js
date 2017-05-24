@@ -18,20 +18,42 @@ $(document).ready(function() {
     $('#tag').val(id)
   })
 
-  function addStyle(listItem) {
-    listItem.css("background-color", "#F0F6FA")
-           .addClass('selected');
+  function addStyle(listElement) {
+    listElement.css("background-color", "#F0F6FA")
+               .addClass('selected');
   }
 
-  function removeStyle(list) {
-    list.removeClass('selected')
-             .css("background-color", "");
+  function removeStyle(listElements) {
+    listElements.removeClass('selected')
+                .css("background-color", "");
   }
+
+// Make sure clear x is displayed as soon as dropdown items are clicked, and
+// clear styles if button is clicked
 
   function clearDropdown(list) {
     $('.empty').css("display", "block")
     $('.empty').click(function() {
-      list.css("background-color");
+      list.css("background-color", "");
     })
   }
+
+// remember dropdown state after search form submitted
+
+  function topicState() {
+    var elementID = $('#tag').val();
+    var elementValue = $('li[class="topic-dropdown"][id="' + elementID + '"]');
+    addStyle(elementValue);
+    clearDropdown(elementValue);
+  }
+
+  function usageState() {
+    var elementID = $('#usage').val();
+    var elementValue = $('li[class="usage-dropdown"][id="' + elementID + '"]');
+    addStyle(elementValue);
+    clearDropdown(elementValue);
+  }
+
+  topicState();
+  usageState();
 })
