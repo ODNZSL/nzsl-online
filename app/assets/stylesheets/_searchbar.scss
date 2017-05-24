@@ -10,7 +10,6 @@
     border: none;
     height: 30px;
     padding: 0 10px;
-    margin: 10px 0;
     display: inline-block;
   }
   &-label {
@@ -21,12 +20,11 @@
     font-size: $h3-font-size;
   }
   &-button {
-    background-color: $peach;
-    border-radius: 5px;
     border: none;
     position: absolute;
     top: 0;
     right: 10%;
+    background-color: initial;
     -moz-transform: scale(-1, 1);
     -webkit-transform: scale(-1, 1);
     -o-transform: scale(-1, 1);
@@ -95,7 +93,9 @@
     }
     &.topic,
     &.usage {
-      .selected { background-color: initial; }
+      .selected {
+        background-color: initial;
+      }
     }
   }
   .show-for-medium.empty {

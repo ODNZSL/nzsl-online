@@ -27,7 +27,6 @@ header {
         display: inline;
         list-style-type: none;
         padding: 10px;
-
         a {
           color: $light-grey;
           text-decoration: none;
@@ -65,7 +64,10 @@ header {
     position: relative;
     top: 10%;
     margin-top: 30px;
-    li { list-style-type: none; }
+
+    li {
+      list-style-type: none;
+    }
   }
 
   .overlay a,
@@ -80,8 +82,7 @@ header {
     border-bottom: none;
   }
 
-  .overlay,
-  .closebtn {
+  .overlay .closebtn {
     position: absolute;
     top: 20px;
     right: 45px;
