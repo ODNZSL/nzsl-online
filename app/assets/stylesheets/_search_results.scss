@@ -1,4 +1,6 @@
 .search_results {
+  @include montserrat-light;
+  float: left;
   .search_result_video {
     float:left;
     clear:left;
