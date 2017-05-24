@@ -44,14 +44,14 @@ $(document).ready(function() {
     var elementID = $('#tag').val();
     var elementValue = $('li[class="topic-dropdown"][id="' + elementID + '"]');
     addStyle(elementValue);
-    clearDropdown(elementValue);
+    elementID === true ? clearDropdown(elementValue) : false
   }
 
   function usageState() {
     var elementID = $('#usage').val();
     var elementValue = $('li[class="usage-dropdown"][id="' + elementID + '"]');
     addStyle(elementValue);
-    clearDropdown(elementValue);
+    elementID === true ? clearDropdown(elementValue) : false
   }
 
   topicState();
