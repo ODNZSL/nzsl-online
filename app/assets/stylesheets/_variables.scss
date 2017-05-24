@@ -14,7 +14,7 @@ $subtitle-font-size: 0.85em;
 @mixin montserrat-light {
   font-family: "Montserrat";
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 @mixin montserrat-bold {
@@ -22,32 +22,12 @@ $subtitle-font-size: 0.85em;
   font-weight: 500;
 }
 
+@mixin montserrat-regular {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
 @mixin center-element {
   margin: 0 auto;
   display: block;
-}
-
-.small-caret,
-.caret {
-  width: 0;
-  height: 0;
-  border-left: 6px solid transparent;
-  border-right: 6px solid transparent;
-  border-top: 10px solid white;
-  position: absolute;
-  top: 25px;
-  right: 5px;
-}
-
-.small-caret {
-  border-left: 4px solid transparent;
-  border-right: 4px solid transparent;
-  border-top: 6px solid white;
-}
-
-.no-select-styles {
-  border: none;
-  color: $dark-grey;
-  border-image: none;
-  background-color: white;
 }

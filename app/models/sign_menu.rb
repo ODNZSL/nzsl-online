@@ -28,9 +28,9 @@ class SignMenu
 
   def self.usage_tags
     [['archaic',   1],
+     ['informal',  4],
      ['neologism', 2],
      ['obscene',   3],
-     ['informal',  4],
      ['rare',      5]]
   end
 

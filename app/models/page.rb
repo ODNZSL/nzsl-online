@@ -4,6 +4,8 @@ class Page < ActiveRecord::Base
                         stylesheets system 500 favicon flowplayer-3 flowplayer
                         robots crossdomain) # top level routes & public dir.
 
+  HEADER_NAV = %w(topics alphabet numbers classifiers)
+
   has_many :page_parts
 
   before_validation :slug_and_label_from_title, :strip_text
@@ -47,10 +49,16 @@ class Page < ActiveRecord::Base
   end
 
   ##
-  # Find pages that should display in navigation
+  # Find pages that should display in footer navigation
   def self.in_nav
     where(show_in_nav: true).where(
       "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0")
+  end
+
+  ##
+  # Find pages that should display in header navigation
+  def self.in_header_nav
+    where(show_in_nav: true).where(slug: HEADER_NAV)
   end
 
   def self.create_from_csv(row)

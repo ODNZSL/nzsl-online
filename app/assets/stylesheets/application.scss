@@ -6,6 +6,7 @@
 @import "color";
 @import "variables";
 @import "foundation_and_overrides";
+@import "custom_icons";
 @import "header";
 @import "typography";
 @import "flowplayer";
@@ -14,6 +15,7 @@
 @import "search_result";
 @import "footer";
 @import "topic_style";
+@import "header";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -94,11 +96,6 @@ body:before {
   margin-top:-32767px;
 }
 
-// Search & Nav
-//
-// Header
-// -----------------
-
 a.logo {
   height:71px;
   width:92px;
@@ -109,6 +106,74 @@ a.logo {
 }
 
 .print_logo { display:none; }
+
+.bottom_border {
+  width:92px;
+  height:8px;
+  background: bottom left repeat-x;
+  background-image: image_url('ui/borders.png');
+  position:absolute;
+  bottom:-36px;
+  left:0;
+  z-index:9;
+}
+
+// Tabs
+// -----------------
+
+.search_tabs {
+  position:absolute;
+  left: 108px;
+  top:-27px;
+  height:28px;
+  width:582px;
+  margin:0 auto;
+}
+
+.search_tabs li {
+  line-height:26px;
+  padding:0 5px;
+  font-size:93%;
+  float:left;
+  list-style-type:none;
+}
+
+.search_tabs li.tab {
+  padding:0 9px;
+  margin-right:4px;
+  position:relative;
+  background: image_url('ui/tab.png') top left repeat-x;
+  font-size:108%;
+  cursor:pointer;
+}
+
+.search_tabs li.tab .l,
+.search_tabs li.tab .r {
+  background: bottom left no-repeat;
+  background-image: image_url('ui/tab.png');
+  width:1px;
+  height:26px;
+}
+
+.search_tabs li.selected {
+  padding:0 9px;
+  border:1px solid #99a0a5;
+  border-bottom-color:#eceef0;
+  background:#eceef0;
+  top:-1px;
+}
+
+.search_tabs li.selected .l,
+.search_tabs li.selected .r { background:none; }
+
+.search_tabs .tab a {
+  border-bottom:0;
+  background:transparent;
+  color:#34414b;
+}
+
+.search_tabs .tab a:active,
+.search_tabs .tab a:focus { outline: 0; }
 
 // Menu
 // -----------------
@@ -212,8 +277,7 @@ a.logo {
 .topic .dropdown,
 .usage .dropdown {
   padding: 0;
-  min-width: 190px;
-  width: 100%;
+  width: 260px;
   border: none;
   max-height: 400px;
   overflow: scroll;
@@ -273,8 +337,6 @@ a.logo {
   text-align: center;
   line-height: 42px;
 }
-
-// .image img { vertical-align: middle; }
 
 .image .value { display: none; }
 
@@ -466,11 +528,6 @@ a.empty:hover { border: 0; }
 |* Entry & Results  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-// .glosses .secondary_gloss {
-//   font-size: 123.1%;
-//   display: block;
-// }
-
 .word_class,
 .maori_gloss {
   font-style: italic;
@@ -500,8 +557,6 @@ a.drawing {
 .main_video,
 .main_video video,
 .main_video embed {
-  // width: 480px;
-  // height: 360px;
   width: 100%;
   max-width: 480px;
 }
@@ -515,23 +570,21 @@ video {
 
 .example { margin: 10px 0 24px; }
 
-.example_video {
-  // float: left;
-  // clear: left;
-  // margin-right: 16px;
-}
-
 .example_video,
 .example_video video,
 .example_video embed {
   width: 100%;
   max-width: 240px;
-  // height: 180px;
 }
 
 .videos .slow { display: none; }
 
 .videos .button { float: right; }
+
+.sign_attributes .image {
+  position: relative;
+  display: inline-block;
+}
 
 h1.search_results_for {
   line-height: 42px;
@@ -792,7 +845,7 @@ h1.search_results_for {
 .flash {
   padding: 10px;
   margin: 20px 0 0;
-  background: #909fab;
+  background: $primary-blue;
   color: white;
 }
 
@@ -936,13 +989,6 @@ a .button,
   float: left;
 }
 
-.button .r {
-  // background-position: left top;
-  // width: 7px;
-  // right: -7px;
-  // height: 24px;
-}
-
 .button:hover .r { background-position: left -23px; }
 
 .button:hover {
@@ -1010,12 +1056,7 @@ body .video_replace {
   float: left;
 }
 
-.center {
-  // width: 690px;
-  // margin: 0 auto;
-  position: relative;
-  // z-index: 7;
-} /* html3.2 loves you */
+.center { position: relative; }
 
 .rounded {
   -webkit-border-radius: 4px;
@@ -1025,12 +1066,6 @@ body .video_replace {
 }
 
 .vertical_space { padding-bottom: 16px; }
-.ui-widget,
-.shadow {
-  // -webkit-box-shadow: 0 2px 3px rgba(0,0,0,0.5);
-  // -moz-box-shadow: 0 2px 3px rgba(0,0,0,0.5);
-  // box-shadow: 0 2px 3px rgba(0,0,0,0.5);
-}
 
 .js .text_input_hidden {
   border: 1px solid white;
@@ -1042,8 +1077,6 @@ body .video_replace {
 
 .no-js .unless_js,
 .js .if_js { display: block; }
-
-/* boiler-plate utilities */
 
 .ir {
   display: block;
