@@ -1,30 +1,30 @@
-%footer{class: (last ? 'sticky_footer footer small-12' : 'print_footer footer small-12')}
+%footer{class: (last ? 'sticky_footer footer' : 'print_footer footer')}
   .sub-footer-container
-    .sub-footer-content.small-10.small-centered.medium-8.large-6.footer-link
-      %h3.footer-heading
+    .sub-footer-content.small-10.small-centered.medium-8.large-8.footer-link
+      %h3.footer-heading.text-center
         Download the NZSL Dictionary App
       = link_to((image_tag "img/app_store.svg", class:"small-10 medium-5"), "https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8", target:"_blank")
       = link_to((image_tag "img/google_store.svg", class:"small-10 medium-5"), "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en", target:"_blank" )
   .footer-container
-    .small-10.small-centered.medium-10.large-6
-      .footer-columns.small-6.medium-4.footer-link
-        %h4.footer-heading
+    .small-10.small-centered.medium-10
+      .footer-columns.small-6.medium-4.footer-link.text-left
+        %h4.footer-heading.text-left
           Learn More
         - Page.in_nav.each do |link|
           = render_navigation_link(link)
-      .footer-columns.small-10.medium-4.footer-link
-        %h4.footer-heading
+      .footer-columns.small-10.medium-4.footer-link.text-left
+        %h4.footer-heading.text-left
           Recommended Sites
-        = link_to((image_tag "img/logo-learnnzsl.png", class:"small-10 learnnzsl"), "http://www.learnnzsl.nz", target:"_blank")
-      .footer-columns.small-10.medium-4
-        %h4.footer-heading
+        = link_to((image_tag "img/logo-learnnzsl", class:"small-10 learnnzsl"), "http://www.learnnzsl.nz", target:"_blank")
+      .footer-columns.small-10.medium-4.text-left
+        %h4.footer-heading.text-left
           Follow Us
         .social-media.footer-link
           = link_to((image_tag "img/icon-facebook.svg"), "https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/", target:"_blank")
           = link_to((image_tag "img/icon-twitter.svg"), "https://twitter.com/nzsldict", target:"_blank")
       .github.small-12.medium-4
-        = image_tag "img/icon-github.svg"
-        %div
+        = image_tag "img/icon-github.svg", class: "float-left"
+        .float-left
           %p.strong
             This is an Open Source project
           %p

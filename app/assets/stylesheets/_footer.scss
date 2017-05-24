@@ -1,18 +1,15 @@
 .footer-link a,
 .footer-link span {
   color: $light-grey;
-  text-decoration: none;
   border-bottom: none;
-  font-size: $global-font-size;
-  &:hover {
-    color: white;
-    background-color: initial;
-  }
 }
 
 footer {
   color: $light-grey;
-  img { @include center-element; }
+  img {
+    @include center-element;
+    max-width: 250px;
+  }
 
   .social-media {
     width: 115px;
@@ -26,16 +23,12 @@ footer {
   .footer-heading {
     @include montserrat-bold;
     padding: 20px 0;
-    text-align: center;
   }
   .sub-footer-container {
     background: $light-med-grey;
     .sub-footer-content {
       padding: 10px 0 20px 0;
-      .footer-heading {
-        color: white;
-        text-align: center;
-      }
+      h3 { color: white; }
       img { padding: 10px 0; }
     }
   }
@@ -69,13 +62,11 @@ footer {
       overflow: auto;
       max-width: 340px;
       img {
-        float: left;
         margin: 0 10px;
       }
       div {
         width: calc(100% - 52px);
         display: inline-block;
-        float: left;
       }
     }
   }
@@ -91,7 +82,6 @@ footer {
       .footer-columns {
         float: left;
         .learnnzsl { margin: initial; }
-        h4 { text-align: left; }
       }
     }
     .copyright {
