@@ -26,9 +26,11 @@
               - if result.word_classes.present?
                 %span.word_class= result.word_classes
               .link_and_drawing_container
-                = link_to "Learn more >", sign_url(result.id), {class: "show_link"}
-                = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
-                  = image_tag "signs/150-100/#{result.drawing}"
+                .link_container
+                  = link_to "Learn more >", sign_url(result.id), {class: "show_link"}
+                .drawing_container
+                  = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
+                    = image_tag "signs/150-100/#{result.drawing}"
 - if @results_total > Sign::RESULTS_PER_PAGE
   %ol.pagination.clearfix_left
     = pagination_links
