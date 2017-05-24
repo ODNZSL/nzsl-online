@@ -13,20 +13,21 @@
   = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
   = javascript_include_tag "application", "data-turbolinks-track" => false
   = javascript_include_tag :modernizr
-
+  = stylesheet_link_tag "foundation-icons/foundation-icons", rel:"stylesheet"
   = yield :head
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   = print_stylesheet_tag params[:print]
   %link{ href:"https://fonts.googleapis.com/css?family=Montserrat:300,400,500", rel:"stylesheet" }
-%body
+
+%body.row
   .visuallyhidden
     %a{:href => '#content'} Skip to Content
     |
     %a{:href => '#nav'} Skip to Page Navigation
-  %div{ :class => "not_sticky_footer row #{vocab_sheet?}"}
+  %div{ :class => "not_sticky_footer #{vocab_sheet?}"}
     = render :partial => 'shared/header'
-    #content.before_sticky_footer.small-11.small-centered.medium-10.large-8.large-offset-2
+    #content.before_sticky_footer.small-11.small-centered.medium-10.large-9
       = render :partial => 'shared/vocab_sheet'
       = render :partial => 'shared/flashes', :locals => {:prefix => ''}
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?

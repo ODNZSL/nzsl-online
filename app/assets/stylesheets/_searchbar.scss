@@ -1,12 +1,111 @@
-$li-hightlight-blue: rgba(185, 204, 249, 0.4);
-
-.ui-autocomplete {
-  color: $sky-blue;
-  font-size: 100%;
-  font-family: Georgia, serif;
-  .ui-state-focus {
-    border: 1px solid $li-hightlight-blue;
-    color: $sky-blue;
-    background: $li-hightlight-blue;
+.search {
+  &-container {
+    form { position: relative; }
+    margin-bottom: 10px;
+    background-color: $primary-blue;
+    float: right;
   }
+  &-field {
+    border-radius: 25px;
+    border: none;
+    height: 30px;
+    padding: 0 10px;
+    display: inline-block;
+  }
+  &-label {
+    text-align: center;
+    padding: 20px 0 15px;
+    display: block;
+    color: white;
+    font-size: $h3-font-size;
+  }
+  &-button {
+    border: none;
+    position: absolute;
+    top: 0;
+    right: 10%;
+    background-color: initial;
+    -moz-transform: scale(-1, 1);
+    -webkit-transform: scale(-1, 1);
+    -o-transform: scale(-1, 1);
+    -ms-transform: scale(-1, 1);
+    transform: scale(-1, 1);
+    i {
+      font-size: 22px;
+      color: $primary-blue;
+    }
+  }
+  &-tab {
+    padding: 20px 0 10px 0;
+    font-size: $subtitle-font-size;
+    .small-caret {
+      margin-left: 10px;
+      top: 12px;
+      position: relative;
+    }
+    a {
+      color: white;
+      border: none;
+    }
+  }
+}
+.advanced-search-container { display: none; }
+
+@media screen and (min-width: $medium-screen) {
+  .search-container { float: none; }
+  .search-buttons-container {
+    width: 100px;
+    overflow: auto;
+    position: absolute;
+    top: 55px;
+    right: 0;
+    .search-button {
+      background-color: $peach;
+      border-radius: 5px;
+      top: initial;
+      right: initial;
+      position: relative;
+      float: left;
+      i {
+        font-size: 28px;
+        color: white;
+      }
+    }
+  }
+  .advanced-search-container { padding-bottom: 10px; }
+  .advanced-search-button {
+    @include montserrat-light;
+    position: relative;
+    height: 65px;
+    background-color: $light-blue;
+    margin: 0 2.5px;
+    width: calc(25% - 5px);
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: $subtitle-font-size;
+    a:hover { opacity: 1; }
+
+    .default { color: white; }
+    .usage-dropdown,
+    .topic-dropdown {
+      width: 100%;
+      height: auto;
+      &:hover { background-color: $pale-blue; }
+    }
+    &.topic,
+    &.usage {
+      .selected {
+        background-color: initial;
+      }
+    }
+  }
+  .show-for-medium.empty {
+    position: relative;
+    float: right;
+    color: white;
+    top: 10px;
+  }
+}
+@media screen and (min-width: $large-screen) {
+  .search-buttons-container { right: 7%;}
 }

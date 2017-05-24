@@ -1,8 +1,8 @@
-%header
+%header.small-12
   .center
     - if params[:print]
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
-  .header-nav.small-12
+  .header-nav.small-12.medium-10.medium-centered.large-9
     .header-logo.float-left.show-for-large
       = image_tag "img/desktop_logo.png"
     .tablet-logo.float-left.show-for-medium-only
@@ -13,9 +13,9 @@
           %li{:class => (i.zero? ? 'first' : '')}= render_navigation_link(link)
         %li.help
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
-  .hamburger-menu-icon.show-for-small-only.float-left
-    = image_tag "img/hamburger.svg", onclick: "openNav()"
-  .mobile-logo.text-center.show-for-small-only
+  %div{class: "hamburger-menu-icon show-for-small-only float-left",onclick: "openNav()"}
+    = image_tag "img/hamburger.svg"
+  .mobile-logo.text-center.show-for-small-only.small-4.small-centered
     = image_tag "img/mobile_logo.png"
   #mobileNav.overlay.hide-for-medium
     %a.closebtn{href: "#", onclick: "closeNav()"} &times;
@@ -26,6 +26,7 @@
         %li.help
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
 
+  = render "shared/search"
 
 / Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.
 - content_for(:scripts) do
