@@ -766,35 +766,6 @@ video {
 
 // .search_results_for img { vertical-align: middle; }
 
-.pagination {
-  margin: -1.2em 0 0;
-  padding: 0;
-  text-align: center;
-}
-
-.pagination li {
-  font-size: 123.1%;
-  display: inline-block;
-}
-
-.ie7 .pagination li {
-  display: inline;
-  zoom: 1;
-  text-align: center;
-}
-
-.pagination .a,
-.pagination  a {
-  padding: 0 10px;
-  text-decoration: none;
-  height: 30px;
-  line-height: 30px;
-  border: 0;
-  background-color: transparent;
-}
-
-.pagination .a { color: #999; }
-
 .pagination .current { color: black; }
 
 .back_to_results {
@@ -1099,7 +1070,7 @@ video {
 }
 
 .home_content p,
-.home_content ol,
+// .home_content ol,
 .home_content ul,
 .home_content dl {
   line-height: 1.2;
