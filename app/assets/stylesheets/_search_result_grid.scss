@@ -10,6 +10,10 @@
   }
 }
 
+/* * * * * * * * * *\
+|* Result Banner  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 .result_text_container {
   @include montserrat-light;
   font-size: 28px;
@@ -17,6 +21,10 @@
   padding: 25px 0;
   margin-bottom: 45px;
 }
+
+/* * * * * * * * * *\
+|* Grid list styles  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .grid li {
   display: block;
@@ -34,14 +42,65 @@
   outline: 3px solid $primary-blue;
 }
 
+/* * * * * * * * * *\
+|* Glosses  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.gloss_container {
+  height: 131px;
+
+  .secondary_gloss {
+    @include montserrat-light;
+    font-size: 14px;
+    display: block;
+  }
+
+  .secondary_gloss,
+  .word_class,
+  .maori_gloss {
+    margin-left: 10px;
+  }
+
+  .word_class{
+    @include montserrat-light;
+    font-size: 14px;
+    font-style: italic;
+    color: $med-grey;
+  }
+
+  .maori_gloss {
+    @include montserrat-regular;
+    font-size: 14px;
+    font-style: italic;
+    margin-top: 7px;
+  }
+
+  .main_gloss {
+    @include montserrat-regular;
+    font-size: 20px;
+    display: block;
+    margin-left: 10px;
+    border-bottom: 0;
+  }
+
+  .main_gloss a {
+    text-decoration: none;
+  }
+}
+
+/* * * * * * * * * *\
+|* Show link & Drawing  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 
 .link_and_drawing_container {
-  width: 100%;
-  overflow: auto;
   .link_container {
     width: 40%;
     float: left;
     margin-top: 88px;
+  }
+  .unicode_arrow {
+    color: $primary-blue;
   }
 
   .drawing {
@@ -77,6 +136,10 @@
   }
 }
 
+/* * * * * * * * * *\
+|* Pagination  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 .pagination_container {
   @include montserrat-light;
   font-size: 12px;
@@ -105,53 +168,4 @@
   }
 
   .pagination .a { color: $med-grey; }
-}
-
-/* * * * * * * * * *\
-|* Entry & Results  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-.gloss_container {
-  height: 131px;
-  outline: 1px solid red;
-}
-
-.secondary_gloss {
-  @include montserrat-light;
-  font-size: 14px;
-  display: block;
-}
-
-.secondary_gloss,
-.word_class,
-.maori_gloss {
-  display: block;
-  margin-left: 10px;
-}
-
-.word_class{
-  @include montserrat-light;
-  font-size: 14px;
-  font-style: italic;
-  color: $med-grey;
-}
-
-.maori_gloss {
-  @include montserrat-regular;
-  font-size: 14px;
-  font-style: italic;
-  margin-top: 7px;
-}
-
-
-.main_gloss {
-  @include montserrat-regular;
-  font-size: 20px;
-  display: block;
-  margin-left: 10px;
-  border-bottom: 0;
-}
-
-.main_gloss a {
-  text-decoration: none;
 }

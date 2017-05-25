@@ -27,9 +27,10 @@
                     .maori_gloss.small-12.text-left= result.gloss_maori
                   - if result.word_classes.present?
                     .word_class.small-12.text-left= result.word_classes
-                %a.link_and_drawing_container{:href => 'javascript:void(0);'}
-                  .clearfix.link_container.float-left
-                    = link_to "learn more >", sign_url(result.id), {class: "show_link"}
+                .link_and_drawing_container.small-12
+                  .link_container
+                    = link_to "learn more", sign_url(result.id), {class: "show_link"}
+                    %span.unicode_arrow &rarr;
                   .drawing_container
                     = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                       = image_tag "signs/150-100/#{result.drawing}"
