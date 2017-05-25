@@ -18,8 +18,7 @@
       .grammar
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
-        .orange_link_button
-          = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
+        = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
     .videos.small-12.small-centered.medium-5.medium-uncentered
       %video.main_video.normal{preload: true, loop: true}
         %source{type: "video/mp4", src:  @sign.video}
