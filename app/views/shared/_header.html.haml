@@ -4,9 +4,9 @@
       = link_button 'back', {:print => false}, :class => 'view_print_back_link'
   .header-nav.small-12.medium-10.medium-centered.large-9
     .header-logo.float-left.show-for-large
-      = image_tag "img/desktop_logo.png"
+      = link_to(image_tag("img/desktop_logo.png"), root_url)
     .tablet-logo.float-left.show-for-medium-only
-      = image_tag "img/mobile_logo.png"
+      = link_to(image_tag("img/mobile_logo.png"), root_url)
     .menu-list.show-for-medium
       %ul.float-right
         - Page.in_header_nav.each_with_index do |link, i|
@@ -16,7 +16,7 @@
   %div{class: "hamburger-menu-icon show-for-small-only float-left",onclick: "openNav()"}
     = image_tag "img/hamburger.svg"
   .mobile-logo.text-center.show-for-small-only.small-4.small-centered
-    = image_tag "img/mobile_logo.png"
+    = link_to(image_tag("img/mobile_logo.png"), root_url)
   #mobileNav.overlay.hide-for-medium
     %a.closebtn{href: "#", onclick: "closeNav()"} &times;
     .overlay-content.small-12.text-center
