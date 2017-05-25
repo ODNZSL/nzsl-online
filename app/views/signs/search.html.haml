@@ -18,7 +18,7 @@
                   - query_text = " "
                 %video.search_result_video.normal{controls: true, preload: true, loop: true}
                   %source{type: "video/mp4", src:  result.video}
-                .gloss_container.float-left
+                .gloss_container.small-12.float-left
                   = link_to sign_url(result.id), {:class => 'main_gloss small-12 text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                     = result.gloss_main
                   - if result.gloss_secondary.present?
@@ -27,13 +27,13 @@
                     .maori_gloss.small-12.text-left= result.gloss_maori
                   - if result.word_classes.present?
                     .word_class.small-12.text-left= result.word_classes
-                .link_and_drawing_container
-                  .link_container
+                %a.link_and_drawing_container{:href => 'javascript:void(0);'}
+                  .clearfix.link_container.float-left
                     = link_to "learn more >", sign_url(result.id), {class: "show_link"}
                   .drawing_container
                     = link_to sign_url(result.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{result.id}', #{@signs.find_index(result)  + 1}]);"} do
                       = image_tag "signs/150-100/#{result.drawing}"
-  .pagination_container
+  .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
       %ol.pagination
         = pagination_links
