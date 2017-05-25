@@ -28,7 +28,6 @@
       font-size: 0.85em;
     }
   }
-
   .text-container {
     width: calc(100% - 45px);
     float: left;
@@ -39,7 +38,7 @@
   }
 }
 
-
+.orange_submit_button,
 .orange_video_button {
   background-color: $peach;
   border: none;
@@ -47,6 +46,10 @@
   border-radius: 5px;
   padding: 0 10px 5px 10px;
   font-size: $subtitle-font-size;
+  font-family: inherit;
+}
+
+.orange_video_button {
   &:hover {
     color: white;
   }
@@ -56,5 +59,9 @@
     position: relative;
     top: 3px;
   }
+}
 
+.orange_submit_button {
+  padding: 5px;
+  display: inline-block;
 }
