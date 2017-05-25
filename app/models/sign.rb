@@ -4,7 +4,7 @@ class Sign
   require 'nokogiri'
 
   ELEMENT_NAME = 'entry'
-  RESULTS_PER_PAGE = 9
+  RESULTS_PER_PAGE = 25
 
   # Sign attributes
   attr_accessor :id, :video, :video_slow, :drawing, :handshape, :location_name,
