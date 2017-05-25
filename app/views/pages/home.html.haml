@@ -8,7 +8,7 @@
   - if @page.first_part.present? &&  @page.first_part.translation_path.present?
     = render partial: "shared/translation_video", locals: {page_part: @page.first_part}
 
-  .medium-8.inline-block
+  .medium-8.show
     - if @page.first_part.present?
       != @page.first_part.body
   = render :partial => '/signs/sign_of_the_day', :locals => {:sign => Sign.random}
