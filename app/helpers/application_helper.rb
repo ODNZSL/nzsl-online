@@ -103,8 +103,8 @@ module ApplicationHelper
     content_tag :div, [flow_video_tag(asset_path(part.translation_path),
                                       wrapper_class: 'translation_video main_video hidden_video'),
                        orange_video_button(link_text,
-                                   nil,
-                                   class: 'translation_button float-left')
+                                           nil,
+                                           class: 'translation_button float-left')
                       ].join(' ').html_safe,
                 class: 'videos clearfix_left'
   end
