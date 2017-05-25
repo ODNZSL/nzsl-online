@@ -80,6 +80,7 @@ html, body {
 .not_sticky_footer {
   position: relative;
   margin-bottom: 20px;
+  overflow: hidden;
  }
 
 /* Opera Fix */
@@ -631,12 +632,12 @@ h1.search_results_for {
 
 .flash {
   padding: 10px;
-  margin: 20px 0 0;
   background: $primary-blue;
   color: white;
+  text-align: center;
 }
 
-.vocab_sheet_bar .flash { margin: 15px 13px 15px; }
+.vocab_sheet_bar .flash { margin: 20px 0; }
 
 /* * * * *\
 |* Pages  *|
