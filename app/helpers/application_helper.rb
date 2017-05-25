@@ -47,7 +47,6 @@ module ApplicationHelper
     link_to "<div class='r'></div>#{t(text)}".html_safe,
             url,
             { class: ("button #{options[:class]}") }.reverse_merge(options)
-            { class: ("button #{options[:class]}") }.reverse_merge(options)
   end
 
   def orange_video_button(text, url = nil, options = {})
@@ -59,10 +58,16 @@ module ApplicationHelper
 
   def orange_link_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to "<div class='icon-container'><i class='fi-plus'></i></div><div class='text-container'>
-            #{t(text)}</div>".html_safe,
+    link_to "<button type='submit' class='orange_link_button'>
+              <span class='icon-container'>
+                <i class='fi-plus'></i>
+              </span>
+              <span class='text-container'>
+                #{t(text)}
+              </span>
+            </button>".html_safe,
             url,
-            { class: ("#{options[:class]}") }.reverse_merge(options)
+            { class: ("show-for-medium #{options[:class]}") }.reverse_merge(options)
   end
 
   def div_button(text, options = {})
