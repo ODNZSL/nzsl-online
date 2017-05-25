@@ -615,22 +615,9 @@ h1.search_results_for {
   display: block;
 }
 
-.pagination {
-  margin: -1.2em 0 0;
-  padding: 0;
-  text-align: center;
-}
+.grammar,
+.glosses { margin-bottom: 1.2em; }
 
-.pagination li {
-  font-size: 123.1%;
-  display: inline-block;
-}
-
-.ie7 .pagination li {
-  display: inline;
-  zoom: 1;
-  text-align: center;
-}
 
 .pagination .current { color: black; }
 

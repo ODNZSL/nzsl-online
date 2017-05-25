@@ -4,25 +4,25 @@
   padding-bottom: 10px;
   width: auto;
   outline: 1px solid red;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .result_text_container {
   @include montserrat-light;
   font-size: 28px;
-  background-color: #F0F6FA;
+  background-color: $pale-blue;
   padding: 25px 0;
-}
-
-.grid {
-  width: 100%;
+  margin-bottom: 45px;
 }
 
 .grid li {
   display: block;
-  // padding: 0 0 25px;
   float: left;
   width: 280px;
-  height: 492px;
+  height: 470px;
   margin: 0 20px 25px 0;
   outline: 1px solid $primary-blue;
 
@@ -34,33 +34,19 @@
   outline: 3px solid $primary-blue;
 }
 
-// .grid .row_start { clear:left; }
-
-
-
-// .drawing img {
-//   padding: 2px;
-// }
-
 
 .link_and_drawing_container {
   width: 100%;
-  height: 140px;
   overflow: auto;
-  outline: 1px solid green;
-
-
   .link_container {
     width: 40%;
     float: left;
-    margin-top: 100px;
-    // outline: 1px solid red;
+    margin-top: 88px;
   }
 
   .drawing {
     margin-left: 10px;
     border-bottom: 0;
-    outline: 1px solid blue;
   }
 
   .show_link {
@@ -76,19 +62,12 @@
     width: 60%;
     float: left;
     padding-top: 5px;
-    // outline: 1px solid blue;
-
   }
 
-  // .grid_drawing {
-  //   height: 82px;
-  //   width: 60%;
-  // }
   .drawing {
     padding-top: 5px;
     img {
-      padding: 2px;
-      margin-top: 20px;
+      margin: 0;
     }
   }
 
@@ -100,21 +79,18 @@
 
 .pagination_container {
   @include montserrat-light;
-  float: left;
-  .pagination {
-    margin: -1.2em 0 0;
-    padding: 0;
-    text-align: center;
-  }
+  font-size: 12px;
+  margin: 70px 0;
 
   .pagination li {
-    font-size: 123.1%;
+    font-size: 14px;
     display: inline-block;
   }
 
   .ie7 .pagination li {
     display: inline;
     zoom: 1;
+    padding: 10px 0;
     text-align: center;
   }
 
@@ -128,7 +104,7 @@
     background-color: transparent;
   }
 
-  .pagination .a { color: #999; }
+  .pagination .a { color: $med-grey; }
 }
 
 /* * * * * * * * * *\
@@ -167,10 +143,6 @@
   margin-top: 7px;
 }
 
-.grammar,
-.glosses { margin-bottom: 1.2em; }
-
-// h1.main_gloss { padding-bottom: 0; }
 
 .main_gloss {
   @include montserrat-regular;
