@@ -1,10 +1,11 @@
 .search-result {
-  &-title {
+  &-banner {
     background-color: $pale-blue;
     padding: 25px 0;
   }
   &-container {
     .glosses-container {
+      margin: 20px 0;
       h2 {
         @include montserrat-bold;
         font-size: $h5-font-size;
@@ -13,10 +14,11 @@
       .gloss_secondary {
         font-weight: 300;
         font-style: italic;
+        font-size: $h6-font-size;
       }
       .word_class {
         color: $light-med-grey;
-        font-size: $h4-font-size;
+        font-size: $h6-font-size;
       }
     }
     .back-button-container {
@@ -29,22 +31,22 @@
       }
       span { color: $link-blue; }
     }
-    .videos { display: inline-block; }
     .sign-container {
       border: 1px solid $light-grey;
       position: relative;
-      img {
-        margin: 30px auto;
+      margin-bottom: 20px;
+      .main-image {
+        margin: 55px auto 10px;
         display: block;
       }
       .sign_attributes {
         position: absolute;
         top: 0;
-        left: 10px;
-        .image { width: initial; }
-        img {
-          display: block;
-          margin: 20px 10px;
+        left: 0;
+        width: 60px;
+        .image {
+          margin: 10px auto;
+          img { margin: 0; }
         }
       }
     }
@@ -66,21 +68,48 @@
   font-size: $subtitle-font-size;
 }
 
-.orange_link_button{
-  float: left;
-  border: none;
+.orange_link_button {
+  overflow: auto;
   position: relative;
-  bottom: 8px;
-  color: $peach;
-  font-size: $subtitle-font-size;
   &:hover {
-    color: $dark-grey;
-    i { background: $med-grey; }
+    .text-container { color: $dark-grey; }
+    .icon-container { background: $med-grey; }
   }
-  i {
-    margin-right: 7px;
+  .icon-container {
+    width: 35px;
+    height: 33px;
     background-color: $peach;
-    color: white;
-    padding: 8px 13px;
+    margin-right: 10px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    i {
+      color: white;
+      line-height: 2.5;
+      font-size: 0.85em;
+    }
+  }
+
+  .text-container {
+    width: calc(100% - 45px);
+    float: left;
+    font-size: $subtitle-font-size;
+    color: $peach;
+    text-align: left;
+    margin-top: 5px;
+  }
+}
+
+
+@media screen and (min-width: $medium-screen) {
+  .search-result-container {
+    .sign-container {
+      float: right;
+    }
+    .videos {
+      float: left;
+      video { margin-bottom: 10px; }
+    }
   }
 }
