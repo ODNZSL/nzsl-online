@@ -2,6 +2,8 @@
   font-weight: 500;
 }
 
+body { @include montserrat-light; }
+
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
   display: block;
@@ -39,8 +41,6 @@ hr {
 }
 
 input, select { vertical-align: middle; }
-
-body { @include montserrat-light; }
 
 sub, sup {
   font-size: 0.75em;
@@ -103,7 +103,6 @@ a:visited span {
   text-decoration:none;
 }
 
-a:visited { color: $light-grey;}
 a:active { color: $peach; }
 a:hover,
 a:hover span {
