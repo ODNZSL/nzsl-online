@@ -3,7 +3,7 @@
   background: right top repeat-y;
   background-image: image_url('ui/vocab-background.png');
 }
-
+.vocab_sheet .title { font-size: $h4-font-size; }
 .vocab_sheet_background .header,
 .vocab_sheet_background .main_column { position: relative; } /* haslayout? */
 
@@ -157,7 +157,17 @@
 
 .vocab_sheet_bar_controls { margin-left: 10px; }
 
-.vocab_sheet_bar_controls .button { margin-right: 10px; }
+.vocab_sheet_bar_controls .button {
+  font-size: inherit;
+  font-family: inherit;
+  background: $peach;
+  color: white;
+  border: none;
+  margin-right: 0;
+  float: left;
+  border-radius: 5px;
+  padding: 0 5px;
+}
 
 
 .size_controls {
