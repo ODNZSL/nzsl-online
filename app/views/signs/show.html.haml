@@ -1,25 +1,24 @@
 .small-12.text-center.search-result-banner
   %h1
     = @sign.gloss_main
-.search-result-container.small-11.small-centered.medium-9
+.search-result-container.small-11.small-centered.medium-8
   .back-button-container
     = render_back_to_search_results
     %span.float-left
       &larr;
   - if @sign.present?
-    .sign-container.small-12.small-centered.medium-5.medium-uncentered.text-center
+    .sign-container.small-12.small-centered.medium-6.medium-uncentered.text-center
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
-      = image_tag "signs/320-180/#{@sign.drawing}", class: "main-image small-11"
+      = image_tag "signs/320-180/#{@sign.drawing}", class: "main-image small-10 medium-8 large-6"
       .glosses-container.glosses
         %h2= @sign.gloss_main
         %h2= @sign.gloss_maori
-      .grammar
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
         = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
-    .videos.small-12.small-centered.medium-5.medium-uncentered
+    .videos.small-12.medium-5
       %video.main_video.normal{preload: true, loop: true}
         %source{type: "video/mp4", src:  @sign.video}
       - if @sign.video_slow.present?
@@ -35,7 +34,7 @@
 
 
     - unless @sign.examples.length.zero?
-      .examples.clearfix.videos.small-12.small-centered.medium-5.medium-uncentered
+      .examples.clearfix.videos.small-12.small-centered.medium-5
         %h2= t('signs.show.usage_examples')
         - @sign.examples.each do |example|
           .typography.videos
@@ -52,7 +51,7 @@
               %p= render_transcription(example[:transcription], @sign.id)
 
     - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
-      .notes.rule_after.typography
+      .notes.small-12.typography
         %h2= t('signs.show.notes')
         %p= @sign.usage_notes
         - if @sign.hint.present?
