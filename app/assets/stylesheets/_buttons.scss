@@ -1,0 +1,60 @@
+
+.orange_link_button {
+  overflow: auto;
+  position: relative;
+  width: 100%;
+  padding: 0;
+  bottom: -5px;
+  border: none;
+  background-color: initial;
+  font-size: inherit;
+  font-family: inherit;
+  &:hover {
+    .text-container { color: $dark-grey; }
+    .icon-container { background: $med-grey; }
+  }
+  .icon-container {
+    width: 35px;
+    height: 33px;
+    background-color: $peach;
+    margin-right: 10px;
+    float: left;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    i {
+      color: white;
+      line-height: 2.5;
+      font-size: 0.85em;
+    }
+  }
+
+  .text-container {
+    width: calc(100% - 45px);
+    float: left;
+    font-size: $subtitle-font-size;
+    color: $peach;
+    text-align: left;
+    margin-top: 5px;
+  }
+}
+
+
+.orange_video_button {
+  background-color: $peach;
+  border: none;
+  color: white;
+  border-radius: 5px;
+  padding: 5px 10px 5px 10px;
+  font-size: $subtitle-font-size;
+  &:hover {
+    color: white;
+  }
+  i {
+    font-size: 22px;
+    margin: 0 5px;
+    position: relative;
+    top: 3px;
+  }
+
+}

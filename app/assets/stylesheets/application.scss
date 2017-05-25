@@ -5,6 +5,7 @@
 @import "variables";
 @import "foundation_and_overrides";
 @import "custom_icons";
+@import "buttons";
 @import "header";
 @import "typography";
 @import "flowplayer";
@@ -44,12 +45,6 @@ li { margin: 0; }
   overflow-y: hidden;
   overflow-x: hidden;
 }
-
-// .videos {
-//   margin: 0 auto;
-// }
-
-// .inline-block { display: inline-block; }
 
 .grid-image {
   margin: 0 auto;
