@@ -1,5 +1,4 @@
 .search_results_container {
-  @include montserrat-bold;
   overflow: auto;
   line-height: 42px;
   padding-bottom: 10px;
@@ -8,7 +7,9 @@
 }
 
 .result_text_container {
-  background-color: $light-grey;
+  @include montserrat-light;
+  font-size: 28px;
+  background-color: #F0F6FA;
   padding: 25px 0;
 }
 
@@ -46,7 +47,7 @@
   width: 100%;
   height: 140px;
   overflow: auto;
-  // outline: 1px solid green;
+  outline: 1px solid green;
 
 
   .link_container {
@@ -59,9 +60,12 @@
   .drawing {
     margin-left: 10px;
     border-bottom: 0;
+    outline: 1px solid blue;
   }
 
   .show_link {
+    @include montserrat-regular;
+    font-size: 14px;
     border-bottom: 0;
     a {
       text-decoration: none;
@@ -133,10 +137,12 @@
 
 .gloss_container {
   height: 131px;
+  outline: 1px solid red;
 }
 
 .secondary_gloss {
-  font-size: 123.1%;
+  @include montserrat-light;
+  font-size: 14px;
   display: block;
 }
 
@@ -147,12 +153,28 @@
   margin-left: 10px;
 }
 
+.word_class{
+  @include montserrat-light;
+  font-size: 14px;
+  font-style: italic;
+  color: $med-grey;
+}
+
+.maori_gloss {
+  @include montserrat-regular;
+  font-size: 14px;
+  font-style: italic;
+  margin-top: 7px;
+}
+
 .grammar,
 .glosses { margin-bottom: 1.2em; }
 
 // h1.main_gloss { padding-bottom: 0; }
 
 .main_gloss {
+  @include montserrat-regular;
+  font-size: 20px;
   display: block;
   margin-left: 10px;
   border-bottom: 0;
