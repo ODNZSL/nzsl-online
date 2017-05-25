@@ -1,14 +1,13 @@
 .search_results {
   @include montserrat-light;
   float: left;
-  .search_result_video {
+  video {
     float:left;
     clear:left;
     margin-right:16px;
     margin-bottom:10px;
-    width: 280px;
   }
-
+  li { padding: 0 5px; }
   .search_result_video video,
   .search_result_video embed {
     width:140px;
@@ -21,3 +20,7 @@
     float:left;
   }
 }
+
+// width: calc(50% - 10px) 640
+// width: calc(33% - 10px) 1024
+// width: calc(25% - 10px) 1440px
