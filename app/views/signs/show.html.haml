@@ -19,36 +19,40 @@
         = hidden_field_tag 'sign_id', @sign.id
         = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
     .videos.small-12.medium-5
-      %video.main_video.normal{preload: true, loop: true}
-        %source{type: "video/mp4", src:  @sign.video}
-      - if @sign.video_slow.present?
-        %video.main_video.slow{controls: true, preload: true, loop: true}
-          %source{type: "video/mp4", src:  @sign.video_slow}
-        = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-        = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+      .video-container
+        %i.fi-play.play-button
+        %video.main_video.normal{preload: true, loop: true}
+          %source{type: "video/mp4", src:  @sign.video}
+        - if @sign.video_slow.present?
+          %video.main_video.slow{controls: true, preload: true, loop: true}
+            %source{type: "video/mp4", src:  @sign.video_slow}
+          = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+          = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
       .glosses-container.glosses.small-12.float-left
         %h2.gloss_main= @sign.gloss_main
         %h2.gloss_secondary= @sign.gloss_secondary
         %h2.gloss_maori= @sign.gloss_maori
         %h4.word_class= @sign.word_classes
 
-
     - unless @sign.examples.length.zero?
-      .examples.clearfix.videos.small-12.small-centered.medium-5
+      .examples.clearfix.videos.small-12.small-centered.medium-5.medium-uncentered
         %h2= t('signs.show.usage_examples')
         - @sign.examples.each do |example|
           .typography.videos
-            %video.main_video.normal{controls: false, preload: true, loop: true}
-              %source{type: "video/mp4", src:  example[:video]}
-            - if example[:video_slow]
-              %video.main_video.slow{controls: false, preload: true, loop: true}
-                %source{type: "video/mp4", src:  example[:video_slow]}
-              = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-              = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+            .video-container
+              %i.fi-play.play-button
+              %video.example_video.normal{controls: false, preload: true, loop: true}
+                %source{type: "video/mp4", src:  example[:video]}
+              - if example[:video_slow]
+                %video.example_video.slow{controls: false, preload: true, loop: true}
+                  %source{type: "video/mp4", src:  example[:video_slow]}
+                = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+                = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
             .small-12.float-left
+              %p= render_transcription(example[:transcription], @sign.id)
               %p
                 %em= example[:translation]
-              %p= render_transcription(example[:transcription], @sign.id)
+
 
     - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
       .notes.small-12.typography
