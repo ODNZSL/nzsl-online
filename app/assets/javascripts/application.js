@@ -12,5 +12,6 @@
 //= require header
 //= require admin
 //= require foundation
+//= require custom_play_button
 
 $(document).foundation();
