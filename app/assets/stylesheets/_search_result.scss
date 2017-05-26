@@ -21,6 +21,12 @@
         font-size: $h6-font-size;
       }
     }
+    .video-container {
+      position: relative;
+      .button {
+        @extend .orange_video_button;
+      }
+    }
     .back-button-container {
       margin: 30px 0;
       position: relative;
