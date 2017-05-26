@@ -1,6 +1,6 @@
 $(document).ready(function() {
   $('.usage-dropdown').click(function(e) {
-    e.preventDefault;
+    e.preventDefault();
     var id = $(this).attr('id');
     removeStyle($('.usage-dropdown'))
     addStyle($(this));
@@ -9,7 +9,7 @@ $(document).ready(function() {
   })
 
   $('.topic-dropdown').click(function(e) {
-    e.preventDefault;
+    e.preventDefault();
     var id = $(this).attr('id');
     removeStyle($('.topic-dropdown'))
     addStyle($(this));
