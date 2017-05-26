@@ -13,10 +13,12 @@ $(document).ready(function() {
   }
 
   function changeVocabLocation() {
-    if($('.search-result-banner').length > 0) {
+    if($('.search-result-banner').length > 0 && $('.flash').length > 0) {
       $('.vocab_sheet_bar').css("top", "320px")
+    } else if ($('.search-result-banner').length > 0 && $('.flash').length < 1) {
+      $('.vocab_sheet_bar').css("top", "300px")
     } else {
-      $('.vocab_sheet_bar').css("top", "400px")
+      return
     }
   }
   $(window).resize(function() {
