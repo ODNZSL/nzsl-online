@@ -48,7 +48,7 @@
 /* bar specific */
 .vocab_sheet_bar {
   width: 120px;
-  top: 400px;
+  // top: 400px;
   position: absolute;
   right: 0;
   height: 100%;
@@ -58,20 +58,11 @@
 .column_wrapper { overflow-y: hidden; }
 
 .vocab_sheet_bar_item {
-  background: left -10px no-repeat;
-  background-image: image_url('ui/vocab_sheet_item.png');
+  background-color: white;
   width: 99px;
   margin: 15px auto;
-}
-
-.vocab_sheet_bar_item .b {
-  background: left top no-repeat;
-  background-image: image_url('ui/vocab_sheet_item.png');
-  height: 11px;
-  width: 99px;
-  bottom: -11px;
-  position: absolute;
-  left: 0;
+  border-radius: 5px;
+  box-shadow: -1px 1px 2px 2px $light-med-grey;
 }
 
 .vocab_sheet_bar_item .remove {
@@ -146,7 +137,6 @@
   margin-top: -10px;
 }
 
-/* controls */
 .vocab_sheet_page_controls {
   float: right;
   margin-top: 43px;
@@ -161,59 +151,13 @@
 
 .vocab_sheet_page_controls .button { margin-left: 5px; }
 
-.vocab_sheet_bar_controls { margin-left: 10px; }
+.vocab_sheet_bar_controls .button { @extend .orange_submit_button; }
 
-.vocab_sheet_bar_controls .button {
-  font-size: inherit;
-  font-family: inherit;
-  background: $peach;
+.flash {
+  padding: 10px;
+  background: $primary-blue;
   color: white;
-  border: none;
-  margin-right: 0;
-  float: left;
-  border-radius: 5px;
-  padding: 0 5px;
+  text-align: center;
 }
 
-
-.size_controls {
-  float: left;
-  margin-left: 10px;
-  margin-top: -4px;
-}
-
-.size_controls .radio_wrapper {
-  height: 32px;
-  line-height: 32px;
-  float: left;
-  display: block;
-}
-
-.radio_wrapper input { vertical-align: middle; }
-
-.size_label,
-.size_label:hover {
-  width: 24px;
-  height: 32px;
-  background-image: image_url('ui/vocab_sheet_icons.png');
-  display: block;
-  float: left;
-  overflow: hidden;
-  margin-right: 10px;
-  border: 0;
-}
-
-.size_5_label { background-position: left 0; }
-
-.size_4_label { background-position: left -32px; }
-
-.size_3_label {
-  background-position: left -64px;
-  padding-right: 1px;
-}
-
-.size_2_label { background-position: left -96px; }
-
-.size_1_label { background-position: left -128px; }
-
-.size_controls .selected_icon { background-color: #d2e2f9; }
+.vocab_sheet_bar .flash { margin: 20px 0; }
