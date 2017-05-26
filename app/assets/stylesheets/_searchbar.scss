@@ -108,3 +108,60 @@
 @media screen and (min-width: $large-screen) {
   .search-buttons-container { right: 7%;}
 }
+
+
+.signs { line-height: 56px; }
+
+.dropdown {
+  position: absolute;
+  top: 70px;
+  left: 0;
+  background: white;
+  border: 1px solid $light-grey;
+  display: none;
+  padding: 5px;
+}
+
+.handshapes .dropdown {
+  width: 450px;
+  ul { padding: 10px 0; }
+}
+
+.locations .dropdown {
+  width: 400px;
+  ul { padding: 10px 0; }
+}
+
+.topic .dropdown,
+.usage .dropdown {
+  padding: 0;
+  width: 260px;
+  border: none;
+  max-height: 400px;
+  overflow: scroll;
+  overflow-x: hidden;
+  ul { margin: 0; }
+  li {
+    padding-left: 5px;
+    line-height: 2.5;
+  }
+}
+
+.usage .dropdown { overflow-y: hidden; }
+
+.dropdown .title {
+  padding: 3px 3px 7px;
+  line-height: 1;
+  text-align: left;
+}
+
+.dropdown .close {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+  background: right center no-repeat;
+  background-image: image_url('ui/close_search.png');
+  padding-right: 20px;
+  height: 15px;
+  line-height: 15px;
+}
