@@ -4,27 +4,12 @@
     padding: 25px 0;
   }
   &-container {
-    .glosses-container {
-      margin: 20px 0;
-      h2 {
-        @include montserrat-bold;
-        font-size: $h5-font-size;
-      }
-      .gloss_maori,
-      .gloss_secondary {
-        font-weight: 300;
-        font-style: italic;
-        font-size: $h6-font-size;
-      }
-      .word_class {
-        color: $light-med-grey;
-        font-size: $h6-font-size;
-      }
-    }
+    .glosses-container { margin-bottom: 20px; }
     .video-container {
       position: relative;
       .button {
         @extend .orange_video_button;
+        margin: 5px 0 30px 0;
       }
     }
     .back-button-container {
@@ -56,9 +41,15 @@
         }
       }
     }
+    .examples-container {
+      .translation-gloss {
+        @include montserrat-regular;
+        font-size: $h6-font-size;
+        margin: 0 0 10px 0;
+      }
+    }
   }
 }
-
 
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
