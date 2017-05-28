@@ -11,6 +11,7 @@
 //= require advanced-search
 //= require header
 //= require admin
+//= require search_result_link
 //= require foundation
 
 $(document).foundation();
