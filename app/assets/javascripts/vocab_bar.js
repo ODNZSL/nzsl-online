@@ -14,13 +14,14 @@ $(document).ready(function() {
 
   function changeVocabLocation() {
     if($('.search-result-banner').length > 0 && $('.flash').length > 0) {
-      $('.vocab_sheet_bar').css("top", "320px")
+      $('.vocab_sheet_bar').css("top", "350px")
     } else if ($('.search-result-banner').length > 0 && $('.flash').length < 1) {
-      $('.vocab_sheet_bar').css("top", "300px")
+      $('.vocab_sheet_bar').css("top", "320px")
     } else {
       return
     }
   }
+
   $(window).resize(function() {
     hideVocabSheetOnMobile();
   })
