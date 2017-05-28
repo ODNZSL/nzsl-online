@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  function hide_vocab_sheet_on_mobile() {
+  function hideVocabSheetOnMobile() {
     var bar = $('.vocab_sheet_bar');
     var windowWidth = $(window).width();
     if((windowWidth < 640) || (bar.length && bar.find('.vocab_sheet_bar_item').length === 0)) {
@@ -22,9 +22,9 @@ $(document).ready(function() {
     }
   }
   $(window).resize(function() {
-    hide_vocab_sheet_on_mobile();
+    hideVocabSheetOnMobile();
   })
 
-  hide_vocab_sheet_on_mobile();
+  hideVocabSheetOnMobile();
   changeVocabLocation();
 });
