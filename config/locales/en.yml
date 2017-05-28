@@ -29,6 +29,7 @@ en:
         search_results: Back to search results
         numbers: Back to numbers page
         classifiers: Back to classifiers page
+        home: Back to home page
       field:
         contains_numbers: contains numbers
         is_fingerspelling: fingerspelling

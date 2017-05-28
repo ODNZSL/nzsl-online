@@ -47,6 +47,8 @@ module SignsHelper
       link_to t('signs.show.back_to.numbers'), '/numbers', class: 'back_to_search_results'
     when '/classifiers'
       link_to t('signs.show.back_to.classifiers'), '/classifiers', class: 'back_to_search_results'
+    when '/'
+      link_to t('signs.show.back_to.home'), '/', class: 'back_to_search_results'
     else
       ''
     end
