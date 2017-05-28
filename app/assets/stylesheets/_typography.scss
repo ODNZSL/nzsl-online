@@ -158,3 +158,37 @@ h6 { font-size: $h6-font-size; }
 }
 
 h2+h3 { margin-top:1em; }
+
+.maori_gloss { @include montserrat-regular; }
+
+.main-gloss {
+  @include montserrat-regular;
+  font-size: $main-gloss;
+  padding: 0;
+  margin: 0;
+}
+
+.secondary-gloss {
+  @include montserrat-light;
+  font-size: $secondary-gloss;
+}
+
+.word-gloss {
+  @include montserrat-light;
+  color: $med-grey;
+}
+
+.word-gloss,
+.maori-gloss {
+  font-style: italic;
+  display: block;
+  font-size: $secondary-gloss;
+}
+
+.search-result-banner {
+  @include montserrat-light;
+  font-size: $search-result-banner;
+}
+
+.grammar,
+.glosses { margin-bottom: 1.2em; }
