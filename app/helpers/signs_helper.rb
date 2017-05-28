@@ -34,9 +34,11 @@ module SignsHelper
     end.join(' ').html_safe
   end
 
-  def render_back_to_search_results # rubocop:disable Metrics/AbcSize
-    return unless request.referer
+  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/AbcSize
 
+  def render_back_to_search_results
+    return unless request.referer
     referer = URI(request.referer)
     case referer.path
     when search_signs_path
@@ -53,4 +55,6 @@ module SignsHelper
       ''
     end
   end
+  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/AbcSize
 end
