@@ -154,15 +154,20 @@
 
 .flash {
   padding: 10px;
-  background: $primary-blue;
+  background: yellowgreen;
   color: white;
   text-align: center;
 }
 
-.vocab_sheet_bar .flash { margin: 20px 0; }
+.vocab_sheet_bar .flash {
+  margin: 20px auto;
+  background: $primary-blue;
+  width: 80%;
+  border-radius: 5px;
+  padding: 5px;
+}
 
-
-// Vocab sheet print layout options:
+// Buttons for user to specify print layout of their vocab sheet - do not delete:
 
 .size_controls {
   float: left;
