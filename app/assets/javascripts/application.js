@@ -13,5 +13,6 @@
 //= require admin
 //= require search_result_link
 //= require foundation
+//= require custom_play_button
 
 $(document).foundation();
