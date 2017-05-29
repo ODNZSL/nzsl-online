@@ -68,6 +68,10 @@ li { margin: 0; }
    display: inline;
    margin: 5px 10px;
  }
+
+ .before_sticky_footer {
+   min-height: 400px;
+ }
 // --------------------------------------
 
 html, body {
@@ -79,7 +83,7 @@ html, body {
 
 .not_sticky_footer {
   position: relative;
-  margin-bottom: 20px;
+  padding-bottom: 20px;
   overflow: hidden;
  }
 
@@ -498,6 +502,7 @@ a.empty:hover { border: 0; }
   width: 150px;
   margin: 0 20px 0 0;
 }
+
 .grid .row_start { clear:left; }
 
 .grid4 li {
@@ -514,25 +519,12 @@ a.empty:hover { border: 0; }
 |* Entry & Results  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.word_class,
-.maori_gloss {
-  font-style: italic;
-  display: block;
-}
-
-h1.main_gloss { padding-bottom: 0; }
-
-.grammar,
-.glosses { margin-bottom: 1.2em; }
-
 a.drawing {
   border: 0;
   background: transparent;
 }
 
-.entry_drawing .offset {
-  position: relative;
-}
+.entry_drawing .offset { position: relative; }
 
 .main_video,
 .main_video video,
@@ -565,13 +557,13 @@ video {
   position: relative;
   display: inline-block;
 }
-
-h1.search_results_for {
-  line-height: 42px;
-  margin-top: 1em;
-  min-height: 42px;
-  vertical-align: middle;
-}
+//
+// h1.search_results_for {
+//   line-height: 42px;
+//   margin-top: 1em;
+//   min-height: 42px;
+//   vertical-align: middle;
+// }
 
 .pagination {
   margin: -1.2em 0 0;
@@ -613,6 +605,7 @@ h1.search_results_for {
 /* * * * *\
 |* Pages  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
 /* Homepage */
 .sign_of_the_day {
   @media screen and (max-width: $medium-screen) {
@@ -725,16 +718,16 @@ a .button,
   float: right;
   display: block;
 }
+//
+// .r, .l {
+//   position: absolute;
+//   display: block;
+//   top: 0;
+// }
 
-.r, .l {
-  position: absolute;
-  display: block;
-  top: 0;
-}
+// .r { right: 0; }
 
-.r { right: 0; }
-
-.l { left: 0; }
+// .l { left: 0; }
 
 body .video_replace {
   display: block;
