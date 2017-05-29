@@ -17,21 +17,7 @@
 @import "header";
 @import "vocab_sheet";
 @import "search_result_grid";
-/* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
-* What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
-* trying to make the CSS a bit more modular by having it as reusable as possible
-* and having what the class describes only under that class (like rule_after, typography, clearfix, grid.)
-* also: not being afraid of extra divs (in the buttons and tabs especially)
-*/
 
-/* * * * * * * * *\
-|* Sticky Footer  *| from http://www.cssstickyfooter.com/
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-
-
-// Katie's CSS
-// --------------------------
 .hide { display: none; }
 .show { display: inline-block; }
 
@@ -72,6 +58,7 @@ li { margin: 0; }
  .before_sticky_footer {
    min-height: 400px;
  }
+
 // --------------------------------------
 
 html, body {
@@ -372,10 +359,6 @@ a.empty:hover { border: 0; }
   height: 42px;
   margin: 0 0 4px 4px;
 }
-// <<<<<<< HEAD
-/* * * * * * * * * *\
-|* Entry & Results  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 a.drawing {
   border: 0;
