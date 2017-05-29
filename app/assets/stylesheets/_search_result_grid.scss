@@ -30,7 +30,7 @@
 |* Grid list styles  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.search_results li {
+.search_results_card {
   display: block;
   margin: 5px 5px 25px;
   outline: 1px solid $primary-blue;
@@ -39,7 +39,7 @@
     display: none;
   }
 }
-.search_results li:hover {
+.search_results_card:hover {
   outline: 3px solid $primary-blue;
 }
 
@@ -58,6 +58,12 @@ a.div_link {
 
 .gloss_container {
   height: 131px;
+
+  .secondary_gloss,
+  .word_class,
+  .maori_gloss {
+    margin-left: 10px;
+  }
 
   .secondary_gloss {
     @include montserrat-light;
@@ -83,6 +89,7 @@ a.div_link {
     @include montserrat-regular;
     font-size: $main-gloss-font-size;
     display: block;
+    margin-left: 10px;
     border-bottom: 0;
   }
 
@@ -107,10 +114,10 @@ a.div_link {
 
   .unicode_arrow {
     color: $primary-blue;
+    margin-left: 2px;
   }
 
   .drawing {
-    margin-left: 10px;
     border-bottom: 0;
   }
 
@@ -118,6 +125,7 @@ a.div_link {
     @include montserrat-regular;
     font-size: $subgloss-font-size;
     border-bottom: 0;
+    margin-left: 10px;
     a {
       text-decoration: none;
       float: left;
