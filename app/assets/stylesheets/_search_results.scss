@@ -24,3 +24,31 @@
 // width: calc(50% - 10px) 640
 // width: calc(33% - 10px) 1024
 // width: calc(25% - 10px) 1440px
+
+@media screen and (min-width: $xlarge-screen) {
+  // .search_results_container {
+  //   width: 1300px
+  // }
+  .search_results {
+    li {
+      width: calc(25% - 10px);
+
+    }
+  }
+}
+
+@media screen and (min-width: $large-screen) {
+  .search_results {
+    li {
+      width: calc(33% - 10px);
+    }
+  }
+}
+
+@media screen and (min-width: $medium-screen) {
+  .search_results {
+    li {
+      width: calc(50% - 10px);
+    }
+  }
+}
