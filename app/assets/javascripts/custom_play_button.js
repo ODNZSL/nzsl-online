@@ -8,7 +8,7 @@ $(document).ready(function() {
     container.closest('.video-container').children('.play-button').css("display", "none");
     container.get(0).play();
   }
-
+  
   function pauseVideo(container) {
     container.closest('.video-container').children('.play-button').css("display", "inline-block");
     container.get(0).pause();

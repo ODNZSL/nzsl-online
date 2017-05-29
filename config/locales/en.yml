@@ -71,7 +71,7 @@ en:
       usage_tags_any: '- Any usage -'
     submit: Search
     results:
-      for: "Search results for:"
+      for: "Search results for"
       results: result
   vocab_sheet:
     title: Vocab Sheet

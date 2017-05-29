@@ -1,0 +1,116 @@
+.search_results_container {
+  overflow: auto;
+  line-height: 42px;
+  padding-bottom: 10px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .video-container {
+    position: relative;
+    .play-button {
+      left: 0;
+    }
+  }
+}
+
+.search_results_banner {
+  @include montserrat-light;
+  font-size: $h1-font-size;
+  background-color: $pale-blue;
+  padding: 25px 0;
+  margin-bottom: 45px;
+}
+
+.search_results_card {
+  display: block;
+  margin: 5px 5px 25px;
+  outline: 1px solid $primary-blue;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+.search_results_card:hover {
+  outline: 3px solid $primary-blue;
+}
+
+div.clickable_link:hover {
+  cursor: pointer;
+}
+
+a.div_link {
+  text-decoration: none;
+  z-index: 10;
+}
+
+.link_and_drawing_container {
+  overflow: auto;
+  margin-bottom: 10px;
+  .link_container {
+    width: calc(40% - 5px);
+    text-align: left;
+    margin-top: 88px;
+    margin-left: 5px
+  }
+
+  .unicode_arrow {
+    color: $primary-blue;
+    margin-left: 2px;
+  }
+
+  .show_link {
+    @include montserrat-regular;
+    font-size: $subgloss-font-size;
+    border-bottom: 0;
+    a {
+      text-decoration: none;
+      float: left;
+    }
+  }
+
+  .drawing_container {
+    width: 60%;
+    float: left;
+    padding-top: 5px;
+    .drawing img { margin: 0; }
+  }
+}
+
+.pagination_container {
+  @include montserrat-light;
+  font-size: 12px;
+  margin: 70px 0;
+
+  .pagination {
+    margin: -1.2em 0 0;
+    padding: 0;
+    text-align: center;
+  }
+  .pagination .current { color: black; }
+
+  .pagination li {
+    font-size: $pagination-font-size;
+    display: inline-block;
+  }
+
+  .ie7 .pagination li {
+    display: inline;
+    zoom: 1;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .pagination .a,
+  .pagination  a {
+    padding: 0 10px;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .pagination .a { color: $med-grey; }
+}
