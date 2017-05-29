@@ -31,7 +31,6 @@ module ApplicationHelper
 
   def submit_button(text = 'search.submit', options = {})
     "<div class='button input_button'>
-      <div class='r'></div>
       #{submit_tag(t(text), options.merge(name: nil))}
      </div>".html_safe
   end
@@ -44,7 +43,7 @@ module ApplicationHelper
 
   def link_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to "<div class='r'></div>#{t(text)}".html_safe,
+    link_to "#{t(text)}".html_safe,
             url,
             { class: ("button #{options[:class]}") }.reverse_merge(options)
   end
@@ -80,7 +79,7 @@ module ApplicationHelper
   end
 
   def div_button(text, options = {})
-    content_tag :div, "<div class='r'></div>#{t(text)}".html_safe,
+    content_tag :div, "#{t(text)}".html_safe,
                 { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
   end
 
