@@ -161,25 +161,26 @@ h2+h3 { margin-top:1em; }
 
 .maori_gloss { @include montserrat-regular; }
 
-.main-gloss {
+.main_gloss {
   @include montserrat-regular;
   font-size: $main-gloss;
   padding: 0;
   margin: 10px 0;
+  display: block;
 }
 
-.secondary-gloss {
+.secondary_gloss {
   @include montserrat-light;
   font-size: $secondary-gloss;
 }
 
-.word-gloss {
+.word_gloss {
   @include montserrat-light;
   color: $med-grey;
 }
 
-.word-gloss,
-.maori-gloss {
+.word_gloss,
+.maori_gloss {
   font-style: italic;
   display: block;
   font-size: $secondary-gloss;
@@ -192,3 +193,13 @@ h2+h3 { margin-top:1em; }
 
 .grammar,
 .glosses { margin-bottom: 1.2em; }
+
+.gloss_container {
+  height: 130px;
+  .secondary_gloss,
+  .word_gloss,
+  .maori_gloss,
+  .main_gloss {
+    margin-left: 10px;
+  }
+}
