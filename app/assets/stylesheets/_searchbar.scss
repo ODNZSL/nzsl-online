@@ -1,7 +1,6 @@
 .search {
   &-container {
     form { position: relative; }
-    // margin-bottom: 10px;
     background-color: $primary-blue;
     float: right;
   }
@@ -108,7 +107,6 @@
 @media screen and (min-width: $large-screen) {
   .search-buttons-container { right: 7%;}
 }
-
 
 .signs { line-height: 56px; }
 
