@@ -13,8 +13,8 @@
         = location_image @sign.location
       = image_tag "signs/320-180/#{@sign.drawing}", class: "main-image small-10 medium-8 large-6"
       .glosses-container.glosses
-        %h2.main-gloss= @sign.gloss_main
-        %h2.main-gloss= @sign.gloss_maori
+        %h2.main_gloss= @sign.gloss_main
+        %h2.main_gloss= @sign.gloss_maori
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
         = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
@@ -29,11 +29,11 @@
           = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
           = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
       .glosses-container.glosses.small-12.float-left
-        %h2.main-gloss= @sign.gloss_main
-        %h2.secondary-gloss= @sign.gloss_secondary
-        %h2.maori-gloss= @sign.gloss_maori
-        %h2.word-gloss= @sign.word_classes
-        %h2.secondary-gloss= render_grammar_notes(@sign)
+        %h2.main_gloss= @sign.gloss_main
+        %h2.secondary_gloss= @sign.gloss_secondary
+        %h2.maori_gloss= @sign.gloss_maori
+        %h2.word_gloss= @sign.word_classes
+        %h2.secondary_gloss= render_grammar_notes(@sign)
 
     - unless @sign.examples.length.zero?
       .examples-container.clearfix.videos.small-12.small-centered.medium-5.medium-uncentered
@@ -50,10 +50,10 @@
                 = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
                 = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
             .small-12.float-left
-              %p.secondary-gloss= render_transcription(example[:transcription], @sign.id)
+              %p.secondary_gloss= render_transcription(example[:transcription], @sign.id)
               %h4.translation-gloss
-                Translation:
-              %p.secondary-gloss
+                Translation
+              %p.secondary_gloss
                 %em= example[:translation]
 
     - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
