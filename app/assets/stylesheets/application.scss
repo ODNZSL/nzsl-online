@@ -16,7 +16,7 @@
 @import "topic_style";
 @import "header";
 @import "vocab_sheet";
-
+@import "search_result_grid";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -372,6 +372,7 @@ a.empty:hover { border: 0; }
   height: 42px;
   margin: 0 0 4px 4px;
 }
+// <<<<<<< HEAD
 /* * * * * * * * * *\
 |* Entry & Results  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
@@ -408,46 +409,11 @@ video {
   display: inline-block;
 }
 
-.pagination {
-  margin: -1.2em 0 0;
-  padding: 0;
-  text-align: center;
-}
-
-.pagination li {
-  font-size: 123.1%;
-  display: inline-block;
-}
-
-.ie7 .pagination li {
-  display: inline;
-  zoom: 1;
-  text-align: center;
-}
-
-.pagination .a,
-.pagination  a {
-  padding: 0 10px;
-  text-decoration: none;
-  height: 30px;
-  line-height: 30px;
-  border: 0;
-  background-color: transparent;
-}
-
-.pagination .a { color: #999; }
-
-.pagination .current { color: black; }
-
 .back_to_results {
   position: absolute;
   top: 0;
   left: 0;
 }
-
-/* * * * *\
-|* Pages  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 /* Homepage */
 .sign_of_the_day {
@@ -462,8 +428,6 @@ video {
 }
 
 .sign_of_the_day .h2 { display: inline; }
-
-.drawing { margin: 10px 0; }
 
 .videos .hidden_video { display: none; }
 
