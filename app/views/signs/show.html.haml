@@ -21,10 +21,10 @@
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button
-        %video.main_video.normal{preload: true, loop: true}
+        %video.main_video.video.normal{preload: true, loop: true}
           %source{type: "video/mp4", src:  @sign.video}
         - if @sign.video_slow.present?
-          %video.main_video.slow{controls: true, preload: true, loop: true}
+          %video.main_video.video.slow{controls: true, preload: true, loop: true}
             %source{type: "video/mp4", src:  @sign.video_slow}
           = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
           = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
@@ -42,10 +42,10 @@
           .typography.videos
             .video-container
               %i.fi-play.play-button
-              %video.example_video.normal{controls: false, preload: true, loop: true}
+              %video.example_video.video.normal{controls: false, preload: true, loop: true}
                 %source{type: "video/mp4", src:  example[:video]}
               - if example[:video_slow]
-                %video.example_video.slow{controls: false, preload: true, loop: true}
+                %video.example_video.video.slow{controls: false, preload: true, loop: true}
                   %source{type: "video/mp4", src:  example[:video_slow]}
                 = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
                 = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
@@ -55,7 +55,6 @@
                 Translation:
               %p.secondary-gloss
                 %em= example[:translation]
-
 
     - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
       .notes.small-12.typography
