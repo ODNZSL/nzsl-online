@@ -26,26 +26,18 @@
 |* Grid list styles  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.grid li {
+.search_results li {
   display: block;
-  float: left;
-  width: 280px;
   height: 470px;
-  margin: 0 20px 25px 0;
+  margin: 0 0 25px;
   outline: 1px solid $primary-blue;
 
   ::-webkit-scrollbar {
     display: none;
   }
 }
-.grid li:hover {
+.search_results li:hover {
   outline: 3px solid $primary-blue;
-}
-
-div.clickable_link {
-  position: relative;
-  display: inline-block;
-  float: left;
 }
 
 div.clickable_link:hover {
@@ -53,11 +45,6 @@ div.clickable_link:hover {
 }
 
 a.divLink {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
   text-decoration: none;
   z-index: 10;
 }
@@ -67,12 +54,7 @@ a.divLink {
     display: block;
     height: 0;
     clear: both;
-    // visibility: hidden;
 }
-
-// .clickable_link a span{
-//   display: block;
-// }
 
 /* * * * * * * * * *\
 |* Glosses  *|
@@ -126,11 +108,12 @@ a.divLink {
 
 
 .link_and_drawing_container {
+  overflow: auto;
   .link_container {
     width: 40%;
-    float: left;
     margin-top: 88px;
   }
+
   .unicode_arrow {
     color: $primary-blue;
   }
@@ -146,6 +129,7 @@ a.divLink {
     border-bottom: 0;
     a {
       text-decoration: none;
+      float: left;
     }
   }
 
