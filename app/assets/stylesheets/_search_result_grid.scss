@@ -16,7 +16,7 @@
 
 .result_text_container {
   @include montserrat-light;
-  font-size: 28px;
+  font-size: $search-banner-font-size;
   background-color: $pale-blue;
   padding: 25px 0;
   margin-bottom: 45px;
@@ -65,7 +65,7 @@ a.divLink {
 
   .secondary_gloss {
     @include montserrat-light;
-    font-size: 14px;
+    font-size: $subgloss-font-size;
     display: block;
   }
 
@@ -77,21 +77,21 @@ a.divLink {
 
   .word_class{
     @include montserrat-light;
-    font-size: 14px;
+    font-size: $subgloss-font-size;
     font-style: italic;
     color: $med-grey;
   }
 
   .maori_gloss {
     @include montserrat-regular;
-    font-size: 14px;
+    font-size: $subgloss-font-size;
     font-style: italic;
     margin-top: 7px;
   }
 
   .main_gloss {
     @include montserrat-regular;
-    font-size: 20px;
+    font-size: $main-gloss-font-size;
     display: block;
     margin-left: 10px;
     border-bottom: 0;
@@ -114,6 +114,7 @@ a.divLink {
     margin-top: 88px;
   }
 
+
   .unicode_arrow {
     color: $primary-blue;
   }
@@ -125,7 +126,7 @@ a.divLink {
 
   .show_link {
     @include montserrat-regular;
-    font-size: 14px;
+    font-size: $subgloss-font-size;
     border-bottom: 0;
     a {
       text-decoration: none;
@@ -162,7 +163,7 @@ a.divLink {
   margin: 70px 0;
 
   .pagination li {
-    font-size: 14px;
+    font-size: $pagination-font-size;
     display: inline-block;
   }
 
