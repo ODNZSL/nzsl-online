@@ -517,12 +517,7 @@ body .video_replace {
 
 .center { position: relative; }
 
-.rounded {
-  -webkit-border-radius: 4px;
-  -moz-border-radius: 4px;
-  -o-border-radius: 4px;
-  border-radius: 4px;
-}
+.rounded { @include border-radius-small; }
 
 .vertical_space { padding-bottom: 16px; }
 

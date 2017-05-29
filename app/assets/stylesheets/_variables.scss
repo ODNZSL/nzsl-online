@@ -37,3 +37,17 @@ $search-result-banner: 1.8em;
   margin: 0 auto;
   display: block;
 }
+
+@mixin border-radius-small {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@mixin border-radius-large {
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
+}

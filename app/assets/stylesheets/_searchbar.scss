@@ -5,7 +5,7 @@
     float: right;
   }
   &-field {
-    border-radius: 25px;
+    @include border-radius-large;
     border: none;
     height: 30px;
     padding: 0 10px;
@@ -59,12 +59,13 @@
     top: 55px;
     right: 0;
     .search-button {
+      @include border-radius-small;
       background-color: $peach;
-      border-radius: 5px;
       top: initial;
       right: initial;
       position: relative;
       float: left;
+
       i {
         font-size: 28px;
         color: white;
@@ -74,13 +75,13 @@
   .advanced-search-container { padding-bottom: 10px; }
   .advanced-search-button {
     @include montserrat-light;
+    @include border-radius-small;
     position: relative;
     height: 65px;
     background-color: $light-blue;
     margin: 0 2.5px;
     width: calc(25% - 5px);
     cursor: pointer;
-    border-radius: 5px;
     font-size: $subtitle-font-size;
     a:hover { opacity: 1; }
     .default { color: white; }

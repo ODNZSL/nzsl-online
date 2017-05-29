@@ -26,6 +26,8 @@
       border: 1px solid $light-grey;
       position: relative;
       margin-bottom: 20px;
+      -moz-box-shadow: -2px 3px 12px 0 $light-med-grey;
+      -webkit-box-shadow: -2px 3px 12px 0 $light-med-grey;
       box-shadow: -2px 3px 12px 0 $light-med-grey;
       .main-image {
         margin: 65px auto 10px;

@@ -57,10 +57,12 @@
 .column_wrapper { overflow-y: hidden; }
 
 .vocab_sheet_bar_item {
+  @include border-radius-small;
   background-color: white;
   width: 100px;
   margin: 15px auto;
-  border-radius: 5px;
+  -moz-box-shadow: -1px 1px 2px 2px $light-med-grey;
+  -webkit-box-shadow: -1px 1px 2px 2px $light-med-grey;
   box-shadow: -1px 1px 2px 2px $light-med-grey;
 }
 
@@ -160,10 +162,10 @@
 }
 
 .vocab_sheet_bar .flash {
+  @include border-radius-small;
   margin: 20px auto;
   background: $primary-blue;
   width: 80%;
-  border-radius: 5px;
   padding: 5px;
 }
 
