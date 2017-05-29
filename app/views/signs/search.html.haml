@@ -1,8 +1,8 @@
+.search_results_banner.small-12.text-center
+  = @results_total
+  = t('search.results.for')
+  &ldquo;#{display_search_term}&rdquo;
 .search_results_container.text-center
-  .result_text_container.small-12
-    = @results_total
-    = t('search.results.for')
-    &ldquo;#{display_search_term}&rdquo;
 
   .search_results
     /with divs because of IE7
@@ -13,10 +13,12 @@
             - query_text = @query[:s].join(" ")
           - else
             - query_text = " "
-          %video.normal{controls: true, preload: true, loop: true}
-            %source{type: "video/mp4", src:  sign.video}
-          %div.clickable_link.small-12.float-left
-            %a{:href => "#{sign_url(sign.id)}", class: "divlink"}
+          .video-container
+            %i.fi-play.play-button
+            %video.normal{controls: false, preload: true, loop: true}
+              %source{type: "video/mp4", src:  sign.video}
+          %div.clickable_link.small-11.small-centered
+            %a{:href => "#{sign_url(sign.id)}", class: "div_link"}
               %span
                 .gloss_container.small-12.float-left
                   = link_to sign_url(sign.id), {:class => 'main_gloss small-12 text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do

@@ -2,11 +2,15 @@
   overflow: auto;
   line-height: 42px;
   padding-bottom: 10px;
-  width: auto;
-  outline: 1px solid red;
 
   ::-webkit-scrollbar {
     display: none;
+  }
+  .video-container {
+    position: relative;
+    .play-button {
+      left: 0;
+    }
   }
 }
 
@@ -14,7 +18,7 @@
 |* Result Banner  *|
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
-.result_text_container {
+.search_results_banner {
   @include montserrat-light;
   font-size: $h1-font-size;
   background-color: $pale-blue;
@@ -28,8 +32,7 @@
 
 .search_results li {
   display: block;
-  height: 470px;
-  margin: 0 0 25px;
+  margin: 5px 5px 25px;
   outline: 1px solid $primary-blue;
 
   ::-webkit-scrollbar {
@@ -44,16 +47,9 @@ div.clickable_link:hover {
   cursor: pointer;
 }
 
-a.divLink {
+a.div_link {
   text-decoration: none;
   z-index: 10;
-}
-
-.clickable_link:after {
-    content: ".";
-    display: block;
-    height: 0;
-    clear: both;
 }
 
 /* * * * * * * * * *\
@@ -67,12 +63,6 @@ a.divLink {
     @include montserrat-light;
     font-size: $subgloss-font-size;
     display: block;
-  }
-
-  .secondary_gloss,
-  .word_class,
-  .maori_gloss {
-    margin-left: 10px;
   }
 
   .word_class{
@@ -93,7 +83,6 @@ a.divLink {
     @include montserrat-regular;
     font-size: $main-gloss-font-size;
     display: block;
-    margin-left: 10px;
     border-bottom: 0;
   }
 
@@ -109,11 +98,12 @@ a.divLink {
 
 .link_and_drawing_container {
   overflow: auto;
+  margin-bottom: 10px;
   .link_container {
     width: 40%;
+    text-align: left;
     margin-top: 88px;
   }
-
 
   .unicode_arrow {
     color: $primary-blue;
