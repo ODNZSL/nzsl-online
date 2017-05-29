@@ -1,0 +1,186 @@
+.search_results_container {
+  overflow: auto;
+  line-height: 42px;
+  padding-bottom: 10px;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+  .video-container {
+    position: relative;
+    .play-button {
+      left: 0;
+    }
+  }
+}
+
+/* * * * * * * * * *\
+|* Result Banner  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.search_results_banner {
+  @include montserrat-light;
+  font-size: $h1-font-size;
+  background-color: $pale-blue;
+  padding: 25px 0;
+  margin-bottom: 45px;
+}
+
+/* * * * * * * * * *\
+|* Grid list styles  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.search_results_card {
+  display: block;
+  margin: 5px 5px 25px;
+  outline: 1px solid $primary-blue;
+
+  ::-webkit-scrollbar {
+    display: none;
+  }
+}
+.search_results_card:hover {
+  outline: 3px solid $primary-blue;
+}
+
+div.clickable_link:hover {
+  cursor: pointer;
+}
+
+a.div_link {
+  text-decoration: none;
+  z-index: 10;
+}
+
+/* * * * * * * * * *\
+|* Glosses  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.gloss_container {
+  height: 131px;
+
+  .secondary_gloss,
+  .word_class,
+  .maori_gloss {
+    margin-left: 10px;
+  }
+
+  .secondary_gloss {
+    @include montserrat-light;
+    font-size: $subgloss-font-size;
+    display: block;
+  }
+
+  .word_class{
+    @include montserrat-light;
+    font-size: $subgloss-font-size;
+    font-style: italic;
+    color: $med-grey;
+  }
+
+  .maori_gloss {
+    @include montserrat-regular;
+    font-size: $subgloss-font-size;
+    font-style: italic;
+    margin-top: 7px;
+  }
+
+  .main_gloss {
+    @include montserrat-regular;
+    font-size: $main-gloss-font-size;
+    display: block;
+    margin-left: 10px;
+    border-bottom: 0;
+  }
+
+  .main_gloss a {
+    text-decoration: none;
+  }
+}
+
+/* * * * * * * * * *\
+|* Show link & Drawing  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+
+.link_and_drawing_container {
+  overflow: auto;
+  margin-bottom: 10px;
+  .link_container {
+    width: 40%;
+    text-align: left;
+    margin-top: 88px;
+  }
+
+  .unicode_arrow {
+    color: $primary-blue;
+    margin-left: 2px;
+  }
+
+  .drawing {
+    border-bottom: 0;
+  }
+
+  .show_link {
+    @include montserrat-regular;
+    font-size: $subgloss-font-size;
+    border-bottom: 0;
+    margin-left: 10px;
+    a {
+      text-decoration: none;
+      float: left;
+    }
+  }
+
+  .drawing_container {
+    width: 60%;
+    float: left;
+    padding-top: 5px;
+  }
+
+  .drawing {
+    padding-top: 5px;
+    img {
+      margin: 0;
+    }
+  }
+
+  a.drawing {
+    border: 0;
+    background: transparent;
+  }
+}
+
+/* * * * * * * * * *\
+|* Pagination  *|
+\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
+
+.pagination_container {
+  @include montserrat-light;
+  font-size: 12px;
+  margin: 70px 0;
+
+  .pagination li {
+    font-size: $pagination-font-size;
+    display: inline-block;
+  }
+
+  .ie7 .pagination li {
+    display: inline;
+    zoom: 1;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .pagination .a,
+  .pagination  a {
+    padding: 0 10px;
+    text-decoration: none;
+    height: 30px;
+    line-height: 30px;
+    border: 0;
+    background-color: transparent;
+  }
+
+  .pagination .a { color: $med-grey; }
+}

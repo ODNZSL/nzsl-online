@@ -15,6 +15,8 @@
 @import "footer";
 @import "topic_style";
 @import "header";
+@import "search_result_grid";
+@import "buttons";
 /* To the maintainer. This CSS uses HTML5 Boilerplate (loosely)
 * What looks like classitis is an entirely purposeful and well-considered attempt to write less CSS overall.
 * trying to make the CSS a bit more modular by having it as reusable as possible
@@ -514,65 +516,23 @@ a.empty:hover { border: 0; }
 // Grid
 // -----------------
 
-.grid li {
-  display: block;
-  padding: 25px 0;
-  float: left;
-  width: 150px;
-  margin: 0 20px 0 0;
-}
-.grid .row_start { clear:left; }
-
 .grid4 li {
   width: 107px;
   padding: 16px 0;
 }
 
-.grid4 .grid_drawing {
+.grid4 {
   height: 82px;
   width: 107px;
-}
-
-/* * * * * * * * * *\
-|* Entry & Results  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
-
-.glosses .secondary_gloss {
-  font-size: 123.1%;
-  display: block;
-}
-
-.word_class,
-.maori_gloss {
-  font-style: italic;
-  display: block;
-}
-
-h1.main_gloss { padding-bottom: 0; }
-
-.grammar,
-.glosses { margin-bottom: 1.2em; }
-
-a.drawing {
-  border: 0;
-  background: transparent;
 }
 
 .entry_drawing .offset {
   position: relative;
 }
 
-.main_video {
-  // clear: left;
-  // margin: 16px 0;
-  // float: left
-}
-
 .main_video,
 .main_video video,
 .main_video embed {
-  // width: 480px;
-  // height: 360px;
   width: 100%;
   max-width: 480px;
 }
@@ -586,18 +546,11 @@ video {
 
 .example { margin: 10px 0 24px; }
 
-.example_video {
-  // float: left;
-  // clear: left;
-  // margin-right: 16px;
-}
-
 .example_video,
 .example_video video,
 .example_video embed {
   width: 100%;
   max-width: 240px;
-  // height: 180px;
 }
 
 .videos .slow { display: none; }
@@ -605,8 +558,6 @@ video {
 .videos .button { float: right; }
 
 .sign_attributes .image {
-  // float: left;
-  // margin-left: 4px;
   position: relative;
   display: inline-block;
 }
@@ -618,34 +569,9 @@ h1.search_results_for {
   vertical-align: middle;
 }
 
-.pagination {
-  margin: -1.2em 0 0;
-  padding: 0;
-  text-align: center;
-}
+.grammar,
+.glosses { margin-bottom: 1.2em; }
 
-.pagination li {
-  font-size: 123.1%;
-  display: inline-block;
-}
-
-.ie7 .pagination li {
-  display: inline;
-  zoom: 1;
-  text-align: center;
-}
-
-.pagination .a,
-.pagination  a {
-  padding: 0 10px;
-  text-decoration: none;
-  height: 30px;
-  line-height: 30px;
-  border: 0;
-  background-color: transparent;
-}
-
-.pagination .a { color: #999; }
 
 .pagination .current { color: black; }
 
@@ -908,7 +834,6 @@ h1.search_results_for {
 
 .sign_of_the_day .h2 { display: inline; }
 
-.drawing { margin: 10px 0; }
 
 .home_content {
   width: 300px;
@@ -916,7 +841,6 @@ h1.search_results_for {
 }
 
 .home_content p,
-.home_content ol,
 .home_content ul,
 .home_content dl {
   line-height: 1.2;

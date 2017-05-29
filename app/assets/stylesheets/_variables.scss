@@ -8,6 +8,7 @@ $light-med-grey: #CCC;
 $med-grey: #999;
 $dark-grey: #666;
 $primary-blue: #2980B9;
+$pale-blue: #F0F6FA;
 
 $h1-font-size: 1.8em;
 $h2-font-size: 1.6em;
@@ -16,6 +17,10 @@ $h4-font-size: 1.2em;
 $h5-font-size: 1.1em;
 $h6-font-size: 1em;
 $subtitle-font-size: 0.85em;
+$main-gloss-font-size: 1.25em;
+$subgloss-font-size: 0.87em;
+$pagination-font-size: 0.75em;
+
 
 @mixin montserrat-light {
   font-family: "Montserrat";
