@@ -75,6 +75,7 @@ class Page < ActiveRecord::Base
       updated_at: updated_at,
       created_at: created_at
     )
+    return page
   end
 
   private
