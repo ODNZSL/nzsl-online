@@ -1,8 +1,8 @@
 /* from boilerplate */
   /*(removed a couple of rules)*/
-  a[href]:after { content: " (" attr(href) ")"; text-decoration:none;}
+  a[href]:after { content: ""; text-decoration:none;}
   abbr[title]:after { content: " (" attr(title) ")"; }
-  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after, a.button:after, .copyright a:after{ content: ""; }
+  .ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after, .center a[href]:after, a.button:after, .copyright a:after{ content: ""; }
   pre, blockquote { border: 1px solid #999; page-break-inside: avoid; }
   thead { display: table-header-group; }
   tr, img { page-break-inside: avoid; }
@@ -33,8 +33,13 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   .view_print_back_link,
   .remove,
   .js .if_js,
-  .vocab_sheet_controls
-  {display:none;}
+  .vocab_sheet_controls,
+  .menu-list,
+  .search-container,
+  .footer-container,
+  .sub-footer-container { display: none; }
+
+  .header-nav { overflow: auto; }
 /* remove shadows of my mind */
   .ui-widget, .shadow, .text_input, .text_input_hidden, .text_input_hidden:focus{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
   .video_replace {height:auto;}

@@ -12,19 +12,12 @@
     float: left;
   }
 }
-
 @media screen and (min-width: $medium-screen) {
   .search_results_card { width: calc(50% - 12px); }
-
-
 }
-
 @media screen and (min-width: $large-screen) {
   .search_results_card { width: calc(33% - 12px); }
-
 }
-
 @media screen and (min-width: $xlarge-screen) {
   .search_results_card { width: calc(25% - 12px); }
-
 }

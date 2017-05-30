@@ -1,8 +1,8 @@
-.search_results_banner.small-12.text-center
+.search-result-banner.small-12.text-center
   = @results_total
   = t('search.results.for')
   &ldquo;#{display_search_term}&rdquo;
-.search_results_container.text-center
+.search_results_container.text-center.small-11.small-centered.medium-8
   %ol.no-bullet
     - @signs.each do |sign|
       %li.search_results_card.float-left
@@ -25,7 +25,7 @@
                 - if sign.gloss_maori
                   .maori_gloss.small-12.text-left= sign.gloss_maori
                 - if sign.word_classes.present?
-                  .word_class.small-12.text-left= sign.word_classes
+                  .word_gloss.small-12.text-left= sign.word_classes
               .link_and_drawing_container.small-12
                 .link_container.float-left
                   = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}

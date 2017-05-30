@@ -1,0 +1,214 @@
+/* Vocab bar background */
+.vocab_sheet_background {
+  background: right top repeat-y;
+  background-image: image_url('ui/vocab-background.png');
+}
+.vocab_sheet .title { font-size: $h4-font-size; }
+.vocab_sheet_background .header,
+.vocab_sheet_background .main_column { position: relative; } /* haslayout? */
+//
+// .vocab_sheet_background .not_sticky_footer,
+// .vocab_sheet_background .sticky_footer { margin-right: 121px; }
+
+// .vocab_sheet_background .r.edge { display: none; }
+
+/* generic */
+.vocab_sheet {
+  position: relative;
+  text-align: center;
+}
+
+.vocab_sheet ul {
+  padding: 0;
+  margin-left: auto;
+  list-style-type: none;
+}
+
+.vocab_sheet_item { position: relative; }
+
+.vocab_sheet_item a {
+  text-align: center;
+  display: block;
+  color: #34414b;
+  text-decoration: none;
+  background-color: transparent;
+  border: 0;
+}
+
+.vocab_sheet_item .remove {
+  position: absolute;
+  width: 28px;
+  height: 25px;
+  background-image: image_url('ui/vocab_delete.png');
+  border: 0;
+  text-indent: -9999px;
+  overflow: hidden;
+}
+
+/* bar specific */
+.vocab_sheet_bar {
+  width: 120px;
+  position: absolute;
+  right: 0;
+  height: 100%;
+  z-index: 100;
+}
+
+.column_wrapper { overflow-y: hidden; }
+
+.vocab_sheet_bar_item {
+  @include border-radius-small;
+  background-color: white;
+  width: 100px;
+  margin: 15px auto;
+  -moz-box-shadow: -1px 1px 2px 2px $light-med-grey;
+  -webkit-box-shadow: -1px 1px 2px 2px $light-med-grey;
+  box-shadow: -1px 1px 2px 2px $light-med-grey;
+}
+
+.vocab_sheet_bar_item .remove {
+  top: -8px;
+  right: -10px;
+}
+
+/* sheet specific */
+.vocab_sheet_page_item textarea {
+  resize: none;
+  text-align: center;
+  margin: 0 5px;
+  height: 2.1em;
+  line-height: 1;
+  z-index: 3;
+  position: relative;
+}
+
+.vocab_sheet_page {
+  padding-bottom: 10px;
+  clear: left;
+  width: 690px;
+  margin: 0 auto;
+}
+
+.vocab_sheet_page_item {
+  border: 1px solid $light-med-grey;
+  width: 145px;
+  margin: 15px 11px 15px 0;
+  float: left;
+  background: white;
+}
+
+.vocab_sheet_page_item .item_name {
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 11;
+}
+
+.vocab_sheet_page_item .item_maori_name {
+  margin-bottom: 5px;
+  position: relative;
+  z-index: 11;
+}
+
+.vocab_sheet_page_item {
+  .drawing {
+    vertical-align: middle;
+    padding: 0 3px;
+    img { margin: 0; }
+  }
+  .remove {
+    top: -10px;
+    right: -14px;
+  }
+}
+
+/* no-js friendly */
+.no-js .vocab_sheet_item .button {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 15;
+}
+.vocab_sheet_name input { font-size: $h1-font-size; }
+.no-js .vocab_sheet_name { float: left; }
+
+.no-js .vocab_sheet_name .button {
+  display: block;
+  float: left;
+  clear: left;
+  margin-top: -10px;
+}
+
+.vocab_sheet_page_controls {
+  float: right;
+  margin-top: 43px;
+  width: 330px;
+  .orange_submit_button {
+    float: left;
+    margin-right: 5px;
+  }
+}
+
+.no-js .vocab_sheet_page_controls { width: 460px; }
+
+.vocab_sheet_page_controls .button { margin-left: 5px; }
+
+.vocab_sheet_bar_controls .button { @extend .orange_submit_button; }
+
+.flash {
+  padding: 10px;
+  background: yellowgreen;
+  color: white;
+  text-align: center;
+}
+
+.vocab_sheet_bar .flash {
+  @include border-radius-small;
+  margin: 20px auto;
+  background: $primary-blue;
+  width: 80%;
+  padding: 5px;
+}
+
+// Buttons for user to specify print layout of their vocab sheet - do not delete:
+
+.size_controls {
+  float: left;
+  margin-left: 10px;
+  margin-top: -5px;
+}
+
+.size_controls .radio_wrapper {
+  height: 32px;
+  line-height: 32px;
+  float: left;
+  display: block;
+}
+
+.radio_wrapper input { vertical-align: middle; }
+
+.size_label,
+.size_label:hover {
+  width: 24px;
+  height: 32px;
+  background-image: image_url('ui/vocab_sheet_icons.png');
+  display: block;
+  float: left;
+  overflow: hidden;
+  margin-right: 10px;
+  border: 0;
+}
+
+.size_5_label { background-position: left 0; }
+
+.size_4_label { background-position: left -32px; }
+
+.size_3_label {
+  background-position: left -64px;
+  padding-right: 1px;
+}
+
+.size_2_label { background-position: left -96px; }
+
+.size_1_label { background-position: left -128px; }
+
+.size_controls .selected_icon { background-color: #d2e2f9; }

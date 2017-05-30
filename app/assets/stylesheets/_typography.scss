@@ -1,22 +1,8 @@
 .strong {
   font-weight: 500;
 }
-/*  HTML5 ✰ Boilerplate  */
-//
-// html, body, div, span, object, iframe,
-// h1, h2, h3, h4, h5, h6, p, blockquote, pre,
-// abbr, address, cite, code, del, dfn, img, ins, kbd, q, samp,
-// small, strong, sub, sup, var, b, i, dl, dt, dd, ol, li,
-// fieldset, form, label, legend,
-// table, caption, tbody, tfoot, thead, tr, th, td,
-// article, aside, canvas, details, figcaption, figure,
-// footer, header, hgroup, menu, nav, section, summary,
-// time, mark, audio, video {
-  // margin: 0;
-  // padding: 0;
-  // border: 0;
-  // vertical-align: baseline;
-// }
+
+body { @include montserrat-light; }
 
 article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {
@@ -55,8 +41,6 @@ hr {
 }
 
 input, select { vertical-align: middle; }
-
-body { @include montserrat-light; }
 
 sub, sup {
   font-size: 0.75em;
@@ -109,8 +93,6 @@ button {
   overflow: visible;
 }
 
-.ie7 img { -ms-interpolation-mode: bicubic; }
-
 a,
 a:active,
 a:visited,
@@ -119,14 +101,12 @@ a:active span,
 a:visited span {
   color: $link-blue;
   text-decoration:none;
-  border-bottom:1px solid $link-blue;
 }
 
+a:active { color: $peach; }
 a:hover,
 a:hover span {
   color: $link-blue;
-  // border-bottom:1px solid #aac0f8;
-  // background-color: $light-pale-blue;
   opacity: 0.8;
 }
 
@@ -135,9 +115,10 @@ a:hover span {
 \* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 h1, h2, h3, h4, h5, h6 {
   @include montserrat-light;
-  margin: 0;
+  margin: 10px 0;
   padding: 0;
 }
+
 h1, .h1 { font-size: $h1-font-size; }
 h2, .h2 { font-size: $h2-font-size; }
 h3, .h3 { font-size: $h3-font-size; }
@@ -177,3 +158,48 @@ h6 { font-size: $h6-font-size; }
 }
 
 h2+h3 { margin-top:1em; }
+
+.maori_gloss { @include montserrat-regular; }
+
+.main_gloss {
+  @include montserrat-regular;
+  font-size: $main-gloss;
+  padding: 0;
+  margin: 10px 0;
+  display: block;
+}
+
+.secondary_gloss {
+  @include montserrat-light;
+  font-size: $secondary-gloss;
+}
+
+.word_gloss {
+  @include montserrat-light;
+  color: $med-grey;
+}
+
+.word_gloss,
+.maori_gloss {
+  font-style: italic;
+  display: block;
+  font-size: $secondary-gloss;
+}
+
+.search-result-banner {
+  @include montserrat-light;
+  font-size: $search-result-banner;
+}
+
+.grammar,
+.glosses { margin-bottom: 1.2em; }
+
+.gloss_container {
+  height: 130px;
+  .secondary_gloss,
+  .word_gloss,
+  .maori_gloss,
+  .main_gloss {
+    margin-left: 10px;
+  }
+}

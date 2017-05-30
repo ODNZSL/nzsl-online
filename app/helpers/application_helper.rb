@@ -31,7 +31,6 @@ module ApplicationHelper
 
   def submit_button(text = 'search.submit', options = {})
     "<div class='button input_button'>
-      <div class='r'></div>
       #{submit_tag(t(text), options.merge(name: nil))}
      </div>".html_safe
   end
@@ -44,13 +43,43 @@ module ApplicationHelper
 
   def link_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to "<div class='r'></div>#{t(text)}".html_safe,
+    link_to "#{t(text)}".html_safe,
+            url,
+            { class: ("button #{options[:class]}") }.reverse_merge(options)
+  end
+
+  def orange_submit_button(text, url = nil, options = {})
+    url ||= 'javascript:void(0);'
+    link_to "<button type='submit' class='orange_submit_button'>
+              #{t(text)}
+            </button>".html_safe,
+            url,
+            { class: ("#{options[:class]}") }.reverse_merge(options)
+  end
+
+  def orange_video_button(text, url = nil, options = {})
+    url ||= 'javascript:void(0);'
+    link_to "<i class='fi-play'></i>#{t(text)}".html_safe,
             url,
             { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
   end
 
+  def orange_link_button(text, url = nil, options = {})
+    url ||= 'javascript:void(0);'
+    link_to "<button type='submit' class='orange_link_button'>
+              <span class='icon-container'>
+                <i class='fi-plus'></i>
+              </span>
+              <span class='text-container'>
+                #{t(text)}
+              </span>
+            </button>".html_safe,
+            url,
+            { class: ("show-for-medium #{options[:class]}") }.reverse_merge(options)
+  end
+
   def div_button(text, options = {})
-    content_tag :div, "<div class='r'></div>#{t(text)}".html_safe,
+    content_tag :div, "#{t(text)}".html_safe,
                 { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
   end
 
@@ -81,9 +110,9 @@ module ApplicationHelper
     link_text = (part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page')
     content_tag :div, [flow_video_tag(asset_path(part.translation_path),
                                       wrapper_class: 'translation_video main_video hidden_video'),
-                       link_button(link_text,
-                                   nil,
-                                   class: 'translation_button')
+                       orange_video_button(link_text,
+                                           nil,
+                                           class: 'translation_button float-left')
                       ].join(' ').html_safe,
                 class: 'videos clearfix_left'
   end

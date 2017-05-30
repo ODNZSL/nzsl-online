@@ -13,4 +13,12 @@ $(document).ready(function() {
     container.closest('.video-container').children('.play-button').css("display", "inline-block");
     container.get(0).pause();
   }
+
+  $(document).click(function(e) {
+    if(!$(e.target).hasClass('video')) {
+      $(this).find('video').each(function() {
+        pauseVideo($(this))
+      });
+    }
+  })
 });
