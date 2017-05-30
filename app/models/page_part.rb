@@ -26,7 +26,7 @@ class PagePart < ActiveRecord::Base
       created_at: created_at,
       updated_at: updated_at
     )
-    return page_part
+    page_part
   end
 
   private
