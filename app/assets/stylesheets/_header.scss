@@ -1,3 +1,10 @@
+.header {
+  position:relative;
+  .nav {
+    background: $primary-blue;
+    position:relative;
+  }
+}
 header {
   background: $primary-blue;
   height: 65px;
@@ -16,12 +23,10 @@ header {
     margin: 0 10px;
     ul {
       display: inline-block;
-
       li {
         display: inline;
         list-style-type: none;
         padding: 10px;
-
         a {
           color: $light-grey;
           text-decoration: none;
@@ -65,7 +70,8 @@ header {
     }
   }
 
-  .overlay a, .overlay span {
+  .overlay a,
+  .overlay span {
     @include montserrat-light;
     padding: 8px;
     text-decoration: none;
@@ -76,12 +82,11 @@ header {
     border-bottom: none;
   }
 
-  .overlay
-  .closebtn {
-      position: absolute;
-      top: 20px;
-      right: 45px;
-      font-size: 60px;
+  .overlay .closebtn {
+    position: absolute;
+    top: 20px;
+    right: 45px;
+    font-size: 60px;
   }
 }
 

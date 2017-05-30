@@ -1,6 +1,6 @@
 /with divs because of IE7
 - no_rule_after ||= false
-%ol{:class => "grid results clearfix#{no_rule_after ? '' : ' rule_after'}"}
+%ol{:class => "small-12 small-centered medium-10 large-8 grid results clearfix#{no_rule_after ? '' : ' rule_after'}"}
   - group.in_groups_of(3) do |row|
     .row_start
       - row.each do |ea|

@@ -1,6 +1,6 @@
-.clearfix_left
+.clearfix_left.column-block
   .translation_video{"data-ratio" => "0.75"}
     %video{controls: true, preload: true, loop: true}
       %source{:src => Rails.application.secrets.s3_bucket_url + page_part.translation_path + ".mp4", :type => "video/mp4"}
       %source{:src => Rails.application.secrets.s3_bucket_url + page_part.translation_path + ".webm", :type => "video/webm"}
-  = link_button((page_part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')
+  = orange_video_button((page_part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')

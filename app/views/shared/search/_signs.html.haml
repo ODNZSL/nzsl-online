@@ -5,7 +5,7 @@
       .title=t('search.signs.handshapes_help');
       .close=t('search.close')
       - SignMenu.handshapes.each do |row|
-        %ul
+        %ul.rows
           - row.each do |group|
             %li{:class => "group #{handshape_selected?(group.first)}"}
               = handshape_image group.shift, true
@@ -24,7 +24,7 @@
       .title=t('search.signs.locations_help');
       .close=t('search.close')
       - SignMenu.locations.each_with_index do |row, i|
-        %ul
+        %ul.rows
           -row.each_with_index do |shape, j|
             - if i.zero? || j.zero?
               %li{:class => "#{location_group_selected?(shape)}"}= location_image shape, true, true
