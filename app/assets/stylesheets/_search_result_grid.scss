@@ -41,7 +41,7 @@ a.div_link {
   overflow: auto;
   margin-bottom: 10px;
   .link_container {
-    width: calc(40% - 5px);
+    width: 35%;
     text-align: left;
     margin-top: 88px;
     margin-left: 5px
@@ -49,7 +49,6 @@ a.div_link {
 
   .unicode_arrow {
     color: $primary-blue;
-    margin-left: 2px;
   }
   .show_link {
     @include montserrat-regular;
@@ -62,10 +61,13 @@ a.div_link {
   }
 
   .drawing_container {
-    width: 60%;
+    width: 58%;
     float: left;
     padding-top: 5px;
-    .drawing img { margin: 0; }
+    .drawing img {
+      max-width: 90%;
+      margin-right: 0;
+    }
   }
 }
 

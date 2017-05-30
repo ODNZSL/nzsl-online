@@ -13,4 +13,7 @@
       border-bottom: none;
     }
   }
+  @media screen and(min-width: $medium-screen) {
+    .typography { margin: 20px; }
+  }
 }

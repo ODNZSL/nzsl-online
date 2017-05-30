@@ -3,7 +3,7 @@
     = render :partial => 'pages/content'
     %ol
       - SignMenu.topic_tags.each do |topic|
-        %li.topic-li-style.small-12.medium-6.large-4
+        %li.topic-li-style.small-12
           = link_to topic[0], search_signs_path(tag: topic[1])
     %h2
       Linguistic Usage
