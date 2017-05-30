@@ -2,7 +2,7 @@
   overflow: auto;
   line-height: 42px;
   padding-bottom: 10px;
-
+  margin-top: 20px;
   ::-webkit-scrollbar {
     display: none;
   }
@@ -12,14 +12,6 @@
       left: 0;
     }
   }
-}
-
-.search_results_banner {
-  @include montserrat-light;
-  font-size: $h1-font-size;
-  background-color: $pale-blue;
-  padding: 25px 0;
-  margin-bottom: 45px;
 }
 
 .search_results_card {
