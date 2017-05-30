@@ -14,8 +14,8 @@ class Setting < ActiveRecord::Base
   def self.create_from_csv(row)
     id, key, value, created_at, updated_at = row
 
-    Setting.where(id: id).first_or_create(
-      id: id,
+    setting = Setting.where(id: id).first_or_initialize
+    setting.update_attributes(
       key: key,
       value: value,
       updated_at: updated_at,
