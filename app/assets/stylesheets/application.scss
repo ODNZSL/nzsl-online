@@ -7,6 +7,7 @@
 @import "foundation-icons";
 @import "custom_icons";
 @import "buttons";
+@import "video";
 @import "header";
 @import "typography";
 @import "flowplayer";
@@ -18,6 +19,7 @@
 @import "header";
 @import "vocab_sheet";
 @import "search_result_grid";
+@import "home";
 
 .hide { display: none; }
 .show { display: inline-block; }
@@ -47,18 +49,14 @@ li { margin: 0; }
   margin: 0 auto;
 }
 
-.grid-stack {
-  height: 150px;
- }
+.grid-stack { height: 150px; }
 
  img {
    display: inline;
    margin: 5px 10px;
  }
 
- .before_sticky_footer {
-   min-height: 400px;
- }
+ .before_sticky_footer { min-height: 400px; }
 
 // --------------------------------------
 
@@ -67,6 +65,7 @@ html, body {
   width: 100%;
   min-width: $small-screen;
   margin: 0 auto;
+  color: $dark-grey;
 }
 
 .not_sticky_footer {
@@ -94,77 +93,6 @@ a.logo {
 }
 
 .print_logo { display:none; }
-
-.bottom_border {
-  width:92px;
-  height:8px;
-  background: bottom left repeat-x;
-  background-image: image_url('ui/borders.png');
-  position:absolute;
-  bottom:-36px;
-  left:0;
-  z-index:9;
-}
-
-// Tabs
-// -----------------
-
-.search_tabs {
-  position:absolute;
-  left: 108px;
-  top:-27px;
-  height:28px;
-  width:582px;
-  margin:0 auto;
-}
-
-.search_tabs li {
-  line-height:26px;
-  padding:0 5px;
-  font-size:93%;
-  float:left;
-  list-style-type:none;
-}
-
-.search_tabs li.tab {
-  padding:0 9px;
-  margin-right:4px;
-  position:relative;
-  background: image_url('ui/tab.png') top left repeat-x;
-  font-size:108%;
-  cursor:pointer;
-}
-
-.search_tabs li.tab .l,
-.search_tabs li.tab .r {
-  background: bottom left no-repeat;
-  background-image: image_url('ui/tab.png');
-  width:1px;
-  height:26px;
-}
-
-.search_tabs li.selected {
-  padding:0 9px;
-  border:1px solid #99a0a5;
-  border-bottom-color:#eceef0;
-  background:#eceef0;
-  top:-1px;
-}
-
-.search_tabs li.selected .l,
-.search_tabs li.selected .r { background:none; }
-
-.search_tabs .tab a {
-  border-bottom:0;
-  background:transparent;
-  color:#34414b;
-}
-
-.search_tabs .tab a:active,
-.search_tabs .tab a:focus { outline: 0; }
-
-// Search
-// -----------------
 
 .selected { display: block; }
 
@@ -368,26 +296,6 @@ a.drawing {
 
 .entry_drawing .offset { position: relative; }
 
-.main_video,
-.main_video video,
-.main_video embed {
-  width: 100%;
-  max-width: 480px;
-}
-
-video {
-  width: 100%;
-  margin-bottom: 20px;
-}
-
-.examples { clear: both; }
-
-.example { margin: 10px 0 24px; }
-
-.videos .slow { display: none; }
-
-.videos .button { float: right; }
-
 .sign_attributes .image {
   position: relative;
   display: inline-block;
@@ -398,24 +306,6 @@ video {
   top: 0;
   left: 0;
 }
-
-/* Homepage */
-.sign_of_the_day {
-  @media screen and (max-width: $medium-screen) {
-    margin: 0 auto;
-    float: none;
-  }
-  text-align: center;
-  float: right;
-  margin: 0;
-  width: 150px;
-}
-
-.sign_of_the_day .h2 { display: inline; }
-
-.videos .hidden_video { display: none; }
-
-.videos .selected {display:block;}
 
 /* the formtastic default stylesheet wasn't making me happy. */
 
@@ -473,37 +363,6 @@ video {
 .formtastic .text .inline-errors { right: 45px; }
 
 .formtastic .sub_form { margin-left: 15px; }
-
-a .button,
-.button { @extend .orange_submit_button; }
-
-.button:visited { color: white; }
-
-.button input,
-.button button {
-  background: transparent;
-  border: 0;
-  color: white;
-  padding: 0;
-  height: 24px;
-  width: auto;
-  line-height: 24px;
-  margin: 0;
-  display: block;
-  overflow: visible;
-  outline: 0;
-}
-
-.ie7 .input_button { margin: 0; }
-
-.button button::-moz-focus-inner,
-.button input::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
-/* * * * * * *\
-|* Utilities  *|
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 
 .view_print_back_link {
   float: right;
