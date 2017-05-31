@@ -13,6 +13,7 @@
   display: block;
   margin: 5px 5px 25px;
   outline: 1px solid $primary-blue;
+  overflow: hidden;
 
   ::-webkit-scrollbar {
     display: none;
