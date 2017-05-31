@@ -6,7 +6,7 @@
     .home-translation-video.small-12.medium-5.float-right
       .video-container
         %i.fi-play.play-button
-        %video{controls: false, preload: true, loop: true, class: "main_video"}
+        %video{controls: false, preload: true, loop: true, class: "main_video home-video"}
           %source{:src => Rails.application.secrets.s3_bucket_url + @page.first_part.translation_path + ".mp4", :type => "video/mp4"}
           %source{:src => Rails.application.secrets.s3_bucket_url + @page.first_part.translation_path + ".webm", :type => "video/webm"}
         %p.help-link.text-center
