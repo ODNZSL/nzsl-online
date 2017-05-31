@@ -1,28 +1,23 @@
-.search_results {
-  .search_result_video {
-    float:left; 
-    clear:left; 
-    margin-right:16px; 
-    margin-bottom:10px;
-    margin-top: 10px;
-  }
-  .search_result_video, 
-  .search_result_video video, 
-  .search_result_video embed {
-    width:140px; 
-    height:105px;
+.search_results_card {
+  video {
+    float: left;
+    clear: left;
+    margin-right: 16px;
+    margin-bottom: 10px;
   }
 
   .videos .button {
     margin-right: 18px;
     margin-bottom: 5px;
-    float:left;
+    float: left;
   }
-
-  .drawing img {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    vertical-align: bottom;
-  }
+}
+@media screen and (min-width: $medium-screen) {
+  .search_results_card { width: calc(50% - 12px); }
+}
+@media screen and (min-width: $large-screen) {
+  .search_results_card { width: calc(33% - 12px); }
+}
+@media screen and (min-width: $xlarge-screen) {
+  .search_results_card { width: calc(25% - 12px); }
 }

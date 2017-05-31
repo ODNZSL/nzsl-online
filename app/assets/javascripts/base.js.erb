@@ -5,7 +5,6 @@ $(function(){
     setup_translation_videos();
     setup_slow_motion_videos();
     setup_help_videos();
-    setup_search_tabs();
     setup_sign_selection();
     setup_handshapes_hover_fix();
     setup_prompt_labels();
@@ -151,15 +150,6 @@ $(function(){
     $('.menu').css('bottom', '0').css('bottom', bottom);
   };
 
-  var setup_search_tabs = function(){
-    $('.tab, .tab_link').click(function(e){
-      e.preventDefault();
-      var tab = this.className.match(/(advanced|keywords|signs)/)[0];
-      $('.tab, .search_field').removeClass('selected');
-      $('.tab.'+tab+', .search_field.'+tab).addClass('selected');
-      reset_menu_position();
-    });
-  };
   var setup_sign_selection = function(){
     $(document).click(function(){
       hide_all_dropdowns();
@@ -244,8 +234,6 @@ $(function(){
       $(this).attr('src', $(this).attr('src').replace('/72/', '/42/'));
     });
     container.find('.selected_signs').replaceWith(selected_container);
-    //hide "Any" unless we've deselected everything.
-    container.find('.default').toggle(selected_images.length === 0);
     process_images_for_input(container, selected_images);
   };
 
@@ -263,6 +251,7 @@ $(function(){
     if (has_groups){
       container.find('.selected_groups_field').first().val(output_group.join(' '));
     }
+    // set the value of the hidden field for the relevant search topic
     container.find('.selected_field').first().val(output.join(' '));
     toggle_clear(container.closest('form'));
   };
@@ -283,8 +272,7 @@ $(function(){
       $('label.input_prompt').each(function(){
         var label = $(this);
         var input = $('#'+label.attr('for'));
-        label.css({width:input.outerWidth()+'px',top:'0',left:'0',height:input.outerHeight()+'px',position:'absolute',zIndex:99,lineHeight:input.outerHeight()+'px'})
-             .click(function(){
+        label.click(function(){
                 label.hide();
              });
         input.focus(function(){ label.hide(); })
@@ -297,6 +285,7 @@ $(function(){
       reset_menu_position();
     }
   };
+
   var setup_print_view = function(){
     //load print
     if (document.printView) {

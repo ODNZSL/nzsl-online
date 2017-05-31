@@ -1,18 +1,15 @@
 .footer-link a,
 .footer-link span {
   color: $light-grey;
-  text-decoration: none;
   border-bottom: none;
-  font-size: $global-font-size;
-  &:hover {
-    color: white;
-    background-color: initial;
-  }
 }
 
 footer {
   color: $light-grey;
-  img { @include center-element; }
+  img {
+    @include center-element;
+    max-width: 250px;
+  }
 
   .social-media {
     width: 115px;
@@ -25,24 +22,20 @@ footer {
 
   .footer-heading {
     @include montserrat-bold;
-    padding: 20px 0;
-    text-align: center;
+    padding: 15px 0;
   }
   .sub-footer-container {
-    background: $light-med-grey;
+    background: $dark-blue;
     .sub-footer-content {
       padding: 10px 0 20px 0;
-      .footer-heading {
-        color: white;
-        text-align: center;
-      }
+      h3 { color: white; }
       img { padding: 10px 0; }
     }
   }
   .first { border: 0; }
 
   .copyright {
-    background-color: $dark-grey;
+    background-color: $darkest-blue;
     border-top: 1px solid white;
     padding: 20px 0;
     overflow: auto;
@@ -50,7 +43,7 @@ footer {
   }
 
   .footer-container {
-    background-color: $dark-grey;
+    background-color: $darkest-blue;
     overflow: auto;
     padding: 30px 0 20px;
     .footer-columns {
@@ -69,13 +62,11 @@ footer {
       overflow: auto;
       max-width: 340px;
       img {
-        float: left;
         margin: 0 10px;
       }
       div {
         width: calc(100% - 52px);
         display: inline-block;
-        float: left;
       }
     }
   }
@@ -91,7 +82,6 @@ footer {
       .footer-columns {
         float: left;
         .learnnzsl { margin: initial; }
-        h4 { text-align: left; }
       }
     }
     .copyright {

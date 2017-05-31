@@ -1,12 +1,7 @@
 $small-screen: 320px;
 $medium-screen: 640px;
-$large-screen: 1200px;
+$large-screen: 1024px;
 $xlarge-screen: 1440px;
-
-$light-grey: #E5E5E5;
-$light-med-grey: #CCC;
-$med-grey: #999;
-$dark-grey: #666;
 
 $h1-font-size: 1.8em;
 $h2-font-size: 1.6em;
@@ -14,11 +9,18 @@ $h3-font-size: 1.4em;
 $h4-font-size: 1.2em;
 $h5-font-size: 1.1em;
 $h6-font-size: 1em;
+$subtitle-font-size: 0.85em;
+$main-gloss-font-size: 1.25em;
+$subgloss-font-size: 0.87em;
+$pagination-font-size: 0.75em;
+$main-gloss: 1.333em;
+$secondary-gloss: 0.933em;
+$search-result-banner: 1.8em;
 
 @mixin montserrat-light {
   font-family: "Montserrat";
   font-weight: 300;
-  font-size: 14px;
+  font-size: 15px;
 }
 
 @mixin montserrat-bold {
@@ -26,7 +28,26 @@ $h6-font-size: 1em;
   font-weight: 500;
 }
 
+@mixin montserrat-regular {
+  font-family: "Montserrat";
+  font-weight: 400;
+}
+
 @mixin center-element {
   margin: 0 auto;
   display: block;
+}
+
+@mixin border-radius-small {
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+
+@mixin border-radius-large {
+  -webkit-border-radius: 25px;
+  -moz-border-radius: 25px;
+  -o-border-radius: 25px;
+  border-radius: 25px;
 }

@@ -1,45 +1,46 @@
 = render :partial => 'pages/content'
-.typography
-  %h2 Classifier types
-  %h3#sass Classifiers for specifying size and shape (Size and Shape Specifiers (SASS))
-  %p
-    %em These handshapes describe how objects look, and/or how they are arranged.
-= render :partial => 'static_pages/grid', :locals => {:group => classifiers[:sass]}
-.typography
-  %h3#texture Texture, consistency, and quality classifiers
-  %p
-    %em These handshapes describe how things feel or look.
-= render :partial => 'static_pages/grid', :locals => {:group => classifiers[:texture_consistency]}
-.typography
-  %h3#entity Entity classifiers
-  %p
-    %em These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
+.small-11.small-centered.medium-10.large-8
+  .typography
+    %h2 Classifier types
+    %h3#sass Classifiers for specifying size and shape (Size and Shape Specifiers (SASS))
+    %p
+      %em These handshapes describe how objects look, and/or how they are arranged.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:sass]}
+  .typography
+    %h3#texture Texture, consistency, and quality classifiers
+    %p
+      %em These handshapes describe how things feel or look.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:texture_consistency]}
+  .typography
+    %h3#entity Entity classifiers
+    %p
+      %em These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
 
-- classifiers[:entity].each_with_index do |value, i|
-  %h4= value.first
-  = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:entity].length - 1)}
-.typography
-  %h3#body_part Body parts classifiers
-  %p
-    %em These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals &mdash; paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
-= render :partial => 'static_pages/grid', :locals => {:group => classifiers[:body_parts]}
+  - classifiers[:entity].each_with_index do |value, i|
+    %h4= value.first
+    = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:entity].length - 1)}
+  .typography
+    %h3#body_part Body parts classifiers
+    %p
+      %em These handshapes describe moveable body parts including: legs, arms, head, feet, eyes, hair, ears, penis, eyebrows, mouth, tongue, buttocks, etc. For animals &mdash; paws, tail, whiskers, claws, wings, beak. These can function as proforms incorporating noun and verb.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:body_parts]}
 
-.typography
-  %h3#mass Mass or quantity classifiers
-  %p
-    %em These handshapes show groups, numbers, and arrangements of objects; e.g. a line of people or trees, a queue of traffic, an audience of people, masses of sheep, a pile of something, rows of chairs, masses of stars.
-= render :partial => 'static_pages/grid', :locals => {:group => classifiers[:mass_or_quantity]}
+  .typography
+    %h3#mass Mass or quantity classifiers
+    %p
+      %em These handshapes show groups, numbers, and arrangements of objects; e.g. a line of people or trees, a queue of traffic, an audience of people, masses of sheep, a pile of something, rows of chairs, masses of stars.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:mass_or_quantity]}
 
-.typography
-  %h3#handling Handling or instrumental classifiers
-  %p
-    %em These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
-= render :partial => 'static_pages/grid', :locals => {:group => classifiers[:handling_or_instrumental]}
+  .typography
+    %h3#handling Handling or instrumental classifiers
+    %p
+      %em These handshapes describe how an object is handled and its shape, e.g. cutting with a knife, holding paper, lifting a board, using a tool, carrying a bag, pulling a rope, pushing a car, twisting a jar lid.
+  = render :partial => 'static_pages/grid', :locals => {:group => classifiers[:handling_or_instrumental]}
 
-.typography
-  %h3#element Element classifiers
-  %p
-    %em These proforms describe the appearance and movement of the elements of fire, water, and air.
-- classifiers[:element].each_with_index do |value, i|
-  %h4= value.first
-  = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:element].length - 1)}
+  .typography
+    %h3#element Element classifiers
+    %p
+      %em These proforms describe the appearance and movement of the elements of fire, water, and air.
+  - classifiers[:element].each_with_index do |value, i|
+    %h4= value.first
+    = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:element].length - 1)}
