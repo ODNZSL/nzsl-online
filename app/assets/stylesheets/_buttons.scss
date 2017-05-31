@@ -70,6 +70,7 @@
 .orange_submit_button { padding: 5px; }
 
 .play-button {
+  @include show-for(medium);
   color: white;
   font-size: 70px;;
   position: absolute;
