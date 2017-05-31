@@ -97,11 +97,11 @@
     &.topic,
     &.usage {
       .selected {
-        background-color: initial;
+        background-color: $super-pale-blue;
       }
     }
   }
-  .show-for-medium.empty {
+  .empty {
     right: 20px;
     top: 0;
     font-size: 24px;
@@ -121,6 +121,9 @@
   border: 1px solid $light-grey;
   display: none;
   padding: 5px;
+  .selected {
+    background-color: $super-pale-blue;
+  }
 }
 
 .handshapes .dropdown {
