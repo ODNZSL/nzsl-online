@@ -4,11 +4,13 @@
       %h3= t('signs.sign_of_the_day')
       = link_to sign_url(sign.id), {class: "sign-heading"} do
         = sign.gloss_main
-    = link_to sign_url(sign.id), {:class => 'drawing small-12 medium-6 float-right'} do
-      = image_tag "signs/150-100/#{sign.drawing}"
-    .video-container.small-12.medium-6.float-left
-      %i.fi-play.play-button
-      %video.main_video.video.normal{preload: true, loop: true}
-        %source{type: "video/mp4", src: sign.video}
+    .sign-content-container
+      .sign-container.small-12.medium-6.float-right
+        = link_to sign_url(sign.id), {:class => 'drawing'} do
+          = image_tag "signs/320-180/#{sign.drawing}", class: "sign-image"
+      .video-container.small-12.medium-6.float-left
+        %i.fi-play.play-button
+        %video.main_video.video.normal{preload: true, loop: true}
+          %source{type: "video/mp4", src: sign.video}
   .button.text-center
     = link_to t('signs.another_sign_of_the_day'), '/'
