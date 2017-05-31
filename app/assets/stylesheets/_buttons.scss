@@ -82,5 +82,21 @@
   float: none;
   clear: left;
 }
+
 .translation_button { @extend .orange_video_button; }
+
 .no-js .translation_button { display: none; }
+
+a .button,
+.button input,
+.button button,
+.button a,
+.button { @extend .orange_submit_button; }
+
+.button:visited { color: white; }
+
+.button button::-moz-focus-inner,
+.button input::-moz-focus-inner {
+  padding: 0;
+  border: 0;
+}

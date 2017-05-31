@@ -6,12 +6,7 @@
   ::-webkit-scrollbar {
     display: none;
   }
-  .video-container {
-    position: relative;
-    .play-button {
-      left: 0;
-    }
-  }
+  .video-container .play-button { left: 0; }
 }
 
 .search_results_card {
