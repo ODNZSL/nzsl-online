@@ -25,6 +25,8 @@ gem 'aws-sdk', '~> 2'
 gem 'browser'
 gem 'foundation-rails'
 
+gem 'raygun4ruby'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'
