@@ -23,6 +23,20 @@
     padding: 10px;
   }
 
+  .sign-content-container {
+    overflow: auto;
+    position: relative;
+    video { margin: 0; }
+  }
+
+  .sign-container {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    img { max-width: 100%; }
+  }
+
   .sign-of-the-day {
     margin: 0 auto;
     overflow: hidden;
