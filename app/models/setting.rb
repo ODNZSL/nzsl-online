@@ -21,5 +21,6 @@ class Setting < ActiveRecord::Base
       updated_at: updated_at,
       created_at: created_at
     )
+    setting
   end
 end
