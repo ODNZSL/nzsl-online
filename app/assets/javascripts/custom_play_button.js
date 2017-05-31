@@ -1,18 +1,27 @@
 $(document).ready(function() {
   $("video").click(function(e) {
     e.preventDefault();
-    this.paused == true ? playVideo(this) : pauseVideo(this);
+    videoResponse(this);
   });
 
-  function playVideo(container) {
-    pauseOtherVideos(container);
-    $(container).closest(".video-container").children(".play-button").css("display", "none");
-    $(container).get(0).play();
+  $(".play-button").click(function(e) {
+    e.preventDefault();
+    videoResponse(this.nextElementSibling);
+  });
+
+  function videoResponse(video) {
+    video.paused == true ? playVideo(video) : pauseVideo(video);
   }
 
-  function pauseVideo(container) {
-    $(container).closest(".video-container").children(".play-button").css("display", "inline-block");
-    $(container).get(0).pause();
+  function playVideo(video) {
+    pauseOtherVideos(video);
+    $(video).closest(".video-container").children(".play-button").css("display", "none");
+    $(video).get(0).play();
+  }
+
+  function pauseVideo(video) {
+    $(video).closest(".video-container").children(".play-button").css("display", "inline-block");
+    $(video).get(0).pause();
   }
 
   function pauseOtherVideos(currentVideo) {
