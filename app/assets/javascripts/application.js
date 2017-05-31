@@ -14,5 +14,6 @@
 //= require search_result_link
 //= require foundation
 //= require custom_play_button
+//= require vertical-center
 
 $(document).foundation();
