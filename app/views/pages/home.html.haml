@@ -1,21 +1,16 @@
-.typography.small-11.small-centered.medium-10.large-8
-  %h1
-    The Online Dictionary of
-    %br
-    New Zealand Sign Language
-  / # = video_translation(@page.first_part) if @page.first_part.present? &&  @page.first_part.translation_path.present?
-
-  - if @page.first_part.present? &&  @page.first_part.translation_path.present?
-    = render partial: "shared/translation_video", locals: {page_part: @page.first_part}
-
-  .medium-8.show
-    - if @page.first_part.present?
-      != @page.first_part.body
+.home-container.typography.small-12.small-centered
+  .home-content.small-11.small-centered.medium-9
+    .home-title.small-12.medium-7.large-6.float-left
+      - if @page.first_part.present?
+        != @page.first_part.body
+    .home-translation-video.small-12.medium-5.float-right
+      .video-container
+        %i.fi-play.play-button
+        %video{controls: false, preload: true, loop: true, class: "main_video"}
+          %source{:src => Rails.application.secrets.s3_bucket_url + @page.first_part.translation_path + ".mp4", :type => "video/mp4"}
+          %source{:src => Rails.application.secrets.s3_bucket_url + @page.first_part.translation_path + ".webm", :type => "video/webm"}
+        %p.help-link.text-center
+          New to this site?
+          = link_to "View our help page.", '/help'
+.home-sign-container.small-12.medium-8
   = render :partial => '/signs/sign_of_the_day', :locals => {:sign => Sign.random}
-  - @page.page_parts.each_with_index do |page_part, i|
-    - next if i.zero?
-    .rule_after
-      %h2= page_part.title
-      = video_translation(page_part) if page_part.translation_path.present?
-      .ckeditor_content
-        != page_part.body
