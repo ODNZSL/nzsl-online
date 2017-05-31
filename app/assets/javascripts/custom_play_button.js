@@ -1,6 +1,6 @@
 $(document).ready(function() {
 
-  if(Modernizr.touch) {
+  if(Modernizr.touch && !Foundation.MediaQuery.atLeast("large")) {
     $(".play-button").hide();
     $("video").each(function() { $(this).prop("controls", true); })
   }
