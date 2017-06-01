@@ -1,0 +1,21 @@
+.video-container { position: relative; }
+
+.main_video,
+.main_video video,
+.main_video embed {
+  width: 100%;
+  max-width: 480px;
+}
+
+video {
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.videos .slow { display: none; }
+
+.videos .button { float: right; }
+
+.videos .hidden_video { display: none; }
+
+.videos .selected { display: block; }

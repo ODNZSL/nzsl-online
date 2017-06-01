@@ -1,0 +1,50 @@
+.home-container {
+  @include montserrat-regular;
+  background: $pale-blue;
+  overflow: hidden;
+  padding: 20px 0;
+  .home-content {
+    p { line-height: 1.8; }
+    ul { margin-left: 2rem; }
+    h1 {
+      @include montserrat-regular;
+      font-size: $h2-font-size;
+      margin: 20px 0;
+    }
+  }
+}
+
+.home-sign-container {
+  margin: 20px auto;
+
+  .button {
+    margin: 10px auto;
+    width: 145px;
+    padding: 10px;
+  }
+
+  .sign-content-container {
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+    max-width: 600px;
+    video { margin: 0; }
+  }
+
+  .sign-container {
+    position: relative;
+    img {
+      @include center;
+      height: 80%;
+    }
+  }
+
+  .sign-heading {
+    @include montserrat-regular;
+    font-size: $h1-font-size;
+    color: $primary-blue;
+    display: block;
+    text-transform: capitalize;
+    margin: 10px 0;
+  }
+}
