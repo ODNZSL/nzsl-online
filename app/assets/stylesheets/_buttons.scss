@@ -70,13 +70,9 @@
 .orange_submit_button { padding: 5px; }
 
 .play-button {
-  display: inline-block;
+  @include center;
   color: white;
   font-size: 70px;;
-  position: absolute;
-  width: 100%;
-  text-align: center;
-  margin-top: calc((100% - 85px) / 3);
 }
 
 .videos .translation_button {
