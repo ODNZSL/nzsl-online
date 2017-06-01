@@ -1,4 +1,10 @@
 $(document).ready(function() {
+
+  if(Modernizr.touch && !Foundation.MediaQuery.atLeast("large")) {
+    $(".play-button").hide();
+    $("video").each(function() { $(this).prop("controls", true); })
+  }
+
   $("video").click(function(e) {
     e.preventDefault();
     videoResponse(this);
@@ -15,12 +21,12 @@ $(document).ready(function() {
 
   function playVideo(video) {
     pauseOtherVideos(video);
-    $(video).closest(".video-container").children(".play-button").css("display", "none");
+    $(video).closest(".video-container").children(".play-button").css("visibility", "hidden");
     $(video).get(0).play();
   }
 
   function pauseVideo(video) {
-    $(video).closest(".video-container").children(".play-button").css("display", "inline-block");
+    $(video).closest(".video-container").children(".play-button").css("visibility", "visible");
     $(video).get(0).pause();
   }
 
