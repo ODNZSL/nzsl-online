@@ -3,36 +3,43 @@
   = t('search.results.for')
   &ldquo;#{display_search_term}&rdquo;
 .search_results_container.text-center.small-12.small-centered.medium-8
-  %ol.no-bullet
+  %div{class: "row small-up-1 medium-up-2 large-up-3 xlarge-up-4", id: "search-container", data: {"equalizer": true, "equalize-by-row": true}}
     - @signs.each do |sign|
-      %li.search_results_card.float-left
-        - if @query[:s]
-          - query_text = @query[:s].join(" ")
-        - else
-          - query_text = " "
-        .video-container
-          %i.fi-play.play-button
-          %video.normal{controls: false, preload: true, loop: true}
-            %source{type: "video/mp4", src:  sign.video}
-        %div.clickable_link.small-12.small-centered
-          %a{:href => "#{sign_url(sign.id)}", class: "div_link"}
-            %span
-              .gloss_container.small-12.float-left
-                = link_to sign_url(sign.id), {:class => 'main_gloss small-12 text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
-                  = sign.gloss_main
-                - if sign.gloss_secondary.present?
-                  .secondary_gloss.text-left= sign.gloss_secondary
-                - if sign.gloss_maori
-                  .maori_gloss.small-12.text-left= sign.gloss_maori
-                - if sign.word_classes.present?
-                  .word_gloss.small-12.text-left= sign.word_classes
-              .link_and_drawing_container.small-12
-                .link_container.float-left
-                  = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}
-                  %span.unicode_arrow.float-left &rarr;
-                .drawing_container.float-left
-                  = link_to sign_url(sign.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
-                    = image_tag "signs/150-100/#{sign.drawing}"
+      %div.column
+        %div{ class: "search_results_card", data: {"equalizer-watch": true}}
+          - if @query[:s]
+            - query_text = @query[:s].join(" ")
+          - else
+            - query_text = " "
+          .video-container
+            %i.fi-play.play-button
+            %video.normal{controls: false, preload: true, loop: true}
+              %source{type: "video/mp4", src:  sign.video}
+          %div.clickable_link.small-12.small-centered
+            %a{:href => "#{sign_url(sign.id)}", class: "div_link"}
+              %span
+                .gloss_container.small-12.float-left
+                  = link_to sign_url(sign.id), {:class => 'main_gloss small-12 text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
+                    = sign.gloss_main
+                  - if sign.gloss_secondary.present?
+                    .secondary_gloss.text-left= sign.gloss_secondary
+                  - if sign.gloss_maori
+                    .maori_gloss.small-12.text-left= sign.gloss_maori
+                  - if sign.word_classes.present?
+                    .word_gloss.small-12.text-left= sign.word_classes
+                .link_and_drawing_container.small-12
+                  .link_container.float-left
+                    = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}
+                    %span.unicode_arrow.float-left &rarr;
+                  .drawing_container.float-left
+                    = link_to sign_url(sign.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
+                      = image_tag "signs/150-100/#{sign.drawing}"
+
+
+
+
+
+
   .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
       %ol.pagination
