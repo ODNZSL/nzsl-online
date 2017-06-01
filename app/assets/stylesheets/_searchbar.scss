@@ -47,6 +47,9 @@
       border: none;
     }
   }
+  &_field {
+    position: relative;
+  }
 }
 .advanced-search-container { display: none; }
 
@@ -94,15 +97,14 @@
     &.topic,
     &.usage {
       .selected {
-        background-color: initial;
+        background-color: $super-pale-blue;
       }
     }
   }
-  .show-for-medium.empty {
-    position: relative;
-    float: right;
-    color: white;
-    top: 10px;
+  .empty {
+    right: 20px;
+    top: 0;
+    font-size: 24px;
   }
 }
 @media screen and (min-width: $large-screen) {
@@ -119,6 +121,9 @@
   border: 1px solid $light-grey;
   display: none;
   padding: 5px;
+  .selected {
+    background-color: $super-pale-blue;
+  }
 }
 
 .handshapes .dropdown {
@@ -135,7 +140,6 @@
 .usage .dropdown {
   padding: 0;
   width: 260px;
-  border: none;
   max-height: 400px;
   overflow: scroll;
   overflow-x: hidden;
@@ -163,4 +167,8 @@
   padding-right: 20px;
   height: 15px;
   line-height: 15px;
+}
+
+::-webkit-search-cancel-button {
+  display: none;
 }

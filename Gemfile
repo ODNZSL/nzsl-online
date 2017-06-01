@@ -25,6 +25,9 @@ gem 'aws-sdk', '~> 2'
 gem 'browser'
 gem 'foundation-rails'
 
+# records crashes
+gem 'raygun4ruby'
+
 # pagination
 gem 'will_paginate'
 
