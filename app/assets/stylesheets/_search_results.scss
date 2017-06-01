@@ -1,23 +1,20 @@
-.search_results_card {
-  video {
-    float: left;
-    clear: left;
-    margin-right: 16px;
-    margin-bottom: 10px;
+.search_results_container {
+  overflow: auto;
+  margin-top: 20px;
+  .row {
+    margin: 0 !important;
+    max-width: 100% !important;
   }
-
-  .videos .button {
-    margin-right: 18px;
-    margin-bottom: 5px;
-    float: left;
+  .search_results_card {
+    margin: 5px 5px 25px;
+    outline: 1px solid $primary-blue;
+    overflow: hidden;
+    &:hover { outline: 3px solid $primary-blue; }
+    video { margin-bottom: 10px; }
+    .videos .button {
+      margin-right: 18px;
+      margin-bottom: 5px;
+      float: left;
+    }
   }
 }
-// @media screen and (min-width: $medium-screen) {
-//   .search_results_card { width: calc(50% - 12px); }
-// }
-// @media screen and (min-width: $large-screen) {
-//   .search_results_card { width: calc(33% - 12px); }
-// }
-// @media screen and (min-width: $xlarge-screen) {
-//   .search_results_card { width: calc(25% - 12px); }
-// }
