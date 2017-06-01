@@ -1,5 +1,5 @@
 = label_tag :s, "Sign Search", class: "text-center search-label show-for-medium"
 %div{class: "search_field prompt_input_wrapper small-11 medium-7 medium-centered #{tab_class(:advanced, :keywords)}"}
   = search_field_tag :s, search_term(:s), class: "small-12 small-centered medium-centered search-field search_box text_input", placeholder:"Search by English or Māori keywords"
-  %a.empty.if_js{href: "javascript:void(0);"}
+  %a.empty.show-for-medium.if_js{href: "javascript:void(0);"}
     &times
