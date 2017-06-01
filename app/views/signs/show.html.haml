@@ -24,7 +24,7 @@
         %video.main_video.video.normal{preload: true, loop: true}
           %source{type: "video/mp4", src:  @sign.video}
         - if @sign.video_slow.present?
-          %video.main_video.video.slow{controls: true, preload: true, loop: true}
+          %video.main_video.video.slow{controls: false, preload: true, loop: true}
             %source{type: "video/mp4", src:  @sign.video_slow}
           = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
           = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
