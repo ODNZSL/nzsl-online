@@ -18,23 +18,17 @@ $(document).ready(function() {
   })
 
   function addStyle(listElement) {
-    listElement.css("background-color", "#F0F6FA")
-               .addClass('selected');
+    listElement.addClass('selected');
   }
 
   function removeStyle(listElements) {
-    listElements.removeClass('selected')
-                .css("background-color", "");
+    listElements.removeClass('selected');
   }
 
-// Make sure clear x is displayed as soon as dropdown items are clicked, and
-// clear styles if button is clicked
+// Make sure clear x is displayed as soon as dropdown items are clicked
 
   function clearDropdown(list) {
     $('.empty').css("display", "block")
-    $('.empty').click(function() {
-      list.css("background-color", "");
-    })
   }
 
 // remember dropdown state after search form submitted
