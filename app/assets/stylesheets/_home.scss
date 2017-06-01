@@ -24,22 +24,19 @@
   }
 
   .sign-content-container {
-    overflow: auto;
+    overflow: hidden;
     position: relative;
+    margin: 0 auto;
+    max-width: 600px;
     video { margin: 0; }
   }
 
   .sign-container {
-    position: absolute;
-    top: 0;
-    bottom: 0;
-    right: 0;
-    img { max-width: 100%; }
-  }
-
-  .sign-of-the-day {
-    margin: 0 auto;
-    overflow: hidden;
+    position: relative;
+    img {
+      @include center;
+      height: 80%;
+    }
   }
 
   .sign-heading {
