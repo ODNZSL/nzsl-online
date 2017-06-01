@@ -17,7 +17,7 @@
       %em These handshapes always represent a specific kind of object; e.g. vehicle, person, legs, plane. They are proforms that function as noun and verb combined.
 
   - classifiers[:entity].each_with_index do |value, i|
-    %h4= value.first
+    %h3.static-page-heading= value.first
     = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:entity].length - 1)}
   .typography
     %h3#body_part Body parts classifiers
@@ -42,5 +42,5 @@
     %p
       %em These proforms describe the appearance and movement of the elements of fire, water, and air.
   - classifiers[:element].each_with_index do |value, i|
-    %h4= value.first
+    %h3.static-page-heading= value.first
     = render :partial => 'static_pages/grid', :locals => {:group => value.last, :no_rule_after => (i != classifiers[:element].length - 1)}
