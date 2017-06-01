@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ## a sign in New Zealand Sign Language
 class Sign
   require 'open-uri'
@@ -68,13 +70,16 @@ class Sign
     xml_document = Nokogiri::XML(open(url))
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
+    save_time_elapsed(url, before_time, count)
 
+    [count, entries]
+  end
+
+  def self.save_time_elapsed(url, before_time, count)
     # how long did that query take?
     after_time = Time.now.to_f
     elapsed_time = after_time - before_time
-    Request.create! url: url_for_search(params), elapsed_time: elapsed_time, count: count, query_type: 'Sign.search'
-
-    [count, entries]
+    Request.create! url: url, elapsed_time: elapsed_time, count: count, query_type: 'Sign.search'
   end
 
   def self.url_for_search(query)
