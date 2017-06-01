@@ -20,10 +20,10 @@
         = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
     .videos.small-12.medium-5
       .video-container
-        %video.main_video.video.normal{controls: true, preload: true, loop: true}
+        %video.main_video.video.normal{controls: true, controlsList: "nodownload", preload: true, loop: true}
           %source{type: "video/mp4", src:  @sign.video}
         - if @sign.video_slow.present?
-          %video.main_video.video.slow{controls: true, preload: true, loop: true}
+          %video.main_video.video.slow{controls: true, controlsList: "nodownload", preload: true, loop: true}
             %source{type: "video/mp4", src:  @sign.video_slow}
           = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
           = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
@@ -40,10 +40,10 @@
         - @sign.examples.each do |example|
           .typography.videos
             .video-container
-              %video.example_video.video.normal{controls: true, preload: true, loop: true}
+              %video.example_video.video.normal{controls: true, controlsList: "noDownload", preload: true, loop: true}
                 %source{type: "video/mp4", src:  example[:video]}
               - if example[:video_slow]
-                %video.example_video.video.slow{controls: true, preload: true, loop: true}
+                %video.example_video.video.slow{controls: true, controlsList: "noDownload", preload: true, loop: true}
                   %source{type: "video/mp4", src:  example[:video_slow]}
                 = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
                 = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
