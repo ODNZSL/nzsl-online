@@ -288,6 +288,7 @@ GEM
       raindrops (~> 0.7)
     whenever (0.9.7)
       chronic (>= 0.6.3)
+    will_paginate (3.1.5)
 
 PLATFORMS
   ruby
@@ -333,6 +334,7 @@ DEPENDENCIES
   uglifier
   unicorn
   whenever
+  will_paginate
 
 RUBY VERSION
    ruby 2.3.3p222

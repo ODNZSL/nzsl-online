@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140107222018) do
+ActiveRecord::Schema.define(version: 20170601033725) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,8 @@ ActiveRecord::Schema.define(version: 20140107222018) do
     t.string   "maori_name"
   end
 
+  add_index "items", ["vocab_sheet_id"], name: "index_items_on_vocab_sheet_id", using: :btree
+
   create_table "page_parts", force: :cascade do |t|
     t.string   "title"
     t.integer  "order"
@@ -61,6 +63,8 @@ ActiveRecord::Schema.define(version: 20140107222018) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "page_parts", ["page_id"], name: "index_page_parts_on_page_id", using: :btree
 
   create_table "pages", force: :cascade do |t|
     t.string   "title"
@@ -73,12 +77,26 @@ ActiveRecord::Schema.define(version: 20140107222018) do
     t.datetime "updated_at"
   end
 
+  add_index "pages", ["order"], name: "index_pages_on_order", using: :btree
+  add_index "pages", ["slug"], name: "index_pages_on_slug", using: :btree
+
+  create_table "requests", force: :cascade do |t|
+    t.text     "url"
+    t.float    "elapsed_time"
+    t.integer  "count"
+    t.text     "query_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
   create_table "settings", force: :cascade do |t|
     t.string   "key"
     t.string   "value"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "settings", ["key"], name: "index_settings_on_key", using: :btree
 
   create_table "vocab_sheets", force: :cascade do |t|
     t.datetime "created_at"

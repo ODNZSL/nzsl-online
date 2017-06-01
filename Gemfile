@@ -25,6 +25,9 @@ gem 'aws-sdk', '~> 2'
 gem 'browser'
 gem 'foundation-rails'
 
+# pagination
+gem 'will_paginate'
+
 group :assets do
   gem 'sass-rails'
   gem 'coffee-rails'

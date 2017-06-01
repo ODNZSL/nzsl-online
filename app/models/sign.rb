@@ -63,9 +63,17 @@ class Sign
   end
 
   def self.search(params)
-    xml_document = Nokogiri::XML(open(url_for_search(params)))
+    before_time = Time.now.to_f
+    url = url_for_search(params)
+    xml_document = Nokogiri::XML(open(url))
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
+
+    # how long did that query take?
+    after_time = Time.now.to_f
+    elapsed_time = after_time - before_time
+    Request.create! url: url_for_search(params), elapsed_time: elapsed_time, count: count, query_type: 'Sign.search'
+
     [count, entries]
   end
 
