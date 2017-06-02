@@ -51,6 +51,14 @@
     position: relative;
   }
 }
+.empty {
+  position: absolute;
+  font-size: 30px;
+  line-height: 30px;
+  right: 42px;
+  top: 0;
+}
+
 .advanced-search-container { display: none; }
 
 @media screen and (min-width: $medium-screen) {
@@ -102,9 +110,20 @@
     }
   }
   .empty {
-    right: 20px;
-    top: 0;
-    font-size: 24px;
+    left: 12px;
+    top: 8px;
+    font-size: 16px;
+    position: relative;
+    color: white;
+    &:hover, &:focus {
+      color: $white;
+    }
+    span {
+      color: $white;
+      font-size: 24px;
+      top: 3px;
+      position: relative;
+    }
   }
 }
 @media screen and (min-width: $large-screen) {
