@@ -15,5 +15,6 @@
 //= require admin
 //= require search_result_link
 //= require custom_play_button
+//= require foundation-equalizer
 
 $(document).foundation();

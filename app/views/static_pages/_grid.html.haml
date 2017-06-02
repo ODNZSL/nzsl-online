@@ -9,7 +9,7 @@
             - if ea.last.is_a?(String)
               %div
                 = image_tag ea.last, :alt => ea.first, class: "grid-image"
-              %h3.grid-image-caption
+              %h4.grid-image-caption
                 = ea.first
             - else
               = link_to sign_url(ea.last.id), {:class => 'drawing'} do
