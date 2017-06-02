@@ -1,12 +1,3 @@
-div.clickable_link:hover {
-  cursor: pointer;
-}
-
-a.div_link {
-  text-decoration: none;
-  z-index: 10;
-}
-
 .link_and_drawing_container {
   overflow: auto;
   margin-bottom: 10px;
@@ -18,9 +9,8 @@ a.div_link {
     margin-left: 5px
   }
 
-  .unicode_arrow {
-    color: $primary-blue;
-  }
+  .unicode_arrow { color: $primary-blue; }
+  
   .show_link {
     @include montserrat-regular;
     font-size: $subgloss-font-size;

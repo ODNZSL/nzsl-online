@@ -110,9 +110,6 @@ a:hover span {
   opacity: 0.8;
 }
 
- /* * * * * * *\
-|* Typography *| font sizes from http://developer.yahoo.com/yui/3/cssfonts/, boilerplate
-\* * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * */
 h1, h2, h3, h4, h5, h6 {
   @include montserrat-light;
   margin: 10px 0;
@@ -159,10 +156,13 @@ h6 { font-size: $h6-font-size; }
 
 h2+h3 { margin-top:1em; }
 
+.main_gloss,
+.static-page-heading,
 .maori_gloss { @include montserrat-regular; }
 
+.static-page-heading { text-transform: capitalize; }
+
 .main_gloss {
-  @include montserrat-regular;
   font-size: $main-gloss;
   padding: 0;
   margin: 10px 0;
