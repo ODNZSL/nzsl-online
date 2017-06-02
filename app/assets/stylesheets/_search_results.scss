@@ -1,16 +1,23 @@
 .search_results_container {
   overflow: auto;
   margin-top: 20px;
+
   .row {
     margin: 0 !important;
     max-width: 100% !important;
   }
+
   .search_results_card {
     margin: 5px 5px 25px;
     outline: 1px solid $primary-blue;
     overflow: hidden;
+
     &:hover { outline: 3px solid $primary-blue; }
+
     video { margin-bottom: 10px; }
+
+    .clickable_link { cursor: pointer; }
+
     .videos .button {
       margin-right: 18px;
       margin-bottom: 5px;
