@@ -7,7 +7,7 @@
   .home-container { display: none; }
 }
 .error.flash {
-  background: red;
+  background: $error-red;
   a {
     color: white;
     text-decoration: underline;
