@@ -5,5 +5,11 @@
   footer,
   .home-sign-container,
   .home-container { display: none; }
-  .flash .notice { display: block;}
+}
+.error.flash {
+  background: red;
+  a {
+    color: white;
+    text-decoration: underline;
+  }
 }
