@@ -53,9 +53,7 @@
 
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
-    .sign-container {
-      float: right;
-    }
+    .sign-container { float: right; }
     .notes,
     .videos {
       float: left;
