@@ -11,7 +11,7 @@
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
-      = image_tag "signs/320-180/#{@sign.drawing}", class: "main-image small-10 medium-8 large-6"
+      = image_tag "signs/320-180/#{@sign.drawing}", class: "main-image small-8 large-6"
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss= @sign.gloss_maori
@@ -20,11 +20,10 @@
         = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
     .videos.small-12.medium-5
       .video-container
-        %i.fi-play.play-button
-        %video.main_video.video.normal{preload: true, loop: true}
+        %video.main_video.video.normal{controls: true, controlsList: "nodownload", preload: true, loop: true}
           %source{type: "video/mp4", src:  @sign.video}
         - if @sign.video_slow.present?
-          %video.main_video.video.slow{controls: true, preload: true, loop: true}
+          %video.main_video.video.slow{controls: true, controlsList: "nodownload", preload: true, loop: true}
             %source{type: "video/mp4", src:  @sign.video_slow}
           = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
           = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
@@ -41,11 +40,10 @@
         - @sign.examples.each do |example|
           .typography.videos
             .video-container
-              %i.fi-play.play-button
-              %video.example_video.video.normal{controls: false, preload: true, loop: true}
+              %video.example_video.video.normal{controls: true, controlsList: "noDownload", preload: true, loop: true}
                 %source{type: "video/mp4", src:  example[:video]}
               - if example[:video_slow]
-                %video.example_video.video.slow{controls: false, preload: true, loop: true}
+                %video.example_video.video.slow{controls: true, controlsList: "noDownload", preload: true, loop: true}
                   %source{type: "video/mp4", src:  example[:video_slow]}
                 = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
                 = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
