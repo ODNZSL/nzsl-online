@@ -66,13 +66,12 @@ footer {
       margin: 15px auto;
       overflow: auto;
       max-width: 340px;
-      img {
-        margin: 0 10px;
-      }
+      img { margin: 0 10px; }
       div {
         width: calc(100% - 52px);
         display: inline-block;
       }
+      a { color: white; }
     }
   }
 }

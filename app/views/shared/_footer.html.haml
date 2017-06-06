@@ -23,12 +23,10 @@
           = link_to((image_tag "img/icon-facebook.svg"), "https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/", target:"_blank")
           = link_to((image_tag "img/icon-twitter.svg"), "https://twitter.com/nzsldict", target:"_blank")
       .github.small-12.medium-4.float-right
-        = image_tag "img/icon-github.svg", class: "float-left"
+        = link_to((image_tag "img/icon-github.svg", class: "float-left"), "https://github.com/rabid/nzsl-online", target:"_blank")
         .float-left
           %p.strong
-            This is an Open Source project
-          %p
-            Text about what type of open source and contribute to it via github site.
+            = link_to "This is an Open Source project.", "https://github.com/rabid/nzsl-online", target:"_blank"
   .copyright
     .small-10.small-centered.medium-8.large-6
       - if @footer && @footer.first_part

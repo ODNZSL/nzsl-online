@@ -11,7 +11,9 @@ NzslOnline::Application.routes.draw do
       end
     end
     resource :settings, except: [:destroy, :create, :new]
+    resources :requests, only: [:index]
   end
+
   get '/admin', to: redirect('/admin/pages')
 
   root to: 'pages#show'
