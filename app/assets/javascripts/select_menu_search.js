@@ -13,14 +13,10 @@ $(document).ready(function() {
     var id = $(this).attr('id');
     removeStyle($('.topic-dropdown'))
     addStyle($(this));
-    clearDropdown($('.topic-dropdown'));
+    clearDropdown();
     $('#tag').val(id)
   })
 
-  $('.selected').click(function() {
-    this.removeClass('selected');
-  });
-  
   function addStyle(listElement) {
     listElement.addClass('selected');
   }
@@ -31,7 +27,7 @@ $(document).ready(function() {
 
 // Make sure clear x is displayed as soon as dropdown items are clicked
 
-  function clearDropdown(list) {
+  function clearDropdown() {
     $('.empty').css("display", "block")
   }
 
@@ -41,14 +37,14 @@ $(document).ready(function() {
     var elementID = $('#tag').val();
     var elementValue = $('li[class="topic-dropdown"][id="' + elementID + '"]');
     addStyle(elementValue);
-    elementID === true ? clearDropdown(elementValue) : false
+    elementID === true ? clearDropdown() : false
   }
 
   function usageState() {
     var elementID = $('#usage').val();
     var elementValue = $('li[class="usage-dropdown"][id="' + elementID + '"]');
     addStyle(elementValue);
-    elementID === true ? clearDropdown(elementValue) : false
+    elementID === true ? clearDropdown() : false
   }
 
   topicState();
