@@ -1,4 +1,6 @@
 NzslOnline::Application.routes.draw do
+  devise_for :users
+
   namespace :admin do
     resources :pages, except: [:show] do
       collection do

@@ -15,10 +15,10 @@ Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*_spec.rb'
 
-# Run rails specific checks
-# https://github.com/bbatsov/rubocop#rails
+Rails:
+  Enabled: true
+
 AllCops:
-  RunRailsCops: true
   Include:
     # Include important files that don't end in .rb
     - '**/Rakefile'

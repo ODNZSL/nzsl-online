@@ -18,32 +18,40 @@
   %meta{:name => "description", :content => t('layout.meta_description')}
   %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
   %title= page_title
-  = print_stylesheet_tag params[:print]
-%body{:class => vocab_sheet?}
-  .not_sticky_footer
-    = render :partial => 'shared/vocab_sheet'
-    .header
-      %div
-        - if params[:print]
-          = link_button 'back', {:print => false}, :class => 'view_print_back_link'
-        = link_to 'NZSL Online', '/', {:class => 'logo ir'}
-        = image_tag 'ui/logo-serrated.png', :class => 'print_logo'
-    #content.before_sticky_footer.small-10
-      = render :partial => 'shared/flashes', :locals => {:prefix => ''}
-      = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
-      = yield
-  %footer.sticky_footer.footer.small-12
+%body
+  .admin-dashboard.shrink-medium
+    .row.expanded.admin-dashboard-top-nav-bar
+      .columns.medium-2
+        %a.admin-dashboard-logo
+          = link_to root_path do
+            = image_tag 'ui/logo-serrated.png', alt: "NZSL Online Admin"
+      .columns.show-for-medium
+      .columns.shrink.admin-dashboard-top-bar-actions
 
-  = print_javascripts_tag params[:print]
-  = yield :scripts
-  / # = javascript_include_tag
-  :javascript
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-24185042-1']);
-    _gaq.push(['_trackPageview']);
+    .admin-dashboard-body.off-canvas-wrapper
+      #admin-dashboard-sidebar.admin-dashboard-sidebar.position-left.off-canvas.off-canvas-absolute.reveal-for-medium.data-off-canvas
+        .admin-dashboard-sidebar-title-area
+          .admin-dashboard-open-sidebar
+            %button#open-sidebar.admin-dashboard-open-sidebar-button.show-for-medium{'aria-label': "open menu", type: "button"}
+              %span{'aria-hidden': "true"}
+                %a{href: "#"}
+                  %i.large.fa.fa-angle-double-right
 
-    (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
+        .admin-dashboard-sidebar-inner
+          - if current_user
+            %ul.menu.vertical
+              %li
+                = link_to new_admin_page_path do
+                  %span.admin-dashboard-sidebar-text New Page
+              %li
+                = link_to edit_admin_settings_path do
+                  %span.admin-dashboard-sidebar-text Settings
+              %li
+                = link_to admin_requests_path do
+                  %span.admin-dashboard-sidebar-text Freelex Logs
+            = button_to('Logout', destroy_user_session_path, method: :delete,  class: 'button hollow')
+      .admin-dashboard-body-content.off-canvas-content.data-off-canvas-content
+        = render :partial => 'shared/flashes', :locals => {:prefix => ''}
+        = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
+        = yield
+

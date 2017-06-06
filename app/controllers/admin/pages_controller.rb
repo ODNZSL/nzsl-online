@@ -1,7 +1,7 @@
 module Admin
   class PagesController < ApplicationController
     before_action :fetch_page, only: [:edit, :update, :destroy]
-    before_action :set_title, :authenticate
+    before_action :authenticate_user!, :set_title
     layout 'admin'
 
     def index
