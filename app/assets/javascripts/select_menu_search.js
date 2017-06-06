@@ -17,6 +17,10 @@ $(document).ready(function() {
     $('#tag').val(id)
   })
 
+  $('.selected').click(function() {
+    this.removeClass('selected');
+  });
+  
   function addStyle(listElement) {
     listElement.addClass('selected');
   }
