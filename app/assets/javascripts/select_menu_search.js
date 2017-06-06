@@ -37,7 +37,7 @@ $(document).ready(function() {
     var elementID = $('#tag').val();
     var elementValue = $('li[class="topic-dropdown"][id="' + elementID + '"]');
     addStyle(elementValue);
-    elementID === true ? clearDropdown() : false
+    elementID === true ? clearDropdown(elementValue) : false
   }
 
   function usageState() {

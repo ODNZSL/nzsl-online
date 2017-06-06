@@ -108,6 +108,7 @@ a:hover,
 a:hover span {
   color: $link-blue;
   opacity: 0.8;
+  cursor: pointer;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -195,7 +196,6 @@ h2+h3 { margin-top:1em; }
 .glosses { margin-bottom: 1.2em; }
 
 .gloss_container {
-  height: 130px;
   .secondary_gloss,
   .word_gloss,
   .maori_gloss,

@@ -216,12 +216,19 @@ $(function(){
     var wrapper;
     if ($(sign).hasClass('group')) {
       wrapper = $(sign);
+      console.log("2",wrapper,sign)
+
     } else if (!$(sign).hasClass('main_image') && !$(sign).parents('li.group').hasClass('selected')){
-      // clicking on a sub image when the parent is selected
+      // clicking on a sub image when the parent is not selected
       wrapper = $(sign).parents('li').first();
+      console.log("3",wrapper,sign)
+
     } else {
       wrapper = $(sign).closest('li:not(.sub)');
+      console.log("4",wrapper ,sign)
+
     }
+    console.log(wrapper)
     wrapper.toggleClass('selected');
   };
 
