@@ -1,0 +1,16 @@
+%h1 Requests to Freelex
+= will_paginate(@requests)
+
+%table
+  %tr
+    %th Timestamp
+    %th Time taken
+    %th Count (number of signs found)
+    %th Url
+
+  - @requests.each do |r|
+    %tr
+      %td= r.created_at
+      %td= r.elapsed_time
+      %td= r.count
+      %td= r.url
