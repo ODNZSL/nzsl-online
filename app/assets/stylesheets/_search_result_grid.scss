@@ -10,7 +10,7 @@
   }
 
   .unicode_arrow { color: $primary-blue; }
-  
+
   .show_link {
     @include montserrat-regular;
     font-size: $subgloss-font-size;
@@ -32,14 +32,10 @@
 
 .pagination_container {
   @include montserrat-light;
-  font-size: 12px;
   margin: 70px 0;
 
-  .pagination {
-    margin: -1.2em 0 0;
-    padding: 0;
-    text-align: center;
-  }
+  .pagination { margin: 0; }
+
   .pagination .current { color: black; }
 
   .pagination li {
@@ -47,22 +43,8 @@
     display: inline-block;
   }
 
-  .ie7 .pagination li {
-    display: inline;
-    zoom: 1;
-    padding: 10px 0;
-    text-align: center;
-  }
-
   .pagination .a,
-  .pagination  a {
-    padding: 0 10px;
-    text-decoration: none;
-    height: 30px;
-    line-height: 30px;
-    border: 0;
-    background-color: transparent;
-  }
+  .pagination  a { padding: 0 10px; }
 
   .pagination .a { color: $med-grey; }
 }
