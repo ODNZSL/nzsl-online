@@ -44,6 +44,7 @@ $search-result-banner: 1.8em;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
 }
+
 @mixin border-radius-small {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
