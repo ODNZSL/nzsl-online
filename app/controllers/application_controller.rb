@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   require 'digest/sha1'
   require 'browser'
-  # layout :layout_by_resource
+  layout :layout_by_resource
 
   before_action :check_browser_support
 
@@ -18,13 +18,13 @@ class ApplicationController < ActionController::Base
 
   private
 
-  # def after_sign_in_path_for(_resource)
-  #   admin_path
-  # end
+  def after_sign_in_path_for(_resource)
+    admin_path
+  end
 
-  # def layout_by_resource
-  #   devise_controller? ? 'admin' : 'application'
-  # end
+  def layout_by_resource
+    devise_controller? ? 'admin' : 'application'
+  end
 
   def setup_browser_rules # rubocop:disable Metrics/AbcSize
     Browser.modern_rules.clear
