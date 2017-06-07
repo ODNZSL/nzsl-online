@@ -15,7 +15,7 @@ $(document).ready(function() {
 
     if (target.hasClass("selected")) {
       id = target.attr('id');
-      $('.empty').css("display", "block")
+      $('.empty').css("display", "inline-block")
     } else {
       id = ''
       $('.empty').css("display", "none")
