@@ -40,15 +40,28 @@
           - if current_user
             %ul.menu.vertical
               %li
+                = link_to admin_pages_path do
+                  %span.admin-dashboard-sidebar-text
+                    %i.fi-page-doc
+                    Pages
+              %li
                 = link_to new_admin_page_path do
-                  %span.admin-dashboard-sidebar-text New Page
+                  %span.admin-dashboard-sidebar-text
+                    %i.fi-page-add
+                    New Page
               %li
                 = link_to edit_admin_settings_path do
-                  %span.admin-dashboard-sidebar-text Settings
+                  %span.admin-dashboard-sidebar-text
+                    %i.fi-wrench
+                    Settings
               %li
                 = link_to admin_requests_path do
-                  %span.admin-dashboard-sidebar-text Freelex Logs
-            = button_to('Logout', destroy_user_session_path, method: :delete,  class: 'button hollow')
+                  %span.admin-dashboard-sidebar-text
+                    %i.fi-list-bullet
+                    Freelex Logs
+            = button_to destroy_user_session_path, method: :delete,  class: 'button hollow' do
+              %i.fi-lock
+              Logout
       .admin-dashboard-body-content.off-canvas-content.data-off-canvas-content
         = render :partial => 'shared/flashes', :locals => {:prefix => ''}
         = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?

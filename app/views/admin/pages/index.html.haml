@@ -1,8 +1,12 @@
 %h1 Pages
-%ul.record
+%table
   - @pages.each do |page|
-    %li{:id => "id#{page.id}"}
-      = link_to page.label, edit_admin_page_path(page)
-      = link_to 'Delete', admin_page_path(page), :confirm => "Are you sure you want to delete the #{page.label} page?", :method => :delete, :class => 'ir delete'
-%br
-= render "admin/menu"
+    %tr
+      %td
+        = link_to page.label, edit_admin_page_path(page)
+      %td
+        = link_to admin_page_path(page),
+          confirm: "Are you sure you want to delete the #{page.label} page?",
+          method: :delete do
+          %i.fi-trash
+          delete
