@@ -1,12 +1,23 @@
 %h1 Pages
-%table
-  - @pages.each do |page|
+%table.hover
+  %thead
     %tr
-      %td
-        = link_to page.label, edit_admin_page_path(page)
-      %td
-        = link_to admin_page_path(page),
-          confirm: "Are you sure you want to delete the #{page.label} page?",
-          method: :delete do
-          %i.fi-trash
-          delete
+      %th title
+      %th order
+      %th slug
+      %th template
+      %th{ width: 50 } # of parts
+      %th actions
+  %tbody
+    - @pages.each do |page|
+      %tr
+        %td= link_to page.label, edit_admin_page_path(page)
+        %td= page.order
+        %td= page.slug
+        %td= page.template
+        %th= page.page_parts.size
+        %td
+          = link_to admin_page_path(page),
+            confirm: "Are you sure you want to delete the #{page.label} page?",
+            method: :delete do
+            %i.fi-trash
