@@ -14,11 +14,12 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*_spec.rb'
+Style/FileName:
+  Exclude:
+    - Gemfile
+    - Gemfile.lock
 
-# Run rails specific checks
-# https://github.com/bbatsov/rubocop#rails
 AllCops:
-  RunRailsCops: true
   Include:
     # Include important files that don't end in .rb
     - '**/Rakefile'

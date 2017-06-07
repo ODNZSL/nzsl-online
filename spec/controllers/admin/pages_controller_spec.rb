@@ -1,18 +1,16 @@
 require 'rails_helper'
 
 RSpec.describe Admin::PagesController, type: :controller do
-  let(:username) { 'test' }
-  let(:password) { 'test' }
+  include Devise::Test::ControllerHelpers
+  let(:user) { FactoryGirl.create :user }
 
   let(:page) { FactoryGirl.create(:page) }
   let(:valid_page_params) do
     { title: 'updated page title' }
   end
 
-  before { NZSL_ADMIN_ACCESS[username] = Digest::SHA1.hexdigest(password) }
-
-  context 'when HTTP auth credentials are good' do
-    before { basic_auth username, password }
+  context 'user is signed' do
+    before { sign_in user }
 
     describe 'GET #index' do
       before { get :index }
@@ -40,30 +38,25 @@ RSpec.describe Admin::PagesController, type: :controller do
   context 'Not logged in' do
     describe '#index' do
       before { get :index }
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(302) }
+      it { expect(response).not_to render_template(:index) }
     end
 
     describe '#new' do
       before { get :new }
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(302) }
+      it { expect(response).not_to render_template(:n) }
     end
 
     describe '#edit' do
       before { get :edit, id: page.to_param }
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(302) }
+      it { expect(response).not_to render_template(:edit) }
     end
 
     describe '#update' do
       before { patch :update, id: page.to_param, page: valid_page_params }
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(302) }
     end
-  end
-
-  context 'when HTTP Digest auth credentials are invalid' do
-    before do
-      basic_auth 'alice', 'secret'
-      get :index
-    end
-    it { expect(response).to have_http_status(:unauthorized) }
   end
 end

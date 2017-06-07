@@ -19,10 +19,8 @@
     font-size: $h3-font-size;
   }
   &-button {
+    display: inline-block;
     border: none;
-    position: absolute;
-    top: 0;
-    right: 10%;
     background-color: initial;
     -moz-transform: scale(-1, 1);
     -webkit-transform: scale(-1, 1);
@@ -51,12 +49,20 @@
     position: relative;
   }
 }
-.advanced-search-container { display: none; }
+.empty {
+  position: absolute;
+  font-size: 30px;
+  line-height: 30px;
+  right: 12px;
+  top: 0;
+}
+.search-buttons-container, .advanced-search-container { display: none; }
 
 @media screen and (min-width: $medium-screen) {
   .search-container { float: none; }
   .search-buttons-container {
-    width: 100px;
+    display: block;
+    width: 112px;
     overflow: auto;
     position: absolute;
     top: 55px;
@@ -67,8 +73,6 @@
       top: initial;
       right: initial;
       position: relative;
-      float: left;
-
       i {
         font-size: 28px;
         color: white;
@@ -102,13 +106,27 @@
     }
   }
   .empty {
-    right: 20px;
-    top: 0;
-    font-size: 24px;
+    position: relative;
+    font-size: 16px;
+    color: white;
+    left: 12px;
+    top: -4px;
+    &:hover, &:focus {
+      color: $white;
+    }
+    span {
+      color: $white;
+      font-size: 24px;
+      top: 3px;
+      position: relative;
+      &:hover, &:focus {
+        color: $white;
+      }
+    }
   }
 }
 @media screen and (min-width: $large-screen) {
-  .search-buttons-container { right: 7%;}
+  .search-buttons-container { right: 5%;}
 }
 
 .signs { line-height: 56px; }

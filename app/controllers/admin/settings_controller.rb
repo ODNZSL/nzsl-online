@@ -1,7 +1,7 @@
 module Admin
   class SettingsController < ApplicationController
     layout 'admin'
-    before_action :authenticate, :set_title
+    before_action :authenticate_user!, :set_title
 
     def show
       redirect_to edit_admin_settings_path
