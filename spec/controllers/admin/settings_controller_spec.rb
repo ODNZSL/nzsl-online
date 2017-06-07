@@ -1,21 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Admin::SettingsController, type: :controller do
-  let(:username) { 'test' }
-  let(:password) { 'test' }
-  before { NZSL_ADMIN_ACCESS[username] = Digest::SHA1.hexdigest(password) }
+  include Devise::Test::ControllerHelpers
+  let(:user) { FactoryGirl.create :user }
 
-  let(:setting) { FactoryGirl.create(:setting) }
+  let!(:setting) { FactoryGirl.create(:setting) }
   let(:valid_params) { { setting.key => 'newvalue' } }
 
-  context 'when HTTP auth credentials are good' do
-    before do
-      basic_auth 'test', 'test'
-    end
-    describe 'GET #show' do
-      before { get :show }
-      it { expect(response).to have_http_status(:redirect) }
-    end
+  context 'user is signed' do
+    before { sign_in user }
 
     describe 'GET #edit' do
       before { get :edit }
@@ -33,28 +26,16 @@ RSpec.describe Admin::SettingsController, type: :controller do
     end
   end
 
-  context 'Not logged in' do
-    describe '#show' do
-      before { get :show }
-      it { expect(response).to have_http_status(:unauthorized) }
-    end
-
+  context 'user it not signed in' do
     describe '#edit' do
       before { get :edit }
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(302) }
+      it { expect(response).not_to render_template(:edit) }
     end
 
     describe '#update' do
       before { patch :update }
-      it { expect(response).to have_http_status(:unauthorized) }
+      it { expect(response).to have_http_status(302) }
     end
-  end
-
-  context 'when HTTP Digest auth credentials are invalid' do
-    before do
-      basic_auth 'alice', 'secret'
-      get :show
-    end
-    it { expect(response).to have_http_status(:unauthorized) }
   end
 end

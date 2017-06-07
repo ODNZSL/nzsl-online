@@ -1,7 +1,10 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   require 'digest/sha1'
   require 'browser'
+  layout :layout_by_resource
 
   before_action :check_browser_support
 
@@ -15,22 +18,30 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def after_sign_in_path_for(_resource)
+    admin_path
+  end
+
+  def layout_by_resource
+    devise_controller? ? 'admin' : 'application'
+  end
+
   def setup_browser_rules # rubocop:disable Metrics/AbcSize
     Browser.modern_rules.clear
-    Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 40 }
-    Browser.modern_rules << -> b { b.firefox? && b.version.to_i >= 40 }
-    Browser.modern_rules << -> b { b.safari? && b.version.to_i >= 9 }
-    Browser.modern_rules << -> b { b.ie? && b.version.to_i >= 10 }
+    Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 40 }
+    Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 40 }
+    Browser.modern_rules << ->(b) { b.safari? && b.version.to_i >= 9 }
+    Browser.modern_rules << ->(b) { b.ie? && b.version.to_i >= 10 }
   end
 
   def find_or_create_vocab_sheet
-    @sheet = VocabSheet.find_by_id(session[:vocab_sheet_id])
+    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     @sheet ||= VocabSheet.create
     session[:vocab_sheet_id] = @sheet.id if @sheet
   end
 
   def find_vocab_sheet
-    @sheet = VocabSheet.find_by_id(session[:vocab_sheet_id])
+    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     true
   end
 
