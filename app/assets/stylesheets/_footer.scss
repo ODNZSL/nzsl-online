@@ -39,12 +39,7 @@ footer {
     border-top: 1px solid white;
     padding: 20px 0;
     overflow: auto;
-    .footer-link {
-      padding: 10px 0;
-      a {
-        color: $light-blue;
-      }
-    }
+    .footer-link { padding: 10px 0; }
   }
 
   .footer-container {
