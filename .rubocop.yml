@@ -14,9 +14,10 @@ Metrics/MethodLength:
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*_spec.rb'
-
-Rails:
-  Enabled: true
+Style/FileName:
+  Exclude:
+    - Gemfile
+    - Gemfile.lock
 
 AllCops:
   Include:
