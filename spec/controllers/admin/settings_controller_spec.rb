@@ -10,12 +10,6 @@ RSpec.describe Admin::SettingsController, type: :controller do
   context 'user is signed' do
     before { sign_in user }
 
-    describe 'GET #index' do
-      before { get :index }
-      it { expect(response).to have_http_status(:redirect) }
-      it { expect(response).to render_template(:index) }
-    end
-
     describe 'GET #edit' do
       before { get :edit }
       it { expect(response).to have_http_status(:success) }
@@ -33,12 +27,6 @@ RSpec.describe Admin::SettingsController, type: :controller do
   end
 
   context 'user it not signed in' do
-    describe '#index' do
-      before { get :index }
-      it { expect(response).to have_http_status(302) }
-      it { expect(response).not_to render_template(:index) }
-    end
-
     describe '#edit' do
       before { get :edit }
       it { expect(response).to have_http_status(302) }
