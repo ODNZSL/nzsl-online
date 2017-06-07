@@ -12,6 +12,11 @@ NzslOnline::Application.routes.draw do
         end
       end
     end
+    resource :user, only: [:edit] do
+      collection do
+        patch 'update_password'
+      end
+    end
     resource :settings, except: [:destroy, :create, :new]
     resources :requests, only: [:index]
   end

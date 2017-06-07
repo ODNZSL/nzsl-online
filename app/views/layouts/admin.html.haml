@@ -59,12 +59,16 @@
                   %span.admin-dashboard-sidebar-text
                     %i.fi-list-bullet
                     Freelex Logs
+              %li
+                = link_to edit_admin_user_path do
+                  %span.admin-dashboard-sidebar-text
+                    %i.fi-torsos-female-male
+                    My Password
             = button_to destroy_user_session_path, method: :delete,  class: 'button hollow' do
               %i.fi-lock
               Logout
       .admin-dashboard-body-content.off-canvas-content.data-off-canvas-content
         = render :partial => 'shared/flashes', :locals => {:prefix => ''}
-        = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
         = yield
   = yield :scripts
   :javascript
