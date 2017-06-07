@@ -22,9 +22,8 @@
   .admin-dashboard.shrink-medium
     .row.expanded.admin-dashboard-top-nav-bar
       .columns.medium-2
-        %a.admin-dashboard-logo
-          = link_to root_path do
-            = image_tag 'ui/logo-serrated.png', alt: "NZSL Online Admin"
+        = link_to root_path, class: 'admin-dashboard-logo' do
+          = image_tag 'ui/logo-serrated.png', alt: "NZSL Online Admin"
       .columns.show-for-medium
       .columns.shrink.admin-dashboard-top-bar-actions
 
@@ -54,4 +53,14 @@
         = render :partial => 'shared/flashes', :locals => {:prefix => ''}
         = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
         = yield
+  = yield :scripts
+  :javascript
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-24185042-1']);
+    _gaq.push(['_trackPageview']);
 
+    (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
