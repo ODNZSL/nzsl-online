@@ -1,10 +1,25 @@
 %h1 Pages
-%ul.record
-  - @pages.each do |page|
-    %li{:id => "id#{page.id}"}
-      = link_to page.label, edit_admin_page_path(page)
-      = link_to 'Delete', admin_page_path(page), :confirm => "Are you sure you want to delete the #{page.label} page?", :method => :delete, :class => 'ir delete'
-%br
-= link_to 'New Page', new_admin_page_path
-|
-= link_to 'Settings', edit_admin_settings_path
+%table.hover
+  %thead
+    %tr
+      %th label
+      %th title
+      %th order
+      %th slug
+      %th template
+      %th{ width: 50 } # of page parts
+      %th actions
+  %tbody.sortable
+    - @pages.each do |page|
+      %tr{ id: "id#{page.id}"}
+        %td= link_to page.label, edit_admin_page_path(page)
+        %td= page.title
+        %td= page.order
+        %td= page.slug
+        %td= page.template
+        %th= page.page_parts.size
+        %td
+          = button_to(admin_page_path(page),
+            confirm: "Are you sure you want to delete the #{page.label} page?",
+            method: :delete) do
+            %i.fi-trash

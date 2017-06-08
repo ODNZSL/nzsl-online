@@ -5,12 +5,9 @@
   }
   &-container {
     .glosses-container { margin-bottom: 20px; }
-    .video-container {
-      position: relative;
-      .button {
-        @extend .orange_video_button;
-        margin: 5px 0 30px 0;
-      }
+    .video-container .button {
+      @extend .play_video_button;
+      margin: 5px 0 30px 0;
     }
     .back-button-container {
       margin: 30px 0;
@@ -56,9 +53,7 @@
 
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
-    .sign-container {
-      float: right;
-    }
+    .sign-container { float: right; }
     .notes,
     .videos {
       float: left;

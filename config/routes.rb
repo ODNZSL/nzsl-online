@@ -1,4 +1,6 @@
 NzslOnline::Application.routes.draw do
+  devise_for :users
+
   namespace :admin do
     resources :pages, except: [:show] do
       collection do
@@ -10,8 +12,15 @@ NzslOnline::Application.routes.draw do
         end
       end
     end
+    resource :user, only: [:edit] do
+      collection do
+        patch 'update_password'
+      end
+    end
     resource :settings, except: [:destroy, :create, :new]
+    resources :requests, only: [:index]
   end
+
   get '/admin', to: redirect('/admin/pages')
 
   root to: 'pages#show'

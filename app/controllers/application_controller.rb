@@ -1,36 +1,46 @@
+# frozen_string_literal: true
+
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  require 'digest/sha1'
   require 'browser'
+  layout :layout_by_resource
 
   before_action :check_browser_support
 
   def check_browser_support
     setup_browser_rules
     return if browser.modern?
-    flash[:notice] = %(Your browser is not supported. This may mean that some features of NZSL Online will
+    flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
                       not display properly. <a href="https://updatemybrowser.org/"> Would you like to
                       upgrade your browser? </a>).html_safe
   end
 
   private
 
+  def after_sign_in_path_for(_resource)
+    admin_path
+  end
+
+  def layout_by_resource
+    devise_controller? ? 'admin' : 'application'
+  end
+
   def setup_browser_rules # rubocop:disable Metrics/AbcSize
     Browser.modern_rules.clear
-    Browser.modern_rules << -> b { b.chrome? && b.version.to_i >= 40 }
-    Browser.modern_rules << -> b { b.firefox? && b.version.to_i >= 40 }
-    Browser.modern_rules << -> b { b.safari? && b.version.to_i >= 9 }
-    Browser.modern_rules << -> b { b.ie? && b.version.to_i >= 10 }
+    Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 40 }
+    Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 40 }
+    Browser.modern_rules << ->(b) { b.safari? && b.version.to_i >= 9 }
+    Browser.modern_rules << ->(b) { b.ie? && b.version.to_i >= 10 }
   end
 
   def find_or_create_vocab_sheet
-    @sheet = VocabSheet.find_by_id(session[:vocab_sheet_id])
+    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     @sheet ||= VocabSheet.create
     session[:vocab_sheet_id] = @sheet.id if @sheet
   end
 
   def find_vocab_sheet
-    @sheet = VocabSheet.find_by_id(session[:vocab_sheet_id])
+    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     true
   end
 
@@ -66,12 +76,6 @@ class ApplicationController < ActionController::Base
       render template: "pages/#{@page.template}", status: 404
     else
       render text: '404 - page not found', status: 404
-    end
-  end
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      Digest::SHA1.hexdigest(password) == NZSL_ADMIN_ACCESS[username] if NZSL_ADMIN_ACCESS[username].present?
     end
   end
 end

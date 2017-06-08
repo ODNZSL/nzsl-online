@@ -1,24 +1,38 @@
 $(document).ready(function() {
-  $('video').click(function(e) {
+
+  if(Modernizr.touch && !Foundation.MediaQuery.atLeast("large")) {
+    $(".play-button").hide();
+    $("video").each(function() { $(this).prop("controls", true); })
+  }
+
+  $("video").click(function(e) {
     e.preventDefault();
-    this.paused == true ? playVideo($(this)):pauseVideo($(this));
+    videoResponse(this);
   });
 
-  function playVideo(container) {
-    container.closest('.video-container').children('.play-button').css("display", "none");
-    container.get(0).play();
+  $(".play-button").click(function(e) {
+    e.preventDefault();
+    videoResponse(this.nextElementSibling);
+  });
+
+  function videoResponse(video) {
+    video.paused == true ? playVideo(video) : pauseVideo(video);
   }
 
-  function pauseVideo(container) {
-    container.closest('.video-container').children('.play-button').css("display", "inline-block");
-    container.get(0).pause();
+  function playVideo(video) {
+    pauseOtherVideos(video);
+    $(video).closest(".video-container").children(".play-button").css("visibility", "hidden");
+    $(video).get(0).play();
   }
 
-  $(document).click(function(e) {
-    if(!$(e.target).hasClass('video')) {
-      $(this).find('video').each(function() {
-        pauseVideo($(this))
-      });
-    }
-  })
+  function pauseVideo(video) {
+    $(video).closest(".video-container").children(".play-button").css("visibility", "visible");
+    $(video).get(0).pause();
+  }
+
+  function pauseOtherVideos(currentVideo) {
+    $("video").each(function() {
+      if (this != currentVideo) { pauseVideo(this); }
+    });
+  }
 });

@@ -1,7 +1,19 @@
-%ul.record
-  - page_parts.each do |page_part|
-    %li{:id => "id#{page_part.id}"}
-      = link_to page_part.title, edit_admin_page_page_part_path(@page, page_part)
-      = link_to 'Delete', admin_page_page_part_path(@page, page_part), :confirm => "Are you sure you want to delete the #{page_part.title} page part?", :method => :delete, :class => 'ir delete'
-%br
-= link_to 'New Part', new_admin_page_page_part_path(@page)
+%table.hover
+  %thead
+    %tr
+      %th Title
+      %th Order
+      %th Translation Path
+      %th Actions
+  %tbody.sortable
+    - page_parts.each do |page_part|
+      %tr{ id: "id#{page_part.id}" }
+        %td= link_to page_part.title, edit_admin_page_page_part_path(@page, page_part)
+        %td= page_part.order
+        %td= page_part.translation_path
+        %td{ width: 100 }
+          = button_to(admin_page_page_part_path(@page, page_part), confirm: "Are you sure you want to delete the #{page_part.title} page part?", method: :delete) do
+            %i.fi-trash
+            delete
+
+= button_to 'New Page Part', new_admin_page_page_part_path(@page), method: :get

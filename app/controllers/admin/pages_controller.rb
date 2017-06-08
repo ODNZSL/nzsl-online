@@ -1,8 +1,11 @@
+# frozen_string_literal: true
+
 module Admin
   class PagesController < ApplicationController
-    before_action :fetch_page, only: [:edit, :update, :destroy]
-    before_action :set_title, :authenticate
+    before_action :fetch_page, only: %i(edit update destroy)
+    before_action :authenticate_user!, :set_title
     layout 'admin'
+    protect_from_forgery except: [:reorder]
 
     def index
       @pages = Page.all
@@ -12,8 +15,7 @@ module Admin
       @page = Page.new(template: 'standard')
     end
 
-    def edit
-    end
+    def edit; end
 
     def create
       @page = Page.new(page_params)

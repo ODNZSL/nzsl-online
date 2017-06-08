@@ -217,9 +217,10 @@ $(function(){
     if ($(sign).hasClass('group')) {
       wrapper = $(sign);
     } else if (!$(sign).hasClass('main_image') && !$(sign).parents('li.group').hasClass('selected')){
-      // clicking on a sub image when the parent is selected
+      // clicking on a sub image when the parent is not selected
       wrapper = $(sign).parents('li').first();
     } else {
+      // If a parent image has sub images that are not selected, do not search for sub images.
       wrapper = $(sign).closest('li:not(.sub)');
     }
     wrapper.toggleClass('selected');

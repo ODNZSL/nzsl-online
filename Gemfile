@@ -7,27 +7,36 @@ gem 'rails_12factor'
 gem 'pg'
 
 gem 'haml'
-gem 'nokogiri'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 3.6.0'
+gem 'nokogiri'
 gem 'whenever'
 
-gem 'formtastic', '~>2.3.0'
-gem 'paperclip'
-gem 'mail'
-gem 'i18n'
-gem 'responders', '~> 2.0'
-gem 'therubyracer', platforms: :ruby
-gem 'modernizr-rails'
-gem 'ckeditor_rails'
 gem 'aws-sdk', '~> 2'
 gem 'browser'
+gem 'ckeditor_rails'
+gem 'formtastic', '~>2.3.0'
 gem 'foundation-rails'
+gem 'i18n'
+gem 'mail'
+gem 'modernizr-rails'
+gem 'paperclip'
+gem 'responders', '~> 2.0'
+gem 'therubyracer', platforms: :ruby
+
+# records crashes
+gem 'raygun4ruby'
+
+# pagination
+gem 'will_paginate'
+
+# logins
+gem 'devise'
 
 group :assets do
-  gem 'sass-rails'
   gem 'coffee-rails'
+  gem 'sass-rails'
   gem 'uglifier'
 end
 
@@ -35,16 +44,14 @@ end
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-  gem 'rspec-rails'
   gem 'dotenv-rails'
+  gem 'rspec-rails'
+
   # for debugging
   gem 'pry-byebug'
   gem 'pry-rails'
-  gem 'capistrano', '~> 2.14.2'
-  gem 'capistrano-ext'
-  gem 'capistrano-rbenv'
-  gem 'simplecov', require: false
   gem 'rb-readline'
+  gem 'simplecov', require: false
 
   # for checking images in specs
   gem 'fastimage'
@@ -57,7 +64,7 @@ group :development, :test do
   # scans code for silly mistakes
   gem 'brakeman'
 
-  #reruns the specs on code change
+  # reruns the specs on code change
   gem 'rerun'
 
   # factories

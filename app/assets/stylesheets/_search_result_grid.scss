@@ -1,55 +1,16 @@
-.search_results_container {
-  overflow: auto;
-  line-height: 42px;
-  padding-bottom: 10px;
-  margin-top: 20px;
-  ::-webkit-scrollbar {
-    display: none;
-  }
-  .video-container {
-    position: relative;
-    .play-button {
-      left: 0;
-    }
-  }
-}
-
-.search_results_card {
-  display: block;
-  margin: 5px 5px 25px;
-  outline: 1px solid $primary-blue;
-
-  ::-webkit-scrollbar {
-    display: none;
-  }
-}
-
-.search_results_card:hover {
-  outline: 3px solid $primary-blue;
-}
-
-div.clickable_link:hover {
-  cursor: pointer;
-}
-
-a.div_link {
-  text-decoration: none;
-  z-index: 10;
-}
-
 .link_and_drawing_container {
   overflow: auto;
   margin-bottom: 10px;
+  position: relative;
   .link_container {
-    width: 35%;
+    width: 45%;
     text-align: left;
     margin-top: 88px;
     margin-left: 5px
   }
 
-  .unicode_arrow {
-    color: $primary-blue;
-  }
+  .unicode_arrow { color: $primary-blue; }
+
   .show_link {
     @include montserrat-regular;
     font-size: $subgloss-font-size;
@@ -61,9 +22,7 @@ a.div_link {
   }
 
   .drawing_container {
-    width: 58%;
-    float: left;
-    padding-top: 5px;
+    width: 45%;
     .drawing img {
       max-width: 90%;
       margin-right: 0;
@@ -73,14 +32,10 @@ a.div_link {
 
 .pagination_container {
   @include montserrat-light;
-  font-size: 12px;
   margin: 70px 0;
 
-  .pagination {
-    margin: -1.2em 0 0;
-    padding: 0;
-    text-align: center;
-  }
+  .pagination { margin: 0; }
+
   .pagination .current { color: black; }
 
   .pagination li {
@@ -88,22 +43,8 @@ a.div_link {
     display: inline-block;
   }
 
-  .ie7 .pagination li {
-    display: inline;
-    zoom: 1;
-    padding: 10px 0;
-    text-align: center;
-  }
-
   .pagination .a,
-  .pagination  a {
-    padding: 0 10px;
-    text-decoration: none;
-    height: 30px;
-    line-height: 30px;
-    border: 0;
-    background-color: transparent;
-  }
+  .pagination  a { padding: 0 10px; }
 
   .pagination .a { color: $med-grey; }
 }

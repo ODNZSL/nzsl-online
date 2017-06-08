@@ -1,14 +1,11 @@
 %h1 Settings
 
-= form_tag admin_settings_path, :method => :put, :class => 'formtastic' do |f|
+= form_tag admin_settings_path, method: :put, class: 'formtastic' do |f|
   %fieldset.inputs
-    - ['help', 'glossary', '404', 'footer'].each do |setting|
-      %ol
+    %ol
+      - ['help', 'glossary', '404', 'footer'].each do |setting|
         %li.string.required
-        %label{:for => "settings_#{setting}"}=t "admin.setting.#{setting}"
-        = select_tag "settings[#{setting}]", options_for_select(Page.all.map{|p| [p.label, p.id]}, Setting.get(setting)), :class => 'text_input';
-  
-  %br
+        %label{for: "settings_#{setting}"}=t "admin.setting.#{setting}"
+        = select_tag "settings[#{setting}]", options_for_select(Page.all.map{|p| [p.label, p.id]}, Setting.get(setting)), class: 'text_input';
     = submit_button('admin.save')
-    = link_to 'Cancel', admin_pages_path, :class => 'cancel'
-  
+    = button_to 'Cancel', admin_pages_path
