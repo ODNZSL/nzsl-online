@@ -48,9 +48,6 @@ group :development, :test do
   gem 'rspec-rails'
 
   # for debugging
-  gem 'capistrano', '~> 2.14.2'
-  gem 'capistrano-ext'
-  gem 'capistrano-rbenv'
   gem 'pry-byebug'
   gem 'pry-rails'
   gem 'rb-readline'
