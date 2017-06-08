@@ -1,8 +1,8 @@
 %h3 Edit password for #{@user.email}
-= form_for(@user, url: { action: "update_password" } ) do |f|
+= form_for(@user, url: { action: 'update_password' }) do |f|
   %fieldset.inputs
-    = f.label :password, "New Password"
-    = f.password_field :password, autocomplete: "off"
+    = f.label :password, 'New Password'
+    = f.password_field :password, autocomplete: 'off'
     = f.label :password_confirmation
     = f.password_field :password_confirmation
-  %button{type: "submit"} save
+  %button{ type: 'submit' } save

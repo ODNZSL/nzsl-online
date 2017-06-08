@@ -3,6 +3,8 @@ module Admin
     before_action :authenticate_user!, :fetch_page, :set_title
     before_action :fetch_page_part, only: [:edit, :show, :update, :destroy]
     layout 'admin'
+    protect_from_forgery except: [:reorder]
+
     def index
       @page_parts = @page.page_parts
     end
