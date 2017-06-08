@@ -1,43 +1,24 @@
+# frozen_string_literal: true
 require 'csv'
-def load_pages
-  Page.transaction do
-    source_path = Rails.root.join('db', 'seeds')
-    pages_file = "#{source_path}/pages.csv"
-    Rails.logger.info "Loading pages from #{pages_file}..."
-    CSV.foreach(pages_file) do |row|
-      page = Page.create_from_csv(row)
-      Rails.logger.info "\tCreated #{page.slug} page"
+
+def load(data_type)
+  data_klass = data_type.to_s.camelize.constantize
+  data_klass.transaction do
+    CSV.foreach(csv_filename(data_type)) do |row|
+      model = data_klass.create_from_csv!(row)
+      Rails.logger.info "\tCreated #{data_type} #{model}"
     end
   end
-  Rails.logger.info 'Finished loading pages'
+  Rails.logger.info("Finished loading #{data_type}")
+  ActiveRecord::Base.connection.reset_pk_sequence!(data_type)
 end
 
-def load_page_parts
-  PagePart.transaction do
-    source_path = Rails.root.join('db', 'seeds')
-    page_parts_file = "#{source_path}/page_parts.csv"
-    Rails.logger.info "Loading page parts from #{page_parts_file}..."
-    CSV.foreach(page_parts_file) do |row|
-      page_part = PagePart.create_from_csv(row)
-      Rails.logger.info "\tCreated #{page_part.slug} page_part"
-    end
-  end
-  Rails.logger.info 'Finished loading page parts'
+def csv_filename(data_type)
+  filename = Rails.root.join('db', 'seeds', "#{data_type.to_s.pluralize}.csv")
+  Rails.logger.info "Loading settings from #{filename}..."
+  filename
 end
 
-def load_settings
-  Setting.transaction do
-    source_path = Rails.root.join('db', 'seeds')
-    settings_file = "#{source_path}/settings.csv"
-    Rails.logger.info "Loading settings from #{settings_file}..."
-    CSV.foreach(settings_file) do |row|
-      setting = Setting.create_from_csv(row)
-      Rails.logger.info "\tCreated #{setting.key} setting"
-    end
-  end
-  Rails.logger.info 'Finished loading settings'
-end
-
-load_pages
-load_page_parts
-load_settings
+load(:setting)
+load(:page)
+load(:page_part)
