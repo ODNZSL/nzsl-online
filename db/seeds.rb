@@ -2,7 +2,7 @@
 require 'csv'
 
 def load(data_type)
-  data_klass = data_type.to_s.camelize.constantize
+  data_klass = data_type.to_s.singularize.camelize.constantize
   data_klass.transaction do
     CSV.foreach(csv_filename(data_type)) do |row|
       model = data_klass.create_from_csv!(row)
@@ -19,6 +19,6 @@ def csv_filename(data_type)
   filename
 end
 
-load(:setting)
-load(:page)
-load(:page_part)
+load(:settings)
+load(:pages)
+load(:page_parts)
