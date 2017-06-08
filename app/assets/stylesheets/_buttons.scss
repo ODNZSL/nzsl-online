@@ -1,5 +1,4 @@
-.orange_link_button {
-  overflow: auto;
+.add_vocab_button {
   position: relative;
   width: 100%;
   padding: 0;
@@ -9,7 +8,7 @@
   font-size: inherit;
   font-family: inherit;
   &:hover {
-    .text-container { color: $dark-grey; }
+    .text-container { color: $med-grey; }
     .icon-container { background: $med-grey; }
   }
   .icon-container {
@@ -19,11 +18,9 @@
     margin-right: 10px;
     float: left;
     position: relative;
-    display: inline-block;
-    text-align: center;
     i {
+      @include center;
       color: white;
-      line-height: 2.5;
       font-size: 0.85em;
     }
   }
@@ -38,27 +35,17 @@
 }
 
 .orange_submit_button,
-.orange_video_button {
+.play_video_button {
   @include border-radius-small;
   background-color: $peach;
   border: none;
   color: white;
   padding: 0 10px 5px 10px;
   font-size: $subtitle-font-size;
-  font-family: inherit;
-  background-image: none;
-  line-height: initial;
-  background-position: initial;
-  height: auto;
-  margin: 10px 0;
-
-  &:visited { color: white; }
 }
 
-.orange_video_button {
-  &:hover {
-    color: white;
-  }
+.play_video_button {
+  &:hover { color: white; }
   i {
     font-size: 22px;
     margin: 0 5px;
@@ -67,22 +54,11 @@
   }
 }
 
-.orange_submit_button { padding: 5px; }
-
 .play-button {
   @include center;
   color: white;
   font-size: 70px;;
 }
-
-.videos .translation_button {
-  float: none;
-  clear: left;
-}
-
-.translation_button { @extend .orange_video_button; }
-
-.no-js .translation_button { display: none; }
 
 a .button,
 .button input,
@@ -90,10 +66,5 @@ a .button,
 .button a,
 .button { @extend .orange_submit_button; }
 
-.button:visited { color: white; }
-
-.button button::-moz-focus-inner,
-.button input::-moz-focus-inner {
-  padding: 0;
-  border: 0;
-}
+.orange_submit_button { padding: 5px; }
+.translation_button { @extend .play_video_button; }

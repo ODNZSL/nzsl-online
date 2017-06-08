@@ -57,16 +57,16 @@ module ApplicationHelper
             { class: ("#{options[:class]}") }.reverse_merge(options)
   end
 
-  def orange_video_button(text, url = nil, options = {})
+  def play_video_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
     link_to "<i class='fi-play'></i>#{t(text)}".html_safe,
             url,
-            { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
+            { class: ("button #{options[:class]}") }.reverse_merge(options)
   end
 
-  def orange_link_button(text, url = nil, options = {})
+  def add_vocab_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to "<button type='submit' class='orange_link_button'>
+    link_to "<button type='submit' class='add_vocab_button'>
               <span class='icon-container'>
                 <i class='fi-plus'></i>
               </span>
@@ -76,11 +76,6 @@ module ApplicationHelper
             </button>".html_safe,
             url,
             { class: ("show-for-medium #{options[:class]}") }.reverse_merge(options)
-  end
-
-  def div_button(text, options = {})
-    content_tag :div, "#{t(text)}".html_safe,
-                { class: ("button link_button #{options[:class]}") }.reverse_merge(options)
   end
 
   def query_for_query_string
@@ -110,7 +105,7 @@ module ApplicationHelper
     link_text = (part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page')
     content_tag :div, [flow_video_tag(asset_path(part.translation_path),
                                       wrapper_class: 'translation_video main_video hidden_video'),
-                       orange_video_button(link_text,
+                       play_video_button(link_text,
                                            nil,
                                            class: 'translation_button float-left')
                       ].join(' ').html_safe,
