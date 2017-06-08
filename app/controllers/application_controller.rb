@@ -2,7 +2,6 @@
 
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  require 'digest/sha1'
   require 'browser'
   layout :layout_by_resource
 
@@ -77,12 +76,6 @@ class ApplicationController < ActionController::Base
       render template: "pages/#{@page.template}", status: 404
     else
       render text: '404 - page not found', status: 404
-    end
-  end
-
-  def authenticate
-    authenticate_or_request_with_http_basic do |username, password|
-      Digest::SHA1.hexdigest(password) == NZSL_ADMIN_ACCESS[username] if NZSL_ADMIN_ACCESS[username].present?
     end
   end
 end
