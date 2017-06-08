@@ -5,7 +5,7 @@
 .search_results_container.text-center.small-12.small-centered.medium-8.large-9
   %div{class: "row", id: "search-container", data: {"equalizer": true }}
     - @signs.each do |sign|
-      %div.small-12.medium-6.large-4.xlarge-3.float-left
+      %div.small-11.medium-6.large-4.xlarge-3.float-left
         %div{ class: "search_results_card float-left", data: {"equalizer-watch": true}}
           - if @query[:s]
             - query_text = @query[:s].join(" ")
@@ -18,8 +18,8 @@
           %div.clickable_link.small-12.small-centered
             %a{:href => "#{sign_url(sign.id)}", class: "div_link"}
               %span
-                .gloss_container.small-12.float-left
-                  = link_to sign_url(sign.id), {:class => 'main_gloss small-12 text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
+                .gloss_container.small-11.small-centered
+                  = link_to sign_url(sign.id), {:class => 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
                     = sign.gloss_main
                   - if sign.gloss_secondary.present?
                     .secondary_gloss.text-left= sign.gloss_secondary

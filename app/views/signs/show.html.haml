@@ -40,10 +40,10 @@
         - @sign.examples.each do |example|
           .typography.videos
             .video-container
-              %video.example_video.video.normal{controls: true, controlsList: "noDownload", preload: true, loop: true}
+              %video.example_video.video.normal{controls: true, controlsList: "nodownload", preload: true, loop: true}
                 %source{type: "video/mp4", src:  example[:video]}
               - if example[:video_slow]
-                %video.example_video.video.slow{controls: true, controlsList: "noDownload", preload: true, loop: true}
+                %video.example_video.video.slow{controls: true, controlsList: "nodownload", preload: true, loop: true}
                   %source{type: "video/mp4", src:  example[:video_slow]}
                 = play_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
                 = play_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
