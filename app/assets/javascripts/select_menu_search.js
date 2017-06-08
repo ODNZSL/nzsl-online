@@ -1,52 +1,34 @@
 $(document).ready(function() {
-  $('.usage-dropdown').click(function(e) {
-    e.preventDefault();
-    var id = $(this).attr('id');
-    removeStyle($('.usage-dropdown'))
-    addStyle($(this));
-    clearDropdown($('.usage-dropdown'));
-    $('#usage').val(id)
-  })
 
-  $('.topic-dropdown').click(function(e) {
-    e.preventDefault();
-    var id = $(this).attr('id');
-    removeStyle($('.topic-dropdown'))
-    addStyle($(this));
-    clearDropdown($('.topic-dropdown'));
-    $('#tag').val(id)
-  })
+  $('.usage-dropdown').click(function() {
+    select($(this), ".usage-dropdown", "#usage");
+  });
 
-  function addStyle(listElement) {
-    listElement.addClass('selected');
+  $('.topic-dropdown').click(function() {
+    select($(this), ".topic-dropdown", "#tag");
+  });
+
+  function select(target, targetClass, searchContainerId) {
+    var id;
+    $(targetClass).not(target).removeClass("selected")
+    target.toggleClass("selected");
+
+    if (target.hasClass("selected")) {
+      id = target.attr('id');
+      $('.empty').css("display", "inline-block")
+    } else {
+      id = ''
+      $('.empty').css("display", "none")
+    }
+    $(searchContainerId).val(id);
   }
 
-  function removeStyle(listElements) {
-    listElements.removeClass('selected');
+  function dropdownState(searchContainerId, targetClass) {
+    var targetId = $(searchContainerId).val();
+    var targetValue = $('li[class="' + targetClass +'"][id="' + targetId + '"]');
+    targetValue.addClass("selected");
   }
 
-// Make sure clear x is displayed as soon as dropdown items are clicked
-
-  function clearDropdown(list) {
-    $('.empty').css("display", "block")
-  }
-
-// remember dropdown state after search form submitted
-
-  function topicState() {
-    var elementID = $('#tag').val();
-    var elementValue = $('li[class="topic-dropdown"][id="' + elementID + '"]');
-    addStyle(elementValue);
-    elementID === true ? clearDropdown(elementValue) : false
-  }
-
-  function usageState() {
-    var elementID = $('#usage').val();
-    var elementValue = $('li[class="usage-dropdown"][id="' + elementID + '"]');
-    addStyle(elementValue);
-    elementID === true ? clearDropdown(elementValue) : false
-  }
-
-  topicState();
-  usageState();
+  dropdownState("#tag", "topic-dropdown");
+  dropdownState("#usage", "usage-dropdown");
 })
