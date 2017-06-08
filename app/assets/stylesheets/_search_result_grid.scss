@@ -5,7 +5,7 @@
   .link_container {
     width: 45%;
     text-align: left;
-    margin-top: 88px;
+    margin-top: 80px;
     margin-left: 5px
   }
 
@@ -22,10 +22,10 @@
   }
 
   .drawing_container {
-    width: 45%;
+    width: 52%;
     .drawing img {
-      max-width: 90%;
-      margin-right: 0;
+      max-width: 100%;
+      margin: 0;
     }
   }
 }
