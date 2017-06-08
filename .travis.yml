@@ -6,7 +6,7 @@ cache: bundler
 rvm:
   - 2.3.3
 before_script:
-  - RAILS_ENV=test bundle exec rake db:schema:load
+  - RAILS_ENV=test bundle exec rake db:create db:schema:load
   - gem install brakeman bundler-audit
   - bundle-audit update
 script:
