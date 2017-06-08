@@ -17,7 +17,7 @@ class PagePart < ActiveRecord::Base
     id, title, order, body, translation_path, page_id, created_at, updated_at = row
 
     page_part = PagePart.where(id: id).first_or_initialize
-    page_part.update_attributes(
+    page_part.update!(
       title: title,
       order: order,
       body: body,

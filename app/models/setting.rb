@@ -15,7 +15,7 @@ class Setting < ActiveRecord::Base
     id, key, value, created_at, updated_at = row
 
     setting = Setting.where(id: id).first_or_initialize
-    setting.update_attributes(
+    setting.update!(
       key: key,
       value: value,
       updated_at: updated_at,
