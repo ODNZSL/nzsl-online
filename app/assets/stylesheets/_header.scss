@@ -16,25 +16,6 @@ header {
       margin: 5px 0 0;
     }
   }
-  .menu-list {
-    @include montserrat-light;
-    width: 60%;
-    overflow: auto;
-    margin: 0 10px;
-    ul {
-      display: inline-block;
-      li {
-        display: inline;
-        list-style-type: none;
-        padding: 10px;
-        a {
-          color: $light-grey;
-          text-decoration: none;
-          border: 0;
-        }
-      }
-    }
-  }
   .hamburger-menu-icon {
     border-right: 1px solid $light-grey;
     width: calc(15% - 1px);
@@ -47,53 +28,55 @@ header {
       position: relative;
     }
   }
-
   .overlay {
     width: 0;
     height: 100%;
     position: fixed;
-    z-index: 1;
+    z-index: 100;
     left: 0;
     top: 0;
     background-color: $primary-blue;
     overflow-x: hidden;
     transition: .5s;
-  }
-
-  .overlay-content {
-    position: relative;
-    top: 10%;
-    margin-top: 30px;
-
-    li {
-      list-style-type: none;
+    a,
+    span {
+      @include montserrat-light;
+      font-size: 20px;
+      color: $light-grey;
+      line-height: 2.1;
+      transition: 0.3s;
     }
-  }
-
-  .overlay a,
-  .overlay span {
-    @include montserrat-light;
-    padding: 8px;
-    text-decoration: none;
-    font-size: 20px;
-    color: $light-grey;
-    display: block;
-    transition: 0.3s;
-    border-bottom: none;
-  }
-
-  .overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 60px;
+    .overlay-content {
+      position: relative;
+      top: 30px;
+    }
+    .closebtn {
+      position: absolute;
+      top: 20px;
+      right: 35px;
+      font-size: 60px;
+      line-height: 1;
+      z-index: 200;
+    }
   }
 }
 
 @media screen and (min-width: $medium-screen) {
   header {
     height: auto;
-    .header-nav { padding-top: 10px; }
+    .header-nav {
+      padding-top: 10px;
+      overflow: auto;
+    }
+    .menu-list {
+      @include montserrat-light;
+      width: 60%;
+      li {
+        display: inline;
+        padding: 10px;
+        a { color: $light-grey; }
+      }
+    }
   }
   .header-logo,
   .tablet-logo {

@@ -13,11 +13,11 @@ class PagePart < ActiveRecord::Base
     title.downcase.dasherize
   end
 
-  def self.create_from_csv(row)
+  def self.create_from_csv!(row)
     id, title, order, body, translation_path, page_id, created_at, updated_at = row
 
     page_part = PagePart.where(id: id).first_or_initialize
-    page_part.update_attributes(
+    page_part.update!(
       title: title,
       order: order,
       body: body,

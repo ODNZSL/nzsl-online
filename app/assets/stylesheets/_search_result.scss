@@ -6,7 +6,7 @@
   &-container {
     .glosses-container { margin-bottom: 20px; }
     .video-container .button {
-      @extend .orange_video_button;
+      @extend .play_video_button;
       margin: 5px 0 30px 0;
     }
     .back-button-container {

@@ -17,7 +17,7 @@
         %h2.main_gloss= @sign.gloss_maori
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
-        = orange_link_button('vocab_sheet.item.add', :class => 'add_to_sheet')
+        = add_vocab_button('vocab_sheet.item.add', :class => 'add_to_sheet')
     .videos.small-12.medium-5
       .video-container
         %video.main_video.video.normal{controls: true, controlsList: "nodownload", preload: true, loop: true}
@@ -25,8 +25,8 @@
         - if @sign.video_slow.present?
           %video.main_video.video.slow{controls: true, controlsList: "nodownload", preload: true, loop: true}
             %source{type: "video/mp4", src:  @sign.video_slow}
-          = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-          = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+          = play_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+          = play_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
       .glosses-container.glosses.small-12.float-left
         %h2.main_gloss= @sign.gloss_main
         %h2.secondary_gloss= @sign.gloss_secondary
@@ -45,8 +45,8 @@
               - if example[:video_slow]
                 %video.example_video.video.slow{controls: true, controlsList: "noDownload", preload: true, loop: true}
                   %source{type: "video/mp4", src:  example[:video_slow]}
-                = orange_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-                = orange_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+                = play_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
+                = play_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
             .small-12.float-left
               %p.secondary_gloss= render_transcription(example[:transcription], @sign.id)
               %h4.translation-gloss
