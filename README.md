@@ -3,11 +3,12 @@
 New Zealand Sign Language Dictionary consists of 2 major units
 * Ruby on Rails Website (this repo)
 * Freelex, and open source project for maintaining the signs lexicon data.
-[ ![Codeship Status for rabidtech/nzsl](https://app.codeship.com/projects/842bb6e0-c58b-0134-119d-0ea6e9886ab2/status?branch=master)](https://app.codeship.com/projects/198337)
+
+[![Build Status](https://travis-ci.org/rabid/nzsl-online.svg?branch=master)](https://travis-ci.org/rabid/nzsl-online)
 
 ## Deployment
 
-`staging` branch deploys to Staging 
+`staging` branch deploys to Staging
 
 `master` branch deploy to Production.
 
@@ -30,3 +31,4 @@ Note: This instance at VUW runs from a SQLLite database
 1. cp env-example .env
 1. bundle
 1. bundle exec rails s
+
