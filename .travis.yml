@@ -1,0 +1,15 @@
+---
+language: ruby
+bundler_args: "--without development"
+sudo: false
+cache: bundler
+rvm:
+  - 2.3.3
+before_script:
+  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+  - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
+script:
+  - bundle exec rubocop -D
+  - bundle-audit check --update
+  - brakeman --run-all-checks --exit-on-warn --format plain .
+  - bundle exec rspec spec
