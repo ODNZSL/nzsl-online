@@ -10,5 +10,6 @@ before_script:
   - gem install brakeman bundler-audit
 script:
   - bundle exec rubocop -D
+  - bundle-audit check --update
   - brakeman --run-all-checks --exit-on-warn --format plain .
   - bundle exec rspec spec
