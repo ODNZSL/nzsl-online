@@ -13,3 +13,5 @@ script:
   - bundle-audit check --update
   - brakeman --run-all-checks --exit-on-warn --format plain .
   - bundle exec rspec spec
+after_success:
+  - bundle exec codeclimate-test-reporter
