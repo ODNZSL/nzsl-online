@@ -27,8 +27,8 @@ class ApplicationController < ActionController::Base
 
   def setup_browser_rules # rubocop:disable Metrics/AbcSize
     Browser.modern_rules.clear
-    Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 40 }
-    Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 40 }
+    Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 55 }
+    Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 51 }
     Browser.modern_rules << ->(b) { b.safari? && b.version.to_i >= 9 }
     Browser.modern_rules << ->(b) { b.ie? && b.version.to_i >= 10 }
   end
