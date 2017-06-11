@@ -74,6 +74,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :test do
+  gem "codeclimate-test-reporter", "~> 1.0.0"
+end
+
 group :staging, :production do
   gem 'unicorn'
 end
