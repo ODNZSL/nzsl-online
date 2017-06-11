@@ -41,11 +41,7 @@ module Admin
 
     def reorder
       params[:items].each_with_index do |id, index|
-        # Need to update updated_at column as update_all doesn't do this for some reason
-        Page.where(id: id.to_i).update_all(
-          order: index + 1,
-          updated_at: Time.zone.now
-        )
+        Page.find(id.to_i).update(order: index + 1)
       end
       render nothing: true
     end
