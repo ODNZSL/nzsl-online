@@ -87,7 +87,7 @@ RSpec.describe 'Page', type: :model do
   end
 
   describe '.in_nav' do
-    it 'finds the pages that must show in nav' do
+    it 'finds the pages that must show in footer nav' do
       pages = Page.in_nav
       expect(pages.length).to eq(0)
 
@@ -97,6 +97,21 @@ RSpec.describe 'Page', type: :model do
 
       # retrieve the pages that should show in nav
       pages = Page.in_nav
+      expect(pages.length).to eq(1)
+    end
+  end
+
+  describe '.in_header_nav' do
+    it 'finds the pages that must show in header nav' do
+      pages = Page.in_header_nav
+      expect(pages.length).to eq(0)
+
+      page.show_in_nav = true
+      page.slug = 'topics'
+      subject.save!
+
+      # retrieve the pages that should show in nav
+      pages = Page.in_header_nav
       expect(pages.length).to eq(1)
     end
   end
