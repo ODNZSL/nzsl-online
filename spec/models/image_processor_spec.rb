@@ -1,27 +1,25 @@
 require 'rails_helper'
 require 'fastimage'
 
-describe 'ImageProcessor' do
-  let(:filename) do
-    '1935/picture-W99-69.png'
-  end
+RSpec.describe 'ImageProcessor' do
+  let(:filename) { '1935/picture-W99-69.png' }
+  let(:height)   { 100 }
+  let(:width) { 100 }
 
-  it 'retrieves an image' do
-    width = 100
-    height = 100
-    file = ImageProcessor.new(filename: filename, width: width, height: height).resize_and_cache
-    expect(File.exist?(file)).to be(true)
-  end
+  subject { ImageProcessor.new(filename: filename, width: width, height: height) }
 
-  it 'resizes an image' do
-    width = 100
-    height = 100
-    retrieved_file = ImageProcessor.new(filename: filename, width: width, height: height).resize_and_cache
-    expect(File.exist?(retrieved_file)).to be(true)
+  describe '#resize_and_cache' do
+    subject { super().resize_and_cache }
 
-    actual_width, actual_height = FastImage.size(retrieved_file)
+    it 'retrieves an image' do
+      expect(File.exist?(subject)).to be(true)
+    end
 
-    expect(actual_width).to be <= width
-    expect(actual_height).to be <= height
+    it 'resizes an image' do
+      actual_width, actual_height = FastImage.size(subject)
+
+      expect(actual_width).to be <= width
+      expect(actual_height).to be <= height
+    end
   end
 end
