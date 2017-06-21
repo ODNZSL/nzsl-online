@@ -283,6 +283,7 @@ GEM
     unicorn (5.3.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    videojs_rails (4.12.15)
     warden (1.2.7)
       rack (>= 1.0)
     whenever (0.9.7)
@@ -332,12 +333,12 @@ DEPENDENCIES
   therubyracer
   uglifier
   unicorn
+  videojs_rails
   whenever
   will_paginate
-
 
 RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.14.6
+   1.15.1
