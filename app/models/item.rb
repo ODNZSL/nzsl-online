@@ -13,7 +13,7 @@ class Item < ActiveRecord::Base
   end
 
   def update_maori_name_if_missing
-    return unless self[:maori_name].nil? && self.persisted?
+    return unless self[:maori_name].nil? && persisted?
     self.maori_name = sign.gloss_maori
     save
   end
