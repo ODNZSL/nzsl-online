@@ -159,7 +159,7 @@
   background: yellowgreen;
   color: white;
   text-align: center;
-  width: 100%;
+  width: calc((100% - 20px) / 2);
 }
 
 .vocab_sheet_bar .flash {
