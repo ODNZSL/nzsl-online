@@ -1,7 +1,7 @@
 require 'fileutils'
 
 namespace :sign_images do
-  dimensions_regex = Regexp.new(/(\d{1,4})x(\d{1,4})/)
+  DIMENSIONS_REGEXP = Regexp.new(/(\d{1,4})x(\d{1,4})/)
 
   desc 'Clears the cache by deleting all files inside the sign image directory'
   task clear_cache: :environment do
@@ -10,7 +10,11 @@ namespace :sign_images do
       next if file == '.' || file == '..'
       file = File.join(SIGN_IMAGE_PATH, file)
       puts "rm #{file}\n"
-      File.directory?(File.join(SIGN_IMAGE_PATH, file)) ? FileUtils.rm_rf(File.join(SIGN_IMAGE_PATH, file)) : FileUtils.rm(File.join(SIGN_IMAGE_PATH, file))
+      if File.directory?(File.join(SIGN_IMAGE_PATH, file))
+        FileUtils.rm_rf(File.join(SIGN_IMAGE_PATH, file))
+      else
+        FileUtils.rm(File.join(SIGN_IMAGE_PATH, file))
+      end
     end
     puts "...Done.\n"
   end
@@ -29,11 +33,11 @@ namespace :sign_images do
   end
 
   def dimensions_from_filename(filename = '')
-    dimensions_regex.match(filename)
+    DIMENSIONS_REGEXP.match(filename)
     [Regexp.last_match(1), Regexp.last_match(2)]
   end
 
   def filename_to_api_format(filename = '')
-    filename.gsub(SIGN_IMAGE_PATH, '').gsub(dimensions_regex, '').gsub(/\A\-/, '')
+    filename.gsub(SIGN_IMAGE_PATH, '').gsub(DIMENSIONS_REGEXP, '').gsub(/\A\-/, '')
   end
 end
