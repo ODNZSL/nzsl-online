@@ -70,8 +70,7 @@ describe 'Page' do
     page = Page.new(title: 'extra white space',
                     template: 'standard',
                     show_in_nav: true,
-                    page_parts: [PagePart.new(title: 'part of a page')]
-                   )
+                    page_parts: [PagePart.new(title: 'part of a page')])
     page.save!
 
     # retrieve the pages that should show in nav
