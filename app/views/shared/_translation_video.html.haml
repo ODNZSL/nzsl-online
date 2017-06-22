@@ -1,4 +1,9 @@
 .clearfix_left.column-block
-  .translation_video{"data-ratio" => "0.75"}
-    = videojs_rails sources: { mp4: Rails.application.secrets.s3_bucket_url + page_part.translation_path + ".mp4", webm: Rails.application.secrets.s3_bucket_url + page_part.translation_path + ".webm"}, controls: true, controlsList:"nodownload", preload: "auto", loop: true
-  = play_video_button((page_part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'), nil, :class => 'translation_button')
+  .translation_video{ 'data-ratio' => '0.75' }
+    = videojs_rails controls: true,
+      sources: { mp4: Rails.application.secrets.s3_bucket_url + page_part.translation_path + '.mp4',
+        webm: Rails.application.secrets.s3_bucket_url + page_part.translation_path + '.webm' },
+      controlsList: 'nodownload', preload: 'auto', loop: true
+  = play_video_button((page_part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page'),
+    nil,
+    class: 'translation_button')
