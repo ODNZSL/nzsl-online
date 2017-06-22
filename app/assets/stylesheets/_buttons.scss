@@ -57,7 +57,8 @@
 .play-button {
   @include center;
   color: white;
-  font-size: 70px;;
+  font-size: 70px;
+  z-index: 100;
 }
 
 a .button,
