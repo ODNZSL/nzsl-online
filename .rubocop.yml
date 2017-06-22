@@ -22,6 +22,9 @@ Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
 
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
 Style/FileName:
   Exclude:
     - Gemfile
