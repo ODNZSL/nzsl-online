@@ -10,7 +10,7 @@ class Setting < ActiveRecord::Base
 
   def self.get(key)
     setting = find_by_key(key.to_s)
-    setting.value if setting
+    setting&.value
   end
 
   def self.create_from_csv!(row)
