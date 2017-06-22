@@ -18,6 +18,10 @@ Metrics/ModuleLength:
 Style/FrozenStringLiteralComment:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+
 Style/FileName:
   Exclude:
     - Gemfile
