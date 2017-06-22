@@ -26,29 +26,29 @@ describe 'Sign' do
   end
 
   it 'must have set class attributes' do
-    expect(SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
-    expect(ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
+    expect(SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true) # rubocop:disable Performance/StartWith
+    expect(ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true) # rubocop:disable Performance/StartWith
   end
 
   it 'must have all attributes of a Sign' do
     # As per the spec'd requirements of DNZSL:
-    required_attributes = [
-      :id,
-      :gloss_main,
-      :gloss_secondary,
-      :gloss_minor,
-      :gloss_maori,
-      :word_classes,
-      :inflection,
-      :age_groups,
-      :gender_groups,
-      :video,
-      :drawing,
-      :usage_notes,
-      :contains_numbers,
-      :is_fingerspelling,
-      :is_directional,
-      :is_locatable
+    required_attributes = %i[
+      id
+      gloss_main
+      gloss_secondary
+      gloss_minor
+      gloss_maori
+      word_classes
+      inflection
+      age_groups
+      gender_groups
+      video
+      drawing
+      usage_notes
+      contains_numbers
+      is_fingerspelling
+      is_directional
+      is_locatable
     ]
     sign = Sign.new
     required_attributes.each do |att|

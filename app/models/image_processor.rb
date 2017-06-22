@@ -48,7 +48,7 @@ class ImageProcessor
 
     # It is expected that filename is in the 1212/sdsd.png format
     file_parts = filename.split File::SEPARATOR
-    return SIGN_IMAGE_PATH if file_parts.length == 0
+    return SIGN_IMAGE_PATH if file_parts.empty?
 
     sign_dir = File.join(SIGN_IMAGE_PATH, file_parts[0])
 
