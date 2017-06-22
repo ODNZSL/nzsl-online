@@ -13,8 +13,7 @@
             - query_text = " "
           .video-container
             %i.fi-play.play-button
-            %video.normal{controls: false, preload: true, loop: true}
-              %source{type: "video/mp4", src:  sign.video}
+            = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
           %div.clickable_link.small-12.small-centered
             %a{:href => "#{sign_url(sign.id)}", class: "div_link"}
               %span
@@ -34,11 +33,6 @@
                   .drawing_container.float-left
                     = link_to sign_url(sign.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
                       = image_tag "signs/150-100/#{sign.drawing}"
-
-
-
-
-
 
   .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
