@@ -17,4 +17,5 @@
 //= require custom_play_button
 //= require foundation-equalizer
 //= require video
+
 $(document).foundation();
