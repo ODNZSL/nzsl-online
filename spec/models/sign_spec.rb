@@ -26,8 +26,8 @@ describe 'Sign' do
   end
 
   it 'must have set class attributes' do
-    expect(SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
-    expect(ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true)
+    expect(SIGN_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true) # rubocop:disable Performance/StartWith
+    expect(ASSET_URL.match(/\Ahttp\:/).is_a?(MatchData)).to eq(true) # rubocop:disable Performance/StartWith
   end
 
   it 'must have all attributes of a Sign' do
