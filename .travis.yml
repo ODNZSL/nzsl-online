@@ -14,8 +14,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - RAILS_ENV=test bundle exec rake db:create db:schema:load
 script:
-  - bundle exec rubocop -D
-  - bundle-audit check --update
   - brakeman --run-all-checks --exit-on-warn --format plain .
   - bundle exec rspec spec
 after_success:
