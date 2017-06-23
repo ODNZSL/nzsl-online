@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-describe 'Sign' do
+RSpec.describe 'Sign', type: :model do
   it 'must create a new Sign object' do
     sign = Sign.new
     expect(sign.is_a?(Sign)).to eq(true)

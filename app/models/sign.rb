@@ -17,16 +17,7 @@ class Sign
                 :usage_notes, :related_to, :usage, :examples,
                 :inflection_temporal, :inflection_manner_and_degree, :inflection_plural
 
-  def borrowed_from
-    related_to unless related_to == 'nzsl'
-  end
-
-  def location
-    SignMenu.locations.flatten.find { |l| l.split('.')[2].downcase == location_name }
-  end
-
   # class #
-
   def self.first(params)
     _count, entries = search(params)
     return nil if entries.empty?
@@ -95,5 +86,14 @@ class Sign
       end
     end
     "#{SIGN_URL}?#{query_string.join('&')}"
+  end
+
+  # instance #
+  def borrowed_from
+    related_to unless related_to == 'nzsl'
+  end
+
+  def location
+    SignMenu.locations.flatten.find { |l| l.split('.')[2].downcase == location_name }
   end
 end
