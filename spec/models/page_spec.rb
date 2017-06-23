@@ -116,6 +116,31 @@ RSpec.describe 'Page', type: :model do
     end
   end
 
+  describe '.create_from_csv!' do
+    context 'when the page exists in the database' do
+      let(:row) do
+        [page.id, 'Automated testing rocks', 'help', 'help', 23, 'standard',
+         true, page.created_at, page.updated_at]
+      end
+      it 'updates the record' do
+        subject.save!
+        Page.create_from_csv!(row)
+        updated_page = Page.find_by(id: page.id)
+        expect(updated_page.slug).to eq 'help'
+      end
+    end
+
+    context 'when the page does not yet exist in the database' do
+      let(:row) { [155, 'this bites!', 'help', 'help', 23, 'standard', true, page.created_at, page.updated_at] }
+      it 'creates the record' do
+        subject.save!
+        expect(Page.all.length).to eq 1
+        Page.create_from_csv!(row)
+        expect(Page.all.length).to eq 2
+      end
+    end
+  end
+
   describe '#path' do
     it 'works out path' do
       expect(subject.path).to eq('/so-true/')
