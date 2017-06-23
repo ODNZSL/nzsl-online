@@ -24,7 +24,7 @@ gem 'modernizr-rails'
 gem 'paperclip'
 gem 'responders', '~> 2.0'
 gem 'therubyracer', platforms: :ruby
-
+gem 'videojs_rails'
 # records crashes
 gem 'raygun4ruby'
 
@@ -56,7 +56,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.34.0', require: false
+  gem 'rubocop', '~> 0.47.0', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'

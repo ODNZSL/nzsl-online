@@ -1,4 +1,5 @@
 # frozen_string_literal: true
+
 require 'csv'
 
 def load(data_type)

@@ -1,10 +1,10 @@
 ## A page within our basic CMS
 class Page < ActiveRecord::Base
-  RESTRICTED_SLUGS = %w(admin signs feedback sign_image images javascripts
+  RESTRICTED_SLUGS = %w[admin signs feedback sign_image images javascripts
                         stylesheets system 500 favicon flowplayer-3 flowplayer
-                        robots crossdomain).freeze # top level routes & public dir.
+                        robots crossdomain].freeze # top level routes & public dir.
 
-  HEADER_NAV = %w(topics alphabet numbers classifiers).freeze
+  HEADER_NAV = %w[topics alphabet numbers classifiers].freeze
 
   has_many :page_parts
 
@@ -38,10 +38,9 @@ class Page < ActiveRecord::Base
   ##
   # Find pages that should display in footer navigation
   def self.in_nav
-    where(show_in_nav: true)
-      .where(
-        "(SELECT COUNT(*) FROM page_parts where page_id = \"pages\".\"id\") > 0"
-      )
+    where(show_in_nav: true).where(
+      '(SELECT COUNT(*) FROM page_parts where page_id = "pages"."id") > 0'
+    )
   end
 
   ##
@@ -83,9 +82,9 @@ class Page < ActiveRecord::Base
   private
 
   def strip_text
-    title.strip! if title
-    slug.strip! if slug
-    label.strip! if label
+    title.strip!
+    slug.strip!
+    label.strip!
   end
 
   def slug_and_label_from_title
