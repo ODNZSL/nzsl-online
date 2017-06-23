@@ -82,9 +82,9 @@ class Page < ActiveRecord::Base
   private
 
   def strip_text
-    title.strip!
-    slug.strip!
-    label.strip!
+    title&.strip!
+    slug&.strip!
+    label&.strip!
   end
 
   def slug_and_label_from_title

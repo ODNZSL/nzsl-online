@@ -13,8 +13,7 @@ module Admin
       @page_part = PagePart.new(page_id: @page.id)
     end
 
-    def edit
-    end
+    def edit; end
 
     def create
       @page_part = PagePart.new(page_part_params)

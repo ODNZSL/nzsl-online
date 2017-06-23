@@ -7,8 +7,7 @@ module Admin
       redirect_to edit_admin_settings_path
     end
 
-    def edit
-    end
+    def edit; end
 
     def update
       if Setting.update_all(settings_params)
