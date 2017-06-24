@@ -9,16 +9,6 @@ module ApplicationHelper
     end
   end
 
-  def flow_video_tag(source, options)
-    options.symbolize_keys!
-
-    wrapper_class = "video_replace #{options.delete(:wrapper_class)}"
-    content_tag(:a, nil,
-                href: source,
-                class: wrapper_class,
-                data: { loop: options[:loop] })
-  end
-
   def submit_button(text = 'search.submit', options = {})
     "<div class='button input_button'>
       #{submit_tag(t(text), options.merge(name: nil))}
