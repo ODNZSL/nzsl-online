@@ -9,16 +9,6 @@ module ApplicationHelper
     end
   end
 
-  # def flow_video_tag(source, options = {})
-  #   options.symbolize_keys!
-
-  #   source_tag = content_tag(:source, nil, type: 'video/mp4', src: source)
-  #   wrapper_class = "flowplayer #{options.delete(:wrapper_class)}"
-  #   content_tag(:div, class: wrapper_class) do
-  #     content_tag(:video, source_tag, loop: !!options[:loop])
-  #   end
-  # end
-
   def flow_video_tag(source, options)
     options.symbolize_keys!
 
