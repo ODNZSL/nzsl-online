@@ -1,7 +1,7 @@
 ## A page within our basic CMS
 class Page < ActiveRecord::Base
   RESTRICTED_SLUGS = %w[admin signs feedback sign_image images javascripts
-                        stylesheets system 500 favicon flowplayer-3 flowplayer
+                        stylesheets system 500 favicon
                         robots crossdomain].freeze # top level routes & public dir.
 
   HEADER_NAV = %w[topics alphabet numbers classifiers].freeze
