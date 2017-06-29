@@ -13,7 +13,6 @@ gem 'mini_magick', '~> 3.6.0'
 gem 'nokogiri'
 gem 'whenever'
 
-gem 'aws-sdk', '~> 2'
 gem 'browser'
 gem 'ckeditor_rails'
 gem 'formtastic', '~>2.3.0'
