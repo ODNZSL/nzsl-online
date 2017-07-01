@@ -198,7 +198,7 @@ GEM
       httparty (> 0.13.7)
       json
       rack
-    rb-fsevent (0.10.1)
+    rb-fsevent (0.10.2)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rb-readline (0.5.4)
