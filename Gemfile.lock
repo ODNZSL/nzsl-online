@@ -295,7 +295,7 @@ DEPENDENCIES
   faker
   fastimage
   formtastic (~> 2.3.0)
-  foundation-rails
+  foundation-rails (~> 6.3.1.0)
   haml
   i18n
   jquery-rails
@@ -325,7 +325,6 @@ DEPENDENCIES
   videojs_rails
   whenever
   will_paginate
-
 
 RUBY VERSION
    ruby 2.3.3p222
