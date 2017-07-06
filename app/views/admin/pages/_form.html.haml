@@ -1,14 +1,12 @@
-= semantic_form_for [:admin, @page] do |f|
-  = f.inputs do
-    = f.input :title, required: true, label: true,
-      hint: 'At the top of the page and in the title bar.', input_html: { class: 'text_input' }
-    = f.input :slug, label: true, input_html: { class: 'text_input' },
-      hint: 'the url - must be lowercase and/or numbers or dashes only.'
-    = f.input :label, label: true, input_html: { class: 'text_input' },
-      hint: 'In the navigation - should be short.'
-    = f.input :show_in_nav, label: true
-    = f.input :template, label: true, as: :select,
-      collection: Page.templates.map{ |t| [t.humanize.titleize, t] },
-      include_blank: false, input_html: { class: 'text_input' }
-  = f.submit
-  = button_to 'Cancel', admin_pages_path
+= form_for [:admin, @page] do |f|
+  = f.label :title
+  = f.text_field :title
+  = f.label :slug
+  = f.text_field :slug
+  = f.label :label
+  = f.text_field :label
+  = f.label :show_in_nav
+  = f.text_field :show_in_nav
+  = f.label :template, as: :select, collection: Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
+  = f.submit 'save'
+= link_to 'Cancel', admin_pages_path
