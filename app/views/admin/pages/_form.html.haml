@@ -1,12 +1,23 @@
 = form_for [:admin, @page] do |f|
-  = f.label :title
-  = f.text_field :title
-  = f.label :slug
-  = f.text_field :slug
-  = f.label :label
-  = f.text_field :label
-  = f.label :show_in_nav
-  = f.text_field :show_in_nav
-  = f.label :template, as: :select, collection: Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
-  = f.submit 'save'
+  %div
+    = f.label :title, required: true
+    %br
+    = f.text_field :title
+  %span At the top of the page and in the title bar.
+  %br
+  %div
+    = f.label :slug
+    = f.text_field :slug
+  %span the url - must be lowercase and/or numbers or dashes only.
+  %div
+    = f.label :label
+    = f.text_field :label
+  %span In the navigation -should be short.
+  %div
+    = f.label :show_in_nav, as: :check_boxes
+  %div
+    = f.label :template
+    = f.text_field :template, as: :select, collection: Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
+  %div
+    = f.submit
 = link_to 'Cancel', admin_pages_path
