@@ -39,16 +39,11 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     arel (6.0.4)
     ast (2.3.0)
-    autoprefixer-rails (6.7.7)
-      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.11)
-    bootstrap-sass (3.3.7)
-      autoprefixer-rails (>= 5.2.1)
-      sass (>= 3.3.4)
     brakeman (3.7.0)
     browser (2.4.0)
     builder (3.2.3)
@@ -243,9 +238,6 @@ GEM
       sprockets (>= 2.8, < 4.0)
       sprockets-rails (>= 2.0, < 4.0)
       tilt (>= 1.1, < 3)
-    simple_form (3.4.0)
-      actionpack (> 4, < 5.1)
-      activemodel (> 4, < 5.1)
     simplecov (0.13.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -290,7 +282,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bootstrap-sass (~> 3.3.6)
   brakeman
   browser
   ckeditor_rails
@@ -324,7 +315,6 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 0.47.0)
   sass-rails
-  simple_form
   simplecov
   therubyracer
   uglifier
