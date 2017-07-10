@@ -294,10 +294,6 @@ a.drawing {
   left: 0;
 }
 
-/* the formtastic default stylesheet wasn't making me happy. */
-
-.formtastic { padding: 16px 0; }
-
 .formtastic ol {
   list-style-type: none;
   margin-left: 0;
@@ -309,14 +305,12 @@ a.drawing {
   position: relative;
 }
 
-.formtastic label { display: block; }
-
-.formtastic abbr {
+abbr {
   border-bottom: 0;
   color: #f53;
 }
 
-.formtastic .inline ol li {
+.inline ol li {
   width: auto;
   float: left;
   margin-right: 10px;
@@ -327,29 +321,29 @@ a.drawing {
 .formtastic .boolean label,
 .formtastic .radio label { line-height: 1; }
 
-.formtastic .text_input { width: 300px; }
+.text_input { width: 300px; }
 
-.formtastic textarea.text_input { width: 450px; }
+textarea.text_input { width: 450px; }
 
-.formtastic .error .text_input { border-color: #f53; }
+.error .text_input { border-color: #f53; }
 
-.formtastic .inline-errors {
+.inline-errors {
   position: absolute;
   color: #f53;
   top: 0;
   right: 195px;
 }
 
-.formtastic .boolean { margin-bottom: 10px; }
+.boolean { margin-bottom: 10px; }
 
-.formtastic .inline-hints {
+.inline-hints {
   font-style: italic;
   font-size: 85%;
 }
 
-.formtastic .text .inline-errors { right: 45px; }
+.text .inline-errors { right: 45px; }
 
-.formtastic .sub_form { margin-left: 15px; }
+.sub_form { margin-left: 15px; }
 
 .view_print_back_link {
   float: right;

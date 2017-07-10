@@ -1,16 +1,16 @@
 = form_for [:admin, @page, @page_part] do |f|
-  %form{"data-abide" => ""}
+  %form
     %fieldset
       .small-12.column-block
         %label.required
           = f.label :title
           %br
-          = f.text_field :title
+          = f.text_field :title, class: 'text_input'
       .small-12.column-block
         %label
           = f.label :translation_path
           %br
-          = f.text_field :translation_path
+          = f.text_field :translation_path, class: 'text_input'
       .small-12.column-block
         %label.required
           = f.label :body
