@@ -1,5 +1,4 @@
 //= require jquery
-//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require ckeditor-jquery
 //= require jquery-ui
