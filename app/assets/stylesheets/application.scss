@@ -3,6 +3,7 @@
 *= require_self
 *= require video-js
 */
+
 @import "color";
 @import "variables";
 @import "foundation_and_overrides";
@@ -21,8 +22,6 @@
 @import "search_result_grid";
 @import "home";
 @import "ie_browser_support";
-@import "bootstrap-sprockets";
-@import "bootstrap";
 
 .hide { display: none; }
 .show { display: inline-block; }
@@ -411,6 +410,11 @@ body .video_replace {
   display: block;
   height: 0;
   overflow: hidden;
+}
+
+.required label:after {
+  content:"*";
+  color: red;
 }
 
 .clearfix:after { clear: both; }

@@ -1,23 +1,36 @@
 = form_for [:admin, @page] do |f|
-  %div
-    = f.label :title, required: true
-    %br
-    = f.text_field :title
-  %span At the top of the page and in the title bar.
-  %br
-  %div
-    = f.label :slug
-    = f.text_field :slug
-  %span the url - must be lowercase and/or numbers or dashes only.
-  %div
-    = f.label :label
-    = f.text_field :label
-  %span In the navigation -should be short.
-  %div
-    = f.label :show_in_nav, as: :check_boxes
-  %div
-    = f.label :template
-    = f.text_field :template, as: :select, collection: Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
-  %div
-    = f.submit
-= link_to 'Cancel', admin_pages_path
+  %form{"data-abide" => ""}
+    %fieldset
+      .small-12.column-block
+        %label.required
+          = f.label :title
+          %br
+          = f.text_field :title
+          %br
+          %small At the top of the page and in the title bar.
+      .small-12.column-block
+        %label.required
+          = f.label :slug
+          %br
+          = f.text_field :slug
+          %br
+          %small the url - must be lowercase and/or numbers or dashes only.
+      .small-12
+        %label.required
+          = f.label :label
+          %br
+          = f.text_field :label
+          %br
+          %small In the navigation -should be short.
+      .small-12.column-block
+        %label{for: "Show in navigation"}
+          %input{type: "checkbox"}
+          = f.label :show_in_nav, label: true
+      .small-12
+        %label.required
+          = f.label :template
+        %br
+          = f.select :template, Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
+    .small-12
+      = f.submit
+      = button_to 'Cancel', admin_pages_path
