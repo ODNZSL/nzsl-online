@@ -1,7 +1,21 @@
 = form_for [:admin, @page, @page_part] do |f|
-  = f.inputs do
-    = f.input :title, required: true, label: true, input_html: { class: 'text_input' }
-    = f.input :translation_path, label: true, input_html: { class: 'text_input' }
-    = f.input :body, required: true, label: true, input_html: { class: 'text_input ckeditor' }
-  = f.submit
-  = link_to 'Cancel', edit_admin_page_path(@page)
+  %form{"data-abide" => ""}
+    %fieldset
+      .small-12.column-block
+        %label.required
+          = f.label :title
+          %br
+          = f.text_field :title
+      .small-12.column-block
+        %label
+          = f.label :translation_path
+          %br
+          = f.text_field :translation_path
+      .small-12.column-block
+        %label.required
+          = f.label :body
+          %br
+          = f.text_area :body, class: 'text_input ckeditor'
+    .small-12
+      = f.submit
+      = button_to 'Cancel', edit_admin_page_path(@page)
