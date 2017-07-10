@@ -406,9 +406,9 @@ body .video_replace {
   overflow: hidden;
 }
 
-.required label:after {
-  content:"*";
-  color: red;
+.required label::after {
+  color: #ff0000;
+  content: "*";
 }
 
 .clearfix:after { clear: both; }

@@ -7,9 +7,11 @@
         %ol
           - ['help', 'glossary', '404', 'footer'].each do |setting|
             %li.string.required
-            %label{for: "settings_#{setting}"}=t "admin.setting.#{setting}"
+            %label{ for: "settings_#{setting}" } = t "admin.setting.#{setting}"
             %br
-            = select_tag "settings[#{setting}]", options_for_select(Page.all.map{|p| [p.label, p.id]}, Setting.get(setting)), class: 'text_input';
+            = select_tag "settings[#{setting}]",
+            options_for_select(Page.all.map{|p| [p.label, p.id]},
+            Setting.get(setting)), class: 'text_input';
       .large-2.text-center.clearfix
         = submit_button('admin.save')
     .small-12
