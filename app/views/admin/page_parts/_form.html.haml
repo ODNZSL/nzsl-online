@@ -1,21 +1,17 @@
 = form_for [:admin, @page, @page_part] do |f|
-  %form
-    %fieldset
-      .small-12.column-block
-        %label.required
-          = f.label :title
-          %br
-          = f.text_field :title, class: 'text_input'
-      .small-12.column-block
-        %label
-          = f.label :translation_path
-          %br
-          = f.text_field :translation_path, class: 'text_input'
-      .small-12.column-block
-        %label.required
-          = f.label :body
-          %br
-          = f.text_area :body, class: 'text_input ckeditor'
-    .small-12
-      = f.submit
-      = button_to 'Cancel', edit_admin_page_path(@page)
+  %fieldset.fieldset
+    .small-12.column-block
+      %label.required
+        = f.label :title
+        = f.text_field :title, class: 'text_input'
+    .small-12.column-block
+      %label
+        = f.label :translation_path
+        = f.text_field :translation_path, class: 'text_input'
+    .small-12.column-block
+      %label.required
+        = f.label :body
+        = f.text_area :body, class: 'text_input ckeditor'
+  .small-12
+    = f.submit
+    = button_to 'Cancel', edit_admin_page_path(@page)

@@ -181,7 +181,7 @@ $(function(){
     });
     $('.search_form form').each(function(){
       toggle_clear(this);
-    }).find('.text_input, .selected_field, .selected_groups_field')
+    }).find('.text-input, .selected_field, .selected_groups_field')
       .change(function(){toggle_clear($(this).closest('form'));});
 
     $('.empty').click(function(){
@@ -189,7 +189,7 @@ $(function(){
       tab.find('.selected_signs').empty();
       tab.find('.dropdown .selected').removeClass('selected');
       tab.find('.default, .input_prompt').show();
-      tab.find('.selected_field, .selected_groups_field, .text_input').val(null);
+      tab.find('.selected_field, .selected_groups_field, .text-input').val(null);
       tab.find('select').select('');
       tab.find('.empty').hide();
     });
@@ -197,7 +197,7 @@ $(function(){
 
   var toggle_clear = function(form){
     var show = false;
-    $(form).find('.text_input, .selected_field, .selected_groups_field').each(function(){
+    $(form).find('.text-input, .selected_field, .selected_groups_field').each(function(){
       if($(this).val()){
         show = true;
         return show;

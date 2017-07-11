@@ -310,24 +310,24 @@ abbr {
   color: #f53;
 }
 
-.inline ol li {
+.inline {
   width: auto;
   float: left;
   margin-right: 10px;
 }
 
-.formtastic .radio ol { padding-top: 0.5em; }
+.radio ol { padding-top: 0.5em; }
 
-.formtastic .boolean label,
-.formtastic .radio label { line-height: 1; }
+.boolean label,
+.radio label { line-height: 1; }
 
-.text_input { width: 300px; }
+.text-input { width: 300px; }
 
-textarea.text_input { width: 450px; }
+textarea.text-input { width: 450px; }
 
 .field_with_errors { display: inline; }
 
-.field_with_errors .text_input { border-color: #f53; }
+.field_with_errors .text-input { border-color: #f53; }
 
 .inline-errors {
   position: absolute;
@@ -409,7 +409,7 @@ body .video_replace {
 }
 
 .required label::after {
-  color: #ff0000;
+  color: $requied-red;
   content: "*";
 }
 
