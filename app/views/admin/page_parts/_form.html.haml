@@ -11,7 +11,7 @@
     .small-12.column-block
       %label.required
         = f.label :body
-        = f.text_area :body, class: 'text_input ckeditor'
+        = f.text_area :body, class: 'area_text ckeditor'
   .small-12
     = f.submit
     = button_to 'Cancel', edit_admin_page_path(@page)
