@@ -6,35 +6,28 @@
           %li= msg
 
   %fieldset.fieldset
-    .small-12.column-block
+    .small-6.column-block
       %label.required
         = f.label :title
-        %br
         = f.text_field :title, class: "text_input"
-        %br
         %small.inline-hints At the top of the page and in the title bar.
-    .small-12.column-block
+    .small-6.column-block
       %label.required
         = f.label :slug
-        %br
         = f.text_field :slug, class: "text_input"
-        %br
         %small.inline-hints the url - must be lowercase and/or numbers or dashes only.
-    .small-12
+    .small-6
       %label.required
         = f.label :label
-        %br
         = f.text_field :label, class: "text_input"
-        %br
         %small.inline-hints In the navigation -should be short.
-    .small-12.column-block
+    .small-6.column-block
       %label
         %input{ type: "checkbox" }
         = f.label :show_in_nav, "Show in navigation"
-    .small-12.text_input
+    .small-6.text_input
       %label.required
         = f.label :template
-      %br
         = f.select :template, Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
   .small-12
     = f.submit
