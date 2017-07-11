@@ -1,24 +1,3 @@
 linters:
   LineLength:
     max: 120
-
-  InstanceVariables:
-    enabled: true
-    file_types: partials
-    matchers:
-      all: .*
-      partials: \A_.*\.haml\z
-
-  SelectorDepth:
-    max_depth: 3
-
-  IdNames:
-    enabled: true
-    style: lisp_case
-
-  rules:
-  class-name-format:
-    - 1
-    - convention: hyphenatedlowercase
-      ignore:
-        - class_name_b
