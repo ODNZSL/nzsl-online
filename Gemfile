@@ -5,9 +5,6 @@ gem 'rails', '~> 4.2.6'
 gem 'rails_12factor'
 # Use Postgresql as the database for Active Record
 gem 'pg'
-
-# Add Bootstrap gem for rapid application prototyping
-
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
