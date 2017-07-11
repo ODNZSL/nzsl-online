@@ -325,7 +325,9 @@ abbr {
 
 textarea.text_input { width: 450px; }
 
-.error .text_input { border-color: #f53; }
+.field_with_errors { display: inline; }
+
+.field_with_errors .text_input { border-color: #f53; }
 
 .inline-errors {
   position: absolute;
