@@ -1,4 +1,4 @@
-= form_for [:admin, @page, @page_part] do |f|
+= form_for [:admin, page, page_part] do |f|
   %fieldset.fieldset
     .small-12.column-block
       %label.required
@@ -14,4 +14,4 @@
         = f.text_area :body, class: 'area-text ckeditor'
   .small-12
     = f.submit
-    = button_to 'Cancel', edit_admin_page_path(@page)
+    = button_to 'Cancel', edit_admin_page_path(page)
