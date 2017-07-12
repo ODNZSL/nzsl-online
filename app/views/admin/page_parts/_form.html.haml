@@ -3,15 +3,15 @@
     .small-12.column-block
       %label.required
         = f.label :title
-        = f.text_field :title, class: 'text_input'
+        = f.text_field :title, class: 'text-input'
     .small-12.column-block
       %label
         = f.label :translation_path
-        = f.text_field :translation_path, class: 'text_input'
+        = f.text_field :translation_path, class: 'text-input'
     .small-12.column-block
       %label.required
         = f.label :body
-        = f.text_area :body, class: 'area_text ckeditor'
+        = f.text_area :body, class: 'area-text ckeditor'
   .small-12
     = f.submit
     = button_to 'Cancel', edit_admin_page_path(@page)
