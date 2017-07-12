@@ -325,9 +325,11 @@ abbr {
 
 .area-text { width: 450px; }
 
-.field_with_errors { display: inline; }
-
-.field_with_errors .text-input { border-color: #f53; }
+// scss-lint:disable SelectorFormat
+.field_with_errors {
+  display: inline;
+  .text-input { border-color: $required-red; }
+}
 
 .inline-errors {
   position: absolute;
