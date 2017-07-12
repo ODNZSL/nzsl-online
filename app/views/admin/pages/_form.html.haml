@@ -1,6 +1,6 @@
 = form_for [:admin, @page] do |f|
   - if @page.errors.any?
-    #error_explanation
+    #error-explanation
       %ul
         - @page.errors.full_messages.each do |msg|
           %li= msg

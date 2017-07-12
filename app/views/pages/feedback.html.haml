@@ -10,13 +10,13 @@
       = form.input :hearing_level, :label => true, :as => :radio, :collection => ['Deaf', 'Hearing impaired', 'Hearing'], :wrapper_html => {:class => 'inline'}
       = form.input :nzsl_level, :label => true, :as => :radio, :collection => ['Fluent NZSL user', 'NZSL user', 'NZSL learner'], :wrapper_html => {:class => 'inline'}
       = form.input :include_sign, :label => true
-      %li.if_feedback_include_sign.unless_js.sub_form
+      %li.if_feedback_include_sign.unless_js.sub-form
         %ol
           = form.input :include_describe, :label => true, :hint => true, :input_html => {:class => 'text_input'}
           = form.input :include_define, :label => true, :input_html => {:class => 'text_input'}
           = form.input :include_users, :label => true, :input_html => {:class => 'text_input'}
       = form.input :change_sign, :label => true, :label => true
-      %li.if_feedback_change_sign.unless_js.sub_form
+      %li.if_feedback_change_sign.unless_js.sub-form
         %ol
           = form.input :change_sign_gloss, :label => true, :input_html => {:class => 'text_input'}
           = form.input :change_sign_url, :label => true, :label => true, :input_html => {:class => 'text_input'}
