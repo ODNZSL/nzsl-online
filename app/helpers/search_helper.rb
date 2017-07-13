@@ -23,23 +23,25 @@ module SearchHelper
            end
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
       [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe
+       image_tag("#{attribute}s/#{size}/#{attribute}.#{clean_number(number)}.png")].join.html_safe
     end
     output << number.split('.').last if attribute == :location && in_menu
     output
   end
 
-  def sign_attribute_image_tag(attribute, number)
-    image_tag("#{attribute}s/42/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png", class: 'image') # rubocop:disable Style/RegexpLiteral, LineLength
+  def clean_number(number)
+    number.downcase.gsub(%r{[ \/]}, '_')
   end
 
   # these images have been resized with
   # mogrify -negate -alpha copy -negate -resize 42x42 -background transparent -gravity center -extent 42x42 *.png
   # or
   # mogrify -negate -alpha copy -negate -resize 72x72 -background transparent -gravity center -extent 72x72 *.png
+  def sign_attribute_image_tag(attribute, number)
+    image_tag("#{attribute}s/42/#{attribute}.#{clean_number(number)}.png", class: 'image')
+  end
 
   # Sign Attribute is Selected?
-
   def handshape_selected?(shape)
     return unless @query[:hs].present?
     query_hs = @query[:hs]
