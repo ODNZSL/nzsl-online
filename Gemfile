@@ -5,7 +5,6 @@ gem 'rails', '~> 4.2.6'
 gem 'rails_12factor'
 # Use Postgresql as the database for Active Record
 gem 'pg'
-
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -15,7 +14,6 @@ gem 'whenever'
 
 gem 'browser'
 gem 'ckeditor_rails'
-gem 'formtastic', '~>2.3.0'
 gem 'foundation-rails', '~> 6.3.1.0'
 gem 'i18n'
 gem 'mail'
