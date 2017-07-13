@@ -1,14 +1,34 @@
-= semantic_form_for [:admin, @page] do |f|
-  = f.inputs do
-    = f.input :title, required: true, label: true,
-      hint: 'At the top of the page and in the title bar.', input_html: { class: 'text_input' }
-    = f.input :slug, label: true, input_html: { class: 'text_input' },
-      hint: 'the url - must be lowercase and/or numbers or dashes only.'
-    = f.input :label, label: true, input_html: { class: 'text_input' },
-      hint: 'In the navigation - should be short.'
-    = f.input :show_in_nav, label: true
-    = f.input :template, label: true, as: :select,
-      collection: Page.templates.map{ |t| [t.humanize.titleize, t] },
-      include_blank: false, input_html: { class: 'text_input' }
-  = f.submit
-  = button_to 'Cancel', admin_pages_path
+= form_for [:admin, @page] do |f|
+  - if @page.errors.any?
+    #error-explanation
+      %ul
+        - @page.errors.full_messages.each do |msg|
+          %li= msg
+
+  %fieldset.fieldset
+    .small-6.column-block
+      %label.required
+        = f.label :title
+        = f.text_field :title, class: "text-input"
+        %small.inline-hints At the top of the page and in the title bar.
+    .small-6.column-block
+      %label.required
+        = f.label :slug
+        = f.text_field :slug, class: "text-input"
+        %small.inline-hints the url - must be lowercase and/or numbers or dashes only.
+    .small-6
+      %label.required
+        = f.label :label
+        = f.text_field :label, class: "text-input"
+        %small.inline-hints In the navigation -should be short.
+    .small-6.column-block
+      %label
+        %input{ type: "checkbox" }
+        = f.label :show_in_nav, "Show in navigation"
+    .small-6.text_input
+      %label.required
+        = f.label :template
+        = f.select :template, Page.templates.map{ |t| [t.humanize.titleize, t] }, include_blank: false
+  .small-12
+    = f.submit
+    = button_to 'Cancel', admin_pages_path
