@@ -1,4 +1,4 @@
-module SearchHelper # rubocop:disable ModuleLength
+module SearchHelper
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
@@ -23,7 +23,7 @@ module SearchHelper # rubocop:disable ModuleLength
            end
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
       [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe # rubocop:disable Style/RegexpLiteral, LineLength
+       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe
     end
     output << number.split('.').last if attribute == :location && in_menu
     output
