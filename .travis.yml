@@ -17,4 +17,4 @@ script:
   - brakeman --run-all-checks --exit-on-warn --format plain .
   - bundle exec rspec spec
 after_success:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - ./cc-test-reporter after-build --id $CC_TEST_REPORTER_ID
