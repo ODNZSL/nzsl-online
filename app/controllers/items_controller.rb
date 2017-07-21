@@ -53,11 +53,11 @@ class ItemsController < ApplicationController
     @item = @sheet.items.find(params[:id])
 
     if @item.destroy
-      if @sheet.items.length.zero?
-        flash[:vocab_bar_notice] = t('vocab_sheet.delete_success')
-      else
-        flash[:vocab_bar_notice] = t('vocab_sheet.item.remove_success')
-      end
+      flash[:vocab_bar_notice] = if @sheet.items.length.zero?
+                                   t('vocab_sheet.delete_success')
+                                 else
+                                   t('vocab_sheet.item.remove_success')
+                                 end
     else
       flash[:vocab_bar_error] = t('vocab_sheet.item.remove_failure')
     end

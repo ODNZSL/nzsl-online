@@ -30,22 +30,9 @@ class Page < ActiveRecord::Base
 
   scope :in_nav, -> { where(show_in_nav: true) }
 
-  def path
-    return '/' if slug == '/'
-    "/#{slug}/"
-  end
-
   def self.find_by_slug(slug)
     return find_by(slug: '/') if slug.blank?
     find_by(slug: slug)
-  end
-
-  def multiple_page_parts?
-    page_parts.length > 1
-  end
-
-  def first_part
-    page_parts.first
   end
 
   ##
@@ -77,6 +64,19 @@ class Page < ActiveRecord::Base
       created_at: created_at
     )
     page
+  end
+
+  def path
+    return '/' if slug == '/'
+    "/#{slug}/"
+  end
+
+  def multiple_page_parts?
+    page_parts.length > 1
+  end
+
+  def first_part
+    page_parts.first
   end
 
   private
