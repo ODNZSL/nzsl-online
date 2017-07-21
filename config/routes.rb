@@ -1,4 +1,4 @@
-NzslOnline::Application.routes.draw do
+NzslOnline::Application.routes.draw do # rubocop:disable Metrics/BlockLength
   devise_for :users
 
   namespace :admin do

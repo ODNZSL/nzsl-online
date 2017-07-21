@@ -1,4 +1,4 @@
-SIGN_URL         = 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/publicsearch'
-ASSET_URL        = 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/assets/'
-AUTOCOMPLETE_URL = 'http://nzsl-assets.vuw.ac.nz/dnzsl/ncbin/public_search_lookup'
-ADMIN_EMAIL      = 'david.mckee@vuw.ac.nz'
+SIGN_URL         = 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/publicsearch'.freeze
+ASSET_URL        = 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/assets/'.freeze
+AUTOCOMPLETE_URL = 'http://nzsl-assets.vuw.ac.nz/dnzsl/ncbin/public_search_lookup'.freeze
+ADMIN_EMAIL      = 'david.mckee@vuw.ac.nz'.freeze
