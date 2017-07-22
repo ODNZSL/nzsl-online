@@ -10,11 +10,9 @@ rvm:
   - 2.3.3
 before_script:
   - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
   - RAILS_ENV=test bundle exec rake db:create db:schema:load
 script:
   - brakeman --run-all-checks --exit-on-warn --format plain .
   - bundle exec rspec spec
 after_success:
-  - ./cc-test-reporter after-build --id $CC_TEST_REPORTER_ID
+  - bundle exec codeclimate-test-reporter
