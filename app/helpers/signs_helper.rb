@@ -1,5 +1,5 @@
 module SignsHelper
-  def render_grammar_notes(sign) # rubocop:disable MethodLength
+  def render_grammar_notes(sign)
     [:contains_numbers,
      :is_fingerspelling,
      :is_directional,
@@ -12,8 +12,7 @@ module SignsHelper
 
        attrs = { class: 'js-ga-link-submission',
                  onclick: "_gaq.push(['_trackEvent',
-                 'Sign', 'Click', 'glossary #{note}']);"
-       }
+                 'Sign', 'Click', 'glossary #{note}']);" }
        link_to(t("signs.show.field.#{note}"),
                "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
      end.compact.join(', ').html_safe

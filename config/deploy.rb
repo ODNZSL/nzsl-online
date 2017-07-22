@@ -52,7 +52,7 @@ after 'deploy:update_code' do
   run("ln -s #{shared_path}/nzsl_development.sqlite3 #{release_path}/db/nzsl_development.sqlite3")
 end
 
-namespace :rabid do
+namespace :rabid do # rubocop:disable Metrics/BlockLength
   desc 'Compress assets in a local file'
   task :compress_assets do
     run_locally('rm -rf public/assets/*')

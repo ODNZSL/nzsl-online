@@ -18,6 +18,8 @@ class ImageProcessor
     @local_filename
   end
 
+  private
+
   def resize
     image = MiniMagick::Image.open(@remote_filename)
     image.shave CROP_IMAGES_BY if CROP_IMAGES
@@ -31,8 +33,6 @@ class ImageProcessor
     image.format 'png'
     image.write @local_filename
   end
-
-  private
 
   def local_file_exists
     File.exist?(@local_filename)
@@ -48,6 +48,7 @@ class ImageProcessor
 
     # It is expected that filename is in the 1212/sdsd.png format
     file_parts = filename.split File::SEPARATOR
+
     return SIGN_IMAGE_PATH if file_parts.empty?
 
     sign_dir = File.join(SIGN_IMAGE_PATH, file_parts[0])

@@ -16,7 +16,7 @@ module SearchHelper # rubocop:disable ModuleLength
   def sign_attribute_image(attribute, number, main, in_menu = false)
     return unless number
 
-    size = (attribute == :location && in_menu) ? '72' : '42'
+    size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
       [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
        image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe # rubocop:disable Style/RegexpLiteral, LineLength
@@ -55,13 +55,10 @@ module SearchHelper # rubocop:disable ModuleLength
   end
 
   def tab_class(*classes)
-    if params[:tab].blank?
-      selected = tab_selected?(classes)
-    else
-      # note: comparing as a string, to avoid a DOS ruby bug
-      # see http://brakemanscanner.org/docs/warning_types/denial_of_service/
-      selected = true if classes.map(&:to_s).include?(params[:tab])
-    end
+    selected = tab_selected?(classes) if params[:tab].blank?
+    # note: comparing as a string, to avoid a DOS ruby bug
+    #   # see http://brakemanscanner.org/docs/warning_types/denial_of_service/
+    selected = true if classes.map(&:to_s).include?(params[:tab])
 
     classes << (selected ? :selected : '')
     classes.join(' ')
@@ -69,13 +66,13 @@ module SearchHelper # rubocop:disable ModuleLength
 
   def tab_selected?(classes)
     keys = @query.select { |_k, v| v.present? }.keys
-    if %w(tag usage).any? { |k| keys.include?(k) } || (keys.include?('s') && keys.length > 1)
-      selected = classes.include?(:advanced)
-    elsif %w(hs l lg).any? { |k| keys.include?(k) }
-      selected = classes.include?(:signs)
-    else
-      selected = classes.include?(:keywords)
-    end
+    selected = if %w(tag usage).any? { |k| keys.include?(k) } || (keys.include?('s') && keys.length > 1)
+                 classes.include?(:advanced)
+               elsif %w(hs l lg).any? { |k| keys.include?(k) }
+                 classes.include?(:signs)
+               else
+                 classes.include?(:keywords)
+               end
 
     selected
   end
@@ -94,11 +91,7 @@ module SearchHelper # rubocop:disable ModuleLength
       handshape_selected?(hs)
     end
 
-    # rubocop:disable Style/BlockDelimiters
-    selected.map { |hs|
-      handshape_image hs, (hs.split('.').last == '1'), simple
-    }.join(' ').html_safe unless @query[:hs].blank?
-    # rubocop:enable Style/BlockDelimiters
+    selected.map { |hs| handshape_image hs, (hs.split('.').last == '1'), simple }.join(' ').html_safe unless @query[:hs].blank? # rubocop:disable Metrics/LineLength
   end
 
   def display_location_groups_search_term(simple = false)
@@ -108,15 +101,11 @@ module SearchHelper # rubocop:disable ModuleLength
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h SignMenu.usage_tags.select { |u|
-      @query[:usage].include?(u.last.to_s)
-    }.map(&:first).join(' ') unless @query[:usage].blank?
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank? # rubocop:disable Metrics/LineLength
   end
 
   def display_topic_tag_search_term
-    h SignMenu.topic_tags.select { |u|
-      @query[:tag].include?(u.last.to_s)
-    }.map(&:first).join(' ') unless @query[:tag].blank?
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank? # rubocop:disable Metrics/LineLength
   end
 
   def search_term(key)
