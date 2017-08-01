@@ -28,8 +28,8 @@
             = category
       .small-6.column-block
         %label
-          %input{ type: "checkbox" }
-          = f.label :include_sign
+          %input{ type: "checkbox", id: "feedback_include_sign" }
+          = f.label :include_sign, "Suggest an NZSL sign to be included in the dictionary"
           %li.if_feedback_include_sign.unless_js.sub-form
             %ol
               = f.label :include_describe
@@ -45,5 +45,7 @@
       .small-6.column-block
         %label
           =f.label :video
+      %input{type: "hidden", value: @page.id, name: "page_id"}
+        = f.submit t("feedback.submit")
 
 
