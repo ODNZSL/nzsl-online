@@ -329,7 +329,18 @@ abbr {
 .field_with_errors {
   display: inline;
   .text-input { border-color: $required-red; }
+  .message-input { border-color: $required-red; }
 }
+
+.item-style { margin: 8px; }
+
+.feedback-select-style { margin: 7px 7px 7px 0; }
+
+.feedback-entry-style { margin: 3px; }
+
+.avoid-bottom-margin { margin-bottom: 0; }
+
+.send-feedback-button { margin-top: 20px; }
 
 .inline-errors {
   position: absolute;
