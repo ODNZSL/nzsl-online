@@ -53,9 +53,12 @@
                 = f.text_field :change_sign_gloss, class: "text-input"
                 %small What is the URL (web address) for this sign?
                 = f.text_field :change_sign_url, class: "text-input avoid-bottom-margin"
-                %small.inline-hints Go to the entry for this sign in the dictionary and look at the address box. Copy the text and paste here. (e.g. http://nzsl.vuw.ac.nz/signs/1234)
+                %small.inline-hints
+                  Go to the entry for this sign in the dictionary and look
+                  at the address box. Copy the text and paste here. (e.g. http://nzsl.vuw.ac.nz/signs/1234)
                 = f.label :change_sign_entry, "part of the sign you want to change/add"
-                - ["Glosses(meaning)", "How the sign is made", "Grammar information", "Usage information", "Variation Information", "Other"]. each do |entry|
+                - ["Glosses(meaning)", "How the sign is made", "Grammar information", "Usage information",
+                "Variation Information", "Other"]. each do |entry|
                   %li.no-bullet
                   = f.radio_button :change_sign_entry, entry, class: "feedback-entry-style"
                   = entry
