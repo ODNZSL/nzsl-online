@@ -33,7 +33,7 @@
             = category
       .small-12
         %label
-          %input{ type: "checkbox", id: "feedback_include_sign", class: "feedback-select-style" }
+          %input.feedback-select-style{ type: "checkbox", id: "feedback_include_sign" }
           = f.label :include_sign, "Suggest an NZSL sign to be included in the dictionary"
           %li.if_feedback_include_sign.unless_js.sub-form.no-bullet
             %ol
@@ -45,7 +45,7 @@
               = f.text_field :include_users, class: "text-input"
       .small-12
         %label
-          %input{ type: "checkbox", id: "feedback_change_sign", class: "feedback-select-style" }
+          %input.feedback-select-style{ type: "checkbox", id: "feedback_change_sign" }
             = f.label :change_sign, "Suggest changes for a sign in the dictionary"
             %li.if_feedback_change_sign.unless_js.sub-form.no-bullet
               %ol
@@ -61,8 +61,8 @@
                   = entry
       .small-12
         %label
-          %input{ type: "checkbox", class: "feedback-select-style" }
-          =f.label :technical_fault, "Report a technical fault"
+          %input.feedback-select-style{ type: "checkbox" }
+          = f.label :technical_fault, "Report a technical fault"
       .small-12
         %label
           = f.label :video, "Video:"
@@ -72,5 +72,5 @@
         %label.required
           = f.label :message, "Message:"
           = f.text_area :message, rows: "10", class: "message-input"
-      %input{type: "hidden", value: @page.id, name: "page_id"}
+      %input{ type: "hidden", value: @page.id, name: "page_id" }
         = f.submit t("feedback.submit"), class: "send-feedback-button button"
