@@ -16,7 +16,7 @@ before_script:
 - RAILS_ENV=test bundle exec rake db:create db:schema:load
 addons:
   code_climate:
-    repo_token: 50908698e3f680091760f1b1d09e447736d9eb973a44ce91bd3ff6aa7a8c929e
+    repo_token: CC_TEST_REPORTER_ID
 script:
 - brakeman --run-all-checks --exit-on-warn --format plain .
 - bundle exec rspec spec
