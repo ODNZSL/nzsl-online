@@ -1,22 +1,21 @@
----
 language: ruby
 bundler_args: "--without development"
 sudo: false
 cache: bundler
 env:
   global:
-    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+  - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
+    else git log -1 --skip 1 --pretty=format:%ct; fi)
+  - secure: fwD5Vr6wvAblDZd/bgvlwcVBP2hvHtCkswr51nVgI/z7FZoXkUqbX7plBkFFT+gIb7KMy3gU0QCfiuao29Dtulm2TbNiZNQgOi1T7zt1U8At65Y1ABB15ygeu6H3ZCsqc3pGESZMMnTNF9RfiNv7PoNIH9mIyvIDmiAXYI/rWNHJ8j2Ji3+YfvSuV2S0rkG9qLNYoG80IMgA/kfZJ4C021V1MVEtN2APmgqWLm+la8uxP2KbV9rVsoJgqAODnTtRVOEOd11IuAH8nHcXwNTOArMkPWP8h8ZDsvIf1K46XKzZtCwKqxHDj4K1/diTUEmZ25n08wJ1IaHA5FOYfD17iDeolIw3mRlOxOLdbu3a9MydkR4okCGZERc0CeS7C0EO1LCtLs8MWCV6nHtmBxGlmLdC7ZOHs408yq4hdKVb1QrEzJ0r6+Xn06jAL/zt8egEz0DKsFSndjhfAz1cUIH95pYXwnH4EoVjwSVZ8C8H2HVhXxTG+aPAyZ9JMUEisxTG7pU/zFpUNWj85MG5DIx04a6U2DrPCUsRAfsfXqJN4RoLXOe2uobiraTdp2HTsNUHuvQNLz7eSmGvyt2NLPA93JUWuJptcPQ8J1trQTmVY8d3EIo1LwKpU6fN96n29PQMSWaCh/0tIqPGtYqNgONZIHAMuARHjoJYMwuYzwISpb8=
 rvm:
-  - 2.3.3
+- 2.3.3
 before_script:
-  - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+- gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64
+- chmod +x ./cc-test-reporter
+- RAILS_ENV=test bundle exec rake db:create db:schema:load
 script:
-  - brakeman --run-all-checks --exit-on-warn --format plain .
-  - bundle exec rspec spec
+- brakeman --run-all-checks --exit-on-warn --format plain .
+- bundle exec rspec spec
 after_success:
-  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
-
-
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT"
