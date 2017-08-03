@@ -4,6 +4,7 @@ sudo: false
 cache: bundler
 env:
   global:
+  - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
   - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
     else git log -1 --skip 1 --pretty=format:%ct; fi)
 rvm:
@@ -19,4 +20,4 @@ addons:
 script:
 - brakeman --run-all-checks --exit-on-warn --format plain .
 - bundle exec rspec spec
-- ./cc-test-reporter after-build --exit-code $?
+- ./cc-test-reporter after-build --id $CC_TEST_REPORTER_ID
