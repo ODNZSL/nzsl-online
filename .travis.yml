@@ -1,20 +1,24 @@
----
 language: ruby
 bundler_args: "--without development"
 sudo: false
 cache: bundler
 env:
   global:
-    - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct; else git log -1 --skip 1 --pretty=format:%ct; fi)
+  - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
+  - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
+    else git log -1 --skip 1 --pretty=format:%ct; fi)
 rvm:
-  - 2.3.3
+- 2.3.3
 before_script:
-  - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
-  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-  - chmod +x ./cc-test-reporter
-  - RAILS_ENV=test bundle exec rake db:create db:schema:load
+- gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
+- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+- chmod +x ./cc-test-reporter
+- RAILS_ENV=test bundle exec rake db:create db:schema:load
+addons:
+  code_climate:
+    repo_token: CC_TEST_REPORTER_ID
 script:
-  - brakeman --run-all-checks --exit-on-warn --format plain .
-  - bundle exec rspec spec
+- brakeman --run-all-checks --exit-on-warn --format plain .
+- bundle exec rspec spec
 after_success:
-  - ./cc-test-reporter after-build --id $CC_TEST_REPORTER_ID
+- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
