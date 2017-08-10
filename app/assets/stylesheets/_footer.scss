@@ -103,23 +103,3 @@ footer {
     }
   }
 }
-
-.banner {
-  position: fixed;
-  width: 100%;
-  height: auto;
-  bottom: 0;
-  left: 0;
-  background-color: $dark-grey;
-  color: #FFF;
-  &__content {
-    max-width: 85.71429rem;
-    margin: 0 auto;
-    padding-top: 1rem;
-    padding-bottom: 1rem;
-    text-align: center;
-    a {
-      color: $light-blue;
-    }
-  }
-}
