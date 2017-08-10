@@ -129,7 +129,7 @@ GEM
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     mini_portile2 (2.2.0)
-    minitest (5.10.2)
+    minitest (5.10.3)
     modernizr-rails (2.7.1)
     multi_xml (0.6.0)
     nokogiri (1.8.0)
