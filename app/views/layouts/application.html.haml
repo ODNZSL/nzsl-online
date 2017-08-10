@@ -33,6 +33,6 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
-
+  = render :partial => 'shared/test_banner'
   = print_javascripts_tag params[:print]
   = yield :scripts
