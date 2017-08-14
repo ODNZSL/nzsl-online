@@ -31,9 +31,13 @@
               = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}
               %span.unicode_arrow.float-left &rarr;
             .drawing_container.float-left
-              = link_to(sign_url(sign.id), 
+              = link_to(sign_url(sign.id),
                         class: 'drawing grid_drawing js-ga-link-submission',
-                        onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);") do
+                        onclick: "_gaq.push(['_trackEvent',
+                          'Search',
+                          'Click',
+                          '#{query_text}-#{sign.id}',
+                          #{@signs.find_index(sign) + 1}]);") do
                 = image_tag "signs/150-100/#{sign.drawing}"
 
   .pagination_container.small-12.float-left.text-center
