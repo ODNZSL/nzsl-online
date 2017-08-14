@@ -11,6 +11,7 @@
     margin: 5px 5px 25px;
     outline: 1px solid $primary-blue;
     overflow: hidden;
+    position: relative;
 
     &:hover { outline: 3px solid $primary-blue; }
 
