@@ -84,3 +84,26 @@ header {
     img { @include center-element; }
   }
 }
+
+.banner {
+  background-color: $dark-blue;
+  color: $white;
+  height: auto;
+  width: 100%;
+
+  &__content {
+    margin: 0 auto;
+    max-width: 85.71429rem;
+    padding-bottom: 1rem;
+    padding-top: 1rem;
+    text-align: center;
+
+    p {
+      margin-bottom: 0;
+    }
+
+    a {
+      color: $pale-blue;
+    }
+  }
+}

@@ -25,6 +25,8 @@
     %a{:href => '#content'} Skip to Content
     |
     %a{:href => '#nav'} Skip to Page Navigation
+
+  = render :partial => 'shared/test_banner'
   %div{ :class => "not_sticky_footer #{vocab_sheet?}"}
     = render :partial => 'shared/header'
     #content.before_sticky_footer
@@ -33,6 +35,5 @@
       = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
       = yield
   = render :partial => 'shared/footer', :locals => {:last => true}
-
   = print_javascripts_tag params[:print]
   = yield :scripts
