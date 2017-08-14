@@ -8,6 +8,7 @@
   }
 
   .search_results_card {
+    position: relative;
     margin: 5px 5px 25px;
     outline: 1px solid $primary-blue;
     overflow: hidden;
