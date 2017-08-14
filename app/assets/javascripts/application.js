@@ -18,4 +18,4 @@
 //= require foundation-equalizer
 //= require video
 
-$(document).foundation();
+$(function(){ $(document).foundation(); });

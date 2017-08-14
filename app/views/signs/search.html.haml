@@ -26,13 +26,19 @@
                     .maori_gloss.small-12.text-left= sign.gloss_maori
                   - if sign.word_classes.present?
                     .word_gloss.small-12.text-left= sign.word_classes
-                .link_and_drawing_container.small-12
-                  .link_container.float-left
-                    = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}
-                    %span.unicode_arrow.float-left &rarr;
-                  .drawing_container.float-left
-                    = link_to sign_url(sign.id), {:class => 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
-                      = image_tag "signs/150-100/#{sign.drawing}"
+          .link_and_drawing_container.small-12
+            .link_container.float-left
+              = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}
+              %span.unicode_arrow.float-left &rarr;
+            .drawing_container.float-left
+              = link_to(sign_url(sign.id),
+                        class: 'drawing grid_drawing js-ga-link-submission',
+                        onclick: "_gaq.push(['_trackEvent',
+                          'Search',
+                          'Click',
+                          '#{query_text}-#{sign.id}',
+                          #{@signs.find_index(sign) + 1}]);") do
+                = image_tag "signs/150-100/#{sign.drawing}"
 
   .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
