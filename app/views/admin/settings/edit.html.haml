@@ -1,11 +1,16 @@
 %h1 Settings
 
-= form_tag admin_settings_path, method: :put, class: 'formtastic' do |f|
-  %fieldset.inputs
-    %ol
-      - ['help', 'glossary', '404', 'footer'].each do |setting|
-        %li.string.required
-        %label{for: "settings_#{setting}"}=t "admin.setting.#{setting}"
-        = select_tag "settings[#{setting}]", options_for_select(Page.all.map{|p| [p.label, p.id]}, Setting.get(setting)), class: 'text_input';
-    = submit_button('admin.save')
-    = button_to 'Cancel', admin_pages_path
+= form_tag admin_settings_path, method: :put, class: 'form-li-settings' do |f|
+  %fieldset.fieldset
+    .small-12.column-block
+      %ol
+        - ['help', 'glossary', '404', 'footer'].each do |setting|
+          %li.string.required
+          %label{ for: "settings_#{setting}" }= t "admin.setting.#{setting}"
+          = select_tag "settings[#{setting}]",
+          options_for_select(Page.all.map{|p| [p.label, p.id]},
+          Setting.get(setting)), class: "text-input";
+    .large-2.text-center.clearfix
+      = submit_button('admin.save')
+    .small-12
+      = button_to 'Cancel', admin_pages_path

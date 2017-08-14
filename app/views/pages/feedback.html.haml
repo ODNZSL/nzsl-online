@@ -3,27 +3,77 @@
 
   %h2#feedback Send Feedback
   = render :partial => 'shared/flashes', :locals => {:prefix => 'feedback_'}
-  = semantic_form_for @feedback, :url => feedback_index_path(:anchor => 'feedback'), :html => {:multipart => true} do |form|
-    = form.inputs do
-      = form.input :name, :required => true, :label => true, :input_html => {:class => 'text_input'}
-      = form.input :email, :required => true, :label => true, :input_html => {:class => 'text_input'}
-      = form.input :hearing_level, :label => true, :as => :radio, :collection => ['Deaf', 'Hearing impaired', 'Hearing'], :wrapper_html => {:class => 'inline'}
-      = form.input :nzsl_level, :label => true, :as => :radio, :collection => ['Fluent NZSL user', 'NZSL user', 'NZSL learner'], :wrapper_html => {:class => 'inline'}
-      = form.input :include_sign, :label => true
-      %li.if_feedback_include_sign.unless_js.sub_form
-        %ol
-          = form.input :include_describe, :label => true, :hint => true, :input_html => {:class => 'text_input'}
-          = form.input :include_define, :label => true, :input_html => {:class => 'text_input'}
-          = form.input :include_users, :label => true, :input_html => {:class => 'text_input'}
-      = form.input :change_sign, :label => true, :label => true
-      %li.if_feedback_change_sign.unless_js.sub_form
-        %ol
-          = form.input :change_sign_gloss, :label => true, :input_html => {:class => 'text_input'}
-          = form.input :change_sign_url, :label => true, :label => true, :input_html => {:class => 'text_input'}
-          = form.input :change_sign_entry, :label => true, :as => :radio, :collection => ['Glosses (meaning)', 'How the sign is made', 'Grammar information', 'Usage information', 'Variation Information', 'Other']
-      = form.input :technical_fault, :label => true
-      = form.input :video, :hint => true, :label => true
-      = form.input :message, :label => true, :input_html => {:class => 'text_input'}
-      %input{:type => 'hidden', :value => @page.id, :name => 'page_id'}
-    = form.actions do
-      = submit_button('feedback.submit')
+  = form_for @feedback, :url => feedback_index_path(:anchor => 'feedback'), :html => {:multipart => true} do |f|
+    - if @feedback.errors.any?
+      #error-explanation
+        %ul
+          - @feedback.errors.full_messages.each do |msg|
+            %li= msg
+    %fieldset.fieldset
+      .small-12
+        %label.required
+          = f.label :name
+          = f.text_field :name, class: "text-input"
+      .small-12
+        %label.required
+          = f.label :email
+          = f.text_field :email, class: "text-input avoid-bottom-margin"
+          %small.inline-hints If provided, must be a valid email address
+      .small-12
+        %label
+          = f.label :hearing_level, "Are you:"
+          - ["Deaf", "Hearing impaired", "Hearing"].each do |item|
+            = f.radio_button :hearing_level, item, class: "item-style"
+            = item
+      .small-12
+        %label
+          = f.label :nzsl_level, "Are you a:"
+          - ["Fluent NZSL user", "NZSL user", "NZSL learner"].each do |category|
+            = f.radio_button :nzsl_level, category, class: "item-style"
+            = category
+      .small-12
+        %label
+          %input.feedback-select-style{ type: "checkbox", id: "feedback_include_sign" }
+          = f.label :include_sign, "Suggest an NZSL sign to be included in the dictionary"
+          %li.if_feedback_include_sign.unless_js.sub-form.no-bullet
+            %ol
+              %small Show the sign on its own, and the same sign used in a sentence
+              = f.text_field :include_describe, class: "text-input"
+              %small What does this sign mean (in English)?
+              = f.text_field :include_define, class: "text-input"
+              %small Who uses this sign? (e.g. older, younger, area)
+              = f.text_field :include_users, class: "text-input"
+      .small-12
+        %label
+          %input.feedback-select-style{ type: "checkbox", id: "feedback_change_sign" }
+            = f.label :change_sign, "Suggest changes for a sign in the dictionary"
+            %li.if_feedback_change_sign.unless_js.sub-form.no-bullet
+              %ol
+                %small What is the main gloss for this sign?
+                = f.text_field :change_sign_gloss, class: "text-input"
+                %small What is the URL (web address) for this sign?
+                = f.text_field :change_sign_url, class: "text-input avoid-bottom-margin"
+                %small.inline-hints
+                  Go to the entry for this sign in the dictionary and look
+                  at the address box. Copy the text and paste here. (e.g. http://nzsl.vuw.ac.nz/signs/1234)
+                = f.label :change_sign_entry, "part of the sign you want to change/add"
+                - ["Glosses(meaning)", "How the sign is made", "Grammar information", "Usage information",
+                "Variation Information", "Other"]. each do |entry|
+                  %li.no-bullet
+                  = f.radio_button :change_sign_entry, entry, class: "feedback-entry-style"
+                  = entry
+      .small-12
+        %label
+          %input.feedback-select-style{ type: "checkbox" }
+          = f.label :technical_fault, "Report a technical fault"
+      .small-12
+        %label
+          = f.label :video, "Video:"
+          = f.file_field :video, value: "Choose a file", class: "avoid-bottom-margin"
+          %small.inline-hints Maximum size 50MB - larger files may take some time to upload
+      .small-12
+        %label.required
+          = f.label :message, "Message:"
+          = f.text_area :message, rows: "10", class: "message-input"
+      %input{ type: "hidden", value: @page.id, name: "page_id" }
+        = f.submit t("feedback.submit"), class: "send-feedback-button button"

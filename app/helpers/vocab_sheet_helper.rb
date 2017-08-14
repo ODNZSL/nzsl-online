@@ -4,7 +4,7 @@ module VocabSheetHelper
   end
 
   def vocab_sheet_image_width
-    @vocab_sheet_image_width ||= ((701.0) / @size - 20).floor # 690 is page width 20 is margins/borders/etc
+    @vocab_sheet_image_width ||= (701.0 / @size - 20).floor # 690 is page width 20 is margins/borders/etc
   end
 
   def vocab_sheet_image_height
@@ -37,6 +37,6 @@ module VocabSheetHelper
   end
 
   def vocab_sheet_pages
-    @vocab_sheet_pages ||= (@sheet.blank? || @sheet.items.length.zero?) ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
+    @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
   end
 end

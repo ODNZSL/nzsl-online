@@ -3,6 +3,7 @@
 *= require_self
 *= require video-js
 */
+
 @import "color";
 @import "variables";
 @import "foundation_and_overrides";
@@ -293,62 +294,71 @@ a.drawing {
   left: 0;
 }
 
-/* the formtastic default stylesheet wasn't making me happy. */
-
-.formtastic { padding: 16px 0; }
-
-.formtastic ol {
+.form-li-settings ol {
   list-style-type: none;
   margin-left: 0;
 }
 
-.formtastic li {
+.form-li-settings li {
   margin: 0 0 0.6em;
   width: 500px;
   position: relative;
 }
 
-.formtastic label { display: block; }
-
-.formtastic abbr {
+abbr {
   border-bottom: 0;
   color: #f53;
 }
 
-.formtastic .inline ol li {
+.inline {
   width: auto;
   float: left;
   margin-right: 10px;
 }
 
-.formtastic .radio ol { padding-top: 0.5em; }
+.radio ol { padding-top: 0.5em; }
 
-.formtastic .boolean label,
-.formtastic .radio label { line-height: 1; }
+.boolean label,
+.radio label { line-height: 1; }
 
-.formtastic .text_input { width: 300px; }
+.text-input { width: 300px; }
 
-.formtastic textarea.text_input { width: 450px; }
+.area-text { width: 450px; }
 
-.formtastic .error .text_input { border-color: #f53; }
+// scss-lint:disable SelectorFormat
+.field_with_errors {
+  display: inline;
+  .text-input { border-color: $required-red; }
+  .message-input { border-color: $required-red; }
+}
 
-.formtastic .inline-errors {
+.item-style { margin: 8px; }
+
+.feedback-select-style { margin: 7px; }
+
+.feedback-entry-style { margin: 3px; }
+
+.avoid-bottom-margin { margin-bottom: 0; }
+
+.send-feedback-button { margin-top: 20px; }
+
+.inline-errors {
   position: absolute;
   color: #f53;
   top: 0;
   right: 195px;
 }
 
-.formtastic .boolean { margin-bottom: 10px; }
+.boolean { margin-bottom: 10px; }
 
-.formtastic .inline-hints {
+.inline-hints {
   font-style: italic;
   font-size: 85%;
 }
 
-.formtastic .text .inline-errors { right: 45px; }
+.text .inline-errors { right: 45px; }
 
-.formtastic .sub_form { margin-left: 15px; }
+.sub-form { margin-left: 15px; }
 
 .view_print_back_link {
   float: right;
@@ -409,6 +419,11 @@ body .video_replace {
   display: block;
   height: 0;
   overflow: hidden;
+}
+
+.required label::after {
+  color: $required-red;
+  content: "*";
 }
 
 .clearfix:after { clear: both; }
