@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    if ($("#search-container").children().length == 1) {
+    if ($("#search-container").children().length === 1) {
     $('#search-container').fadeIn(1000);
     } else {
     $("#search-container").on("postequalized.zf.equalizer", function() {
