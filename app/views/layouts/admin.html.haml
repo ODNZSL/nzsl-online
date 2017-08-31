@@ -5,18 +5,18 @@
 /[if IE 9 ]    <html lang="en" class="no-js ie9">
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 %head
-  %meta{:charset => "utf-8"}
+  %meta{ charset: "utf-8" }
   %title= page_title
-  %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
+  %meta{ 'http-equiv': "X-UA-Compatible", content: "IE-edge,chrome=1" }
   = favicon_link_tag
-  -# = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
-  = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-  = javascript_include_tag "application", "data-turbolinks-track" => false
+  -# = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
+  = stylesheet_link_tag "application", media: "all", "data-urbolinks-track": true
+  = javascript_include_tag "application", "data-urbolinks-track": false
   = javascript_include_tag :modernizr
-  = stylesheet_link_tag 'admin',  :media => :all
+  = stylesheet_link_tag 'admin',  media: :all
   = yield :head
-  %meta{:name => "description", :content => t('layout.meta_description')}
-  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %meta{ name: "description", content: t('layout.meta_description') }
+  %meta{ name: "viewport", content: "width=device-width, initial-scale=1.0" }
   %title= page_title
 %body
   .admin-dashboard.shrink-medium
@@ -31,9 +31,9 @@
       #admin-dashboard-sidebar.admin-dashboard-sidebar.position-left.off-canvas.off-canvas-absolute.reveal-for-medium.data-off-canvas
         .admin-dashboard-sidebar-title-area
           .admin-dashboard-open-sidebar
-            %button#open-sidebar.admin-dashboard-open-sidebar-button.show-for-medium{'aria-label': "open menu", type: "button"}
-              %span{'aria-hidden': "true"}
-                %a{href: "#"}
+            %button#open-sidebar.admin-dashboard-open-sidebar-button.show-for-medium{ 'aria-label': "open menu", type: "button" }
+              %span{ 'aria-hidden': "true" }
+                %a{ href: "#" }
                   %i.large.fa.fa-angle-double-right
 
         .admin-dashboard-sidebar-inner
@@ -68,7 +68,7 @@
               %i.fi-lock
               Logout
       .admin-dashboard-body-content.off-canvas-content.data-off-canvas-content
-        = render :partial => 'shared/flashes', :locals => {:prefix => ''}
+        = render partial: 'shared/flashes', locals: { prefix: '' }
         = yield
   = yield :scripts
   :javascript
