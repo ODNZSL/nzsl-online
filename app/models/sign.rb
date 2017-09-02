@@ -22,7 +22,7 @@ class Sign
   end
 
   def location
-    SignMenu.locations.flatten.find { |l| l.split('.')[2].downcase == location_name }
+    SignMenu.locations.flatten.find { |l| l.split('.')[2].downcase[0, 4] == location_name[0, 4] }
   end
 
   # class #
