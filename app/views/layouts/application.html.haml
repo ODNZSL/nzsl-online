@@ -26,7 +26,7 @@
     |
     %a{:href => '#nav'} Skip to Page Navigation
 
-  = render :partial => 'shared/test_banner'
+  = render :partial => 'shared/test_banner' unless params[:controller] == 'vocab_sheets'
   %div{ :class => "not_sticky_footer #{vocab_sheet?}"}
     = render :partial => 'shared/header'
     #content.before_sticky_footer
