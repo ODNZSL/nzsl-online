@@ -3,13 +3,14 @@ ruby '2.3.3'
 
 gem 'rails', '~> 4.2.6'
 gem 'rails_12factor'
+
 # Use Postgresql as the database for Active Record
-gem 'pg'
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 3.6.0'
 gem 'nokogiri'
+gem 'pg'
 gem 'whenever'
 
 gem 'browser'
@@ -72,7 +73,9 @@ group :development, :test do
 end
 
 group :test do
-  gem "codeclimate-test-reporter", "~> 1.0.0"
+  gem 'capybara'
+  gem 'capybara-screenshot'
+  gem 'codeclimate-test-reporter', '~> 1.0.0'
 end
 
 group :staging, :production do
