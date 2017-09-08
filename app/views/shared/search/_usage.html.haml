@@ -1,8 +1,8 @@
-%div{:class => "sign_attribute_selection advanced-search-button sign-search-button usage float-left #{tab_class(:advanced, :signs)}"}
+%div{class: "sign_attribute_selection advanced-search-button sign-search-button usage float-left #{tab_class(:advanced, :signs)}"}
 
-  = hidden_field_tag :usage, search_term(:usage), :class => 'selected_field'
+  = hidden_field_tag :usage, search_term(:usage), class: 'selected_field'
 
-  %a.dropdown_arrow{:href => 'javascript:void(0);'}
+  %a.dropdown_arrow{href: 'javascript:void(0);'}
     .clearfix.dropdown.float-left.text_input
       %ul.no-bullet
         - SignMenu.usage_tags.each do |name, i|

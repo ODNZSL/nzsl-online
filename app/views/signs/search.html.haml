@@ -15,10 +15,10 @@
             %i.fi-play.play-button
             = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
           %div.clickable_link.small-12.small-centered
-            %a{:href => "#{sign_url(sign.id)}", class: "div_link"}
+            %a{href: "#{sign_url(sign.id)}", class: "div_link"}
               %span
                 .gloss_container.small-11.small-centered
-                  = link_to sign_url(sign.id), {:class => 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
+                  = link_to sign_url(sign.id), {class: 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
                     = sign.gloss_main
                   - if sign.gloss_secondary.present?
                     .secondary_gloss.text-left= sign.gloss_secondary

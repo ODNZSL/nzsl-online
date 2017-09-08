@@ -1,10 +1,10 @@
-%div{:class => "sign_attribute_selection advanced-search-button sign-search-button search_field topic float-left #{tab_class(:advanced, :signs)}"}
-  = hidden_field_tag :tag, search_term(:tag), :class => 'selected_field'
-  %a.dropdown_arrow{:href => 'javascript:void(0);'}
+%div{class: "sign_attribute_selection advanced-search-button sign-search-button search_field topic float-left #{tab_class(:advanced, :signs)}"}
+  = hidden_field_tag :tag, search_term(:tag), class: 'selected_field'
+  %a.dropdown_arrow{ href: 'javascript:void(0);' }
     .clearfix.dropdown.float-left.text_input
       %ul.no-bullet
         - SignMenu.topic_tags.each do |name, i|
-          %li{id: i, class: "topic-dropdown"}
+          %li{ id: i, class: "topic-dropdown" }
             = name
   .default
     = t('search.advanced.topic_tags')

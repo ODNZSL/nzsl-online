@@ -5,36 +5,36 @@
 /[if IE 9 ]    <html lang="en" class="no-js ie9">
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 %head
-  = render :partial => "shared/google_tag_manager_head"
-  %meta{:charset => "utf-8"}
+  = render partial: "shared/google_tag_manager_head"
+  %meta{charset: "utf-8"}
   %title= page_title
-  %meta{'http-equiv' => "X-UA-Compatible", :content => "IE-edge,chrome=1"}
+  %meta{'http-equiv' => "X-UA-Compatible", content: "IE-edge,chrome=1"}
   / = favicon_link_tag
-  -# = favicon_link_tag 'apple-touch-icon.png', :rel => 'apple-touch-icon', :type => 'image/png'
+  -# = favicon_link_tag 'apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
   = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
   = javascript_include_tag "application", "data-turbolinks-track" => false
 
   = yield :head
-  %meta{:name => "description", :content => t('layout.meta_description')}
-  %meta{:name => "viewport", :content => "width=device-width, initial-scale=1.0"}
+  %meta{name: "description", content: t('layout.meta_description')}
+  %meta{name: "viewport", content: "width=device-width, initial-scale=1.0"}
   = print_stylesheet_tag params[:print]
   %link{ href:"https://fonts.googleapis.com/css?family=Montserrat:300,400,500", rel:"stylesheet" }
 %body.row
-  = render :partial => "shared/google_tag_manager_body"
+  = render partial: "shared/google_tag_manager_body"
   .visuallyhidden
-    %a{:href => '#content'} Skip to Content
+    %a{href: '#content'} Skip to Content
     |
-    %a{:href => '#nav'} Skip to Page Navigation
+    %a{href: '#nav'} Skip to Page Navigation
 
-  = render :partial => 'shared/test_banner' unless params[:controller] == 'vocab_sheets'
+  = render partial: 'shared/test_banner' unless params[:controller] == 'vocab_sheets'
 
-  %div{ :class => "not_sticky_footer #{vocab_sheet?}"}
-    = render :partial => 'shared/header'
+  %div{ class: "not_sticky_footer #{vocab_sheet?}"}
+    = render partial: 'shared/header'
     #content.before_sticky_footer
-      = render :partial => 'shared/vocab_sheet'
-      = render :partial => 'shared/flashes', :locals => {:prefix => ''}
-      = render :partial => 'shared/flashes', :locals => {:prefix => 'vocab_bar_'} unless vocab_sheet?
+      = render partial: 'shared/vocab_sheet'
+      = render partial: 'shared/flashes', locals: {prefix: ''}
+      = render partial: 'shared/flashes', locals: {prefix: 'vocab_bar_'} unless vocab_sheet?
       = yield
-  = render :partial => 'shared/footer', :locals => {:last => true}
+  = render partial: 'shared/footer', locals: {last: true}
   = print_javascripts_tag params[:print]
   = yield :scripts
