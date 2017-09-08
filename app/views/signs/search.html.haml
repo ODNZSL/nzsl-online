@@ -3,10 +3,10 @@
   = t('search.results.for')
   &ldquo;#{display_search_term}&rdquo;
 .search_results_container.text-center.small-12.small-centered.medium-8.large-9
-  %div{class: "row", id: "search-container", data: {"equalizer": true }}
+  .row#search-container{ data: { "equalizer": true } }
     - @signs.each do |sign|
-      %div.small-12.medium-6.large-4.xlarge-3.float-left
-        %div{ class: "search_results_card float-left", data: {"equalizer-watch": true}}
+      .small-12.medium-6.large-4.xlarge-3.float-left
+        .search_results_card.float-left{ data: { "equalizer-watch": true } }
           - if @query[:s]
             - query_text = @query[:s].join(" ")
           - else
@@ -15,10 +15,10 @@
             %i.fi-play.play-button
             = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
           %div.clickable_link.small-12.small-centered
-            %a{href: "#{sign_url(sign.id)}", class: "div_link"}
+            %a.div_link{ href: "#{sign_url(sign.id)}" }
               %span
                 .gloss_container.small-11.small-centered
-                  = link_to sign_url(sign.id), {class: 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);"} do
+                  = link_to sign_url(sign.id), { class: 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);" } do
                     = sign.gloss_main
                   - if sign.gloss_secondary.present?
                     .secondary_gloss.text-left= sign.gloss_secondary
@@ -28,7 +28,7 @@
                     .word_gloss.small-12.text-left= sign.word_classes
           .link_and_drawing_container.small-12
             .link_container.float-left
-              = link_to "learn more", sign_url(sign.id), {class: "show_link float-left"}
+              = link_to "learn more", sign_url(sign.id), { class: "show_link float-left" }
               %span.unicode_arrow.float-left &rarr;
             .drawing_container.float-left
               = link_to(sign_url(sign.id),
