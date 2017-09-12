@@ -1,11 +1,14 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
+  include BasicAuthHelper
+
   protect_from_forgery with: :exception
   require 'browser'
   layout :layout_by_resource
 
   before_action :check_browser_support
+  before_action :http_basic_auth
 
   def check_browser_support
     setup_browser_rules
@@ -16,6 +19,14 @@ class ApplicationController < ActionController::Base
   end
 
   private
+
+  def http_basic_auth
+    return unless staging_env?
+    http_basic_authenticate_with(
+      name: ENV["HTTP_BASIC_AUTH_USERNAME"],
+      password: ENV["HTTP_BASIC_AUTH_PASSWORD"]
+    )
+  end
 
   def after_sign_in_path_for(_resource)
     admin_path

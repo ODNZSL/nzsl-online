@@ -5,6 +5,8 @@
 /[if IE 9 ]    <html lang="en" class="no-js ie9">
 <!--[if (gt IE 9)|!(IE)]><!--> <html lang="en" class="no-js"> <!--<![endif]-->
 %head
+  - if staging_env?
+    %meta{ name: "robots", content: "noindex" }/
   = render :partial => "shared/google_tag_manager_head"
   %meta{:charset => "utf-8"}
   %title= page_title
