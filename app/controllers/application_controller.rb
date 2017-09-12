@@ -10,23 +10,7 @@ class ApplicationController < ActionController::Base
   before_action :check_browser_support
   before_action :http_basic_auth
 
-  def check_browser_support
-    setup_browser_rules
-    return if browser.modern?
-    flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
-                      not display properly. <a href="https://updatemybrowser.org/"> Would you like to
-                      upgrade your browser? </a>).html_safe
-  end
-
   private
-
-  def http_basic_auth
-    return unless staging_env?
-    http_basic_authenticate_with(
-      name: ENV['HTTP_BASIC_AUTH_USERNAME'],
-      password: ENV['HTTP_BASIC_AUTH_PASSWORD']
-    )
-  end
 
   def after_sign_in_path_for(_resource)
     admin_path
@@ -88,5 +72,23 @@ class ApplicationController < ActionController::Base
     else
       render text: '404 - page not found', status: 404
     end
+  end
+
+  protected
+
+  def check_browser_support
+    setup_browser_rules
+    return if browser.modern?
+    flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
+                      not display properly. <a href="https://updatemybrowser.org/"> Would you like to
+                      upgrade your browser? </a>).html_safe
+  end
+
+  def http_basic_auth
+    return unless staging_env?
+    http_basic_authenticate_with(
+      name: ENV['HTTP_BASIC_AUTH_USERNAME'],
+      password: ENV['HTTP_BASIC_AUTH_PASSWORD']
+    )
   end
 end
