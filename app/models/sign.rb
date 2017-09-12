@@ -65,12 +65,10 @@ class Sign
   end
 
   def self.search(params)
-    before_time = Time.now.to_f
     url = url_for_search(params)
     xml_document = Nokogiri::XML(open(url))
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
-
     [count, entries]
   end
 
