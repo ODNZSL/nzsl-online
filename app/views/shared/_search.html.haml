@@ -2,10 +2,10 @@
   .search_form.clearfix_left
     = form_tag search_signs_path, method: :get, class: "js-ga-form-submission" do
       = render partial: 'shared/search/keywords'
-      %div{class: "search-tab #{tab_class(:advanced)} text-center show-for-medium"}
+      %div{ class: "search-tab #{tab_class(:advanced) } text-center show-for-medium"}
         = link_to t('search.tabs.advanced'), {tab: 'advanced'}
         %span.small-caret
-      %div{class: "#{tab_class(:advanced)} clearfix medium-10 medium-centered large-8 advanced-search-container show-for-medium"}
+      %div{ class: "#{tab_class(:advanced) } clearfix medium-10 medium-centered large-8 advanced-search-container show-for-medium"}
         = render partial: 'shared/search/signs'
         = render partial: 'shared/search/topic'
         = render partial: 'shared/search/usage'
