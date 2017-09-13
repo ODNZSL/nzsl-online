@@ -8,7 +8,7 @@ class ApplicationController < ActionController::Base
   layout :layout_by_resource
 
   before_action :check_browser_support
-  before_action :http_basic_auth
+  before_action :staging_http_auth
 
   private
 
@@ -84,7 +84,7 @@ class ApplicationController < ActionController::Base
                       upgrade your browser? </a>).html_safe
   end
 
-  def http_basic_auth
+  def staging_http_auth
     return unless staging_env?
     authenticate_or_request_with_http_basic("Username and Password please") do |username, password|
       username == ENV["HTTP_BASIC_AUTH_USERNAME"] && password == ENV["HTTP_BASIC_AUTH_PASSWORD"]
