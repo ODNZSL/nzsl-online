@@ -28,7 +28,7 @@
 
   = render partial: 'shared/test_banner' unless params[:controller] == 'vocab_sheets'
 
-  %div{ class: "not_sticky_footer #{vocab_sheet?}"}
+  %div{ class: "not_sticky_footer #{vocab_sheet?}" }
     = render partial: 'shared/header'
     #content.before_sticky_footer
       = render partial: 'shared/vocab_sheet'
