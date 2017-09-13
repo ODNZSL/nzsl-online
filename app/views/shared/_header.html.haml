@@ -8,7 +8,7 @@
     .menu-list.show-for-medium.float-right
       %ul.no-bullet.float-right
         - Page.in_header_nav.each_with_index do |link, i|
-          %li{class: (i.zero? ? 'first' : '')}= render_navigation_link(link)
+          %li{ class: (i.zero? ? 'first' : '') }= render_navigation_link(link)
         %li.help
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
   %div{class: "hamburger-menu-icon show-for-small-only float-left",onclick: "openNav()"}
@@ -20,7 +20,7 @@
     .overlay-content.small-12.text-center
       %ul.no-bullet
         - Page.in_nav.each_with_index do |link, i|
-          %li{class: (i.zero? ? 'first' : '')}= render_navigation_link(link)
+          %li{ class: (i.zero? ? 'first' : '') }= render_navigation_link(link)
         %li.help
           = link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);"
 
