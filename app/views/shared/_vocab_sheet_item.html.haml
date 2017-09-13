@@ -5,5 +5,5 @@
   %p.maori_gloss
     = vocab_sheet_item.maori_name
   .b
-  = form_tag vocab_sheet_item_path(vocab_sheet_item), :method => :delete do
-    %button.remove{:type => 'submit'}= t('vocab_sheet.item.remove')
+  = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :delete do
+    %button.remove{ type: 'submit' }= t('vocab_sheet.item.remove')
