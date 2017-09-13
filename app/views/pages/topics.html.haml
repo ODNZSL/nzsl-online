@@ -1,6 +1,6 @@
 .small-11.small-centered.medium-10.large-8
   .topic-container.medium-11.medium-centered
-    = render :partial => 'pages/content'
+    = render partial: 'pages/content'
     %ol
       - SignMenu.topic_tags.each do |topic|
         %li.topic-li-style.small-12
