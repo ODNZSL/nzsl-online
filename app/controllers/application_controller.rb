@@ -86,9 +86,8 @@ class ApplicationController < ActionController::Base
 
   def http_basic_auth
     return unless staging_env?
-    http_basic_authenticate_with(
-      name: ENV['HTTP_BASIC_AUTH_USERNAME'],
-      password: ENV['HTTP_BASIC_AUTH_PASSWORD']
-    )
+    authenticate_or_request_with_http_basic("Username and Password please") do |username, password|
+      username == ENV["HTTP_BASIC_AUTH_USERNAME"] && password == ENV["HTTP_BASIC_AUTH_PASSWORD"]
+    end
   end
 end
