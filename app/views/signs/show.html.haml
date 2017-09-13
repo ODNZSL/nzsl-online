@@ -17,14 +17,14 @@
         %h2.main_gloss= @sign.gloss_maori
       = form_tag vocab_sheet_items_path do
         = hidden_field_tag 'sign_id', @sign.id
-        = add_vocab_button('vocab_sheet.item.add', :class => 'add_to_sheet')
+        = add_vocab_button('vocab_sheet.item.add', class: 'add_to_sheet')
     .videos.small-12.medium-5
       .video-container
         = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: true, preload: "auto", loop: true
         - if @sign.video_slow.present?
           = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: true, controlsList:"nodownload",  preload: "auto", loop: true, width: "100%"
-          = play_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-          = play_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+          = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
+          = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
       .glosses-container.glosses.small-12.float-left
         %h2.main_gloss= @sign.gloss_main
         %h2.secondary_gloss= @sign.gloss_secondary
@@ -41,8 +41,8 @@
               = videojs_rails sources: { mp4: example[:video]}, class: "example_video video normal", controls: true, controlsList:"nodownload", preload: "auto", loop: true
               - if example[:video_slow]
                 = videojs_rails sources: { mp4: example[:video_slow] }, class: "example_video video slow", controls: true, controlsList:"nodownload", preload: true, loop: true, width: "100%"
-                = play_video_button('signs.show.in_slow_motion', nil, :class => 'float-left normal')
-                = play_video_button('signs.show.at_normal_speed', nil, :class => 'float-left slow')
+                = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
+                = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
             .small-12.float-left
               %p.secondary_gloss= render_transcription(example[:transcription], @sign.id)
               %h4.translation-gloss

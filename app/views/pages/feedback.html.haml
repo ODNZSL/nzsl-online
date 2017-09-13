@@ -1,9 +1,9 @@
-= render :partial => 'pages/content'
+= render partial: 'pages/content'
 .rule_after.clearfix_left.vertical_space.small-11.small-centered.medium-10.large-8
 
   %h2#feedback Send Feedback
-  = render :partial => 'shared/flashes', :locals => {:prefix => 'feedback_'}
-  = form_for @feedback, :url => feedback_index_path(:anchor => 'feedback'), :html => {:multipart => true} do |f|
+  = render partial: 'shared/flashes', locals: {prefix: 'feedback_'}
+  = form_for @feedback, url: feedback_index_path(anchor: 'feedback'), html: {multipart: true} do |f|
     - if @feedback.errors.any?
       #error-explanation
         %ul
