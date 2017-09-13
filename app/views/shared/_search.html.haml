@@ -1,17 +1,17 @@
 .search-container.small-10.medium-10.medium-centered
-  %div{:class => "search_form clearfix_left"}
-    = form_tag search_signs_path, :method => :get, class: "js-ga-form-submission" do
-      = render :partial => 'shared/search/keywords'
-      %div{:class => "search-tab #{tab_class(:advanced)} text-center show-for-medium"}
-        = link_to t('search.tabs.advanced'), {:tab => 'advanced'}
+  .search_form.clearfix_left
+    = form_tag search_signs_path, method: :get, class: "js-ga-form-submission" do
+      = render partial: 'shared/search/keywords'
+      %div{ class: "search-tab #{tab_class(:advanced) } text-center show-for-medium"}
+        = link_to t('search.tabs.advanced'), {tab: 'advanced'}
         %span.small-caret
-      %div{:class => "#{tab_class(:advanced)} clearfix medium-10 medium-centered large-8 advanced-search-container show-for-medium"}
-        = render :partial => 'shared/search/signs'
-        = render :partial => 'shared/search/topic'
-        = render :partial => 'shared/search/usage'
+      %div{ class: "#{tab_class(:advanced) } clearfix medium-10 medium-centered large-8 advanced-search-container show-for-medium"}
+        = render partial: 'shared/search/signs'
+        = render partial: 'shared/search/topic'
+        = render partial: 'shared/search/usage'
       .search-buttons-container
         = submit_search_button
-        %a.show-for-medium.empty{:href => 'javascript:void(0);'}
+        %a.show-for-medium.empty{ href: 'javascript:void(0);' }
           clear
           %span
             &times
