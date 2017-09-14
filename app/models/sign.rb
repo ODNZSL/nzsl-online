@@ -65,21 +65,20 @@ class Sign
   end
 
   def self.search(params)
-    before_time = Time.current
+    xml_document = nil
     url = url_for_search(params)
-    xml_document = Nokogiri::XML(open(url))
+    time = Benchmark.measure do
+      xml_document = Nokogiri::XML(open(url))
+    end
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
-    save_time_elapsed(url, before_time, count)
+    record_request_time(url, time.real, count)
     [count, entries]
   end
 
-  def self.save_time_elapsed(url, before_time, count)
+  def self.record_request_time(url, time, count)
     return unless Rails.application.secrets.track_search_requests?
-    # how long did that query take?
-    after_time = Time.current
-    elapsed_time = after_time - before_time
-    Request.create! url: url, elapsed_time: elapsed_time, count: count, query_type: 'Sign.search'
+    Request.create! url: url, elapsed_time: time, count: count, query_type: 'Sign.search'
   end
 
   def self.url_for_search(query)
