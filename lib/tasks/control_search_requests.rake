@@ -10,7 +10,7 @@ namespace :db do
 
     # Ensure we have no more than MAX_REQUESTS of the most recent requests
     if Request.count > MAX_REQUESTS
-      total_destroyed += Request.order(id: :desc).offset(Request.count - MAX_REQUESTS).destroy_all.length
+      total_destroyed += Request.order(created_at: :desc).offset(MAX_REQUESTS).destroy_all.length
     end
 
     puts "A total of #{total_destroyed} requests were deleted, remaining #{Request.count} "\
