@@ -70,11 +70,12 @@ class Sign
     xml_document = Nokogiri::XML(open(url))
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
-    save_time_elapsed(url, before_time, count) if Rails.application.secrets.track_search_requests?
+    save_time_elapsed(url, before_time, count)
     [count, entries]
   end
 
   def self.save_time_elapsed(url, before_time, count)
+    return unless Rails.application.secrets.track_search_requests?
     # how long did that query take?
     after_time = Time.current
     elapsed_time = after_time - before_time
