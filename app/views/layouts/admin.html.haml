@@ -28,7 +28,8 @@
       .columns.shrink.admin-dashboard-top-bar-actions
 
     .admin-dashboard-body.off-canvas-wrapper
-      .admin-dashboard-sidebar.position-left.off-canvas.off-canvas-absolute.reveal-for-medium.data-off-canvas#admin-dashboard-sidebar
+      %div{ class: "admin-dashboard-sidebar position-left off-canvas off-canvas-absolute reveal-for-medium data-off-canvas",
+            id: "admin-dashboard-sidebar" }
         .admin-dashboard-sidebar-title-area
           .admin-dashboard-open-sidebar
             %button.admin-dashboard-open-sidebar-button.show-for-medium#open-sidebar{ 'aria-label': "open menu",
