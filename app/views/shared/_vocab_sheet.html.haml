@@ -6,4 +6,4 @@
   = render partial: 'shared/flashes', locals: { prefix: 'vocab_bar_' }
   = content_tag :ul do
     - if vocab_sheet?
-      = render partial: 'shared/vocab_sheet_item', collection: @sheet.items, locals: { modify_gloss: false }
+      = render partial: 'shared/vocab_sheet_item', collection: sheet.items, locals: { modify_gloss: false }
