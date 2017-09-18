@@ -10,6 +10,3 @@ eslint:
 sass-lint:
   enabled: true
   config_file: .sass-lint.yml
-coffeescript:
-  enabled: true
-  config_file: coffeelint.json
