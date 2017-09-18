@@ -1,4 +1,12 @@
 ruby:
+  enabled: true
   config_file: .rubocop.yml
 haml:
+  enabled: true
   config_file: .haml-lint.yml
+eslint:
+  enabled: true
+  config_file: .eslintrc
+sass-lint:
+  enabled: true
+  config_file: .sass-lint.yml
