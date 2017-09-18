@@ -4,13 +4,15 @@
   = stylesheet_link_tag 'smoothness/jquery-ui.css'
 .vocab_sheet_head
   .vocab_sheet_controls.vocab_sheet_page_controls
-    = orange_submit_button 'vocab_sheet.print', {:print => true}
-    = form_tag vocab_sheet_path, :method => :delete, :class => '' do
+    = orange_submit_button 'vocab_sheet.print', {print: true}
+    = form_tag vocab_sheet_path, method: :delete, class: '' do
       = orange_submit_button 'vocab_sheet.delete'
     .size_controls
       - (1..5).each do |i|
-        = link_to "size_#{i}", vocab_sheet_path(:size => i), :class => "ir size_label size_#{i}_label#{@size == i ? " selected_icon" : ''}"
-  = render :partial => 'vocab_sheets/vocab_sheet_name'
+        = link_to "size_#{i}",
+          vocab_sheet_path(size: i),
+          class: "ir size_label size_#{i}_label#{@size == i ? " selected_icon" : ''}"
+  = render partial: 'vocab_sheets/vocab_sheet_name', locals: { sheet_name: @sheet.name }
   .if_js
     = t('vocab_sheet.sortable_instruction')
 
@@ -20,7 +22,7 @@
     %ul#vocab_sheet.clearfix_left
       - @sheet.items.each_with_index do |vocab_sheet_item, i|
         - if params[:print] && !i.zero? && i.multiple_of?(vocab_sheet_offset_multiple)
-          = render :partial => 'shared/print_page_boundary'
-        = render :partial => 'vocab_sheets/vocab_sheet_item', :locals => {:vocab_sheet_item => vocab_sheet_item}
+          = render partial: 'shared/print_page_boundary'
+        = render partial: 'vocab_sheets/vocab_sheet_item', locals: { vocab_sheet_item: vocab_sheet_item }
 - else
   %em= t('vocab_sheet.empty')

@@ -8,11 +8,11 @@
           %li.small-6.medium-4.grid-stack.float-left.text-left
             - if ea.last.is_a?(String)
               %div
-                = image_tag ea.last, :alt => ea.first, class: "grid-image"
+                = image_tag ea.last, alt: ea.first, class: "grid-image"
               %h4.grid-image-caption
                 = ea.first
             - else
-              = link_to sign_url(ea.last.id), {:class => 'drawing'} do
-                = image_tag "signs/150-100/#{ea.last.drawing}", :alt => ea.first, class: "grid-image"
+              = link_to sign_url(ea.last.id), {class: 'drawing'} do
+                = image_tag "signs/150-100/#{ea.last.drawing}", alt: ea.first, class: "grid-image"
               = link_to sign_url(ea.last.id), {class: 'image-caption'} do
                 = ea.first
