@@ -96,8 +96,13 @@ module SearchHelper # rubocop:disable ModuleLength
     end
 
     locations.map do |location|
-      location_image l, false, false, simple }.join(' ').html_safe unless @query[:l].blank?
-    end
+      location_image(
+        location,
+        false,
+        false,
+        simple
+      )
+    end.join(' ').html_safe unless @query[:l].blank?
   end
 
   def display_handshapes_search_term(simple = false)
