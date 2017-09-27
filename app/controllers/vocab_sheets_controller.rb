@@ -1,6 +1,7 @@
 class VocabSheetsController < ApplicationController
   before_action :find_or_create_vocab_sheet, :set_search_query, :footer_content, :set_title
   respond_to :html, :json
+
   def show
     @size = params[:size].to_i
     @size = session[:vocab_sheet_size].to_i if @size.zero?
@@ -15,13 +16,12 @@ class VocabSheetsController < ApplicationController
     else
       flash[:error] = t('vocab_sheet.sheet.update_failure')
     end
-    if request.xhr?
-      flash[:notice] = nil
-      flash[:error] = nil
-      render json: @sheet
-    else
-      respond_with_json_or_redirect(@sheet)
-    end
+
+    return respond_with_json_or_redirect(@sheet) unless request.xhr?
+
+    flash[:notice] = nil
+    flash[:error] = nil
+    render json: @sheet
   end
 
   def destroy

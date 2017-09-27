@@ -7,6 +7,7 @@ class SignImageController < ApplicationController
               type: 'image/png',
               disposition: 'attachment',
               filename: filename_param)
+
   rescue OpenURI::HTTPError
     return head(:not_found)
   rescue RuntimeError
@@ -21,13 +22,13 @@ class SignImageController < ApplicationController
   end
 
   def width_param
-    Integer(sign_image_params[:width])
+    sign_image_params[:width].to_i
   rescue
     100
   end
 
   def height_param
-    Integer(sign_image_params[:height])
+    sign_image_params[:height].to_i
   rescue
     100
   end
