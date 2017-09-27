@@ -31,7 +31,7 @@ class SignsController < ApplicationController
     query = params.select { |key| search_keys.include?(key) }
     return {} if query.nil?
     query.each do |key, value|
-      seconary_value = value.nil? ? '' : value.split(' ')
+      secondary_value = value.nil? ? '' : value.split(' ')
       query[key] = key == 's' ? [value] : secondary_value
     end
     query.with_indifferent_access
