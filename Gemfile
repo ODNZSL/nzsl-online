@@ -9,7 +9,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 3.6.0'
-gem 'nokogiri'
+gem 'nokogiri', '>= 1.8.1'
 gem 'pg'
 gem 'whenever'
 
