@@ -7,7 +7,7 @@
       - if all_sources_present?(@page)
         .video-container
           %i.fi-play.play-button
-          = videojs_rails sources:{ mp4: mp4_source(@page), webm: webm_source(@page) }, controls: false, controlsList: "nodownload", preload: "auto", loop: true, class: "main_video", id: "home-video"
+          = videojs_rails sources: { mp4: mp4_source(@page), webm: webm_source(@page) }, controls: false, controlsList: "nodownload", preload: "auto", loop: true, class: "main_video", id: "home-video"
         %p.help-link.text-center
           New to this site?
           = link_to "View our help page.", '/help'

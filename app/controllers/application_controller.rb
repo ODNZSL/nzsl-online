@@ -69,8 +69,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  private
-
   def set_sheet
     @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
   end
