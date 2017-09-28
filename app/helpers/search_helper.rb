@@ -94,21 +94,24 @@ module SearchHelper # rubocop:disable ModuleLength
     locations = SignMenu.locations.flatten.select do |location|
       location_selected?(location)
     end
+    return if @query[:l].blank?
 
-    locations.map do |location|
+    locations = locations.map do |location|
       location_image(
         location,
         false,
         false,
         simple
       )
-    end.join(' ').html_safe unless @query[:l].blank?
+    end
+    locations.join(' ').html_safe
   end
 
   def display_handshapes_search_term(simple = false)
     selected = SignMenu.handshapes.flatten.flatten.select do |hand_shape|
       handshape_selected?(hand_shape)
     end
+    return if @query[:hs].blank?
 
     selected = selected.map do |hand_shape|
       handshape_image(
@@ -116,21 +119,25 @@ module SearchHelper # rubocop:disable ModuleLength
         hand_shape.split('.').last == '1',
         simple
       )
-    end.join(' ').html_safe unless @query[:hs].blank?
+    end
+    selected.join(' ').html_safe
   end
 
   def display_location_groups_search_term(simple = false)
     locations = SignMenu.location_groups.select do |location_group|
       location_group_selected?(location_group)
     end
-    locations.map do |location_group|
+    return if @query[:lg].blank?
+
+    locations = locations.map do |location_group|
       location_image(
         location_group,
         true,
         false,
         simple
       )
-    end.join(' ').html_safe unless @query[:lg].blank?
+    end
+    locations.join(' ').html_safe
   end
 
   def display_usage_tag_search_term
