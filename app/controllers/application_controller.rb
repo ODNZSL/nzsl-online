@@ -9,7 +9,6 @@ class ApplicationController < ActionController::Base
 
   before_action :check_browser_support
   before_action :staging_http_auth
-  before_action :set_sheet, only: %i(find_or_create_vocab_sheet find_vocab_sheet)
 
   private
 
@@ -30,11 +29,13 @@ class ApplicationController < ActionController::Base
   end
 
   def find_or_create_vocab_sheet
+    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     @sheet ||= VocabSheet.create
     session[:vocab_sheet_id] = @sheet.id if @sheet
   end
 
   def find_vocab_sheet
+    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     true
   end
 
@@ -67,10 +68,6 @@ class ApplicationController < ActionController::Base
     else
       render text: '404 - page not found', status: 404
     end
-  end
-
-  def set_sheet
-    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
   end
 
   protected
