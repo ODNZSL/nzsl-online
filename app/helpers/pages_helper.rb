@@ -9,7 +9,7 @@ module PagesHelper
 
   def all_sources_present?(page)
     sources = source_path(page, false)
-    sources.exclude?(nil) && sources.exclude?("")
+    sources.exclude?(nil) && sources.exclude?('')
   end
 
   private
