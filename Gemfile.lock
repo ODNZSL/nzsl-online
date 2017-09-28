@@ -139,12 +139,12 @@ GEM
     mini_magick (3.6.0)
       subexec (~> 0.2.1)
     mini_mime (0.1.4)
-    mini_portile2 (2.2.0)
+    mini_portile2 (2.3.0)
     minitest (5.10.3)
     modernizr-rails (2.7.1)
     multi_xml (0.6.0)
-    nokogiri (1.8.0)
-      mini_portile2 (~> 2.2.0)
+    nokogiri (1.8.1)
+      mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
@@ -154,7 +154,7 @@ GEM
       mimemagic (~> 0.3.0)
     parser (2.4.0.0)
       ast (~> 2.2)
-    pg (0.21.0)
+    pg (0.20.0)
     powerpack (0.1.1)
     pry (0.10.4)
       coderay (~> 1.1.0)
@@ -316,9 +316,9 @@ DEPENDENCIES
   mail
   mini_magick (~> 3.6.0)
   modernizr-rails
-  nokogiri
+  nokogiri (~> 1.8.1)
   paperclip
-  pg
+  pg (~> 0.20.0)
   pry-byebug
   pry-rails
   rails (~> 4.2.6)
@@ -337,7 +337,6 @@ DEPENDENCIES
   videojs_rails
   whenever
   will_paginate
-
 
 RUBY VERSION
    ruby 2.3.3p222
