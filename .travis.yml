@@ -11,12 +11,13 @@ env:
 rvm:
 - 2.3.3
 before_script:
-- apt-get install haskell-platform
 - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - RAILS_ENV=test bundle exec rake db:create db:schema:load
 addons:
+  apt_packages:
+    - pandoc
   code_climate:
     repo_token: CC_TEST_REPORTER_ID
 script:
