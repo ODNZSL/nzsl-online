@@ -32,30 +32,30 @@ RSpec.describe VocabSheetsController, type: :controller do
 
     context 'existing vocab sheet' do
       before { patch :update, valid_attributes, session }
-      
-      it "updates the sheet instance variable" do
+
+      it 'updates the sheet instance variable' do
         expect(assigns(:sheet)).to eq(vocab_sheet)
       end
-      
+
       it 'updates the sheet name' do
         vocab_sheet.reload
         expect(vocab_sheet.name).to eq(new_name)
       end
 
-      it "redirects to the homepage" do
+      it 'redirects to the homepage' do
         expect(response).to redirect_to root_path
       end
     end
 
-    context "successful update" do
-      it "displays a success flash message" do
+    context 'successful update' do
+      it 'displays a success flash message' do
         patch :update, valid_attributes, session
         expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
       end
     end
 
-    context "unsuccessful update" do
-      it "displays an error flash message" do
+    context 'unsuccessful update' do
+      it 'displays an error flash message' do
         patch :update, invalid_attributes, session
         expect(flash[:error]).to eq I18n.t('vocab_sheet.sheet.update_failure')
       end
@@ -66,7 +66,7 @@ RSpec.describe VocabSheetsController, type: :controller do
     let!(:vocab_sheet) { FactoryGirl.create(:vocab_sheet) }
     let(:valid_request) { delete :destroy, id: vocab_sheet.id }
     let(:invalid_request) do
-      delete :destroy, { id: vocab_sheet.id + 100 }
+      delete :destroy, id: vocab_sheet.id + 100
     end
 
     before(:each) do
@@ -75,34 +75,34 @@ RSpec.describe VocabSheetsController, type: :controller do
         .and_return(true)
     end
 
-    context "successful deletion" do
-      it "decrements the vocab_sheet count" do
+    context 'successful deletion' do
+      it 'decrements the vocab_sheet count' do
         expect { valid_request }.to change(VocabSheet, :count).by(-1)
       end
 
-      it "deletes the vocab_sheet specified" do
+      it 'deletes the vocab_sheet specified' do
         valid_request
         expect(VocabSheet.find_by(id: vocab_sheet.id)).to be_nil
       end
 
-      it "displays a success flash message" do
+      it 'displays a success flash message' do
         valid_request
         expect(flash[:notice]).to eq I18n.t('vocab_sheet.delete_success')
       end
     end
 
-    context "unsuccessful deletion" do
-      it "does not change the VocabSheet count" do
+    context 'unsuccessful deletion' do
+      it 'does not change the VocabSheet count' do
         expect { invalid_request }.not_to change(VocabSheet, :count)
       end
 
-      it "displays an error flash message" do
+      it 'displays an error flash message' do
         invalid_request
         expect(flash[:error]).to eq I18n.t('vocab_sheet.delete_failure')
       end
     end
 
-    it "redirects to the homepage" do
+    it 'redirects to the homepage' do
       # it redirects to the homepage for valid or invalid requests
       [valid_request, invalid_request].each do |request|
         request
