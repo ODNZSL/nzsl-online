@@ -5,7 +5,12 @@ RSpec.describe VocabSheetsController, type: :controller do
   let(:session) { { vocab_sheet_id: vocab_sheet.id } }
 
   let(:new_name) { Faker::Name.name }
-  let(:new_attributes) { { vocab_sheet: { name: new_name } } }
+  let(:valid_attributes) do
+    { vocab_sheet: { name: new_name } }
+  end
+  let(:invalid_attributes) do
+    { vocab_sheet: { name: '' } }
+  end
 
   describe '#show' do
     before { get :show }
@@ -13,14 +18,20 @@ RSpec.describe VocabSheetsController, type: :controller do
   end
 
   describe '#update' do
+    before(:each) do
+      allow_any_instance_of(Browser::Generic)
+        .to receive(:modern?)
+        .and_return(true)
+    end
+
     context 'new vocab sheet' do
-      before { patch :update, new_attributes }
+      before { patch :update, valid_attributes }
       it { expect(assigns(:sheet)) }
       it { expect(response).to redirect_to root_path }
     end
 
     context 'existing vocab sheet' do
-      before { patch :update, new_attributes, session }
+      before { patch :update, valid_attributes, session }
       
       it "updates the sheet instance variable" do
         expect(assigns(:sheet)).to eq(vocab_sheet)
@@ -34,20 +45,19 @@ RSpec.describe VocabSheetsController, type: :controller do
       it "redirects to the homepage" do
         expect(response).to redirect_to root_path
       end
+    end
 
-      context "successful update" do
-        before do
-
-        end
-        it "displays a success flash message" do
-
-        end
+    context "successful update" do
+      it "displays a success flash message" do
+        patch :update, valid_attributes, session
+        expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
       end
+    end
 
-      context "unsuccessful update" do
-        it "displays an error flash message" do
-
-        end
+    context "unsuccessful update" do
+      it "displays an error flash message" do
+        patch :update, invalid_attributes, session
+        expect(flash[:error]).to eq I18n.t('vocab_sheet.sheet.update_failure')
       end
     end
   end
