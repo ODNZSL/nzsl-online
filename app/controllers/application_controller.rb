@@ -52,10 +52,6 @@ class ApplicationController < ActionController::Base
     end
   end
 
-  def load_search_query
-    # @query = session[:search][:query] if session[:search].present? && session[:search][:query].present?
-  end
-
   def set_search_query
     @query = {}
   end

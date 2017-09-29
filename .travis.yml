@@ -4,17 +4,20 @@ sudo: false
 cache: bundler
 env:
   global:
+  - S3_BUCKET_URL=http://s3-ap-southeast-2.amazonaws.com/test-asset-bucket/
   - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
   - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
     else git log -1 --skip 1 --pretty=format:%ct; fi)
 rvm:
 - 2.3.3
 before_script:
-- gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit'
+- gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit' 'pandoc-ruby'
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
 - RAILS_ENV=test bundle exec rake db:create db:schema:load
 addons:
+  apt_packages:
+    - pandoc
   code_climate:
     repo_token: CC_TEST_REPORTER_ID
 script:
