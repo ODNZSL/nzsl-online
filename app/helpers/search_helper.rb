@@ -64,11 +64,23 @@ module SearchHelper # rubocop:disable ModuleLength
     classes.join(' ')
   end
 
+  def tab_classes
+    [
+      tab_class(:advanced),
+      'clearfix',
+      'medium-10',
+      'medium-centered',
+      'large-8',
+      'advanced-search-container',
+      'show-for-medium'
+    ]
+  end
+
   def tab_selected?(classes)
-    keys = @query.select { |_k, v| v.present? }.keys
-    selected = if %w(tag usage).any? { |k| keys.include?(k) } || (keys.include?('s') && keys.length > 1)
+    keys = @query.select { |_key, value| value.present? }.keys
+    selected = if %w(tag usage).any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
                  classes.include?(:advanced)
-               elsif %w(hs l lg).any? { |k| keys.include?(k) }
+               elsif %w(hs l lg).any? { |key| keys.include?(key) }
                  classes.include?(:signs)
                else
                  classes.include?(:keywords)
@@ -79,24 +91,53 @@ module SearchHelper # rubocop:disable ModuleLength
 
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    locations = SignMenu.locations.flatten.select do |l|
-      location_selected?(l)
+    locations = SignMenu.locations.flatten.select do |location|
+      location_selected?(location)
     end
+    return if @query[:l].blank?
 
-    locations.map { |l| location_image l, false, false, simple }.join(' ').html_safe unless @query[:l].blank?
+    locations = locations.map do |location|
+      location_image(
+        location,
+        false,
+        false,
+        simple
+      )
+    end
+    locations.join(' ').html_safe
   end
 
   def display_handshapes_search_term(simple = false)
-    selected = SignMenu.handshapes.flatten.flatten.select do |hs|
-      handshape_selected?(hs)
+    selected = SignMenu.handshapes.flatten.flatten.select do |hand_shape|
+      handshape_selected?(hand_shape)
     end
+    return if @query[:hs].blank?
 
-    selected.map { |hs| handshape_image hs, (hs.split('.').last == '1'), simple }.join(' ').html_safe unless @query[:hs].blank? # rubocop:disable Metrics/LineLength
+    selected = selected.map do |hand_shape|
+      handshape_image(
+        hand_shape,
+        hand_shape.split('.').last == '1',
+        simple
+      )
+    end
+    selected.join(' ').html_safe
   end
 
   def display_location_groups_search_term(simple = false)
-    locations = SignMenu.location_groups.select { |lg| location_group_selected?(lg) }
-    locations.map { |lg| location_image lg, true, false, simple }.join(' ').html_safe unless @query[:lg].blank?
+    locations = SignMenu.location_groups.select do |location_group|
+      location_group_selected?(location_group)
+    end
+    return if @query[:lg].blank?
+
+    locations = locations.map do |location_group|
+      location_image(
+        location_group,
+        true,
+        false,
+        simple
+      )
+    end
+    locations.join(' ').html_safe
   end
 
   def display_usage_tag_search_term

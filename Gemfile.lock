@@ -148,6 +148,7 @@ GEM
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
     orm_adapter (0.5.0)
+    pandoc-ruby (2.0.2)
     paperclip (5.1.0)
       activemodel (>= 4.2.0)
       activesupport (>= 4.2.0)
@@ -156,7 +157,7 @@ GEM
       mimemagic (~> 0.3.0)
     parser (2.4.0.0)
       ast (~> 2.2)
-    pg (0.21.0)
+    pg (0.20.0)
     powerpack (0.1.1)
     pry (0.11.1)
       coderay (~> 1.1.0)
@@ -316,9 +317,10 @@ DEPENDENCIES
   mail
   mini_magick (~> 3.6.0)
   modernizr-rails
-  nokogiri (>= 1.8.1)
+  nokogiri (~> 1.8.1)
+  pandoc-ruby
   paperclip
-  pg
+  pg (~> 0.20.0)
   pry-byebug
   pry-rails
   rails (~> 4.2.6)

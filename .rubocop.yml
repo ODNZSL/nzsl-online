@@ -2,6 +2,9 @@
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
 # We do not typically use/need class documentation
+Lint/Void:
+  Enabled: false # see spec/controllers/vocab_sheet_controller_spec.rb
+
 Documentation:
   Enabled: false
 
