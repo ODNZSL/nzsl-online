@@ -45,7 +45,7 @@ class ItemsController < ApplicationController
     render json: @item
   end
 
-  def destroy # rubocop:disable Metrics/AbcSize, MethodLength
+  def destroy # rubocop:disable Metrics/AbcSize
     if @item.destroy
       flash[:vocab_bar_notice] = if @sheet.items.length.zero?
                                    t('vocab_sheet.delete_success')
