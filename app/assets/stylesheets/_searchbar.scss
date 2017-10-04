@@ -65,8 +65,8 @@
     width: 112px;
     overflow: auto;
     position: absolute;
-    top: 55px;
-    right: 0;
+    top: 66px;
+    right: -5px;
     .search-button {
       @include border-radius-small;
       background-color: $peach;
