@@ -5,13 +5,7 @@
       %div{ class: "search-tab #{tab_class(:advanced)} text-center show-for-medium" }
         = link_to t('search.tabs.advanced'), { tab: 'advanced' }
         %span.small-caret
-      - tab_classes = [ tab_class(:advanced),
-                        "clearfix",
-                        "medium-10",
-                        "medium-centered",
-                        "large-8",
-                        "advanced-search-container",
-                        "show-for-medium" ]
+
       %div{ class: tab_classes }
         = render partial: 'shared/search/signs'
         = render partial: 'shared/search/topic'

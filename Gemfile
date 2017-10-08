@@ -2,15 +2,15 @@ source 'https://rubygems.org'
 ruby '2.3.3'
 
 gem 'rails', '~> 4.2.6'
-gem 'rails_12factor'
 
 # Use Postgresql as the database for Active Record
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 3.6.0'
-gem 'nokogiri'
-gem 'pg'
+gem 'nokogiri', '~> 1.8.1'
+gem 'pandoc-ruby'
+gem 'pg', '~> 0.20.0'
 gem 'whenever'
 
 gem 'browser'
@@ -79,5 +79,6 @@ group :test do
 end
 
 group :staging, :production do
+  gem 'rails_12factor'
   gem 'unicorn'
 end

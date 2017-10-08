@@ -4,11 +4,14 @@
       - if @page.first_part.present?
         != @page.first_part.body
     .home-translation-video.small-12.medium-5.float-right
-      .video-container
-        %i.fi-play.play-button
-        = videojs_rails sources:{ mp4: Rails.application.secrets.s3_bucket_url + @page.first_part.translation_path + ".mp4", webm: Rails.application.secrets.s3_bucket_url + @page.first_part.translation_path + ".webm"}, controls: false, controlsList:"nodownload", preload: "auto", loop: true, class: "main_video", id: "home-video"
+      - if all_sources_present?(@page)
+        .video-container
+          %i.fi-play.play-button
+          = videojs_rails sources: { mp4: mp4_source(@page), webm: webm_source(@page) },
+            controls: false, controlsList: "nodownload", preload: "auto",
+            loop: true, class: "main_video", id: "home-video"
         %p.help-link.text-center
           New to this site?
           = link_to "View our help page.", '/help'
 .home-sign-container.small-12.medium-8
-  = render partial: '/signs/sign_of_the_day', locals: {sign: Sign.random}
+  = render partial: '/signs/sign_of_the_day', locals: { sign: Sign.random }
