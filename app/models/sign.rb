@@ -67,7 +67,7 @@ class Sign
   def self.search(params)
     return xml_request(params)
   rescue OpenURI::HTTPError => e
-    logger.warn "Search endpoint failure: #{e.message}"
+    Raygun.track_exception(e)
     return [0, []]
   end
 
