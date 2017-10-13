@@ -68,7 +68,7 @@ class Sign
     xml_document = nil
     url = url_for_search(params)
     time = Benchmark.measure do
-      xml_document = Nokogiri::XML(open(url))
+      xml_document = Nokogiri::XML(open(url, 'Host' => FREELEX_HOST))
     end
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
