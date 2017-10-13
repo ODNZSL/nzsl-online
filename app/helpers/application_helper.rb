@@ -1,7 +1,7 @@
 module ApplicationHelper
   ### TEMP TEMP TEMP
   def videojs_rails(*_args)
-    content_tag(:p, 'Sorry, this video is unavailable', class: 'word_gloss', style: 'min-height: 150px')
+    content_tag(:p, t('Sorry, this video is unavailable'), class: 'word_gloss', style: 'min-height: 150px')
   end
 
   def page_title
