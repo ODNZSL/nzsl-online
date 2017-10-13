@@ -73,13 +73,14 @@ class Sign
 
   def self.xml_request(params)
     xml_document = nil
+    url = url_for_search(params)
     time = Benchmark.measure do
-      xml_document = Nokogiri::XML(open(url_for_search(params), 'Host' => FREELEX_HOST))
+      xml_document = Nokogiri::XML(open(url, 'Host' => FREELEX_HOST))
     end
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
     record_request_time(url, time.real, count)
-    [entries, count]
+    [count, entries]
   end
 
   def self.record_request_time(url, time, count)
