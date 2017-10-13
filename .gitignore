@@ -14,7 +14,7 @@ public/system/images
 *.swp
 *~
 
-public/.*
+public/.well-known/**/*
 public/assets
 *~
 *.swp
