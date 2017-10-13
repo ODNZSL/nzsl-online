@@ -18,7 +18,10 @@ class SignsController < ApplicationController
 
   def autocomplete
     if params[:term].present?
-      render json: open("#{AUTOCOMPLETE_URL}?q=#{CGI.escape(params[:term])}&limit=10", &:read).split("\n")
+      render json: open(
+        "#{AUTOCOMPLETE_URL}?q=#{CGI.escape(params[:term])}&limit=10",
+        'Host' => FREELEX_HOST
+      ).read.split("\n")
     else
       render :nothing
     end
