@@ -9,8 +9,6 @@ RSpec.describe VocabSheetsController, type: :controller do
     { vocab_sheet: { name: new_name } }
   end
 
-  end
-
   describe '#show' do
     before { get :show }
     it { expect(response).to have_http_status(:ok) }
