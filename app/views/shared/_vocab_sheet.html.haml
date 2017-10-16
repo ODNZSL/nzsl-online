@@ -1,4 +1,4 @@
-.vocab_sheet.vocab_sheet_bar
+.vocab_sheet.vocab_sheet_bar{ style: (vocab_sheet? ? '' : 'display:none') }
   %h3.title= t('vocab_sheet.title')
   .vocab_sheet_controls.vocab_sheet_bar_controls.clearfix
     = link_button 'vocab_sheet.link_to', vocab_sheet_url
