@@ -46,7 +46,7 @@
 }
 
 /* bar specific */
-.vocab_sheet_bar {
+.js_vocab_sheet_bar {
   width: 120px;
   position: absolute;
   right: 0;
@@ -162,7 +162,7 @@
   width: 100%;
 }
 
-.vocab_sheet_bar .flash {
+.js_vocab_sheet_bar .flash {
   @include border-radius-small;
   margin: 20px auto;
   background: $primary-blue;

@@ -24,7 +24,7 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
 
 /* hiding useless things */
   .nav,
-  .vocab_sheet_bar,
+  .js_vocab_sheet_bar,
   .empty_vocab_sheet,
   .button,
   .logo,
