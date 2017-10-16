@@ -14,7 +14,7 @@ $(document).ready(function() {
 
   function changeVocabLocation() {
     if($('.search-result-banner').length > 0 && $('.flash').length > 0) {
-      $('.vocab_sheet').css("top", "380px")
+      $('.vocab_sheet_bar').css("top", "380px")
     } else if ($('.search-result-banner').length > 0 && $('.flash').length < 1) {
       $('.vocab_sheet_bar').css("top", "340px")
     } else {
