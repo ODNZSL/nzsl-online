@@ -16,6 +16,7 @@
 .vocab_sheet {
   position: relative;
   text-align: center;
+  display: none;
 }
 
 .vocab_sheet ul {
@@ -46,7 +47,7 @@
 }
 
 /* bar specific */
-.js_vocab_sheet_bar {
+.vocab_sheet_bar {
   width: 120px;
   position: absolute;
   right: 0;
@@ -162,7 +163,7 @@
   width: 100%;
 }
 
-.js_vocab_sheet_bar .flash {
+.vocab_sheet_bar .flash {
   @include border-radius-small;
   margin: 20px auto;
   background: $primary-blue;
