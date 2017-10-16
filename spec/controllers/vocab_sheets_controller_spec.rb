@@ -8,8 +8,7 @@ RSpec.describe VocabSheetsController, type: :controller do
   let(:valid_attributes) do
     { vocab_sheet: { name: new_name } }
   end
-  let(:invalid_attributes) do
-    { vocab_sheet: { name: '' } }
+
   end
 
   describe '#show' do
@@ -51,13 +50,6 @@ RSpec.describe VocabSheetsController, type: :controller do
       it 'displays a success flash message' do
         patch :update, valid_attributes, session
         expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
-      end
-    end
-
-    context 'unsuccessful update' do
-      it 'displays an error flash message' do
-        patch :update, invalid_attributes, session
-        expect(flash[:error]).to eq I18n.t('vocab_sheet.sheet.update_failure')
       end
     end
   end
