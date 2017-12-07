@@ -66,7 +66,7 @@ group :development, :test do
   gem 'rerun'
 
   # factories
-  gem 'factory_girl_rails'
+  gem 'factory_bot_rails'
 
   # For real looking data in tests
   gem 'faker'
