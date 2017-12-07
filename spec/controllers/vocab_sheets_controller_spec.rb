@@ -1,15 +1,12 @@
 require 'rails_helper'
 
 RSpec.describe VocabSheetsController, type: :controller do
-  let(:vocab_sheet) { FactoryGirl.create(:vocab_sheet) }
+  let(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
   let(:session) { { vocab_sheet_id: vocab_sheet.id } }
 
   let(:new_name) { Faker::Name.name }
   let(:valid_attributes) do
     { vocab_sheet: { name: new_name } }
-  end
-  let(:invalid_attributes) do
-    { vocab_sheet: { name: '' } }
   end
 
   describe '#show' do
@@ -53,17 +50,10 @@ RSpec.describe VocabSheetsController, type: :controller do
         expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
       end
     end
-
-    context 'unsuccessful update' do
-      it 'displays an error flash message' do
-        patch :update, invalid_attributes, session
-        expect(flash[:error]).to eq I18n.t('vocab_sheet.sheet.update_failure')
-      end
-    end
   end
 
   describe '#destroy' do
-    let!(:vocab_sheet) { FactoryGirl.create(:vocab_sheet) }
+    let!(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
     let(:valid_request) { delete :destroy, id: vocab_sheet.id }
     let(:invalid_request) do
       delete :destroy, id: vocab_sheet.id + 100

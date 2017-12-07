@@ -21,8 +21,7 @@ class ImageProcessor
   private
 
   def resize
-    file = open(@remote_filename, 'Host' => FREELEX_HOST)
-    image = MiniMagick::Image.read(file)
+    image = MiniMagick::Image.open(@remote_filename)
     image.shave CROP_IMAGES_BY if CROP_IMAGES
 
     # Reset page size to cropped image to avoid offset issue.

@@ -1,7 +1,8 @@
 .search-result-banner.small-12.text-center
-  = @results_total
-  = t('search.results.for')
-  &ldquo;#{display_search_term}&rdquo;
+  %h2
+    = @results_total
+    = t('search.results.for')
+    &ldquo;#{display_search_term}&rdquo;
 .search_results_container.text-center.small-12.small-centered.medium-8.large-9
   .row#search-container{ data: { "equalizer": true } }
     - @signs.each do |sign|
