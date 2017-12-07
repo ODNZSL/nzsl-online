@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :page_part do
     title { Faker::Book.title }
     translation_path { Faker::Lorem.word }

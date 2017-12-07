@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe VocabSheetsController, type: :controller do
-  let(:vocab_sheet) { FactoryGirl.create(:vocab_sheet) }
+  let(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
   let(:session) { { vocab_sheet_id: vocab_sheet.id } }
 
   let(:new_name) { Faker::Name.name }
@@ -53,7 +53,7 @@ RSpec.describe VocabSheetsController, type: :controller do
   end
 
   describe '#destroy' do
-    let!(:vocab_sheet) { FactoryGirl.create(:vocab_sheet) }
+    let!(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
     let(:valid_request) { delete :destroy, id: vocab_sheet.id }
     let(:invalid_request) do
       delete :destroy, id: vocab_sheet.id + 100
