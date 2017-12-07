@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Admin::SettingsController, type: :controller do
   include Devise::Test::ControllerHelpers
-  let(:user) { FactoryGirl.create :user }
+  let(:user) { FactoryBot.create :user }
 
-  let!(:setting) { FactoryGirl.create(:setting) }
+  let!(:setting) { FactoryBot.create(:setting) }
   let(:valid_params) { { setting.key => 'newvalue' } }
 
   context 'user is signed' do
