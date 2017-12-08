@@ -23,6 +23,7 @@ Style/FrozenStringLiteralComment:
 Metrics/BlockLength:
   Exclude:
     - 'spec/**/*_spec.rb'
+    - 'config/**/*.rb'
 
 Style/PercentLiteralDelimiters:
   Enabled: false
