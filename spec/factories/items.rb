@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :item do
     sign_id 1235 # this is in an external database
     vocab_sheet
