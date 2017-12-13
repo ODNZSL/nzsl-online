@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe Admin::PagesController, type: :controller do
   include Devise::Test::ControllerHelpers
-  let(:user) { FactoryGirl.create :user }
+  let(:user) { FactoryBot.create :user }
 
-  let(:page) { FactoryGirl.create(:page) }
+  let(:page) { FactoryBot.create(:page) }
   let(:valid_page_params) do
     { title: 'updated page title' }
   end
