@@ -9,11 +9,11 @@ RSpec.describe 'Page', type: :model do
   it { is_expected.to have_attribute :show_in_nav }
 
   let!(:page) do
-    FactoryGirl.build(:page,
-                      title: 'Automated testing rocks',
-                      slug: 'so-true',
-                      label: 'Test all the things',
-                      template: 'standard')
+    FactoryBot.build(:page,
+                     title: 'Automated testing rocks',
+                     slug: 'so-true',
+                     label: 'Test all the things',
+                     template: 'standard')
   end
 
   subject { page }
