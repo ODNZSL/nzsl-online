@@ -5,7 +5,7 @@ RSpec.describe 'Setting', type: :model do
   it { is_expected.to have_attribute :value }
 
   let!(:setting) do
-    FactoryGirl.create(:setting)
+    FactoryBot.create(:setting)
   end
 
   subject { setting }

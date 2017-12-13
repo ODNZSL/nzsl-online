@@ -65,6 +65,13 @@ class Sign
   end
 
   def self.search(params)
+    return xml_request(params)
+  rescue OpenURI::HTTPError => e
+    Raygun.track_exception(e)
+    return [0, []]
+  end
+
+  def self.xml_request(params)
     xml_document = nil
     url = url_for_search(params)
     time = Benchmark.measure do
