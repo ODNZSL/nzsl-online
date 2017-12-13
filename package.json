@@ -6,19 +6,15 @@
   "directories": {
     "doc": "doc"
   },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Br3nda/nzsl-online.git"
+    "url": "git+https://github.com/rabid/nzsl-online.git"
   },
-  "author": "",
-  "license": "ISC",
+  "license": "GPL",
   "bugs": {
-    "url": "https://github.com/Br3nda/nzsl-online/issues"
+    "url": "https://github.com/rabid/nzsl-online/issues"
   },
-  "homepage": "https://github.com/Br3nda/nzsl-online#readme",
+  "homepage": "https://github.com/rabid/nzsl-online#readme",
   "dependencies": {
     "eslint": "^4.13.1"
   },
