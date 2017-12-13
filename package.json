@@ -1,0 +1,28 @@
+{
+  "name": "nzsl-online",
+  "version": "1.0.0",
+  "description": "New Zealand Sign Language Dictionary consists of 2 major units * Ruby on Rails Website (this repo) * Freelex, and open source project for maintaining the signs lexicon data.",
+  "main": "index.js",
+  "directories": {
+    "doc": "doc"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Br3nda/nzsl-online.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Br3nda/nzsl-online/issues"
+  },
+  "homepage": "https://github.com/Br3nda/nzsl-online#readme",
+  "dependencies": {
+    "eslint": "^4.13.1"
+  },
+  "devDependencies": {
+    "eslint-config-google": "^0.9.1"
+  }
+}
