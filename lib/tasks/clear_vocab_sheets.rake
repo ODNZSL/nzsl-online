@@ -3,7 +3,6 @@ namespace :vocab_sheets do
 
   desc 'Clears all vocab sheets that are more than one month old'
   task clear: :environment do
-    total_destroyed = 0
-    total_destroyed += VocabSheet.where('updated_at < ?', MAX_DAYS.days.ago).destroy_all.length
+    VocabSheet.where('updated_at < ?', MAX_DAYS.days.ago).destroy_all.length
   end
 end
