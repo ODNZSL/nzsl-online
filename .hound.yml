@@ -4,9 +4,9 @@ ruby:
 haml:
   enabled: true
   config_file: .haml-lint.yml
-eslint:
-  enabled: true
-  config_file: .eslintrc.js
+#eslint:
+#  enabled: true
+#  config_file: .eslintrc.js
 sass-lint:
   enabled: true
   config_file: .sass-lint.yml
