@@ -8,7 +8,7 @@ class VocabSheet < ActiveRecord::Base
   end
 
   def self.clear_vocab_sheet
-  	max_days = 31
-  	VocabSheet.where('updated_at < ?', max_days.days.ago).destroy_all
+    max_days = 31
+    VocabSheet.where('updated_at < ?', max_days.days.ago).destroy_all
   end
 end
