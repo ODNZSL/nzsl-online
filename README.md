@@ -20,7 +20,7 @@ Both deploy by heroku monitoring the github repo and pulling in the changes if i
 
 ## Servers
 
-Current servers (2016-05-30
+Current servers (2017-12-15)
 
 *Staging*: http://nzsl-staging.herokuapp.com
 
