@@ -44,7 +44,7 @@ GEM
       babel-source (>= 4.0, < 6)
       execjs (~> 2.0)
     bcrypt (3.1.11)
-    brakeman (4.0.1)
+    brakeman (4.1.0)
     browser (2.5.2)
     builder (3.2.3)
     byebug (9.1.0)
