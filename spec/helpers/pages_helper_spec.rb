@@ -2,9 +2,9 @@ require 'rails_helper'
 
 RSpec.describe PagesHelper, type: :helper do
   let(:page) do
-    FactoryGirl.build(
+    FactoryBot.build(
       :page,
-      page_parts: FactoryGirl.build_stubbed_list(:page_part, 1)
+      page_parts: FactoryBot.build_stubbed_list(:page_part, 1)
     )
   end
 
