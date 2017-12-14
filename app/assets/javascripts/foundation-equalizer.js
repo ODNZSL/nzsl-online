@@ -1,10 +1,11 @@
 $(document).ready(function() {
-    if ($("#search-container").children().length) {
+    if ($("#search-container").children().length === 1) {
     $('#search-container').fadeIn(1000);
     } else {
     $("#search-container").on("postequalized.zf.equalizer", function() {
       $results = $(".link_and_drawing_container");
       $results.each(function(){
+        console.log("found");
         $(this).css("position", "absolute");
         $(this).css("bottom", "0");
       });
