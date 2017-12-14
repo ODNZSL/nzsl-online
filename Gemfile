@@ -76,6 +76,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'database_cleaner'
 end
 
 group :staging, :production do
