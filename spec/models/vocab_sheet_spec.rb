@@ -8,7 +8,7 @@ RSpec.describe 'VocabSheet', type: :model do
       FactoryBot.create_list(:item, 3, vocab_sheet_id: vocab_sheet.id)
 
       expect(Item.count).to eq 3
-      VocabSheet.clear_vocab_sheet
+      VocabSheet.purge_old_sheets
       expect(VocabSheet.count).to eq 5
       expect(Item.count).to eq 0
     end

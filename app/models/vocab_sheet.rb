@@ -7,7 +7,7 @@ class VocabSheet < ActiveRecord::Base
     items.any? { |i| i.sign_id == sign_id }
   end
 
-  def self.clear_vocab_sheet
+  def self.purge_old_sheets
     max_days = 31
     VocabSheet.where('updated_at < ?', max_days.days.ago).destroy_all
   end
