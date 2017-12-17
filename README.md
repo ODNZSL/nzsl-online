@@ -15,18 +15,17 @@ New Zealand Sign Language Dictionary consists of 2 major units
 
 `master` branch deploy to Production.
 
-both deploy via codeship.
+Both deploy by heroku monitoring the github repo and pulling in the changes if it sees the tests pass.
+
 
 ## Servers
 
-Current servers (2016-05-30
+Current servers (2017-12-15)
 
 *Staging*: http://nzsl-staging.herokuapp.com
 
-*Pre-Prod* is on  heroku: http://nzsl.herokuapp.com.
+*Production* is on  heroku: http://nzsl.herokuapp.com. (http://nzsl.nz/)
 
-*Production* is on http://nzsl.vuw.ac.nz, on a legacy VM @ Victoria University. This is near end of life. This app lives behind Apache and Passenger. The VM is maintained and monitored by VUW staff.
-Note: This instance at VUW runs from a SQLLite database
 
 ## Dev environment set up
 
