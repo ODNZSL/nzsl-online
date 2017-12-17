@@ -76,6 +76,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.0.5)
     crass (1.0.3)
+    database_cleaner (1.6.2)
     devise (4.3.0)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -305,6 +306,7 @@ DEPENDENCIES
   ckeditor_rails
   codeclimate-test-reporter (~> 1.0.0)
   coffee-rails
+  database_cleaner
   devise
   dotenv-rails
   factory_bot_rails
@@ -342,9 +344,8 @@ DEPENDENCIES
   whenever
   will_paginate
 
-
 RUBY VERSION
    ruby 2.3.3p222
 
 BUNDLED WITH
-   1.16.0.pre.3
+   1.16.0
