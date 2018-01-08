@@ -1,7 +1,7 @@
 module Admin
   class PagePartsController < ApplicationController
     before_action :authenticate_user!, :fetch_page, :set_title
-    before_action :fetch_page_part, only: [:edit, :show, :update, :destroy]
+    before_action :fetch_page_part, only: %i[edit show update destroy]
     layout 'admin'
     protect_from_forgery except: [:reorder]
 

@@ -78,9 +78,9 @@ module SearchHelper # rubocop:disable ModuleLength
 
   def tab_selected?(classes)
     keys = @query.select { |_key, value| value.present? }.keys
-    selected = if %w(tag usage).any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
+    selected = if %w[tag usage].any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
                  classes.include?(:advanced)
-               elsif %w(hs l lg).any? { |key| keys.include?(key) }
+               elsif %w[hs l lg].any? { |key| keys.include?(key) }
                  classes.include?(:signs)
                else
                  classes.include?(:keywords)

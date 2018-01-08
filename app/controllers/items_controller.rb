@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: :reorder
 
   before_action :find_or_create_vocab_sheet, :set_search_query, :footer_content
-  before_action :set_item, only: %i(update destroy)
+  before_action :set_item, only: %i[update destroy]
   respond_to :html, :json
 
   def create # rubocop:disable Metrics/AbcSize, MethodLength, Metrics/PerceivedComplexity
