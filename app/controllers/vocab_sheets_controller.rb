@@ -26,7 +26,7 @@ class VocabSheetsController < ApplicationController
   end
 
   def destroy
-    if @sheet && @sheet.destroy
+    if @sheet&.destroy
       session[:vocab_sheet_id] = nil
       flash[:notice] = t('vocab_sheet.delete_success')
     else
