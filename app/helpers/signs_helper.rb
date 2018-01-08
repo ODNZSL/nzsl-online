@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SignsHelper
   def render_grammar_notes(sign)
     [:contains_numbers,

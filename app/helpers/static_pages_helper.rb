@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module StaticPagesHelper
   def alphabet_listing
     %w(A B_open B_closed C_half C_full D E F G H I J K L M N O P_open P_closed Q R S T U V W X Y Z)

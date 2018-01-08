@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SignImageController < ApplicationController
   def show
     @local_filename = ImageProcessor.new(filename: filename_param,

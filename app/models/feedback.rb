@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Sends feedback email
 class Feedback < ActiveRecord::Base
