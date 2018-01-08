@@ -27,7 +27,7 @@ class SignsController < ApplicationController
   private
 
   def process_search_query(params)
-    search_keys = %w(s hs l lg usage tag)
+    search_keys = %w[s hs l lg usage tag]
     query = params.select { |key| search_keys.include?(key) }
     return {} if query.nil?
     query.each do |key, value|

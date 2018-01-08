@@ -13,10 +13,10 @@ RSpec.describe 'Setting', type: :model do
   describe '.update_all' do
     let(:params) do
       [
-        %w(boo yikes),
-        %w(blerg greeb),
-        %w(help hydra),
-        %w(flock mrrg)
+        %w[boo yikes],
+        %w[blerg greeb],
+        %w[help hydra],
+        %w[flock mrrg]
       ]
     end
 
