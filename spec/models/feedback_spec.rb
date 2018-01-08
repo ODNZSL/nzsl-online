@@ -21,9 +21,8 @@ RSpec.describe 'Feedback', type: :model do
   it { is_expected.to have_attribute :change_comments }
   it { is_expected.to have_attribute :technical_fault }
 
-  let!(:feedback) { Feedback.create }
   subject { feedback }
-
+  let!(:feedback) { Feedback.create }
   describe '#send_email' do
     subject { super().send_email }
     it 'delegates to Feedbackmailer' do

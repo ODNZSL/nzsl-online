@@ -4,11 +4,10 @@ RSpec.describe 'Setting', type: :model do
   it { is_expected.to have_attribute :key }
   it { is_expected.to have_attribute :value }
 
+  subject { setting }
   let!(:setting) do
     FactoryBot.create(:setting)
   end
-
-  subject { setting }
 
   describe '.update_all' do
     let(:params) do

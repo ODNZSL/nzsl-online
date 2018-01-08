@@ -8,9 +8,8 @@ RSpec.describe Item, type: :model do
   it { is_expected.to have_attribute :drawing }
   it { is_expected.to have_attribute :maori_name }
 
-  let!(:item) { FactoryBot.create(:item) }
-
   subject { item }
+  let!(:item) { FactoryBot.create(:item) }
 
   describe '#maori_name' do
     subject { super().maori_name }
