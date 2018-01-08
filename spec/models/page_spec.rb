@@ -8,6 +8,7 @@ RSpec.describe 'Page', type: :model do
   it { is_expected.to have_attribute :template }
   it { is_expected.to have_attribute :show_in_nav }
 
+  subject { page }
   let!(:page) do
     FactoryBot.build(:page,
                      title: 'Automated testing rocks',
@@ -15,8 +16,6 @@ RSpec.describe 'Page', type: :model do
                      label: 'Test all the things',
                      template: 'standard')
   end
-
-  subject { page }
 
   describe 'validations' do
     it 'requires a title' do
