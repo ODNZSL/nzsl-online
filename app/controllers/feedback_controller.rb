@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FeedbackController < ApplicationController
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
