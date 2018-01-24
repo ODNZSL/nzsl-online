@@ -9,4 +9,3 @@ class CreateVocabSheets < ActiveRecord::Migration
     drop_table :vocab_sheets
   end
 end
-
