@@ -17,7 +17,7 @@ RSpec.describe Admin::SettingsController, type: :controller do
     end
 
     describe '#update' do
-      before { patch :update, settings: valid_params }
+      before { patch :update, params: { settings: valid_params } }
       it { expect(response).to have_http_status(302) }
       it 'updates the setting' do
         setting.reload

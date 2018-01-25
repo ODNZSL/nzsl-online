@@ -40,8 +40,6 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_back_or_default
-    redirect_to :back
-  rescue ActionController::RedirectBackError
     redirect_to root_path
   end
 

@@ -28,7 +28,7 @@ RSpec.describe VocabSheetsController, type: :controller do
     end
 
     context 'existing vocab sheet' do
-      before { patch :update, valid_attributes, session }
+      before { patch :update, params: { vocab_sheet: { name: new_name }, vocab_sheet_id: vocab_sheet.id } }
 
       it 'updates the sheet instance variable' do
         expect(assigns(:sheet)).to eq(vocab_sheet)
@@ -54,9 +54,9 @@ RSpec.describe VocabSheetsController, type: :controller do
 
   describe '#destroy' do
     let!(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
-    let(:valid_request) { delete :destroy, id: vocab_sheet.id }
+    let(:valid_request) { delete :destroy, params: { id: vocab_sheet.id } }
     let(:invalid_request) do
-      delete :destroy, id: vocab_sheet.id + 100
+      delete :destroy, params: { id: vocab_sheet.id + 100 }
     end
 
     before(:each) do
