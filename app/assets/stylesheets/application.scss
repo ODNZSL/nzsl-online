@@ -112,6 +112,10 @@ a.logo {
   border: 1px solid #99a0a5;
 }
 
+.attribute_options {
+  overflow: scroll;
+  height: 430px;
+}
 .attribute_options .rows {
   clear: left;
   position: relative;
