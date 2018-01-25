@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.3'
 
-gem 'rails', '~> 4.2.6'
+gem 'rails', '5.0.0'
 
 # Use Postgresql as the database for Active Record
 gem 'haml'
@@ -77,6 +77,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :staging, :production do
