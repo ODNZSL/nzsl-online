@@ -5,7 +5,6 @@ $(document).ready(function() {
     $("#search-container").on("postequalized.zf.equalizer", function() {
       $results = $(".link_and_drawing_container");
       $results.each(function(){
-        console.log("found");
         $(this).css("position", "absolute");
         $(this).css("bottom", "0");
       });
