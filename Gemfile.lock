@@ -337,7 +337,7 @@ DEPENDENCIES
   pg (~> 0.20.0)
   pry-byebug
   pry-rails
-  rails (= 5.0.0)
+  rails (~> 5.0.0)
   rails-controller-testing
   rails_12factor
   raygun4ruby
