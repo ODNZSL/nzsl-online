@@ -34,6 +34,6 @@ class SignsController < ApplicationController
       secondary_value = value.nil? ? '' : value.split(' ')
       query[key] = key == 's' ? [value] : secondary_value
     end
-    query.with_indifferent_access
+    query.permit!
   end
 end
