@@ -40,9 +40,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_back_or_default
-    redirect_to :back
-  rescue ActionController::RedirectBackError
-    redirect_to root_path
+    redirect_back(fallback_location: root_path)
   end
 
   def respond_with_json_or_redirect(object, redirect = nil)

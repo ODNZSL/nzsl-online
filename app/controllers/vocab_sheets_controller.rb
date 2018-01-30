@@ -12,8 +12,7 @@ class VocabSheetsController < ApplicationController
   end
 
   def update
-    @sheet.name = params[:vocab_sheet][:name]
-    if @sheet.save
+    if @sheet.update(vocab_sheet_params)
       flash[:notice] = t('vocab_sheet.sheet.update_success')
     else
       flash[:error] = t('vocab_sheet.sheet.update_failure')
@@ -36,6 +35,10 @@ class VocabSheetsController < ApplicationController
   end
 
   private
+
+  def vocab_sheet_params
+    params.require(:vocab_sheet).permit(:name)
+  end
 
   def set_vocab_sheet
     # session object isn't available in the parent controller scope

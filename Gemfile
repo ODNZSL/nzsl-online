@@ -1,14 +1,14 @@
 source 'https://rubygems.org'
 ruby '2.3.6'
 
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 5.1.0'
 
 # Use Postgresql as the database for Active Record
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 3.6.0'
-gem 'nokogiri', '~> 1.8.1'
+gem 'nokogiri'
 gem 'pandoc-ruby'
 gem 'pg', '~> 0.20.0'
 gem 'whenever'
@@ -77,6 +77,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :staging, :production do
