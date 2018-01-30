@@ -38,7 +38,7 @@ class VocabSheetsController < ApplicationController
   private
 
   def vocab_sheet_params
-    params.require(:vocab_sheet).permit(:name, :size)
+    params.require(:vocab_sheet).permit(:name)
   end
 
   def set_vocab_sheet
