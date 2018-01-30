@@ -11,12 +11,11 @@ New Zealand Sign Language Dictionary consists of 2 major units
 
 ## Deployment
 
-`staging` branch deploys to Staging
+NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), with the Rabid Repo being forked from this.
 
-`master` branch deploy to Production.
+Rabideers should branch from the rabid staging branch when resolving issues or adding features. Their pull requested should be to the ODNSL staging branch, rather than the Rabid Staging branch. The Rabid Admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merge, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
 
-Both deploy by heroku monitoring the github repo and pulling in the changes if it sees the tests pass.
-
+ODNZSL staging deploys to http://nzsl-staging.herokuapp.com.
 
 ## Servers
 
