@@ -13,7 +13,7 @@ New Zealand Sign Language Dictionary consists of 2 major units
 
 NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), with the Rabid Repo being forked from this.
 
-Rabideers should branch from the rabid staging branch when resolving issues or adding features. Their pull requested should be to the ODNSL staging branch, rather than the Rabid Staging branch. The Rabid Admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merge, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
+Rabideers should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
 
 ODNZSL staging deploys to http://nzsl-staging.herokuapp.com.
 
