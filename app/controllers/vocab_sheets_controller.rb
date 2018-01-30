@@ -12,8 +12,7 @@ class VocabSheetsController < ApplicationController
   end
 
   def update
-    @sheet.update_attributes!(vocab_sheet_params)
-    if @sheet.save
+    if @sheet.update(vocab_sheet_params)
       flash[:notice] = t('vocab_sheet.sheet.update_success')
     else
       flash[:error] = t('vocab_sheet.sheet.update_failure')
