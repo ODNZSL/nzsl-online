@@ -22,13 +22,13 @@ RSpec.describe VocabSheetsController, type: :controller do
     end
 
     context 'new vocab sheet' do
-      before { patch :update, valid_attributes }
+      before { patch :update, params: valid_attributes, session: session }
       it { expect(assigns(:sheet)) }
       it { expect(response).to redirect_to root_path }
     end
 
     context 'existing vocab sheet' do
-      before { patch :update, params: { vocab_sheet: { name: new_name }, vocab_sheet_id: vocab_sheet.id } }
+      before { patch :update, params: valid_attributes, session: session }
 
       it 'updates the sheet instance variable' do
         expect(assigns(:sheet)).to eq(vocab_sheet)
@@ -46,7 +46,7 @@ RSpec.describe VocabSheetsController, type: :controller do
 
     context 'successful update' do
       it 'displays a success flash message' do
-        patch :update, valid_attributes, session
+        patch :update, params: valid_attributes, session: session
         expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
       end
     end

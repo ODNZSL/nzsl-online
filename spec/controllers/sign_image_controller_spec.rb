@@ -4,7 +4,7 @@ RSpec.describe SignImageController, type: :controller do
   let(:valid_params) { { height: 50, width: 40, filename: '1124/picture-W99-28.png' } }
   describe '#show' do
     context 'good request' do
-      before { get :show, valid_params}
+      before { get :show, params: valid_params }
       it { expect(response).to have_http_status(:ok) }
     end
 
