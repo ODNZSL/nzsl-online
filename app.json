@@ -1,0 +1,78 @@
+{
+  "name": "nzsl-online",
+  "description": "Dictionary of New Zealand Sign Language",
+  "scripts": {
+    "postdeploy": "bundle exec rake db:migrate db:seed"
+  },
+  "env": {
+    "AWS_ACCESS_KEY_ID": {
+      "required": true
+    },
+    "AWS_SECRET_ACCESS_KEY": {
+      "required": true
+    },
+    "HEROKU_STAGING": {
+      "required": true
+    },
+    "HTTP_BASIC_AUTH_PASSWORD": {
+      "required": true
+    },
+    "HTTP_BASIC_AUTH_USERNAME": {
+      "required": true
+    },
+    "LANG": {
+      "required": true
+    },
+    "MAILER_URL": {
+      "required": true
+    },
+    "NZSL_ONLINE_SECRET_KEY_BASE": {
+      "required": true
+    },
+    "RACK_ENV": {
+      "required": true
+    },
+    "RAILS_ENV": {
+      "required": true
+    },
+    "RAILS_SERVE_STATIC_FILES": {
+      "required": true
+    },
+    "RAYGUN_APIKEY": {
+      "required": true
+    },
+    "S3_BUCKET": {
+      "required": true
+    },
+    "S3_BUCKET_URL": {
+      "required": true
+    },
+    "SECRET_KEY_BASE": {
+      "required": true
+    },
+    "SENDGRID_PASSWORD": {
+      "required": true
+    },
+    "SENDGRID_USERNAME": {
+      "required": true
+    }
+  },
+  "formation": {
+    "worker": {
+      "quantity": 1
+    },
+    "web": {
+      "quantity": 1
+    }
+  },
+  "addons": [
+    "heroku-postgresql",
+    "scheduler",
+    "sendgrid"
+  ],
+  "buildpacks": [
+    {
+      "url": "heroku/ruby"
+    }
+  ]
+}
