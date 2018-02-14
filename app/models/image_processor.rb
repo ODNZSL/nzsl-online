@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ## Retrieves images from Freelex, resizes and saves locally
 class ImageProcessor
   require 'mini_magick'

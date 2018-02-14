@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 NzslOnline::Application.routes.draw do
   devise_for :users
 
