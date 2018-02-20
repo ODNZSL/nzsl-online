@@ -3,12 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'Page', type: :model do
-  it { is_expected.to have_attribute :title }
-  it { is_expected.to have_attribute :slug }
-  it { is_expected.to have_attribute :label }
-  it { is_expected.to have_attribute :order }
-  it { is_expected.to have_attribute :template }
-  it { is_expected.to have_attribute :show_in_nav }
+  subject { page }
 
   let!(:page) do
     FactoryBot.build(:page,
@@ -18,7 +13,15 @@ RSpec.describe 'Page', type: :model do
                      template: 'standard')
   end
 
-  subject { page }
+  it { is_expected.to have_attribute :title }
+  it { is_expected.to have_attribute :slug }
+  it { is_expected.to have_attribute :label }
+  it { is_expected.to have_attribute :order }
+  it { is_expected.to have_attribute :template }
+  it { is_expected.to have_attribute :show_in_nav }
+
+
+
 
   describe 'validations' do
     it 'requires a title' do
@@ -124,6 +127,7 @@ RSpec.describe 'Page', type: :model do
         [page.id, 'Automated testing rocks', 'help', 'help', 23, 'standard',
          true, page.created_at, page.updated_at]
       end
+
       it 'updates the record' do
         subject.save!
         Page.create_from_csv!(row)
@@ -134,6 +138,7 @@ RSpec.describe 'Page', type: :model do
 
     context 'when the page does not yet exist in the database' do
       let(:row) { [155, 'this bites!', 'help', 'help', 23, 'standard', true, page.created_at, page.updated_at] }
+
       it 'creates the record' do
         subject.save!
         expect(Page.all.length).to eq 1
