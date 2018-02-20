@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class VocabSheetsController < ApplicationController
   before_action :set_vocab_sheet, only: :destroy
   before_action :find_or_create_vocab_sheet, :set_title, except: :destroy

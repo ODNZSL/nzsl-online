@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PaginationHelper
   # This helper is reliant on information stored in the session to get the results total and the page number
   def pagination_links # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity

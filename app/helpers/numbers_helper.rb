@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
     return @numbers if @numbers.present?
