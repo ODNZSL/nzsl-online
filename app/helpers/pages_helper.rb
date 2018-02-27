@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module PagesHelper
   def mp4_source(page)
     source_path(page) << '.mp4'

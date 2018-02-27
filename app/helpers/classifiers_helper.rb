@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module ClassifiersHelper
   def classifiers # rubocop:disable Metrics/AbcSize, MethodLength
     {

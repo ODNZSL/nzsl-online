@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 if Rails.env.production?
   Raygun.setup do |config|
     config.filter_parameters = Rails.application.config.filter_parameters

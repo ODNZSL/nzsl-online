@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'fileutils'
 
 namespace :sign_images do
