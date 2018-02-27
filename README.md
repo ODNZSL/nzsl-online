@@ -9,28 +9,28 @@ New Zealand Sign Language Dictionary consists of 2 major units
 [![Test Coverage](https://codeclimate.com/github/rabid/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/rabid/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/rabid/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/rabid/nzsl-online)
 
+## Set Up
+
+```
+Clone from git
+cp env-example .env
+bundle
+bundle exec rails s
+```
+
 ## Deployment
 
-`staging` branch deploys to Staging
+NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), with the Rabid Repo being forked from this.
 
-`master` branch deploy to Production.
+Rabideers should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
 
-Both deploy by heroku monitoring the github repo and pulling in the changes if it sees the tests pass.
+To deploy to production: merge ONZSL staging to ODNZSL master.
 
-
-## Servers
+## Environments:
 
 Current servers (2017-12-15)
 
-*Staging*: http://nzsl-staging.herokuapp.com
-
-*Production* is on  heroku: http://nzsl.herokuapp.com. (http://nzsl.nz/)
-
-
-## Dev environment set up
-
-1. Clone from git
-1. cp env-example .env
-1. bundle
-1. bundle exec rails s
-
+| Environment        | URL                                       | Git Branch | Status       |
+|--------------------|-------------------------------------------|------------|--------------|
+| ODNZSL Staging     | http://nzsl-staging.herokuapp.com/        | staging    | staging      |
+| ODNZSL Production  | http://nzsl.herokuapp.com/                | master     | live         |
