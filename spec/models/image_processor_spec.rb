@@ -4,11 +4,12 @@ require 'rails_helper'
 require 'fastimage'
 
 RSpec.describe 'ImageProcessor' do
+  subject { ImageProcessor.new(filename: filename, width: width, height: height) }
+
   let(:filename) { '1935/picture-W99-69.png' }
   let(:height)   { 100 }
   let(:width) { 100 }
 
-  subject { ImageProcessor.new(filename: filename, width: width, height: height) }
 
   describe '#resize_and_cache' do
     subject { super().resize_and_cache }
