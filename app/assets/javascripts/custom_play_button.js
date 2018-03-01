@@ -9,8 +9,10 @@ $(document).ready(function() {
   }
 
   $("video").click(function(e) {
-    e.preventDefault();
-    videoResponse(this);
+    if($(".play-button").length) {
+      e.preventDefault();
+      videoResponse(this);
+    }
   });
 
   $(".play-button").click(function(e) {
