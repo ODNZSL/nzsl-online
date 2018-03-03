@@ -17,7 +17,7 @@ class Feedback < ActiveRecord::Base
     FeedbackMailer.email(self).deliver
     self.video = nil
     save
-  rescue
+  rescue StandardError
     return false
   end
 end

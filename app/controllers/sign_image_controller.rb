@@ -24,13 +24,13 @@ class SignImageController < ApplicationController
 
   def width_param
     sign_image_params[:width].to_i
-  rescue
+  rescue StandardError
     100
   end
 
   def height_param
     sign_image_params[:height].to_i
-  rescue
+  rescue StandardError
     100
   end
 

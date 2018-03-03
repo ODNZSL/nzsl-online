@@ -17,7 +17,7 @@ class FeedbackController < ApplicationController
       else
         flash.now[:feedback_error] = t('feedback.failure')
       end
-    rescue
+    rescue StandardError
       flash.now[:feedback_error] = t('feedback.failure')
     end
     @page = Page.find(params[:page_id].to_i)
