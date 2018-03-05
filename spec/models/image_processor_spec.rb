@@ -10,7 +10,6 @@ RSpec.describe 'ImageProcessor' do
   let(:height)   { 100 }
   let(:width) { 100 }
 
-
   describe '#resize_and_cache' do
     subject { super().resize_and_cache }
 

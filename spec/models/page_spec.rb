@@ -20,9 +20,6 @@ RSpec.describe 'Page', type: :model do
   it { is_expected.to have_attribute :template }
   it { is_expected.to have_attribute :show_in_nav }
 
-
-
-
   describe 'validations' do
     it 'requires a title' do
       expect do

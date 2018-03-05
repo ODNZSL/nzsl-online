@@ -12,7 +12,4 @@ RSpec.describe 'PagePart', type: :model do
   it { is_expected.to have_attribute :body }
   it { is_expected.to have_attribute :translation_path }
   it { is_expected.to have_attribute :page_id }
-
-
-
 end

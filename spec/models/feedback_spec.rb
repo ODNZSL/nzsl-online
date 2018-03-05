@@ -27,9 +27,6 @@ RSpec.describe 'Feedback', type: :model do
   it { is_expected.to have_attribute :change_comments }
   it { is_expected.to have_attribute :technical_fault }
 
-
-
-
   describe '#send_email' do
     subject { super().send_email }
 

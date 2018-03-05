@@ -12,9 +12,6 @@ RSpec.describe 'Setting', type: :model do
   it { is_expected.to have_attribute :key }
   it { is_expected.to have_attribute :value }
 
-
-
-
   describe '.update_all' do
     let(:params) do
       [

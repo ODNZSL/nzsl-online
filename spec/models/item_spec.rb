@@ -14,9 +14,6 @@ RSpec.describe Item, type: :model do
   it { is_expected.to have_attribute :drawing }
   it { is_expected.to have_attribute :maori_name }
 
-
-
-
   describe '#maori_name' do
     subject { super().maori_name }
 
