@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module SearchHelper # rubocop:disable ModuleLength
   # Sign Attribute Image Helpers
 
@@ -183,9 +185,9 @@ module SearchHelper # rubocop:disable ModuleLength
   def classes_for_sign_attribute(attribute, main)
     classes = 'image rounded'
     if main
-      classes << ' main_image'
+      classes += 'main_image'
     elsif attribute == :handshape
-      classes << ' transition'
+      classes += 'transition'
     end
     classes
   end

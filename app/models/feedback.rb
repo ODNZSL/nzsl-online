@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Sends feedback email
 class Feedback < ActiveRecord::Base
@@ -15,7 +17,7 @@ class Feedback < ActiveRecord::Base
     FeedbackMailer.email(self).deliver
     self.video = nil
     save
-  rescue
+  rescue StandardError
     return false
   end
 end

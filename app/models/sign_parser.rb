@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SignParser
   VIDEO_EXAMPLES_TOTAL = 4
 
