@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Item < ActiveRecord::Base
   validates :sign_id, :name, presence: true
   validates :sign_id, :position, numericality: true

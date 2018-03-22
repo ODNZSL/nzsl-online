@@ -21,7 +21,6 @@ body,
 a.button {color:white !important; text-decoration:none;}
 a.main_gloss {text-decoration:none;}
 a.main_gloss:after {font-size:10px;line-height:10px;}
-
 /* hiding useless things */
   .nav,
   .vocab_sheet_bar,
@@ -40,6 +39,7 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   .sub-footer-container { display: none; }
 
   .header-nav { overflow: auto; }
+  .hamburger-menu-icon { display: none; }
 /* remove shadows of my mind */
   .ui-widget, .shadow, .text_input, .text_input_hidden, .text_input_hidden:focus{-webkit-box-shadow:none;-moz-box-shadow:none;box-shadow:none;}
   .video_replace {height:auto;}
@@ -47,11 +47,10 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
 /* hiding link destinations after text */
   a.drawing:after {content:"";}
 /* making the vocabsheet have a not editing looking view */
-  .vocab_sheet_page {margin-left:0;}
   .vocab_sheet_page_item {border:0;}
   .vocab_sheet_page textarea {border:0 !important;text-align:center;outline:none;}
-  .vocab_sheet_name {border:0 !important;outline:none;}
-  div.vocab_sheet_name {position:absolute; left:120px; top:-75px;}
+  .vocab_sheet_name {border:0 !important;outline:none;margin: 0.2cm;}
+  .vocab_sheet_name input[readonly]{background-color: white;}
 /* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
   .not_sticky_footer {min-height:0;height:auto;}
   .before_sticky_footer {padding-bottom:0;overflow:visible;}

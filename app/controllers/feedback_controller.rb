@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class FeedbackController < ApplicationController
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
@@ -15,7 +17,7 @@ class FeedbackController < ApplicationController
       else
         flash.now[:feedback_error] = t('feedback.failure')
       end
-    rescue
+    rescue StandardError
       flash.now[:feedback_error] = t('feedback.failure')
     end
     @page = Page.find(params[:page_id].to_i)

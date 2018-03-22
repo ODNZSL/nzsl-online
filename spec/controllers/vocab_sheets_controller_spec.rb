@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe VocabSheetsController, type: :controller do
@@ -15,7 +17,7 @@ RSpec.describe VocabSheetsController, type: :controller do
   end
 
   describe '#update' do
-    before(:each) do
+    before do
       allow_any_instance_of(Browser::Generic)
         .to receive(:modern?)
         .and_return(true)
@@ -59,7 +61,7 @@ RSpec.describe VocabSheetsController, type: :controller do
       delete :destroy, id: vocab_sheet.id + 100
     end
 
-    before(:each) do
+    before do
       allow_any_instance_of(Browser::Generic)
         .to receive(:modern?)
         .and_return(true)
