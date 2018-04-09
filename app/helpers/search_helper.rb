@@ -183,7 +183,9 @@ module SearchHelper # rubocop:disable ModuleLength
   end
 
   def classes_for_sign_attribute(attribute, main)
-    classes = 'image rounded'
+    # a space is required after the class names below to ensure that they are
+    # properly separated from other classes assigned in the conditional.
+    classes = 'image rounded '
     if main
       classes += 'main_image'
     elsif attribute == :handshape
