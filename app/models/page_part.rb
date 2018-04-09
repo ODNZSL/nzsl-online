@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ## Part of a page, in our basic as CMS
 class PagePart < ActiveRecord::Base
   belongs_to :page

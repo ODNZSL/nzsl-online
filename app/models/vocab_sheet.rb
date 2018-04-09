@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # A "sheet" of items (signs) saved by a user
 class VocabSheet < ActiveRecord::Base

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ## Settings for the web app
 class Setting < ActiveRecord::Base
   validates :key, :value, presence: true

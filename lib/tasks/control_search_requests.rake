@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 namespace :db do
   MAX_REQUESTS = 1000
   STORAGE_DAYS = 10
