@@ -3,6 +3,10 @@
 require 'rails_helper'
 
 RSpec.describe 'Feedback', type: :model do
+  subject { feedback }
+
+  let!(:feedback) { Feedback.create }
+
   it { is_expected.to have_attribute :name }
   it { is_expected.to have_attribute :message }
   it { is_expected.to have_attribute :video_file_name }
@@ -23,11 +27,9 @@ RSpec.describe 'Feedback', type: :model do
   it { is_expected.to have_attribute :change_comments }
   it { is_expected.to have_attribute :technical_fault }
 
-  let!(:feedback) { Feedback.create }
-  subject { feedback }
-
   describe '#send_email' do
     subject { super().send_email }
+
     it 'delegates to Feedbackmailer' do
       expect(FeedbackMailer)
         .to receive_message_chain(:email, :deliver)

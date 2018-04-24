@@ -18,6 +18,6 @@ class Feedback < ActiveRecord::Base
     self.video = nil
     save
   rescue StandardError
-    return false
+    false
   end
 end

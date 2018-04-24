@@ -10,9 +10,9 @@ class SignImageController < ApplicationController
               disposition: 'attachment',
               filename: filename_param)
   rescue OpenURI::HTTPError
-    return head(:not_found)
+    head(:not_found)
   rescue RuntimeError
-    return head(:forbidden)
+    head(:forbidden)
   end
 
   private
