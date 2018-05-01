@@ -39,6 +39,6 @@ module VocabSheetHelper
   end
 
   def vocab_sheet_pages
-    @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
+    @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil
   end
 end
