@@ -7,7 +7,7 @@ class FeedbackController < ApplicationController
     @feedback = Feedback.new
   end
 
-  def create # rubocop:disable Metrics/AbcSize
+  def create
     begin
       @feedback = Feedback.create(feedback_params)
       if @feedback.valid?

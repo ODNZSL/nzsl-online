@@ -2,7 +2,7 @@
 
 module PaginationHelper
   # This helper is reliant on information stored in the session to get the results total and the page number
-  def pagination_links # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity
+  def pagination_links
     pages(@page_number, total_pages).map do |link_text|
       if link_text.is_a?(Numeric) && @page_number != link_text
         link_to_page = link_text
@@ -30,7 +30,7 @@ module PaginationHelper
     (@results_total.to_f / Sign::RESULTS_PER_PAGE).ceil
   end
 
-  def pages(page, total_pages) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, MethodLength, LineLength
+  def pages(page, total_pages)
     # 1 [2] 3
     # [1] 2 3 4 5 6 7
     # [1] 2 3 4 5 ... 8

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     devise_controller? ? 'admin' : 'application'
   end
 
-  def setup_browser_rules # rubocop:disable Metrics/AbcSize
+  def setup_browser_rules
     Browser.modern_rules.clear
     Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 55 }
     Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 51 }
