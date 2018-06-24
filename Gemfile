@@ -1,5 +1,5 @@
 source 'https://rubygems.org'
-ruby '2.3.7'
+ruby '2.3.6'
 
 gem 'rails', '~> 4.2.6'
 
@@ -21,7 +21,7 @@ gem 'mail'
 gem 'modernizr-rails'
 gem 'paperclip'
 gem 'responders', '~> 2.0'
-gem 'therubyracer', platforms: :ruby
+gem 'therubyracer', platforms: :rubybranc
 gem 'videojs_rails'
 # records crashes
 gem 'raygun4ruby'
