@@ -15,7 +15,7 @@ gem 'whenever'
 
 gem 'browser'
 gem 'ckeditor_rails'
-gem 'foundation-rails', '~> 6.3.1.0'
+gem 'foundation-rails', '~> 6.4.3.0'
 gem 'i18n'
 gem 'mail'
 gem 'modernizr-rails'
