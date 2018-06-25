@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 ruby '2.3.7'
 
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 5.1.6'
 
 # Use Postgresql as the database for Active Record
 gem 'haml'
