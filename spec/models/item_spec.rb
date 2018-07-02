@@ -3,16 +3,16 @@
 require 'rails_helper'
 
 RSpec.describe Item, type: :model do
+  subject { item }
+
+  let!(:item) { FactoryBot.create(:item) }
+
   it { is_expected.to have_attribute :sign_id }
   it { is_expected.to have_attribute :vocab_sheet_id }
   it { is_expected.to have_attribute :name }
   it { is_expected.to have_attribute :position }
   it { is_expected.to have_attribute :drawing }
   it { is_expected.to have_attribute :maori_name }
-
-  let!(:item) { FactoryBot.create(:item) }
-
-  subject { item }
 
   describe '#maori_name' do
     subject { super().maori_name }

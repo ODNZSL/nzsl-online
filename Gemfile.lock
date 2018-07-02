@@ -130,7 +130,7 @@ GEM
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
       ruby_dep (~> 1.2)
-    loofah (2.2.1)
+    loofah (2.2.2)
       crass (~> 1.0.2)
       nokogiri (>= 1.5.9)
     mail (2.7.0)
@@ -191,8 +191,8 @@ GEM
       activesupport (>= 4.2.0, < 5.0)
       nokogiri (~> 1.6)
       rails-deprecated_sanitizer (>= 1.0.1)
-    rails-html-sanitizer (1.0.3)
-      loofah (~> 2.0)
+    rails-html-sanitizer (1.0.4)
+      loofah (~> 2.2, >= 2.2.2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -345,7 +345,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 2.3.6p384
+   ruby 2.3.7p456
 
 BUNDLED WITH
    1.16.1
