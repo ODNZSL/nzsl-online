@@ -4,7 +4,6 @@ $(document).ready(function() {
     e.preventDefault();
     if(windowWidth >= 640) {
       $('.advanced-search-container').toggle();
-      $(".vocab_sheet_bar").toggleClass("advanced-search-open");
     }
   });
 });
