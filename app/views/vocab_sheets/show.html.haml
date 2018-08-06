@@ -19,7 +19,7 @@
 - if @sheet.items.length > 0
   .vocab_sheet.vocab_sheet_page.rule_after.clearfix_left
 
-    %ul#vocab_sheet.clearfix_left
+    %ul#vocab_sheet
       - @sheet.items.each_with_index do |vocab_sheet_item, i|
         - if params[:print] && !i.zero? && i.multiple_of?(vocab_sheet_offset_multiple)
           = render partial: 'shared/print_page_boundary'
