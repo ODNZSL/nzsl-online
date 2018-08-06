@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe SignImageController, type: :controller do
-  let(:valid_params) { { height: 50, width: 40, filename: '1124/picture-W99-28.png' } }
+  let(:valid_params) { { height: 50, width: 40, filename: '5519/victoria_university-5519.png' } }
 
   describe '#show' do
     context 'good request' do
@@ -12,7 +12,7 @@ RSpec.describe SignImageController, type: :controller do
     end
 
     context 'Partial request, fall back on defaults' do
-      before { get :show, filename: '1124/picture-W99-28.png' }
+      before { get :show, filename: '5519/victoria_university-5519.png' }
       it { expect(response).to have_http_status(:ok) }
     end
 

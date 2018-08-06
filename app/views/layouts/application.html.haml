@@ -26,7 +26,7 @@
     |
     %a{ href: '#nav' } Skip to Page Navigation
 
-  %div{ class: "not_sticky_footer #{vocab_sheet?}" }
+  %div{ class: "not_sticky_footer #{vocab_sheet?} #{"flash-shown" if flash.count > 0}" }
     = render partial: 'shared/header'
     #content.before_sticky_footer
       = render partial: 'shared/vocab_sheet', locals: { sheet: @sheet }
