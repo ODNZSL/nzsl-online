@@ -50,7 +50,7 @@
   overflow: hidden;
   background: {
     color: transparent;
-    image: image_url("ui/vocab_delete.png");
+    image: image_url('ui/vocab-delete.png');
   };
 }
 
@@ -62,8 +62,8 @@
   right: 1rem;
   bottom: 0;
   z-index: 100;
-  background-image: linear-gradient(to right, #d2d5d7, transparent);
-  border-left: 0.0625rem solid #878f95;
+  background-image: linear-gradient(to right, $vocab-bg, transparent);
+  border-left: 1px solid $vocab-border-color;
   overflow: auto;
 
   &.advanced-search-open {
@@ -239,7 +239,7 @@
 .size_label:hover {
   width: 24px;
   height: 32px;
-  background-image: image_url("ui/vocab_sheet_icons.png");
+  background-image: image_url('ui/vocab-sheet-icons.png');
   display: block;
   float: left;
   overflow: hidden;
