@@ -21,3 +21,7 @@ public/assets
 
 coverage/*
 .env
+
+postgres/*
+
+.byebug_history
