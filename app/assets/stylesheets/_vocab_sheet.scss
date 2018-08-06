@@ -1,7 +1,7 @@
 /* Vocab bar background */
 .vocab_sheet_background {
   // background: right top repeat-y;
-  // background-image: image_url('ui/vocab-background.png');
+  // background-image: image-url('ui/vocab-background.png');
   // This was a static image originally, we're testing using the section
   // with its own background, so I won't take this out until we know the
   // browser support requirements
@@ -50,7 +50,7 @@
   overflow: hidden;
   background: {
     color: transparent;
-    image: image_url('ui/vocab-delete.png');
+    image: image-url('ui/vocab-delete.png');
   };
 }
 
@@ -239,7 +239,7 @@
 .size_label:hover {
   width: 24px;
   height: 32px;
-  background-image: image_url('ui/vocab-sheet-icons.png');
+  background-image: image-url('ui/vocab-sheet-icons.png');
   display: block;
   float: left;
   overflow: hidden;
