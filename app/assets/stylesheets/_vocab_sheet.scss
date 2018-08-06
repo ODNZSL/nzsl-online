@@ -17,6 +17,10 @@
   padding: 0;
   margin-left: auto;
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  align-content: flex-start;
 }
 
 .vocab_sheet_item { position: relative; }
@@ -86,9 +90,7 @@
 
 .vocab_sheet_page_item {
   border: 1px solid $light-med-grey;
-  width: 145px;
   margin: 15px 11px 15px 0;
-  float: left;
   background: white;
 }
 
