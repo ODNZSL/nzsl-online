@@ -22,7 +22,7 @@ gem 'mail'
 gem 'modernizr-rails'
 gem 'paperclip'
 gem 'responders', '~> 2.0'
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 gem 'videojs_rails'
 # records crashes
 gem 'raygun4ruby'
