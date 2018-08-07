@@ -13,6 +13,7 @@ gem 'pandoc-ruby'
 gem 'pg', '~> 0.20.0'
 gem 'whenever'
 
+gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
 gem 'foundation-rails', '~> 6.3.1.0'

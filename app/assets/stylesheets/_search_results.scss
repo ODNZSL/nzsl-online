@@ -12,12 +12,26 @@
     outline: 1px solid $primary-blue;
     overflow: hidden;
     position: relative;
+    width: calc(100% - 10px);
+    min-height: 25rem;
 
-    &:hover { outline: 3px solid $primary-blue; }
+    &:hover {
+      outline: 3px solid $primary-blue;
+    }
 
-    video { margin-bottom: 10px; }
+    .video-container {
+      min-height: 10.75rem;
+      background-color: $light-grey;
+      margin-bottom: 0.625rem;
+    }
 
-    .clickable_link { cursor: pointer; }
+    .video-js {
+      background-color: transparent;
+    }
+
+    .clickable_link {
+      cursor: pointer;
+    }
 
     .videos .button {
       margin-right: 18px;
@@ -27,4 +41,18 @@
   }
 }
 
-#search-container { display: none; }
+.search-result__float-wrapper {
+  opacity: 0;
+  transform: translateY(-1rem);
+
+  transition: {
+    property: opacity, transform;
+    duration: 0.2s;
+    timing-function: ease-in-out;
+  }
+
+  &.show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

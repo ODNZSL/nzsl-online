@@ -4,10 +4,10 @@
     = t('search.results.for')
     &ldquo;#{display_search_term}&rdquo;
 .search_results_container.text-center.small-12.small-centered.medium-8.large-9
-  .row#search-container{ data: { "equalizer": true } }
+  .row#search-container
     - @signs.each do |sign|
-      .small-12.medium-6.large-4.xlarge-3.float-left
-        .search_results_card.float-left{ data: { "equalizer-watch": true } }
+      .small-12.medium-6.large-4.xlarge-3.float-left.search-result__float-wrapper
+        .search_results_card.float-left
           - if @query[:s]
             - query_text = @query[:s].join(" ")
           - else

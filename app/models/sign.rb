@@ -6,7 +6,11 @@ class Sign
   require 'nokogiri'
 
   ELEMENT_NAME = 'entry'
-  RESULTS_PER_PAGE = 25
+
+  # The breakpoints for this app allow a 1x, 2x, 3x, and 4x layout. 12, 24, etc.
+  # are the best page numbers for this. Because of performance concerns, I'm
+  # starting with 12.
+  RESULTS_PER_PAGE = 12
 
   # Sign attributes
   attr_accessor :id, :video, :video_slow, :drawing, :handshape, :location_name,

@@ -39,6 +39,8 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (6.0.4)
     ast (2.3.0)
+    autoprefixer-rails (9.1.0)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -299,6 +301,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   brakeman
   browser
   capybara
@@ -348,4 +351,4 @@ RUBY VERSION
    ruby 2.3.7p456
 
 BUNDLED WITH
-   1.16.1
+   1.16.2
