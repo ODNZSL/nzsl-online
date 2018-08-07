@@ -58,25 +58,17 @@
 .vocab_sheet_bar {
   width: 120px;
   position: absolute;
-  top: 332px;
+  top: 130px;
   right: 1rem;
   bottom: 0;
   z-index: 100;
   background-image: linear-gradient(to right, $vocab-bg, transparent);
   border-left: 1px solid $vocab-border-color;
   overflow: auto;
-
-  &.advanced-search-open {
-    top: 407px;
-  }
 }
 
 .flash-shown .vocab_sheet_bar {
-  top: 379px;
-
-  &.advanced-search-open {
-    top: 454px;
-  }
+  top: 169px;
 }
 
 .column_wrapper {

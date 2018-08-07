@@ -190,6 +190,8 @@ h2+h3 { margin-top:1em; }
 .search-result-banner {
   @include montserrat-light;
   font-size: $search-result-banner;
+  height: 130px;
+  box-sizing: border-box;
 }
 
 .grammar,
