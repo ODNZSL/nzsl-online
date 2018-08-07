@@ -1,4 +1,5 @@
 flexbox: no-2009
+grid: true
 browsers:
   - "> 1%"
   - "last 2 versions"

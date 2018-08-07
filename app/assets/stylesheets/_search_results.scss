@@ -1,32 +1,40 @@
-.search_results_container {
-  overflow: auto;
-  margin-top: 20px;
-
-  .row {
-    margin: 0 !important;
-    max-width: 100% !important;
+.search-results {
+  &__container {
+    margin-top: 20px;
   }
 
-  .search_results_card {
-    margin: 5px 5px 25px;
+  &__card {
     outline: 1px solid $primary-blue;
     overflow: hidden;
     position: relative;
-    width: calc(100% - 10px);
-    min-height: 25rem;
+    width: 100%;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(-1rem);
+    transition: {
+      property: opacity, transform;
+      duration: 0.2s;
+      timing-function: ease-in-out;
+    };
+
+    &.show-card {
+      opacity: 1;
+      transform: translateY(0);
+    }
 
     &:hover {
       outline: 3px solid $primary-blue;
     }
 
     .video-container {
-      min-height: 10.75rem;
       background-color: $light-grey;
-      margin-bottom: 0.625rem;
     }
 
     .video-js {
       background-color: transparent;
+      max-width: 100%;
+      min-height: 11rem;
     }
 
     .clickable_link {
@@ -38,21 +46,66 @@
       margin-bottom: 5px;
       float: left;
     }
+    
+    .card__bottom-row {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .button-container {
+      padding-left: 0.75rem;
+      max-width: 45%;
+      align-self: flex-end;
+    }
+
+    .unicode_arrow {
+      color: $primary-blue;
+    }
+
+    .show_link {
+      @include montserrat-regular;
+
+      font-size: $subgloss-font-size;
+      border-bottom: 0;
+
+      a {
+        text-decoration: none;
+        float: left;
+      }
+    }
+
+    .sign-container {
+      padding-right: 0.75rem;
+      max-width: 50%;
+    }
+
+    .drawing__image {
+      max-width: 100%;
+      margin: 0;
+    }
   }
-}
 
-.search-result__float-wrapper {
-  opacity: 0;
-  transform: translateY(-1rem);
+  @media (min-width: $medium-screen) {
+    &__container {
+      display: flex;
+      flex-wrap: wrap;
+    }
 
-  transition: {
-    property: opacity, transform;
-    duration: 0.2s;
-    timing-function: ease-in-out;
+    &__card {
+      max-width: calc(50% - 1rem);
+      margin-right: 1rem;
+    }
   }
 
-  &.show {
-    opacity: 1;
-    transform: translateY(0);
+  @media (min-width: $large-screen) {
+    &__card {
+      max-width: calc(33% - 1rem);
+    }
+  }
+
+  @media (min-width: $xlarge-screen) {
+    &__card {
+      max-width: calc(25% - 1rem);
+    }
   }
 }
