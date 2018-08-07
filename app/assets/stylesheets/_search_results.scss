@@ -13,8 +13,8 @@
     opacity: 0;
     transform: translateY(-1rem);
     transition: {
+      duration: .2s;
       property: opacity, transform;
-      duration: 0.2s;
       timing-function: ease-in-out;
     };
 
@@ -46,7 +46,7 @@
       margin-bottom: 5px;
       float: left;
     }
-    
+
     .card__bottom-row {
       display: flex;
       justify-content: space-between;
