@@ -4,19 +4,19 @@
   }
 
   &__card {
+    margin-bottom: 1rem;
     outline: 1px solid $primary-blue;
     overflow: hidden;
-    position: relative;
-    width: 100%;
-    padding-bottom: 1rem;
-    margin-bottom: 1rem;
     opacity: 0;
+    padding-bottom: 1rem;
+    position: relative;
     transform: translateY(-1rem);
     transition: {
       duration: .2s;
       property: opacity, transform;
       timing-function: ease-in-out;
     };
+    width: 100%;
 
     &.show-card {
       opacity: 1;
@@ -53,9 +53,9 @@
     }
 
     .button-container {
-      padding-left: .75rem;
-      max-width: 45%;
       align-self: flex-end;
+      max-width: 45%;
+      padding-left: .75rem;
     }
 
     .unicode_arrow {
