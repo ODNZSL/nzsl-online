@@ -1,12 +1,3 @@
-/* Vocab bar background */
-.vocab_sheet_background {
-  // background: right top repeat-y;
-  // background-image: image-url('ui/vocab-background.png');
-  // This was a static image originally, we're testing using the section
-  // with its own background, so I won't take this out until we know the
-  // browser support requirements
-}
-
 .vocab_sheet .title {
   font-size: $h4-font-size;
 }
