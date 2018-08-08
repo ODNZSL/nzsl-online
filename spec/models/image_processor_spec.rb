@@ -6,7 +6,7 @@ require 'fastimage'
 RSpec.describe 'ImageProcessor' do
   subject { ImageProcessor.new(filename: filename, width: width, height: height) }
 
-  let(:filename) { '1935/picture-W99-69.png' }
+  let(:filename) { '5519/victoria_university-5519.png' }
   let(:height)   { 100 }
   let(:width) { 100 }
 
