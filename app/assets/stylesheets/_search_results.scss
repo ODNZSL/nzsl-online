@@ -53,7 +53,7 @@
     }
 
     .button-container {
-      padding-left: 0.75rem;
+      padding-left: .75rem;
       max-width: 45%;
       align-self: flex-end;
     }
@@ -65,23 +65,18 @@
     .show_link {
       @include montserrat-regular;
 
-      font-size: $subgloss-font-size;
       border-bottom: 0;
-
-      a {
-        text-decoration: none;
-        float: left;
-      }
+      font-size: $subgloss-font-size;
     }
 
     .sign-container {
-      padding-right: 0.75rem;
       max-width: 50%;
+      padding-right: .75rem;
     }
 
     .drawing__image {
-      max-width: 100%;
       margin: 0;
+      max-width: 100%;
     }
   }
 
@@ -92,8 +87,8 @@
     }
 
     &__card {
-      max-width: calc(50% - 1rem);
       margin-right: 1rem;
+      max-width: calc(50% - 1rem);
     }
   }
 
