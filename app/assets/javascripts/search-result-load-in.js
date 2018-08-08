@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  let searchResult = 0;
+  var searchResult = 0;
 
   $('.search-results__card').each(function() {
     $(this)
