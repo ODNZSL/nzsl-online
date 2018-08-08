@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  var searchResult = 0;
+  var searchResult = 0; // eslint-disable-line no-var
 
   $('.search-results__card').each(function() {
     $(this)
