@@ -83,8 +83,6 @@ textarea { margin: 0; }
 input:invalid,
 textarea:invalid {
   border-radius: 1px;
-  -moz-box-shadow: 0 0 5px red;
-  -webkit-box-shadow: 0 0 5px red;
   box-shadow: 0 0 5px red;
 }
 
