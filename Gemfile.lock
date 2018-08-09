@@ -39,6 +39,8 @@ GEM
       public_suffix (>= 2.0.2, < 4.0)
     arel (6.0.4)
     ast (2.4.0)
+    autoprefixer-rails (9.1.0)
+      execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
       babel-source (>= 4.0, < 6)
@@ -126,7 +128,7 @@ GEM
       addressable (~> 2.3)
     letter_opener (1.4.1)
       launchy (~> 2.2)
-    libv8 (3.16.14.19)
+    libv8 (6.7.288.46.1)
     listen (3.1.5)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
@@ -145,6 +147,8 @@ GEM
       subexec (~> 0.2.1)
     mini_mime (1.0.0)
     mini_portile2 (2.3.0)
+    mini_racer (0.2.0)
+      libv8 (>= 6.3)
     minitest (5.11.3)
     modernizr-rails (2.7.1)
     multi_xml (0.6.0)
@@ -216,7 +220,6 @@ GEM
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     rb-readline (0.5.5)
-    ref (2.0.0)
     rerun (0.11.0)
       listen (~> 3.0)
     responders (2.4.0)
@@ -274,9 +277,6 @@ GEM
       sprockets (>= 3.0.0)
     subexec (0.2.3)
     temple (0.8.0)
-    therubyracer (0.12.3)
-      libv8 (~> 3.16.14.15)
-      ref
     thor (0.20.0)
     thread_safe (0.3.6)
     tilt (2.0.8)
@@ -301,6 +301,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   brakeman
   browser
   capybara
@@ -322,6 +323,7 @@ DEPENDENCIES
   letter_opener
   mail
   mini_magick (~> 3.6.0)
+  mini_racer
   modernizr-rails
   nokogiri (~> 1.8.1)
   pandoc-ruby
@@ -339,7 +341,6 @@ DEPENDENCIES
   rubocop (~> 0.57.2)
   sass-rails
   simplecov
-  therubyracer
   uglifier
   unicorn
   videojs_rails

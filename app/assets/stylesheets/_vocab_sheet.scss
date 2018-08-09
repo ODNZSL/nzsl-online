@@ -1,11 +1,11 @@
-/* Vocab bar background */
-.vocab_sheet_background {
-  background: right top repeat-y;
-  background-image: image_url('ui/vocab-background.png');
+.vocab_sheet .title {
+  font-size: $h4-font-size;
 }
-.vocab_sheet .title { font-size: $h4-font-size; }
+
 .vocab_sheet_background .header,
-.vocab_sheet_background .main_column { position: relative; } /* haslayout? */
+.vocab_sheet_background .main_column {
+  position: relative;
+} /* haslayout? */
 
 /* generic */
 .vocab_sheet {
@@ -19,7 +19,9 @@
   list-style-type: none;
 }
 
-.vocab_sheet_item { position: relative; }
+.vocab_sheet_item {
+  position: relative;
+}
 
 .vocab_sheet_item a {
   text-align: center;
@@ -34,30 +36,42 @@
   position: absolute;
   width: 28px;
   height: 25px;
-  background-image: image_url('ui/vocab_delete.png');
   border: 0;
   text-indent: -9999px;
   overflow: hidden;
+  background: {
+    color: transparent;
+    image: image-url('ui/vocab-delete.png');
+  };
 }
 
 /* bar specific */
 .vocab_sheet_bar {
   width: 120px;
   position: absolute;
-  right: 0;
-  height: 100%;
+  top: 130px;
+  right: 1rem;
+  bottom: 0;
   z-index: 100;
+  background-image: linear-gradient(to right, $vocab-bg, transparent);
+  border-left: 1px solid $vocab-border-color;
+  overflow: auto;
 }
 
-.column_wrapper { overflow-y: hidden; }
+.flash-shown .vocab_sheet_bar {
+  top: 169px;
+}
+
+.column_wrapper {
+  overflow-y: hidden;
+}
 
 .vocab_sheet_bar_item {
   @include border-radius-small;
+
   background-color: white;
   width: 100px;
   margin: 15px auto;
-  -moz-box-shadow: -1px 1px 2px 2px $light-med-grey;
-  -webkit-box-shadow: -1px 1px 2px 2px $light-med-grey;
   box-shadow: -1px 1px 2px 2px $light-med-grey;
 }
 
@@ -108,8 +122,12 @@
   .drawing {
     vertical-align: middle;
     padding: 0 3px;
-    img { margin: 0; }
+
+    img {
+      margin: 0;
+    }
   }
+
   .remove {
     top: -10px;
     right: -14px;
@@ -123,8 +141,14 @@
   left: 10px;
   z-index: 15;
 }
-.vocab_sheet_name input { font-size: $h1-font-size; }
-.no-js .vocab_sheet_name { float: left; }
+
+.vocab_sheet_name input {
+  font-size: $h1-font-size;
+}
+
+.no-js .vocab_sheet_name {
+  float: left;
+}
 
 .no-js .vocab_sheet_name .button {
   display: block;
@@ -137,17 +161,24 @@
   float: right;
   margin-top: 43px;
   width: 330px;
+
   .orange_submit_button {
     float: left;
     margin-right: 5px;
   }
 }
 
-.no-js .vocab_sheet_page_controls { width: 460px; }
+.no-js .vocab_sheet_page_controls {
+  width: 460px;
+}
 
-.vocab_sheet_page_controls .button { margin-left: 5px; }
+.vocab_sheet_page_controls .button {
+  margin-left: 5px;
+}
 
-.vocab_sheet_bar_controls .button { @extend .orange_submit_button; }
+.vocab_sheet_bar_controls .button {
+  @extend .orange_submit_button;
+}
 
 .flash {
   padding: 10px;
@@ -159,6 +190,7 @@
 
 .vocab_sheet_bar .flash {
   @include border-radius-small;
+
   margin: 20px auto;
   background: $primary-blue;
   width: 80%;
@@ -180,13 +212,15 @@
   display: block;
 }
 
-.radio_wrapper input { vertical-align: middle; }
+.radio_wrapper input {
+  vertical-align: middle;
+}
 
 .size_label,
 .size_label:hover {
   width: 24px;
   height: 32px;
-  background-image: image_url('ui/vocab_sheet_icons.png');
+  background-image: image-url('ui/vocab-sheet-icons.png');
   display: block;
   float: left;
   overflow: hidden;
@@ -194,17 +228,27 @@
   border: 0;
 }
 
-.size_5_label { background-position: left 0; }
+.size_5_label {
+  background-position: left 0;
+}
 
-.size_4_label { background-position: left -32px; }
+.size_4_label {
+  background-position: left -32px;
+}
 
 .size_3_label {
   background-position: left -64px;
   padding-right: 1px;
 }
 
-.size_2_label { background-position: left -96px; }
+.size_2_label {
+  background-position: left -96px;
+}
 
-.size_1_label { background-position: left -128px; }
+.size_1_label {
+  background-position: left -128px;
+}
 
-.size_controls .selected_icon { background-color: #d2e2f9; }
+.size_controls .selected_icon {
+  background-color: #d2e2f9;
+}
