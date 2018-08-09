@@ -83,8 +83,6 @@ textarea { margin: 0; }
 input:invalid,
 textarea:invalid {
   border-radius: 1px;
-  -moz-box-shadow: 0 0 5px red;
-  -webkit-box-shadow: 0 0 5px red;
   box-shadow: 0 0 5px red;
 }
 
@@ -189,7 +187,9 @@ h2+h3 { margin-top:1em; }
 
 .search-result-banner {
   @include montserrat-light;
+  box-sizing: border-box;
   font-size: $search-result-banner;
+  height: 130px;
 }
 
 .grammar,

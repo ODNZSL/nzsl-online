@@ -13,6 +13,7 @@ gem 'pandoc-ruby'
 gem 'pg', '~> 0.20.0'
 gem 'whenever'
 
+gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
 gem 'foundation-rails', '~> 6.3.1.0'
@@ -21,7 +22,7 @@ gem 'mail'
 gem 'modernizr-rails'
 gem 'paperclip'
 gem 'responders', '~> 2.0'
-gem 'therubyracer', platforms: :ruby
+gem 'mini_racer', platforms: :ruby
 gem 'videojs_rails'
 # records crashes
 gem 'raygun4ruby'
@@ -54,7 +55,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.52.0', require: false
+  gem 'rubocop', '~> 0.57.2', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
