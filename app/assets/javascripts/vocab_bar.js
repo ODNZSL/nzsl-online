@@ -14,7 +14,7 @@ $(document).ready(function() {
 
   $(window).resize(function() {
     hideVocabSheetOnMobile();
-  })
+  });
 
   hideVocabSheetOnMobile();
 });

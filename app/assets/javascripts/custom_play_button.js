@@ -5,7 +5,7 @@ $(document).ready(function() {
     $("video").each(function() {
       $(this).prop("controls", true);
       $(this).prop("controlsList", "nodownload");
-    })
+    });
   }
 
   $("video").click(function(e) {
