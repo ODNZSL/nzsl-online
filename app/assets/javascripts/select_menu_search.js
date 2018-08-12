@@ -1,11 +1,11 @@
 $(document).ready(function() {
 
   $('.usage-dropdown').click(function() {
-    select($(this), ".usage-dropdown", "#usage");
+    select($(this), '.usage-dropdown', '#usage');
   });
 
   $('.topic-dropdown').click(function() {
-    select($(this), ".topic-dropdown", "#tag");
+    select($(this), '.topic-dropdown', '#tag');
   });
 
   function select(target, targetClass, searchContainerId) {
@@ -13,7 +13,7 @@ $(document).ready(function() {
     $(targetClass).not(target).removeClass("selected");
     target.toggleClass("selected");
 
-    if (target.hasClass("selected")) {
+    if (target.hasClass('selected')) {
       id = target.attr('id');
       $('.empty').css("display", "inline-block");
     } else {
@@ -26,7 +26,7 @@ $(document).ready(function() {
   function dropdownState(searchContainerId, targetClass) {
     var targetId = $(searchContainerId).val();
     var targetValue = $('li[class="' + targetClass +'"][id="' + targetId + '"]');
-    targetValue.addClass("selected");
+    targetValue.addClass('selected');
   }
 
   dropdownState("#tag", "topic-dropdown");
