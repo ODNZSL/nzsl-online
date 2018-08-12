@@ -22,10 +22,10 @@
   align-content: flex-start;
 }
 
-.vocab_sheet_item { 
-  position: relative; 
+.vocab_sheet_item {
   flex-basis: 100%;
   padding: 5px;
+  position: relative;
 
   &__column {
     margin: 20px 0;
@@ -39,12 +39,11 @@
     }
 
     &--3 {
-      flex-basis: 33%;      
+      flex-basis: 33%;
     }
 
     &--4 {
-      flex-basis: 25%;
-      
+      flex-basis: 25%; 
     }
 
     &--5 {
@@ -54,19 +53,19 @@
 }
 
 .vocab_sheet_drawing__size {
-  &--2{
+  &--2 {
     min-height: 290px;
   }
 
-  &--3{
+  &--3 {
     min-height: 190px;
   }
 
-  &--4{
+  &--4 {
     min-height: 140px;
   }
 
-  &--5{
+  &--5 {
     min-height: 110px;
   }
 }
@@ -167,8 +166,9 @@
   .drawing {
     vertical-align: middle;
     padding: 0 3px;
-    img { 
-      margin: 0; 
+
+    img {
+      margin: 0;
       max-width: 100%;
     }
   }
