@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module NumbersHelper
-  def numbers # rubocop:disable Metrics/AbcSize
+  def numbers
     return @numbers if @numbers.present?
     @number_signs = {}
     Sign.all(tag: 29).each { |s| @number_signs[s.id.to_i] = s }
@@ -15,7 +15,7 @@ module NumbersHelper
 
   private
 
-  def cardinal_array # rubocop:disable Metrics/MethodLength
+  def cardinal_array
     [[0,  5655],     [0,  4056],
      [1,  5607],     [2,  5617],
      [3,  5619],     [3,  5665],
