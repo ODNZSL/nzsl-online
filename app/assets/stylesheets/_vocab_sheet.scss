@@ -17,10 +17,57 @@
   padding: 0;
   margin-left: auto;
   list-style-type: none;
+  display: flex;
+  flex-wrap: wrap;
+  align-content: flex-start;
 }
 
 .vocab_sheet_item {
+  flex-basis: 100%;
+  padding: 5px;
   position: relative;
+
+  &__column {
+    margin: 20px 0;
+
+    &--1 {
+      flex-basis: 100%;
+    }
+
+    &--2 {
+      flex-basis: 50%;
+    }
+
+    &--3 {
+      flex-basis: 33%;
+    }
+
+    &--4 {
+      flex-basis: 25%;
+    }
+
+    &--5 {
+      flex-basis: 20%;
+    }
+  }
+}
+
+.vocab_sheet_drawing__size {
+  &--2 {
+    min-height: 290px;
+  }
+
+  &--3 {
+    min-height: 190px;
+  }
+
+  &--4 {
+    min-height: 140px;
+  }
+
+  &--5 {
+    min-height: 110px;
+  }
 }
 
 .vocab_sheet_item a {
@@ -88,7 +135,6 @@
 .vocab_sheet_page_item textarea {
   resize: none;
   text-align: center;
-  margin: 0 5px;
   height: 2.1em;
   line-height: 1;
   z-index: 3;
@@ -104,9 +150,7 @@
 
 .vocab_sheet_page_item {
   border: 1px solid $light-med-grey;
-  width: 145px;
-  margin: 15px 11px 15px 0;
-  float: left;
+  margin-right: 11px;
   background: white;
 }
 
@@ -136,6 +180,7 @@
 
     img {
       margin: 0;
+      max-width: 100%;
     }
   }
 
