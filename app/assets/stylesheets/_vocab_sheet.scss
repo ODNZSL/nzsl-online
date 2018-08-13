@@ -91,10 +91,6 @@
     image: image-url('ui/vocab-delete.png');
   };
 }
- .item_maori_name, .maori_gloss, h3 {
-  // opacity: 0.001;
-  visibility: hidden;
-}
 
 /* bar specific */
 .vocab_sheet_bar {
@@ -159,18 +155,11 @@
   position: relative;
   z-index: 11;
 }
-[contenteditable]:hover:after {
-  content: ' click to edit';
-  font-style: italic;
-}
 
 .vocab_sheet_page_item .item_maori_name {
   margin-bottom: 5px;
   position: relative;
   z-index: 11;
-  min-height: 5em;
-  max-height: 50vh;
-  width: 100%;
 }
 
 .vocab_sheet_page_item {
