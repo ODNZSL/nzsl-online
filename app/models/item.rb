@@ -8,8 +8,8 @@ class Item < ActiveRecord::Base
   belongs_to :vocab_sheet
 
   before_validation do
-    self.name = (sign.is_a?(Sign) ? sign.gloss_main : nil) if name.nil? || name.blank?
-    self.maori_name = (sign.is_a?(Sign) ? sign.gloss_maori : nil) if maori_name.nil? || maori_name.blank?
+    self.name = (sign.is_a?(Sign) ? sign.gloss_main : nil) if name.nil?
+    self.maori_name = (sign.is_a?(Sign) ? sign.gloss_maori : nil) if maori_name.nil?
     self.sign_id = sign.id if sign_id.nil?
     self.drawing = sign.drawing
   end
