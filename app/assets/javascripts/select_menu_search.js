@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   $('.usage-dropdown').click(function() {
     select($(this), '.usage-dropdown', '#usage');
   });

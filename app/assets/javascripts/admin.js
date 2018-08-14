@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   // $('.ckeditor').ckeditor();
   $('tbody.sortable').sortable({containment: 'parent', update: function(/* Event, ui*/) {
     var new_order = [];
