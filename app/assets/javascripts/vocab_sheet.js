@@ -67,7 +67,7 @@ $( document ).ready(function() {
           $(this).blur();
           return false;
         } 
-          return true;
+        return true;
         
       });
       $('.vocab_sheet textarea').blur(function(){ submit_vocab_item_names($(this)); });
