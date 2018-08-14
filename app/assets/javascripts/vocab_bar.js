@@ -1,5 +1,4 @@
 $(document).ready(function() {
-
   function hideVocabSheetOnMobile() {
     var bar = $('.vocab_sheet_bar');
     var windowWidth = $(window).width();
