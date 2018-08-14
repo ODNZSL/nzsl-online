@@ -33,31 +33,11 @@ $( document ).ready(function() {
         var item_maori_name = form.children('.item_maori_name');
         var old_maori_name =  form.children('.old_maori_name');
 
-        item_name.val( $.trim(item_name.val()) );
-        item_maori_name.val( $.trim(item_maori_name.val()) );
-
-        if (item_name.val()  === '') {
-          item_name.val(old_name.val());
-        }
-        if (item_maori_name.val()  === '') {
-          item_maori_name.val(old_maori_name.val());
-        }
-
-        var form_empty = (  item_name.val()  === '' &&
-                            item_maori_name.val()  === ''  );
         var form_unchanged =  ( item_name.val() === old_name.val() &&
                                 item_maori_name.val() === old_maori_name.val() );
 
-        if ( ! form_empty && ! form_unchanged ) {
-          $.post(form.attr('action'), form.serialize(), function(data){
-            var name = data.item.name;
-            var maori_name = data.item.maori_name;
-
-            item_name.val(name);
-            old_name.val(name);
-            item_maori_name.val(maori_name);
-            old_maori_name.val(maori_name);
-          });
+        if ( !form_unchanged ) {
+          $.post(form.attr('action'), form.serialize());
         }
       };
 

@@ -3,12 +3,9 @@ var search_analytics_string = function() {
 
   var search_tab = '';
 
-  if ($('.search_tabs .keywords').hasClass('selected'))
-  { search_tab = 'keywords'; }
-  if ($('.search_tabs .signs').hasClass('selected'))
-  { search_tab = 'signs'; }
-  if ($('.search_tabs .advanced').hasClass('selected'))
-  { search_tab = 'advanced'; }
+  if ($('.search_tabs .keywords').hasClass('selected')) { search_tab = 'keywords'; }
+  if ($('.search_tabs .signs').hasClass('selected')) { search_tab = 'signs'; }
+  if ($('.search_tabs .advanced').hasClass('selected')) { search_tab = 'advanced'; }
 
   var query_val = $('input#s').val();
 
