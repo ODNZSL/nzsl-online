@@ -14,7 +14,7 @@ New Zealand Sign Language Dictionary consists of 2 major units
 ```
 git clone https://github.com/rabid/nzsl-online.git
 cp env-example .env
-bundle
+bundle 
 bundle exec rails s
 ```
 
