@@ -5,7 +5,7 @@ $(document).ready(function() {
       $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView) {
         $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
-          new_order = [];
+          var new_order = [];
           $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
           $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
         }});
