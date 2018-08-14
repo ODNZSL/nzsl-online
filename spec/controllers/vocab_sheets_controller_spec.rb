@@ -13,6 +13,7 @@ RSpec.describe VocabSheetsController, type: :controller do
 
   describe '#show' do
     before { get :show }
+
     it { expect(response).to have_http_status(:ok) }
   end
 
@@ -25,6 +26,7 @@ RSpec.describe VocabSheetsController, type: :controller do
 
     context 'new vocab sheet' do
       before { patch :update, valid_attributes }
+
       it { expect(assigns(:sheet)) }
       it { expect(response).to redirect_to root_path }
     end

@@ -1,6 +1,6 @@
 $( document ).ready(function() {
   var setup_vocab_sheet_page = function(){
-    // reorder vocab sheet items
+    // Reorder vocab sheet items
     if ($('ul#vocab_sheet').length){
       $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView){
@@ -11,7 +11,7 @@ $( document ).ready(function() {
         }});
       }
 
-      // change the name of vocab sheet
+      // Change the name of vocab sheet
       var submit_vocab_sheet_name = function(input){
         input.val($.trim(input.val()));
         if (input.val() === '') {
@@ -25,7 +25,7 @@ $( document ).ready(function() {
         }
       };
 
-      // change the name of vocab sheet items
+      // Change the name of vocab sheet items
       var submit_vocab_item_names = function(input){
         var form = input.closest('form');
         var item_name =       form.children('.item_name');
@@ -46,9 +46,9 @@ $( document ).ready(function() {
           e.preventDefault();
           $(this).blur();
           return false;
-        } else {
+        } 
           return true;
-        }
+        
       });
       $('.vocab_sheet textarea').blur(function(){ submit_vocab_item_names($(this)); });
       $('input.vocab_sheet_name').blur(function(){ submit_vocab_sheet_name($(this)); });

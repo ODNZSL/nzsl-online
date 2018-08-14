@@ -25,9 +25,9 @@
     %a{ href: '#content' } Skip to Content
     |
     %a{ href: '#nav' } Skip to Page Navigation
+  = render partial: 'shared/header'
 
-  %div{ class: "not_sticky_footer #{vocab_sheet?}" }
-    = render partial: 'shared/header'
+  %div{ class: "not_sticky_footer #{vocab_sheet?} #{"flash-shown" if flash.count > 0}" }
     #content.before_sticky_footer
       = render partial: 'shared/vocab_sheet', locals: { sheet: @sheet }
       = render partial: 'shared/flashes', locals: { prefix: '' }
