@@ -25,7 +25,7 @@ $(document).ready(function() {
 
   function dropdownState(searchContainerId, targetClass) {
     var targetId = $(searchContainerId).val();
-    var targetValue = $('li[class="' + targetClass +'"][id="' + targetId + '"]');
+    var targetValue = $('li[class="' + targetClass + '"][id="' + targetId + '"]');
     targetValue.addClass('selected');
   }
 
