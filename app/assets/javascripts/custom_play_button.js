@@ -1,5 +1,5 @@
 $(document).ready(function() {
-  if(Modernizr.touch && !Foundation.MediaQuery.atLeast('large')) {
+  if (Modernizr.touch && !Foundation.MediaQuery.atLeast('large')) {
     $('.play-button').hide();
     $('video').each(function() {
       $(this).prop('controls', true);
@@ -8,7 +8,7 @@ $(document).ready(function() {
   }
 
   $('video').click(function(e) {
-    if($('.play-button').length) {
+    if ($('.play-button').length) {
       e.preventDefault();
       videoResponse(this);
     }
