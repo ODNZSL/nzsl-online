@@ -53,7 +53,7 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   .vocab_sheet_name input[readonly]{background-color: white;}
 
   .vocab_sheet_drawing__size--2 {
-    min-height: auto;
+    min-height: 0;
     max-height: 200px; 
   }
   .vocab_sheet_drawing__size--2 > img{
