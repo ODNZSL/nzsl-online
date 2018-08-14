@@ -25,7 +25,6 @@ var search_analytics_string = function() {
   locations_val = locations_val = $('input#l').val().replace(/ /g, ',');
   location_groups_val = location_groups_val.replace(/ /g, ',');
 
-
   var string = 'search_tab=' + search_tab +
                ' ' + 'query=' + query_val +
                ' ' + 'handshapes=' + handshapes_val +
@@ -36,7 +35,6 @@ var search_analytics_string = function() {
 
   return string;
 };
-
 
 var ga_form_submission = function(event) {
   var form = this;
@@ -54,7 +52,6 @@ var ga_form_submission = function(event) {
 
   return true;
 };
-
 
 var ga_link_submission = function(event) {
   event.preventDefault();
