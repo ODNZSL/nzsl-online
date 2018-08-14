@@ -51,6 +51,14 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   .vocab_sheet_page textarea {border:0 !important;text-align:center;outline:none;}
   .vocab_sheet_name {border:0 !important;outline:none;margin: 0.2cm;}
   .vocab_sheet_name input[readonly]{background-color: white;}
+
+  .vocab_sheet_drawing__size--2 {
+    min-height: auto;
+    max-height: 200px; 
+  }
+  .vocab_sheet_drawing__size--2 > img{
+    max-height: 200px;
+  }
 /* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
   .not_sticky_footer {min-height:0;height:auto;}
   .before_sticky_footer {padding-bottom:0;overflow:visible;}
@@ -70,3 +78,4 @@ a.main_gloss:after {font-size:10px;line-height:10px;}
   }
   .center,
   .main_column {width:690px;padding:0;}
+  
