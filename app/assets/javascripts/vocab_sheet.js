@@ -46,9 +46,9 @@ $( document ).ready(function() {
           e.preventDefault();
           $(this).blur();
           return false;
-        } 
+        }
         return true;
-        
+
       });
       $('.vocab_sheet textarea').blur(function(){ submit_vocab_item_names($(this)); });
       $('input.vocab_sheet_name').blur(function(){ submit_vocab_sheet_name($(this)); });
