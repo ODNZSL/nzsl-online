@@ -1,4 +1,4 @@
-$( document ).ready(function() {
+$(document).ready(function() {
   var setup_vocab_sheet_page = function() {
     // Reorder vocab sheet items
     if ($('ul#vocab_sheet').length) {
@@ -33,10 +33,10 @@ $( document ).ready(function() {
         var item_maori_name = form.children('.item_maori_name');
         var old_maori_name =  form.children('.old_maori_name');
 
-        var form_unchanged =  ( item_name.val() === old_name.val() &&
-                                item_maori_name.val() === old_maori_name.val() );
+        var form_unchanged =  (item_name.val() === old_name.val() &&
+                                item_maori_name.val() === old_maori_name.val());
 
-        if ( !form_unchanged ) {
+        if (!form_unchanged) {
           $.post(form.attr('action'), form.serialize());
         }
       };

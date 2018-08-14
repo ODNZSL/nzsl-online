@@ -55,7 +55,7 @@ var ga_link_submission = function(event) {
   var link = $(this);
 
   var dest = link.attr('href');
-  if (typeof(dest) !== 'undefined' && dest !== '') {
+  if (typeof (dest) !== 'undefined' && dest !== '') {
     setTimeout(function() { window.location.href = dest; }, 100);
   }
 };
