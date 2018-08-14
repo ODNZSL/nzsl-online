@@ -18,4 +18,4 @@
 //= require video
 //= require search-result-load-in
 
-$(function(){ $(document).foundation(); });
+$(function() { $(document).foundation(); });
