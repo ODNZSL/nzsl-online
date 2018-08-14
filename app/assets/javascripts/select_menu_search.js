@@ -10,15 +10,15 @@ $(document).ready(function() {
 
   function select(target, targetClass, searchContainerId) {
     var id;
-    $(targetClass).not(target).removeClass("selected");
-    target.toggleClass("selected");
+    $(targetClass).not(target).removeClass('selected');
+    target.toggleClass('selected');
 
     if (target.hasClass('selected')) {
       id = target.attr('id');
-      $('.empty').css("display", "inline-block");
+      $('.empty').css('display', 'inline-block');
     } else {
       id = '';
-      $('.empty').css("display", "none");
+      $('.empty').css('display', 'none');
     }
     $(searchContainerId).val(id);
   }
@@ -29,6 +29,6 @@ $(document).ready(function() {
     targetValue.addClass('selected');
   }
 
-  dropdownState("#tag", "topic-dropdown");
-  dropdownState("#usage", "usage-dropdown");
+  dropdownState('#tag', 'topic-dropdown');
+  dropdownState('#usage', 'usage-dropdown');
 });
