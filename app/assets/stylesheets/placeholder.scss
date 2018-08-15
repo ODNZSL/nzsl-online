@@ -1,0 +1,36 @@
+.search-results__card {
+background-repeat: no-repeat;
+background-image:
+  /* layer 6: blue rectangle at the top covering the video */
+  linear-gradient($pale-blue 40px, transparent 0),
+  /* layer 3 - 5: 3 blue and 2 white rectangles*/
+  /* layer 2: bottom right blue square */
+  /* layer 1: bottom blue rectangle */
+  linear-gradient($pale-blue 20px, transparent 0),
+  /* Layer 0: card bg. White rectangle that covers the whole element */
+  linear-gradient(white 100%, transparent 0);
+}
+.search-results__card  {
+  background-size:
+   200px 400px,  /* top blue square covering the video w * h*/
+   /* third thin rectangle */
+   /* second thin blue rectangle */
+   /* first thin blue rectangle */
+   100px 80px,    /* bottom right blue square */
+   200px 40px,    /* bottom blue rectangle */
+   100% 100%;    /* card bg */
+}
+.search-results__card  {
+  background-position:
+  0 0,  /* top blue square covering the video w * h*/
+  /* third thin rectangle */
+  /* second thin blue rectangle */
+  /* first thin blue rectangle */
+  0 80px,    /* bottom right blue square */
+  0 480px,    /* bottom blue rectangle */
+  0 0;      /* card bg */
+}
+// .search-results__card {
+  /*
+  define as separat properties
+  */
