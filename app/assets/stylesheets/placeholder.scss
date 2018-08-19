@@ -1,15 +1,15 @@
-/* blue rectangle at the top covering the video with color at a height of 100% */
+// blue rectangle at the top covering the video with color at a height of 100%
 .video-container.placeholder {
   background-image: linear-gradient($pale-blue 100%, transparent 0);
+  background-position: 0 0;     // left padding + top padding
   background-repeat: no-repeat;
-  background-size: 100% 100%; /* width + height */
-  background-position: 0 0;   /* left padding + top padding  */
+  background-size: 100% 100%;   // width + height
 }
 
-/* 2nd blue rectangle with a color height of 40% */
+// 2nd blue rectangle with a color height of 40%
 .placeholder_cover {
   background-image: linear-gradient($pale-blue 40%, transparent 0);
+  background-position: 0 100%;  // left padding + top padding
   background-repeat: no-repeat;
-  background-size: 80% 40%;     /* width + height */
-  background-position: 0 100%;  /* left padding + top padding  */
+  background-size: 80% 15%;     // width + height
 }
