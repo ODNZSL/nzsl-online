@@ -1,44 +1,27 @@
-.search-results__card {
+.video-container.placeholder {
 background-repeat: no-repeat;
 background-image:
-  /* layer 6: blue rectangle at the top covering the video */
-  linear-gradient($pale-blue 200px, transparent 0),
-  /* layer 5: first thin blue rectangle */
-  linear-gradient($pale-blue 20px, transparent 0),
-  /* layer 4: second thin blue rectangle */
-  linear-gradient($pale-blue 15px, transparent 0),
-  /* layer 3: third thin blue rectangle */
-  linear-gradient($pale-blue 15px, transparent 0),
-  /* layer 2: bottom right blue square */
-  linear-gradient($pale-blue 140px, transparent 0),
-  /* layer 1: bottom blue rectangle */
-  linear-gradient($pale-blue 10%, transparent 0),
-  // linear-gradient($pale-blue calc(-16px + 10%), transparent 0),
-  /* Layer 0: card bg. White rectangle that covers the whole element */
-  linear-gradient(white 100%, transparent 0);
+  /* blue rectangle at the top covering the video with color at a height of 100% */
+  linear-gradient($pale-blue 100%, transparent 0),
 }
-.search-results__card  {
-  background-size: /* width height */
-   100% 400px,     /* top blue square covering the video */
-   80% 20px,       /* third thin rectangle */
-   80% 15px,       /* second thin blue rectangle */
-   80% 15px,       /* first thin blue rectangle */
-   50% 140px,      /* bottom right blue square */
-   100% 40%,      /* bottom blue rectangle */
-   // 100% calc(-16px + 10%),      /* bottom blue rectangle */
-   100% 100%;      /* card bg */
+.video-container.placeholder  {
+  background-size: /* width + height */
+   100% 100%,
 }
-.search-results__card  {
-  background-position:
-  0 0,            /* top blue square covering the video left padding * top */
-  0 225px,        /* top thin rectangle */
-  0 260px,        /* middle thin blue rectangle */
-  0 280px,        /* bottom  thin blue rectangle */
-  120px 330px,    /* bottom right blue square */
-  0 420px,        /* bottom blue rectangle */
-  0 0;            /* card bg */
+.video-container.placeholder {
+  background-position: /* left padding + top padding  */
+  0 0,
 }
-// .search-results__card {
-  /*
-  define as separat properties
-  */
+.placeholder_cover {
+  background-repeat: no-repeat;
+  background-image: /*  2nd blue rectangle with a color height of 40% */
+    linear-gradient($pale-blue 40%, transparent 0),
+  }
+.placeholder_cover {
+  background-size: /* width + height */
+   80% 40%,
+}
+.placeholder_cover {
+  background-position: /* left padding + top padding  */
+  0 100%,
+}
