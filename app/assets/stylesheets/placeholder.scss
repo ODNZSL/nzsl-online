@@ -1,27 +1,29 @@
 .video-container.placeholder {
-background-repeat: no-repeat;
 background-image:
   /* blue rectangle at the top covering the video with color at a height of 100% */
-  linear-gradient($pale-blue 100%, transparent 0),
+  linear-gradient($pale-blue 100%, transparent 0);
+  background-repeat: no-repeat;
 }
 .video-container.placeholder  {
-  background-size: /* width + height */
-   100% 100%,
+  background-size:    /* width + height */
+   100% 100%;
 }
 .video-container.placeholder {
   background-position: /* left padding + top padding  */
-  0 0,
+  0 0;
 }
+
 .placeholder_cover {
-  background-repeat: no-repeat;
-  background-image: /*  2nd blue rectangle with a color height of 40% */
-    linear-gradient($pale-blue 40%, transparent 0),
+  background-image:
+    /* 2nd blue rectangle with a color height of 40% */
+    linear-gradient($pale-blue 40%, transparent 0);
+    background-repeat: no-repeat;
   }
 .placeholder_cover {
-  background-size: /* width + height */
-   80% 40%,
+  background-size:    /* width + height */
+   80% 40%;
 }
 .placeholder_cover {
   background-position: /* left padding + top padding  */
-  0 100%,
+  0 100%;
 }

@@ -35,7 +35,7 @@
 
     .clickable_link {
       cursor: pointer;
-      background-color: white;
+      background-color: $white;
     }
 
     .videos .button {
@@ -47,7 +47,7 @@
     .card__bottom-row {
       display: flex;
       justify-content: space-between;
-      background-color: white;
+      background-color: $white;
     }
 
     .button-container {
