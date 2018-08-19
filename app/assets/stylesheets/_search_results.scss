@@ -1,8 +1,9 @@
 .search-results {
   &__container {
-    margin-top: 20px;
     display: flex;
+    margin-top: 20px;
   }
+
   &__card {
     margin-bottom: 1rem;
     opacity: 0;
@@ -34,8 +35,8 @@
     }
 
     .clickable_link {
-      cursor: pointer;
       background-color: $white;
+      cursor: pointer;
     }
 
     .videos .button {
@@ -45,9 +46,9 @@
     }
 
     .card__bottom-row {
+      background-color: $white;
       display: flex;
       justify-content: space-between;
-      background-color: $white;
     }
 
     .button-container {
