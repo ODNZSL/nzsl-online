@@ -79,7 +79,7 @@ html, body {
 
 /* Opera Fix */
 body:before {
-  content:'';
+  content: '';
   height:100%;
   float:left;
   width:0;
@@ -428,7 +428,7 @@ body .video_replace {
 
 .required label::after {
   color: $required-red;
-  content: '*'; 
+  content: '*';
 }
 
 .clearfix:after { clear: both; }
