@@ -6,7 +6,7 @@ $(document).ready(function() {
       .css({
         transitionDelay: (searchResult * 0.05) + 's',
       })
-      .addClass('show-card').removeClass('placeholder_cover')
+      .addClass('show-card');
     searchResult++;
   });
 });
