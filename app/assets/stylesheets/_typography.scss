@@ -59,7 +59,12 @@ pre {
   padding: 15px;
 }
 
-textarea { overflow: auto; }
+textarea {
+  // overflow: auto;
+  min-height: 5em; // ensures at least a few lines of text show up to start
+  max-height: 50vh; // ensures the text area will nver grow bigger than the viewpoint
+  width: 100%; //text area fills up the full width of the content area
+}
 
 input[type="radio"] { vertical-align: bottom; }
 
