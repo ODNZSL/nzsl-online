@@ -34,8 +34,8 @@ class ItemsController < ApplicationController
   end
 
   def update # rubocop:disable Metrics/AbcSize
-    @item.name = params[:item][:name] if params[:item][:name].present?
-    @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name].present?
+    @item.name = params[:item][:name] if params[:item][:name].is_a?(String)
+    @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name].is_a?(String)
     if @item.save
       flash[:notice] = t('vocab_sheet.item.update_success')
     else
