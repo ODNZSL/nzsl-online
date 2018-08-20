@@ -1,0 +1,61 @@
+<footer class="<%= (last ? 'sticky_footer footer' : 'print_footer footer') %>">
+  <div class="sub-footer-container">
+    <div class="sub-footer-content small-10 small-centered medium-8 large-6 footer-link">
+      <h3 class="footer-heading text-center">
+        Download the NZSL Dictionary App
+      </h3>
+      <%= link_to((image_tag "img/app_store.svg", class:"small-10 medium-5"), "https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8", target:"_blank") %>
+      <%= link_to((image_tag "img/google_store.svg", class:"small-10 medium-5"), "https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&hl=en", target:"_blank" ) %>
+    </div>
+  </div>
+  <div class="footer-container">
+    <div class="small-10 small-centered medium-10 large-8">
+      <div class="footer-columns small-6 medium-4 footer-link text-left">
+        <h4 class="footer-heading text-left">
+          Learn More
+        </h4>
+        <% Page.in_nav.each do |link| %>
+          <%= render_navigation_link(link) %>
+        <% end %>
+      </div>
+      <div class="footer-columns small-10 medium-4 footer-link text-left">
+        <h4 class="footer-heading text-left">
+          Recommended Sites
+        </h4>
+        <%= link_to((image_tag "img/logo-learnnzsl.png", class:"small-10 learnnzsl"), "http://www.learnnzsl.nz", target:"_blank") %>
+      </div>
+      <div class="footer-columns small-10 medium-4 text-left">
+        <h4 class="footer-heading text-left">
+          Follow Us
+        </h4>
+        <div class="social-media footer-link">
+          <%= link_to((image_tag "img/icon-facebook.svg"), "https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/", target:"_blank") %>
+          <%= link_to((image_tag "img/icon-twitter.svg"), "https://twitter.com/nzsldict", target:"_blank") %>
+        </div>
+      </div>
+      <div class="github small-12 medium-4 float-right">
+        <%= link_to((image_tag "img/icon-github.svg", class: "float-left"), "https://github.com/rabid/nzsl-online", target:"_blank") %>
+        <div class="float-left">
+          <p class="strong">
+            <%= link_to "This is an Open Source project.", "https://github.com/rabid/nzsl-online", target:"_blank" %>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="copyright">
+    <div class="small-10 small-centered medium-8 large-6">
+      <% if @footer && @footer.first_part %>
+        <%= link_to((image_tag "https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"), "https://creativecommons.org/licenses/by-nc-sa/3.0", target:"_blank" ) %>
+        <div class="footer-link">
+          NZSL Dictionary by
+          <%= link_to "Deaf Studies Research Unit, Victoria University of Wellington", "https://www.victoria.ac.nz/lals/research/projects/dsru.aspx", target: "_blank" %>
+          is licensed under a
+          <%= link_to "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.","https://creativecommons.org/licenses/by-nc-sa/3.0", target: "_blank" %>
+          <br/>
+          <%= link_to 'View in NZSL', @footer.path %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</footer>
