@@ -9,23 +9,25 @@
 // background properties map the remaining placeholder shapes
 .search-results--placeholder {
   background-image:
-    linear-gradient($pale-blue 20%, transparent 0),  // first line with color at a height of 15%
-    linear-gradient($pale-blue 15%, transparent 0),  // second line
-    linear-gradient($pale-blue 15%, transparent 0),  // third line
+    linear-gradient($pale-blue 20%, transparent 0),  // top line with color at a height of 15%
+    linear-gradient($pale-blue 15%, transparent 0),  // middle line
+    linear-gradient($pale-blue 15%, transparent 0),  // bottom line
     linear-gradient($pale-blue 100%, transparent 0); // bottom right square
 }
+
 .search-results--placeholder {
   background-position:
-    0 65%,       // first line left padding + top padding
-    0 70%,       // second line
-    0 75%,       // third line
+    0 65%,       // top line left padding + top padding
+    0 70%,       // middle line
+    0 75%,       // bottom line
     100% 100%;   // bottom right square
   background-repeat: no-repeat;
 }
+
 .search-results--placeholder {
   background-size:
-    80% 20%,       // first line width + height
-    80% 15%,       // second line
-    80% 15%,       // third line
-    50% 100px;     // bottom right square
+    80% 20%,       // top line width + height
+    80% 15%,       // middle line
+    80% 15%,       // bottom line
+    50% 25%;       // bottom right square
 }
