@@ -17,5 +17,6 @@
 //= require custom_play_button
 //= require foundation-equalizer
 //= require video
+//= require autocise_textarea
 
 $(function(){ $(document).foundation(); });
