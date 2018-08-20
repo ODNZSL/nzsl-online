@@ -4,10 +4,10 @@ $(document).ready(function() {
   });
 
   function hideBackButton() {
-    if($('.back_to_search_results').length === 0) {
+    if ($('.back_to_search_results').length === 0) {
       $('.back-arrow-icon').css('display', 'none');
     } else {
-      $('.back-arrow-icon').css("display", "block");
+      $('.back-arrow-icon').css('display', 'block');
     }
   }
 
