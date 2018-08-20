@@ -1,15 +1,31 @@
 // blue rectangle at the top covering the video with color at a height of 100%
-.video-container.placeholder {
+.video--placeholder {
   background-image: linear-gradient($pale-blue 100%, transparent 0);
   background-position: 0 0;     // left padding + top padding
   background-repeat: no-repeat;
   background-size: 100% 100%;   // width + height
 }
 
-// 2nd blue rectangle with a color height of 40%
-.placeholder-cover {
-  background-image: linear-gradient($pale-blue 40%, transparent 0);
-  background-position: 0 100%;  // left padding + top padding
+// background properties map the remaining placeholder shapes
+.search-results--placeholder {
+  background-image:
+    linear-gradient($pale-blue 20%, transparent 0),  // first line with color at a height of 15%
+    linear-gradient($pale-blue 15%, transparent 0),  // second line
+    linear-gradient($pale-blue 15%, transparent 0),  // third line
+    linear-gradient($pale-blue 100%, transparent 0); // bottom right square
+}
+.search-results--placeholder {
+  background-position:
+    0 65%,       // first line left padding + top padding
+    0 70%,       // second line
+    0 75%,       // third line
+    100% 100%;   // bottom right square
   background-repeat: no-repeat;
-  background-size: 80% 15%;     // width + height
+}
+.search-results--placeholder {
+  background-size:
+    80% 20%,       // first line width + height
+    80% 15%,       // second line
+    80% 15%,       // third line
+    50% 100px;     // bottom right square
 }
