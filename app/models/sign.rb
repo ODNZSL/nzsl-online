@@ -2,7 +2,6 @@
 
 ## a sign in New Zealand Sign Language
 class Sign
-  require 'open-uri'
   require 'nokogiri'
 
   ELEMENT_NAME = 'entry'
