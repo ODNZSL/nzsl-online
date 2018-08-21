@@ -26,17 +26,21 @@ body {
 
 // from boilerplate
 // (removed a couple of rules)
-a[href]:after {
-  content: "";
+a::after {
+  content: '';
   text-decoration: none;
 }
 
-abbr[title]:after {
+abbr[title]::after {
   content: " (" attr(title) ")";
 }
 
-.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after, .center a[href]:after, a.button:after, .copyright a:after {
-  content: "";
+.ir a::after, a[href^="javascript:"]::after,
+a[href^="#"]::after,
+.center a::after,
+a.button::after,
+.copyright a::after {
+  content: '';
 }
 
 pre, blockquote {
@@ -93,7 +97,7 @@ a.main_gloss {
   text-decoration: none;
 }
 
-a.main_gloss:after {
+a.main_gloss::after {
   font-size: 10px;
   line-height: 10px;
 }
@@ -138,8 +142,8 @@ a.drawing {
 }
 
 // hiding link destinations after text
-a.drawing:after {
-  content: "";
+a.drawing::after {
+  content: '';
 }
 
 // making the vocabsheet have a not editing looking view
