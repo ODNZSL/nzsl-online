@@ -60,9 +60,7 @@ pre {
 }
 
 textarea {
-  // overflow: auto;
-  min-height: 5em; // ensures at least a few lines of text show up to start
-  max-height: 50vh; // ensures the text area will nver grow bigger than the viewpoint
+  min-height: 1em; // ensures at least one few lines of text show up to start
   width: 100%; //text area fills up the full width of the content area
 }
 
