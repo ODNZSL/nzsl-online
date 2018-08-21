@@ -1,4 +1,5 @@
 @import 'color';
+@import 'variables';
 
 html,
 body {
@@ -16,14 +17,31 @@ body {
     border-top: 1px solid $darkest-blue;
     bottom: 0;
     display: block;
-    height: 12rem;
+    height: 5rem;
     left: 0;
     position: absolute;
+    width: 100%;
+  }
+}
+    
+footer .copyright {
+  background-color: transparent;
+  border: 0;
+  padding: .5rem 1rem 0;
+
+  .footer-link {
+    color: $black;
+    float: none;
+    width: auto;
+    
+    a {
+      color: $black;
+    }
   }
 }
 
-.footer--print {
-  display: none;
+.creative-commons-logo {
+  margin: 0 0.25rem 0.25rem 0;
 }
 
 // from boilerplate
@@ -44,12 +62,6 @@ a[href^='#']::after,
 a.button::after,
 .copyright a::after {
   content: '';
-}
-
-pre,
-blockquote {
-  border: 1px solid $med-grey;
-  page-break-inside: avoid;
 }
 
 thead {
@@ -84,10 +96,9 @@ body,
 .rule_after,
 .video_replace {
   background: transparent !important;
-  color: black !important;
+  color: $black !important;
   text-shadow: none !important;
   filter: none !important;
-  -ms-filter: none !important;
 }
 
 .center a,
@@ -125,8 +136,6 @@ object,
 .vocab_sheet_controls,
 .menu-list,
 .search-container,
-.footer-container,
-.sub-footer-container,
 .hamburger-menu-icon {
   display: none;
 }
@@ -180,24 +189,14 @@ a.drawing::after {
 
 // restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise)
 .not_sticky_footer {
-  min-height: 0;
   height: auto;
+  min-height: 0;
   padding-bottom: 0;
 }
 
 .before_sticky_footer {
-  padding-bottom: 0;
   overflow: visible;
-}
-
-.sticky_footer {
-  height: auto;
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
-.footer-link {
-  float: none !important;
+  padding-bottom: 0;
 }
 
 // show logo for printing
