@@ -8,7 +8,7 @@ $(document).ready(function() {
       .addClass('show-card');
       setTimeout(function() {
         $('.search-results__card').removeClass('search-results--placeholder');
-      }, 2000);
+      }, searchResult * 50 );
     searchResult++;
   });
 });
