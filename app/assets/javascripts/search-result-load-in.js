@@ -6,7 +6,9 @@ $(document).ready(function() {
         transitionDelay: (searchResult * 0.05) + 's',
       })
       .addClass('show-card');
-      setTimeout(function(){ $('.search-results__card').removeClass('search-results--placeholder'); }, 2000);
+      setTimeout(function() {
+        $('.search-results__card').removeClass('search-results--placeholder');
+      }, 2000);
     searchResult++;
   });
 });
