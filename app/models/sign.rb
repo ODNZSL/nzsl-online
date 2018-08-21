@@ -75,16 +75,20 @@ class Sign
   end
 
   def self.xml_request(params)
-    xml_document = Nokogiri::XML(http_conn.get(query_for_search(params)).body)
+    xml_document = Nokogiri::XML(http_conn.get(uri_for_search(params)).body)
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
     [count, entries]
   end
 
-  def self.query_for_search(query)
+  def self.uri_for_search(query)
     # The handling of arrays in query strings is different
     # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
+    '?' + _query_string_for_search(query).join('&')
+  end
+
+  def self._query_string_for_search(query)
     query_string = []
     query.each do |k, v|
       if v.is_a?(Array)
@@ -93,7 +97,7 @@ class Sign
         query_string << "#{k}=#{CGI.escape(v.to_s)}"
       end
     end
-    '?' + query_string.join('&')
+    query_string
   end
 
   def self.http_conn
