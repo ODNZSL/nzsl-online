@@ -61,7 +61,7 @@ GEM
       capybara (>= 1.0, < 4)
       launchy
     chronic (0.10.2)
-    ckeditor_rails (4.8.0)
+    ckeditor_rails (4.10.0)
       railties (>= 3.0)
     climate_control (0.2.0)
     codeclimate-test-reporter (1.0.8)
