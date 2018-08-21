@@ -5,12 +5,12 @@
     &ldquo;#{display_search_term}&rdquo;
 .search-results__container.text-center.small-12.small-centered.medium-8.large-9
   - @signs.each do |sign|
-    .search-results__card
+    .search-results__card.search-results--placeholder 
       - if @query[:s]
         - query_text = @query[:s].join(" ")
       - else
         - query_text = " "
-      .video-container
+      .video-container.video--placeholder
         %i.fi-play.play-button
         = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
       .clickable_link.small-12.small-centered
