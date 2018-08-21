@@ -44,6 +44,10 @@ footer .copyright {
   margin: 0 1rem 1rem 0;
 }
 
+.vocab__sheet-name--print-view {
+  display: inline-block;
+}
+
 // from boilerplate
 // (removed a couple of rules)
 a::after {
@@ -92,7 +96,6 @@ textarea[readonly] {
   background: transparent;
 }
 
-.center a,
 .main_column a {
   color: #444 !important;
   text-decoration: underline;
@@ -168,16 +171,6 @@ a.drawing::after {
   outline: none;
 }
 
-.vocab_sheet_name {
-  border: 0 !important;
-  outline: none;
-  margin: .2cm;
-}
-
-.vocab_sheet_name input[readonly] {
-  background-color: $white;
-}
-
 // restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise)
 .not_sticky_footer {
   height: auto;
@@ -191,8 +184,9 @@ a.drawing::after {
 }
 
 // show logo for printing
-.print_logo {
+.logo--print {
   display: block;
+  float: left;
 }
 
 h1,
@@ -205,8 +199,7 @@ h1,
   word-wrap: break-word;
 }
 
-.center,
-.main_column {
+.center {
   width: 690px;
   padding: 0;
 }
