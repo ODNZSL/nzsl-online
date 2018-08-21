@@ -1,26 +1,27 @@
-html, body {
+html,
+body {
   height: 100%;
-  margin: 0px;
+  margin: 0;
 }
 
 .print-page-wrapper {
-  position: relative;
   height: 100vh;
-  page-break-after: always;
   overflow: hidden;
+  page-break-after: always;
+  position: relative;
 }
 
-.print_footer {
+.footer--print {
   display: none;
 }
 
-.print-page-wrapper .print_footer {
-  display: block;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  height: 12rem;
+.print-page-wrapper .footer--print {
   border-top: 1px solid #000;
+  bottom: 0;
+  display: block;
+  height: 12rem;
+  left: 0;
+  position: absolute;
 }
 
 /* from boilerplate */
