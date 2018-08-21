@@ -23,7 +23,7 @@ body {
     width: 100%;
   }
 }
-    
+
 footer .copyright {
   background-color: transparent;
   border: 0;
@@ -33,15 +33,15 @@ footer .copyright {
     color: $black;
     float: none;
     width: auto;
-    
-    a {
-      color: $black;
-    }
   }
 }
 
+.footer-link a {
+  color: $black;
+}
+
 .creative-commons-logo {
-  margin: 0 0.25rem 0.25rem 0;
+  margin: 0 .25rem .25rem 0;
 }
 
 // from boilerplate
@@ -84,8 +84,8 @@ body {
 .vocab_sheet * {
   background: transparent;
   color: $black;
-  text-shadow: none;
   filter: none;
+  text-shadow: none;
 }
 
 textarea[readonly] {
