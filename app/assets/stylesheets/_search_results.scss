@@ -1,5 +1,6 @@
 .search-results {
   &__container {
+    display: flex;
     margin-top: 20px;
   }
 
@@ -27,10 +28,6 @@
       outline: 3px solid $primary-blue;
     }
 
-    .video-container {
-      background-color: $light-grey;
-    }
-
     .video-js {
       background-color: transparent;
       max-width: 100%;
@@ -38,6 +35,7 @@
     }
 
     .clickable_link {
+      background-color: $white;
       cursor: pointer;
     }
 
@@ -48,6 +46,7 @@
     }
 
     .card__bottom-row {
+      background-color: $white;
       display: flex;
       justify-content: space-between;
     }
