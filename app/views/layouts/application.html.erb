@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="robots" content="noindex" />
+  <meta name="description" content="#{t("layout.meta_description")}" />
+  <meta content="IE-edge,chrome=1" http-equiv="X-UA-Compatible"/>
+  
+  <%= render partial: "shared/google_tag_manager_head" %>
+
+  <title>
+    <%= page_title %>
+  </title>
+  
+  <%= favicon_link_tag '/assets/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png' %>
+  <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => false %>
+
+  <%= yield :head %>
+
+  <%= print_stylesheet_tag params[:print] %>
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,500" rel="stylesheet" />
+</head>
+
+<body class="row">
+  <%= render partial: "shared/google_tag_manager_body" %>
+  <div class="visuallyhidden">
+    <a href="#content">Skip to Content</a>
+    <span>|</span>
+    <a href="#nav">Skip to Page Navigation</a>
+  </div>
+  <%= render partial: 'shared/header' %><body>
+  
+  <div class="not_sticky_footer #{vocab_sheet?} #{"flash-shown" if flash.count.positive?}">
+    <div class="before_sticky_footer" id="content">
+      <%= render partial: 'shared/vocab_sheet', locals: { sheet: @sheet } %>
+      <%= render partial: 'shared/flashes', locals: { prefix: '' } %>
+      <%= render partial: 'shared/flashes', locals: { prefix: 'vocab_bar_' } unless vocab_sheet? %>
+      <%= yield %>
+    </div>
+  </div>
+
+  <% if !params[:print] %>
+    <%= render partial: 'shared/footer', locals: { last: true } %>
+  <% end %>
+  <%= print_javascripts_tag params[:print] %>
+  <%= yield :scripts %>
+</body>
+</html>

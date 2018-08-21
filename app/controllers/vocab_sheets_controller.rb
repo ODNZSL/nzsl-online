@@ -11,6 +11,9 @@ class VocabSheetsController < ApplicationController
     @size = session[:vocab_sheet_size].to_i if @size.zero?
     @size = 4 if @size.zero?
     session[:vocab_sheet_size] = @size
+
+    return render :print if params[:print] == 'true'
+    render :show
   end
 
   def update
