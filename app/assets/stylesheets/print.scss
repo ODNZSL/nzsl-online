@@ -92,8 +92,9 @@ body {
   text-shadow: none;
 }
 
-textarea[readonly] {
-  background: transparent;
+.vocab-sheet__text-input,
+.vocab-sheet__text-input[readonly] {
+  background-color: transparent;
 }
 
 .main_column a {
@@ -143,7 +144,9 @@ object,
 .shadow,
 .text_input,
 .text_input_hidden,
-.text_input_hidden:focus {
+.text_input_hidden:focus,
+.vocab-sheet__text-input,
+.vocab-sheet__text-input:focus {
   box-shadow: none;
 }
 
