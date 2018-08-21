@@ -9,23 +9,23 @@ body {
   overflow: hidden;
   page-break-after: always;
   position: relative;
+
+  .footer--print {
+    border-top: 1px solid $darkest-blue;
+    bottom: 0;
+    display: block;
+    height: 12rem;
+    left: 0;
+    position: absolute;
+  }
 }
 
 .footer--print {
   display: none;
 }
 
-.print-page-wrapper .footer--print {
-  border-top: 1px solid #000;
-  bottom: 0;
-  display: block;
-  height: 12rem;
-  left: 0;
-  position: absolute;
-}
-
-/* from boilerplate */
-/*(removed a couple of rules)*/
+// from boilerplate
+// (removed a couple of rules)
 a[href]:after {
   content: "";
   text-decoration: none;
@@ -65,7 +65,7 @@ h2, h3 {
   page-break-after: avoid;
 }
 
-/* modding boilerplate */
+// modding boilerplate
 
 body,
 .vocab_sheet *,
@@ -98,7 +98,7 @@ a.main_gloss:after {
   line-height: 10px;
 }
 
-/* hiding useless things */
+// hiding useless things
 .nav,
 .vocab_sheet_bar,
 .empty_vocab_sheet,
@@ -122,7 +122,7 @@ object,
   overflow: auto;
 }
 
-/* remove shadows of my mind */
+// remove shadows of my mind
 .ui-widget, .shadow, .text_input, .text_input_hidden, .text_input_hidden:focus {
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
@@ -137,12 +137,12 @@ a.drawing {
   text-decoration: none;
 }
 
-/* hiding link destinations after text */
+// hiding link destinations after text
 a.drawing:after {
   content: "";
 }
 
-/* making the vocabsheet have a not editing looking view */
+// making the vocabsheet have a not editing looking view
 .vocab_sheet_page_item {
   border: 0;
 }
@@ -163,7 +163,7 @@ a.drawing:after {
   background-color: white;
 }
 
-/* restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise) */
+// restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise)
 .not_sticky_footer {
   min-height: 0;
   height: auto;
@@ -185,7 +185,7 @@ a.drawing:after {
   float: none !important;
 }
 
-/* show logo for printing */
+// show logo for printing
 .print_logo {
   display: block;
 }
@@ -195,11 +195,8 @@ h1, .h1 {
 }
 
 .video_replace {
-  white-space: pre-wrap; /* css-3 */
-  white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
-  white-space: -pre-wrap; /* Opera 4-6 */
-  white-space: -o-pre-wrap; /* Opera 7 */
-  word-wrap: break-word; /* Internet Explorer 5.5+ */
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }
 
 .center,
