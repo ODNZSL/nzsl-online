@@ -50,7 +50,7 @@ class Sign
   end
 
   def self.find(all_or_first = :first, params)
-    send(all_or_first, params) if %i[all first].includes(all_or_first)
+    send(all_or_first, params) if all_or_first == :all || all_or_first == :first
   end
 
   def self.random
