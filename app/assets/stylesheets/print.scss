@@ -32,11 +32,12 @@ a::after {
 }
 
 abbr[title]::after {
-  content: " (" attr(title) ")";
+  content: ' (' attr(title) ')';
 }
 
-.ir a::after, a[href^="javascript:"]::after,
-a[href^="#"]::after,
+.ir a::after,
+a[href^='javascript:']::after,
+a[href^='#']::after,
 .center a::after,
 a.button::after,
 .copyright a::after {
