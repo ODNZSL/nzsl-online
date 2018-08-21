@@ -1,10 +1,3 @@
-.video--placeholder {
-  background-image: linear-gradient($pale-blue 100%, transparent 0); // blue rectangle at the top covering the video with color at a height of 100%
-  background-position: 0 0;     // left padding + top padding
-  background-repeat: no-repeat;
-  background-size: 100% 100%;   // width + height
-}
-
 .search-results--placeholder {
   background-image: // background properties map the remaining placeholder shapes
     linear-gradient($pale-blue 20%, transparent 0), // top line with color at a height of 15%
