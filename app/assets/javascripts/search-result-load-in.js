@@ -5,8 +5,8 @@ $(document).ready(function() {
       .css({
         transitionDelay: (searchResult * 0.05) + 's',
       })
-      .removeClass('search-results--placeholder')
       .addClass('show-card');
+      setTimeout(function(){ $('.search-results__card').removeClass('search-results--placeholder'); }, 2000);
     searchResult++;
   });
 });
