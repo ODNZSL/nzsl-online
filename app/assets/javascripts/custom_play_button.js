@@ -1,15 +1,14 @@
 $(document).ready(function() {
-
-  if(Modernizr.touch && !Foundation.MediaQuery.atLeast("large")) {
-    $(".play-button").hide();
-    $("video").each(function() {
-      $(this).prop("controls", true);
-      $(this).prop("controlsList", "nodownload");
+  if (Modernizr.touch && !Foundation.MediaQuery.atLeast('large')) {
+    $('.play-button').hide();
+    $('video').each(function() {
+      $(this).prop('controls', true);
+      $(this).prop('controlsList', 'nodownload');
     });
   }
 
   $('video').click(function(e) {
-    if($('.play-button').length) {
+    if ($('.play-button').length) {
       e.preventDefault();
       videoResponse(this);
     }
