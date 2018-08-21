@@ -41,7 +41,7 @@ footer .copyright {
 }
 
 .creative-commons-logo {
-  margin: 0 .25rem .25rem 0;
+  margin: 0 1rem 1rem 0;
 }
 
 // from boilerplate
@@ -214,5 +214,13 @@ h1,
 @media only print {
   .page__header {
     display: none;
+  }
+
+  .creative-commons-logo {
+    float: left;
+  }
+
+  .footer-link {
+    margin-top: -1rem;
   }
 }
