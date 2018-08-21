@@ -164,7 +164,7 @@ h2+h3 { margin-top:1em; }
 
 .static-page-heading { text-transform: capitalize; }
 
-.main_gloss {
+h2.main_gloss {
   font-size: $main-gloss;
   padding: 0;
   margin: 10px 0;
@@ -186,6 +186,10 @@ h2+h3 { margin-top:1em; }
   font-style: italic;
   display: block;
   font-size: $secondary-gloss;
+}
+.glosses-container.maori_gloss,
+.item_maori_name.maori_gloss {
+  font-size: $main-gloss;
 }
 
 .search-result-banner {
