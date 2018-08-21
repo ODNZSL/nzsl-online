@@ -44,8 +44,9 @@ a.button::after,
   content: '';
 }
 
-pre, blockquote {
-  border: 1px solid #999;
+pre,
+blockquote {
+  border: 1px solid $med-grey;
   page-break-inside: avoid;
 }
 
@@ -53,20 +54,24 @@ thead {
   display: table-header-group;
 }
 
-tr, img {
+tr,
+img {
   page-break-inside: avoid;
 }
 
 @page {
-  margin: 0.5cm;
+  margin: .5cm;
 }
 
-p, h2, h3 {
+p,
+h2,
+h3 {
   orphans: 3;
   widows: 3;
 }
 
-h2, h3 {
+h2,
+h3 {
   page-break-after: avoid;
 }
 
@@ -74,7 +79,8 @@ h2, h3 {
 
 body,
 .vocab_sheet *,
-.rule_after, .video_replace {
+.rule_after,
+.video_replace {
   background: transparent !important;
   color: black !important;
   text-shadow: none !important;
@@ -128,9 +134,11 @@ object,
 }
 
 // remove shadows of my mind
-.ui-widget, .shadow, .text_input, .text_input_hidden, .text_input_hidden:focus {
-  -webkit-box-shadow: none;
-  -moz-box-shadow: none;
+.ui-widget,
+.shadow,
+.text_input,
+.text_input_hidden,
+.text_input_hidden:focus {
   box-shadow: none;
 }
 
@@ -161,11 +169,11 @@ a.drawing::after {
 .vocab_sheet_name {
   border: 0 !important;
   outline: none;
-  margin: 0.2cm;
+  margin: .2cm;
 }
 
 .vocab_sheet_name input[readonly] {
-  background-color: white;
+  background-color: $white;
 }
 
 // restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise)
@@ -195,7 +203,8 @@ a.drawing::after {
   display: block;
 }
 
-h1, .h1 {
+h1,
+.h1 {
   padding-top: 23px;
 }
 
