@@ -64,15 +64,6 @@ a.button::after,
   content: '';
 }
 
-thead {
-  display: table-header-group;
-}
-
-tr,
-img {
-  page-break-inside: avoid;
-}
-
 @page {
   margin: .5cm;
 }
@@ -84,21 +75,21 @@ h3 {
   widows: 3;
 }
 
-h2,
-h3 {
-  page-break-after: avoid;
-}
-
 // modding boilerplate
 
-body,
-.vocab_sheet *,
-.rule_after,
-.video_replace {
-  background: transparent !important;
-  color: $black !important;
-  text-shadow: none !important;
-  filter: none !important;
+body {
+  color: $black;
+}
+
+.vocab_sheet * {
+  background: transparent;
+  color: $black;
+  text-shadow: none;
+  filter: none;
+}
+
+textarea[readonly] {
+  background: transparent;
 }
 
 .center a,
