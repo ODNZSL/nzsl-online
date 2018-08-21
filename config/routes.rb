@@ -8,7 +8,7 @@ NzslOnline::Application.routes.draw do
       collection do
         post 'reorder'
       end
-      resources :page_parts, except: [:show, :index] do
+      resources :page_parts, except: %i[show index] do
         collection do
           post 'reorder'
         end
@@ -19,7 +19,7 @@ NzslOnline::Application.routes.draw do
         patch 'update_password'
       end
     end
-    resource :settings, except: [:destroy, :create, :new]
+    resource :settings, except: %i[destroy create new]
     resources :requests, only: [:index]
   end
 
@@ -36,8 +36,8 @@ NzslOnline::Application.routes.draw do
 
   resources :feedback, only: [:create]
 
-  resource :vocab_sheet, only: [:show, :destroy, :update] do
-    resources :items, only: [:create, :destroy, :update] do
+  resource :vocab_sheet, only: %i[show destroy update] do
+    resources :items, only: %i[create destroy update] do
       collection do
         post 'reorder'
       end

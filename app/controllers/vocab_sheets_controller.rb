@@ -11,6 +11,9 @@ class VocabSheetsController < ApplicationController
     @size = session[:vocab_sheet_size].to_i if @size.zero?
     @size = 4 if @size.zero?
     session[:vocab_sheet_size] = @size
+
+    return render :print if params[:print] == 'true'
+    render :show
   end
 
   def update
@@ -28,7 +31,7 @@ class VocabSheetsController < ApplicationController
   end
 
   def destroy
-    if @sheet && @sheet.destroy
+    if @sheet&.destroy
       session[:vocab_sheet_id] = nil
       flash[:notice] = t('vocab_sheet.delete_success')
     else

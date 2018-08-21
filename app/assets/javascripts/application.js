@@ -15,8 +15,9 @@
 //= require admin
 //= require search_result_link
 //= require custom_play_button
-//= require foundation-equalizer
 //= require video
 //= require autocise_textarea
+//= require search-result-load-in
 
-$(function(){ $(document).foundation(); });
+
+$(function() { $(document).foundation(); });
