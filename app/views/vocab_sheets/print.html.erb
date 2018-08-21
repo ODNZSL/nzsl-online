@@ -1,18 +1,24 @@
-<div class='vocab_sheet_head'>
-  <%= render partial: 'vocab_sheets/vocab_sheet_name', locals: { sheet_name: @sheet.name } %>
-</div>
 
-<% if @sheet.items.length > 0 %>
-  <div class='vocab_sheet vocab_sheet_page rule_after clearfix_left'>
-    <ul id='vocab_sheet'>
-      <% @sheet.items.each_with_index do |vocab_sheet_item, i| %>
-        <% if params[:print] && !i.zero? && i.multiple_of?(vocab_sheet_offset_multiple) %>
-          <%= render partial: 'shared/print_page_boundary' %>
-        <% end %>
-        <%= render partial: 'vocab_sheets/vocab_sheet_item', locals: { vocab_sheet_item: vocab_sheet_item, size: @size } %>
-      <% end %>
-    </ul>
+<div class="print-page-wrapper">
+  <div class="header">
+    <div class="center">
+      <%= image_tag 'ui/logo.png', class: 'print_logo' %>
+    </div>
+    <%= render partial: 'vocab_sheets/vocab_sheet_name', locals: { sheet_name: @sheet.name } %>
   </div>
-<% else %>
-  <%= t('vocab_sheet.empty') %>
-<% end %>
+
+  <% if @sheet.items.length > 0 %>
+    <div class='vocab_sheet vocab_sheet_page rule_after clearfix_left'>
+      <ul id='vocab_sheet'>
+        <% @sheet.items.each_with_index do |vocab_sheet_item, i| %>
+          <% if params[:print] && !i.zero? && i.multiple_of?(vocab_sheet_offset_multiple) %>
+            <%= render partial: 'shared/print_page_boundary' %>
+          <% end %>
+          <%= render partial: 'vocab_sheets/vocab_sheet_item', locals: { vocab_sheet_item: vocab_sheet_item, size: @size } %>
+        <% end %>
+      </ul>
+    </div>
+  <% else %>
+    <%= t('vocab_sheet.empty') %>
+  <% end %>
+</div>

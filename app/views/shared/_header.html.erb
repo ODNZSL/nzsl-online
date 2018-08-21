@@ -1,0 +1,52 @@
+<header class="small-12">
+  <div class="center">
+    <% if params[:print] %>
+      <%= orange_submit_button 'back', {print: false}, class: 'view_print_back_link' %>
+    <% end %>
+  </div>
+  <div class="header-nav small-12 medium-10 xlarge-9 medium-centered">
+    <%= link_to(image_tag("img/nz_sign_lang.svg"), root_url, class: "header-logo float-left show-for-large") %>
+    <%= link_to(image_tag("img/nzsl_dict.svg"), root_url, class: "tablet-logo float-left show-for-medium-only") %>
+    <div class="menu-list show-for-medium float-right">
+      <ul class="no-bullet float-right">
+        <% Page.in_header_nav.each_with_index do |link, i| %>
+          <li class="<%= (i.zero? ? 'first' : '') %>">
+            <%= render_navigation_link(link) %>
+          </li>
+        <% end %>
+        <li class="help">
+          <%= link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <div class="hamburger-menu-icon show-for-small-only float-left" onclick="openNav()">
+    <%= image_tag "img/hamburger.svg" %>
+  </div>
+  <div class="mobile-logo text-center show-for-small-only small-4 small-centered">
+    <%= link_to(image_tag("img/nzsl_dict.svg"), root_url) %>
+  </div>
+  <div class="overlay hide-for-medium" id="mobileNav">
+    <a class="closebtn" href="#" onclick="closeNav()">&times;</a>
+    <div class="overlay-content small-12 text-center">
+      <ul class="no-bullet">
+        <% Page.in_nav.each_with_index do |link, i| %>
+          <li class="<%= (i.zero? ? 'first' : '') %>">
+            <%= render_navigation_link(link) %>
+          </li>
+        <% end %>
+        <li class="help">
+          <%= link_to t('search.tabs.help'), Page.find(Setting.get(:help)).try(:path), class: "js-ga-link-submission", onclick: "_gaq.push(['_trackEvent', 'Nav', 'Click', 'Help']);" %>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <%= render "shared/search" %>
+</header>
+<!-- Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.-->
+<% content_for(:scripts) do %>
+  <script>
+    $(function() { $(".js-ga-form-submission").on('submit', ga_form_submission); });
+    $(function() { $(".js-ga-link-submission").on('click', ga_link_submission); });
+  </script>
+<% end %>

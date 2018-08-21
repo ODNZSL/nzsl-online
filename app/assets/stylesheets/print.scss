@@ -4,13 +4,12 @@ html, body {
 }
 
 .print-page-wrapper {
-  display: block;
   position: relative;
   height: 100%;
   page-break-after: always;
 }
 
-.print-page-wrapper .print_footer {
+.print_footer {
   position: absolute;
   bottom: 0px;
   left: 0px;
