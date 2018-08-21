@@ -75,7 +75,7 @@ class Sign
   end
 
   def self.xml_request(params)
-    xml_document = Nokogiri::XML(Faraday.new(url: SIGN_URL).get(query_for_search(params)).body)
+    xml_document = Nokogiri::XML(http_conn.get(query_for_search(params)).body)
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
     [count, entries]
@@ -94,5 +94,12 @@ class Sign
       end
     end
     '?' + query_string.join('&')
+  end
+
+  def self.http_conn
+    Faraday.new(url: SIGN_URL) do |faraday|
+      faraday.use FaradayMiddleware::FollowRedirects
+      faraday.adapter Faraday.default_adapter
+    end
   end
 end

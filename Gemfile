@@ -34,6 +34,7 @@ gem 'will_paginate'
 
 # Rest/http library
 gem 'faraday'
+gem 'faraday_middleware'
 
 # logins
 gem 'devise'
