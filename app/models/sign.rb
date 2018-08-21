@@ -76,23 +76,13 @@ class Sign
   end
 
   def self.xml_request(params)
-    xml_document = nil
-    url = url_for_search(params)
-    time = Benchmark.measure do
-      xml_document = Nokogiri::XML(open(url))
-    end
+    xml_document = Nokogiri::XML(Faraday.new(url: SIGN_URL).get(query_for_search(params)).body)
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
-    record_request_time(url, time.real, count)
     [count, entries]
   end
 
-  def self.record_request_time(url, time, count)
-    return unless Rails.application.secrets.track_search_requests?
-    Request.create! url: url, elapsed_time: time, count: count, query_type: 'Sign.search'
-  end
-
-  def self.url_for_search(query)
+  def self.query_for_search(query)
     # The handling of arrays in query strings is different
     # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
@@ -104,6 +94,6 @@ class Sign
         query_string << "#{k}=#{CGI.escape(v.to_s)}"
       end
     end
-    "#{SIGN_URL}?#{query_string.join('&')}"
+    '?' + query_string.join('&')
   end
 end
