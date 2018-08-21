@@ -41,7 +41,9 @@
     </div>
   </div>
 
-  <%= render partial: 'shared/footer', locals: { last: true } %>
+  <% if !params[:print] %>
+    <%= render partial: 'shared/footer', locals: { last: true } %>
+  <% end %>
   <%= print_javascripts_tag params[:print] %>
   <%= yield :scripts %>
 </body>

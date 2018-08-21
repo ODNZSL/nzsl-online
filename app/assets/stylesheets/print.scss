@@ -5,14 +5,22 @@ html, body {
 
 .print-page-wrapper {
   position: relative;
-  height: 100%;
+  height: 100vh;
   page-break-after: always;
+  overflow: hidden;
 }
 
 .print_footer {
+  display: none;
+}
+
+.print-page-wrapper .print_footer {
+  display: block;
   position: absolute;
-  bottom: 0px;
-  left: 0px;
+  bottom: 0;
+  left: 0;
+  height: 12rem;
+  border-top: 1px solid #000;
 }
 
 /* from boilerplate */
@@ -104,16 +112,13 @@ object,
 .menu-list,
 .search-container,
 .footer-container,
-.sub-footer-container {
+.sub-footer-container,
+.hamburger-menu-icon {
   display: none;
 }
 
 .header-nav {
   overflow: auto;
-}
-
-.hamburger-menu-icon {
-  display: none;
 }
 
 /* remove shadows of my mind */
@@ -175,8 +180,8 @@ a.drawing:after {
   margin-bottom: 1em;
 }
 
-.rule_after {
-  border-bottom: 1px solid black;
+.footer-link {
+  float: none !important;
 }
 
 /* show logo for printing */
@@ -200,4 +205,10 @@ h1, .h1 {
 .main_column {
   width: 690px;
   padding: 0;
+}
+
+@media only print {
+  .page__header {
+    display: none;
+  }
 }
