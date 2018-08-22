@@ -131,10 +131,12 @@
 .vocab_sheet_page_item textarea {
   resize: none;
   text-align: center;
-  height: 2.1em;
+  min-height: 3em;
+  height: 10em;
   line-height: 1;
   z-index: 3;
   position: relative;
+  overflow: visible;
 }
 
 .vocab_sheet_page {
