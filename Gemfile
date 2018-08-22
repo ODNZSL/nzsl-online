@@ -20,7 +20,11 @@ gem 'foundation-rails', '~> 6.3.1.0'
 gem 'i18n'
 gem 'mail'
 gem 'modernizr-rails'
+
+# For attaching files on the feedback form
+# on Feedback model
 gem 'paperclip'
+
 gem 'responders', '~> 2.0'
 gem 'mini_racer', platforms: :ruby
 gem 'videojs_rails'
