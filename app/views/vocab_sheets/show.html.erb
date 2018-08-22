@@ -5,17 +5,30 @@
   <%= stylesheet_link_tag 'smoothness/jquery-ui.css' %>
 <% end %>
 
-<div class='vocab_sheet_head'>
-  <div class='vocab_sheet_controls vocab_sheet_page_controls'>
+<div class='vocab-sheet__head'>
+  <div class='vocab-sheet__controls vocab-sheet__page-controls'>
     <%= orange_submit_button 'vocab_sheet.print', {print: true} %>
     <%= form_tag vocab_sheet_path, method: :delete, class: '' do %>
       <%= orange_submit_button 'vocab_sheet.delete' %>
     <% end %>
-    <div class='size_controls'>
-      <% (1..5).each do |i| %>
-        <%= link_to "size_#{i}",
-          vocab_sheet_path(size: i),
-          class: "ir size_label size_#{i}_label#{@size == i ? " selected_icon" : ''}" %>
+    <div class='vocab-sheet__size-controls'>
+      <%= link_to vocab_sheet_path(size: 1), class: "ir vocab-sheet__size-label" do %>
+        <%= image_tag "/ui/vocab-sheet-icon-1.jpg" %>
+      <% end %>
+      <%= link_to vocab_sheet_path(size: 2), class: "ir vocab-sheet__size-label" do %>
+        <%= image_tag "/ui/vocab-sheet-icon-2.jpg" %>
+      <% end %>
+      <%= link_to vocab_sheet_path(size: 3), class: "ir vocab-sheet__size-label" do %>
+        <%= image_tag "/ui/vocab-sheet-icon-3.jpg" %>
+      <% end %>
+      <%= link_to vocab_sheet_path(size: 4), class: "ir vocab-sheet__size-label" do %>
+        <%= image_tag "/ui/vocab-sheet-icon-4.jpg" %>
+      <% end %>
+      <%= link_to vocab_sheet_path(size: 5), class: "ir vocab-sheet__size-label" do %>
+        <%= image_tag "/ui/vocab-sheet-icon-5.jpg" %>
+      <% end %>
+      <%= link_to vocab_sheet_path(size: 6), class: "ir vocab-sheet__size-label" do %>
+        <%= image_tag "/ui/vocab-sheet-icon-6.jpg" %>
       <% end %>
     </div>
   </div>

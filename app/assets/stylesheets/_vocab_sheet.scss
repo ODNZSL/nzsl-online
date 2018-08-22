@@ -30,7 +30,8 @@
   &__column {
     margin: 20px 0;
 
-    &--1 {
+    &--1,
+    &--6 {
       flex-basis: 100%;
     }
 
@@ -65,7 +66,8 @@
     min-height: 140px;
   }
 
-  &--5 {
+  &--5,
+  &--6 {
     min-height: 110px;
   }
 }
@@ -201,26 +203,6 @@
   clear: left;
   margin-top: -10px;
 }
-
-.vocab_sheet_page_controls {
-  float: right;
-  margin-top: 43px;
-  width: 330px;
-
-  .orange_submit_button {
-    float: left;
-    margin-right: 5px;
-  }
-}
-
-.no-js .vocab_sheet_page_controls {
-  width: 460px;
-}
-
-.vocab_sheet_page_controls .button {
-  margin-left: 5px;
-}
-
 .vocab_sheet_bar_controls .button {
   @extend .orange_submit_button;
 }
@@ -244,56 +226,51 @@
 
 // Buttons for user to specify print layout of their vocab sheet - do not delete:
 
-.size_controls {
-  float: left;
-  margin-left: 10px;
-  margin-top: -5px;
-}
+.vocab-sheet {
+  &__size-controls {
+    float: left;
+    margin-left: 10px;
+    margin-top: -5px;
 
-.size_controls .radio_wrapper {
-  height: 32px;
-  line-height: 32px;
-  float: left;
-  display: block;
+    .radio_wrapper {
+      height: 32px;
+      line-height: 32px;
+      float: left;
+      display: block;
+    }
+
+    .selected_icon {
+      background-color: #d2e2f9;
+    }
+  }
+
+  &__size-label {
+    width: 24px;
+    height: 32px;
+    display: inline-block;
+    margin-right: 10px;
+  }
+
+  &__page-controls {
+    float: right;
+    margin-top: 43px;
+    width: 365px;
+  
+    .no-js & {
+      width: 500px;
+    }
+
+    .button {
+      margin-left: 5px;
+    }
+  
+    .orange_submit_button {
+      float: left;
+      margin-right: 5px;
+    }
+  }
 }
 
 .radio_wrapper input {
   vertical-align: middle;
-}
-
-.size_label,
-.size_label:hover {
-  width: 24px;
-  height: 32px;
-  background-image: image-url('ui/vocab-sheet-icons.png');
-  display: block;
-  float: left;
-  overflow: hidden;
-  margin-right: 10px;
-  border: 0;
-}
-
-.size_5_label {
-  background-position: left 0;
-}
-
-.size_4_label {
-  background-position: left -32px;
-}
-
-.size_3_label {
-  background-position: left -64px;
-  padding-right: 1px;
-}
-
-.size_2_label {
-  background-position: left -96px;
-}
-
-.size_1_label {
-  background-position: left -128px;
-}
-
-.size_controls .selected_icon {
-  background-color: #d2e2f9;
 }
