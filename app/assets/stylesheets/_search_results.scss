@@ -9,7 +9,7 @@
     opacity: 0;
     outline: 1px solid $primary-blue;
     overflow: hidden;
-    padding-bottom: 11rem;
+    padding-bottom: 8rem;
     position: relative;
     transform: translateY(-1rem);
     transition: {
@@ -49,7 +49,7 @@
       &__bottom-row {
         background-color: $white;
         bottom: 0;
-        height: 11rem;
+        height: 8rem;
         left: 0;
         position: absolute;
         width: 100%;
