@@ -160,6 +160,9 @@ a.drawing::after {
   content: '';
 }
 
+.vocab_sheet_page {
+  width: 690px;
+}
 // making the vocabsheet have a not editing looking view
 .vocab_sheet_page_item {
   border: 0;
