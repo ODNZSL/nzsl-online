@@ -8,9 +8,6 @@ body {
 }
 
 .print-page-wrapper {
-  height: 100vh;
-  overflow: hidden;
-  page-break-after: always;
   position: relative;
 
   .footer--print {
@@ -208,6 +205,13 @@ h1,
 }
 
 @media only print {
+  .print-page-wrapper {
+    height: 100vh;
+    overflow: hidden;
+    page-break-after: always;
+    position: relative;
+  }
+
   .page__header {
     display: none;
   }

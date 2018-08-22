@@ -36,7 +36,7 @@ module VocabSheetHelper
       elsif @size == 4
         12
       elsif @size == 3
-        9
+        6
       elsif @size == 2
         4
       else
