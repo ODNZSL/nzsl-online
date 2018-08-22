@@ -129,14 +129,15 @@
 
 /* sheet specific */
 .vocab_sheet_page_item textarea {
-  resize: none;
+  resize: vertical;
   text-align: center;
-  min-height: 3em;
-  height: 10em;
+  height: auto;
   line-height: 1;
   z-index: 3;
   position: relative;
   overflow: visible;
+  white-space: pre;
+  white-space: pre-wrap;
 }
 
 .vocab_sheet_page {
