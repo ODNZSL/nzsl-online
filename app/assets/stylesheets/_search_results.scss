@@ -82,6 +82,7 @@
 
     &:active,
     &:hover,
+    &:focus,
     &:visited {
       .card__button-symbol {
         color: $white;
