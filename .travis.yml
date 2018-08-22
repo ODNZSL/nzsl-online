@@ -5,7 +5,6 @@ cache: bundler
 env:
   global:
   - S3_BUCKET_URL=http://s3-ap-southeast-2.amazonaws.com/test-asset-bucket/
-  - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
   - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
     else git log -1 --skip 1 --pretty=format:%ct; fi)
 before_script:
@@ -21,5 +20,5 @@ addons:
 script:
 - brakeman --run-all-checks --exit-on-warn --format plain .
 - bundle exec rspec spec
-after_success:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+after_script:
+- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT -t simplecov --id $CODECLIMATE_REPO_TOKEN"
