@@ -45,16 +45,19 @@
             <%= image_tag "signs/150-100/#{sign.drawing}", { class: 'card__drawing-image' } %>
           <% end %>
         </div>
-        <div class="card__button-container">
-          <div class="card__button">
-            <span class="card__button-symbol card__button-symbol--peach">&rarr;</span>
-            <%= link_to "Learn More", sign_url(sign.id), { class: "card__button-action" } %>
+        <%= form_tag vocab_sheet_items_path do %>
+          <%= hidden_field_tag 'sign_id', sign.id %>
+          <div class="card__button-container">
+            <%= link_to sign_url(sign.id), { class: "card__button" } do %>
+              <span class="card__button-symbol card__button-symbol--peach">&rarr;</span>
+              <span class="card__button-action">Learn More</span>
+            <% end %>
+            <button type="submit" class="card__button">
+              <span class="card__button-symbol card__button-symbol--blue">+</span>
+              <span class="card__button-action">Vocab Sheet</span>
+            </button>
           </div>
-          <div class="card__button">
-            <span class="card__button-symbol card__button-symbol--blue">+</span>
-            <%= link_to "Vocab Sheet", sign_url(sign.id), { class: "card__button-action" } %>
-          </div>
-        </div>
+        <% end %>
       </div>
     </div>
   <% end %>
