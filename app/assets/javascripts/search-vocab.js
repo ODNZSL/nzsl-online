@@ -25,18 +25,27 @@ $(document).ready(function() {
         'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
       },
     }).done(function(data) {
-     if ($('.vocab_sheet_bar').css('display') === 'none') {
-       $('.vocab_sheet_bar').show();
-     }
-
-      $(successNotice).insertBefore(vocabList);
-      $(vocabList).append(data);
-
-      setTimeout(function() {
-        $('.ajax-success-response').remove();
-      }, 2000);
+      onVocabItemAdded(data);
     }).fail(function(error) {
-      console.error(error.statusText);
+      onVocabItemError(error.statusText);
+    });
+
+    function onVocabItemAdded(htmlElem) {
+      if ($('.vocab_sheet_bar').css('display') === 'none') {
+        $('.vocab_sheet_bar').show();
+      }
+    
+       $(successNotice).insertBefore(vocabList);
+       $(vocabList).append(data);
+    
+       setTimeout(function() {
+         $('.ajax-success-response').remove();
+       }, 2000);
+    }
+
+    function onVocabItemError(errorMessage) {
+      console.error(errorMessage);
+
       if ($('.vocab_sheet_bar').css('display') !== 'none') {
         $(failureNotice).insertBefore(vocabList);
 
@@ -50,6 +59,6 @@ $(document).ready(function() {
           + '</div>'
         );
       }
-    });
+    }
   });
 });

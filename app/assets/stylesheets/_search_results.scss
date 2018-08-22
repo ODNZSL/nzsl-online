@@ -79,6 +79,14 @@
   &__button {
     flex: 50%;
     text-align: left;
+
+    &:active,
+    &:hover,
+    &:visited {
+      .card__button-symbol {
+        color: $white;
+      }
+    }
   }
 
   &__button-symbol {
