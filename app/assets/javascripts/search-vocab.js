@@ -3,11 +3,13 @@ $(document).ready(function() {
     e.preventDefault();
     var signId = $(this).attr('data-sign-id');
 
-    var successNotice = '<div class="flash vocab_var_notice ajax-success-response">'
+    var successNotice =
+      '<div class="flash vocab_var_notice ajax-success-response">'
       + 'You have added a sign to your vocab sheet.'
       + '</div>';
 
-    var failureNotice = '<div class="flash vocab_var_notice ajax-failure-response">'
+    var failureNotice =
+      '<div class="flash vocab_var_notice ajax-failure-response">'
       + 'There was an error adding a sign to your vocab sheet.'
       + '</div>';
 
@@ -17,11 +19,11 @@ $(document).ready(function() {
       url: '/vocab_sheet/items/',
       method: 'POST',
       data: {
-        sign_id: signId
+        sign_id: signId,
       },
       headers: {
         'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
-      }
+      },
     }).done(function(data) {
      if ($('.vocab_sheet_bar').css('display') === 'none') {
        $('.vocab_sheet_bar').show();
