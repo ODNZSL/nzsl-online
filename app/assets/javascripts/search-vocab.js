@@ -44,7 +44,11 @@ $(document).ready(function() {
           $('.ajax-failure-response').remove();
         }, 2000);
       } else {
-        $('.before_sticky_footer').prepend('<div class="flash notice">There was an error adding a sign to your vocab sheet.');
+        $('.before_sticky_footer').prepend(
+          '<div class="flash notice">'
+          + 'There was an error adding a sign to your vocab sheet.'
+          + '</div>'
+        );
       }
     });
   });
