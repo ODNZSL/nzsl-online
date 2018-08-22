@@ -1,6 +1,6 @@
 .search-results {
   &__container {
-    display: flex;
+    // display: flex;
     margin-top: 20px;
   }
 
@@ -35,8 +35,12 @@
     }
 
     .clickable_link {
-      background-color: $white;
       cursor: pointer;
+    }
+    .main_gloss,
+    .maori_gloss,
+    .word_gloss {
+      background-color: $white;
     }
 
     .videos .button {
