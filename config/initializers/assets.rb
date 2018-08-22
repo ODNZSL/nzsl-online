@@ -15,6 +15,7 @@ Rails.application.config.assets.version = '1.0'
 Rails.application.config.assets.precompile += %w(print.css)
 Rails.application.config.assets.precompile += %w(admin.css)
 Rails.application.config.assets.precompile += %w(application.css)
+Rails.application.config.assets.precompile += %w(print.css)
 Rails.application.config.assets.precompile += %w(print_screen.css)
 Rails.application.config.assets.precompile += %w(smoothness/jquery-ui.css)
 Rails.application.config.assets.precompile += %w(modernizr.js)

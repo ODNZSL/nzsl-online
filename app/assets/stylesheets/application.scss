@@ -4,24 +4,25 @@
 *= require video-js
 */
 
-@import "color";
-@import "variables";
-@import "foundation_and_overrides";
-@import "foundation-icons";
-@import "custom_icons";
-@import "buttons";
-@import "video";
-@import "header";
-@import "typography";
-@import "searchbar";
-@import "search_results";
-@import "search_result";
-@import "footer";
-@import "topic_style";
-@import "vocab_sheet";
-@import "search_result_grid";
-@import "home";
-@import "ie_browser_support";
+@import 'color';
+@import 'placeholder';
+@import 'variables';
+@import 'foundation_and_overrides';
+@import 'foundation-icons';
+@import 'custom_icons';
+@import 'buttons';
+@import 'video';
+@import 'header';
+@import 'typography';
+@import 'searchbar';
+@import 'search_results';
+@import 'search_result';
+@import 'footer';
+@import 'topic_style';
+@import 'vocab_sheet';
+@import 'search_result_grid';
+@import 'home';
+@import 'ie_browser_support';
 
 .hide { display: none; }
 .show { display: inline-block; }
@@ -78,7 +79,7 @@ html, body {
 
 /* Opera Fix */
 body:before {
-  content:"";
+  content: '';
   height:100%;
   float:left;
   width:0;
@@ -94,7 +95,7 @@ a.logo {
   border:0;
 }
 
-.print_logo { display:none; }
+.logo--print { display:none; }
 
 .selected { display: block; }
 
@@ -419,7 +420,7 @@ body .video_replace {
 .clearfix_left:after,
 .clearfix:before,
 .clearfix:after {
-  content: "\0020";
+  content: '\0020';
   display: block;
   height: 0;
   overflow: hidden;
@@ -427,7 +428,7 @@ body .video_replace {
 
 .required label::after {
   color: $required-red;
-  content: "*";
+  content: '*';
 }
 
 .clearfix:after { clear: both; }
