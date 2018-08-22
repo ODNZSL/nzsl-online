@@ -23,7 +23,11 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
+
+# For attaching files on the feedback form
+# on Feedback model
 gem 'paperclip'
+
 gem 'responders', '~> 2.0'
 gem 'videojs_rails'
 # records crashes
