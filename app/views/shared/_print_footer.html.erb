@@ -1,0 +1,14 @@
+<footer class="<%= (last ? 'sticky_footer footer' : 'footer--print footer') %>">
+  <div class="copyright">
+    <% if @footer && @footer.first_part %>
+      <%= image_tag "https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png", class: 
+      "creative-commons-logo" %>
+      <div class="footer-link">
+        NZSL Dictionary by
+        <%= link_to "Deaf Studies Research Unit, Victoria University of Wellington", "https://www.victoria.ac.nz/lals/research/projects/dsru.aspx", target: "_blank" %>
+        is licensed under a
+        <%= link_to "Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License.","https://creativecommons.org/licenses/by-nc-sa/3.0", target: "_blank" %>
+      </div>
+    <% end %>
+  </div>
+</footer>
