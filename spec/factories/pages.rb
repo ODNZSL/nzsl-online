@@ -5,6 +5,6 @@
 FactoryBot.define do
   factory :page do
     title { Faker::Book.title }
-    template 'standard'
+    template { 'standard' }
   end
 end
