@@ -31,7 +31,7 @@
     .video-js {
       background-color: transparent;
       max-width: 100%;
-      min-height: 11rem;
+      min-height: 10rem;
     }
 
     .clickable_link {
@@ -102,6 +102,10 @@
         border-bottom: 0;
         font-size: $subgloss-font-size;
         text-align: left;
+
+        &--peach {
+          color: $peach;
+        }
       }
     }
   }
@@ -116,11 +120,19 @@
       margin-right: 1rem;
       max-width: calc(50% - 1rem);
     }
+
+    .video-js {
+      min-height: 15rem;
+    }
   }
 
   @media (min-width: $large-screen) {
     &__card {
       max-width: calc(33% - 1rem);
+    }
+
+    .video-js {
+      min-height: 11rem;
     }
   }
 

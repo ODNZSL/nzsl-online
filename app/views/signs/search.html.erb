@@ -47,12 +47,12 @@
         </div>
         <div class="card__button-container">
           <%= link_to sign_url(sign.id), { class: "card__button" } do %>
-            <span class="card__button-symbol card__button-symbol--peach">&rarr;</span>
+            <span class="card__button-symbol card__button-symbol--blue">&rarr;</span>
             <span class="card__button-action">Learn More</span>
           <% end %>
-          <%= link_to "#", { class: "card__button add-to-vocab-btn", "data-sign-id": sign.id } do %>
-            <span class="card__button-symbol card__button-symbol--blue">+</span>
-            <span class="card__button-action">Vocab Sheet</span>
+          <%= link_to "#", { class: "card__button add-to-vocab-btn card__button--peach", "data-sign-id": sign.id } do %>
+            <span class="card__button-symbol card__button-symbol--peach">+</span>
+            <span class="card__button-action card__button-action--peach">Vocab Sheet</span>
           <% end %>
         </div>
       </div>
