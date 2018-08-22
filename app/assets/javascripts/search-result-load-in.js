@@ -8,7 +8,12 @@ $(document).ready(function() {
       .addClass('show-card');
       setTimeout(function() {
         $('.search-results__card').removeClass('search-results--placeholder');
-      }, searchResult * 50 );
+        console.log("placeholder removing");
+      }, searchResult * 200 );
     searchResult++;
   });
 });
+// $(window).on('load', function(){
+//   $('.search-results__card').addClass('search-results--placeholder');
+//   console.log("window loaded with placeholder:");
+// });
