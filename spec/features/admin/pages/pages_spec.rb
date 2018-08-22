@@ -3,9 +3,9 @@
 require 'rails_helper'
 
 RSpec.describe 'Admin login', type: :feature do
+  subject { page }
   let!(:pages) { FactoryBot.create_list :page, 10 }
 
-  subject { page }
 
   context 'not logged in' do
     describe 'views pages#index' do
