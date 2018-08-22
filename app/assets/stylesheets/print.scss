@@ -1,4 +1,5 @@
 @import 'color';
+@import 'variables';
 
 html,
 body {
@@ -7,23 +8,41 @@ body {
 }
 
 .print-page-wrapper {
-  height: 100vh;
-  overflow: hidden;
-  page-break-after: always;
   position: relative;
 
   .footer--print {
     border-top: 1px solid $darkest-blue;
     bottom: 0;
     display: block;
-    height: 12rem;
+    height: 5rem;
     left: 0;
     position: absolute;
+    width: 100%;
   }
 }
 
-.footer--print {
-  display: none;
+footer .copyright {
+  background-color: transparent;
+  border: 0;
+  padding: .5rem 1rem 0;
+
+  .footer-link {
+    color: $black;
+    float: none;
+    width: auto;
+  }
+}
+
+.footer-link a {
+  color: $black;
+}
+
+.creative-commons-logo {
+  margin: 0 1rem 1rem 0;
+}
+
+.vocab__sheet-name--print-view {
+  display: inline-block;
 }
 
 // from boilerplate
@@ -46,21 +65,6 @@ a.button::after,
   content: '';
 }
 
-pre,
-blockquote {
-  border: 1px solid $med-grey;
-  page-break-inside: avoid;
-}
-
-thead {
-  display: table-header-group;
-}
-
-tr,
-img {
-  page-break-inside: avoid;
-}
-
 @page {
   margin: .5cm;
 }
@@ -72,25 +76,24 @@ h3 {
   widows: 3;
 }
 
-h2,
-h3 {
-  page-break-after: avoid;
-}
-
 // modding boilerplate
 
-body,
-.vocab_sheet *,
-.rule_after,
-.video_replace {
-  background: transparent !important;
-  color: black !important;
-  text-shadow: none !important;
-  filter: none !important;
-  -ms-filter: none !important;
+body {
+  color: $black;
 }
 
-.center a,
+.vocab_sheet * {
+  background: transparent;
+  color: $black;
+  filter: none;
+  text-shadow: none;
+}
+
+.vocab-sheet__text-input,
+.vocab-sheet__text-input[readonly] {
+  background-color: transparent;
+}
+
 .main_column a {
   color: #444 !important;
   text-decoration: underline;
@@ -125,8 +128,6 @@ object,
 .vocab_sheet_controls,
 .menu-list,
 .search-container,
-.footer-container,
-.sub-footer-container,
 .hamburger-menu-icon {
   display: none;
 }
@@ -140,7 +141,9 @@ object,
 .shadow,
 .text_input,
 .text_input_hidden,
-.text_input_hidden:focus {
+.text_input_hidden:focus,
+.vocab-sheet__text-input,
+.vocab-sheet__text-input:focus {
   box-shadow: none;
 }
 
@@ -168,41 +171,22 @@ a.drawing::after {
   outline: none;
 }
 
-.vocab_sheet_name {
-  border: 0 !important;
-  outline: none;
-  margin: .2cm;
-}
-
-.vocab_sheet_name input[readonly] {
-  background-color: $white;
-}
-
 // restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise)
 .not_sticky_footer {
-  min-height: 0;
   height: auto;
+  min-height: 0;
   padding-bottom: 0;
 }
 
 .before_sticky_footer {
-  padding-bottom: 0;
   overflow: visible;
-}
-
-.sticky_footer {
-  height: auto;
-  margin-top: 0;
-  margin-bottom: 1em;
-}
-
-.footer-link {
-  float: none !important;
+  padding-bottom: 0;
 }
 
 // show logo for printing
-.print_logo {
+.logo--print {
   display: block;
+  float: left;
 }
 
 h1,
@@ -215,14 +199,28 @@ h1,
   word-wrap: break-word;
 }
 
-.center,
-.main_column {
+.center {
   width: 690px;
   padding: 0;
 }
 
 @media only print {
+  .print-page-wrapper {
+    height: 100vh;
+    overflow: hidden;
+    page-break-after: always;
+    position: relative;
+  }
+
   .page__header {
     display: none;
+  }
+
+  .creative-commons-logo {
+    float: left;
+  }
+
+  .footer-link {
+    margin-top: -1rem;
   }
 }
