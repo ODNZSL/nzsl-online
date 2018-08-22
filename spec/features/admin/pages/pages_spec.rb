@@ -9,7 +9,7 @@ RSpec.describe 'Admin login', type: :feature do
   context 'not logged in' do
     describe 'views pages#index' do
       before { visit admin_pages_path }
-      it { is_expected.to have_text 'Forgot your password?'}
+      it { is_expected.to have_text 'Forgot your password?' }
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe 'Admin login', type: :feature do
       before { visit admin_pages_path }
       it { is_expected.to have_text 'Pages' }
       it { is_expected.to have_link 'New Page' }
-      it { is_expected.to have_text pages.first.label}
+      it { is_expected.to have_text pages.first.label }
     end
   end
 end
