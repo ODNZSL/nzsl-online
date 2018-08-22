@@ -43,72 +43,74 @@
       margin-bottom: 5px;
       float: left;
     }
+  }
+}
 
-    .card {
-      &__bottom-row {
-        background-color: $white;
-        bottom: 0;
-        height: 8rem;
-        left: 0;
-        position: absolute;
-        width: 100%;
-      }
+.card {
+  &__bottom-row {
+    background-color: $white;
+    bottom: 0;
+    height: 8rem;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 
-      &__sign-container {
-        padding: 0 .75rem;
-        text-align: right;
-        vertical-align: middle;
-      }
-  
-      &__drawing-image {
-        margin: 0;
-        max-width: 50%;
-      }
+  &__sign-container {
+    padding: 0 .75rem;
+    text-align: right;
+    vertical-align: middle;
+  }
 
-      &__button-container {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-      }
+  &__drawing-image {
+    margin: 0;
+    max-width: 50%;
+  }
 
-      &__button {
-        flex: 50%;
-        text-align: left;
-      }
+  &__button-container {
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 
-      &__button-symbol {
-        display: inline-block;
-        width: 1.5rem;
-        text-align: center;
-        font-weight: bold;
-        color: $white;
+  &__button {
+    flex: 50%;
+    text-align: left;
+  }
 
-        &--peach {
-          background-color: $peach;
-        }
+  &__button-symbol {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 1.5rem;
 
-        &--blue {
-          background-color: $primary-blue;
-        }
-      }
+    &--peach {
+      background-color: $peach;
+    }
 
-      &__button-action {
-        @include montserrat-regular;
-  
-        border-bottom: 0;
-        font-size: $subgloss-font-size;
-        text-align: left;
-
-        &--peach {
-          color: $peach;
-        }
-      }
+    &--blue {
+      background-color: $primary-blue;
     }
   }
 
+  &__button-action {
+    @include montserrat-regular;
+
+    border-bottom: 0;
+    font-size: $subgloss-font-size;
+    text-align: left;
+
+    &--peach {
+      color: $peach;
+    }
+  }
+}
+
+.search-results {
   @media (min-width: $medium-screen) {
     &__container {
       display: flex;
