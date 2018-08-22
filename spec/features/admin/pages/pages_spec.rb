@@ -6,7 +6,6 @@ RSpec.describe 'Admin login', type: :feature do
   subject { page }
   let!(:pages) { FactoryBot.create_list :page, 10 }
 
-
   context 'not logged in' do
     describe 'views pages#index' do
       before { visit admin_pages_path }
