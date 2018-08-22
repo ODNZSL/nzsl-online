@@ -34,11 +34,11 @@ module VocabSheetHelper
       if @size == 5
         15
       elsif @size == 4
-        8
+        12
       elsif @size == 3
         6
       elsif @size == 2
-        2
+        4
       else
         1
       end
