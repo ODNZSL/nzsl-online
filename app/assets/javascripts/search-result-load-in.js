@@ -10,6 +10,5 @@ $(document).ready(function() {
   });
   $(window).on('load', function() {
     $('.search-results__card').removeClass('search-results--placeholder');
-    console.log("window removed placeholder:");
   });
 });
