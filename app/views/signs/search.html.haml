@@ -5,7 +5,7 @@
     &ldquo;#{display_search_term}&rdquo;
 .search-results__container.text-center.small-12.small-centered.medium-8.large-9
   - @signs.each do |sign|
-    .search-results__card.search-results--placeholder
+    .search-results__card.search-results--placeholder 
       - if @query[:s]
         - query_text = @query[:s].join(" ")
       - else
