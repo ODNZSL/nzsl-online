@@ -2,17 +2,7 @@ $(document).ready(function() {
   $('.add-to-vocab-btn').click(function(e) {
     e.preventDefault();
     var signId = $(this).attr('data-sign-id');
-
-    var successNotice =
-      '<div class="flash vocab_var_notice ajax-success-response">'
-      + 'You have added a sign to your vocab sheet.'
-      + '</div>';
-
-    var failureNotice =
-      '<div class="flash vocab_var_notice ajax-failure-response">'
-      + 'There was an error adding a sign to your vocab sheet.'
-      + '</div>';
-
+    var notice = '.vocab_sheet .ajax-flash';
     var vocabList = '.vocab_sheet_bar ul';
 
     $.ajax({
@@ -35,23 +25,19 @@ $(document).ready(function() {
         $('.vocab_sheet_bar').show();
       }
     
-       $(successNotice).insertBefore(vocabList);
-       $(vocabList).append(data);
-    
-       setTimeout(function() {
-         $('.ajax-success-response').remove();
-       }, 2000);
+      $(notice).show().text('You have added a sign to your vocab sheet.');
+      $(vocabList).append(htmlElem);
+      hideNotice();
     }
 
     function onVocabItemError(errorMessage) {
       console.error(errorMessage);
 
       if ($('.vocab_sheet_bar').css('display') !== 'none') {
-        $(failureNotice).insertBefore(vocabList);
-
-        setTimeout(function() {
-          $('.ajax-failure-response').remove();
-        }, 2000);
+        $(notice).show().text(
+          'There was an error adding a sign to your vocab sheet.'
+        );
+        hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
           '<div class="flash notice">'
@@ -59,6 +45,12 @@ $(document).ready(function() {
           + '</div>'
         );
       }
+    }
+
+    function hideNotice() {
+      setTimeout(function() {
+        $(notice).hide();
+      }, 2000);
     }
   });
 });

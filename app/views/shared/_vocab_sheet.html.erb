@@ -7,6 +7,7 @@
     <%= link_button 'vocab_sheet.print', vocab_sheet_url(print: true) %>
   </div>
   <%= render partial: 'shared/flashes', locals: { prefix: 'vocab_bar_' } %>
+  <div class="flash vocab_var_notice ajax-flash" style="display: none;"></div>
   <%= content_tag :ul do %>
     <% if vocab_sheet? %>
       <%= render partial: 'shared/vocab_sheet_item', collection: sheet.items, locals: { modify_gloss: false } %>
