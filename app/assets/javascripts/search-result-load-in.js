@@ -6,14 +6,10 @@ $(document).ready(function() {
         transitionDelay: (searchResult * 0.05) + 's',
       })
       .addClass('show-card');
-      setTimeout(function() {
-        $('.search-results__card').removeClass('search-results--placeholder');
-        console.log("placeholder removing");
-      }, searchResult * 200 );
     searchResult++;
   });
+  $(window).on('load', function() {
+    $('.search-results__card').removeClass('search-results--placeholder');
+    console.log("window removed placeholder:");
+  });
 });
-// $(window).on('load', function(){
-//   $('.search-results__card').addClass('search-results--placeholder');
-//   console.log("window loaded with placeholder:");
-// });
