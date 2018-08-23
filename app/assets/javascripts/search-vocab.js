@@ -7,7 +7,7 @@ $(document).ready(function() {
       e.preventDefault();
       addVocabItem($(this).attr('data-sign-id'));
     });
-  
+
     function addVocabItem(signId) {
       $.ajax({
         url: '/vocab_sheet/items/',
@@ -24,20 +24,20 @@ $(document).ready(function() {
         onVocabItemError(error.statusText);
       });
     }
-  
+
     function onVocabItemAdded(htmlElem) {
       if ($('.vocab_sheet_bar').css('display') === 'none') {
         $('.vocab_sheet_bar').show();
       }
-  
+
       $(notice).show().text('You have added a sign to your vocab sheet.');
       $(vocabList).append(htmlElem);
       hideNotice();
     }
-  
+
     function onVocabItemError(errorMessage) {
       console.error(errorMessage);
-  
+
       if ($('.vocab_sheet_bar').css('display') !== 'none') {
         $(notice).show().text(
           'There was an error adding a sign to your vocab sheet.'
@@ -51,7 +51,7 @@ $(document).ready(function() {
         );
       }
     }
-  
+
     function hideNotice() {
       setTimeout(function() {
         $(notice).hide();
