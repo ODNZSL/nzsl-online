@@ -24,7 +24,7 @@ $(document).ready(function() {
       if ($('.vocab_sheet_bar').css('display') === 'none') {
         $('.vocab_sheet_bar').show();
       }
-    
+
       $(notice).show().text('You have added a sign to your vocab sheet.');
       $(vocabList).append(htmlElem);
       hideNotice();

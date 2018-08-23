@@ -4,3 +4,5 @@ engines:
     checks:
       no-var:
         enabled: false
+      require-jsdoc:
+        enabled: false
