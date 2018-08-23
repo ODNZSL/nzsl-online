@@ -1,5 +1,5 @@
 class AddNotesToItem < ActiveRecord::Migration
   def change
-    add_index :items, :notes, :string, default: ''
+    add_column :items, :notes, :string, null: false, default: ""
   end
 end
