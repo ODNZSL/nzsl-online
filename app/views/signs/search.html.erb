@@ -20,21 +20,15 @@
               <%= link_to sign_url(sign.id), { class: 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);" } do %>
                 <%= sign.gloss_main %>
               <% end %>
-              <% if sign.gloss_secondary.present? %>
-                <div class="secondary_gloss text-left">
-                  <%= sign.gloss_secondary %>
-                </div>
-              <% end %>
-              <% if sign.gloss_maori %>
-                <div class="maori_gloss small-12 text-left">
-                  <%= sign.gloss_maori %>
-                </div>
-              <% end %>
-              <% if sign.word_classes.present? %>
-                <div class="word_gloss small-12 text-left">
-                  <%= sign.word_classes %>
-                </div>
-              <% end %>
+              <div class="secondary_gloss text-left">
+                <%= sign.gloss_secondary if sign.gloss_secondary.present? %>
+              </div>
+              <div class="maori_gloss small-12 text-left">
+                <%= sign.gloss_maori if sign.gloss_maori %>
+              </div>
+              <div class="word_gloss small-12 text-left">
+                <%= sign.word_classes if sign.word_classes.present? %>
+              </div>
             </div>
           </span>
         </a>
