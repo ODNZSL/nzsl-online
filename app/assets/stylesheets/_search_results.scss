@@ -8,7 +8,7 @@
     opacity: 0;
     outline: 1px solid $primary-blue;
     overflow: hidden;
-    padding-bottom: 1rem;
+    padding-bottom: 8rem;
     position: relative;
     transform: translateY(-1rem);
     transition: {
@@ -30,11 +30,11 @@
     .video-js {
       background-color: transparent;
       max-width: 100%;
-      min-height: 11rem;
+      min-height: 10rem;
     }
 
     .clickable_link {
-      // background-color: $white;
+      background-color: $white;
       cursor: pointer;
     }
 
@@ -43,62 +43,110 @@
       margin-bottom: 5px;
       float: left;
     }
+  }
+}
 
-    .card__bottom-row {
-      // background-color: $white;
-      display: flex;
-      justify-content: space-between;
-    }
+.card {
+  &__bottom-row {
+    background-color: $white;
+    bottom: 0;
+    height: 8rem;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 
-    .button-container {
-      align-self: flex-end;
-      max-width: 45%;
-      padding-left: .75rem;
-    }
+  &__sign-container {
+    padding: 0 .75rem;
+    text-align: right;
+    vertical-align: middle;
+  }
 
-    .unicode_arrow {
-      color: $primary-blue;
-    }
+  &__drawing-image {
+    margin: 0;
+    max-width: 50%;
+  }
 
-    .show_link {
-      @include montserrat-regular;
+  &__button-container {
+    bottom: 0;
+    display: flex;
+    justify-content: space-between;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
 
-      border-bottom: 0;
-      font-size: $subgloss-font-size;
-    }
+  &__button {
+    flex: 50%;
+    text-align: left;
 
-    .sign-container {
-      max-width: 50%;
-      padding-right: .75rem;
-    }
-
-    .drawing__image {
-      margin: 0;
-      max-width: 100%;
+    &:active,
+    &:hover,
+    &:focus,
+    &:visited {
+      .card__button-symbol {
+        color: $white;
+      }
     }
   }
 
-  @media (min-width: $medium-screen) {
-    &__container {
-      display: flex;
-      flex-wrap: wrap;
+  &__button-symbol {
+    color: $white;
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    width: 1.5rem;
+
+    &--peach {
+      background-color: $peach;
     }
 
-    &__card {
-      margin-right: 1rem;
-      max-width: calc(50% - 1rem);
+    &--blue {
+      background-color: $primary-blue;
     }
   }
 
-  @media (min-width: $large-screen) {
-    &__card {
-      max-width: calc(33% - 1rem);
+  &__button-action {
+    @include montserrat-regular;
+
+    border-bottom: 0;
+    font-size: $subgloss-font-size;
+    text-align: left;
+
+    &--peach {
+      color: $peach;
     }
   }
+}
 
-  @media (min-width: $xlarge-screen) {
-    &__card {
-      max-width: calc(25% - 1rem);
-    }
+@media (min-width: $medium-screen) {
+  .search-results__container {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  .search-results__card {
+    margin-right: 1rem;
+    max-width: calc(50% - 1rem);
+  }
+
+  .video-js {
+    min-height: 15rem;
+  }
+}
+
+@media (min-width: $large-screen) {
+  .search-results__card {
+    max-width: calc(33% - 1rem);
+  }
+
+  .video-js {
+    min-height: 11rem;
+  }
+}
+
+@media (min-width: $xlarge-screen) {
+  .search-results__card {
+    max-width: calc(25% - 1rem);
   }
 }
