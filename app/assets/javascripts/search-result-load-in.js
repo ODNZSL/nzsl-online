@@ -3,7 +3,7 @@ $(document).ready(function() {
   $('.search-results__card').each(function() {
     $(this)
       .css({
-        transitionDelay: (searchResult * 0.05) + 's',
+        transitionDelay: (searchResult * 0.10) + 's',
       })
       .addClass('show-card');
     searchResult++;
