@@ -18,6 +18,7 @@
 //= require video
 //= require autocise_textarea
 //= require search-result-load-in
+//= require search-vocab
 
 
 $(function() { $(document).foundation(); });
