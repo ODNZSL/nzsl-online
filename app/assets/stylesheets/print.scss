@@ -49,6 +49,18 @@ footer .copyright {
   padding-bottom: 5rem;
 }
 
+.vocab-sheet__item {
+  &--column {
+    &-6 {
+      margin: 0;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $light-med-grey;
+      }
+    }
+  }
+}
+
 // from boilerplate
 // (removed a couple of rules)
 a::after {
@@ -132,7 +144,8 @@ object,
 .vocab-sheet__controls,
 .menu-list,
 .search-container,
-.hamburger-menu-icon {
+.hamburger-menu-icon,
+.character-count__wrap {
   display: none;
 }
 

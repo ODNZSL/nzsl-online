@@ -12,12 +12,13 @@
         = submit_button('vocab_sheet.change')
     - if size == 6
       .notes-view__notes
-        = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :delete do
+        = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :put do
           .input-with-character-count
             = text_area_tag "item[notes]", vocab_sheet_item.notes,  {class: 'item_notes vocab-sheet__text-input h3 notes', id: "item_#{vocab_sheet_item.id}_notes", maxlength: 500 }
             .character-count__wrap
               %span.character-count__count 500
               %span.character-count__label  characters remaining
+          = submit_button('vocab_sheet.change')
     = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :delete do
       %button.remove{:type => "submit"}
         = t('vocab_sheet.item.remove')

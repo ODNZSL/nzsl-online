@@ -31,7 +31,9 @@ module VocabSheetHelper
 
   def vocab_sheet_offset_multiple
     @vocab_sheet_offset_multiple = (
-      if @size == 5
+      if @size == 6
+        3
+      elsif @size == 5
         15
       elsif @size == 4
         12
