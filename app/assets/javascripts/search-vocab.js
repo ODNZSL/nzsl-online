@@ -39,14 +39,12 @@ $(document).ready(function() {
       console.error(errorMessage);
 
       if ($('.vocab_sheet_bar').css('display') !== 'none') {
-        $(notice).show().text(
-          'There was an error adding a sign to your vocab sheet.'
-        );
+        $(notice).show().text('Error, please try again.');
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
-          '<div class="flash notice">'
-          + 'There was an error adding a sign to your vocab sheet.'
+          '<div class="flash error">'
+          + 'Error, please try again.'
           + '</div>'
         );
       }
