@@ -58,5 +58,17 @@ $(document).ready(function() {
     }
   };
 
+  var checkCharacterCount = function() {
+    if ($('.input-with-character-count').length > 0) {
+      var textBox = $('.input-with-character-count textarea');
+      var count = $('.input-with-character-count .character-count__count');
+
+      textBox.keyup(function() {
+        count.text(500 - $(this).val().length);
+      });
+    }
+  };
+
   setup_vocab_sheet_page();
+  checkCharacterCount();
 });

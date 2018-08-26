@@ -22,77 +22,6 @@
   align-content: flex-start;
 }
 
-.vocab_sheet_item {
-  flex-basis: 100%;
-  padding: 5px;
-  position: relative;
-
-  &__column {
-    margin: 20px 0;
-
-    &--1,
-    &--6 {
-      flex-basis: 100%;
-    }
-
-    &--2 {
-      flex-basis: 50%;
-    }
-
-    &--3 {
-      flex-basis: 33%;
-    }
-
-    &--4 {
-      flex-basis: 25%;
-    }
-
-    &--5 {
-      flex-basis: 20%;
-    }
-  }
-}
-
-.vocab_sheet_drawing__size {
-  &--2 {
-    min-height: 290px;
-  }
-
-  &--3 {
-    min-height: 190px;
-  }
-
-  &--4 {
-    min-height: 140px;
-  }
-
-  &--5,
-  &--6 {
-    min-height: 110px;
-  }
-}
-
-.vocab_sheet_item a {
-  text-align: center;
-  display: block;
-  color: #34414b;
-  text-decoration: none;
-  background-color: transparent;
-  border: 0;
-}
-
-.vocab_sheet_item .remove {
-  position: absolute;
-  width: 28px;
-  height: 25px;
-  border: 0;
-  text-indent: -9999px;
-  overflow: hidden;
-  background: {
-    color: transparent;
-    image: image-url('ui/vocab-delete.png');
-  };
-}
 
 /* bar specific */
 .vocab_sheet_bar {
@@ -130,14 +59,6 @@
 }
 
 /* sheet specific */
-.vocab_sheet_page_item textarea {
-  resize: none;
-  text-align: center;
-  height: 2.1em;
-  line-height: 1;
-  z-index: 3;
-  position: relative;
-}
 
 .vocab_sheet_page {
   padding-bottom: 10px;
@@ -146,43 +67,8 @@
   margin: 0 auto;
 }
 
-.vocab_sheet_page_item {
-  border: 1px solid $light-med-grey;
-  margin-right: 11px;
-  background: white;
-}
-
-.vocab_sheet_page_item .item_name {
-  margin-bottom: 5px;
-  position: relative;
-  z-index: 11;
-}
-
-.vocab_sheet_page_item .item_maori_name {
-  margin-bottom: 5px;
-  position: relative;
-  z-index: 11;
-}
-
-.vocab_sheet_page_item {
-  .drawing {
-    vertical-align: middle;
-    padding: 0 3px;
-
-    img {
-      margin: 0;
-      max-width: 100%;
-    }
-  }
-
-  .remove {
-    top: -10px;
-    right: -14px;
-  }
-}
-
 /* no-js friendly */
-.no-js .vocab_sheet_item .button {
+.no-js .vocab-sheet__item .button {
   position: absolute;
   top: 10px;
   left: 10px;
@@ -224,6 +110,163 @@
   padding: 5px;
 }
 
+.radio_wrapper input {
+  vertical-align: middle;
+}
+
+.vocab-sheet {
+  &__item {
+    flex-basis: 100%;
+    padding: 5px;
+    position: relative;
+  
+    &--column {
+      margin: 20px 0;
+  
+      &-1,
+      &-6 {
+        flex-basis: 100%;
+      }
+  
+      &-2 {
+        flex-basis: 50%;
+      }
+  
+      &-3 {
+        flex-basis: 33%;
+      }
+  
+      &-4 {
+        flex-basis: 25%;
+      }
+  
+      &-5 {
+        flex-basis: 20%;
+      }
+  
+      &-6 {
+        .vocab-sheet__item {
+          display: flex;
+          justify-content: space-between;
+          padding: 0;
+        }
+  
+        .notes-view {
+          &__gloss {
+            max-width: 10rem;
+            flex: 10rem;
+            padding: .5rem 1rem .5rem .5rem;
+            border-right: 1px solid $light-med-grey;
+          }
+  
+          &__notes {
+            max-width: 90%;
+            flex: 90% 9;
+            padding: .5rem .5rem .5rem 1rem;
+          }
+        }
+      }
+    }
+
+    .character-count {
+      &__wrap {
+        color: $light-med-grey;
+        font-size: .75rem;
+        text-align: right;
+      }
+    }
+  
+    a {
+      text-align: center;
+      display: block;
+      color: #34414b;
+      text-decoration: none;
+      background-color: transparent;
+      border: 0;
+    }
+  
+    .remove {
+      position: absolute;
+      width: 28px;
+      height: 25px;
+      border: 0;
+      text-indent: -9999px;
+      overflow: hidden;
+      background: {
+        color: transparent;
+        image: image-url('ui/vocab-delete.png');
+      };
+    }
+  }
+
+  &__text-input {
+    resize: none;
+    text-align: center;
+    min-height: 2.1em;
+    height: auto;
+    line-height: 1;
+    z-index: 3;
+    position: relative;
+
+    &.notes {
+      min-height: 10rem;
+      text-align: left;
+    }
+  }
+
+  &__page-item {
+    border: 1px solid $light-med-grey;
+    margin-right: 11px;
+    background: white;
+  
+    .item-name {
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 11;
+    }
+  
+    .drawing {
+      vertical-align: middle;
+      padding: 0 3px;
+  
+      img {
+        margin: 0;
+        max-width: 100%;
+      }
+    }
+  
+    .remove {
+      top: -10px;
+      right: -14px;
+    }
+  
+    .item_maori_name {
+      margin-bottom: 5px;
+      position: relative;
+      z-index: 11;
+    }
+  }
+}
+
+.vocab_sheet_drawing__size {
+  &--2 {
+    min-height: 290px;
+  }
+
+  &--3 {
+    min-height: 190px;
+  }
+
+  &--4 {
+    min-height: 140px;
+  }
+
+  &--5,
+  &--6 {
+    min-height: 110px;
+  }
+}
+
 // Buttons for user to specify print layout of their vocab sheet - do not delete:
 
 .vocab-sheet {
@@ -249,6 +292,48 @@
     height: 32px;
     display: inline-block;
     margin-right: 10px;
+    position: relative;
+    z-index: 1;
+    filter: grayscale(100%);
+    transition: {
+      duration: .2s;
+      property: filter;
+      timing-function: ease-in-out;
+    };
+
+    &[data-tooltip="true"] {
+      &:after {
+        @include border-radius-small;
+
+        background: rgba($white, 0.9);
+        border: 1px solid $light-med-grey;
+        content: attr(data-tooltip-text);
+        color: $primary-blue;
+        
+        position: absolute;
+        top: -1000vh;
+        left: -1rem;
+        width: 10rem;
+        text-align: center;
+        padding: 0.5rem 1rem;
+        opacity: 0;
+        z-index: 2;
+        transition: {
+          duration: .2s;
+          property: opacity;
+          timing-function: ease-in-out;
+        };
+      }
+
+      &:hover {
+        filter: grayscale(0);
+
+        &:after {
+          opacity: 1;
+          top: 2rem;
+        }
+      }
+    }
   }
 
   &__page-controls {
@@ -269,8 +354,4 @@
       margin-right: 5px;
     }
   }
-}
-
-.radio_wrapper input {
-  vertical-align: middle;
 }

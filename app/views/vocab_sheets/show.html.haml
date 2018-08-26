@@ -1,0 +1,36 @@
+- content_for :scripts do
+  \# javascript_include_tag
+- content_for :head do
+  = stylesheet_link_tag "smoothness/jquery-ui.css"
+
+.vocab-sheet__head
+  .vocab-sheet__controls.vocab-sheet__page-controls
+    = orange_submit_button "vocab_sheet.print", {print: true}
+    = form_tag vocab_sheet_path, method: :delete, class: "" do
+      = orange_submit_button "vocab_sheet.delete"
+    .vocab-sheet__size-controls
+      .vocab-sheet__size-control-box
+        = link_to vocab_sheet_path(size: 1), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "1 Column" } do
+          = image_tag "/ui/vocab-sheet-icon-1.jpg"
+        = link_to vocab_sheet_path(size: 2), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "2 Columns" } do
+          = image_tag "/ui/vocab-sheet-icon-2.jpg"
+        = link_to vocab_sheet_path(size: 3), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "3 Columns" } do
+          = image_tag "/ui/vocab-sheet-icon-3.jpg"
+        = link_to vocab_sheet_path(size: 4), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "4 Columns" } do
+          = image_tag "/ui/vocab-sheet-icon-4.jpg"
+        = link_to vocab_sheet_path(size: 5), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "5 Columns" } do
+          = image_tag "/ui/vocab-sheet-icon-5.jpg"
+      .vocab-sheet__size-control-box
+        = link_to vocab_sheet_path(size: 6), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "Notes view" } do
+          = image_tag "/ui/vocab-sheet-icon-6.jpg"
+  = render partial: "vocab_sheets/vocab_sheet_name", locals: { sheet_name: @sheet.name }
+  .if_js
+    = t("vocab_sheet.sortable_instruction")
+
+- if @sheet.items.length > 0
+  .vocab_sheet.vocab_sheet_page.rule_after.clearfix_left
+    %ul#vocab_sheet
+      - @sheet.items.each_with_index do |vocab_sheet_item, i|
+        = render partial: "vocab_sheets/vocab_sheet_item", locals: { vocab_sheet_item: vocab_sheet_item, size: @size }
+- else
+  = t("vocab_sheet.empty")
