@@ -154,12 +154,14 @@
 }
 
 .vocab_sheet_page_item .item_name {
+  min-height: 5rem;
   margin-bottom: 5px;
   position: relative;
   z-index: 11;
 }
 
 .vocab_sheet_page_item .item_maori_name {
+  min-height: 5rem;
   margin-bottom: 5px;
   position: relative;
   z-index: 11;
