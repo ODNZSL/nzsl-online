@@ -4,7 +4,7 @@
 
 FactoryBot.define do
   factory :setting do
-    key 'help'
+    key { 'help' }
     value { Faker::App.version }
   end
 end
