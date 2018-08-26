@@ -79,7 +79,7 @@ $(document).ready(function() {
 
         updateNotes(formAction, signId, notes);
       });
-    }
+    };
 
     function updateNotes(action, signId, notes) {
       xhr = $.ajax({
