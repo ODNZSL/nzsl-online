@@ -178,11 +178,15 @@ h2+h3 { margin-top:1em; }
   color: $med-grey;
 }
 
-.word_gloss,
 .maori_gloss {
+  font-size: $main-gloss;
   font-style: italic;
+}
+
+p.maori_gloss {
   display: block;
   font-size: $secondary-gloss;
+  font-style: italic;
 }
 
 .search-result-banner {

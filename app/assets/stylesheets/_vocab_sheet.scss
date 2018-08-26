@@ -131,7 +131,7 @@
 .vocab_sheet_page_item textarea {
   resize: none;
   text-align: center;
-  height: 2.1em;
+  height: 5.5em;
   line-height: 1;
   z-index: 3;
   position: relative;
@@ -140,7 +140,7 @@
 .vocab_sheet_page {
   padding-bottom: 10px;
   clear: left;
-  width: 690px;
+  width: 800px;
   margin: 0 auto;
 }
 
@@ -150,13 +150,17 @@
   background: white;
 }
 
-.vocab_sheet_page_item .item_name {
+.vocab_sheet_page_item .item_name,
+.vocab_sheet_page_item .item_maori_name {
+  height: 5em;
   margin-bottom: 5px;
+  margin-right: 0;
   position: relative;
   z-index: 11;
 }
 
 .vocab_sheet_page_item .item_maori_name {
+  font-size: $main-gloss;
   margin-bottom: 5px;
   position: relative;
   z-index: 11;
@@ -296,4 +300,25 @@
 
 .size_controls .selected_icon {
   background-color: #d2e2f9;
+}
+
+p.print_name {
+  max-width: 100%;
+  padding: none;
+}
+
+.print_view {
+  max-width: 25%;
+  padding: none;
+}
+
+.print_maori_name {
+  height: auto;
+}
+
+div.print_name,
+div.print_maori_name {
+  height: 5.8em;
+  padding-bottom: 20px;
+  word-wrap: break-word;
 }
