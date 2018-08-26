@@ -58,16 +58,16 @@ $(document).ready(function() {
     }
   };
 
-  var checkCharacterCount = function() {
-    if ($('.input-with-character-count').length > 0) {
-      var textBox = $('.input-with-character-count textarea');
-      var count = $('.input-with-character-count .character-count__count');
-      var formAction = textBox.closest('form').attr('action');
-      var signId = formAction.split('/')[-1];
-      var notes = "";
-      var updateInProgress = false;
-      var xhr = null;
+  if ($('.input-with-character-count').length > 0) {
+    var textBox = $('.input-with-character-count textarea');
+    var count = $('.input-with-character-count .character-count__count');
+    var formAction = textBox.closest('form').attr('action');
+    var signId = formAction.split('/')[-1];
+    var notes = '';
+    var updateInProgress = false;
+    var xhr = null;
 
+    var checkCharacterCount = function() {
       textBox.keyup(function() {
         notes = $(this).val();
         count.text(500 - notes.length);
@@ -79,30 +79,30 @@ $(document).ready(function() {
 
         updateNotes(formAction, signId, notes);
       });
-
-
-      function updateNotes(action, signId, notes) {
-        xhr = $.ajax({
-          url: action,
-          method: 'PUT',
-          data: {
-            sign_id: signId,
-            item: {
-              notes: notes,
-            },
-          },
-          headers: {
-            'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
-          },
-        }).done(function(data) {
-          // console.log("success!", data)
-        }).fail(function(error) {
-          console.error(error.statusText);
-        });
-      }
     }
+
+    function updateNotes(action, signId, notes) {
+      xhr = $.ajax({
+        url: action,
+        method: 'PUT',
+        data: {
+          sign_id: signId,
+          item: {
+            notes: notes,
+          },
+        },
+        headers: {
+          'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+        },
+      }).done(function(data) {
+        // console.log("success!", data)
+      }).fail(function(error) {
+        console.error(error.statusText);
+      });
+    }
+
+    checkCharacterCount();
   };
 
   setup_vocab_sheet_page();
-  checkCharacterCount();
 });
