@@ -11,22 +11,6 @@ $(document).ready(function() {
   });
 });
 
-// add the height to all textareas with same class name for
-// main glosses and maori glosses
-// as we want to keep each row at the same level
-var setRowHeight = function() {
-  if (checkIsMain) {
-    for(var i = 0; i < allItemName.length; i++) {
-      allItemName[i].style.height = height + 'px';
-    }
-  }
-  if (checkIsMaori) {
-    for(var i = 0; i < allItemMaoriName.length; i++) {
-      allItemMaoriName[i].style.height = height + 'px';
-    }
-  }
-};
-
 // Use an event to listen to all input events and then
 // filter out ones that are not on a textarea
 // if the element is a textarea we will call a
@@ -43,16 +27,13 @@ var autoExpandTextarea = function(field) {
   var checkIsMain = field.classList.contains('item_name');
   var checkIsMaori = field.classList.contains('item_maori_name');
 
-  // get all the textareas with class of the main and maori gloss
-  var allItemName = document.getElementsByClassName('item_name');
-  var allItemMaoriName = document.getElementsByClassName('item_maori_name');
-
   // Reset field height
   field.style.height = 'inherit';
 
   // get computed styles for the element and
   // scrollheight to calculate height of the content.
   var computed = window.getComputedStyle(field);
+
   // Calculate the height
   var height = parseInt(computed.getPropertyValue('border-top-width'), 10)
                + parseInt(computed.getPropertyValue('padding-top'), 10)
@@ -62,5 +43,11 @@ var autoExpandTextarea = function(field) {
   // Reset height of element using style property or just use the ifs?
   field.style.height = height + 'px';
 
-  setRowHeight();
+  // alter textarea row height to make consistent and even.
+  if(checkIsMain || checkIsMaori) {
+    for(var i = 0,  j = 0; i < checkIsMain.length, j < checkIsMaori.length; i++, j++) {
+       checkIsMain[i].style.height = height + 'px';
+       checkIsMaori[j].style.height = height + 'px';
+    }
+  }
 };
