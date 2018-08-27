@@ -69,40 +69,54 @@ $(document).ready(function() {
 
     var checkCharacterCount = function() {
       textBox.each(function() {
-        if ($(this).val() !== '') {
-          notes = $(this).val();
-          $(this).siblings('.character-count__wrap')
-            .children('.character-count__count')
-            .text(maxLength - notes.length);
-        }
+        setupCharacterCount($(this));
       });
 
       textBox.keypress(function() {
-        notes = $(this).val();
-
-        if (notes.length >= maxLength) {
-          $(this).addClass('max-length-reached');
-
-          setTimeout(function() {
-            textBox.removeClass('max-length-reached');
-          }, 1000);
-        }
+        checkForMaxLength($(this));
       });
 
       textBox.keyup(function() {
-        notes = $(this).val();
-        $(this).siblings('.character-count__wrap')
-          .children('.character-count__count')
-          .text(500 - notes.length);
-
-        if (updateInProgress) {
-          xhr.abort();
-          updateInProgress = false;
-        }
-
-        updateNotes(formAction, signId, notes);
+        setCharacterCount($(this));
       });
     };
+
+    function setupCharacterCount(elem) {
+      notes = elem.val();
+
+      if (notes !== '') {
+        elem.siblings('.character-count__wrap')
+          .children('.character-count__count')
+          .text(maxLength - notes.length);
+      }
+    }
+
+    function checkForMaxLength(elem) {
+      notes = elem.val();
+
+      if (notes.length >= maxLength) {
+        elem.addClass('max-length-reached');
+
+        setTimeout(function() {
+          textBox.removeClass('max-length-reached');
+        }, 1000);
+      }
+    }
+
+    function setCharacterCount(elem) {
+      notes = elem.val();
+
+      elem.siblings('.character-count__wrap')
+        .children('.character-count__count')
+        .text(500 - notes.length);
+
+      if (updateInProgress) {
+        xhr.abort();
+        updateInProgress = false;
+      }
+
+      updateNotes(formAction, signId, notes);
+    }
 
     function updateNotes(action, signId, notes) {
       xhr = $.ajax({
