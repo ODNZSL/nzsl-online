@@ -130,12 +130,13 @@
 /* sheet specific */
 .vocab_sheet_page_item textarea {
   resize: vertical;
+  min-height: 5rem;
   text-align: center;
   height: auto;
   line-height: 1;
   z-index: 3;
   position: relative;
-  overflow: visible;
+  overflow-y: hidden;
   white-space: pre;
   white-space: pre-wrap;
 }
@@ -155,7 +156,6 @@
 
 .vocab_sheet_page_item .item_name {
   min-height: 5rem;
-  max-height: 7rem;
   margin-bottom: 5px;
   position: relative;
   z-index: 11;
@@ -163,7 +163,6 @@
 
 .vocab_sheet_page_item .item_maori_name {
   min-height: 5rem;
-  max-height: 7rem;
   margin-bottom: 5px;
   position: relative;
   z-index: 11;
