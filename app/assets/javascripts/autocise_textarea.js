@@ -1,7 +1,11 @@
 // Use document ready and call the autoExpandTextarea function to display all edited text in textareas
+// textfield is either the item name or item_maori_name
+
 $(document).ready(function() {
-  autoExpandTextarea(textfield);
-}
+  $('textarea').each(function(textarea) {
+    $(this).height( $(this)[0].scrollHeight );
+});
+});
 
 // Use an event to listen to all input events and then filter out ones that are not on a textarea
 // if the element is a textarea we will call a auto_expand function
