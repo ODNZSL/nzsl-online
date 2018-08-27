@@ -1,14 +1,21 @@
-// Use document ready and call the autoExpandTextarea function to display all edited text in textareas
-// textfield is either the item name or item_maori_name
+// Need to set max height when user loads, reloads or refreshes their vocab sheet
+// Get the max height and apply to all textareas when page loads.
 
 $(document).ready(function() {
+  var numberArray = [];
   $('textarea').each(function(textarea) {
     $(this).height( $(this)[0].scrollHeight );
-});
+    // console.log("this: " + $(this).innerHeight());
+    numberArray.push($(this).innerHeight());
+    // Math.max.apply(Math, numberArray);
+    var max = Math.max.apply(Math, numberArray);
+    $(this).innerHeight(max);
+    // console.log("Max: " + max);
+  });
 });
 
 // Use an event to listen to all input events and then filter out ones that are not on a textarea
-// if the element is a textarea we will call a auto_expand function
+// if the element is a textarea we will call a autoExpandTextarea function
 // and pass in the element as an argument using event.target.
 document.addEventListener('input', function (event) {
   if (event.target.tagName.toLowerCase() !== 'textarea') return;
@@ -43,13 +50,11 @@ var autoExpandTextarea = function (field) {
   if (check_is_main) {
     for(var i = 0; i < all_item_name.length; i++) {
       all_item_name[i].style.height = height + 'px';
-      console.log("Title gloss length: " + all_item_name.length);
     }
   }
   if (check_is_maori) {
     for(var i = 0; i < all_item_maori_name.length; i++) {
       all_item_maori_name[i].style.height = height + 'px';
-      console.log("Title gloss length: " + all_item_maori_name.length);
     }
   }
 };
