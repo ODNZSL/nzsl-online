@@ -60,7 +60,6 @@ $(document).ready(function() {
 
   if ($('.input-with-character-count').length > 0) {
     var textBox = $('.input-with-character-count textarea');
-    var count = $('.input-with-character-count .character-count__count');
     var formAction = textBox.closest('form').attr('action');
     var signId = formAction.split('/')[-1];
     var notes = '';
@@ -68,9 +67,20 @@ $(document).ready(function() {
     var xhr = null;
 
     var checkCharacterCount = function() {
+      textBox.each(function() {
+        if ($(this).val() !== '') {
+          notes = $(this).val();
+          $(this).siblings('.character-count__wrap')
+            .children('.character-count__count')
+            .text(500 - notes.length);
+        }
+      });
+
       textBox.keyup(function() {
         notes = $(this).val();
-        count.text(500 - notes.length);
+        $(this).siblings('.character-count__wrap')
+          .children('.character-count__count')
+          .text(500 - notes.length);
 
         if (updateInProgress) {
           xhr.abort();

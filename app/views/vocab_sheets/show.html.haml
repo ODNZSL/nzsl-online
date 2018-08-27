@@ -10,19 +10,19 @@
       = orange_submit_button "vocab_sheet.delete"
     .vocab-sheet__size-controls
       .vocab-sheet__size-control-box
-        = link_to vocab_sheet_path(size: 1), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "1 Column" } do
-          = image_tag "/ui/vocab-sheet-icon-1.jpg"
-        = link_to vocab_sheet_path(size: 2), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "2 Columns" } do
-          = image_tag "/ui/vocab-sheet-icon-2.jpg"
-        = link_to vocab_sheet_path(size: 3), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "3 Columns" } do
-          = image_tag "/ui/vocab-sheet-icon-3.jpg"
-        = link_to vocab_sheet_path(size: 4), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "4 Columns" } do
-          = image_tag "/ui/vocab-sheet-icon-4.jpg"
-        = link_to vocab_sheet_path(size: 5), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "5 Columns" } do
-          = image_tag "/ui/vocab-sheet-icon-5.jpg"
+        = link_to vocab_sheet_path(size: 1), { class: @size == 1 ? "ir vocab-sheet__size-label current-size" : "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "1 Column" } do
+          = image_tag "ui/1-column.svg"
+        = link_to vocab_sheet_path(size: 2), { class: @size == 2 ? "ir vocab-sheet__size-label current-size" : "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "2 Columns" } do
+          = image_tag "ui/2-column.svg"
+        = link_to vocab_sheet_path(size: 3), { class: @size == 3 ? "ir vocab-sheet__size-label current-size" : "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "3 Columns" } do
+          = image_tag "ui/3-column.svg"
+        = link_to vocab_sheet_path(size: 4), { class: @size == 4 ? "ir vocab-sheet__size-label current-size" : "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "4 Columns" } do
+          = image_tag "ui/4-column.svg"
+        = link_to vocab_sheet_path(size: 5), { class: @size == 5 ? "ir vocab-sheet__size-label current-size" : "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "5 Columns" } do
+          = image_tag "ui/5-column.svg"
       .vocab-sheet__size-control-box
-        = link_to vocab_sheet_path(size: 6), { class: "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "Notes view" } do
-          = image_tag "/ui/vocab-sheet-icon-6.jpg"
+        = link_to vocab_sheet_path(size: 6), { class: @size == 6 ? "ir vocab-sheet__size-label current-size" : "ir vocab-sheet__size-label", "data-tooltip": "true", "data-tooltip-text": "Notes view" } do
+          = image_tag "ui/notes-view.svg"
   = render partial: "vocab_sheets/vocab_sheet_name", locals: { sheet_name: @sheet.name }
   .if_js
     = t("vocab_sheet.sortable_instruction")

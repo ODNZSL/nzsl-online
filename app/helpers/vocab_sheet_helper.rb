@@ -41,8 +41,9 @@ module VocabSheetHelper
         6
       elsif @size == 2
         4
+      else
+        1
       end
-      1
     )
   end
 
