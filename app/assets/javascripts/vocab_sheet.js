@@ -107,7 +107,7 @@ $(document).ready(function() {
 
       typeTimer = setTimeout(function() {
         notes = elem.val();
-  
+
         elem.siblings('.character-count__wrap')
           .children('.character-count__count')
           .text(500 - notes.length);
