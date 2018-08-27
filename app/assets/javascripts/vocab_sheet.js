@@ -60,6 +60,7 @@ $(document).ready(function() {
 
   if ($('.input-with-character-count').length > 0) {
     var textBox = $('.input-with-character-count textarea');
+    var maxLength = textBox.attr('maxlength');
     var formAction = textBox.closest('form').attr('action');
     var signId = formAction.split('/')[-1];
     var notes = '';
@@ -72,7 +73,19 @@ $(document).ready(function() {
           notes = $(this).val();
           $(this).siblings('.character-count__wrap')
             .children('.character-count__count')
-            .text(500 - notes.length);
+            .text(maxLength - notes.length);
+        }
+      });
+
+      textBox.keypress(function() {
+        notes = $(this).val();
+
+        if (notes.length >= maxLength) {
+          $(this).addClass('max-length-reached');
+
+          setTimeout(function() {
+            textBox.removeClass('max-length-reached');
+          }, 1000);
         }
       });
 
