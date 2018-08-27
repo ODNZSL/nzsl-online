@@ -6,11 +6,26 @@ $(document).ready(function() {
   $('textarea').each(function(textarea) {
     $(this).height( $(this)[0].scrollHeight );
     numberArray.push($(this).innerHeight());
-    // var max = Math.max.apply(Math, numberArray);
     var max = Math.max(...numberArray);
     $(this).innerHeight(max);
   });
 });
+
+// add the height to all textareas with same class name for
+// main glosses and maori glosses
+// as we want to keep each row at the same level
+var setRowHeight = function() {
+  if (checkIsMain) {
+    for(var i = 0; i < allItemName.length; i++) {
+      allItemName[i].style.height = height + 'px';
+    }
+  }
+  if (checkIsMaori) {
+    for(var i = 0; i < allItemMaoriName.length; i++) {
+      allItemMaoriName[i].style.height = height + 'px';
+    }
+  }
+}
 
 // Use an event to listen to all input events and then
 // filter out ones that are not on a textarea
@@ -47,18 +62,5 @@ var autoExpandTextarea = function(field) {
   // Reset height of element using style property or just use the ifs?
   field.style.height = height + 'px';
 
-  // add the height to all textareas with same class name for
-  // main glosses and maori glosses
-  // as we want to keep each row at the same level
-  if (checkIsMain) {
-    for(var i = 0; i < allItemName.length; i++) {
-      allItemName[i].style.height = height + 'px';
-    }
-  }
-
-  if (checkIsMaori) {
-    for(var i = 0; i < allItemMaoriName.length; i++) {
-      allItemMaoriName[i].style.height = height + 'px';
-    }
-  }
+  setRowHeight();
 };
