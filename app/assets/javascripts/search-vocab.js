@@ -56,4 +56,10 @@ $(document).ready(function() {
       }, 2000);
     }
   }
+
+  if ($('.vocab_bar_notice').length > 0) {
+    setTimeout(function() {
+      $('.vocab_bar_notice').hide();
+    }, 2000);
+  }
 });
