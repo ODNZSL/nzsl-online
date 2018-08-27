@@ -45,7 +45,7 @@ var autoExpandTextarea = function(field) {
 
   // alter textarea row height to make consistent and even.
   if(checkIsMain || checkIsMaori) {
-    for(var i = 0,  j = 0; i < checkIsMain.length, j < checkIsMaori.length; i++, j++) {
+    for(var i = 0, j = 0; i < checkIsMain.length, j < checkIsMaori.length; i++, j++) {
        checkIsMain[i].style.height = height + 'px';
        checkIsMaori[j].style.height = height + 'px';
     }
