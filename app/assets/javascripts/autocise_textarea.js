@@ -25,7 +25,7 @@ var setRowHeight = function() {
       allItemMaoriName[i].style.height = height + 'px';
     }
   }
-}
+};
 
 // Use an event to listen to all input events and then
 // filter out ones that are not on a textarea
