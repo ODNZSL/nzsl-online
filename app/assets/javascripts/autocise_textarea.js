@@ -24,8 +24,8 @@ document.addEventListener('input', function(event) {
 var autoExpandTextarea = function(field) {
   // check the field parameter class so we can give the
   // same height to other textareas with same class.
-  var checkIsMain = field.classList.contains('item_name');
-  var checkIsMaori = field.classList.contains('item_maori_name');
+  var isMain = field.classList.contains('item_name');
+  var isMaori = field.classList.contains('item_maori_name');
 
   // Reset field height
   field.style.height = 'inherit';
@@ -44,10 +44,10 @@ var autoExpandTextarea = function(field) {
   field.style.height = height + 'px';
 
   // alter textarea row height to make consistent and even.
-  if(checkIsMain || checkIsMaori) {
-    for(var i = 0, j = 0; i < checkIsMain.length, j < checkIsMaori.length; i++, j++) {
-       checkIsMain[i].style.height = height + 'px';
-       checkIsMaori[j].style.height = height + 'px';
+  if(isMain || isMaori) {
+    for(var i = 0, j = 0; i < isMain.length, j < isMaori.length; i++, j++) {
+       isMain[i].style.height = height + 'px';
+       isMaori[j].style.height = height + 'px';
     }
   }
 };
