@@ -31,7 +31,7 @@ module VocabSheetHelper
 
   def vocab_sheet_offset_multiple
     @vocab_sheet_offset_multiple = (
-      return offsets[:"size_#{@size}"] unless @size.nil?
+      return offsets[:"size_#{@size}"] if @size.present?
       offsets[:default]
     )
   end
