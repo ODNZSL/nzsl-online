@@ -35,8 +35,6 @@ $(document).ready(function() {
 
         var form_unchanged =  (item_name.val() === old_name.val() &&
                                 item_maori_name.val() === old_maori_name.val());
-                                console.log("height: " + item_maori_name.val());
-
         if (!form_unchanged) {
           $.post(form.attr('action'), form.serialize());
         }
