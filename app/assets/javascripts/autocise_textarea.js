@@ -5,12 +5,9 @@ $(document).ready(function() {
   var numberArray = [];
   $('textarea').each(function(textarea) {
     $(this).height( $(this)[0].scrollHeight );
-    // console.log("this: " + $(this).innerHeight());
     numberArray.push($(this).innerHeight());
-    // Math.max.apply(Math, numberArray);
     var max = Math.max.apply(Math, numberArray);
     $(this).innerHeight(max);
-    // console.log("Max: " + max);
   });
 });
 
@@ -52,6 +49,7 @@ var autoExpandTextarea = function (field) {
       all_item_name[i].style.height = height + 'px';
     }
   }
+
   if (check_is_maori) {
     for(var i = 0; i < all_item_maori_name.length; i++) {
       all_item_maori_name[i].style.height = height + 'px';
