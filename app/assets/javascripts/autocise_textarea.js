@@ -6,7 +6,8 @@ $(document).ready(function() {
   $('textarea').each(function(textarea) {
     $(this).height( $(this)[0].scrollHeight );
     numberArray.push($(this).innerHeight());
-    var max = Math.max.apply(Math, numberArray);
+    // var max = Math.max.apply(Math, numberArray);
+    var max = Math.max(...numberArray);
     $(this).innerHeight(max);
   });
 });
@@ -46,7 +47,8 @@ var autoExpandTextarea = function(field) {
   // Reset height of element using style property or just use the ifs?
   field.style.height = height + 'px';
 
-  // add the height to all textareas with same class name for main glosses and maori glosses
+  // add the height to all textareas with same class name for
+  // main glosses and maori glosses
   // as we want to keep each row at the same level
   if (checkIsMain) {
     for(var i = 0; i < allItemName.length; i++) {
