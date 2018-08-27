@@ -124,9 +124,7 @@ $(document).ready(function() {
         method: 'PUT',
         data: {
           sign_id: signId,
-          item: {
-            notes: notes,
-          },
+          notes: notes,
         },
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
