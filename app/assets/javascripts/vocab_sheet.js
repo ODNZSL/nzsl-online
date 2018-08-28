@@ -64,8 +64,7 @@ $(document).ready(function() {
     var formAction = textBox.closest('form').attr('action');
     var signId = formAction.split('/')[-1];
     var notes = '';
-    var updateInProgress = false;
-    var xhr = null;
+    var typeTimer = null;
 
     var checkCharacterCount = function() {
       textBox.each(function() {
@@ -104,22 +103,21 @@ $(document).ready(function() {
     }
 
     function setCharacterCount(elem) {
-      notes = elem.val();
+      clearTimeout(typeTimer);
 
-      elem.siblings('.character-count__wrap')
-        .children('.character-count__count')
-        .text(500 - notes.length);
+      typeTimer = setTimeout(function() {
+        notes = elem.val();
 
-      if (updateInProgress) {
-        xhr.abort();
-        updateInProgress = false;
-      }
+        elem.siblings('.character-count__wrap')
+          .children('.character-count__count')
+          .text(500 - notes.length);
 
-      updateNotes(formAction, signId, notes);
+        updateNotes(formAction, signId, notes);
+      }, 100);
     }
 
     function updateNotes(action, signId, notes) {
-      xhr = $.ajax({
+      $.ajax({
         url: action,
         method: 'PUT',
         data: {
