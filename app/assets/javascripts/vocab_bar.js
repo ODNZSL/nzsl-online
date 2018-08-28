@@ -24,10 +24,10 @@ $(document).ready(function() {
       var barBottom = bar.offset().top + bar.outerHeight(true) + baseMargin;
 
       if (windowScroll < bottom) {
-        bar.css({ top: initialOffset - offset });
-      } else if (barBottom < footerTop || 
+        bar.css({top: initialOffset - offset});
+      } else if (barBottom < footerTop ||
         (windowScroll < footerTop - (bar.outerHeight(true) + baseMargin))) {
-        bar.css({ top: windowScroll - offset + baseMargin });
+        bar.css({top: windowScroll - offset + baseMargin});
       }
     }
 

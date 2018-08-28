@@ -39,7 +39,7 @@ $(document).ready(function() {
       console.error(errorMessage);
 
       if ($('.vocab-sheet__bar').css('display') !== 'none') {
-        $(notice).addClass('show').text('Error, please try again.').addClass('error');
+        $(notice).addClass('show error').text('Error, please try again.');
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
