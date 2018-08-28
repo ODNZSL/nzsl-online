@@ -34,7 +34,6 @@
     }
 
     .clickable_link {
-      background-color: $white;
       cursor: pointer;
     }
 
@@ -48,7 +47,6 @@
 
 .card {
   &__bottom-row {
-    background-color: $white;
     bottom: 0;
     height: 8rem;
     left: 0;
