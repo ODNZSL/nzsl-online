@@ -46,9 +46,9 @@ $search-result-banner: 1.8em;
 }
 
 @mixin border-radius-small {
-  border-radius: 5px;
+  border-radius: .25rem;
 }
 
 @mixin border-radius-large {
-  border-radius: 25px;
+  border-radius: 1.5rem;
 }

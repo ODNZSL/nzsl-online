@@ -13,7 +13,8 @@ $super-pale-blue: #F0F6FA;
 $peach: #F57958;
 $dark-blue: #18435F;
 $darkest-blue: #061017;
-$error-red:  #CC0000;
+$error-red: #CC0000;
+$success-green: #9ACD32;
 // -------------------
 //  Old Color Styles
 $bright-pink: #FF5E99;
@@ -29,5 +30,6 @@ $light-pale-pink: #FEE;
 $required-red: #ff0000;
 
 // Vocab sheet variables:
-$vocab-bg: #d2d5d7;
+$vocab-bg: $oat-grey;
+$vocab-header-bg: #e1eef7;
 $vocab-border-color: #878f95;
