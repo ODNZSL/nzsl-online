@@ -2,11 +2,6 @@
   font-size: $h4-font-size;
 }
 
-.vocab_sheet_background .header,
-.vocab_sheet_background .main_column {
-  position: relative;
-} /* haslayout? */
-
 /* generic */
 .vocab_sheet {
   position: relative;
@@ -208,6 +203,7 @@
     background-color: $vocab-bg;
     overflow: hidden;
     height: 90vh;
+    display: none;
 
     &:after {
       content: '';
@@ -278,6 +274,10 @@
       &.error {
         background-color: $error-red;
       }
+    }
+
+    @media screen and (min-width: $medium-screen) {
+      display: block;
     }
   }
 
