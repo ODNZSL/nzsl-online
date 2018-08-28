@@ -5,9 +5,9 @@
     linear-gradient($pale-blue 15%, transparent 0), // bottom line
     linear-gradient($pale-blue 100%, transparent 0); // bottom right square
   background-position: // background poistion maps to background-image
-    0 65%, // top line left padding + top padding
-    0 70%, // middle line
-    0 75%, // bottom line
+    0 55%, // top line left padding + top padding
+    0 60%, // middle line
+    0 65%, // bottom line
     100% 100%; // bottom right square
   background-repeat: no-repeat;
   background-size: // background-size maps to background-position
