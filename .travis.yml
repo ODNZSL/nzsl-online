@@ -12,7 +12,7 @@ before_script:
 - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit' 'pandoc-ruby'
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
-- RAILS_ENV=test bundle exec rake db:create db:schema:load
+- RAILS_ENV=test bundle exec rake db:create db:migrate db:schema:load
 addons:
   apt_packages:
     - pandoc
