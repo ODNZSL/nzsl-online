@@ -24,7 +24,7 @@ document.addEventListener('input', function(event) {
 var autoExpandTextarea = function(field) {
   // check the field parameter class so we can give the
   // same height to other textareas with same class.
-  var isMain = field.classList.contains('item_name');
+  var isMain = field.classList.contains('item-name');
   var isMaori = field.classList.contains('item_maori_name');
 
   // Reset field height
