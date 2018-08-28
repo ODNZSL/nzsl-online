@@ -60,27 +60,12 @@
 
 /* sheet specific */
 
-.vocab_sheet_page_item textarea {
-  resize: vertical;
-  min-height: 5rem;
-  text-align: center;
-  height: auto;
-  line-height: 1;
-  z-index: 3;
-  position: relative;
-  overflow-y: hidden;
-  white-space: pre;
-  white-space: pre-wrap;
-}
-
-
 .vocab_sheet_page {
   padding-bottom: 10px;
   clear: left;
   width: 690px;
   margin: 0 auto;
 }
-
 
 /* no-js friendly */
 .no-js .vocab-sheet__item .button {
