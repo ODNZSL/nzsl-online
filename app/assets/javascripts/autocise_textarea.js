@@ -43,11 +43,15 @@ var autoExpandTextarea = function(field) {
   // Reset height of element using style property or just use the ifs?
   field.style.height = height + 'px';
 
-  // alter textarea row height to make consistent and even.
-  if(isMain || isMaori) {
-    for(var i = 0, j = 0; i < isMain.length, j < isMaori.length; i++, j++) {
-       isMain[i].style.height = height + 'px';
-       isMaori[j].style.height = height + 'px';
+  // alter textarea row height to make consistent and even
+  if(isMain) {
+    for(var mainIndex = 0; mainIndex < isMain.length; mainIndex++) {
+       isMain[mainIndex].style.height = height + 'px';
+    }
+  }
+  if(isMaori) {
+    for(var maoriIndex = 0; maoriIndex < isMaori.length; maoriIndex++) {
+       isMaori[maoriIndex].style.height = height + 'px';
     }
   }
 };
