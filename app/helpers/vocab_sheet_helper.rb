@@ -29,16 +29,28 @@ module VocabSheetHelper
     @vocab_sheet_item_width ||= vocab_sheet_image_width + 5
   end
 
-  def vocab_sheet_item_height
-    @vocab_sheet_item_height ||= 16 + vocab_sheet_image_height + vocab_sheet_label_height
-  end
-
   def vocab_sheet_offset_multiple
-    # 950 is the page height I'm apparently getting away with.
-    @vocab_sheet_offset_height ||= ((950.to_f / (39 + vocab_sheet_item_height)).floor * @size)
+    @vocab_sheet_offset_multiple = (
+      return offsets[:"size_#{@size}"] if @size.present?
+      offsets[:default]
+    )
   end
 
   def vocab_sheet_pages
     @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
+  end
+
+  private
+
+  def offsets
+    {
+      size_6: 3,
+      size_5: 15,
+      size_4: 12,
+      size_3: 6,
+      size_2: 4,
+      size_1: 1,
+      default: 1
+    }
   end
 end

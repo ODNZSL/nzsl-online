@@ -5,7 +5,7 @@ $(document).ready(function() {
       $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView) {
         $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
-          new_order = [];
+          var new_order = [];
           $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
           $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
         }});
@@ -56,6 +56,85 @@ $(document).ready(function() {
         $('textarea').attr('readonly', true);
       }
     }
+  };
+
+  if ($('.input-with-character-count').length > 0) {
+    var textBox = $('.input-with-character-count textarea');
+    var maxLength = textBox.attr('maxlength');
+    var formAction = textBox.closest('form').attr('action');
+    var signId = formAction.split('/')[-1];
+    var notes = '';
+    var typeTimer = null;
+
+    var checkCharacterCount = function() {
+      textBox.each(function() {
+        setupCharacterCount($(this));
+      });
+
+      textBox.keypress(function() {
+        checkForMaxLength($(this));
+      });
+
+      textBox.keyup(function() {
+        setCharacterCount($(this));
+      });
+    };
+
+    function setupCharacterCount(elem) {
+      notes = elem.val();
+
+      if (notes !== '') {
+        elem.siblings('.character-count__wrap')
+          .children('.character-count__count')
+          .text(maxLength - notes.length);
+      }
+    }
+
+    function checkForMaxLength(elem) {
+      notes = elem.val();
+
+      if (notes.length >= maxLength) {
+        elem.addClass('max-length-reached');
+
+        setTimeout(function() {
+          textBox.removeClass('max-length-reached');
+        }, 1000);
+      }
+    }
+
+    function setCharacterCount(elem) {
+      clearTimeout(typeTimer);
+
+      typeTimer = setTimeout(function() {
+        notes = elem.val();
+
+        elem.siblings('.character-count__wrap')
+          .children('.character-count__count')
+          .text(500 - notes.length);
+
+        updateNotes(formAction, signId, notes);
+      }, 100);
+    }
+
+    function updateNotes(action, signId, notes) {
+      $.ajax({
+        url: action,
+        method: 'PUT',
+        data: {
+          sign_id: signId,
+          notes: notes,
+        },
+        headers: {
+          'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+        },
+      }).done(function(data) {
+        // console.log("success!", data)
+      }).fail(function(error) {
+        console.error(error.statusText);
+      });
+    }
+
+    checkCharacterCount();
   };
 
   setup_vocab_sheet_page();

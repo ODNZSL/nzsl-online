@@ -17,5 +17,6 @@
 //= require custom_play_button
 //= require video
 //= require search-result-load-in
+//= require search-vocab
 
 $(function() { $(document).foundation(); });
