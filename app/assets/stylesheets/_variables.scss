@@ -1,7 +1,7 @@
-$small-screen: 320px;
-$medium-screen: 640px;
-$large-screen: 1024px;
-$xlarge-screen: 1440px;
+$small-screen: 20rem; // =320px
+$medium-screen: 40rem; // =640px
+$large-screen: 64rem; // =1024px
+$xlarge-screen: 90rem; // =1140px
 
 $h1-font-size: 1.8em;
 $h2-font-size: 1.6em;
@@ -17,20 +17,31 @@ $main-gloss: 1.333em;
 $secondary-gloss: 0.933em;
 $search-result-banner: 1.8em;
 
+$short-time: .2s;
+$medium-time: .3s;
+$long-time: .5s;
+$default-timing-function: ease-in-out;
+
 @mixin montserrat-light {
-  font-family: "Montserrat";
-  font-weight: 300;
-  font-size: 15px;
+  font: {
+    family: 'Montserrat', arial, sans-serif;
+    weight: 300;
+    size: .9rem;
+  }
 }
 
 @mixin montserrat-bold {
-  font-family: "Montserrat";
-  font-weight: 500;
+  font: {
+    family: 'Montserrat', arial, sans-serif;
+    weight: 500;
+  }
 }
 
 @mixin montserrat-regular {
-  font-family: "Montserrat";
-  font-weight: 400;
+  font: {
+    family: 'Montserrat', arial, sans-serif;
+    weight: 400;
+  }
 }
 
 @mixin center-element {
@@ -46,9 +57,17 @@ $search-result-banner: 1.8em;
 }
 
 @mixin border-radius-small {
-  border-radius: 5px;
+  border-radius: .25rem;
 }
 
 @mixin border-radius-large {
-  border-radius: 25px;
+  border-radius: 1.5rem;
+}
+
+@mixin transition($duration, $properties...) {
+  transition: {
+    duration: $duration;
+    property: $properties;
+    timing-function: $default-timing-function;
+  };
 }
