@@ -1,12 +1,12 @@
-.vocab_sheet.vocab-sheet__bar{style: vocab_sheet? ? "" : "display:none"}
-  %header.vocab-sheet__bar-header
+%aside.vocab-sidebar{style: vocab_sheet? ? "" : "display:none"}
+  %header.vocab-sidebar__header
     %h3.title
       = t('vocab_sheet.title')
-    .vocab-sheet__controls.clearfix
+    .vocab-sidebar__controls.clearfix
       = link_button 'vocab_sheet.link_to', vocab_sheet_url
       = link_button 'vocab_sheet.print', vocab_sheet_url(print: true)
     = render partial: 'shared/flashes', locals: { prefix: 'vocab_bar_' }
     .flash.vocab_var_notice.ajax-flash
-  = content_tag :ul, class: "vocab-sheet__bar-list" do
+  = content_tag :ul, class: "vocab-sidebar__list" do
     - if vocab_sheet?
       = render partial: 'shared/vocab_sheet_item', collection: sheet.items, locals: { modify_gloss: false }

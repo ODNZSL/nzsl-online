@@ -1,7 +1,7 @@
 $(document).ready(function() {
   if ($('.add-to-vocab-btn').length > 0) {
     var notice = '.vocab_sheet .ajax-flash';
-    var vocabList = '.vocab-sheet__bar ul';
+    var vocabList = '.vocab-sidebar ul';
 
     $('.add-to-vocab-btn').click(function(e) {
       e.preventDefault();
@@ -26,8 +26,8 @@ $(document).ready(function() {
     }
 
     function onVocabItemAdded(htmlElem) {
-      if ($('.vocab-sheet__bar').css('display') === 'none') {
-        $('.vocab-sheet__bar').show();
+      if ($('.vocab-sidebar').css('display') === 'none') {
+        $('.vocab-sidebar').show();
       }
 
       $(notice).addClass('show').text('Sign added');
@@ -38,7 +38,7 @@ $(document).ready(function() {
     function onVocabItemError(errorMessage) {
       console.error(errorMessage);
 
-      if ($('.vocab-sheet__bar').css('display') !== 'none') {
+      if ($('.vocab-sidebar').css('display') !== 'none') {
         $(notice).addClass('show error').text('Error, please try again.');
         hideNotice();
       } else {

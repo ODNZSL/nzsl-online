@@ -1,6 +1,6 @@
 $(document).ready(function() {
-  if ($('.vocab-sheet__bar').length > 0) {
-    var bar = $('.vocab-sheet__bar');
+  if ($('.vocab-sidebar').length > 0) {
+    var bar = $('.vocab-sidebar');
     var searchResultBanner = $('.search-result-banner');
     var offset = searchResultBanner.offset().top;
     var bottom = offset + searchResultBanner.outerHeight(true);
