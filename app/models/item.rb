@@ -11,7 +11,7 @@ class Item < ActiveRecord::Base
     self.name = (sign.is_a?(Sign) ? sign.gloss_main : nil) if name.nil?
     self.maori_name = (sign.is_a?(Sign) ? sign.gloss_maori : nil) if maori_name.nil?
     self.sign_id = sign.id if sign_id.nil?
-    self.drawing = sign.drawing if drawing.nil?
+    self.drawing = sign.drawing
   end
 
   default_scope { order('position ASC', 'created_at ASC') }
