@@ -180,9 +180,10 @@ $admin-dashboard-top-nav-height: 55px;
   .menu {
     li {
       &::after {
+        @include transition($long-time, opacity);
+
         display: none;
         opacity: 0;
-        transition: opacity 0.5s ease-in-out;
       }
 
       a {
@@ -191,9 +192,10 @@ $admin-dashboard-top-nav-height: 55px;
           margin: 0;
         }
         span {
+          @include transition($long-time, opacity);
+
           display: none;
           opacity: 0;
-          transition: opacity 0.5s ease-in-out;
         }
       }
     }

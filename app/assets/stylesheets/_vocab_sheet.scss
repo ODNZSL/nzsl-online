@@ -2,60 +2,15 @@
   font-size: $h4-font-size;
 }
 
-.vocab_sheet_background .header,
-.vocab_sheet_background .main_column {
-  position: relative;
-} /* haslayout? */
-
 /* generic */
 .vocab_sheet {
   position: relative;
   text-align: center;
 }
 
-.vocab_sheet ul {
-  padding: 0;
-  margin-left: auto;
-  list-style-type: none;
-  display: flex;
-  flex-wrap: wrap;
-  align-content: flex-start;
-}
-
-
 /* bar specific */
-.vocab_sheet_bar {
-  width: 120px;
-  position: absolute;
-  top: 130px;
-  right: 1rem;
-  bottom: 0;
-  z-index: 100;
-  background-image: linear-gradient(to right, $vocab-bg, transparent);
-  border-left: 1px solid $vocab-border-color;
-  overflow: auto;
-}
-
-.flash-shown .vocab_sheet_bar {
-  top: 169px;
-}
-
 .column_wrapper {
   overflow-y: hidden;
-}
-
-.vocab_sheet_bar_item {
-  @include border-radius-small;
-
-  background-color: white;
-  width: 100px;
-  margin: 15px auto;
-  box-shadow: -1px 1px 2px 2px $light-med-grey;
-}
-
-.vocab_sheet_bar_item .remove {
-  top: -8px;
-  right: -10px;
 }
 
 /* sheet specific */
@@ -89,9 +44,6 @@
   clear: left;
   margin-top: -10px;
 }
-.vocab_sheet_bar_controls .button {
-  @extend .orange_submit_button;
-}
 
 .flash {
   padding: 10px;
@@ -99,15 +51,6 @@
   color: white;
   text-align: center;
   width: 100%;
-}
-
-.vocab_sheet_bar .flash {
-  @include border-radius-small;
-
-  margin: 20px auto;
-  background: $primary-blue;
-  width: 80%;
-  padding: 5px;
 }
 
 .radio_wrapper input {
@@ -291,15 +234,12 @@
   }
 
   &__size-label {
+    @include transition($short-time, filter);
+
     display: inline-block;
     filter: grayscale(100%);
     height: 30px;
     position: relative;
-    transition: {
-      duration: .2s;
-      property: filter;
-      timing-function: ease-in-out;
-    };
     width: 30px;
     z-index: 1;
 
@@ -314,6 +254,7 @@
     &.has-tip {
       &:after {
         @include border-radius-small;
+        @include transition($short-time, opacity);
 
         background: rgba($white, 0.9);
         border: 1px solid $light-med-grey;
@@ -325,11 +266,6 @@
         position: absolute;
         text-align: center;
         top: -1000vh;
-        transition: {
-          duration: .2s;
-          property: opacity;
-          timing-function: ease-in-out;
-        };
         width: 10rem;
         z-index: 2;
       }
