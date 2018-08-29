@@ -104,45 +104,29 @@ $(document).ready(function() {
       var field = $(this);
       action = getFormAction(field);
       signId = getSignIdFromAction(action);
-      var data = {};
+      var data = {signId};
 
       if (field.hasClass('item-name')) {
-        data["name"] = field.val();
+        data['name'] = field.val();
       } else if (field.hasClass('item-maori-name')) {
-        data["maoriName"] = field.val();
+        data['maoriName'] = field.val();
       } else if (field.hasClass('item-notes')) {
-        data["notes"] = field.val();
+        data['notes'] = field.val();
       }
 
-      updateVocabItem(action, signId, data);
+      updateVocabItem(action, data);
     });
   }
 
-  function updateVocabItem(action, signId, params) {
-    clearTimeout(typeTimer);
-
-    typeTimer = setTimeout(function() {
-      if (!!signId) {
-        var data = {
-          sign_id: signId,
-        };
-
-        if (!!params.name) {
-          data["name"] = params.name;
-        }
-        if (!!params.maoriName) {
-          data["maori_name"] = params.maoriName;
-        }
-        if (!!params.notes) {
-          data["notes"] = params.notes;
-        }
-
+  function updateVocabItem(action, params) {
+    checkForTextTimeout(function(action, params) {
+      if (!!params.signId) {
         $.ajax({
-          url: action || '/vocab_sheet/items/' + signId,
+          url: action || '/vocab_sheet/items/' + params.signId,
           method: 'PUT',
-          data,
+          data: assignItemParams(params),
           headers: {
-            'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+            'X-CSRF-Token': $('meta[name='authenticity-token']').attr('content'),
           },
         }).done(function(data) {
           // console.log('success!', data);
@@ -150,8 +134,26 @@ $(document).ready(function() {
           console.error(error.statusText);
         });
       } else {
-        console.error('Error, cannot update vocab sheet item without ID. Parameters presented:', signId, params);
+        console.error('Error, cannot update vocab sheet item without ID. Parameters presented:', params);
       }
+    });
+  }
+
+  function assignItemParams(params) {
+    var data = {};
+
+    if (!!params.signId) data['sign_id'] = params.signId;
+    if (!!params.name) data['name'] = params.name;
+    if (!!params.maoriName) data['maori_name'] = params.maoriName;
+    if (!!params.notes) data['notes'] = params.notes;
+
+    return data;
+  }
+  function checkForTextTimeout(callback) {
+    clearTimeout(typeTimer);
+
+    typeTimer = setTimeout(function() {
+      return callback;
     }, 100);
   }
   function getFormAction(field) {
