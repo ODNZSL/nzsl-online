@@ -24,6 +24,10 @@ $(document).ready(function() {
       positionVocabBar();
     });
 
+    $(window).resize(function() {
+      footerTop = $('.sticky_footer').offset().top;
+    });
+
     positionVocabBar();
   }
 });
