@@ -1,7 +1,7 @@
 .print-page-wrapper
   .header
     = image_tag "ui/logo.png", class: "logo--print"
-    %h2.vocab__sheet-name--print-view= @sheet.name.present? ? sheet_name : t('vocab_sheet.name')
+    %h2.vocab__sheet-name--print-view= @sheet.name.present? ? @sheet.name : t('vocab_sheet.name')
   - if @sheet.items.length > 0
     .vocab_sheet.vocab_sheet_page
       %ul#vocab_sheet
