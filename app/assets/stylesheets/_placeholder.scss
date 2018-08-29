@@ -1,4 +1,5 @@
 .search-results--placeholder {
+  @include transition(.2s, opacity);
   z-index: 100;
   left: 0;
   opacity: 1;
@@ -22,11 +23,6 @@
     80% 15%, // middle line
     80% 15%, // bottom line
     50% 25%; // bottom right square
- transition: {
-    duration: .2s;
-    property: opacity;
-    timing-function: ease-in-out;
-  };
   &.hide-placeholder {
     opacity: 0;
   }
