@@ -8,7 +8,7 @@ $(document).ready(function() {
       autoExpandTextarea($(this));
     });
 
-    function autoExpandTextarea (field) {
+    function autoExpandTextarea(field) {
       var nameBeingChanged = '';
       var height = field.prop('scrollHeight');
 
