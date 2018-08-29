@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
   end
 
   def find_or_create_vocab_sheet
+    byebug
     @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
     @sheet ||= VocabSheet.create
     session[:vocab_sheet_id] = @sheet.id if @sheet
