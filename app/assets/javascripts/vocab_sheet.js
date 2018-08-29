@@ -106,13 +106,9 @@ $(document).ready(function() {
       signId = getSignIdFromAction(action);
       var data = {signId};
 
-      if (field.hasClass('item-name')) {
-        data['name'] = field.val();
-      } else if (field.hasClass('item-maori-name')) {
-        data['maoriName'] = field.val();
-      } else if (field.hasClass('item-notes')) {
-        data['notes'] = field.val();
-      }
+      if (field.hasClass('item-name')) data['name'] = field.val();
+      if (field.hasClass('item-maori-name')) data['maoriName'] = field.val();
+      if (field.hasClass('item-notes')) data['notes'] = field.val();
 
       updateVocabItem(action, data);
     });
@@ -142,10 +138,10 @@ $(document).ready(function() {
   function assignItemParams(params) {
     var data = {};
 
-    if (!!params.signId) data['sign_id'] = params.signId;
-    if (!!params.name) data['name'] = params.name;
-    if (!!params.maoriName) data['maori_name'] = params.maoriName;
-    if (!!params.notes) data['notes'] = params.notes;
+    if (params.signId !== null) data['sign_id'] = params.signId;
+    if (params.name !== null) data['name'] = params.name;
+    if (params.maoriName !== null) data['maori_name'] = params.maoriName;
+    if (params.notes !== null) data['notes'] = params.notes;
 
     return data;
   }
