@@ -16,7 +16,9 @@
 //= require search_result_link
 //= require custom_play_button
 //= require video
+//= require autocise_textarea
 //= require search-result-load-in
 //= require search-vocab
+
 
 $(function() { $(document).foundation(); });
