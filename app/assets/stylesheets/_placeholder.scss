@@ -1,18 +1,29 @@
 .search-results--placeholder {
+  @include transition($short-time, opacity);
+  z-index: 100;
+  left: 0;
+  opacity: 1;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: $white;
   background-image: // background properties map the remaining placeholder shapes
-    linear-gradient($pale-blue 20%, transparent 0), // top line with color at a height of 15%
+    linear-gradient($pale-blue 20%, transparent 0), // top line with color at a height of 20%
     linear-gradient($pale-blue 15%, transparent 0), // middle line
     linear-gradient($pale-blue 15%, transparent 0), // bottom line
     linear-gradient($pale-blue 100%, transparent 0); // bottom right square
   background-position: // background poistion maps to background-image
-    0 55%, // top line left padding + top padding
-    0 60%, // middle line
-    0 65%, // bottom line
-    100% 100%; // bottom right square
+    0 5%, // top line left padding + top padding
+    0 13%, // middle line
+    0 18%, // bottom line
+    100% 46%; // bottom right square
   background-repeat: no-repeat;
   background-size: // background-size maps to background-position
     80% 20%, // top line width + height
     80% 15%, // middle line
     80% 15%, // bottom line
     50% 25%; // bottom right square
+  &.hide-placeholder {
+    opacity: 0;
+  }
 }
