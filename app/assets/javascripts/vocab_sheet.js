@@ -25,21 +25,38 @@ $(document).ready(function() {
         }
       };
 
-      // Change the name of vocab sheet items
-      var submit_vocab_item_names = function(input) {
-        var form = input.closest('form');
-        var item_name =       form.children('.item_name');
-        var old_name =        form.children('.old_name');
-        var item_maori_name = form.children('.item_maori_name');
-        var old_maori_name =  form.children('.old_maori_name');
+      function updateVocabNames(params) {
+        if (!!params.signId) {
+          var data = {
+            sign_id: params.signId,
+          };
+  
+          if (!!params.name) {
+            data[name] = params.name;
+          }
+          if (!!params.maoriName) {
+            data[maori_name] = params.maoriName;
+          }
 
-        var form_unchanged =  (item_name.val() === old_name.val() &&
-                                item_maori_name.val() === old_maori_name.val());
-
-        if (!form_unchanged) {
-          $.post(form.attr('action'), form.serialize());
+          $.ajax({
+            url: params.action || '/vocab_sheet/items/' + params.signId,
+            method: 'PUT',
+            data: {
+              sign_id: params.signId,
+              notes: notes,
+            },
+            headers: {
+              'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+            },
+          }).done(function(data) {
+            // console.log("success!", data)
+          }).fail(function(error) {
+            console.error(error.statusText);
+          });
+        } else {
+          console.error('Error, cannot update vocab sheet item without ID. Parameters presented:', params);
         }
-      };
+      }
 
       $('.vocab_sheet textarea, input.vocab_sheet_name').keypress(function(e) {
         if (e.which == 13) {
