@@ -126,7 +126,7 @@ $(document).ready(function() {
           method: 'PUT',
           data: assignItemParams(params),
           headers: {
-            'X-CSRF-Token': $('meta[name='authenticity-token']').attr('content'),
+            'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
           },
         }).done(function(data) {
           // console.log('success!', data);
