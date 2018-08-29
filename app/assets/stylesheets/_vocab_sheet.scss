@@ -252,18 +252,14 @@
   
     .flash {
       @include border-radius-small;
-    
+      @include transition($short-time, opacity, max-height, margin-top, margin-bottom);
+
       margin: 0 auto;
       background-color: $success-green;
       width: 80%;
       padding: .25rem;
       opacity: 0;
       max-height: 0;
-      transition: {
-        duration: .2s;
-        property: opacity, max-height, margin-top, margin-bottom;
-        timing-function: ease-in-out;
-      };
 
       &.show {
         opacity: 1;
@@ -335,15 +331,12 @@
   }
 
   &__size-label {
+    @include transition($short-time, filter);
+
     display: inline-block;
     filter: grayscale(100%);
     height: 30px;
     position: relative;
-    transition: {
-      duration: .2s;
-      property: filter;
-      timing-function: ease-in-out;
-    };
     width: 30px;
     z-index: 1;
 
@@ -358,6 +351,7 @@
     &.has-tip {
       &:after {
         @include border-radius-small;
+        @include transition($short-time, opacity);
 
         background: rgba($white, 0.9);
         border: 1px solid $light-med-grey;
@@ -369,11 +363,6 @@
         position: absolute;
         text-align: center;
         top: -1000vh;
-        transition: {
-          duration: .2s;
-          property: opacity;
-          timing-function: ease-in-out;
-        };
         width: 10rem;
         z-index: 2;
       }

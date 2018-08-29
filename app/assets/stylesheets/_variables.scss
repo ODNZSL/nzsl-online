@@ -17,6 +17,11 @@ $main-gloss: 1.333em;
 $secondary-gloss: 0.933em;
 $search-result-banner: 1.8em;
 
+$short-time: .2s;
+$medium-time: .3s;
+$long-time: .5s;
+$default-timing-function: ease-in-out;
+
 @mixin montserrat-light {
   font: {
     family: 'Montserrat', arial, sans-serif;
@@ -57,4 +62,12 @@ $search-result-banner: 1.8em;
 
 @mixin border-radius-large {
   border-radius: 1.5rem;
+}
+
+@mixin transition($duration, $properties...) {
+  transition: {
+    duration: $duration;
+    property: $properties;
+    timing-function: $default-timing-function;
+  };
 }
