@@ -13,15 +13,23 @@ $(document).ready(function() {
       var barBottom = bar.offset().top + bar.outerHeight(true) + baseMargin;
 
       if (windowScroll < bottom) {
+        console.log('1');
         bar.css({top: initialOffset - offset});
       } else if (barBottom < footerTop ||
         (windowScroll < footerTop - (bar.outerHeight(true) + baseMargin))) {
+        console.log('2');
         bar.css({top: windowScroll - offset + baseMargin});
+      } else {
+        console.log('3');
       }
     }
 
     $(window).scroll(function() {
       positionVocabBar();
+    });
+
+    $(window).resize(function() {
+      footerTop = $('.sticky_footer').offset().top;
     });
 
     positionVocabBar();
