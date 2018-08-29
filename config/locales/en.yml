@@ -81,7 +81,7 @@ en:
       add_failure: This sign could not be added to your Vocab sheet - please try again in a moment.
       add_duplicate: This sign is already in your vocab sheet.
       remove: Remove
-      remove_success: You have removed a sign from your Vocab Sheet.
+      remove_success: Sign removed
       remove_failure: This sign has been removed from your Vocab Sheet.
       update: Rename
       update_success: You have updated a sign
