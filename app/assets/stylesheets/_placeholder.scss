@@ -1,5 +1,5 @@
 .search-results--placeholder {
-  @include transition(.2s, opacity);
+  @include transition($short-time, opacity);
   z-index: 100;
   left: 0;
   opacity: 1;
