@@ -5,7 +5,6 @@
 */
 
 @import 'color';
-@import 'placeholder';
 @import 'variables';
 @import 'foundation_and_overrides';
 @import 'foundation-icons';
@@ -24,6 +23,7 @@
 @import 'search_result_grid';
 @import 'home';
 @import 'ie_browser_support';
+@import 'placeholder';
 
 .hide { display: none; }
 .show { display: inline-block; }
