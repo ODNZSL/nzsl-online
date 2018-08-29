@@ -45,6 +45,22 @@ footer .copyright {
   display: inline-block;
 }
 
+.vocab_sheet_page {
+  padding-bottom: 5rem;
+}
+
+.vocab-sheet__item {
+  &--column {
+    &-6 {
+      margin: 0;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $light-med-grey;
+      }
+    }
+  }
+}
+
 // from boilerplate
 // (removed a couple of rules)
 a::after {
@@ -125,10 +141,11 @@ object,
 .view_print_back_link,
 .remove,
 .js .if_js,
-.vocab_sheet_controls,
+.vocab-sheet__controls,
 .menu-list,
 .search-container,
-.hamburger-menu-icon {
+.hamburger-menu-icon,
+.character-count__wrap {
   display: none;
 }
 
@@ -161,7 +178,7 @@ a.drawing::after {
 }
 
 // making the vocabsheet have a not editing looking view
-.vocab_sheet_page_item {
+.vocab-sheet__page-item {
   border: 0;
 }
 

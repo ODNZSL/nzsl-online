@@ -1,0 +1,24 @@
+%div{class: "vocab-sheet__item--column vocab-sheet__item--column-#{size}"}
+  %li.vocab-sheet__item.vocab-sheet__page-item.shadow.rounded
+    .notes-view__gloss
+      = hidden_field_tag "item[#{vocab_sheet_item.id}][id]", vocab_sheet_item.id, class: 'item_id'
+      = link_to sign_url(vocab_sheet_item.sign_id), { class: "drawing vocab_sheet_drawing drawing vocab_sheet_drawing__size--#{size}" } do
+        = image_tag "signs/#{vocab_sheet_image_width}-#{vocab_sheet_image_height}/#{vocab_sheet_item.drawing}"
+      = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :put do
+        = text_area_tag "item[name]", vocab_sheet_item.name, class: 'item-name vocab-sheet__text-input h3', id: "item_#{vocab_sheet_item.id}_name"
+        = hidden_field_tag "item[#{vocab_sheet_item.id}][old_name]", vocab_sheet_item.name, class: 'old_name'
+        = text_area_tag "item[maori_name]", vocab_sheet_item.maori_name, class: 'item_maori_name vocab-sheet__text-input h3 maori_gloss', id: "item_#{vocab_sheet_item.id}_maori_name"
+        = hidden_field_tag "item[#{vocab_sheet_item.id}][old_maori_name]", vocab_sheet_item.maori_name, class: 'old_maori_name'
+        = submit_button('vocab_sheet.change')
+    - if size == 6
+      .notes-view__notes
+        = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :put do
+          .input-with-character-count
+            = text_area_tag "item[notes]", vocab_sheet_item.notes,  {class: 'item_notes vocab-sheet__text-input h3 notes', id: "item_#{vocab_sheet_item.id}_notes", maxlength: 250 }
+            .character-count__wrap
+              %span.character-count__count 500
+              %span.character-count__label  characters remaining
+          = submit_button('vocab_sheet.change')
+    = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :delete do
+      %button.remove{:type => "submit"}
+        = t('vocab_sheet.item.remove')
