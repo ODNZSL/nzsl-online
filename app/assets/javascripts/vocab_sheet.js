@@ -116,7 +116,7 @@ $(document).ready(function() {
 
   function updateVocabItem(action, params) {
     checkForTextTimeout(function(action, params) {
-      if (!!params.signId) {
+      if (params.signId !== null) {
         $.ajax({
           url: action || '/vocab_sheet/items/' + params.signId,
           method: 'PUT',
