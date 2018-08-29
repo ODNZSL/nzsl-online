@@ -29,6 +29,8 @@ header {
     }
   }
   .overlay {
+    @include transition($long-time, all);
+
     width: 0;
     height: 100%;
     position: fixed;
@@ -37,14 +39,14 @@ header {
     top: 0;
     background-color: $primary-blue;
     overflow-x: hidden;
-    transition: .5s;
     a,
     span {
       @include montserrat-light;
+      @include transition($medium-time, all);
+
       font-size: 20px;
       color: $light-grey;
       line-height: 2.1;
-      transition: 0.3s;
     }
     .overlay-content {
       position: relative;

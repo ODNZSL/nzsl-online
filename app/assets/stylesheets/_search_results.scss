@@ -4,6 +4,8 @@
   }
 
   &__card {
+    @include transition($short-time, opacity, transform);
+
     margin-bottom: 1rem;
     opacity: 0;
     outline: 1px solid $primary-blue;
@@ -11,11 +13,6 @@
     padding-bottom: 8rem;
     position: relative;
     transform: translateY(-1rem);
-    transition: {
-      duration: .2s;
-      property: opacity, transform;
-      timing-function: ease-in-out;
-    };
     width: 100%;
 
     &.show-card {
@@ -34,7 +31,6 @@
     }
 
     .clickable_link {
-      background-color: $white;
       cursor: pointer;
     }
 
@@ -48,7 +44,6 @@
 
 .card {
   &__bottom-row {
-    background-color: $white;
     bottom: 0;
     height: 8rem;
     left: 0;
