@@ -40,7 +40,7 @@ module VocabSheetHelper
     @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
   end
 
-  def max_field_length
+  def vocab_sheet_max_field_length
     100
   end
 
