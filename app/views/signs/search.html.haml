@@ -4,11 +4,12 @@
     search results for #{display_search_term}
 .search-results__container.text-center.small-12.small-centered.medium-7.large-8.xlarge-9
   - @signs.each do |sign|
-    .search-results__card.search-results--placeholder
+    .search-results__card
       - @query[:s] ? query_text = @query[:s].join(" ") : query_text = " "
       .video-container.video--placeholder
         %i.fi-play.play-button
         = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
+      %span.search-results--placeholder
       .clickable_link.small-12.small-centered
         %a.div_link{:href => "#{sign_url(sign.id)}"}
           %span
