@@ -17,15 +17,9 @@ $(document).ready(function() {
       } else if (field.hasClass('item-maori-name')) {
         nameBeingChanged = '.item-maori-name';
       }
-
-
-
-  // alter textarea row height to make consistent and even
-
       $(nameBeingChanged).each(function() {
         $(this).css({height: height});
       });
-
     }
   }
 });
