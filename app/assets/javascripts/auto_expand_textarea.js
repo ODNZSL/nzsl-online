@@ -10,7 +10,7 @@ $(document).ready(function() {
 
     function autoExpandTextarea(field) {
       var nameBeingChanged = '';
-      var height = field.prop('scrollHeight');
+      var textHeight = field.prop('scrollHeight');
 
       if (field.hasClass('item-name')) {
         nameBeingChanged = '.item-name';
@@ -18,7 +18,7 @@ $(document).ready(function() {
         nameBeingChanged = '.item-maori-name';
       }
       $(nameBeingChanged).each(function() {
-        $(this).css({height: height});
+        $(this).css({height: textHeight});
       });
     }
   }
