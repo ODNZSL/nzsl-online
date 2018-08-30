@@ -6,6 +6,14 @@
 .vocab_sheet {
   position: relative;
   text-align: center;
+  ul {
+    padding: 0;
+    margin-left: auto;
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+  }
 }
 
 /* bar specific */
