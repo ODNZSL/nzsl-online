@@ -70,38 +70,38 @@
     flex-basis: 100%;
     padding: 5px;
     position: relative;
-  
+
     &--column {
       margin: 20px 0;
-  
+
       &-1,
       &-6 {
         flex-basis: 100%;
       }
-  
+
       &-2 {
         flex-basis: 50%;
       }
-  
+
       &-3 {
         flex-basis: 33%;
       }
-  
+
       &-4 {
         flex-basis: 25%;
       }
-  
+
       &-5 {
         flex-basis: 20%;
       }
-  
+
       &-6 {
         .vocab-sheet__item {
           display: flex;
           justify-content: space-between;
           padding: 0;
         }
-  
+
         .notes-view {
           &__gloss {
             max-width: 10rem;
@@ -109,7 +109,7 @@
             padding: .5rem 1rem .5rem .5rem;
             border-right: 1px solid $light-med-grey;
           }
-  
+
           &__notes {
             max-width: 90%;
             flex: 90% 9;
@@ -126,7 +126,7 @@
         text-align: right;
       }
     }
-  
+
     a {
       text-align: center;
       display: block;
@@ -135,7 +135,7 @@
       background-color: transparent;
       border: 0;
     }
-  
+
     .remove {
       position: absolute;
       width: 28px;
@@ -153,11 +153,13 @@
   &__text-input {
     resize: none;
     text-align: center;
-    min-height: 2.1em;
-    height: auto;
+    height: inherit;
     line-height: 1;
-    z-index: 3;
     position: relative;
+    margin-bottom: 5px;
+    position: relative;
+    white-space: pre-wrap;
+    z-index: 11;
 
     &.notes {
       min-height: 10rem;
@@ -173,32 +175,20 @@
     border: 1px solid $light-med-grey;
     margin-right: 11px;
     background: white;
-  
-    .item-name {
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 11;
-    }
-  
+
     .drawing {
       vertical-align: middle;
       padding: 0 3px;
-  
+
       img {
         margin: 0;
         max-width: 100%;
       }
     }
-  
+
     .remove {
       top: -10px;
       right: -14px;
-    }
-  
-    .item-maori-name {
-      margin-bottom: 5px;
-      position: relative;
-      z-index: 11;
     }
   }
 }
@@ -308,7 +298,7 @@
     float: right;
     margin-top: 43px;
     width: 425px;
-  
+
     .no-js & {
       width: 500px;
     }
@@ -316,7 +306,7 @@
     .button {
       margin-left: 5px;
     }
-  
+
     .orange_submit_button {
       float: left;
       margin-right: 5px;
