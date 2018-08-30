@@ -1,4 +1,6 @@
 $(document).ready(function() {
+  var typeTimer = null;
+
   var setup_vocab_sheet_page = function() {
     // Reorder vocab sheet items
     if ($('ul#vocab_sheet').length) {
@@ -25,21 +27,6 @@ $(document).ready(function() {
         }
       };
 
-      // Change the name of vocab sheet items
-      var submit_vocab_item_names = function(input) {
-        var form = input.closest('form');
-        var item_name =       form.children('.item_name');
-        var old_name =        form.children('.old_name');
-        var item_maori_name = form.children('.item_maori_name');
-        var old_maori_name =  form.children('.old_maori_name');
-
-        var form_unchanged =  (item_name.val() === old_name.val() &&
-                                item_maori_name.val() === old_maori_name.val());
-        if (!form_unchanged) {
-          $.post(form.attr('action'), form.serialize());
-        }
-      };
-
       $('.vocab_sheet textarea, input.vocab_sheet_name').keypress(function(e) {
         if (e.which == 13) {
           e.preventDefault();
@@ -48,7 +35,6 @@ $(document).ready(function() {
         }
         return true;
       });
-      $('.vocab_sheet textarea').blur(function() { submit_vocab_item_names($(this)); });
       $('input.vocab_sheet_name').blur(function() { submit_vocab_sheet_name($(this)); });
 
       if (document.printView) {
@@ -58,29 +44,25 @@ $(document).ready(function() {
   };
 
   if ($('.input-with-character-count').length > 0) {
-    var textBox = $('.input-with-character-count textarea');
-    var maxLength = textBox.attr('maxlength');
-    var formAction = textBox.closest('form').attr('action');
-    var signId = formAction.split('/')[-1];
-    var notes = '';
-    var typeTimer = null;
+    var textBoxes = $('.input-with-character-count textarea');
 
-    var checkCharacterCount = function() {
-      textBox.each(function() {
+    function checkCharacterCount() {
+      textBoxes.each(function() {
         setupCharacterCount($(this));
       });
 
-      textBox.keypress(function() {
+      textBoxes.keypress(function() {
         checkForMaxLength($(this));
       });
 
-      textBox.keyup(function() {
+      textBoxes.keyup(function() {
         setCharacterCount($(this));
       });
-    };
+    }
 
     function setupCharacterCount(elem) {
-      notes = elem.val();
+      var notes = elem.val();
+      var maxLength = elem.attr('maxlength');
 
       if (notes !== '') {
         elem.siblings('.character-count__wrap')
@@ -90,51 +72,88 @@ $(document).ready(function() {
     }
 
     function checkForMaxLength(elem) {
-      notes = elem.val();
+      var notes = elem.val();
+      var maxLength = elem.attr('maxlength');
 
       if (notes.length >= maxLength) {
         elem.addClass('max-length-reached');
 
         setTimeout(function() {
-          textBox.removeClass('max-length-reached');
+          textBoxes.removeClass('max-length-reached');
         }, 1000);
       }
     }
 
     function setCharacterCount(elem) {
-      clearTimeout(typeTimer);
+      var notes = elem.val();
+      var maxLength = elem.attr('maxlength');
 
-      typeTimer = setTimeout(function() {
-        notes = elem.val();
-
-        elem.siblings('.character-count__wrap')
-          .children('.character-count__count')
-          .text(500 - notes.length);
-
-        updateNotes(formAction, signId, notes);
-      }, 100);
-    }
-
-    function updateNotes(action, signId, notes) {
-      $.ajax({
-        url: action,
-        method: 'PUT',
-        data: {
-          sign_id: signId,
-          notes: notes,
-        },
-        headers: {
-          'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
-        },
-      }).done(function(data) {
-        // console.log("success!", data)
-      }).fail(function(error) {
-        console.error(error.statusText);
-      });
+      elem.siblings('.character-count__wrap')
+        .children('.character-count__count')
+        .text(maxLength - notes.length);
     }
 
     checkCharacterCount();
   };
+
+  if ($('.vocab-sheet__text-input').length > 0) {
+    $('.vocab-sheet__text-input').keyup(function() {
+      var field = $(this);
+      var action = getFormAction(field);
+      var data = {
+        signId: getSignIdFromAction(action),
+      };
+
+      if (field.hasClass('item-name')) data['name'] = field.val();
+      if (field.hasClass('item-maori-name')) data['maoriName'] = field.val();
+      if (field.hasClass('item-notes')) data['notes'] = field.val();
+
+      updateVocabItem(action, data);
+    });
+  }
+
+  function updateVocabItem(action, params) {
+    clearTimeout(typeTimer);
+
+    typeTimer = setTimeout(function() {
+      if (params.signId !== null) {
+        $.ajax({
+          url: action || '/vocab_sheet/items/' + params.signId,
+          method: 'PUT',
+          data: assignItemParams(params),
+          headers: {
+            'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+          },
+        }).fail(function(error) {
+          console.error(error.statusText);
+        });
+      } else {
+        console.error('Error, cannot update vocab sheet item without ID. Parameters presented:', params);
+      }
+    }, 100);
+  }
+
+  function assignItemParams(params) {
+    var data = {};
+
+    for (var param in params) {
+      if (Object.prototype.hasOwnProperty.call(params, param)) {
+        data[toSnakeCase(param)] = params[param];
+      }
+    }
+
+    return data;
+  }
+  function getFormAction(field) {
+    return field.closest('form').attr('action');
+  }
+  function getSignIdFromAction(action) {
+    var actionSegments = action.split('/');
+    return actionSegments[actionSegments.length - 1];
+  }
+  function toSnakeCase(varName) {
+    return varName.split(/(?=[A-Z])/).join('_').toLowerCase();
+  }
 
   setup_vocab_sheet_page();
 });

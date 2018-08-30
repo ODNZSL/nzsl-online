@@ -60,9 +60,8 @@ pre {
 }
 
 textarea {
-  min-height: 1em; // ensures at least one few lines of text show up to start
-  // max-height: 8em;
-  width: 100%; //text area fills up the full width of the content area
+  min-height: 1em;
+  width: 100%;
 }
 
 input[type="radio"] { vertical-align: bottom; }
