@@ -137,7 +137,9 @@ $(document).ready(function() {
     var data = {};
 
     for (var param in params) {
-      data[toSnakeCase(param)] = params[param];
+      if (params.hasOwnProperty(param)) {
+        data[toSnakeCase(param)] = params[param];
+      }
     }
 
     return data;
