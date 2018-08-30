@@ -91,9 +91,6 @@ $(document).ready(function() {
       elem.siblings('.character-count__wrap')
         .children('.character-count__count')
         .text(maxLength - notes.length);
-
-      action = getFormAction(elem);
-      signId = getSignIdFromAction(action);
     }
 
     checkCharacterCount();
@@ -102,9 +99,10 @@ $(document).ready(function() {
   if ($('.vocab-sheet__text-input').length > 0) {
     $('.vocab-sheet__text-input').keyup(function() {
       var field = $(this);
-      action = getFormAction(field);
-      signId = getSignIdFromAction(action);
-      var data = {signId};
+      var action = getFormAction(field);
+      var data = {
+        signId: getSignIdFromAction(action),
+      };
 
       if (field.hasClass('item-name')) data['name'] = field.val();
       if (field.hasClass('item-maori-name')) data['maoriName'] = field.val();
