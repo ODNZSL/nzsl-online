@@ -36,8 +36,8 @@ class ItemsController < ApplicationController
     else
       flash[:error] = t('vocab_sheet.item.update_failure')
     end
-    return respond_with_json_or_redirect(@item) unless request.xhr?
 
+    return respond_with_json_or_redirect(@item) unless request.xhr?
     flash[:notice] = flash[:error] = nil
     render json: @item
   end
