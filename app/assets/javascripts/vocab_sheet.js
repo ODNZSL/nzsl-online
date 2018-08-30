@@ -137,7 +137,7 @@ $(document).ready(function() {
     var data = {};
 
     for (var param in params) {
-      if (params.hasOwnProperty(param)) {
+      if (Object.prototype.hasOwnProperty.call(params, param)) {
         data[toSnakeCase(param)] = params[param];
       }
     }
