@@ -27,7 +27,6 @@
     = render partial: 'shared/header'
     .not_sticky_footer{class: "#{vocab_sheet?} #{"flash-shown" if flash.count.positive?}"}
       #content.before_sticky_footer
-        = render partial: 'shared/vocab_sheet', locals: { sheet: @sheet }
         = render partial: 'shared/flashes', locals: { prefix: '' }
         = render partial: 'shared/flashes', locals: { prefix: 'vocab_bar_' } unless vocab_sheet?
         = yield
