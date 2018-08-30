@@ -124,8 +124,6 @@ $(document).ready(function() {
           headers: {
             'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
           },
-        }).done(function(data) {
-          // console.log('success!', data);
         }).fail(function(error) {
           console.error(error.statusText);
         });
