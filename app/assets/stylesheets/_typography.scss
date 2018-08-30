@@ -160,7 +160,7 @@ h2+h3 { margin-top:1em; }
 
 .main_gloss,
 .static-page-heading,
-.maori_gloss { @include montserrat-regular; }
+.maori-gloss { @include montserrat-regular; }
 
 .static-page-heading { text-transform: capitalize; }
 
@@ -182,13 +182,13 @@ h2.main_gloss {
 }
 
 .word_gloss,
-.maori_gloss {
+.maori-gloss {
   font-style: italic;
   display: block;
   font-size: $secondary-gloss;
 }
-.glosses-container.maori_gloss,
-.item_maori_name.maori_gloss {
+.glosses-container.maori-gloss,
+.item-maori-name.maori-gloss {
   font-size: $main-gloss;
 }
 
