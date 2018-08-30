@@ -113,7 +113,9 @@ $(document).ready(function() {
   }
 
   function updateVocabItem(action, params) {
-    checkForTextTimeout(function(action, params) {
+    clearTimeout(typeTimer);
+
+    typeTimer = setTimeout(function() {
       if (params.signId !== null) {
         $.ajax({
           url: action || '/vocab_sheet/items/' + params.signId,
@@ -128,25 +130,17 @@ $(document).ready(function() {
       } else {
         console.error('Error, cannot update vocab sheet item without ID. Parameters presented:', params);
       }
-    });
+    }, 100);
   }
 
   function assignItemParams(params) {
     var data = {};
 
-    if (params.signId !== null) data['sign_id'] = params.signId;
-    if (params.name !== null) data['name'] = params.name;
-    if (params.maoriName !== null) data['maori_name'] = params.maoriName;
-    if (params.notes !== null) data['notes'] = params.notes;
+    for (var param in params) {
+      data[toSnakeCase(param)] = params[param];
+    }
 
     return data;
-  }
-  function checkForTextTimeout(callback) {
-    clearTimeout(typeTimer);
-
-    typeTimer = setTimeout(function() {
-      return callback;
-    }, 100);
   }
   function getFormAction(field) {
     return field.closest('form').attr('action');
@@ -154,6 +148,9 @@ $(document).ready(function() {
   function getSignIdFromAction(action) {
     var actionSegments = action.split('/');
     return actionSegments[actionSegments.length - 1];
+  }
+  function toSnakeCase(varName) {
+    return varName.split(/(?=[A-Z])/).join('_').toLowerCase();
   }
 
   setup_vocab_sheet_page();
