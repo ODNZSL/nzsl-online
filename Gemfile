@@ -10,7 +10,7 @@ gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 3.6.0'
 gem 'nokogiri', '~> 1.8.1'
 gem 'pandoc-ruby'
-gem 'pg', '~> 0.20.0'
+gem 'pg', '~> 1.1.2'
 gem 'whenever'
 
 gem 'autoprefixer-rails'
