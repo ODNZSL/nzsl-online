@@ -2,7 +2,6 @@
 
 ## a sign in New Zealand Sign Language
 class Sign
-  require 'open-uri'
   require 'nokogiri'
 
   ELEMENT_NAME = 'entry'
@@ -51,7 +50,7 @@ class Sign
   end
 
   def self.find(all_or_first = :first, params)
-    send(all_or_first, params) if all_or_first == :all || all_or_first == :first
+    send(all_or_first, params) if %i[all first].includes(all_or_first)
   end
 
   def self.random
@@ -76,26 +75,20 @@ class Sign
   end
 
   def self.xml_request(params)
-    xml_document = nil
-    url = url_for_search(params)
-    time = Benchmark.measure do
-      xml_document = Nokogiri::XML(open(url))
-    end
+    xml_document = Nokogiri::XML(http_conn.get(uri_for_search(params)).body)
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
-    record_request_time(url, time.real, count)
     [count, entries]
   end
 
-  def self.record_request_time(url, time, count)
-    return unless Rails.application.secrets.track_search_requests?
-    Request.create! url: url, elapsed_time: time, count: count, query_type: 'Sign.search'
-  end
-
-  def self.url_for_search(query)
+  def self.uri_for_search(query)
     # The handling of arrays in query strings is different
     # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
+    '?' + query_string_for_search(query).join('&')
+  end
+
+  def self.query_string_for_search(query)
     query_string = []
     query.each do |k, v|
       if v.is_a?(Array)
@@ -104,6 +97,13 @@ class Sign
         query_string << "#{k}=#{CGI.escape(v.to_s)}"
       end
     end
-    "#{SIGN_URL}?#{query_string.join('&')}"
+    query_string
+  end
+
+  def self.http_conn
+    Faraday.new(url: SIGN_URL) do |faraday|
+      faraday.use FaradayMiddleware::FollowRedirects
+      faraday.adapter Faraday.default_adapter
+    end
   end
 end
