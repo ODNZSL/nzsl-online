@@ -42,13 +42,13 @@ class VocabSheetsController < ApplicationController
 
   private
 
-  def set_vocab_sheet
-    # session object isn't available in the parent controller scope
-    session[:vocab_sheet_id] = params[:id] if session[:vocab_sheet_id].blank?
-    @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
-  end
+    def set_vocab_sheet
+      # session object isn't available in the parent controller scope
+      session[:vocab_sheet_id] = params[:id] if session[:vocab_sheet_id].blank?
+      @sheet = VocabSheet.find_by(id: session[:vocab_sheet_id])
+    end
 
-  def set_title
-    @title = @sheet.name
-  end
+    def set_title
+      @title = @sheet.name
+    end
 end
