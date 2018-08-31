@@ -1,6 +1,6 @@
 $(document).ready(function() {
   if ($('.add-to-vocab-btn').length > 0) {
-    var notice = '.vocab_sheet .ajax-flash';
+    var notice = '.vocab-sidebar .ajax-flash';
     var vocabList = '.vocab-sidebar ul';
 
     $('.add-to-vocab-btn').click(function(e) {
@@ -30,7 +30,7 @@ $(document).ready(function() {
         $('.vocab-sidebar').show();
       }
 
-      $(notice).addClass('show').text('Sign added');
+      $(notice).removeClass('hide-flash').text('Sign added');
       $(vocabList).append(htmlElem);
       hideNotice();
     }
@@ -39,7 +39,10 @@ $(document).ready(function() {
       console.error(errorMessage);
 
       if ($('.vocab-sidebar').css('display') !== 'none') {
-        $(notice).addClass('show error').text('Error, please try again.');
+        $(notice)
+          .removeClass('hide-flash')
+          .addClass('error')
+          .text('Error, please try again.');
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
@@ -52,14 +55,14 @@ $(document).ready(function() {
 
     function hideNotice() {
       setTimeout(function() {
-        $(notice).removeClass('show error');
+        $(notice).addClass('hide-flash').removeClass('error');
       }, 2000);
     }
   }
 
-  if ($('.vocab_bar_notice').length > 0) {
+  if ($('.vocab-sidebar .flash').length > 0) {
     setTimeout(function() {
-      $('.vocab_bar_notice').removeClass('show');
+      $('.vocab-sidebar .flash').addClass('hide-flash');
     }, 2000);
   }
 });

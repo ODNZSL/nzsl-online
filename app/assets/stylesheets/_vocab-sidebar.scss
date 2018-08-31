@@ -57,21 +57,26 @@
     min-height: 5rem;
   }
 
+  &__gloss {
+    word-wrap: break-word;
+  }
+
   .flash {
     @include border-radius-small;
     @include transition($short-time, opacity, max-height, margin-top, margin-bottom);
 
     background-color: $success-green;
-    margin: 0 auto;
-    max-height: 0;
-    opacity: 0;
+    margin: 1rem auto;
+    max-height: 4rem;
+    opacity: 1;
     padding: .25rem;
     width: 80%;
 
-    &.show {
-      margin: 1rem auto;
-      max-height: 4rem;
-      opacity: 1;
+    &:empty,
+    &.hide-flash {
+      margin: 0 auto;
+      max-height: 0;
+      opacity: 0;
     }
 
     &.error {
