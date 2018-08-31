@@ -94,7 +94,7 @@ $(document).ready(function() {
     }
 
     checkCharacterCount();
-  };
+  }
 
   if ($('.vocab-sheet__text-input').length > 0) {
     $('.vocab-sheet__text-input').keyup(function() {
