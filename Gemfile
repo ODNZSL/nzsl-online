@@ -1,16 +1,19 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.5.1'
 
 gem 'rails', '~> 4.2.6'
 
 # Use Postgresql as the database for Active Record
+gem 'pg', '~>0.21'
+
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 4.8.0'
 gem 'nokogiri', '~> 1.8.1'
 gem 'pandoc-ruby'
-gem 'pg', '~> 0.20.0'
 gem 'whenever'
 
 gem 'autoprefixer-rails'
@@ -19,6 +22,7 @@ gem 'ckeditor_rails'
 gem 'foundation-rails', '~> 6.3.1.0'
 gem 'i18n'
 gem 'mail'
+gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 
 # For attaching files on the feedback form
@@ -26,13 +30,17 @@ gem 'modernizr-rails'
 gem 'paperclip'
 
 gem 'responders', '~> 2.0'
-gem 'mini_racer', platforms: :ruby
 gem 'videojs_rails'
+
 # records crashes
 gem 'raygun4ruby'
 
 # pagination
 gem 'will_paginate'
+
+# Rest/http library
+gem 'faraday'
+gem 'faraday_middleware'
 
 # logins
 gem 'devise'
