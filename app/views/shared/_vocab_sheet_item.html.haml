@@ -1,8 +1,8 @@
 %li.vocab-sheet__item.vocab-sidebar__item
   = image_tag "signs/80-80/#{vocab_sheet_item.drawing}", class: "vocab-sidebar__image"
-  %p.main_gloss
+  %p.main_gloss.vocab-sidebar__gloss
     = vocab_sheet_item.name
-  %p.maori_gloss
+  %p.maori_gloss.vocab-sidebar__gloss
     = vocab_sheet_item.maori_name
   .b
   = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :delete do

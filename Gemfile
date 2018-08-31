@@ -9,7 +9,7 @@ gem 'rails', '~> 4.2.6'
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'mini_magick', '~> 3.6.0'
+gem 'mini_magick', '~> 4.8.0'
 gem 'nokogiri', '~> 1.8.1'
 gem 'pandoc-ruby'
 gem 'pg', '~> 0.20.0'
@@ -65,7 +65,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.57.2', require: false
+  gem 'rubocop', '~> 0.58.2', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'

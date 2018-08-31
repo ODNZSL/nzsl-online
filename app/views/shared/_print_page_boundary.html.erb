@@ -5,7 +5,7 @@
 <div class="print-page-wrapper">
   <div class="header">
     <%= image_tag "ui/logo.png", class: "logo--print" %>
-    <h2 class="vocab__sheet-name--print-view"><%= @sheet.name.present? ? sheet_name : t('vocab_sheet.name') %></h2>
+    <h2 class="vocab__sheet-name--print-view"><%= @sheet.name.present? ? @sheet.name : t('vocab_sheet.name') %></h2>
   </div>
   <div class="vocab_sheet vocab_sheet_page">
     <ul id="vocab_sheet">
