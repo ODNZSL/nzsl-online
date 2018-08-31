@@ -52,12 +52,12 @@ RSpec.describe 'Sign', type: :model do
   end
 
   describe '.random' do
-    it 'retrieves two random signs' do
-      sign_one = Sign.random
-      sign_two = Sign.random
-      expect(sign_one.is_a?(Sign)).to eq(true)
-      expect(sign_two.is_a?(Sign)).to eq(true)
-      expect(sign_one.id).not_to eq(sign_two.id)
+    describe 'retrieves two random signs' do
+      let(:sign_one) { Sign.random }
+      let(:sign_two) { Sign.random }
+      it { expect(sign_one).to be_an_instance_of(Sign) }
+      it { expect(sign_two).to be_an_instance_of(Sign) }
+      it { expect(sign_one.id).not_to eq(sign_two.id) }
     end
   end
 

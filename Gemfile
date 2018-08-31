@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 ruby '2.5.1'
 
@@ -20,6 +22,7 @@ gem 'ckeditor_rails'
 gem 'foundation-rails', '~> 6.3.1.0'
 gem 'i18n'
 gem 'mail'
+gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 
 # For attaching files on the feedback form
@@ -27,7 +30,6 @@ gem 'modernizr-rails'
 gem 'paperclip'
 
 gem 'responders', '~> 2.0'
-gem 'mini_racer', platforms: :ruby
 gem 'videojs_rails'
 
 # records crashes
@@ -35,6 +37,10 @@ gem 'raygun4ruby'
 
 # pagination
 gem 'will_paginate'
+
+# Rest/http library
+gem 'faraday'
+gem 'faraday_middleware'
 
 # logins
 gem 'devise'
