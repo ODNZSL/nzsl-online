@@ -85,10 +85,10 @@ class Sign
     # The handling of arrays in query strings is different
     # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
-    '?' + _query_string_for_search(query).join('&')
+    '?' + query_string_for_search(query).join('&')
   end
 
-  def self._query_string_for_search(query)
+  def self.query_string_for_search(query)
     query_string = []
     query.each do |k, v|
       if v.is_a?(Array)
