@@ -21,5 +21,5 @@ $(document).ready(function() {
         })
         .addClass(transitionClass);
     }
-  };
+  }
 });
