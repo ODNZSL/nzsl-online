@@ -20,12 +20,12 @@ module Admin
 
     private
 
-    def set_title
-      @title = 'Administrate Settings'
-    end
+      def set_title
+        @title = 'Administrate Settings'
+      end
 
-    def settings_params
-      params.require(:settings).permit('help', 'glossary', '404', 'footer')
-    end
+      def settings_params
+        params.require(:settings).permit('help', 'glossary', '404', 'footer')
+      end
   end
 end

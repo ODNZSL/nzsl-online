@@ -3,13 +3,13 @@
 module SignsHelper
   def render_grammar_notes(sign)
     %i[contains_numbers
-     is_fingerspelling
-     is_directional
-     is_locatable
-     one_or_two_handed
-     inflection_temporal
-     inflection_plural
-     inflection_manner_and_degree].map do |note|
+       is_fingerspelling
+       is_directional
+       is_locatable
+       one_or_two_handed
+       inflection_temporal
+       inflection_plural
+       inflection_manner_and_degree].map do |note|
        next unless sign.send(note)
 
        attrs = { class: 'js-ga-link-submission',

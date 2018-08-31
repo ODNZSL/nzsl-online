@@ -46,15 +46,15 @@ module VocabSheetHelper
 
   private
 
-  def offsets
-    {
-      size_6: 3,
-      size_5: 15,
-      size_4: 12,
-      size_3: 6,
-      size_2: 4,
-      size_1: 1,
-      default: 1
-    }
-  end
+    def offsets
+      {
+        size_6: 3,
+        size_5: 15,
+        size_4: 12,
+        size_3: 6,
+        size_2: 4,
+        size_1: 1,
+        default: 1
+      }
+    end
 end
