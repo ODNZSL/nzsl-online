@@ -173,12 +173,12 @@ module SearchHelper # rubocop:disable ModuleLength
         return number.split('.')[0, 2].join('.') if main
         return number
       end
-  
+
       return unless attribute == :location
-  
+
       # location
       return number.split('.')[0] if main
-  
+
       number.split('.')[1]
     end
 
