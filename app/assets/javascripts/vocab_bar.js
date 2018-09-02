@@ -5,12 +5,12 @@ $(document).ready(function() {
     var offset = searchResultBanner.offset().top;
     var bottom = offset + searchResultBanner.outerHeight(true);
     var baseMargin = 24; // 1.5rem
+    var barBottom = bar.offset().top + bar.outerHeight(true) + baseMargin;
     var initialOffset = bottom + baseMargin;
     var footerTop = $('.sticky_footer').offset().top;
 
     function positionVocabBar() {
       var windowScroll = $(window).scrollTop();
-      var barBottom = bar.offset().top + bar.outerHeight(true) + baseMargin;
 
       if (windowScroll < bottom) {
         bar.css({top: initialOffset - offset});
@@ -18,6 +18,16 @@ $(document).ready(function() {
         (windowScroll < footerTop - (bar.outerHeight(true) + baseMargin))) {
         bar.css({top: windowScroll - offset + baseMargin});
       }
+    }
+
+    function checkVocabBarHeight() {
+      if (barBottom > footerTop) {
+        bar.css({height: $('.search-results__container').innerHeight(),});
+      }
+
+      $('.vocab-sidebar__list').css({
+        height: bar.innerHeight() - $('.vocab-sidebar__header').innerHeight(),
+      });
     }
 
     $(window).scroll(function() {
@@ -28,6 +38,7 @@ $(document).ready(function() {
       footerTop = $('.sticky_footer').offset().top;
     });
 
+    checkVocabBarHeight();
     positionVocabBar();
   }
 });
