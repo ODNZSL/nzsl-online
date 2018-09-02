@@ -164,7 +164,8 @@ h2+h3 { margin-top:1em; }
 
 .static-page-heading { text-transform: capitalize; }
 
-h2.main_gloss {
+h2.main_gloss,
+a.main_gloss {
   font-size: $main-gloss;
   padding: 0;
   margin: 10px 0;
