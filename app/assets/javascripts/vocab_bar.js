@@ -22,7 +22,11 @@ $(document).ready(function() {
 
     function checkVocabBarHeight() {
       if (barBottom > footerTop) {
-        bar.css({height: $('.search-results__container').innerHeight()});
+        if ($('.search-results__container').length > 0) {
+          bar.css({height: $('.search-results__container').innerHeight()});
+        } else if ($('.search-result-container').length > 0) {
+          bar.css({height: $('.search-result-container').innerHeight()});
+        }
       }
 
       $('.vocab-sidebar__list').css({
@@ -31,11 +35,13 @@ $(document).ready(function() {
     }
 
     $(window).scroll(function() {
+      barBottom = bar.offset().top + bar.outerHeight(true) + baseMargin;
       positionVocabBar();
     });
 
     $(window).resize(function() {
       footerTop = $('.sticky_footer').offset().top;
+      checkVocabBarHeight();
     });
 
     checkVocabBarHeight();
