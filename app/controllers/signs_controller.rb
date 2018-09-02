@@ -28,14 +28,14 @@ class SignsController < ApplicationController
 
   private
 
-  def process_search_query(params)
-    search_keys = %w(s hs l lg usage tag)
-    query = params.select { |key| search_keys.include?(key) }
-    return {} if query.nil?
-    query.each do |key, value|
-      secondary_value = value.nil? ? '' : value.split(' ')
-      query[key] = key == 's' ? [value] : secondary_value
+    def process_search_query(params)
+      search_keys = %w(s hs l lg usage tag)
+      query = params.select { |key| search_keys.include?(key) }
+      return {} if query.nil?
+      query.each do |key, value|
+        secondary_value = value.nil? ? '' : value.split(' ')
+        query[key] = key == 's' ? [value] : secondary_value
+      end
+      query.with_indifferent_access
     end
-    query.with_indifferent_access
-  end
 end

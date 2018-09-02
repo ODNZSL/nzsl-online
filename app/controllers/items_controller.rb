@@ -72,11 +72,11 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.permit(:sign_id, :name, :maori_name, :notes)
-  end
+    def item_params
+      params.permit(:sign_id, :name, :maori_name, :notes)
+    end
 
-  def set_item
-    @item = @sheet.items.find(params[:id])
-  end
+    def set_item
+      @item = @sheet.items.find(params[:id])
+    end
 end
