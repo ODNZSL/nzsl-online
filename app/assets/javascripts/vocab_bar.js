@@ -22,7 +22,7 @@ $(document).ready(function() {
 
     function checkVocabBarHeight() {
       if (barBottom > footerTop) {
-        bar.css({height: $('.search-results__container').innerHeight(),});
+        bar.css({height: $('.search-results__container').innerHeight()});
       }
 
       $('.vocab-sidebar__list').css({
