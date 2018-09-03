@@ -33,8 +33,8 @@ class PagePart < ActiveRecord::Base
 
   private
 
-  def strip_text
-    title.strip!
-    translation_path&.strip!
-  end
+    def strip_text
+      title.strip!
+      translation_path&.strip!
+    end
 end
