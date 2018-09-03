@@ -39,7 +39,7 @@ module PaginationHelper
       # 1 ... 4 5 6 7 [8]
       # 1 ... 4 [5] 6 ... 9
       # 1 ... 7 [8] 9 ... 12
-  
+
       pages_to_link = (1..total_pages).to_a
       if total_pages > 7
         pages_to_link.map! do |i|

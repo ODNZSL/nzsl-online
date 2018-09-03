@@ -92,7 +92,7 @@ module NumbersHelper
       signs = array.map do |v|
         [v[0], @number_signs[v[1]]]
       end
-  
+
       signs.reject { |v| v[1].nil? }
     end
 end
