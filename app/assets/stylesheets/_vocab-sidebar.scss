@@ -13,7 +13,7 @@
   z-index: 100;
 
   &:after {
-    background: linear-gradient(transparent, $vocab-bg);
+    background: linear-gradient(transparent, $vocab-bg 2.5rem, $vocab-bg);
     bottom: 0;
     content: '';
     height: 3rem;
@@ -30,7 +30,7 @@
 
   &__list {
     box-shadow: inset 0 1px .125rem $light-med-grey;
-    height: 78vh;
+    box-sizing: border-box;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
