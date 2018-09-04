@@ -104,9 +104,9 @@ $(document).ready(function() {
         signId: getSignIdFromAction(action),
       };
 
-      if (field.hasClass('item-name')) data['name'] = field.val();
-      if (field.hasClass('item-maori-name')) data['maoriName'] = field.val();
-      if (field.hasClass('item-notes')) data['notes'] = field.val();
+      if (field.hasClass('item-name')) data.name = field.val();
+      if (field.hasClass('item-maori-name')) data.maoriName = field.val();
+      if (field.hasClass('item-notes')) data.notes = field.val();
 
       updateVocabItem(action, data);
     });
