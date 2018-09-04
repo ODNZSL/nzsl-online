@@ -10,7 +10,7 @@
       .video-container.video--placeholder
         %i.fi-play.play-button
         = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
-      %span.search-results--placeholder
+      -# %span.search-results--placeholder
       .clickable_link.small-12.small-centered
         %a.div_link{:href => "#{sign_url(sign.id)}"}
           %span
