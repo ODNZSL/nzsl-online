@@ -1,17 +1,17 @@
-.search-results--placeholder {
-  @include transition($short-time, opacity, z-index);
+// .search-results--placeholder {
+//   @include transition($short-time, opacity, z-index);
 
-  background-color: $pale-blue;
-  bottom: 1.125rem;
-  height: 7.625rem;
-  opacity: 1;
-  position: absolute;
-  right: 0;
-  width: 50%;
-  z-index: 100;
+//   background-color: $pale-blue;
+//   bottom: 1.125rem;
+//   height: 7.625rem;
+//   opacity: 1;
+//   position: absolute;
+//   right: 0;
+//   width: 50%;
+//   z-index: 100;
 
-  &.hide-placeholder {
-    opacity: 0;
-    z-index: 0;
-  }
-}
+//   &.hide-placeholder {
+//     opacity: 0;
+//     z-index: 0;
+//   }
+// }
