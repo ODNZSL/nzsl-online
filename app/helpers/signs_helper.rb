@@ -17,7 +17,7 @@ module SignsHelper
                  'Sign', 'Click', 'glossary #{note}']);" }
        link_to(t("signs.show.field.#{note}"),
                "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
-     end.compact.join(', ').html_safe
+    end.compact.join(', ').html_safe
   end
 
   def render_transcription(transcription, id)
