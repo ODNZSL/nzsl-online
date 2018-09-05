@@ -167,27 +167,27 @@ module SearchHelper # rubocop:disable ModuleLength
 
   private
 
-  def value_for_sign_attribute(number, attribute, main)
-    if attribute == :handshape
-      # if it's the first, just search on the first two numbers
-      return number.split('.')[0, 2].join('.') if main
-      return number
+    def value_for_sign_attribute(number, attribute, main)
+      if attribute == :handshape
+        # if it's the first, just search on the first two numbers
+        return number.split('.')[0, 2].join('.') if main
+        return number
+      end
+
+      return unless attribute == :location
+
+      # location
+      return number.split('.')[0] if main
+
+      number.split('.')[1]
     end
 
-    return unless attribute == :location
-
-    # location
-    return number.split('.')[0] if main
-
-    number.split('.')[1]
-  end
-
-  def classes_for_sign_attribute(attribute, main)
-    # a space is required after the base class names below to ensure that they are
-    # properly separated from other classes assigned in the conditionals.
-    classes = %w(image rounded)
-    classes << 'main_image' if main
-    classes << 'transition' if attribute == :handshape
-    classes.join(' ')
-  end
+    def classes_for_sign_attribute(attribute, main)
+      # a space is required after the base class names below to ensure that they are
+      # properly separated from other classes assigned in the conditionals.
+      classes = %w(image rounded)
+      classes << 'main_image' if main
+      classes << 'transition' if attribute == :handshape
+      classes.join(' ')
+    end
 end

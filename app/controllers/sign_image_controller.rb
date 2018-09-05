@@ -17,24 +17,24 @@ class SignImageController < ApplicationController
 
   private
 
-  def filename_param
-    return sign_image_params[:filename] if %r{^[\d]+\/[a-zA-z\-0-9]+\.png$} =~ sign_image_params[:filename]
-    raise 'Invalid filename'
-  end
+    def filename_param
+      return sign_image_params[:filename] if %r{^[\d]+\/[a-zA-z\-0-9]+\.png$} =~ sign_image_params[:filename]
+      raise 'Invalid filename'
+    end
 
-  def width_param
-    sign_image_params[:width].to_i
-  rescue StandardError
-    100
-  end
+    def width_param
+      sign_image_params[:width].to_i
+    rescue StandardError
+      100
+    end
 
-  def height_param
-    sign_image_params[:height].to_i
-  rescue StandardError
-    100
-  end
+    def height_param
+      sign_image_params[:height].to_i
+    rescue StandardError
+      100
+    end
 
-  def sign_image_params
-    params.permit(:filename, :height, :width)
-  end
+    def sign_image_params
+      params.permit(:filename, :height, :width)
+    end
 end

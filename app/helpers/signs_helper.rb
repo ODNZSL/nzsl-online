@@ -3,13 +3,13 @@
 module SignsHelper
   def render_grammar_notes(sign)
     %i[contains_numbers
-     is_fingerspelling
-     is_directional
-     is_locatable
-     one_or_two_handed
-     inflection_temporal
-     inflection_plural
-     inflection_manner_and_degree].map do |note|
+       is_fingerspelling
+       is_directional
+       is_locatable
+       one_or_two_handed
+       inflection_temporal
+       inflection_plural
+       inflection_manner_and_degree].map do |note|
        next unless sign.send(note)
 
        attrs = { class: 'js-ga-link-submission',
@@ -17,7 +17,7 @@ module SignsHelper
                  'Sign', 'Click', 'glossary #{note}']);" }
        link_to(t("signs.show.field.#{note}"),
                "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
-     end.compact.join(', ').html_safe
+    end.compact.join(', ').html_safe
   end
 
   def render_transcription(transcription, id)

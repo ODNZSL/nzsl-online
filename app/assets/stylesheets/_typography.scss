@@ -59,7 +59,10 @@ pre {
   padding: 15px;
 }
 
-textarea { overflow: auto; }
+textarea {
+  min-height: 1em;
+  width: 100%;
+}
 
 input[type="radio"] { vertical-align: bottom; }
 
@@ -157,11 +160,12 @@ h2+h3 { margin-top:1em; }
 
 .main_gloss,
 .static-page-heading,
-.maori_gloss { @include montserrat-regular; }
+.maori-gloss { @include montserrat-regular; }
 
 .static-page-heading { text-transform: capitalize; }
 
-.main_gloss {
+h2.main_gloss,
+a.main_gloss {
   font-size: $main-gloss;
   padding: 0;
   margin: 10px 0;
@@ -179,10 +183,14 @@ h2+h3 { margin-top:1em; }
 }
 
 .word_gloss,
-.maori_gloss {
+.maori-gloss {
   font-style: italic;
   display: block;
   font-size: $secondary-gloss;
+}
+.glosses-container.maori-gloss,
+.item-maori-name.maori-gloss {
+  font-size: $main-gloss;
 }
 
 .search-result-banner {

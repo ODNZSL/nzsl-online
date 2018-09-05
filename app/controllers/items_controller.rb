@@ -36,8 +36,8 @@ class ItemsController < ApplicationController
     else
       flash[:error] = t('vocab_sheet.item.update_failure')
     end
-    return respond_with_json_or_redirect(@item) unless request.xhr?
 
+    return respond_with_json_or_redirect(@item) unless request.xhr?
     flash[:notice] = flash[:error] = nil
     render json: @item
   end
@@ -72,11 +72,11 @@ class ItemsController < ApplicationController
 
   private
 
-  def item_params
-    params.permit(:sign_id, :name, :maori_name, :notes)
-  end
+    def item_params
+      params.permit(:sign_id, :name, :maori_name, :notes)
+    end
 
-  def set_item
-    @item = @sheet.items.find(params[:id])
-  end
+    def set_item
+      @item = @sheet.items.find(params[:id])
+    end
 end

@@ -1,0 +1,22 @@
+// # Why is this file completely blank?
+// The Jira story has been rejected with this implementation as of last sprint ending on 31/08/2018.
+// We will rework this, but currently we're disabling it for a production deploy that doesn't lose our progress.
+// If you're reading this comment a month into the future, probably just delete this file and move on with life.
+
+// .search-results--placeholder {
+//   @include transition($short-time, opacity, z-index);
+
+//   background-color: $pale-blue;
+//   bottom: 1.125rem;
+//   height: 7.625rem;
+//   opacity: 1;
+//   position: absolute;
+//   right: 0;
+//   width: 50%;
+//   z-index: 100;
+
+//   &.hide-placeholder {
+//     opacity: 0;
+//     z-index: 0;
+//   }
+// }
