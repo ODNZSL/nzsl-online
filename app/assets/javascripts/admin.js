@@ -1,7 +1,8 @@
 $(function() {
   // $('.ckeditor').ckeditor();
   $('tbody.sortable').sortable({
-    containment: 'parent', update: function(/* Event, ui*/) {
+    containment: 'parent',
+    update: function(/* Event, ui*/) {
       var new_order = [];
       $('tbody.sortable tr').each(function() {
         var page_id = $(this).attr('id').replace('id', '');
