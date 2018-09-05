@@ -11,7 +11,7 @@ $(document).ready(function() {
           update: function(event, ui) {
             var new_order = [];
             $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
-            $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
+            $.post('/vocab_sheet/items/reorder/', { 'items[]': new_order });
           }
         });
       }
