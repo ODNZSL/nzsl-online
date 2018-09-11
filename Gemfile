@@ -90,6 +90,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :staging, :production do
