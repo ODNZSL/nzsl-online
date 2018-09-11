@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ## A page within our basic CMS
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   RESTRICTED_SLUGS = %w[admin signs feedback sign_image images javascripts
                         stylesheets system 500 favicon
                         robots crossdomain].freeze # top level routes & public dir.

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ## Part of a page, in our basic as CMS
-class PagePart < ActiveRecord::Base
+class PagePart < ApplicationRecord
   belongs_to :page
 
   before_validation :strip_text
