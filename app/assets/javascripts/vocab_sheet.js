@@ -6,11 +6,14 @@ $(document).ready(function() {
     if ($('ul#vocab_sheet').length) {
       $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView) {
-        $('ul#vocab_sheet').sortable({containment: 'parent', update: function(event, ui) {
-          var new_order = [];
-          $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
-          $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
-        }});
+        $('ul#vocab_sheet').sortable({
+          containment: 'parent',
+          update: function(event, ui) {
+            var new_order = [];
+            $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
+            $.post('/vocab_sheet/items/reorder/', { 'items[]': new_order });
+          }
+        });
       }
 
       // Change the name of vocab sheet
@@ -94,7 +97,7 @@ $(document).ready(function() {
     }
 
     checkCharacterCount();
-  };
+  }
 
   if ($('.vocab-sheet__text-input').length > 0) {
     $('.vocab-sheet__text-input').keyup(function() {
@@ -104,9 +107,9 @@ $(document).ready(function() {
         signId: getSignIdFromAction(action),
       };
 
-      if (field.hasClass('item-name')) data['name'] = field.val();
-      if (field.hasClass('item-maori-name')) data['maoriName'] = field.val();
-      if (field.hasClass('item-notes')) data['notes'] = field.val();
+      if (field.hasClass('item-name')) data.name = field.val();
+      if (field.hasClass('item-maori-name')) data.maoriName = field.val();
+      if (field.hasClass('item-notes')) data.notes = field.val();
 
       updateVocabItem(action, data);
     });
