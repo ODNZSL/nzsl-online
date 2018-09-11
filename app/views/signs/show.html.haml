@@ -24,7 +24,6 @@
         %i.fi-play.play-button
         = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
         - if @sign.video_slow.present?
-          %i.fi-play.play-button
           = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: false, controlsList:"nodownload",  preload: "auto", loop: true, width: "100%"
           = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
           = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
