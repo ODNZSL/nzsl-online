@@ -4,12 +4,11 @@ require 'rails_helper'
 
 RSpec.describe VocabSheetsController, type: :controller do
   let(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
+  let(:session) { { vocab_sheet_id: vocab_sheet.id } }
+
   let(:new_name) { Faker::Name.name }
   let(:valid_attributes) do
     { vocab_sheet: { name: new_name } }
-  end
-  let(:valid_attributes_with_session) do
-    { vocab_sheet: { name: new_name }, vocab_sheet_id: vocab_sheet.id }
   end
 
   describe '#show' do
@@ -26,14 +25,14 @@ RSpec.describe VocabSheetsController, type: :controller do
     end
 
     context 'new vocab sheet' do
-      before { patch :update, params: valid_attributes  }
+      before { patch :update, params: valid_attributes }
 
       it { expect(assigns(:sheet)) }
       it { expect(response).to redirect_to root_path }
     end
 
     context 'existing vocab sheet' do
-      before { patch :update, params: valid_attributes_with_session }
+      before { patch :update, params: valid_attributes, session: session }
 
       it 'updates the sheet instance variable' do
         expect(assigns(:sheet)).to eq(vocab_sheet)
@@ -51,7 +50,7 @@ RSpec.describe VocabSheetsController, type: :controller do
 
     context 'successful update' do
       it 'displays a success flash message' do
-        patch :update, params: valid_attributes_with_session
+        patch :update, params: valid_attributes, session: session
         expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
       end
     end
