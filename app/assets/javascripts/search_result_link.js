@@ -10,6 +10,6 @@ $(document).ready(function() {
   //     $('.back-arrow-icon').css('display', 'block');
   //   }
   // }
-  // 
+
   // hideBackButton();
 });

@@ -69,3 +69,7 @@ a .button,
 
 .orange_submit_button { padding: 5px; }
 .translation_button { @extend .play_video_button; }
+
+.vjs-big-play-button {
+  display: none;
+}
