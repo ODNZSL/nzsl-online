@@ -87,6 +87,10 @@ group :development, :test do
   gem 'faker'
 end
 
+group :development do
+  gem "listen"
+end
+
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
