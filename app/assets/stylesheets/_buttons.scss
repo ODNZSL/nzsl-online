@@ -73,3 +73,6 @@ a .button,
 .vjs-big-play-button {
   display: none;
 }
+video::-webkit-media-controls-overlay-play-button {
+  display: none;
+}
