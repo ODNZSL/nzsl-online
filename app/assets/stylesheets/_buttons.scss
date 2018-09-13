@@ -70,14 +70,6 @@ a .button,
 .orange_submit_button { padding: 5px; }
 .translation_button { @extend .play_video_button; }
 
-// .video-js.vjs-big-play-button {
-//   font-size: 14px;
-//
-// }
-// video::-webkit-media-controls-overlay-play-button {
-//   font-size: 14px;
-// }
-
 .video-js.vjs-big-play-button {
   display: none;
 }
