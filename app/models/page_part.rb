@@ -9,7 +9,7 @@ class PagePart < ApplicationRecord
   validates :title, presence: true
   validates :order, numericality: { integer_only: true, allow_nil: true }
 
-  default_scope { order('"page_parts"."order" ASC') }
+  default_scope { order({ order: :asc }) }
 
   def slug
     title.downcase.dasherize
