@@ -76,7 +76,12 @@ header {
       li {
         display: inline;
         padding: 10px;
-        a { color: $light-grey; }
+        a, 
+        span { color: $light-grey; }
+      }
+
+      &__selected{
+        text-decoration: underline;
       }
     }
   }
