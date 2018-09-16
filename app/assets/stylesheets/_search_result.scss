@@ -11,8 +11,7 @@
     }
     .back-button-container {
       margin: 30px 0;
-      position: static;
-      padding-bottom: 5px;
+      position: relative;
       a {
         text-decoration: none;
         border-bottom: none;
@@ -23,7 +22,6 @@
     .sign-container {
       border: 1px solid $light-grey;
       position: relative;
-      padding-top: 5px;
       margin-bottom: 20px;
       box-shadow: -2px 3px 12px 0 $light-med-grey;
       .main-image {
@@ -61,4 +59,7 @@
       video { margin-bottom: 10px; }
     }
   }
+}
+.search-result-container {
+  position: relative;
 }
