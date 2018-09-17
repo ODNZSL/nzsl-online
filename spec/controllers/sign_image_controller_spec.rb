@@ -7,7 +7,7 @@ RSpec.describe SignImageController, type: :controller do
 
   describe '#show' do
     context 'good request' do
-      before { get :show, params: valid_params  }
+      before { get :show, params: valid_params }
 
       it { expect(response).to have_http_status(:ok) }
     end
