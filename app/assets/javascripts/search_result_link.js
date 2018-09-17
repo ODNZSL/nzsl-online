@@ -6,9 +6,8 @@ $(document).ready(function() {
   function hideBackButton() {
     if ($('.back_to_search_results').length === 0 ) {
       $('.back-arrow-icon').css('display', 'block');
-      // var backTo = '<a href=“javascript:history.go(-2)”>Back to search results</a>'
-      var backTo = '<a href="">Back to search results</a>'
-      $('.back-button-container').append(backTo);
+      var backToSearchResults = '<a href="">Back to search results</a>'
+      $('.back-button-container').append(backToSearchResults);
       $('.back-button-container a').click(function(){
         parent.history.back();
         return false;
