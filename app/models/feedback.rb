@@ -2,7 +2,7 @@
 
 ##
 # Sends feedback email
-class Feedback < ActiveRecord::Base
+class Feedback < ApplicationRecord
   validates :name, :message, presence: true
   validates :email, format: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i,
                     allow_nil: true

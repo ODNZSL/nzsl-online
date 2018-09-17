@@ -1,4 +1,4 @@
 # frozen_string_literal: true
 
-class Request < ActiveRecord::Base
+class Request < ApplicationRecord
 end
