@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.0'
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.1'
 
-gem "bootsnap", ">= 1.1.0", require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -89,7 +89,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "listen"
+  gem 'listen'
 end
 
 group :test do
