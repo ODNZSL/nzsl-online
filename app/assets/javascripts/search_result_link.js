@@ -5,13 +5,7 @@ $(document).ready(function() {
 
   function hideBackButton() {
     if ($('.back_to_search_results').length === 0 ) {
-      $('.back-arrow-icon').css('display', 'block');
-      var backToSearchResults = '<a href="">Back to search results</a>'
-      $('.back-button-container').append(backToSearchResults);
-      $('.back-button-container a').click(function(){
-        parent.history.back();
-        return false;
-      })
+      $('.back-arrow-icon').css('display', 'none');
     } else {
       $('.back-arrow-icon').css('display', 'block');
     }
