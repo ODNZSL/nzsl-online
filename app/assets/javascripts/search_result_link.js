@@ -9,6 +9,10 @@ $(document).ready(function() {
       // var backTo = '<a href=“javascript:history.go(-2)”>Back to search results</a>'
       var backTo = '<a href="">Back to search results</a>'
       $('.back-button-container').append(backTo);
+      $('.back-button-container a').click(function(){
+        parent.history.back();
+        return false;
+      })
     } else {
       $('.back-arrow-icon').css('display', 'block');
     }
