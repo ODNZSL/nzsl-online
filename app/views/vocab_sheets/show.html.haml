@@ -5,7 +5,7 @@
 
 .vocab-sheet__head
   .vocab-sheet__controls.vocab-sheet__page-controls
-    = link_to "download", vocab_sheet_path(@sheet, format: :pdf), class: "orange_submit_button" 
+    = orange_submit_button "vocab_sheet.download", {format: :pdf, print: true}
     = orange_submit_button "vocab_sheet.print", {print: true}
     = form_tag vocab_sheet_path, method: :delete, class: "" do
       = orange_submit_button "vocab_sheet.delete"
