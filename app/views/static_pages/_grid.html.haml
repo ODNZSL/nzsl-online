@@ -13,6 +13,6 @@
                 = ea.first
             - else
               = link_to sign_url(ea.last.id), {class: 'drawing'} do
-                = image_tag "signs/150-100/#{ea.last.drawing}", alt: ea.first, class: "grid-image"
+                = image_tag "/images/signs/150-100/#{ea.last.drawing}", alt: ea.first, class: "grid-image"
               = link_to sign_url(ea.last.id), {class: 'image-caption'} do
                 = ea.first

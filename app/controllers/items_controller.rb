@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
       @item = Item.new(item_params)
       @item.sign = Sign.first(id: params[:sign_id])
       @item.position = 1
+      @item.vocab_sheet_id = @sheet.id
 
       if @item.valid?
         @sheet.items << @item

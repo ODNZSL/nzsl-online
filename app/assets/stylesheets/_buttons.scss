@@ -69,3 +69,15 @@ a .button,
 
 .orange_submit_button { padding: 5px; }
 .translation_button { @extend .play_video_button; }
+
+// Browser specific styles ( Firefox IE 11 and Safari ) to hide the default videojs BigPlayButton
+// User expects to view video without any obsufication and the default button was obsuring the video
+.video-js.vjs-big-play-button {
+  display: none;
+}
+
+// Browser specific style for Chrome to hide the default videojs BigPlayButton
+// User expects to view video without any obsufication and the default button was obsuring the video
+video::-webkit-media-controls-overlay-play-button {
+  display: none;
+}

@@ -80,10 +80,15 @@ footer {
         max-width: 180px;
       }
 
-      a:before {
+      a:before,
+      span:before {
         content: "\A";
         display: block;
         padding: 5px;
+      }
+
+      span{
+        text-decoration: underline;
       }
     }
 
