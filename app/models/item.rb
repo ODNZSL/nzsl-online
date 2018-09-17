@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   validates :sign_id, :name, presence: true
   validates :sign_id, :position, numericality: true
   # validates :position, greater_than: 0, allow_nil: true

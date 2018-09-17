@@ -1,4 +1,4 @@
-class AddNameToVocabSheet < ActiveRecord::Migration
+class AddNameToVocabSheet < ActiveRecord::Migration[4.2]
   def self.up
     add_column :vocab_sheets, :name, :string
   end
