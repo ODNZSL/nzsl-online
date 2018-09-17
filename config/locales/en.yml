@@ -92,6 +92,7 @@ en:
     link_to: View
     print: Print
     download: Download as PDF
+    download_in_progress: "Please wait. Your vocabulary sheet is being generated and will download soon."
     empty: Your vocab sheet is empty.
     delete: Clear Sheet
     delete_success: Your Vocab Sheet is empty.

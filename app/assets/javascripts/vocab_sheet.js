@@ -44,6 +44,10 @@ $(document).ready(function() {
         $('textarea').attr('readonly', true);
       }
     }
+
+    $(".vocab-sheet__page-controls--download").on("click", function(){
+      $(".vocab-sheet__download-notice").removeClass("hide")
+    });
   };
 
   if ($('.input-with-character-count').length > 0) {
