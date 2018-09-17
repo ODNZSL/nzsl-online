@@ -22,9 +22,9 @@
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button
-        = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: true, preload: "auto"
+        = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: true, preload: "auto", loop: true
         - if @sign.video_slow.present?
-          = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: true, controlsList:"nodownload",  preload: "auto", width: "100%"
+          = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: true, controlsList:"nodownload",  preload: "auto", loop: true, width: "100%"
           = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
           = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
       .glosses-container.glosses.small-12.float-left
