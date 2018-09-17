@@ -1,4 +1,4 @@
-class AddDrawingToItem < ActiveRecord::Migration
+class AddDrawingToItem < ActiveRecord::Migration[4.2]
   def self.up
     add_column :items, :drawing, :string
   end
