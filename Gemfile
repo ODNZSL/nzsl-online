@@ -3,11 +3,12 @@
 source 'https://rubygems.org'
 ruby '2.5.1'
 
-gem 'rails', '~> 4.2.6'
+gem 'rails', '~> 5.2.0'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>0.21'
 
+gem "bootsnap", ">= 1.1.0", require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -63,6 +64,8 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rb-readline'
   gem 'simplecov', require: false
+  # Use Puma as the app server for dev and test
+  gem 'puma', '~> 3.7'
 
   # for checking images in specs
   gem 'fastimage'
@@ -85,11 +88,16 @@ group :development, :test do
   gem 'faker'
 end
 
+group :development do
+  gem "listen"
+end
+
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner'
+  gem 'rails-controller-testing'
 end
 
 group :staging, :production do

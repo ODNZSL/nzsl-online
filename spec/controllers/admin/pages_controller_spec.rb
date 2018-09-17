@@ -22,14 +22,14 @@ RSpec.describe Admin::PagesController, type: :controller do
     end
 
     describe 'GET #edit' do
-      before { get :edit, id: page.to_param }
+      before { get :edit, params:{ id: page.to_param } }
 
       it { expect(response).to have_http_status(:success) }
       it { expect(response).to render_template(:edit) }
     end
 
     describe '#update' do
-      before { patch :update, id: page.to_param, page: valid_page_params }
+      before { patch :update, params:{ id: page.to_param, page: valid_page_params} }
 
       it { expect(response).to redirect_to(admin_pages_url) }
       it { expect(assigns(:page)).to eq(page) }
@@ -56,14 +56,14 @@ RSpec.describe Admin::PagesController, type: :controller do
     end
 
     describe '#edit' do
-      before { get :edit, id: page.to_param }
+      before { get :edit, params:{ id: page.to_param } }
 
       it { expect(response).to have_http_status(302) }
       it { expect(response).not_to render_template(:edit) }
     end
 
     describe '#update' do
-      before { patch :update, id: page.to_param, page: valid_page_params }
+      before { patch :update, params:{ id: page.to_param, page: valid_page_params } }
 
       it { expect(response).to have_http_status(302) }
     end

@@ -1,4 +1,4 @@
-class AddPositionToItem < ActiveRecord::Migration
+class AddPositionToItem < ActiveRecord::Migration[4.2]
   def self.up
     add_column :items, :position, :integer
   end

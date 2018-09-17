@@ -1,4 +1,4 @@
-class CreatePageParts < ActiveRecord::Migration
+class CreatePageParts < ActiveRecord::Migration[4.2]
   def self.up
     create_table :page_parts do |t|
       t.string :title

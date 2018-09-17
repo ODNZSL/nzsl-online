@@ -40,7 +40,7 @@ class ApplicationController < ActionController::Base
     end
 
     def redirect_back_or_default
-      redirect_to :back
+      redirect_back(fallback_location: root_path)
     rescue ActionController::RedirectBackError
       redirect_to root_path
     end

@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ## Settings for the web app
-class Setting < ActiveRecord::Base
+class Setting < ApplicationRecord
   validates :key, :value, presence: true
 
   def self.update_all(params)
