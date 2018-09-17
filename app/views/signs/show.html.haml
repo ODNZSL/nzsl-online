@@ -16,9 +16,9 @@
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
-      = form_tag vocab_sheet_items_path do
-        = hidden_field_tag 'sign_id', @sign.id
-        = add_vocab_button('vocab_sheet.item.add', class: 'add_to_sheet')
+      = link_to "#", { class: "card__button add-to-vocab-btn card__button--peach", "data-sign-id": @sign.id } do
+        %span.card__button-symbol.card__button-symbol--peach +
+        %span.card__button-action.card__button-action--peach Vocab Sheet
     .videos.small-12.medium-5
       .video-container
         = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: true, preload: "auto", loop: true
