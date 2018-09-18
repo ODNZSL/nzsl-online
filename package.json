@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/ODNZSL/nzsl-online#readme",
   "engines": {
-    "node": ">=9.2.0",
+    "node": ">=9.10.0",
     "yarn": "1.5.1"
   },
   "dependencies": {
