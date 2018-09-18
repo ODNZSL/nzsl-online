@@ -65,7 +65,7 @@ group :development, :test do
   gem 'rb-readline'
   gem 'simplecov', require: false
   # Use Puma as the app server for dev and test
-  gem 'puma', '~> 3.7'
+  gem 'puma', '~> 3.12'
 
   # for checking images in specs
   gem 'fastimage'
