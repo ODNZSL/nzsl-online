@@ -6,3 +6,5 @@ engines:
         enabled: false
       require-jsdoc:
         enabled: false
+exclude_patterns:
+- "bin/render-pdf.js"
