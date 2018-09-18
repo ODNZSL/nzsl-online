@@ -4,7 +4,6 @@
     padding: 25px 0;
   }
   &-container {
-    position: relative;
     .glosses-container { margin-bottom: 20px; }
     .video-container .button {
       @extend .play_video_button;
