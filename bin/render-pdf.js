@@ -21,7 +21,7 @@ console.log("Input path:", inputPath);
 console.log("Output path:", outputPath);
 
 (async () => {
-  const browser = await puppeteer.launch({puppeteerArgs});
+  const browser = await puppeteer.launch({args: puppeteerArgs});
   const page = await browser.newPage();
 
   console.log("Starting PDF conversion");
