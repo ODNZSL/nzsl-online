@@ -45,8 +45,8 @@ $(document).ready(function() {
       }
     }
 
-    $(".vocab-sheet__page-controls--download").on("click", function(){
-      $(".vocab-sheet__download-notice").removeClass("hide")
+    $('.vocab-sheet__page-controls--download').on('click', function() {
+      $('.vocab-sheet__download-notice').removeClass('hide');
     });
   };
 
