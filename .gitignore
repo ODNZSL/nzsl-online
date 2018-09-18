@@ -25,3 +25,4 @@ coverage/*
 postgres/*
 
 node_modules
+yarn-error.log
