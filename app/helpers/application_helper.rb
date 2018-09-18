@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def render_navigation_link(link)
     link_to_unless_current(link.label, link.path) do
-      content_tag :span, link.label, class: "menu-list__selected"
+      content_tag :span, link.label, class: 'menu-list__selected'
     end
   end
 
