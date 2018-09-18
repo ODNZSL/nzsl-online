@@ -19,8 +19,8 @@ class VocabSheetsController < ApplicationController
       end
 
       format.pdf do
-        pdf = build_rendered_pdf(html: render_to_string(:print, print: "true", formats: [:html]))
-        send_file(pdf.file_path, filename: pdf.download_as_filename, type: pdf.mime_type)
+        pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
+        send_file(pdf.file_path, filename: "#{@title}.pdf" || pdf.download_as_filename, type: pdf.mime_type)
       end
     end
 
