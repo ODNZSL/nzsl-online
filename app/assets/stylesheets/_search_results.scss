@@ -71,12 +71,8 @@
     width: 100%;
   }
 
-  &__add-to-vocab-sheet {
-    font-size: large;
-    float: left;
-  }
-
-  &__button {
+  &__button,
+  .sign__button {
     flex: 50%;
     text-align: left;
 
