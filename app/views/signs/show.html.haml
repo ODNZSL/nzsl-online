@@ -22,9 +22,9 @@
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button
-        = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
+        = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: true, preload: "auto"
         - if @sign.video_slow.present?
-          = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: false, controlsList:"nodownload",  preload: "auto", loop: true, width: "100%"
+          = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: true, controlsList:"nodownload",  preload: "auto", width: "100%"
           = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
           = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
       .glosses-container.glosses.small-12.float-left
@@ -41,9 +41,9 @@
           .typography.videos
             .video-container
               %i.fi-play.play-button
-              = videojs_rails sources: { mp4: example[:video]}, class: "example_video video normal", controls: false, controlsList:"nodownload", preload: "auto", loop: true
+              = videojs_rails sources: { mp4: example[:video]}, class: "example_video video normal", controls: true, controlsList:"nodownload noremoteplayback", preload: "auto"
               - if example[:video_slow]
-                = videojs_rails sources: { mp4: example[:video_slow] }, class: "example_video video slow", controls: false, controlsList:"nodownload", preload: true, loop: true, width: "100%"
+                = videojs_rails sources: { mp4: example[:video_slow] }, class: "example_video video slow", controls: true, controlsList:"nodownload noremoteplayback", preload: true, width: "100%"
                 = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
                 = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
             .small-12.float-left

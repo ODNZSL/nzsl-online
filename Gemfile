@@ -6,7 +6,7 @@ ruby '2.5.1'
 gem 'rails', '~> 5.2.0'
 
 # Use Postgresql as the database for Active Record
-gem 'pg', '~>0.21'
+gem 'pg', '~>1.1'
 
 gem "bootsnap", ">= 1.1.0", require: false
 gem 'haml'
@@ -70,7 +70,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.59.0', require: false
+  gem 'rubocop', '~> 0.59.1', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
