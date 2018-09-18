@@ -13,11 +13,15 @@ const puppeteer = require("puppeteer");
 const inputPath = `file://${process.argv[2]}`;
 const outputPath = process.argv[3];
 
+/* Travis needs an argument that is generally not prefered
+for live environments so we se it set it optionally here */
+const puppeteerArgs = process.env["CI"] ? ["--no-sandbox"] : [];
+
 console.log("Input path:", inputPath);
 console.log("Output path:", outputPath);
 
 (async () => {
-  const browser = await puppeteer.launch();
+  const browser = await puppeteer.launch({puppeteerArgs});
   const page = await browser.newPage();
 
   console.log("Starting PDF conversion");
