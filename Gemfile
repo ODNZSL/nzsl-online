@@ -58,6 +58,7 @@ end
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
+  gem "chromedriver-helper"
 
   # for debugging
   gem 'pry-byebug'
@@ -95,6 +96,7 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
+  gem "capybara-selenium"
   gem 'codeclimate-test-reporter', '~> 1.0.0'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
