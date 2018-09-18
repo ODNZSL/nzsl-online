@@ -8,3 +8,5 @@ engines:
         enabled: false
 exclude_patterns:
 - "bin/render-pdf.js"
+- "db/migrate/20110919012833_create_pages.rb"
+- "db/migrate/20110501210932_create_feedbacks.rb"
