@@ -191,7 +191,7 @@ GEM
     pry-rails (0.3.6)
       pry (>= 0.10.4)
     public_suffix (3.0.3)
-    puma (3.11.0)
+    puma (3.12.0)
     rack (2.0.5)
     rack-test (1.1.0)
       rack (>= 1.0, < 3)
@@ -262,7 +262,7 @@ GEM
       rspec-mocks (~> 3.8.0)
       rspec-support (~> 3.8.0)
     rspec-support (3.8.0)
-    rubocop (0.59.0)
+    rubocop (0.59.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.5, != 2.5.1.1)
@@ -359,7 +359,7 @@ DEPENDENCIES
   pg (~> 1.1)
   pry-byebug
   pry-rails
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.2.0)
   rails-controller-testing
   rails_12factor
@@ -368,7 +368,7 @@ DEPENDENCIES
   rerun
   responders (~> 2.0)
   rspec-rails
-  rubocop (~> 0.59.0)
+  rubocop (~> 0.59.1)
   sass-rails
   simplecov
   uglifier

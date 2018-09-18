@@ -8,7 +8,7 @@ gem 'rails', '~> 5.2.0'
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.1'
 
-gem "bootsnap", ">= 1.1.0", require: false
+gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
@@ -65,12 +65,12 @@ group :development, :test do
   gem 'rb-readline'
   gem 'simplecov', require: false
   # Use Puma as the app server for dev and test
-  gem 'puma', '~> 3.7'
+  gem 'puma', '~> 3.12'
 
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.59.0', require: false
+  gem 'rubocop', '~> 0.59.1', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
@@ -89,7 +89,7 @@ group :development, :test do
 end
 
 group :development do
-  gem "listen"
+  gem 'listen'
 end
 
 group :test do
