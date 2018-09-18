@@ -16,8 +16,8 @@
   },
   "homepage": "https://github.com/ODNZSL/nzsl-online#readme",
   "dependencies": {
-    "eslint": "^5.0.0",
-    "puppeteer": "^1.8.0"
+    "puppeteer": "^1.8.0",
+    "eslint": "^5.0.0"
   },
   "devDependencies": {
     "eslint-config-google": "0.10.0"
