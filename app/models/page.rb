@@ -28,7 +28,7 @@ class Page < ApplicationRecord
 
   validates :template, presence: true, inclusion: { in: Page.templates }
 
-  default_scope { order({ order: :asc }) }
+  default_scope { order(order: :asc) }
 
   scope :in_nav, -> { where(show_in_nav: true) }
 
