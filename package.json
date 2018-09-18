@@ -15,9 +15,13 @@
     "url": "https://github.com/ODNZSL/nzsl-online/issues"
   },
   "homepage": "https://github.com/ODNZSL/nzsl-online#readme",
+  "engines": {
+    "node": ">=9.10.0",
+    "yarn": "1.5.1"
+  },
   "dependencies": {
-    "puppeteer": "^1.8.0",
-    "eslint": "^5.0.0"
+    "eslint": "^5.0.0",
+    "puppeteer": "^1.8.0"
   },
   "devDependencies": {
     "eslint-config-google": "0.10.0"
