@@ -16,7 +16,7 @@
   },
   "homepage": "https://github.com/rabid/nzsl-online#readme",
   "dependencies": {
-    "eslint": "^6.14.0",
+    "eslint": "^5.0.0",
     "puppeteer": "^1.8.0"
   },
   "devDependencies": {
