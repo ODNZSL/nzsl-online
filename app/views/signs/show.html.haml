@@ -16,9 +16,10 @@
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
-      = link_to "#", { class: "card__button add-to-vocab-btn card__add-to-vocab-sheet card__button--peach", "data-sign-id": @sign.id } do
-        %span.card__button-symbol.card__button-symbol--peach +
-        %span.card__button-action.card__button-action--peach Add to Vocab Sheet
+      = link_to "#", { class: "card__button add-to-vocab-btn add-to-vocab-sheet card__button--peach", "data-sign-id": @sign.id } do
+        %span.icon-container
+          %i.fi-plus
+        %span.text-container Add to Vocab Sheet
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button
