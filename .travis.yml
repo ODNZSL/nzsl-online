@@ -10,6 +10,7 @@ env:
   - secure: X+/ddae/aP2HY3cely16CQUa+hQdfh5N34/GkfoLCAfX6vDqTpzEz4ZmflTI3uX/iQTbvBwbTvRcTKLIHO8y7hMpui+9tZs1nbF1QnpRrBXZA7iKekJhuPoMmyxtqJ3BtDaBkHdKlyu7S2Z5qHsDNkpv0gyfCGn4sl3KI+tRJ7xkWtF9K3di3ICFLL6rB0zKFUWgWPylMmC700P1pvNlIrMHQr77FGrFsCKqjHOrUxwMOYc7fWeiBRpc65Di/HzLxe5GLhDxXu1WYirhQZxHK+zvJRrX3IoJzvdss7pnftoMYHn/2HJl66WL9/d7le5lIOG92PVtL+1/AnUhzNaLmSjYiJG06iWgTagY2fE0NPoulUvNeUZRsCzO81goQl93iNaOFJ/rgGEfKDdf6UUxs3NUrS5C5P6tL/dyV+PKrFcOWZwqTCJZupeEPP1lL1Qmgy9kIO5jubG1rbHKqXEY7U64ZxRvPVBPXU6Zue4RI0F+310WGsQB2Uw3YB5Mmci2U6yhp1HlW5m4xqFHpZamA08BYUj197JP4J3Z8jrPC4UkabgE8BMbHovw+ObN/SGUV+ou49xpxuGThJoHcgABcC/+CCHrYgHNJXGX7fxDmhbZU0zAPl3EtzPvx6wJGeIJGQGwLKyTjlEHwspgDW/vMx6Y71/XjeSp+L0Yp8VbLz4=
 before_script:
 - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit' 'pandoc-ruby'
+- brew install node@9.10.1
 - npm install -g yarn@1.5.1
 - yarn install
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
