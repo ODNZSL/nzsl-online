@@ -15,9 +15,6 @@
     "url": "https://github.com/ODNZSL/nzsl-online/issues"
   },
   "homepage": "https://github.com/ODNZSL/nzsl-online#readme",
-  "engines": {
-    "yarn": "1.5.1"
-  },
   "dependencies": {
     "eslint": "^5.0.0",
     "puppeteer": "^1.8.0"
