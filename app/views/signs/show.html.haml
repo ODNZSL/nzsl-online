@@ -16,9 +16,10 @@
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
-      = form_tag vocab_sheet_items_path do
-        = hidden_field_tag 'sign_id', @sign.id
-        = add_vocab_button('vocab_sheet.item.add', class: 'add_to_sheet')
+      = link_to "#", { class: "card__button add-to-vocab-btn card__button--peach", "data-sign-id": @sign.id } do
+        %span.icon-container
+          %i.fi-plus
+        %span.text-container Add to Vocab Sheet
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button
