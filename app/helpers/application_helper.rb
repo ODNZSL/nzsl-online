@@ -46,20 +46,6 @@ module ApplicationHelper
             { class: "button #{options[:class]}" }.reverse_merge(options)
   end
 
-  def add_vocab_button(text, url = nil, options = {})
-    url ||= 'javascript:void(0);'
-    link_to "<button type='submit' class='add_vocab_button'>
-              <span class='icon-container'>
-                <i class='fi-plus'></i>
-              </span>
-              <span class='text-container'>
-                #{t(text)}
-              </span>
-            </button>".html_safe,
-            url,
-            { class: "show-for-medium #{options[:class]}" }.reverse_merge(options)
-  end
-
   def query_for_query_string
     query = @query.dup
     query.each { |k, v| query[k] = v.is_a?(Array) ? v.join(' ') : v }
