@@ -40,6 +40,6 @@ class SignsController < ApplicationController
     end
 
     def permitted_params
-      params.permit([:s, :hs, :l, :lg, :usage, :tag, :term, :p, :id])
+      params.permit(%i[s hs l lg usage tag term p id])
     end
 end
