@@ -71,3 +71,10 @@ $default-timing-function: ease-in-out;
     timing-function: $default-timing-function;
   };
 }
+
+@mixin vocab-sheet-height($height) {
+  min-height: $height;
+  & img {
+    max-height: $height - 10px;
+  }
+}
