@@ -7,7 +7,7 @@ module ApplicationHelper
 
   def render_navigation_link(link)
     link_to_unless_current(link.label, link.path) do
-      content_tag :span, link.label, class: "menu-list__selected"
+      content_tag :span, link.label, class: 'menu-list__selected'
     end
   end
 
@@ -44,20 +44,6 @@ module ApplicationHelper
     link_to "<i class='fi-play'></i>#{t(text)}".html_safe,
             url,
             { class: "button #{options[:class]}" }.reverse_merge(options)
-  end
-
-  def add_vocab_button(text, url = nil, options = {})
-    url ||= 'javascript:void(0);'
-    link_to "<button type='submit' class='add_vocab_button'>
-              <span class='icon-container'>
-                <i class='fi-plus'></i>
-              </span>
-              <span class='text-container'>
-                #{t(text)}
-              </span>
-            </button>".html_safe,
-            url,
-            { class: "show-for-medium #{options[:class]}" }.reverse_merge(options)
   end
 
   def query_for_query_string
