@@ -196,19 +196,31 @@
 .vocab_sheet_drawing__size {
   &--2 {
     min-height: 290px;
+    & img {
+      max-height: 280px;
+    }
   }
 
   &--3 {
     min-height: 190px;
+    & img {
+      max-height: 180px;
+    }
   }
 
   &--4 {
     min-height: 140px;
+    & img {
+      max-height: 130px;
+    }
   }
 
   &--5,
   &--6 {
     min-height: 110px;
+    & img {
+      max-height: 100px;
+    }
   }
 }
 
