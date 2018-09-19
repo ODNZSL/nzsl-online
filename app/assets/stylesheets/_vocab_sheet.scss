@@ -195,20 +195,20 @@
 
 .vocab_sheet_drawing__size {
   &--2 {
-    @include vocab-sheet-height(290px);
+    @include vocab-sheet-image-heights(290px);
   }
 
   &--3 {
-    @include vocab-sheet-height(190px);
+    @include vocab-sheet-image-heights(190px);
   }
 
   &--4 {
-    @include vocab-sheet-height(140px);
+    @include vocab-sheet-image-heights(140px);
   }
 
   &--5,
   &--6 {
-    @include vocab-sheet-height(110px);
+    @include vocab-sheet-image-heights(110px);
   }
 }
 
