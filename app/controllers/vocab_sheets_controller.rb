@@ -7,10 +7,7 @@ class VocabSheetsController < ApplicationController
   respond_to :html, :json
 
   def show
-    @size = params[:size].to_i
-    @size = session[:vocab_sheet_size].to_i if @size.zero?
-    @size = 4 if @size.zero?
-    session[:vocab_sheet_size] = @size
+    set_vocab_sheet_size
 
     respond_to do |format|
       format.html do
@@ -66,5 +63,12 @@ class VocabSheetsController < ApplicationController
       renderer = PdfRenderingService.new(from_html: html)
       renderer.render
       renderer.pdf
+    end
+
+    def set_vocab_sheet_size
+        @size = params[:size].to_i
+        @size = session[:vocab_sheet_size].to_i if @size.zero?
+        @size = 4 if @size.zero?
+        session[:vocab_sheet_size] = @size
     end
 end
