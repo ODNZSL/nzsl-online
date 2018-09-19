@@ -3,7 +3,7 @@
     .notes-view__gloss
       = hidden_field_tag "item[#{vocab_sheet_item.id}][id]", vocab_sheet_item.id, class: 'item_id'
       = link_to sign_url(vocab_sheet_item.sign_id), { class: "drawing vocab_sheet_drawing drawing vocab_sheet_drawing__size--#{size}" } do
-        = image_tag "/images/signs/400x400/#{vocab_sheet_item.drawing}"
+        = image_tag "/images/signs/400-400/#{vocab_sheet_item.drawing}"
       = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :put do
         = text_area_tag "item[name]", vocab_sheet_item.name, class: 'item-name vocab-sheet__text-input h3', id: "item_#{vocab_sheet_item.id}_name", maxlength:vocab_sheet_max_field_length
         = hidden_field_tag "item[#{vocab_sheet_item.id}][old_name]", vocab_sheet_item.name, class: 'old_name'
