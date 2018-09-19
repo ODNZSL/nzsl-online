@@ -14,24 +14,16 @@ class ImageProcessor
     @local_filename = calculate_local_filename
   end
 
-  def resize_and_cache
+  def return_file_from_cache
     return @local_filename if local_file_exists && local_file_age_in_days < 1
-    resize
+    write_file_locally
     @local_filename
   end
 
   private
 
-    def resize
+    def write_file_locally
       image = MiniMagick::Image.open(@remote_filename)
-      image.shave CROP_IMAGES_BY if CROP_IMAGES
-
-      # Reset page size to cropped image to avoid offset issue.
-      # See here: http://studio.imagemagick.org/pipermail/magick-bugs/2008-May/002933.html
-      width  = Integer(image['width'])
-      height = Integer(image['height'])
-      image.set('page', "#{width}x#{height}+0+0")
-      image.resize dimensions.join('x') + '>'
       image.format 'png'
       image.write @local_filename
     end
