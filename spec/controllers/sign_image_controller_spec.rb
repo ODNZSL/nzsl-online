@@ -29,5 +29,13 @@ RSpec.describe SignImageController, type: :controller do
 
       it { expect(response).to have_http_status(:forbidden) }
     end
+
+    context "when height and width params are present" do
+      before { get :show, params: valid_params }
+
+      it "returns an image with those dimensions" do
+        expect(assigns(:local_filename)).to include("40x50-5519-victoria_university-5519.png")
+      end
+    end
   end
 end
