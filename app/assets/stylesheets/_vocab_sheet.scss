@@ -103,13 +103,9 @@
         }
 
         .notes-view {
-          &__gloss {
-            .item-maori-name,
-            .item-name {
-              padding: .3rem .2rem .3rem .2rem;
-            }
-            width: 12rem;
-            flex: 10rem;
+          &__gloss { 
+            width: 20rem;
+            flex: 20rem;
             padding: .5rem .55rem .5rem .25rem;
             border-right: 1px solid $light-med-grey;
           }
