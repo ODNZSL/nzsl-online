@@ -5,8 +5,8 @@ class RenderedPdf
     @file_path = file_path
   end
 
-  def download_as_filename
-    "vocab_sheet.pdf"
+  def download_as_filename(title)
+    title ? "#{title}.pdf" : "vocab_sheet.pdf"
   end
 
   def mime_type
