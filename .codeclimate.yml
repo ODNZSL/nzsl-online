@@ -18,3 +18,15 @@ engines:
     enabled: true
   duplication:
     enabled: true
+ratings:
+  paths:
+  - "**.rb"
+  - "**.js"
+  - "**.coffee"
+  - "**.sass"
+  - "**.haml"
+  - Gemfile.lock
+exclude_paths:
+- config/
+- db/
+- spec/
