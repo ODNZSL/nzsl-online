@@ -48,20 +48,20 @@ $(document).ready(function() {
     }
 
     function removeVocabItem(itemId) {
-    $.ajax({
-      url: '/vocab_sheet/items/' + itemId,
-      method: 'POST',
-      data: {
-        '_method': 'delete',
-      },
-      headers: {
-        'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
-      },
-    }).done(function(data) {
-      onVocabItemRemoved(itemId);
-    }).fail(function(error) {
-      onVocabItemError(error.statusText);
-    });
+      $.ajax({
+        url: '/vocab_sheet/items/' + itemId,
+        method: 'POST',
+        data: {
+          '_method': 'delete',
+        },
+        headers: {
+          'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+        },
+      }).done(function(data) {
+        onVocabItemRemoved(itemId);
+      }).fail(function(error) {
+        onVocabItemError(error.statusText);
+      });
     }
 
     function onVocabItemRemoved(itemId) {
