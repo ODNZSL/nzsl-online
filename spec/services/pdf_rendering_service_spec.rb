@@ -24,15 +24,17 @@ RSpec.describe PdfRenderingService do
       expect(subject.html).to match(/<head><base href=/)
     end
 
-    it "Saves a PDF version of the HTML file to disk" do
-      subject.render
-      expect(subject.html).to match(/<head><base href=/)
-      pdf_file_path = subject.pdf.file_path
-      first_bytes_in_file = File.read(pdf_file_path, 8)
+    context "Saves a PDF version of the HTML file to disk" do
+      before(:each) do
+        subject.render
+        @pdf_file_path = subject.pdf.file_path
+        @first_bytes_in_file = File.read(@pdf_file_path, 8)
+      end
 
-      expect(File.exist?(pdf_file_path)).to eq(true)
-      expect(File.size(pdf_file_path)).to be > 0
-      expect(first_bytes_in_file).to eq(pdf_file_header_bytes)
+      it { expect(subject.html).to match(/<head><base href=/) }
+      it { expect(File.exist?(@pdf_file_path)).to eq(true) }
+      it { expect(File.size(@pdf_file_path)).to be > 0 }
+      it { expect(@first_bytes_in_file).to eq(pdf_file_header_bytes) }
     end
   end
 end
