@@ -8,6 +8,17 @@ $(document).ready(function() {
       addVocabItem($(this).attr('data-sign-id'));
     });
 
+    if ($('.remove').length > 0) {
+      removeVocabItemOnClick();
+    }
+
+    function removeVocabItemOnClick() {
+      $('.remove').click(function(e) {
+        e.preventDefault();
+        removeVocabItem($(this).attr('data-sign-id'));
+      });
+    }
+
     function addVocabItem(signId) {
       $.ajax({
         url: '/vocab_sheet/items/',
@@ -32,6 +43,30 @@ $(document).ready(function() {
 
       $(notice).removeClass('hide-flash').text('Sign added');
       $(vocabList).append(htmlElem);
+      removeVocabItemOnClick();
+      hideNotice();
+    }
+
+    function removeVocabItem(itemId) {
+    $.ajax({
+      url: '/vocab_sheet/items/' + itemId,
+      method: 'POST',
+      data: {
+        '_method': 'delete',
+      },
+      headers: {
+        'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+      },
+    }).done(function(data) {
+      onVocabItemRemoved(itemId);
+    }).fail(function(error) {
+      onVocabItemError(error.statusText);
+    });
+    }
+
+    function onVocabItemRemoved(itemId) {
+      $(notice).removeClass('hide-flash').text('Sign removed');
+      $('.vocab-sidebar__item[data-sign-id=' + itemId + ']').remove();
       hideNotice();
     }
 
