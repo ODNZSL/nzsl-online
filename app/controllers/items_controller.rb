@@ -57,7 +57,7 @@ class ItemsController < ApplicationController
     return respond_with_json_or_redirect(@item) unless request.xhr?
 
     flash[:vocab_bar_notice] = flash[:vocab_bar_error] = nil
-    render nothing: true
+    render json: nil, status: :ok
   end
 
   def reorder
