@@ -6,8 +6,36 @@ engines:
         enabled: false
       require-jsdoc:
         enabled: false
-exclude_patterns:
-- "bin/render-pdf.js"
-- "db/migrate/20110919012833_create_pages.rb"
-- "db/migrate/20110501210932_create_feedbacks.rb"
-- "spec/controllers/admin/pages_controller_spec.rb"
+  rubocop:
+    enabled: true
+  scss-lint:
+    enabled: true
+  shellcheck:
+    enabled: true
+  brakeman:
+    enabled: true
+  bundler-audit:
+    enabled: true
+  duplication:
+    enabled: true
+    config:
+      languages:
+      - ruby
+      - javascript
+  fixme:
+    enabled: true
+ratings:
+  paths:
+  - "**.rb"
+  - "**.js"
+  - "**.coffee"
+  - "**.sass"
+  - "**.haml"
+  - "**.css"
+  - "**.scss"
+  - Gemfile.lock
+exclude_paths:
+- config/
+- db/
+- spec/
+- bin/
