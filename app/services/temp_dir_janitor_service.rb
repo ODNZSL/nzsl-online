@@ -17,7 +17,7 @@ class TempDirJanitorService
 
   private
 
-  def old?(path)
-    File.mtime(path) < 1.hour.ago
-  end
+    def old?(path)
+      File.mtime(path) < 1.hour.ago
+    end
 end
