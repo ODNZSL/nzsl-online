@@ -4,7 +4,7 @@ class PdfRenderingService
   class ChromeTimeoutError < Error; end
 
   # Create a place for us to work under the Rails `tmp/` dir
-  TMP_DIR_PATH = Rails.root.join("tmp", "pdf_rendering").to_s.freeze
+  TMP_DIR_PATH = Rails.root.join('tmp', 'pdf_rendering').to_s.freeze
 
   # Set a maximum amount of time we will allow Chrome to attempt to render the
   # PDF
@@ -93,10 +93,10 @@ class PdfRenderingService
 
   def google_chrome_path
     case Gem::Platform.local.os
-    when "darwin" # macOS
-      Shellwords.escape("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-    when "linux"
-      Shellwords.escape("google-chrome-stable")
+    when 'darwin' # macOS
+      Shellwords.escape('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
+    when 'linux'
+      Shellwords.escape('google-chrome-stable')
     else
       fail MissingChromeBinaryError
     end
