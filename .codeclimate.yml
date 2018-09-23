@@ -38,3 +38,5 @@ exclude_paths:
 - config/
 - db/
 - spec/
+exclude_patterns:
+- "bin/render-pdf.js"
