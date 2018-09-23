@@ -56,66 +56,66 @@ class PdfRenderingService
 
   private
 
-  def write_to_file(path, contents)
-    File.write(path, contents)
-  end
-
-  def calculate_unique_id
-    "#{Time.zone.now.to_i}-#{SecureRandom.hex(10)}"
-  end
-
-  def create_empty_html_file
-    path = File.join(TMP_DIR_PATH, "#{@unique_id}-input.html")
-    FileUtils.touch(path)
-    path
-  end
-
-  def create_empty_pdf_file
-    path = File.join(TMP_DIR_PATH, "#{@unique_id}-output.pdf")
-    FileUtils.touch(path)
-    path
-  end
-
-  def render_as_pdf(input_html_path:, output_pdf_path:)
-    cmd = "node #{Rails.root.join("bin", "render-pdf.js")} #{input_html_path} #{output_pdf_path}"
-    Rails.logger.info(cmd)
-
-    error_msg = "Chrome did not complete the PDF conversion within the #{PDF_CONVERSION_TIMEOUT_SECONDS} second timeout"
-
-    Timeout.timeout(PDF_CONVERSION_TIMEOUT_SECONDS, ChromeTimeoutError, error_msg) do
-      system(cmd)
+    def write_to_file(path, contents)
+      File.write(path, contents)
     end
-  end
 
-  def create_tmp_dir_if_required
-    FileUtils.mkdir_p(TMP_DIR_PATH) unless Dir.exist?(TMP_DIR_PATH)
-  end
-
-  def google_chrome_path
-    case Gem::Platform.local.os
-    when "darwin" # macOS
-      Shellwords.escape("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
-    when "linux"
-      Shellwords.escape("google-chrome-stable")
-    else
-      fail MissingChromeBinaryError
+    def calculate_unique_id
+      "#{Time.zone.now.to_i}-#{SecureRandom.hex(10)}"
     end
-  end
 
-  def mutate_html_by_inserting_base_tag
-    # @html is potentially a very large string so we deliberately choose to
-    # mutate it in place with #sub! instead of making a new copy with #sub for
-    # performance reasons.
-    #
-    # We add the <base ... /> tag just after <head> - it must be added before
-    # any <style> or <script></script> tags.
-    @html.sub!(/#{Regexp.quote("<head>")}/, "<head>#{base_tag}")
-  end
+    def create_empty_html_file
+      path = File.join(TMP_DIR_PATH, "#{@unique_id}-input.html")
+      FileUtils.touch(path)
+      path
+    end
 
-  def base_tag
-    domain = Rails.application.secrets.app_domain_name
-    protocol = Rails.application.secrets.app_protocol
+    def create_empty_pdf_file
+      path = File.join(TMP_DIR_PATH, "#{@unique_id}-output.pdf")
+      FileUtils.touch(path)
+      path
+    end
 
-    "<base href='#{protocol}://#{domain}'/>"
-  end
+    def render_as_pdf(input_html_path:, output_pdf_path:)
+      cmd = "node #{Rails.root.join("bin", "render-pdf.js")} #{input_html_path} #{output_pdf_path}"
+      Rails.logger.info(cmd)
+  
+      error_msg = "Chrome did not complete the PDF conversion within the #{PDF_CONVERSION_TIMEOUT_SECONDS} second timeout"
+  
+      Timeout.timeout(PDF_CONVERSION_TIMEOUT_SECONDS, ChromeTimeoutError, error_msg) do
+        system(cmd)
+      end
+    end
+
+    def create_tmp_dir_if_required
+      FileUtils.mkdir_p(TMP_DIR_PATH) unless Dir.exist?(TMP_DIR_PATH)
+    end
+
+    def google_chrome_path
+      case Gem::Platform.local.os
+      when "darwin" # macOS
+        Shellwords.escape("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+      when "linux"
+        Shellwords.escape("google-chrome-stable")
+      else
+        fail MissingChromeBinaryError
+      end
+    end
+
+    def mutate_html_by_inserting_base_tag
+      # @html is potentially a very large string so we deliberately choose to
+      # mutate it in place with #sub! instead of making a new copy with #sub for
+      # performance reasons.
+      #
+      # We add the <base ... /> tag just after <head> - it must be added before
+      # any <style> or <script></script> tags.
+      @html.sub!(/#{Regexp.quote("<head>")}/, "<head>#{base_tag}")
+    end
+
+    def base_tag
+      domain = Rails.application.secrets.app_domain_name
+      protocol = Rails.application.secrets.app_protocol
+  
+      "<base href='#{protocol}://#{domain}'/>"
+    end
 end
