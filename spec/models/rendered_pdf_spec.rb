@@ -18,5 +18,4 @@ RSpec.describe 'RenderedPdf', type: :model do
       end
     end
   end
-
 end
