@@ -2,7 +2,7 @@
 
 class SignImageController < ApplicationController
   skip_before_action :staging_http_auth, only: :show
-  
+
   def show
     @local_filename = ImageProcessor.new(filename: filename_param,
                                          height: height_param,
