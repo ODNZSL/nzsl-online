@@ -30,7 +30,7 @@ $(document).ready(function() {
         }
       };
 
-      $('.vocab_sheet textarea, input.vocab_sheet_name').keypress(function(e) {
+      $('input.vocab_sheet_name').keypress(function(e) {
         if (e.which == 13) {
           e.preventDefault();
           $(this).blur();
