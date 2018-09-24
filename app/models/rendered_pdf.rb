@@ -6,10 +6,10 @@ class RenderedPdf
   end
 
   def download_as_filename(title)
-    title ? "#{title}.pdf" : "vocab_sheet.pdf"
+    title ? "#{title}.pdf" : 'vocab_sheet.pdf'
   end
 
   def mime_type
-    "application/pdf"
+    'application/pdf'
   end
 end
