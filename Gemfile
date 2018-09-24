@@ -12,7 +12,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'mini_magick', '~> 4.8.0'
+gem 'mini_magick', '~> 4.9.2'
 gem 'nokogiri', '~> 1.8.1'
 gem 'pandoc-ruby'
 gem 'whenever'
