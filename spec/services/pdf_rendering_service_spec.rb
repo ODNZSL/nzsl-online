@@ -1,4 +1,4 @@
-require "rails_helper"
+require 'rails_helper'
 
 RSpec.describe PdfRenderingService do
   let(:html) do
@@ -16,15 +16,15 @@ RSpec.describe PdfRenderingService do
 
   subject { PdfRenderingService.new(from_html: html) }
 
-  describe "#render" do
-    let(:pdf_file_header_bytes) { "%PDF-1.4" } # PDFs begin with this sequence of bytes
+  describe '#render' do
+    let(:pdf_file_header_bytes) { '%PDF-1.4' } # PDFs begin with this sequence of bytes
 
-    it "adds a base tag immediately after the <head> opening tag in the given HTML" do
+    it 'adds a base tag immediately after the <head> opening tag in the given HTML' do
       subject.render
       expect(subject.html).to match(/<head><base href=/)
     end
 
-    context "Saves a PDF version of the HTML file to disk" do
+    context 'Saves a PDF version of the HTML file to disk' do
       before(:each) do
         subject.render
         @pdf_file_path = subject.pdf.file_path
