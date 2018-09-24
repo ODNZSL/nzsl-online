@@ -25,13 +25,13 @@ class Item < ApplicationRecord
 
   private
 
-    def update_maori_name_if_missing
-      return unless self[:maori_name].nil? && persisted?
-      self.maori_name = sign.gloss_maori
-      save
-    end
+  def update_maori_name_if_missing
+    return unless self[:maori_name].nil? && persisted?
+    self.maori_name = sign.gloss_maori
+    save
+  end
 
-    def sign
-      @sign ||= Sign.first(id: sign_id)
-    end
+  def sign
+    @sign ||= Sign.first(id: sign_id)
+  end
 end

@@ -20,7 +20,6 @@ class VocabSheetsController < ApplicationController
         send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
       end
     end
-
   end
 
   def update
