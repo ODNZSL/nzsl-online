@@ -41,7 +41,7 @@ class PdfRenderingService
     # Create some empty temporary files
     pdf_path = create_empty_pdf_file
     html_path = create_empty_html_file
-    basic_auth_credentials = { username: ENV["HTTP_BASIC_AUTH_USERNAME"], password: ENV["HTTP_BASIC_AUTH_PASSWORD"] }
+    basic_auth_credentials = { username: ENV['HTTP_BASIC_AUTH_USERNAME'], password: ENV['HTTP_BASIC_AUTH_PASSWORD'] }
 
     # Write the HTML we received to a file for Chrome to consume (Chrome does
     # not support rendering from STDIN)
