@@ -52,7 +52,7 @@
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
     .sign-container { float: right; }
-    .add-to-vocab-btn,
+    .add-to-vocab-btn { float: right; }
     .notes,
     .videos {
       float: left;
