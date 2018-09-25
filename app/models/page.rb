@@ -51,6 +51,10 @@ class Page < ApplicationRecord
     where(show_in_nav: true).where(slug: HEADER_NAV)
   end
 
+  def self.all_slugs
+    Page.all.map{|page| page.slug }
+  end
+
   def self.create_from_csv!(row)
     id, title, slug, label, order, template, show_in_nav, created_at, updated_at = row
 
