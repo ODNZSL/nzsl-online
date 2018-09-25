@@ -49,20 +49,20 @@ module Admin
 
     private
 
-      def fetch_page_part
-        @page_part = @page.page_parts.find(params[:id])
-      end
+    def fetch_page_part
+      @page_part = @page.page_parts.find(params[:id])
+    end
 
-      def fetch_page
-        @page = Page.find(params[:page_id])
-      end
+    def fetch_page
+      @page = Page.find(params[:page_id])
+    end
 
-      def set_title
-        @title = 'Administrate page parts'
-      end
+    def set_title
+      @title = 'Administrate page parts'
+    end
 
-      def page_part_params
-        params.require(:page_part).permit(:title, :translation_path, :body)
-      end
+    def page_part_params
+      params.require(:page_part).permit(:title, :translation_path, :body)
+    end
   end
 end
