@@ -6,6 +6,9 @@
   background-color: initial;
   font-size: inherit;
   font-family: inherit;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
   &:hover {
     .text-container { color: $med-grey; }
     .icon-container { background: $med-grey; }
