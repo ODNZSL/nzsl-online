@@ -3,8 +3,8 @@ class SitemapsController < ApplicationController
   before_action :init_sitemap
 
   def index
-    @page_slugs = Page.all_slugs
-    @sign_ids = SitemapService.all_sign_ids
+    @page_slugs = Page.pluck(:slug)
+    @sign_ids = Sign.all(xmldump: 1).map(&:id)
 
     respond_to do |format|
       format.xml
