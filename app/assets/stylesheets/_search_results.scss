@@ -95,9 +95,9 @@
 
     &--peach {
       background-color: $peach;
+      bottom: 0;
       margin: auto;
       position: absolute;
-      bottom: 0px;
       right: 95px;
     }
 
@@ -114,10 +114,10 @@
     text-align: left;
 
     &--peach {
+      bottom: 0;
       color: $peach;
-      position: absolute;
-      bottom: 0px;
       right: 10px;
+      position: absolute;
     }
   }
 }
