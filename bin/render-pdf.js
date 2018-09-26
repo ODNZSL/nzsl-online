@@ -12,6 +12,8 @@ const puppeteer = require("puppeteer");
 
 const inputPath = `file://${process.argv[2]}`;
 const outputPath = process.argv[3];
+const basic_auth_username = process.argv[4];
+const basic_auth_password = process.argv[5];
 
 console.log("Input path:", inputPath);
 console.log("Output path:", outputPath);
@@ -22,6 +24,10 @@ but due to issues getting it running on Heroku this option is required. */
 (async () => {
   const browser = await puppeteer.launch({args: ["--no-sandbox"]});
   const page = await browser.newPage();
+
+  if (basic_auth_username) {
+    await page.authenticate({username: basic_auth_username, password: basic_auth_password});
+  }
 
   console.log("Starting PDF conversion");
   await page.goto(inputPath, { waitUntil: "networkidle2" });
