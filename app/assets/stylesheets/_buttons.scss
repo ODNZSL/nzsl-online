@@ -70,10 +70,12 @@ a .button,
 .translation_button { @extend .play_video_button; }
 img.download-button {
   // width: 1.5rem;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
   float: left;
-  margin-bottom: 5px;
   margin-left: none;
-  height: 30px;
+  height: 33px;
 }
 
 // Browser specific styles ( Firefox IE 11 and Safari ) to hide the default videojs BigPlayButton
