@@ -95,6 +95,10 @@
 
     &--peach {
       background-color: $peach;
+      bottom: 0;
+      margin: auto;
+      position: absolute;
+      right: 95px;
     }
 
     &--blue {
@@ -110,7 +114,10 @@
     text-align: left;
 
     &--peach {
+      bottom: 0;
       color: $peach;
+      position: absolute;
+      right: 10px;
     }
   }
 }

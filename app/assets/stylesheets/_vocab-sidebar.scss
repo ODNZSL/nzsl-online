@@ -40,13 +40,13 @@
 
   &__item {
     @include border-radius-small;
-  
+
     background-color: $white;
     box-shadow: 0 .125rem .25rem $light-med-grey;
     box-sizing: border-box;
     margin: 1rem 0;
     width: 100%;
-  
+
     .remove {
       right: -10px;
       top: -8px;
@@ -56,6 +56,7 @@
   &__image {
     min-height: 5rem;
     max-width: 85%;
+    height: 5.5rem;
   }
 
   &__gloss {

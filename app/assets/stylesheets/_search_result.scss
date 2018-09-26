@@ -4,7 +4,12 @@
     padding: 25px 0;
   }
   &-container {
-    .glosses-container { margin-bottom: 20px; }
+    .glosses-container {
+      bottom: 20px;
+      left: 45%;
+      margin-bottom: 20px;
+      position: absolute;
+    }
     .video-container .button {
       @extend .play_video_button;
       margin: 5px 0 30px 0;
@@ -24,9 +29,10 @@
       position: relative;
       margin-bottom: 20px;
       box-shadow: -2px 3px 12px 0 $light-med-grey;
+      min-height: 600px;
       .main-image {
         margin: 65px auto 10px;
-        display: block;
+        max-width: 350px;
       }
       .sign_attributes {
         position: absolute;
