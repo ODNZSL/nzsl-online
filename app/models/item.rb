@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   validates :sign_id, :name, presence: true
   validates :sign_id, :position, numericality: true
   # validates :position, greater_than: 0, allow_nil: true
@@ -25,13 +25,13 @@ class Item < ActiveRecord::Base
 
   private
 
-    def update_maori_name_if_missing
-      return unless self[:maori_name].nil? && persisted?
-      self.maori_name = sign.gloss_maori
-      save
-    end
+  def update_maori_name_if_missing
+    return unless self[:maori_name].nil? && persisted?
+    self.maori_name = sign.gloss_maori
+    save
+  end
 
-    def sign
-      @sign ||= Sign.first(id: sign_id)
-    end
+  def sign
+    @sign ||= Sign.first(id: sign_id)
+  end
 end

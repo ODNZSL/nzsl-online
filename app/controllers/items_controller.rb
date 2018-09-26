@@ -14,6 +14,7 @@ class ItemsController < ApplicationController
       @item = Item.new(item_params)
       @item.sign = Sign.first(id: params[:sign_id])
       @item.position = 1
+      @item.vocab_sheet_id = @sheet.id
 
       if @item.valid?
         @sheet.items << @item
@@ -56,7 +57,7 @@ class ItemsController < ApplicationController
     return respond_with_json_or_redirect(@item) unless request.xhr?
 
     flash[:vocab_bar_notice] = flash[:vocab_bar_error] = nil
-    render nothing: true
+    render json: nil, status: :ok
   end
 
   def reorder

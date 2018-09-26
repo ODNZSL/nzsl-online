@@ -1,4 +1,4 @@
-class Indexes < ActiveRecord::Migration
+class Indexes < ActiveRecord::Migration[4.2]
   def change
     add_index :settings, :key
     add_index :page_parts, :page_id
