@@ -69,13 +69,10 @@ a .button,
 .orange_submit_button { padding: 5px; }
 .translation_button { @extend .play_video_button; }
 img.download-button {
-  // width: 1.5rem;
-  position: absolute;
-  bottom: 0px;
-  left: 0px;
   float: left;
   margin-left: none;
-  height: 33px;
+  height: 25px;
+  padding-bottom: 5px;
 }
 
 // Browser specific styles ( Firefox IE 11 and Safari ) to hide the default videojs BigPlayButton
