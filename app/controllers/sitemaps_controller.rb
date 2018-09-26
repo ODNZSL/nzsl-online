@@ -4,7 +4,7 @@ class SitemapsController < ApplicationController
 
   def index
     @page_slugs = Page.all_slugs
-    @sign_ids = [398]
+    @sign_ids = SitemapService.all_sign_ids
 
     respond_to do |format|
       format.xml
