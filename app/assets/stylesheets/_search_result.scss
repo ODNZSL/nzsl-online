@@ -38,6 +38,24 @@
           img { margin: 0; }
         }
       }
+      .sign-button-container {
+        height: 33px;
+        .button-action {
+          position: absolute;
+          bottom: 5px;
+          left: 40px;
+        }
+        .icon-container {
+          position: absolute;
+          left: 50%;
+        }
+        .add-button-action {
+          position: absolute;
+          bottom: 5px;
+          right: 30px;
+          color: $peach;
+        }
+      }
     }
     .examples-container {
       .translation-gloss {
