@@ -1,10 +1,10 @@
 .add-to-vocab-btn {
-  padding: 0;
-  bottom: -5px;
-  border: none;
   background-color: initial;
-  font-size: inherit;
+  border: none;
+  bottom: -5px;
   font-family: inherit;
+  font-size: inherit;
+  padding: 0;
   &:hover {
     .text-container { color: $med-grey; }
     .icon-container { background: $med-grey; }
@@ -72,10 +72,12 @@ a .button,
   float: left;
   margin-left: none;
 }
+
 .download-button {
   height: 2.1rem;
   width: 2.2rem;
 }
+
 .vocab-download-button {
   height: 1.5rem;
   padding-bottom: 2px;
