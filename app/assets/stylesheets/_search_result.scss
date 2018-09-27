@@ -39,32 +39,33 @@
           img { margin: 0; }
         }
       }
-      .sign-button-container {
-        height: 2.1rem;
-        .button-action,
-        .icon-container,
-        .add-button-action {
-          position: absolute;
-        }
-        .button-action,
-        .add-button-action {
-          bottom: 5px;
-        }
-        .button-action {
-          left: 2.8rem;
-        }
-        .icon-container {
-          bottom: 0;
-          left: 50%;
-        }
-        .add-button-action {
-          color: $peach;
-          right: 2.5rem;
-        }
-      }
     }
 
-    .examples-container {
+    .sign-button-container {
+      height: 2.1rem;
+      .button-action,
+      .icon-container,
+      .add-button-action {
+        position: absolute;
+      }
+      .button-action,
+      .add-button-action {
+        bottom: 5px;
+      }
+      .button-action {
+        left: 2.8rem;
+      }
+    }
+      .icon {
+        bottom: 0;
+        left: 50%;
+      }
+      .add-button-action {
+        color: $peach;
+        right: 2.5rem;
+      }
+
+     .examples-container {
       .translation-gloss {
         @include montserrat-regular;
         font-size: $h6-font-size;
