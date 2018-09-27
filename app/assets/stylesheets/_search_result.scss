@@ -40,19 +40,25 @@
       }
       .sign-button-container {
         height: 2.1rem;
-        .button-action {
+        .button-action,
+        .icon-container,
+        .add-button-action {
           position: absolute;
+        }
+        .button-action,
+        .add-button-action {
           bottom: 5px;
+        }
+      }
+      .sign-button-container {
+        .button-action {
           left: 2.8rem;
         }
         .icon-container {
           bottom: 0;
-          position: absolute;
           left: 50%;
         }
         .add-button-action {
-          position: absolute;
-          bottom: 5px;
           right: 2.5rem;
           color: $peach;
         }
