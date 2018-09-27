@@ -19,6 +19,7 @@
       }
       span { color: $link-blue; }
     }
+
     .sign-container {
       border: 1px solid $light-grey;
       position: relative;
@@ -49,9 +50,6 @@
         .add-button-action {
           bottom: 5px;
         }
-      }
-
-      .sign-button-container {
         .button-action {
           left: 2.8rem;
         }
@@ -65,6 +63,7 @@
         }
       }
     }
+
     .examples-container {
       .translation-gloss {
         @include montserrat-regular;
