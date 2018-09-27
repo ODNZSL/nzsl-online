@@ -25,7 +25,7 @@ RSpec.describe PdfRenderingService do
     end
 
     context 'Saves a PDF version of the HTML file to disk' do
-      before(:each) do
+      before do
         subject.render
         @pdf_file_path = subject.pdf.file_path
         @first_bytes_in_file = File.read(@pdf_file_path, 8)
