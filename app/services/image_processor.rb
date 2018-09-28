@@ -22,41 +22,41 @@ class ImageProcessor
 
   private
 
-    def write_file_locally
-      image = MiniMagick::Image.open(@remote_filename)
-      image.format 'png'
-      image.write @local_filename
-    end
+  def write_file_locally
+    image = MiniMagick::Image.open(@remote_filename)
+    image.format 'png'
+    image.write @local_filename
+  end
 
-    def local_file_exists
-      File.exist?(@local_filename)
-    end
+  def local_file_exists
+    File.exist?(@local_filename)
+  end
 
-    def local_file_age_in_days
-      (Time.zone.now - File.stat(@local_filename).mtime).to_i / 86_400.0
-    end
+  def local_file_age_in_days
+    (Time.zone.now - File.stat(@local_filename).mtime).to_i / 86_400.0
+  end
 
-    def create_or_return_path(filename)
-      # ensure the sign path exists
-      Dir.mkdir(SIGN_IMAGE_PATH) unless Dir.exist?(SIGN_IMAGE_PATH)
+  def create_or_return_path(filename)
+    # ensure the sign path exists
+    Dir.mkdir(SIGN_IMAGE_PATH) unless Dir.exist?(SIGN_IMAGE_PATH)
 
-      # It is expected that filename is in the 1212/sdsd.png format
-      file_parts = filename.split File::SEPARATOR
+    # It is expected that filename is in the 1212/sdsd.png format
+    file_parts = filename.split File::SEPARATOR
 
-      return SIGN_IMAGE_PATH if file_parts.empty?
+    return SIGN_IMAGE_PATH if file_parts.empty?
 
-      sign_dir = File.join(SIGN_IMAGE_PATH, file_parts[0])
+    sign_dir = File.join(SIGN_IMAGE_PATH, file_parts[0])
 
-      Dir.mkdir sign_dir unless Dir.exist?(sign_dir)
-      sign_dir
-    end
+    Dir.mkdir sign_dir unless Dir.exist?(sign_dir)
+    sign_dir
+  end
 
-    def dimensions
-      [@width, @height]
-    end
+  def dimensions
+    [@width, @height]
+  end
 
-    def calculate_local_filename
-      File.join(create_or_return_path(@filename),
-                dimensions.join('x') + "-#{@filename.gsub(%r{[\/\\]}, '-')}")
-    end
+  def calculate_local_filename
+    File.join(create_or_return_path(@filename),
+              dimensions.join('x') + "-#{@filename.gsub(%r{[\/\\]}, '-')}")
+  end
 end
