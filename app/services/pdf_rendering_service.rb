@@ -78,7 +78,7 @@ class PdfRenderingService
   end
 
   def render_as_pdf(input_html_path:, output_pdf_path:, credentials:)
-    cmd = "node #{Rails.root.join("bin", "render-pdf.js")} #{input_html_path}"\
+    cmd = "node #{Rails.root.join('bin', 'render-pdf.js')} #{input_html_path}"\
                                                          " #{output_pdf_path}"\
                                                          " #{credentials[:username]}"\
                                                          " #{credentials[:password]}"
