@@ -5,7 +5,6 @@ RSpec.describe TempDirJanitorService do
   let(:keepable_file) { 'keep-me.txt' }
   let(:removable_file) { 'remove-me.txt' }
 
-
   describe '#remove_old_files' do
     it 'removes all files & folders which are older than an hour' do
       Dir.mktmpdir do |tmp_dir|
