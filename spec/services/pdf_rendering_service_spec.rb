@@ -2,6 +2,7 @@ require 'rails_helper'
 
 RSpec.describe PdfRenderingService do
   subject { PdfRenderingService.new(from_html: html) }
+
   let(:html) do
     <<~EO_HTML
       <html>
