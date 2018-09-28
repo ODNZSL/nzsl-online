@@ -52,25 +52,27 @@
       .add-button-action {
         bottom: 5px;
       }
+    }
+
+    .download-add-container {
+      .download-button {
+        height: 33px;
+        width: 35px;
+      }
       .button-action {
         left: 2.8rem;
       }
     }
 
-    .download-add {
-      .icon-container {
-        bottom: 0;
-        left: 50%;
-      }
-      .download-button {
-        width: 35px;
-        height: 33px;
-      }
-      .add-button-action {
+    .icon-container {
+      bottom: 0;
+      left: 50%;
+    }
+    .add-button-action {
         color: $peach;
         right: 2rem;
-      }
     }
+  }
 
     .examples-container {
       .translation-gloss {
@@ -80,7 +82,7 @@
       }
     }
   }
-}
+
 
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
