@@ -41,8 +41,8 @@
       }
     }
 
-    .sign-button-container {
-      height: 2.1rem;
+    .button-container {
+      height: 33px;
       .button-action,
       .icon-container,
       .add-button-action {
@@ -57,14 +57,18 @@
       }
     }
 
-    .sign-button-container {
+    .download-add {
       .icon-container {
         bottom: 0;
         left: 50%;
       }
+      .download-button {
+        width: 35px;
+        height: 33px;
+      }
       .add-button-action {
         color: $peach;
-        right: 2.5rem;
+        right: 2rem;
       }
     }
 

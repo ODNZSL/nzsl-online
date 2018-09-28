@@ -16,9 +16,9 @@
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
-      .sign-button-container
+      .button-container.download-add
         = link_to "/images/signs/400-400/#{@sign.drawing}", { class: "sign-button button-download", "data-sign-id": @sign.id } do
-          %span.icon
+          %span.download-icon
             = image_tag "/assets/ui/download-button.svg/", class: "download-button"
           %span.button-action  Download Drawing
         = link_to "#", { class: "sign-button add-to-vocab-btn sign__button--peach", "data-sign-id": @sign.id } do
