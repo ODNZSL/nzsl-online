@@ -15,7 +15,6 @@ RSpec.describe PdfRenderingService do
     EO_HTML
   end
 
-
   describe '#render' do
     let(:pdf_file_header_bytes) { '%PDF-1.4' } # PDFs begin with this sequence of bytes
 
