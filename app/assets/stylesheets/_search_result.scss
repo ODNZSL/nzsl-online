@@ -40,20 +40,20 @@
         }
        }
      }
-     .button-action {
-       float: left;
-       padding-top: 10px;
-     }
-     .add-to-vocab-btn { padding-right: 50px; }
-   }
+    .button-action {
+      float: left;
+      padding-top: 10px;
+    }
+    .add-to-vocab-btn { padding-right: 50px; }
+  }
 
-   .examples-container {
-     .translation-gloss {
-       @include montserrat-regular;
-       font-size: $h6-font-size;
-       margin: 0 0 10px 0;
-     }
-   }
+  .examples-container {
+    .translation-gloss {
+      @include montserrat-regular;
+      font-size: $h6-font-size;
+      margin: 0 0 10px 0;
+    }
+  }
 }
 
 @media screen and (min-width: $medium-screen) {
