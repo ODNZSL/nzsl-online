@@ -38,49 +38,49 @@
           margin: 10px auto;
           img { margin: 0; }
         }
-      }
+       }
+     }
+   }
+   
+   .button-container {
+     height: 33px;
+     .button-action,
+     .icon-container,
+     .add-button-action {
+       position: absolute;
+     }
+     .button-action,
+     .add-button-action {
+       bottom: 5px;
+     }
+    }
 
-     .button-container {
+    .download-add-container {
+      .download-button {
         height: 33px;
-        .button-action,
-        .icon-container,
-        .add-button-action {
-          position: absolute;
-        }
-        .button-action,
-        .add-button-action {
-          bottom: 5px;
-        }
+        width: 35px;
       }
-
-      .download-add-container {
-        .download-button {
-          height: 33px;
-          width: 35px;
-        }
-        .button-action {
-          left: 2.8rem;
-        }
-      }
-
-      .icon-container {
-        bottom: 0;
-        left: 50%;
-      }
-      .add-button-action {
-        color: $peach;
-        right: 2rem;
+      .button-action {
+        left: 2.8rem;
       }
     }
-  }
 
-  .examples-container {
-    .translation-gloss {
-      @include montserrat-regular;
-      font-size: $h6-font-size;
-      margin: 0 0 10px 0;
-      }
+    .icon-container {
+      bottom: 0;
+      left: 50%;
     }
+    .add-button-action {
+      color: $peach;
+      right: 2rem;
+    }
+
+    .examples-container {
+      .translation-gloss {
+        @include montserrat-regular;
+        font-size: $h6-font-size;
+        margin: 0 0 10px 0;
+      }
+     }
   }
 
 @media screen and (min-width: $medium-screen) {
