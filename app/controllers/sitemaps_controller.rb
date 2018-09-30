@@ -4,7 +4,8 @@ class SitemapsController < ApplicationController
 
   def index
     @page_slugs = Page.pluck(:slug)
-    @sign_ids = Sign.all(xmldump: 1).map(&:id)
+    @sitemap_data = Sitemap.xml_data
+    @sign_ids = @sitemap_data.map(&:id)
 
     respond_to do |format|
       format.xml
