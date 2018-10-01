@@ -95,7 +95,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
   end
 
   create_table "sitemaps", force: :cascade do |t|
-    t.text "xmldump"
+    t.text "xml"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
