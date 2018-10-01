@@ -27,10 +27,19 @@ New Zealand Sign Language Dictionary consists of 3 major units
 [![Test Coverage](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 
-## Set Up
+## Set Up/Installation for you wonderful open source contribudeers (contributors)
+
+Fork it.
+Create your feature branch.
+Commit you changes
+Push to the branch.
+Create a new pull request
+
+
+## Set Up/Installation for Ackama Llamas (formerly Rabideers)
 
 ```
-git clone https://github.com/rabid/nzsl-online.git
+git clone https://github.com/ackama/nzsl-online.git
 cp env-example .env
 bundle
 yarn
@@ -41,7 +50,11 @@ bundle exec rails s
 
 NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), with the Rabid Repo being forked from this.
 
-Rabideers should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
+Wonderful contribudeers should branch from your own staging branch when resolving issues or adding features.
+<add more detail>
+
+Ackama Llamas should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
+
 
 To deploy to production: merge ONZSL staging to ODNZSL master.
 
