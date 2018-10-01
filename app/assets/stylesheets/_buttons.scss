@@ -69,11 +69,11 @@ a .button,
 .translation_button { @extend .play_video_button; }
 
 .buttons-container {
-  text-align: left;
   bottom: 0;
   display: flex;
   justify-content: space-between;
   left: 0;
+  text-align: left;
   width: 100%;
 }
 
@@ -82,22 +82,22 @@ a .button,
 }
 
 .download-button,
-.add-button-icon  {
+.add-button-icon {
   bottom: -4px;
-  margin: 0 0.625rem 0 0;
-  position: relative;
   height: 2.0625rem;
-  width: 2.1875rem;
+  margin: 0 .625rem 0 0;
+  position: relative;
+  width:  2.1875rem;
 }
 
 .buttons-action {
-  position: absolute;
   bottom: 5px;
+  position: absolute;
 }
 
 .vocab-download-button {
-  height: 1.5rem;
   display: flex;
+  height: 1.5rem;
   margin-left: 0;
 }
 
