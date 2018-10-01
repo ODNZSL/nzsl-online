@@ -3,7 +3,7 @@ class SitemapsController < ApplicationController
   before_action :init_sitemap
 
   def index
-    render xml: SitemapBuilder.generate_xml
+    render xml: SitemapBuilder.first_or_generate.xml
   end
 
   private
