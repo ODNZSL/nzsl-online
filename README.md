@@ -5,13 +5,14 @@
 ![Image of a NZSL search results page]
 (/images/img/NZSl_search_results_example.png)
 
+<I think we need the following 2 non-tech sections to give context?>
 ## Aotearoa's official sign language
 
 New Zealand Sign Language (NZSL) is an official language of Aotearoa New Zealand. Like [Te Reo Māori] https://www.tpk.govt.nz/en/whakamahia/te-reo-maori , it is important to foster understanding and use of the language in order to be an inclusive society. [Victoria University of Wellington's Deaf Studies Research Unit (DSRU)]https://www.victoria.ac.nz/lals/centres-and-institutes/dsru produced the first paper based dictionary of NZSL 1997. An updated online dictionary website launched in 2011. The online dictionary contains over 5000 signs with equivalents in both English and Te Māori with image and video references showing how a sign is produced and example videos showing how the sign is used in context. The online dictionary can be searched by the English or Te Reo Māori word, or by sign features, such as hand shape and location.
 
 ## Website and Apps
 
-In 2013 [Ackama]https://www.ackama.com/ took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including Dave Moskovitz <github ink>, the creator of the ‘Freelex’ database that provides the back-end for the website, and Greg Hewgill <github link>, the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the NZSL Fund and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
+In 2013 [Ackama]https://www.ackama.com/ took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including Dave Moskovitz <need github link>, the creator of the ‘Freelex’ database that provides the back-end for the website, and Greg Hewgill <need github link>, the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the NZSL Fund and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
 
 Together with the DSRU, Ackama went on a journey from using open source technology for reasons of price and flexibility to building an entirely open source ecosystem whereby the website, apps, data and scripts are all open source technical components which work together to provide the NZSL dictionary. The community has access to all of these components and can improve upon them or add new features. By open sourcing the NZSL dictionary we encourage the wider community to be involved in making NZSL more accessible. We are also enabling international reuse of the codebase for other countries to have a technical head start in creating their own online sign language dictionary.
 
@@ -20,14 +21,16 @@ In May 2018 the NZSL Android app got up to the number 6 ranking in the worldwide
 New Zealand Sign Language Dictionary consists of 3 major units
 * Ruby on Rails Website (this repo)
 * Mobile apps <add address>
-* Freelex, an open source project for maintaining the signs lexicon data.
+* Freelex, <add address> an open source project for maintaining the signs lexicon data.
 
 [![Build Status](https://travis-ci.org/ODNZSL/nzsl-online.svg?branch=master)](https://travis-ci.org/ODNZSL/nzsl-online)
 [![Code Climate](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/gpa.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 [![Test Coverage](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 
-## Set Up/Installation for you wonderful open source contribudeers (contributors)
+## Set Up for you wonderful open source contributors
+
+Please read carefully the CONTRIBUTORS.md <add link?> before you follow the setup steps.
 
 Fork the official repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy.
 Clone your copy
@@ -43,32 +46,29 @@ bundle exec rails s
 Create your feature branch. <example text>
 Make changes
 Commit you changes
-Push to the branch.
+Push to the base staging branch <example address>
 Create a new pull request
 
+## Issues (user stories) that require design and a design process
 
-## Set Up/Installation for Ackama Llamas (formerly Rabideers)
+<Maybe Shakira can provide some advice here as well>
 
-```
-git clone https://github.com/ackama/nzsl-online.git
-cp env-example .env
-bundle
-yarn
-bundle exec rails s
-```
+## Tech requirements ??
+
+<eg. HAML, BEM...>
 
 ## Release History ??
 
-## Meta ?? 
+## Meta ??
 
 ## Deployment
 
-NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), with the Rabid Repo being forked from this.
+NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online).
 
-Wonderful contribudeers should branch from your own staging branch when resolving issues or adding features.
+Wonderful contributors should branch from your own <staging branch?> when resolving issues or adding features.
 <add more detail>
 
-Ackama Llamas should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
+<This will be removed or changed> Ackama Llamas should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
 
 
 To deploy to production: merge ONZSL staging to ODNZSL master.
