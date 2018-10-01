@@ -66,8 +66,8 @@ class VocabSheetsController < ApplicationController
 
   def set_vocab_sheet_size
     @size = params[:size].to_i
-      @size = session[:vocab_sheet_size].to_i if @size.zero?
-      @size = 4 if @size.zero?
-      session[:vocab_sheet_size] = @size
+    @size = session[:vocab_sheet_size].to_i if @size.zero?
+    @size = 4 if @size.zero?
+    session[:vocab_sheet_size] = @size
   end
 end
