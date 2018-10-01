@@ -8,14 +8,15 @@ class SitemapBuilder
     Sitemap.first.update(xml: generate_xml(page_slugs + sign_urls))
   end
 
-  def generate_xml(items)
+  def generate_xml(urls)
     base_url = Rails.application.config.base_url
 
     builder = Nokogiri::XML::Builder.new do |xml|
       xml.urlset(xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9") do
-        items.each { |item| xml.url { xml.loc base_url + item } }
+        urls.each { |url| xml.url { xml.loc base_url + url } }
       end
     end
+    
     builder.to_xml
   end
 
