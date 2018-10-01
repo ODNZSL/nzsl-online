@@ -29,8 +29,19 @@ New Zealand Sign Language Dictionary consists of 3 major units
 
 ## Set Up/Installation for you wonderful open source contribudeers (contributors)
 
-Fork it.
-Create your feature branch.
+Fork the official repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy.
+Clone your copy
+
+```
+git clone <your copy>
+cp env-example .env
+bundle
+yarn
+bundle exec rails s
+```
+
+Create your feature branch. <example text>
+Make changes
 Commit you changes
 Push to the branch.
 Create a new pull request
@@ -45,6 +56,10 @@ bundle
 yarn
 bundle exec rails s
 ```
+
+## Release History ??
+
+## Meta ?? 
 
 ## Deployment
 

@@ -85,6 +85,8 @@ members of the project's leadership.
 
 ### Attribution
 
+Please checkout [Github Open Source Guides](https://opensource.guide)
+
 This Code of Conduct is adapted from [PurpleBooth][gist]
 
 [gist]: https://gist.github.com/PurpleBooth/b24679402957c63ec426
