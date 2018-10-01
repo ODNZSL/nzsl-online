@@ -16,15 +16,15 @@ module PagesHelper
 
   private
 
-    def source_path_components(page)
-      {
-        s3_bucket_url: Rails.application.secrets[:s3_bucket_url],
-        translation_path: page.first_part.try(:translation_path)
-      }
-    end
+  def source_path_components(page)
+    {
+      s3_bucket_url: Rails.application.secrets[:s3_bucket_url],
+      translation_path: page.first_part.try(:translation_path)
+    }
+  end
 
-    def source_path(page, join = true)
-      return source_path_components(page).values.join if join
-      source_path_components(page).values
-    end
+  def source_path(page, join = true)
+    return source_path_components(page).values.join if join
+    source_path_components(page).values
+  end
 end

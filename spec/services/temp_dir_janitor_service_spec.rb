@@ -1,10 +1,10 @@
 require 'rails_helper'
 
 RSpec.describe TempDirJanitorService do
+  subject { TempDirJanitorService.new(tmp_dir_path: tmp_dir_path) }
+
   let(:keepable_file) { 'keep-me.txt' }
   let(:removable_file) { 'remove-me.txt' }
-
-  subject { TempDirJanitorService.new(tmp_dir_path: tmp_dir_path) }
 
   describe '#remove_old_files' do
     it 'removes all files & folders which are older than an hour' do

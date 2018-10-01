@@ -84,7 +84,7 @@ module ClassifiersHelper
 
   private
 
-    def classifier_image(partial_image_identifier)
-      "classifiers/90/Classifiers.#{partial_image_identifier}.png"
-    end
+  def classifier_image(partial_image_identifier)
+    "classifiers/90/Classifiers.#{partial_image_identifier}.png"
+  end
 end
