@@ -11,7 +11,7 @@ New Zealand Sign Language (NZSL) is an official language of Aotearoa New Zealand
 
 ## Website and Apps
 
-In 2013 [Ackama]https://www.ackama.com/ took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including Dave Moskovitz, the creator of the ‘Freelex’ database that provides the back-end for the website, and Greg Hewgill, the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the NZSL Fund and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
+In 2013 [Ackama]https://www.ackama.com/ took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including Dave Moskovitz <github ink>, the creator of the ‘Freelex’ database that provides the back-end for the website, and Greg Hewgill <hithub link>, the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the NZSL Fund and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
 
 Together with the DSRU, Ackama went on a journey from using open source technology for reasons of price and flexibility to building an entirely open source ecosystem whereby the website, apps, data and scripts are all open source technical components which work together to provide the NZSL dictionary. The community has access to all of these components and can improve upon them or add new features. By open sourcing the NZSL dictionary we encourage the wider community to be involved in making NZSL more accessible. We are also enabling international reuse of the codebase for other countries to have a technical head start in creating their own online sign language dictionary.
 
@@ -19,7 +19,7 @@ In May 2018 the NZSL Android app got up to the number 6 ranking in the worldwide
 
 New Zealand Sign Language Dictionary consists of 3 major units
 * Ruby on Rails Website (this repo)
-* Mobile apps (add address)
+* Mobile apps <add address>
 * Freelex, an open source project for maintaining the signs lexicon data.
 
 [![Build Status](https://travis-ci.org/ODNZSL/nzsl-online.svg?branch=master)](https://travis-ci.org/ODNZSL/nzsl-online)
