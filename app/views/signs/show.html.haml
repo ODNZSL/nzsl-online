@@ -16,15 +16,15 @@
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
-      .button-container
-        = link_to "/images/signs/400-400/#{@sign.drawing}", { "data-sign-id": @sign.id } do
+      .buttons-container
+        = link_to "/images/signs/400-400/#{@sign.drawing}", { class: "download-link", "data-sign-id": @sign.id } do
           %span
             = image_tag "/assets/ui/download-button.svg/", class: "card__button download-button"
-          %span.button-action  Download Drawing
+          %span.buttons-action  Download Drawing
         = link_to "#", { class: "card__button add-to-vocab-btn sign__button--peach", "data-sign-id": @sign.id } do
           %span.icon-container.add-button-icon
             %i.fi-plus
-          %span.button-action Add to Vocab Sheet
+          %span.buttons-action Add to Vocab Sheet
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button

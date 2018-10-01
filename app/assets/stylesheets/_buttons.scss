@@ -68,27 +68,38 @@ a .button,
 .orange_submit_button { padding: 5px; }
 .translation_button { @extend .play_video_button; }
 
-.download-button,
-.vocab-download-button {
-  float: left;
+.buttons-container {
+  text-align: left;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  width: 100%;
+}
+
+.download-link {
+  width: 50%;
 }
 
 .download-button,
-.add-button-icon,
-.vocab-download-button {
-  margin: 0 10px 0 0;
+.add-button-icon  {
+  bottom: -4px;
+  margin: 0 0.625rem 0 0;
+  position: relative;
+  height: 2.0625rem;
+  width: 2.1875rem;
 }
 
-.download-button {
-  height: 33px;
-  width: 35px;
+.buttons-action {
+  position: absolute;
+  bottom: 5px;
 }
 
 .vocab-download-button {
   height: 1.5rem;
-  padding-bottom: 2px;
+  display: flex;
+  margin-left: 0;
 }
-
 
 // Browser specific styles ( Firefox IE 11 and Safari ) to hide the default videojs BigPlayButton
 // User expects to view video without any obsufication and the default button was obsuring the video
