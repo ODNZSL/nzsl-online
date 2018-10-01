@@ -344,31 +344,9 @@
 18,"Sorry, That page was not found.",,"<p>
 	Sorry, this page seems to have been moved, or the address has been mistyped.</p>
 ",,12,2011-09-26 00:41:19.188728,2011-10-27 22:17:45.889371
-21,Test,,"<p>
-	Test</p>
-",,15,2011-09-26 19:37:14.488756,2011-09-26 19:37:14.488756
-24,test,,"<p>
-	test</p>
-
-",,16,2011-09-26 19:51:03.40,2011-09-26 19:51:03.40
 30,Copyright notice,,"<p>
 	<a href=""http://creativecommons.org/licenses/by-nc-sa/3.0/"" rel=""license""><img alt=""Creative Commons License"" src=""http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"" style=""border-right-width: 0px; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px"" /></a><span href=""http://purl.org/dc/dcmitype/InteractiveResource"" property=""dct:title"" rel=""dct:type"" xmlns:dct=""http://purl.org/dc/terms/"">NZSL Online</span> by <a href=""http://www.victoria.ac.nz/lals/research/projects/dsru.aspx"" property=""cc:attributionName"" rel=""cc:attributionURL"" xmlns:cc=""http://creativecommons.org/ns#"">Deaf Studies Research Unit, Victoria University of Wellington</a> is licensed under a <a href=""http://creativecommons.org/licenses/by-nc-sa/3.0/"" rel=""license"">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
 ",/system/videos/copyright.mp4,11,2011-09-28 01:18:55.445017,2011-10-30 23:54:05.963712
-33,test,,"<p>
-	tset</p>
-",,20,2011-09-29 02:15:23.521428,2011-09-29 02:15:23.521428
-34,test,,"<p>
-	test page part</p>
-",,21,2011-09-29 20:06:18.864264,2011-09-29 20:06:18.864264
-38,test part 1,,"<p>
-	testing part 1</p>
-",,23,2011-10-09 23:59:47.921686,2011-10-09 23:59:47.921686
-39,The Part of the Page,,"<p>
-	Me testing the page</p>
-",,24,2011-10-10 00:36:23.768639,2011-10-10 00:36:23.768639
-46,NZSL Online Facebook page,,"<p>
-	<iframe allowtransparency="""" frameborder=""0"" scrolling=""no"" src=""//www.facebook.com/plugins/likebox.php?href=https%3A%2F%2Fwww.facebook.com%2F%23%21%2Fpages%2FNZSL-Online-Dictionary%2F211547965549802&amp;width=292&amp;colorscheme=light&amp;show_faces=false&amp;border_color&amp;stream=true&amp;header=true&amp;height=427"" style=""border-bottom: medium none; border-left: medium none; width: 292px; height: 427px; overflow: hidden; border-top: medium none; border-right: medium none""></iframe></p>
-",,25,2011-10-31 21:57:17.704647,2011-10-31 21:57:17.704647
 48,Where can I learn NZSL?,1,"<p>
 	The best way to start is to take an NZSL course with a qualified Deaf teacher. Credit-bearing courses are offered at Victoria University of Wellington and Auckland University of Technology.</p>
 <p style=""margin-top: 0px; margin-right: 0px; margin-bottom: 1.2em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 13px; font: inherit; vertical-align: baseline; line-height: 1.6; "">
