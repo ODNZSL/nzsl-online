@@ -75,6 +75,9 @@ a .button,
   left: 0;
   text-align: left;
   width: 100%;
+  .add-to-vocab-btn {
+    display: flex;
+  }
 }
 
 .download-link {
@@ -85,9 +88,17 @@ a .button,
 .add-button-icon {
   bottom: -4px;
   height: 2.0625rem;
-  margin: 0 .625rem 0 0;
+  margin: 0 2px 0 0;
   position: relative;
-  width:  2.1875rem;
+  width: 2.1875rem;
+}
+
+.buttons-action.download {
+  flex-wrap: wrap;
+}
+
+.buttons-action.add {
+  padding-left: 2.5rem;
 }
 
 .buttons-action {
@@ -96,7 +107,6 @@ a .button,
 }
 
 .vocab-download-button {
-  display: flex;
   height: 1.5rem;
   margin-left: 0;
 }
