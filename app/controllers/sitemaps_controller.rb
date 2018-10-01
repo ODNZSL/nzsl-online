@@ -3,13 +3,17 @@ class SitemapsController < ApplicationController
   before_action :init_sitemap
 
   def index
-    render xml: SitemapBuilder.first_or_generate.xml
+    render xml: sitemap_builder.first_or_generate.xml
   end
 
   private
 
   def init_sitemap
     headers['Content-Type'] = 'application/xml'
+  end
+
+  def sitemap_builder
+    SitemapBuilder.new
   end
 
 end
