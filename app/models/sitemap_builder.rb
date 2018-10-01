@@ -1,8 +1,10 @@
 class SitemapBuilder
 
   def self.first_or_generate 
-    return Sitemap.create(xml: generate_xml) unless Sitemap.any?
-    return Sitemap.first if sitemap_updated_less_than_a_day_ago?
+    Sitemap.first || Sitemap.create(xml: generate_xml)
+  end
+
+  def self.update_sitemap
     Sitemap.first.update(xml: generate_xml)
   end
 
@@ -24,10 +26,6 @@ class SitemapBuilder
   
   def self.fetch_data_dump
     Sign.all(xmldump: 1)
-  end
-
-  def self.sitemap_updated_less_than_a_day_ago?
-    ((Time.zone.now - Sitemap.first.updated_at) / 1.day) < 1
   end
 
 end
