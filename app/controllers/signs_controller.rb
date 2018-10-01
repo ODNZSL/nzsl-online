@@ -28,18 +28,18 @@ class SignsController < ApplicationController
 
   private
 
-    def process_search_query
-      search_keys = %w(s hs l lg usage tag)
-      query = permitted_params.select { |key| search_keys.include?(key) }
-      return {} if query.nil?
-      query.each do |key, value|
-        secondary_value = value.nil? ? '' : value.split(' ')
-        query[key] = key == 's' ? [value] : secondary_value
-      end
-      query.to_h
+  def process_search_query
+    search_keys = %w(s hs l lg usage tag)
+    query = permitted_params.select { |key| search_keys.include?(key) }
+    return {} if query.nil?
+    query.each do |key, value|
+      secondary_value = value.nil? ? '' : value.split(' ')
+      query[key] = key == 's' ? [value] : secondary_value
     end
+    query.to_h
+  end
 
-    def permitted_params
-      params.permit(%i[s hs l lg usage tag term p id])
-    end
+  def permitted_params
+    params.permit(%i[s hs l lg usage tag term p id])
+  end
 end
