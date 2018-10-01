@@ -1,5 +1,14 @@
 # NZSL
 
+## New Zealand Sign Language Dictionary
+
+![Image of a NZSL search results page]
+(assets/images/img/NZSl_search_results_example)
+
+## Aotearoa's official sign language
+
+New Zealand Sign Language (NZSL) is an official language of Aotearoa New Zealand. Like Te Reo Māori, it is important to foster understanding and use of the language in order to be an inclusive society. Victoria University of Wellington's Deaf Studies Research Unit (DSRU) produced the first paper based dictionary of NZSL 1997. An updated online dictionary website launched in 2011. The online dictionary contains over 5000 signs with equivalents in both English and Te Māori with image and video references showing how a sign is produced and example videos showing how the sign is used in context. The online dictionary can be searched by the English or Te Reo Māori word, or by sign features, such as hand shape and location.
+
 New Zealand Sign Language Dictionary consists of 2 major units
 * Ruby on Rails Website (this repo)
 * Freelex, and open source project for maintaining the signs lexicon data.
