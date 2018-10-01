@@ -3,13 +3,7 @@ class SitemapsController < ApplicationController
   before_action :init_sitemap
 
   def index
-    @page_slugs = Page.pluck(:slug)
-    @sitemap_data = Sitemap.xml_data
-    @sign_ids = @sitemap_data.map(&:id)
-
-    respond_to do |format|
-      format.xml
-    end
+    render xml: SitemapBuilder.generate_xml
   end
 
   private
