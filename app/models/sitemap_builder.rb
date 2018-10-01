@@ -1,14 +1,14 @@
 class SitemapBuilder
 
-  def self.first_or_generate 
+  def first_or_generate 
     Sitemap.first || Sitemap.create(xml: generate_xml)
   end
 
-  def self.update_sitemap
+  def update_sitemap
     Sitemap.first.update(xml: generate_xml)
   end
 
-  def self.generate_xml
+  def generate_xml
     page_slugs = Page.pluck(:slug)
     sign_ids = fetch_data_dump.map(&:id)
     base_url = "#{ENV['APP_PROTOCOL']}://#{ENV['APP_DOMAIN_NAME']}/"
@@ -24,7 +24,7 @@ class SitemapBuilder
 
   private
   
-  def self.fetch_data_dump
+  def fetch_data_dump
     Sign.all(xmldump: 1)
   end
 
