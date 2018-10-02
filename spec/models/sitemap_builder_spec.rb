@@ -7,9 +7,9 @@ RSpec.describe 'SitemapBuilder', type: :model do
   let(:sitemap_builder) { SitemapBuilder.new }
 
   before do
-   signs = 3.times.map do |i|
+   signs = 3.times.map do |int|
              sign = Sign.new
-             sign.id = i + 1
+             sign.id = int + 1
              sign
            end
     allow(sitemap_builder).to receive(:fetch_data_dump).and_return(signs)
@@ -38,9 +38,13 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   describe "#update_sitemap" do
     let!(:sitemap) { FactoryBot.create(:sitemap) }
-    
+    before do
+      allow(sitemap_builder).to receive(:generate_xml).and_return("<different-xml></different-xml>")
+    end
     it "updates the first existing Sitemap record in the database" do
-      expect(sitemap_builder.update_sitemap.id).to_eq eq(sitemap.id)
+      expect(sitemap.xml).to eq("<sitemap></sitemap>")
+      expect(sitemap_builder.update_sitemap).to eq(true)
+      expect(sitemap.xml).to eq("<different-xml></different-xml>")
     end
   end
 
@@ -68,7 +72,6 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   describe "#sign_slugs" do
     it "returns an array of sign ids formatted into sign page slugs" do
-      p sitemap_builder.send(:fetch_data_dump)
       response = sitemap_builder.send(:sign_slugs)
       expect(response).to eq(["signs/1", "signs/2", "signs/3"])
     end
