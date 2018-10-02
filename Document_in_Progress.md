@@ -46,11 +46,11 @@ bundle exec rails s
 ```
 A suggestion is to create a local staging branch ( You can really call it what you want ) that acts as your local master. Then branch from your staging/master branch when resolving issues or adding features.
 
-Create your feature branch. For example `NZSL-##Bugfix/Back-to-search-results`
-Make changes
-Commit you changes
-Push to the base staging branch 
-Create a new pull request
+  * Create your feature branch. For example `NZSL-##Bugfix/Back-to-search-results`
+  * Make changes
+  * Commit you changes
+  * Push to the base staging branch
+  * Create a new pull request
 
 ## Issues (user stories) that require design and a design process
 
