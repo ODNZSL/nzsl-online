@@ -1,4 +1,4 @@
-# NZSL
+# [NZSL]https://www.nzsl.nz
 
 ## New Zealand Sign Language Dictionary
 
@@ -8,7 +8,7 @@
 <I think we need the following 2 non-tech sections to give context?>
 ## Aotearoa's official sign language
 
-New Zealand Sign Language (NZSL) is an official language of Aotearoa New Zealand. Like [Te Reo Māori] https://www.tpk.govt.nz/en/whakamahia/te-reo-maori , it is important to foster understanding and use of the language in order to be an inclusive society. [Victoria University of Wellington's Deaf Studies Research Unit (DSRU)]https://www.victoria.ac.nz/lals/centres-and-institutes/dsru produced the first paper based dictionary of NZSL 1997. An updated online dictionary website launched in 2011. The online dictionary contains over 5000 signs with equivalents in both English and Te Māori with image and video references showing how a sign is produced and example videos showing how the sign is used in context. The online dictionary can be searched by the English or Te Reo Māori word, or by sign features, such as hand shape and location.
+New Zealand Sign Language (NZSL) is an official language of Aotearoa New Zealand. Like [Te Reo Māori] https://www.tpk.govt.nz/en/whakamahia/te-reo-maori , it is important to foster understanding and use of the language in order to be an inclusive society. [Victoria University of Wellington's Deaf Studies Research Unit [DSRU]https://www.victoria.ac.nz/lals/centres-and-institutes/dsru produced the first paper based dictionary of NZSL 1997. An updated online dictionary website launched in 2011. The online dictionary contains over 5000 signs with equivalents in both English and Te Reo Māori with image and video references showing how a sign is produced and example videos showing how the sign is used in context. The online dictionary can be searched by the English or Te Reo Māori word, or by sign features, such as hand shape and location.
 
 ## Website and Apps
 
@@ -51,11 +51,11 @@ Create a new pull request
 
 ## Issues (user stories) that require design and a design process
 
-<Maybe Shakira can provide some advice here as well>
+<a high level design outcome from design team>
 
 ## Tech requirements ??
 
-<eg. HAML, BEM...>
+<eg. Ruby on Rails, HAML, BEM...>
 
 ## Release History ??
 
@@ -68,7 +68,7 @@ NZSL has taken ownership of the project at their [ODNZSL repo](https://github.co
 Wonderful contributors should branch from your own <staging branch?> when resolving issues or adding features.
 <add more detail>
 
-<This will be removed or changed> Ackama Llamas should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
+<This will be removed or changed> Ackama should branch from the Rabid Staging branch when resolving issues or adding features. Their pull requests should be to the ODNZSL Staging branch, rather than the Rabid Staging branch. The Rabid admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz); upon approval and merging, Rabid should merge the ODNZSL staging branch to the Rabid staging branch so that our repo is up-to-date.
 
 
 To deploy to production: merge ONZSL staging to ODNZSL master.
