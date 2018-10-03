@@ -15,12 +15,12 @@ RSpec.describe 'SitemapBuilder', type: :model do
     allow(sitemap_builder).to receive(:fetch_data_dump).and_return(signs)
   end
 
-  describe "#first_or_generate" do
+  describe "#first_or_generate_basic" do
     let!(:sitemap) { FactoryBot.create(:sitemap) }
 
     context "when a Sitemap record exists" do
       it "returns that record" do
-        expect(sitemap_builder.first_or_generate).to eq(sitemap)
+        expect(sitemap_builder.first_or_generate_basic).to eq(sitemap)
       end
     end
 
@@ -31,7 +31,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
       it "generates one" do
         expect(Sitemap.first).to be_nil
-        expect(sitemap_builder.first_or_generate).not_to eq(sitemap)
+        expect(sitemap_builder.first_or_generate_basic).not_to eq(sitemap)
         expect(Sitemap.first).not_to be_nil
       end
     end

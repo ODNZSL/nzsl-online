@@ -6,7 +6,7 @@ RSpec.describe SitemapsController, type: :controller do
   
   let(:builder) do
     sitemap = instance_double(Sitemap, xml: "<sitemap></sitemap>")
-    dbl = instance_double(SitemapBuilder, first_or_generate: sitemap)
+    dbl = instance_double(SitemapBuilder, first_or_generate_basic: sitemap)
   end
 
   describe "#index" do

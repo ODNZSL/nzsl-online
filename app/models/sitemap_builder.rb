@@ -1,6 +1,6 @@
 class SitemapBuilder
-  def first_or_generate
-    Sitemap.first || Sitemap.create(xml: generate_xml(page_slugs + sign_slugs))
+  def first_or_generate_basic
+    Sitemap.first || Sitemap.create(xml: generate_xml(page_slugs))
   end
 
   def update_sitemap
