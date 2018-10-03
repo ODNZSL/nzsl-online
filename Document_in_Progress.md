@@ -2,9 +2,27 @@
 
 ## This Document is a work in progress and will become the README for this repo
 
+# Contents
+
+## New Zealand Sign Language Dictionary
+## Aotearoa's official sign language
+## Website and Apps
+## Getting Started
+## Running the tests
+## Design and brand guidelines
+## Deployment
+## For open source contributors
+## For site administrators
+## Environments
+## Built with
+## Versioning
+## License
+## Acknowledgments
+
+
 ## New Zealand Sign Language Dictionary
 
-![Image of a NZSL search results page](/images/Search_results_example.png)
+![Image of a NZSL search results page](/assets/images/Search_results_example.png)
 
 I think we need the following 2 non-tech sections to give context?
 
@@ -30,52 +48,64 @@ New Zealand Sign Language Dictionary consists of 3 major units
 [![Test Coverage](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 
-## The Set Up for you wonderful open source contributors
+## Getting Started
 
-Please read carefully the CONTRIBUTORS.md (add link?) before you follow the setup steps.
+Please read carefully the CONTRIBUTING.md (add link?) before you follow the setup steps.
 
-Fork the official repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy.
-Clone your copy
+Fork the base repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy then clone your fork.
 
 ```
-git clone <your copy>
+git clone <your fork>
 cp env-example .env
 bundle
 yarn
 bundle exec rails s
-```
-A suggestion is to create a local staging branch ( You can really call it what you want ) that acts as your local master. Then branch from your staging/master branch when resolving issues or adding features.
 
-  * Create your feature branch. For example `NZSL-##Bugfix/Back-to-search-results`
+```
+
+A suggestion is to create a local staging branch that acts as your local master. Then branch from your staging/master branch when resolving issues or adding features.
+
+  * Create your feature branch. For example `Bugfix/Back-to-search-results`
   * Make changes
-  * Commit you changes
-  * Push to the base staging branch
+  * Commit your changes
+  * Push to your remote branch. For example `git push origin <your feature branch>`
   * Create a new pull request
 
-## Issues (user stories) that require design and a design process
+## Running the tests
 
-a high level design story outcome from design team
+<examples>
 
-## Brand guidelines
+## Design and brand guidelines  
 
-## Tech requirements ??
+  * The design should follow brand guidelines (Link TBA)
+  * The design must follow [accessibility guidelines](https://material.io/design/usability/accessibility.html#composition)
+  * Must follow the sign off process
+  * Choose a story from the backlog
+  * Get any other information you might need from the product owner
+  * Create your design
+  * Present to product owner and iterate depending on feedback
+  * Once the product owner is happy with the design and signs off on it, then it can go to the development team.
+  * The Ackama team uses Sketch app to create their designs. We recommend using Sketch when working on this project. [Sketch](https://www.sketchapp.com/)
 
-Ruby on Rails, HAML, BEM
+## Brand guidelines??
 
-## Release History ??
+Because of the visual nature of NZSL, it is important that the videos take centre stage and are not obscured by playback controls or watermarks.
 
-## Meta ??
+color hexs??
 
 ## Deployment
 
 NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online).
 
-Open source contributors pull requests should be to the ODNZSL Staging branch. The admin for ODNZSL is currently [Elspeth Dick](elspeth@rabidtech.co.nz).
+Open source contributors pull requests should be to the ODNZSL Staging branch. The administrators for ODNZSL is currently [Elspeth Dick](https://github.com/elspeth-rabid) and [Brenda Wallace](https://github.com/Br3nda).
 
 Open source contributors should merge the ODNZSL staging branch to your local staging branch so that your repo is up-to-date.
 
+## The deployment process explained to open source contributors ??
 
-To deploy to production: merge ONZSL staging to ODNZSL master.
+## For site administrators
+
+To deploy to production: merge ODNZSL staging to ODNZSL master.
 
 ## Environments:
 
@@ -85,3 +115,25 @@ Current servers (2017-12-15)
 |--------------------|-------------------------------------------|------------|--------------|
 | ODNZSL Staging     | http://nzsl-staging.herokuapp.com/        | staging    | staging      |
 | ODNZSL Production  | http://nzsl.herokuapp.com/                | master     | live         |
+
+## Built with
+
+[Ruby on Rails](https://rubyonrails.org) - web framework
+[Bundler](https://bundler.io) - dependency management ++
+[JQuery](https://jquery.com)- frontend javascript library
+[HAML](http://haml.info) - frontend templating
+[Foundation](https://foundation.zurb.com) - responsive front-end frameworks
+[SCSS](https://sass-lang.com) - CSS extension language
+[BEM](https://css-tricks.com/bem-101/) -  Block, Element, Modifier methodology
+[videojs](videojs for rails) -
+
+## Versioning??
+
+We use SemVer for versioning. For the versions available, see the tags on this repository??
+
+## LICENSE
+
+This project is licensed under the GNU License - see the [GNU General Public License](https://github.com/ODNZSL/nzsl-online/blob/staging/LICENSE) for details.
+
+
+## Acknowledgments ??
