@@ -19,6 +19,7 @@
       }
       span { color: $link-blue; }
     }
+
     .sign-container {
       border: 1px solid $light-grey;
       position: relative;
@@ -27,6 +28,7 @@
       .main-image {
         margin: 65px auto 10px;
         display: block;
+        height: 12.5rem;
       }
       .sign_attributes {
         position: absolute;
@@ -39,12 +41,13 @@
         }
       }
     }
-    .examples-container {
-      .translation-gloss {
-        @include montserrat-regular;
-        font-size: $h6-font-size;
-        margin: 0 0 10px 0;
-      }
+  }
+
+  .examples-container {
+    .translation-gloss {
+      @include montserrat-regular;
+      font-size: $h6-font-size;
+      margin: 0 0 10px 0;
     }
   }
 }
@@ -52,7 +55,6 @@
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
     .sign-container { float: right; }
-    .add-to-vocab-btn,
     .notes,
     .videos {
       float: left;

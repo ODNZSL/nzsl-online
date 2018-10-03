@@ -41,13 +41,14 @@ class PdfRenderingService
     # Create some empty temporary files
     pdf_path = create_empty_pdf_file
     html_path = create_empty_html_file
+    basic_auth_credentials = { username: ENV['HTTP_BASIC_AUTH_USERNAME'], password: ENV['HTTP_BASIC_AUTH_PASSWORD'] }
 
     # Write the HTML we received to a file for Chrome to consume (Chrome does
     # not support rendering from STDIN)
     write_to_file(html_path, @html)
 
     # Convert the HTML file into a PDF and store it in the given pdf_path
-    render_as_pdf(input_html_path: html_path, output_pdf_path: pdf_path)
+    render_as_pdf(input_html_path: html_path, output_pdf_path: pdf_path, credentials: basic_auth_credentials)
 
     # Finally we build the RenderedPdf instance which represents the results of
     # our work to the rest of the system
@@ -76,8 +77,11 @@ class PdfRenderingService
     path
   end
 
-  def render_as_pdf(input_html_path:, output_pdf_path:)
-    cmd = "node #{Rails.root.join("bin", "render-pdf.js")} #{input_html_path} #{output_pdf_path}"
+  def render_as_pdf(input_html_path:, output_pdf_path:, credentials:)
+    cmd = "node #{Rails.root.join('bin', 'render-pdf.js')} #{input_html_path}"\
+                                                         " #{output_pdf_path}"\
+                                                         " #{credentials[:username]}"\
+                                                         " #{credentials[:password]}"
     Rails.logger.info(cmd)
 
     error_msg = "Chrome did not complete the PDF conversion within the #{PDF_CONVERSION_TIMEOUT_SECONDS} second timeout"

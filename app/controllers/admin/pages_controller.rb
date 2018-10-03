@@ -48,16 +48,16 @@ module Admin
 
     private
 
-      def fetch_page
-        @page = Page.find(params[:id])
-      end
+    def fetch_page
+      @page = Page.find(params[:id])
+    end
 
-      def set_title
-        @title = 'Administrate pages'
-      end
+    def set_title
+      @title = 'Administrate pages'
+    end
 
-      def page_params
-        params.require(:page).permit(:title, :slug, :label, :show_in_nav, :template)
-      end
+    def page_params
+      params.require(:page).permit(:title, :slug, :label, :show_in_nav, :template)
+    end
   end
 end
