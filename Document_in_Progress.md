@@ -4,7 +4,7 @@
 
 ## New Zealand Sign Language Dictionary
 
-![Image of a NZSL search results page](/images/NZSl_search_results_example.png)
+![Image of a NZSL search results page](/images/Search_results_example.png)
 
 I think we need the following 2 non-tech sections to give context?
 
