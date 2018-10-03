@@ -30,6 +30,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
       end
 
       it "generates one" do
+        expect(Sitemap.first).to be_nil
         expect(sitemap_builder.first_or_generate).not_to eq(sitemap)
         expect(Sitemap.first).not_to be_nil
       end
