@@ -12,7 +12,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
              sign.id = int + 1
              sign
            end
-    allow(sitemap_builder).to receive(:fetch_data_dump).and_return(signs)
+    allow(sitemap_builder).to receive(:fetch_all_signs).and_return(signs)
   end
 
   describe "#first_or_generate_basic" do

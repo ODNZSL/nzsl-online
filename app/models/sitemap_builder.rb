@@ -21,7 +21,7 @@ class SitemapBuilder
 
   private
 
-  def fetch_data_dump
+  def fetch_all_signs
     Sign.all(xmldump: 1)
   end
 
@@ -30,6 +30,6 @@ class SitemapBuilder
   end
 
   def sign_slugs
-    fetch_data_dump.map { |sign| "signs/#{sign.id}" }
+    fetch_all_signs.map { |sign| "signs/#{sign.id}" }
   end
 end
