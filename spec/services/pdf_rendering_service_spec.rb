@@ -1,6 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe PdfRenderingService do
+  subject { PdfRenderingService.new(from_html: html) }
+
   let(:html) do
     <<~EO_HTML
       <html>
@@ -14,8 +16,6 @@ RSpec.describe PdfRenderingService do
     EO_HTML
   end
 
-  subject { PdfRenderingService.new(from_html: html) }
-
   describe '#render' do
     let(:pdf_file_header_bytes) { '%PDF-1.4' } # PDFs begin with this sequence of bytes
 
@@ -25,7 +25,7 @@ RSpec.describe PdfRenderingService do
     end
 
     context 'Saves a PDF version of the HTML file to disk' do
-      before(:each) do
+      before do
         subject.render
         @pdf_file_path = subject.pdf.file_path
         @first_bytes_in_file = File.read(@pdf_file_path, 8)
