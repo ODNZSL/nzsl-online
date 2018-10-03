@@ -1,5 +1,5 @@
 class SitemapsController < ApplicationController
-  layout :false
+  layout false
   before_action :init_sitemap
 
   def index
@@ -15,5 +15,4 @@ class SitemapsController < ApplicationController
   def sitemap_builder
     SitemapBuilder.new
   end
-
 end

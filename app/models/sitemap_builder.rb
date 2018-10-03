@@ -1,6 +1,5 @@
 class SitemapBuilder
-
-  def first_or_generate 
+  def first_or_generate
     Sitemap.first || Sitemap.create(xml: generate_xml(page_slugs + sign_slugs))
   end
 
@@ -12,7 +11,7 @@ class SitemapBuilder
     base_url = Rails.application.config.base_url
 
     builder = Nokogiri::XML::Builder.new do |xml|
-      xml.urlset(xmlns: "http://www.sitemaps.org/schemas/sitemap/0.9") do
+      xml.urlset(xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9') do
         slugs.each { |slug| xml.url { xml.loc base_url + slug } }
       end
     end
@@ -33,5 +32,4 @@ class SitemapBuilder
   def sign_slugs
     fetch_data_dump.map { |sign| "signs/#{sign.id}" }
   end
-
 end

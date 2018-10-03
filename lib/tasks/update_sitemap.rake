@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 namespace :sitemap do
-
   desc 'Pulls in an the most recent xml dump from freelex and updates the first Sitemap objects xml attribute.'
   task update: :environment do
     sitemap_builder = SitemapBuilder.new
