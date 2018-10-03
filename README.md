@@ -8,6 +8,7 @@ New Zealand Sign Language Dictionary consists of 2 major units
 [![Code Climate](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/gpa.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 [![Test Coverage](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
+[![Waffle.io - Issues in progress](https://badge.waffle.io/ODNZSL/nzsl-online.png?label=in%20progress&title=In%20Progress)](http://waffle.io/ODNZSL/nzsl-online)
 
 ## Set Up
 

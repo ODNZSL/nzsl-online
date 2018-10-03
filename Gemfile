@@ -70,7 +70,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.59.1', require: false
+  gem 'rubocop', '~> 0.59.2', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
