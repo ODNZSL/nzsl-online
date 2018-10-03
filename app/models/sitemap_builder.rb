@@ -20,7 +20,7 @@ class SitemapBuilder
   end
 
   private
-  
+
   def fetch_data_dump
     Sign.all(xmldump: 1)
   end
