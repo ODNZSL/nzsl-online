@@ -59,6 +59,11 @@ footer .copyright {
       }
     }
   }
+  .vocab_sheet_drawing{
+    &--download {
+      display: none;
+    }
+  }
 }
 
 // from boilerplate
