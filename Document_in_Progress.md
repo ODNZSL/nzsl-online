@@ -118,14 +118,14 @@ Current servers (2017-12-15)
 
 ## Built with
 
-[Ruby on Rails](https://rubyonrails.org) - web framework
-[Bundler](https://bundler.io) - dependency management ++
-[JQuery](https://jquery.com)- frontend javascript library
-[HAML](http://haml.info) - frontend templating
-[Foundation](https://foundation.zurb.com) - responsive front-end frameworks
-[SCSS](https://sass-lang.com) - CSS extension language
-[BEM](https://css-tricks.com/bem-101/) -  Block, Element, Modifier methodology
-[videojs](videojs for rails) -
+  * [Ruby on Rails](https://rubyonrails.org) - web framework
+  * [Bundler](https://bundler.io) - dependency management ++
+  * [JQuery](https://jquery.com)- frontend javascript library
+  * [HAML](http://haml.info) - frontend templating
+  * [Foundation](https://foundation.zurb.com) - responsive front-end frameworks
+  * [SCSS](https://sass-lang.com) - CSS extension language
+  * [BEM](https://css-tricks.com/bem-101/) -  Block, Element, Modifier methodology
+  * [videojs](videojs for rails)
 
 ## Versioning??
 
