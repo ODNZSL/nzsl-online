@@ -47,6 +47,8 @@ NzslOnline::Application.routes.draw do
   get 'sign_image/show'
   get '/images/signs/:width-:height/*filename' => 'sign_image#show', :width => /\d+/, :height => /\d+/, :format => false
   get '/assets/signs/:width-:height/*filename' => 'sign_image#show', :width => /\d+/, :height => /\d+/, :format => false
+  get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }, as: :sitemap
 
   get '/:slug' => 'pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
+
 end

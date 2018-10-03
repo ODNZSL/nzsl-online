@@ -103,6 +103,7 @@ class Sign
   def self.http_conn
     Faraday.new(url: SIGN_URL) do |faraday|
       faraday.use FaradayMiddleware::FollowRedirects
+      faraday.options[:timeout] = 60
       faraday.adapter Faraday.default_adapter
     end
   end

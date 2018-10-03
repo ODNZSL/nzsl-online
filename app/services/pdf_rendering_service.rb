@@ -117,8 +117,8 @@ class PdfRenderingService
   end
 
   def base_tag
-    domain = Rails.application.secrets.app_domain_name
-    protocol = Rails.application.secrets.app_protocol
+    domain = Rails.application.config.app_domain_name
+    protocol = Rails.application.config.app_protocol
 
     "<base href='#{protocol}://#{domain}'/>"
   end
