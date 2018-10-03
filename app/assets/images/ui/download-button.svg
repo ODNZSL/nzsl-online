@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 51.3 (57544) - http://www.bohemiancoding.com/sketch -->
+    <title>download-button</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="🔍-Search-page-Futures-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="download-button">
+            <rect id="Rectangle" fill="#2980B9" fill-rule="nonzero" x="0" y="0" width="36" height="36"></rect>
+            <g id="download-icon" transform="translate(8.000000, 5.454545)">
+                <g id="Down" fill="#FFFFFF">
+                    <polygon points="15.5 10.4799712 12.3105 10.4792781 12.3111667 4.4 7.6835 4.4 7.6835 10.4799712 4.5 10.4792781 10.0003333 17.05"></polygon>
+                </g>
+                <path d="M1.66666667,20.25 L18.3333333,20.25" id="Line-6" stroke="#FFFFFF" stroke-width="2" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
