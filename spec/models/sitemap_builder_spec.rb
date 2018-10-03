@@ -42,9 +42,9 @@ RSpec.describe 'SitemapBuilder', type: :model do
       allow(sitemap_builder).to receive(:generate_xml).and_return("<different-xml></different-xml>")
     end
     it "updates the first existing Sitemap record in the database" do
-      expect(sitemap.xml).to eq("<sitemap></sitemap>")
+      expect(Sitemap.first.xml).to eq("<sitemap></sitemap>")
       expect(sitemap_builder.update_sitemap).to eq(true)
-      expect(sitemap.xml).to eq("<different-xml></different-xml>")
+      expect(Sitemap.first.xml).to eq("<different-xml></different-xml>")
     end
   end
 
