@@ -77,5 +77,4 @@ RSpec.describe 'SitemapBuilder', type: :model do
       expect(response).to eq(["signs/1", "signs/2", "signs/3"])
     end
   end
-
 end
