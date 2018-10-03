@@ -62,7 +62,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
   describe "#page_slugs" do
     before do
       FactoryBot.create(:page, slug:"trees")
-      2.times { FactoryBot.create(:page) }
+      FactoryBot.create_list(:page, 2)
     end
     it "returns an array of all slugs for the page model" do
       response = sitemap_builder.send(:page_slugs)
