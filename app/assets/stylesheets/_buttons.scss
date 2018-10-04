@@ -1,11 +1,10 @@
 .add-to-vocab-btn {
-  width: 100%;
-  padding: 0;
-  bottom: -5px;
-  border: none;
   background-color: initial;
-  font-size: inherit;
+  border: none;
+  bottom: -5px;
   font-family: inherit;
+  font-size: inherit;
+  padding: 0;
   &:hover {
     .text-container { color: $med-grey; }
     .icon-container { background: $med-grey; }
@@ -68,6 +67,39 @@ a .button,
 
 .orange_submit_button { padding: 5px; }
 .translation_button { @extend .play_video_button; }
+
+.buttons-container {
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  left: 0;
+  text-align: left;
+  width: 100%;
+}
+
+.download-link {
+  width: 50%;
+}
+
+.download-button,
+.add-button-icon {
+  bottom: -4px;
+  height: 2.0625rem;
+  margin: 0 2px 0 0;
+  position: relative;
+  width: 2.1875rem;
+}
+
+.buttons-action {
+  bottom: 5px;
+  position: absolute;
+}
+
+.vocab-download-button {
+  display: flex;
+  height: 1.5rem;
+  margin-left: 0;
+}
 
 // Browser specific styles ( Firefox IE 11 and Safari ) to hide the default videojs BigPlayButton
 // User expects to view video without any obsufication and the default button was obsuring the video
