@@ -4,7 +4,7 @@
 
 ## New Zealand Sign Language Dictionary
 
-![Image of a NZSL search results page](../images/Search_results_example.png)
+![Image of a NZSL search results page](https://github.com/ODNZSL/nzsl-online/app/assets/images/Search_results_example.png)
 
 ## Aotearoa's official sign language
 
@@ -67,7 +67,7 @@ A suggestion is to create a local staging branch that acts as your local master.
   * Once the product owner is happy with the design and signs off on it, then it can go to the development team.
   * The Ackama team uses Sketch app to create their designs. We recommend using Sketch when working on this project. [Sketch](https://www.sketchapp.com/)
 
-## Brand guidelines??
+## Brand guidelines
 
 Because of the visual nature of NZSL, it is important that the videos take centre stage and are not obscured by playback controls or watermarks.
 
@@ -114,4 +114,4 @@ We use SemVer for versioning. For the versions available, see the tags on this r
 This project is licensed under the GNU License - see the [GNU General Public License](https://github.com/ODNZSL/nzsl-online/blob/staging/LICENSE) for details.
 
 
-## Acknowledgments 
+## Acknowledgments
