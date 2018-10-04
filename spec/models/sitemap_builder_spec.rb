@@ -7,11 +7,11 @@ RSpec.describe 'SitemapBuilder', type: :model do
   let(:sitemap_builder) { SitemapBuilder.new }
 
   before do
-   signs = 3.times.map do |int|
-             sign = Sign.new
-             sign.id = int + 1
-             sign
-           end
+    signs = 3.times.map do |int|
+              sign = Sign.new
+              sign.id = int + 1
+              sign
+            end
     allow(sitemap_builder).to receive(:fetch_all_signs).and_return(signs)
   end
 
@@ -62,7 +62,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
   describe "#page_slugs" do
     before do
       FactoryBot.create(:page, slug:"trees")
-      2.times { FactoryBot.create(:page) }
+      FactoryBot.create_list(:page, 2)
     end
     it "returns an array of all slugs for the page model" do
       response = sitemap_builder.send(:page_slugs)
@@ -77,5 +77,4 @@ RSpec.describe 'SitemapBuilder', type: :model do
       expect(response).to eq(["signs/1", "signs/2", "signs/3"])
     end
   end
-
 end
