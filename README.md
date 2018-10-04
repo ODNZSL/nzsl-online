@@ -21,7 +21,7 @@ In May 2018 the NZSL Android app got up to the number 6 ranking in the worldwide
 New Zealand Sign Language Dictionary consists of 3 major units
 * Ruby on Rails Website (this repo)
 * Mobile apps <add address>
-* Freelex, (add address) an open source project for maintaining the signs lexicon data.
+* Freelex, an open source project for maintaining the signs lexicon data.
 
 [![Build Status](https://travis-ci.org/ODNZSL/nzsl-online.svg?branch=master)](https://travis-ci.org/ODNZSL/nzsl-online)
 [![Code Climate](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/gpa.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
@@ -70,6 +70,9 @@ A suggestion is to create a local staging branch that acts as your local master.
 ## Brand guidelines
 
 Because of the visual nature of NZSL, it is important that the videos take centre stage and are not obscured by playback controls or watermarks.
+
+![Image of a Video turned off](/Video_off.png)
+![Image of a Video turned on](/Video_on.png)
 
 ## Deployment
 
