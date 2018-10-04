@@ -1,5 +1,5 @@
 
-# [NZSL](<a href="https://www.nzsl.nz" target="_blank"></a>)
+<a href="https://www.nzsl.nz" target="_blank"><h1>NZSL</h1></a>
 
 ## New Zealand Sign Language Dictionary
 
