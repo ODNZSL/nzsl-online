@@ -51,8 +51,8 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   describe '#generate_xml' do
     context 'when an array of slugs are provided' do
-      let(:slugs) {['contact', 'signs/22', 'dogs']}
-      let(:base_url) {Rails.application.config.base_url}
+      let(:slugs) { ['contact', 'signs/22', 'dogs'] }
+      let(:base_url) { Rails.application.config.base_url }
       it 'returns the expected set of xml data featuring those slugs' do
         expect(sitemap_builder.generate_xml(slugs)).to include("#{base_url}signs/22")
       end
@@ -61,7 +61,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   describe '#page_slugs' do
     before do
-      FactoryBot.create(:page, slug:'trees')
+      FactoryBot.create(:page, slug: 'trees')
       FactoryBot.create_list(:page, 2)
     end
     it 'returns an array of all slugs for the page model' do
