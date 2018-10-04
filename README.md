@@ -1,6 +1,5 @@
-# [NZSL](https://www.nzsl.nz)
 
-## This Document is currently being updated
+# [NZSL](<a href="https://www.nzsl.nz" target="_blank"></a>)
 
 ## New Zealand Sign Language Dictionary
 
@@ -30,7 +29,7 @@ New Zealand Sign Language Dictionary consists of 3 major units
 
 ## Getting Started
 
-Please read carefully the CONTRIBUTING.md (in progress) before you follow the setup steps.
+Please read the accompanying CONTRIBUTING.md (in progress) before you follow the setup steps.
 
 Fork the base repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy then clone your fork.
 
@@ -85,7 +84,7 @@ Open source contributors should merge the ODNZSL staging branch to your local st
 
 ## The deployment process explained to open source contributors
 
-to be completed
+Deployment is managed only by Brenda and Elspeth - the site administrators mentioned above.
 
 ## For site administrators
 
