@@ -53,7 +53,7 @@ A suggestion is to create a local staging branch that acts as your local master.
 
 ## Running the tests
 
-<examples here>
+`bundle exec rails test`
 
 ## Design and brand guidelines  
 
@@ -81,6 +81,8 @@ Open source contributors should merge the ODNZSL staging branch to your local st
 
 ## The deployment process explained to open source contributors
 
+to be completed
+
 ## For site administrators
 
 To deploy to production: merge ODNZSL staging to ODNZSL master.
@@ -98,6 +100,7 @@ Current servers (2017-12-15)
 
   * [Ruby on Rails](https://rubyonrails.org) - web framework
   * [Bundler](https://bundler.io) - dependency management ++
+  * [Rspec](http://rspec.info) - Ruby testing framework
   * [JQuery](https://jquery.com)- frontend javascript library
   * [HAML](http://haml.info) - frontend templating
   * [Foundation](https://foundation.zurb.com) - responsive front-end frameworks
@@ -107,7 +110,7 @@ Current servers (2017-12-15)
 
 ## Versioning
 
-We use SemVer for versioning. For the versions available, see the tags on this repository??
+We use SemVer for versioning. For the versions available, see the tags on this repository
 
 ## LICENSE
 

@@ -15,7 +15,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
-  create_table "feedbacks", force: :cascade do |t|
+  create_table "feedbacks", id: :serial, force: :cascade do |t|
     t.string "name"
     t.text "message"
     t.string "video_file_name"
@@ -40,7 +40,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.boolean "technical_fault"
   end
 
-  create_table "items", force: :cascade do |t|
+  create_table "items", id: :serial, force: :cascade do |t|
     t.integer "sign_id", null: false
     t.integer "vocab_sheet_id", null: false
     t.string "name", null: false
@@ -53,7 +53,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.index ["vocab_sheet_id"], name: "index_items_on_vocab_sheet_id"
   end
 
-  create_table "page_parts", force: :cascade do |t|
+  create_table "page_parts", id: :serial, force: :cascade do |t|
     t.string "title"
     t.integer "order"
     t.text "body"
@@ -64,7 +64,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.index ["page_id"], name: "index_page_parts_on_page_id"
   end
 
-  create_table "pages", force: :cascade do |t|
+  create_table "pages", id: :serial, force: :cascade do |t|
     t.string "title"
     t.string "slug"
     t.string "label"
@@ -77,7 +77,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.index ["slug"], name: "index_pages_on_slug"
   end
 
-  create_table "requests", force: :cascade do |t|
+  create_table "requests", id: :serial, force: :cascade do |t|
     t.text "url"
     t.float "elapsed_time"
     t.integer "count"
@@ -86,7 +86,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "settings", force: :cascade do |t|
+  create_table "settings", id: :serial, force: :cascade do |t|
     t.string "key"
     t.string "value"
     t.datetime "created_at"
@@ -100,7 +100,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "users", force: :cascade do |t|
+  create_table "users", id: :serial, force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -118,7 +118,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  create_table "vocab_sheets", force: :cascade do |t|
+  create_table "vocab_sheets", id: :serial, force: :cascade do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "name"
