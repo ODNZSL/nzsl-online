@@ -30,7 +30,7 @@ New Zealand Sign Language Dictionary consists of 3 major units
 
 ## Getting Started
 
-Please read carefully the CONTRIBUTING.md (needs link) before you follow the setup steps.
+Please read carefully the CONTRIBUTING.md (in progress) before you follow the setup steps.
 
 Fork the base repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy then clone your fork.
 
@@ -49,6 +49,7 @@ A suggestion is to create a local staging branch that acts as your local master.
   * Make changes
   * Commit your changes
   * Push to your remote branch. For example `git push origin <your feature branch>`
+  * Ensure all changes to existing functionality and additions of new functionality have tests
   * Create a new pull request
 
 ## Running the tests
