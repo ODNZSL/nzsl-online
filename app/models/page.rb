@@ -83,14 +83,14 @@ class Page < ApplicationRecord
 
   private
 
-    def strip_text
-      title&.strip!
-      slug&.strip!
-      label&.strip!
-    end
+  def strip_text
+    title&.strip!
+    slug&.strip!
+    label&.strip!
+  end
 
-    def slug_and_label_from_title
-      self.slug = title.downcase.gsub(/[^a-z0-9]/, '-') if slug.blank?
-      self.label = title if label.blank?
-    end
+  def slug_and_label_from_title
+    self.slug = title.downcase.gsub(/[^a-z0-9]/, '-') if slug.blank?
+    self.label = title if label.blank?
+  end
 end

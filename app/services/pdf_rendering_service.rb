@@ -78,7 +78,7 @@ class PdfRenderingService
   end
 
   def render_as_pdf(input_html_path:, output_pdf_path:, credentials:)
-    cmd = "node #{Rails.root.join("bin", "render-pdf.js")} #{input_html_path}"\
+    cmd = "node #{Rails.root.join('bin', 'render-pdf.js')} #{input_html_path}"\
                                                          " #{output_pdf_path}"\
                                                          " #{credentials[:username]}"\
                                                          " #{credentials[:password]}"
@@ -117,8 +117,8 @@ class PdfRenderingService
   end
 
   def base_tag
-    domain = Rails.application.secrets.app_domain_name
-    protocol = Rails.application.secrets.app_protocol
+    domain = Rails.application.config.app_domain_name
+    protocol = Rails.application.config.app_protocol
 
     "<base href='#{protocol}://#{domain}'/>"
   end
