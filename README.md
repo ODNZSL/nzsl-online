@@ -3,15 +3,17 @@
 
 ## New Zealand Sign Language Dictionary
 
-![Image of a NZSL search results page](https://github.com/ODNZSL/nzsl-online/app/assets/images/Search_results_example.png)
+![Image of a NZSL search results page](/assets/images/search01.png)
 
 ## Aotearoa's official sign language
 
-[New Zealand Sign Language (NZSL)](https://www.odi.govt.nz/nzsl/about) is an official language of Aotearoa New Zealand. Like [Te Reo Māori](https://www.tpk.govt.nz/en/whakamahia/te-reo-maori) , it is important to foster understanding and use of the language in order to be an inclusive society. Victoria University of Wellington's Deaf Studies Research Unit [DSRU](https://www.victoria.ac.nz/lals/centres-and-institutes/dsru) produced the first paper based dictionary of NZSL 1997. An updated online dictionary website launched in 2011. The online dictionary contains over 5000 signs with equivalents in both English and Te Reo Māori with image and video references showing how a sign is produced and example videos showing how the sign is used in context. The online dictionary can be searched by the English or Te Reo Māori word, or by sign features, such as hand shape and location.
+<a href="" target="_blank"><h2></h2></a>
+<a href="https://www.odi.govt.nz/nzsl/about" target="_blank"><h2>New Zealand Sign Language (NZSL)</h2></a> is an official language of Aotearoa New Zealand. Like <a href="https://www.tpk.govt.nz/en/whakamahia/te-reo-maori" target="_blank"><h2>Te Reo Māori</h2></a>, it is important to foster understanding and use of the language in order to be an inclusive society. Victoria University of Wellington's <a href="https://www.victoria.ac.nz/lals/centres-and-institutes/dsru" target="_blank"><h2>Deaf Studies Research Unit (DSRU)</h2></a> produced the first paper based dictionary of NZSL 1997. An updated online dictionary website launched in 2011. The online dictionary contains over 5000 signs with equivalents in both English and Te Reo Māori with image and video references showing how a sign is produced and example videos showing how the sign is used in context. The online dictionary can be searched by the English or Te Reo Māori word, or by sign features, such as hand shape and location.
 
 ## Website and Apps
 
-In 2013 [Ackama](https://www.ackama.com/) took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including [Dave Moskovitz](https://dave.moskovitz.co.nz), the creator of the ‘Freelex’ database that provides the back-end for the website, and [Greg Hewgill](https://hewgill.com), the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the [NZSL Fund](https://www.odi.govt.nz/nzsl/nzsl-fund/) and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
+In 2013 <a href="https://www.ackama.com/" target="_blank"><h2>Ackama</h2></a> took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including <a href="https://dave.moskovitz.co.nz" target="_blank"><h2>Dave Moskovitz</h2></a>, the creator of the ‘Freelex’ database that provides the back-end for the website, and
+<a href="https://hewgill.com" target="_blank"><h2>Greg Hewgill</h2></a>, the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the <a href="https://www.odi.govt.nz/nzsl/nzsl-fund/" target="_blank"><h2>NZSL Fund</h2></a> and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
 
 Together with the DSRU, Ackama went on a journey from using open source technology for reasons of price and flexibility to building an entirely open source ecosystem whereby the website, apps, data and scripts are all open source technical components which work together to provide the NZSL dictionary. The community has access to all of these components and can improve upon them or add new features. By open sourcing the NZSL dictionary we encourage the wider community to be involved in making NZSL more accessible. We are also enabling international reuse of the codebase for other countries to have a technical head start in creating their own online sign language dictionary.
 
@@ -19,7 +21,7 @@ In May 2018 the NZSL Android app got up to the number 6 ranking in the worldwide
 
 New Zealand Sign Language Dictionary consists of 3 major units
 * Ruby on Rails Website (this repo)
-* Mobile apps <add address>
+* Mobile apps (transfer of ownership currently in motion)
 * Freelex, an open source project for maintaining the signs lexicon data.
 
 [![Build Status](https://travis-ci.org/ODNZSL/nzsl-online.svg?branch=master)](https://travis-ci.org/ODNZSL/nzsl-online)
@@ -49,7 +51,10 @@ A suggestion is to create a local staging branch that acts as your local master.
   * Commit your changes
   * Push to your remote branch. For example `git push origin <your feature branch>`
   * Ensure all changes to existing functionality and additions of new functionality have tests
-  * Create a new pull request
+  * Create a new pull request to the ODNZSL Staging branch.
+  * If you are not sure on any of the steps please do not hesitate to ask.
+  * The PR process requires that 2 reviewers must approve before the PR progresses.
+  * [Waffle](https://waffle.io) is used for project management. Contributors sign in with your github username.
 
 ## Running the tests
 
@@ -69,10 +74,12 @@ A suggestion is to create a local staging branch that acts as your local master.
 
 ## Brand guidelines
 
+Functionality over Form
+
 Because of the visual nature of NZSL, it is important that the videos take centre stage and are not obscured by playback controls or watermarks.
 
-![Image of a Video turned off](/Video_off.png)
-![Image of a Video turned on](/Video_on.png)
+![Image of a Video turned off](images/video_off.png)
+![Image of a Video turned on](images/video_on.png)
 
 ## Deployment
 
@@ -109,15 +116,8 @@ Current servers (2017-12-15)
   * [Foundation](https://foundation.zurb.com) - responsive front-end frameworks
   * [SCSS](https://sass-lang.com) - CSS extension language
   * [BEM](https://css-tricks.com/bem-101/) -  Block, Element, Modifier methodology
-  * [videojs](videojs for rails)
-
-## Versioning
-
-We use SemVer for versioning. For the versions available, see the tags on this repository
+  * [videojs](https://docs.videojs.com/docs/guides/setup.html)
 
 ## LICENSE
 
 This project is licensed under the GNU License - see the [GNU General Public License](https://github.com/ODNZSL/nzsl-online/blob/staging/LICENSE) for details.
-
-
-## Acknowledgments
