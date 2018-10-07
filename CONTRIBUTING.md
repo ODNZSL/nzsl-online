@@ -2,16 +2,21 @@
 
 We welcome contributions from everyone.
 
-When contributing to this repository, please first discuss the change you wish to make via issue,
-email, or any other method with the owners of this repository before making a change.
+When contributing to this repository, please first discuss the change you wish
+to make via issue, email, or any other method with the owners of this repository
+before making a change.
 
 After writing a good commit message submit a pull request.
 
-Others will give constructive feedback. This is a time for discussion and improvements, and making the necessary changes will be required before we can merge the contribution.
+Others will give constructive feedback. This is a time for discussion and improvements,
+and making the necessary changes will be required before we can merge the contribution.
 
-You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+You may merge the Pull Request in once you have the sign-off of two other developers,
+or if you do not have permission to do that, you may request the second reviewer
+to merge it for you.
 
-Please note we have a code of conduct, please follow it in all your interactions with the project.
+Please note we have a code of conduct, please follow it in all your interactions
+with the project.
 
 
 ## Code of Conduct
@@ -83,7 +88,8 @@ members of the project's leadership.
 
 ### Attribution
 
-Going forward we expect to make amendments and updates to this document and README. We welcome contributions to documents as well as code.
+Going forward we expect to make amendments and updates to this document and README.
+We welcome contributions to documents as well as code.
 
 One good resource for writing a CONTRIBUTING.md is [Mozilla Science Lab](https://mozillascience.github.io/working-open-workshop/contributing/)
 
@@ -95,5 +101,5 @@ available at [http://contributor-covenant.org/version/1/4][version]
 
 other resources include:
 
-[thoughtbot](https://github.com/thoughtbot/templates/blob/master/CONTRIBUTING.md.template) and 
+[thoughtbot](https://github.com/thoughtbot/templates/blob/master/CONTRIBUTING.md.template) and
 [PurpleBooth](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
