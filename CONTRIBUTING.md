@@ -1,33 +1,31 @@
 # Contributing
 
+We welcome contributions from everyone.
+
 When contributing to this repository, please first discuss the change you wish to make via issue,
 email, or any other method with the owners of this repository before making a change.
 
+After writing a good commit message submit a pull request.
+
+Others will give constructive feedback. This is a time for discussion and improvements, and making the necessary changes will be required before we can merge the contribution.
+
+You may merge the Pull Request in once you have the sign-off of two other developers, or if you do not have permission to do that, you may request the second reviewer to merge it for you.
+
 Please note we have a code of conduct, please follow it in all your interactions with the project.
 
-## Pull Request Process
-
-1. Ensure any install or build dependencies are removed before the end of the layer when doing a
-   build.
-2. Update the README.md with details of changes to the interface, this includes new environment
-   variables, exposed ports, useful file locations and container parameters.
-3. Increase the version numbers in any examples files and the README.md to the new version that this
-   Pull Request would represent. The versioning scheme we use is [SemVer](http://semver.org/).
-4. You may merge the Pull Request in once you have the sign-off of two other developers, or if you
-   do not have permission to do that, you may request the second reviewer to merge it for you.
 
 ## Code of Conduct
 
-### Our Pledge
+## Our Pledge
 
 In the interest of fostering an open and welcoming environment, we as
 contributors and maintainers pledge to making participation in our project and
 our community a harassment-free experience for everyone, regardless of age, body
-size, disability, ethnicity, gender identity and expression, level of experience,
-nationality, personal appearance, race, religion, or sexual identity and
-orientation.
+size, disability, ethnicity, sex characteristics, gender identity and expression,
+level of experience, education, socio-economic status, nationality, personal
+appearance, race, religion, or sexual identity and orientation.
 
-### Our Standards
+## Our Standards
 
 Examples of behavior that contributes to creating a positive environment
 include:
@@ -41,7 +39,7 @@ include:
 Examples of unacceptable behavior by participants include:
 
 * The use of sexualized language or imagery and unwelcome sexual attention or
-advances
+  advances
 * Trolling, insulting/derogatory comments, and personal or political attacks
 * Public or private harassment
 * Publishing others' private information, such as a physical or electronic
@@ -49,7 +47,7 @@ advances
 * Other conduct which could reasonably be considered inappropriate in a
   professional setting
 
-### Our Responsibilities
+## Our Responsibilities
 
 Project maintainers are responsible for clarifying the standards of acceptable
 behavior and are expected to take appropriate and fair corrective action in
@@ -85,8 +83,17 @@ members of the project's leadership.
 
 ### Attribution
 
+Going forward we expect to make amendments and updates to this document and README. We welcome contributions to documents as well as code.
+
+One good resource for writing a CONTRIBUTING.md is [Mozilla Science Lab](https://mozillascience.github.io/working-open-workshop/contributing/)
+
 This Code of Conduct is adapted from the [Contributor Covenant][homepage], version 1.4,
 available at [http://contributor-covenant.org/version/1/4][version]
 
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
+
+and
+
+[thoughtbot](https://github.com/thoughtbot/templates/blob/master/CONTRIBUTING.md.template)
+[PurpleBooth](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
