@@ -21,9 +21,9 @@ module SignsHelper
   end
 
   def convert_to_high_resolution(sign_drawing)
-    return sign_drawing.gsub('-default', '-high_resolution')
+    return sign_drawing.gsub('default', 'high\_resolution')
   end
-  
+
   def render_transcription(transcription, id)
     transcription.map do |sign|
       if sign.is_a?(String)
