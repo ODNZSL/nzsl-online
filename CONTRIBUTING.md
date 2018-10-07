@@ -93,7 +93,7 @@ available at [http://contributor-covenant.org/version/1/4][version]
 [homepage]: http://contributor-covenant.org
 [version]: http://contributor-covenant.org/version/1/4/
 
-and
+other resources include:
 
-[thoughtbot]: https://github.com/thoughtbot/templates/blob/master/CONTRIBUTING.md.template
-[PurpleBooth]: https://gist.github.com/PurpleBooth/b24679402957c63ec426
+[thoughtbot](https://github.com/thoughtbot/templates/blob/master/CONTRIBUTING.md.template) and 
+[PurpleBooth](https://gist.github.com/PurpleBooth/b24679402957c63ec426)
