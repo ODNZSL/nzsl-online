@@ -88,8 +88,8 @@ members of the project's leadership.
 
 ### Attribution
 
-Going forward we expect to make amendments and updates to this document and README.
-We welcome contributions to documents as well as code.
+Going forward we expect to make amendments and updates to this document and the README.md.
+We welcome contributions to markdown documents as well as code.
 
 One good resource for writing a CONTRIBUTING.md is [Mozilla Science Lab](https://mozillascience.github.io/working-open-workshop/contributing/)
 
