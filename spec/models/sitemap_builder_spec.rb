@@ -39,6 +39,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   describe '#update_sitemap' do
     let!(:sitemap) { FactoryBot.create(:sitemap) }
+
     before do
       allow(sitemap_builder).to receive(:generate_xml).and_return('<different-xml></different-xml>')
     end
@@ -53,6 +54,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
     context 'when an array of slugs are provided' do
       let(:slugs) { ['contact', 'signs/22', 'dogs'] }
       let(:base_url) { Rails.application.config.base_url }
+
       it 'returns the expected set of xml data featuring those slugs' do
         expect(sitemap_builder.generate_xml(slugs)).to include("#{base_url}signs/22")
       end
