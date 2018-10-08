@@ -39,6 +39,7 @@ git clone <your fork>
 cp env-example .env
 bundle
 yarn
+rails s
 
 ```
 
