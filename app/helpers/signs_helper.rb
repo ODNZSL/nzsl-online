@@ -20,8 +20,8 @@ module SignsHelper
     end.compact.join(', ').html_safe
   end
 
-  def convert_to_high_resolution(sign_drawing)
-    return sign_drawing.gsub('default', 'high\_resolution')
+  def convert_to_high_resolution(drawing)
+    return drawing.gsub('-default', '-high_resolution')
   end
 
   def render_transcription(transcription, id)
