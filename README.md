@@ -39,7 +39,6 @@ git clone <your fork>
 cp env-example .env
 bundle
 yarn
-bundle exec rspec 
 
 ```
 
@@ -57,7 +56,7 @@ A suggestion is to create a local staging branch that acts as your local master.
 
 ## Running the tests
 
-`bundle exec rails test`
+`bundle exec rspec`
 
 ## Design and brand guidelines  
 
