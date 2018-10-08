@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'SitemapBuilder', type: :model do
-  
+
   let(:sitemap_builder) { SitemapBuilder.new }
 
   before do
@@ -68,8 +68,8 @@ RSpec.describe 'SitemapBuilder', type: :model do
     end
     it 'returns an array of all slugs for the page model' do
       response = sitemap_builder.send(:page_slugs)
-      expect(response.length).to eq(3) 
-      expect(response.first).to eq('trees') 
+      expect(response.length).to eq(3)
+      expect(response.first).to eq('trees')
     end
   end
 
