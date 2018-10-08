@@ -3,7 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'SitemapBuilder', type: :model do
-
   let(:sitemap_builder) { SitemapBuilder.new }
 
   before do
