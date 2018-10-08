@@ -38,7 +38,7 @@ git clone <your fork>
 cp env-example .env
 bundle
 yarn
-bundle exec rails s
+bundle exec rspec spec
 
 ```
 
