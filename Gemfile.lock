@@ -73,7 +73,7 @@ GEM
     ckeditor_rails (4.10.0)
       railties (>= 3.0)
     climate_control (0.2.0)
-    codeclimate-test-reporter (1.0.8)
+    codeclimate-test-reporter (1.0.9)
       simplecov (<= 0.13)
     coderay (1.1.2)
     coffee-rails (4.2.2)
@@ -332,7 +332,7 @@ DEPENDENCIES
   capybara
   capybara-screenshot
   ckeditor_rails
-  codeclimate-test-reporter (~> 1.0.0)
+  codeclimate-test-reporter (~> 1.0.9)
   coffee-rails
   database_cleaner
   devise
