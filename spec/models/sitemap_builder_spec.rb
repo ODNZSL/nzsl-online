@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe 'SitemapBuilder', type: :model do
-  
+
   let(:sitemap_builder) { SitemapBuilder.new }
 
   before do
@@ -39,6 +39,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   describe '#update_sitemap' do
     let!(:sitemap) { FactoryBot.create(:sitemap) }
+
     before do
       allow(sitemap_builder).to receive(:generate_xml).and_return('<different-xml></different-xml>')
     end
@@ -53,6 +54,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
     context 'when an array of slugs are provided' do
       let(:slugs) { ['contact', 'signs/22', 'dogs'] }
       let(:base_url) { Rails.application.config.base_url }
+
       it 'returns the expected set of xml data featuring those slugs' do
         expect(sitemap_builder.generate_xml(slugs)).to include("#{base_url}signs/22")
       end
@@ -66,8 +68,8 @@ RSpec.describe 'SitemapBuilder', type: :model do
     end
     it 'returns an array of all slugs for the page model' do
       response = sitemap_builder.send(:page_slugs)
-      expect(response.length).to eq(3) 
-      expect(response.first).to eq('trees') 
+      expect(response.length).to eq(3)
+      expect(response.first).to eq('trees')
     end
   end
 
