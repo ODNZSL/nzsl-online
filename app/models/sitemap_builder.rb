@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class SitemapBuilder
   def first_or_generate_basic
     Sitemap.first || Sitemap.create(xml: generate_xml(page_slugs))
