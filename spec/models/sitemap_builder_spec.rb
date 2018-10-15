@@ -42,6 +42,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
     before do
       allow(sitemap_builder).to receive(:generate_xml).and_return('<different-xml></different-xml>')
     end
+
     it 'updates the first existing Sitemap record in the database' do
       expect(Sitemap.first.xml).to eq('<sitemap></sitemap>')
       expect(sitemap_builder.update_sitemap).to eq(true)
@@ -65,6 +66,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
       FactoryBot.create(:page, slug: 'trees')
       FactoryBot.create_list(:page, 2)
     end
+
     it 'returns an array of all slugs for the page model' do
       response = sitemap_builder.send(:page_slugs)
       expect(response.length).to eq(3)
