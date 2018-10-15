@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class RenderedPdf
   attr_reader :file_path
 
