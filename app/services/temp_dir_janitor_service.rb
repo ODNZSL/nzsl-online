@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class TempDirJanitorService
   def initialize(tmp_dir_path:)
     @tmp_dir_path = tmp_dir_path
