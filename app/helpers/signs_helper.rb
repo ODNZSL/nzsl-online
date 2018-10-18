@@ -21,7 +21,7 @@ module SignsHelper
   end
 
   def convert_to_high_resolution(drawing)
-    return drawing.gsub('default', 'high_resolution')
+    drawing.gsub('default', 'high_resolution')
   end
 
   def render_transcription(transcription, id)
