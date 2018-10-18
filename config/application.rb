@@ -13,6 +13,10 @@ module NzslOnline
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.1
 
+    config.app_domain_name = ENV['APP_DOMAIN_NAME']
+    config.app_protocol = ENV['APP_PROTOCOL']
+    config.base_url = "#{config.app_protocol}://#{config.app_domain_name}/"
+
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration can go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded after loading
