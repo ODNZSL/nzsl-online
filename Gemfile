@@ -20,7 +20,7 @@ gem 'whenever'
 gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
-gem 'foundation-rails', '~> 6.3.1.0'
+gem 'foundation-rails', '~> 6.5.1.0'
 gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
