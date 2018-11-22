@@ -70,7 +70,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.59.2', require: false
+  gem 'rubocop', '~> 0.60.0', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
@@ -95,7 +95,7 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
-  gem 'codeclimate-test-reporter', '~> 1.0.0'
+  gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
   gem 'rails-controller-testing'
 end
