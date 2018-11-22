@@ -23,7 +23,7 @@ class ImageProcessor
 
   private
 
-  def write_file_locally
+  def write_file_locally # rubocop:disable Metrics/AbcSize
     image = nil
     image_retrieval =
       Benchmark.measure("retriving image '#{@remote_filename}'") { image = MiniMagick::Image.open(@remote_filename) }
@@ -33,7 +33,7 @@ class ImageProcessor
     image.format 'png'
 
     image_caching = Benchmark.measure("caching image '#{@local_filename}'") { image.write @local_filename }
-    Rails.logger.debug image_caching.label + image_retrieval.to_s
+    Rails.logger.debug image_caching.label + image_caching.to_s
   end
 
   def local_file_exists
