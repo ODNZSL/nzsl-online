@@ -28,12 +28,12 @@ class ImageProcessor
     image_retrieval =
       Benchmark.measure("retriving image '#{@remote_filename}'") { image = MiniMagick::Image.open(@remote_filename) }
 
-    Rails.logger.debug image_retrieval
+    Rails.logger.debug image_retrieval.label + image_retrieval.to_s
 
     image.format 'png'
 
     image_caching = Benchmark.measure("caching image '#{@local_filename}'") { image.write @local_filename }
-    Rails.logger.debug image_caching
+    Rails.logger.debug image_caching.label + image_retrieval.to_s
   end
 
   def local_file_exists
