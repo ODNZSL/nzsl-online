@@ -20,14 +20,11 @@ module SignsHelper
     end.compact.join(', ').html_safe
   end
 
-  def convert_to_high_resolution(drawing)
-    drawing.gsub('default', 'high_resolution')
-  end
-
   def convert_to_high_resolution(sign_drawing)
+
       drawing_array = sign_drawing.split('-')
-      drawing_array.map! { |el| el == drawing_array.last ? "-high_resolution" : el }
-      drawing_array.join
+      drawing_array.map! { |el| el == drawing_array.last ? "high_resolution.png"  : el }
+      drawing_array.join('-')
   end
 
   def render_transcription(transcription, id)
