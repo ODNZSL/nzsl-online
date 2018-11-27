@@ -21,11 +21,7 @@ module SignsHelper
   end
 
   def convert_to_high_resolution(sign_drawing)
-    if sign_drawing.include?('default.png')
-      sign_drawing.gsub(/default.png$/, 'high_resolution.png')
-    else
-      sign_drawing
-    end
+    sign_drawing.gsub(/default.png$/, 'high_resolution.png')
   end
 
   def render_transcription(transcription, id)
