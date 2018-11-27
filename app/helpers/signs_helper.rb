@@ -21,13 +21,13 @@ module SignsHelper
   end
 
   def convert_to_high_resolution(sign_drawing)
-      drawing_array = sign_drawing.split('-')
-        if drawing_array.last == "default.png"
-          drawing_array.map! { |el| el == drawing_array.last ? "high_resolution.png"  : el }
-          drawing_array.join('-')
-        else
-          drawing_array.join('-')
-        end
+    drawing_array = sign_drawing.split('-')
+      if drawing_array.last == 'default.png'
+        drawing_array.map! { |el| el == drawing_array.last ? 'high_resolution.png' : el }
+        drawing_array.join('-')
+      else
+        drawing_array.join('-')
+      end
   end
 
   def render_transcription(transcription, id)
