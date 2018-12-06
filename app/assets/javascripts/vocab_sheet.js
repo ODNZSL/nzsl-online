@@ -41,6 +41,7 @@ $(document).ready(function() {
       $('input.vocab_sheet_name').blur(function() { submit_vocab_sheet_name($(this)); });
 
       if (document.printView) {
+        $('img.vocab-download-button').remove()
         $('textarea').attr('readonly', true);
       }
     }
