@@ -52,7 +52,7 @@ $(document).ready(function() {
         url: '/vocab_sheet/items/' + itemId,
         method: 'POST',
         data: {
-          '_method': 'delete',
+          _method: 'delete',
         },
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
