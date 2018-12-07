@@ -52,10 +52,6 @@ module ApplicationHelper
     HashWithIndifferentAccess.new query
   end
 
-  def download_drawing_to_user_link
-    link_to "/images/signs/400-400/#{convert_to_high_resolution(@sign.drawing)}", { class: "download-link", "data-sign-id": @sign.id }
-  end
-
   def print_stylesheet_tag(print)
     # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.
