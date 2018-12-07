@@ -13,17 +13,13 @@ RSpec.describe SignsHelper, type: :helper do
         expect(helper.convert_to_high_resolution(drawing_1)).to include("high_resolution.png")
       end
     end
-  end
 
-  describe '#stay_with_original_resolution' do
     context 'when not provided with a "default.png" sign drawing' do
       it 'returns the sign drawing with the text "test02-1234" as part of the file name' do
         expect(helper.convert_to_high_resolution(drawing_2)).to include("test02-1234.png")
       end
     end
-  end
 
-  describe '#convert_to_high_resolution and retain the string - default' do
     context 'when provided with a "default.png" sign drawing and the string "default" as part of the drawing name' do
       it 'returns the sign drawing with the text "default-1234-high_resolution" as part of the file name' do
         expect(helper.convert_to_high_resolution(drawing_3)).to include("default-1234-high_resolution.png")
