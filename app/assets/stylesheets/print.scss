@@ -251,4 +251,8 @@ h1,
   .vocab-sheet__text-input{
     appearance: none;
   }
+
+  a[href]:after {
+    content: none
+  }
 }
