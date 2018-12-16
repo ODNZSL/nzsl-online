@@ -20,6 +20,10 @@ module SignsHelper
     end.compact.join(', ').html_safe
   end
 
+  def convert_to_high_resolution(sign_drawing)
+    sign_drawing.gsub(/default.png$/i, 'high_resolution.png')
+  end
+
   def render_transcription(transcription, id)
     transcription.map do |sign|
       if sign.is_a?(String)
