@@ -6,7 +6,7 @@
         = image_tag "/images/signs/400-400/#{vocab_sheet_item.drawing}"
         = link_to "/images/signs/400-400/#{convert_to_high_resolution(vocab_sheet_item.drawing)}", { class: "download-link"} do
           %span.icon-container
-            = image_tag "/assets/images/ui/download-button.svg", class: "vocab-download-button"
+            = image_tag "ui/download-button.svg", class: "vocab-download-button"
           %span.text-container
       = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :put do
         = text_area_tag "item[name]", vocab_sheet_item.name, class: 'item-name vocab-sheet__text-input h3', id: "item_#{vocab_sheet_item.id}_name", maxlength:vocab_sheet_max_field_length

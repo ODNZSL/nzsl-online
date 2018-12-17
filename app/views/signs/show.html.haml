@@ -19,7 +19,7 @@
       .buttons-container
         = link_to "/images/signs/400-400/#{convert_to_high_resolution(@sign.drawing)}", { class: "download-link", "data-sign-id": @sign.id } do
           %span
-            = image_tag "/assets/images/ui/download-button.svg", class: "card__button download-button"
+            = image_tag "ui/download-button.svg", class: "card__button download-button"
           %span.buttons-action  Download Drawing
         = link_to "#", { class: "card__button add-to-vocab-btn sign__button--peach", "data-sign-id": @sign.id } do
           %span.icon-container.add-button-icon
