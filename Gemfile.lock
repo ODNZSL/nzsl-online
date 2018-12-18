@@ -159,7 +159,7 @@ GEM
     mimemagic (0.3.2)
     mini_magick (4.9.2)
     mini_mime (1.0.1)
-    mini_portile2 (2.3.0)
+    mini_portile2 (2.4.0)
     mini_racer (0.2.4)
       libv8 (>= 6.3)
     minitest (5.11.3)
@@ -168,8 +168,8 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.8.5)
-      mini_portile2 (~> 2.3.0)
+    nokogiri (1.9.0)
+      mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pandoc-ruby (2.0.2)
     paperclip (6.1.0)
@@ -355,7 +355,7 @@ DEPENDENCIES
   mini_magick (~> 4.9.2)
   mini_racer
   modernizr-rails
-  nokogiri (~> 1.8.5)
+  nokogiri (~> 1.9.0)
   pandoc-ruby
   paperclip
   pg (~> 1.1)
