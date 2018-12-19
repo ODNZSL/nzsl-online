@@ -26,6 +26,7 @@ New Zealand Sign Language Dictionary consists of 3 major units
 [![Code Climate](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/gpa.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 [![Test Coverage](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/ODNZSL/nzsl-online.svg?columns=all)](https://waffle.io/ODNZSL/nzsl-online)
 
 ## Getting Started
 
@@ -38,7 +39,7 @@ git clone <your fork>
 cp env-example .env
 bundle
 yarn
-bundle exec rails s
+rails s
 
 ```
 
@@ -56,7 +57,7 @@ A suggestion is to create a local staging branch that acts as your local master.
 
 ## Running the tests
 
-`bundle exec rails test`
+`bundle exec rspec`
 
 ## Design and brand guidelines  
 

@@ -27,9 +27,7 @@ namespace :sign_images do
       dimensions = dimensions_from_filename(file)
       api_filename = filename_to_api_format(file)
       open(ImageProcessor.remote_filename(api_filename)) do |f|
-        if File.new(SIGN_IMAGE_PATH + file).mtime != f.last_modified
-          ImageProcessor.retrieve_and_resize(api_filename, dimensions)
-        end
+        ImageProcessor.retrieve_and_resize(api_filename, dimensions) if File.new(SIGN_IMAGE_PATH + file).mtime != f.last_modified
       end
     end
   end
