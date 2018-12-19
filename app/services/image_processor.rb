@@ -16,16 +16,24 @@ class ImageProcessor
 
   def return_file_from_cache
     return @local_filename if local_file_exists && local_file_age_in_days < 1
+
     write_file_locally
     @local_filename
   end
 
   private
 
-  def write_file_locally
-    image = MiniMagick::Image.open(@remote_filename)
+  def write_file_locally # rubocop:disable Metrics/AbcSize
+    image = nil
+    image_retrieval =
+      Benchmark.measure("retriving image '#{@remote_filename}'") { image = MiniMagick::Image.open(@remote_filename) }
+
+    Rails.logger.debug image_retrieval.label + image_retrieval.to_s
+
     image.format 'png'
-    image.write @local_filename
+
+    image_caching = Benchmark.measure("caching image '#{@local_filename}'") { image.write @local_filename }
+    Rails.logger.debug image_caching.label + image_caching.to_s
   end
 
   def local_file_exists

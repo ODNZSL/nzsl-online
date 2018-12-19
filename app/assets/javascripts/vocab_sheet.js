@@ -48,6 +48,9 @@ $(document).ready(function() {
     $('.vocab-sheet__page-controls--download').on('click', function() {
       $('.vocab-sheet__download-notice').removeClass('hide');
     });
+    $('button.orange_submit_button').on('click', function() {
+      $('span.icon-container').remove();
+    });
   };
 
   if ($('.input-with-character-count').length > 0) {
