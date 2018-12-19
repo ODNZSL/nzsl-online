@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.5.1'
+ruby '2.5.3'
 
-gem 'rails', '~> 5.2.0'
+gem 'rails', '~> 5.2.2'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.1'
@@ -13,7 +13,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 4.9.2'
-gem 'nokogiri', '~> 1.8.5'
+gem 'nokogiri', '~> 1.9.0'
 gem 'pandoc-ruby'
 gem 'whenever'
 
@@ -70,7 +70,7 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.60.0', require: false
+  gem 'rubocop', '~> 0.61.1', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
