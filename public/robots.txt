@@ -4,3 +4,6 @@
 User-agent: *
 Disallow: /ads.text
 Disallow: /app-ads.txt
+Disallow: /apple-touch-icon-precomposed.png
+Disallow: /apple-touch-icon-120x120-precomposed.png
+Disallow: /apple-touch-icon.png
