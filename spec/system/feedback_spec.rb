@@ -13,7 +13,6 @@ RSpec.describe 'User Feedback', type: :system do
 
   it 'submits the feedback form if all required fields are present', js: true do
     visit page_path(slug: 'contact-us')
-    expect(page).to have_text('Deaf Studies Research Unit')
 
     fill_in 'Name', with: "Miles Edward O'Brien"
     fill_in 'Email', with: 'milesobrien@transporter-rm3.enterprise'
@@ -26,7 +25,6 @@ RSpec.describe 'User Feedback', type: :system do
 
   it 'Shows an error if required fields are missing', js: true do
     visit page_path(slug: 'contact-us')
-    expect(page).to have_text('Deaf Studies Research Unit')
 
     fill_in 'Name', with: "Miles Edward O'Brien"
     fill_in 'Email', with: 'milesobrien@transporter-rm3.enterprise'
@@ -43,7 +41,6 @@ RSpec.describe 'User Feedback', type: :system do
     allow(Feedback).to receive(:create).and_raise(RuntimeError)
 
     visit page_path(slug: 'contact-us')
-    expect(page).to have_text('Deaf Studies Research Unit')
 
     fill_in 'Name', with: "Miles Edward O'Brien"
     fill_in 'Email', with: 'milesobrien@transporter-rm3.enterprise'
