@@ -15,7 +15,7 @@ module SearchHelper # rubocop:disable ModuleLength
     sign_attribute_image :location, number, main, in_menu
   end
 
-  def sign_attribute_image(attribute, number, main, in_menu = false)
+  def sign_attribute_image(attribute, number, main, in_menu = false) # rubocop:disable Metrics/AbcSize
     return unless number.present?
 
     size = attribute == :location && in_menu ? '72' : '42'
