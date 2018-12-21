@@ -1,5 +1,6 @@
 {
   "name": "nzsl-online",
+  "stack": "heroku-18",
   "description": "Dictionary of New Zealand Sign Language",
   "scripts": {
     "postdeploy": "bundle exec rails db:migrate db:seed"
