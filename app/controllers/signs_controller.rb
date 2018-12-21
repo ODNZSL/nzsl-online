@@ -14,7 +14,12 @@ class SignsController < ApplicationController
 
   def show
     @sign = Sign.first(id: permitted_params[:id])
-    render_404 if @sign.blank?
+
+    if @sign.blank?
+      render_404
+      return
+    end
+
     @title = @sign.gloss_main
   end
 
