@@ -43,7 +43,7 @@ module Admin
       params[:items].each_with_index do |id, index|
         Page.find(id.to_i).update(order: index + 1)
       end
-      render nothing: true
+      head :ok
     end
 
     private
