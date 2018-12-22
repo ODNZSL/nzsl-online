@@ -102,7 +102,7 @@ class PdfRenderingService
     when 'linux'
       Shellwords.escape('google-chrome-stable')
     else
-      fail MissingChromeBinaryError
+      raise MissingChromeBinaryError
     end
   end
 
