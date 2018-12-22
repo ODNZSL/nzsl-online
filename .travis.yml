@@ -13,7 +13,7 @@ env:
 before_script:
 - gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit' 'pandoc-ruby'
 - nvm install node 9.10.0
-- npm install -g yarn@1.5.1
+- npm install -g yarn
 - yarn install
 - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
 - chmod +x ./cc-test-reporter
@@ -21,6 +21,7 @@ before_script:
 addons:
   apt_packages:
     - pandoc
+    - google-chrome-stable
   code_climate:
     repo_token: CC_TEST_REPORTER_ID
 script:
