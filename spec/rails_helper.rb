@@ -54,14 +54,27 @@ RSpec.configure do |config|
   # https://relishapp.com/rspec/rspec-rails/docs
   config.infer_spec_type_from_file_location!
 
-  config.before(:suite) do
-    DatabaseCleaner.strategy = :transaction
-    DatabaseCleaner.clean_with :truncation
+  # Stop puma from printing its normal startup output in
+  # the middle of your test output
+  config.before(:all, type: :system) do
+    Capybara.server = :puma, { Silent: true }
   end
 
-  config.around do |example|
-    DatabaseCleaner.cleaning do
-      example.run
-    end
+  config.before(:each, type: :system) do
+    driven_by :rack_test
+  end
+
+  config.before(:each, type: :system, js: true) do
+    driven_by :selenium_chrome_headless
+
+    # Use :selenium_chrome in development if you want Chrome browser windows to
+    # appear - this is convenient for debugging issues because `binding.pry` in
+    # your test will keep the Chrome window open and let you inspect what is
+    # really going on.
+    #
+    # This driver should only be enabled for local developer testing and the
+    # change should not be checked into git.
+    #
+    # driven_by :selenium_chrome
   end
 end

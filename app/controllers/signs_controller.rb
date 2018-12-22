@@ -22,7 +22,7 @@ class SignsController < ApplicationController
     if permitted_params[:term].present?
       render json: open("#{AUTOCOMPLETE_URL}?q=#{CGI.escape(permitted_params[:term])}&limit=10", &:read).split("\n")
     else
-      render :nothing
+      head :ok
     end
   end
 
