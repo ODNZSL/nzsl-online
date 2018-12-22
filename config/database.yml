@@ -1,6 +1,29 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  ##
+  # Set the DB pool size
+  #
+  # This config assumes we are using a process forking app server like Unicorn.
+  # If this app ever moves to Puma then this calculation should change.
+  #
+  # DB_POOL
+  #     Environment var that we can manually set in the Heroku config if we want to
+  #     override the pool size for any reason.
+  #
+  # WEB_CONCURRENCY
+  #     Environment var that Heroku sets automatically based on Dyno size. While we
+  #     technically can override this in the Heroku config we probably
+  #     shouldn't - the preferred way to customise the DB pool size is to use
+  #     DB_POOL above.
+  #
+  # The built-in default pool size is 5.
+  #
+  # We add 2 to the WEB_CONCURRENCY because we want enough connections
+  # available to be able to run things like `rails console` without impacting
+  # the worker processes.
+  #
+  pool: <%= ENV["DB_POOL"] || (ENV.fetch('WEB_CONCURRENCY', 3) + 2) || 5 %>
 
 development:
   <<: *default
