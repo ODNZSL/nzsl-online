@@ -68,7 +68,7 @@ class ItemsController < ApplicationController
         updated_at: Time.current
       )
     end
-    render nothing: true
+    head :ok
   end
 
   private
