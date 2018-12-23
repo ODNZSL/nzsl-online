@@ -23,7 +23,7 @@ default: &default
   # available to be able to run things like `rails console` without impacting
   # the worker processes.
   #
-  pool: <%= ENV["DB_POOL"] || (ENV.fetch('WEB_CONCURRENCY', 3) + 2) || 5 %>
+  pool: <%= ENV["DB_POOL"] || (Integer(ENV.fetch("WEB_CONCURRENCY", "3")) + 2) %>
 
 development:
   <<: *default
