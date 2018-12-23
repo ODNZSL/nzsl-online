@@ -1,8 +1,8 @@
 # frozen_string_literal: true
+require 'nokogiri'
 
 ## a sign in New Zealand Sign Language
 class Sign
-  require 'nokogiri'
 
   ELEMENT_NAME = 'entry'
 
