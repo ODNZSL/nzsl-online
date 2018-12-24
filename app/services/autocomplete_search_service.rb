@@ -2,6 +2,8 @@ class AutocompleteSearchService
   MAX_NUM_SUGGESTIONS = 10
   AUTOCOMPLETE_SEARCH_TIMEOUT = 10 # seconds
 
+  class AutocompleteSearchServiceError < StandardError; end
+
   ##
   # @param [String] search_term
   # @param [Faraday::Connection] faraday_connection - has a sensible default value which can be overridden by test code
@@ -43,6 +45,7 @@ class AutocompleteSearchService
         * Error details:
           #{e}
     EO_MSG
+    Raygun.track_exception(AutocompleteSearchServiceError.new(msg))
     @logger.warn(msg)
 
     []

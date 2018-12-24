@@ -47,6 +47,11 @@ RSpec.describe AutocompleteSearchService do
         expect(results).to eq([])
       end
 
+      it "Sends an explanatory error to Raygun" do
+        expect(Raygun).to receive(:track_exception)
+        results = subject.find_suggestions
+      end
+
       it "Logs an explanatory message" do
         subject.find_suggestions
         expect(log_accumulator).to include("Recovered from failed autocomplete search")
