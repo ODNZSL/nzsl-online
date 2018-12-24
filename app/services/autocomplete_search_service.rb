@@ -18,7 +18,7 @@ class AutocompleteSearchService
   #
   # @return [Array<String>] array of autocomplete suggestions
   #
-  def find_suggestions
+  def find_suggestions # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
     response = @faraday_connection.get do |request|
       request.params[:limit] = MAX_NUM_SUGGESTIONS
       request.params[:q] = CGI.escape(@search_term)
