@@ -120,15 +120,7 @@ class Sign
   def self.http_conn
     Faraday.new(url: SIGN_URL) do |faraday|
       faraday.use FaradayMiddleware::FollowRedirects
-
-      # Heroku enforces a 30 second timeout on our generating a response. We
-      # set a timeout for Freelex that allows us time to process the response
-      # and return it to our client within that constraint.
-      #
-      # Faraday timeout option specifies when how long we should wait (in
-      # seconds) for data to be available to be read from the socket
-      faraday.options[:timeout] = 20
-
+      faraday.options.timeout = FREELEX_TIMEOUT
       faraday.adapter Faraday.default_adapter
     end
   end
