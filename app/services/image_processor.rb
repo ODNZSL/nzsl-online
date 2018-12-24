@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
+require 'mini_magick'
+require 'open-uri'
+
 ## Retrieves images from Freelex, resizes and saves locally
 class ImageProcessor
-  require 'mini_magick'
-  require 'open-uri'
-
   def initialize(filename:, height:, width:)
     @filename = filename
     @height = height

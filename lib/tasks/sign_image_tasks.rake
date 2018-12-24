@@ -9,7 +9,7 @@ namespace :sign_images do
   task clear_cache: :environment do
     puts "Removing files in #{SIGN_IMAGE_PATH}....\n"
     Dir.foreach(SIGN_IMAGE_PATH) do |file|
-      next if file == '.' || file == '..'
+      next if ['..', '.'].include?(file)
 
       file = File.join(SIGN_IMAGE_PATH, file)
       puts "rm #{file}\n"
