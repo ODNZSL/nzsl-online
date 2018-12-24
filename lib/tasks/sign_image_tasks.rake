@@ -10,6 +10,7 @@ namespace :sign_images do
     puts "Removing files in #{SIGN_IMAGE_PATH}....\n"
     Dir.foreach(SIGN_IMAGE_PATH) do |file|
       next if file == '.' || file == '..'
+
       file = File.join(SIGN_IMAGE_PATH, file)
       puts "rm #{file}\n"
       if File.directory?(File.join(SIGN_IMAGE_PATH, file))

@@ -7,6 +7,7 @@ module StaticPagesHelper
 
   def link_sign(name, id)
     return link_to name, sign_path(id) if Sign.find(id: id)
+
     name
   end
 end

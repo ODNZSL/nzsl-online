@@ -12,6 +12,7 @@ class VocabSheetsController < ApplicationController
     respond_to do |format|
       format.html do
         return render :print if params[:print] == 'true'
+
         render :show
       end
 

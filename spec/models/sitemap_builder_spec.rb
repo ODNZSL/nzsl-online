@@ -7,10 +7,10 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   before do
     signs = 3.times.map do |int|
-              sign = Sign.new
-              sign.id = int + 1
-              sign
-            end
+      sign = Sign.new
+      sign.id = int + 1
+      sign
+    end
     allow(sitemap_builder).to receive(:fetch_all_signs).and_return(signs)
   end
 
