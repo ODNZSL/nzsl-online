@@ -49,7 +49,7 @@ module PaginationHelper
           nil
         elsif (page < 5 && i == 6) ||
               (page > total_pages - 4 && i == total_pages - 5) ||
-              (page > 4 && page < total_pages - 3 && (i == page + 2 || i == page - 2))
+              (page > 4 && page < total_pages - 3 && [page + 2, page - 2].include?(i))
           '...'
         else
           i
