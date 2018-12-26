@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class SignsController < ApplicationController
-  require 'open-uri'
+require 'open-uri'
 
+class SignsController < ApplicationController
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
   def search

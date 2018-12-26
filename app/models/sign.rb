@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
+require 'nokogiri'
+
 ## a sign in New Zealand Sign Language
 class Sign
-  require 'nokogiri'
-
   ELEMENT_NAME = 'entry'
 
   # The breakpoints for this app allow a 1x, 2x, 3x, and 4x layout. 12, 24, etc.
