@@ -27,11 +27,14 @@ class SignsController < ApplicationController
   end
 
   def autocomplete
-    if permitted_params[:term].present?
-      render json: open("#{AUTOCOMPLETE_URL}?q=#{CGI.escape(permitted_params[:term])}&limit=10", &:read).split("\n")
-    else
-      head :ok
+    search_term_param = permitted_params[:term]
+
+    if search_term_param.blank?
+      head(:ok)
+      return
     end
+
+    render json: AutocompleteSearchService.new(search_term: search_term_param).find_suggestions
   end
 
   private

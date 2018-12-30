@@ -4,6 +4,15 @@ require 'nokogiri'
 
 ## a sign in New Zealand Sign Language
 class Sign
+  # Create a custom error class.
+  #
+  # * Callers of this class can `rescue` one exception class if they want to
+  #   catch **all** possible exceptions from this class.
+  # * All uncaught exceptions related to this class are grouped together in
+  #   exception monitoring tools.
+  #
+  class FreelexCommunicationError < StandardError; end
+
   ELEMENT_NAME = 'entry'
 
   # The breakpoints for this app allow a 1x, 2x, 3x, and 4x layout. 12, 24, etc.
@@ -70,8 +79,17 @@ class Sign
 
   def self.search(params)
     xml_request(params)
-  rescue OpenURI::HTTPError => e
+  rescue FreelexCommunicationError => e
+    msg = <<~EO_MSG
+      Recovered from a failure to retrieve data from Freelex!
+        * An empty result-set will be returned to the calling code.
+        * Error details:
+          #{e}
+    EO_MSG
+
+    Rails.logger.warn(msg)
     Raygun.track_exception(e)
+
     [0, []]
   end
 
@@ -80,6 +98,16 @@ class Sign
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
     [count, entries]
+  rescue Faraday::ConnectionFailed
+    raise(FreelexCommunicationError, "Failed to connect to Freelex at URL: '#{SIGN_URL}'")
+  rescue Faraday::TimeoutError
+    raise(FreelexCommunicationError, 'Connection timeout')
+  rescue Faraday::Error
+    raise(FreelexCommunicationError, 'Generic communication error')
+  rescue Nokogiri::SyntaxError
+    raise(FreelexCommunicationError, 'Failed to parse response')
+  rescue StandardError => e
+    raise(FreelexCommunicationError, "Failed to communicate with Freelex because #{e}")
   end
 
   def self.uri_for_search(query)
@@ -105,7 +133,7 @@ class Sign
   def self.http_conn
     Faraday.new(url: SIGN_URL) do |faraday|
       faraday.use FaradayMiddleware::FollowRedirects
-      faraday.options[:timeout] = 60
+      faraday.options.timeout = FREELEX_TIMEOUT
       faraday.adapter Faraday.default_adapter
     end
   end
