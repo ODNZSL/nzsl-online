@@ -9,7 +9,7 @@ RSpec.describe AutocompleteSearchService do
         Faraday::Connection.new do |faraday|
           faraday.use Faraday::Adapter::Test do |stub|
             stub.get '/' do
-              [200, {'Content-Type' => 'text/plain'}, expected_suggestions.join("\n")]
+              [200, { 'Content-Type' => 'text/plain' }, expected_suggestions.join("\n")]
             end
           end
         end
@@ -66,7 +66,7 @@ RSpec.describe AutocompleteSearchService do
         Faraday::Connection.new do |faraday|
           faraday.use Faraday::Adapter::Test do |stub|
             stub.get '/' do
-              [200, {'Content-Type' => 'text/plain'}, all_suggestions.join("\n")]
+              [200, { 'Content-Type' => 'text/plain' }, all_suggestions.join("\n")]
             end
           end
         end
