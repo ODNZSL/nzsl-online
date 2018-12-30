@@ -46,12 +46,6 @@ module ApplicationHelper
             { class: "button #{options[:class]}" }.reverse_merge(options)
   end
 
-  def query_for_query_string
-    query = @query.dup
-    query.each { |k, v| query[k] = v.is_a?(Array) ? v.join(' ') : v }
-    HashWithIndifferentAccess.new query
-  end
-
   def print_stylesheet_tag(print)
     # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.

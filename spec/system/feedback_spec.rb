@@ -18,7 +18,7 @@ RSpec.describe 'User Feedback', type: :system do
     fill_in 'Email', with: 'milesobrien@transporter-rm3.enterprise'
     fill_in 'Message', with: 'Anybody there?'
 
-    click_on "Send Feedback"
+    click_on 'Send Feedback'
 
     expect(page).to have_text('Your feedback has been sent')
   end
@@ -30,7 +30,7 @@ RSpec.describe 'User Feedback', type: :system do
     fill_in 'Email', with: 'milesobrien@transporter-rm3.enterprise'
     # we deliberately forget to fill in the "Message" field
 
-    click_on "Send Feedback"
+    click_on 'Send Feedback'
 
     expect(page).to have_text("Your feedback didn't send")
   end
@@ -46,7 +46,7 @@ RSpec.describe 'User Feedback', type: :system do
     fill_in 'Email', with: 'milesobrien@transporter-rm3.enterprise'
     fill_in 'Message', with: 'Anybody there?'
 
-    click_on "Send Feedback"
+    click_on 'Send Feedback'
 
     expect(page).to have_text("Your feedback didn't send")
   end

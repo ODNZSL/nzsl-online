@@ -19,6 +19,7 @@ class SignImageController < ApplicationController
 
   def filename_param
     return sign_image_params[:filename] if %r{^[\d]+\/[a-zA-z\-0-9]+\.png$} =~ sign_image_params[:filename]
+
     raise 'Invalid filename'
   end
 

@@ -25,6 +25,7 @@ module PagesHelper
 
   def source_path(page, join = true)
     return source_path_components(page).values.join if join
+
     source_path_components(page).values
   end
 end
