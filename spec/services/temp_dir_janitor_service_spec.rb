@@ -14,8 +14,8 @@ RSpec.describe TempDirJanitorService do
         Dir.chdir(tmp_dir) do
           # 'mtime' parameter requires an actual instance if Time, not
           # ActiveSupport::TimeWithZone so we need to call #to_time
-          FileUtils.touch(removable_file, mtime: 1.1.hours.ago.to_time) # rubocop:disable Rails/Date
-          FileUtils.touch(keepable_file, mtime: 0.9.hours.ago.to_time)  # rubocop:disable Rails/Date
+          FileUtils.touch(removable_file, mtime: 1.1.hours.ago.to_time)
+          FileUtils.touch(keepable_file, mtime: 0.9.hours.ago.to_time)
         end
 
         # when

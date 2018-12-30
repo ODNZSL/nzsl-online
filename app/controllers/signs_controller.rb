@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-class SignsController < ApplicationController
-  require 'open-uri'
+require 'open-uri'
 
+class SignsController < ApplicationController
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
   def search
@@ -10,6 +10,9 @@ class SignsController < ApplicationController
     @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
     @results_total, @signs = Sign.paginate(search_query, @page_number)
     @query = search_query
+    @pagination_html = SignPaginationService.new(current_page_number: @page_number,
+                                                 total_num_results: @results_total,
+                                                 search_query: @query).pagination_links_html
   end
 
   def show
@@ -40,6 +43,7 @@ class SignsController < ApplicationController
     search_keys = %w(s hs l lg usage tag)
     query = permitted_params.select { |key| search_keys.include?(key) }
     return {} if query.nil?
+
     query.each do |key, value|
       secondary_value = value.nil? ? '' : value.split(' ')
       query[key] = key == 's' ? [value] : secondary_value

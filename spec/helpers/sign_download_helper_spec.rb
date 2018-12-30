@@ -3,11 +3,11 @@
 require 'rails_helper'
 
 RSpec.describe SignsHelper, type: :helper do
-  drawing_1 = '1234/test01-1234-default.png'
-  drawing_2 = '1234/test02-1234.png'
-  drawing_3 = '1234/test03-default-1234-default.png'
-  drawing_4 = '1234/test04-default-1234-DEfault.png'
-  drawing_5 = '1234/test05-default-1234-DEFAULT.PNG'
+  drawing_1 = '1234/test01-1234-default.png' # rubocop:disable Naming/VariableNumber
+  drawing_2 = '1234/test02-1234.png' # rubocop:disable Naming/VariableNumber
+  drawing_3 = '1234/test03-default-1234-default.png' # rubocop:disable Naming/VariableNumber
+  drawing_4 = '1234/test04-default-1234-DEfault.png' # rubocop:disable Naming/VariableNumber
+  drawing_5 = '1234/test05-default-1234-DEFAULT.PNG' # rubocop:disable Naming/VariableNumber
 
   describe '#convert_to_high_resolution' do
     context 'when provided with a "default.png" sign drawing' do
