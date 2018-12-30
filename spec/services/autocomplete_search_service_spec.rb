@@ -81,4 +81,3 @@ RSpec.describe AutocompleteSearchService do
     end
   end
 end
-
