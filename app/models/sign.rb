@@ -42,6 +42,7 @@ class Sign
   def self.first(params)
     _count, entries = search(params)
     return nil if entries.empty?
+
     SignParser.new(entries.first).build_sign
   end
 
@@ -113,6 +114,7 @@ class Sign
     # The handling of arrays in query strings is different
     # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
+
     '?' + query_string_for_search(query).join('&')
   end
 

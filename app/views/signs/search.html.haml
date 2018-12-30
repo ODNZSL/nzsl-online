@@ -37,4 +37,4 @@
   .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
       %ol.pagination
-        = pagination_links
+        = @pagination_html

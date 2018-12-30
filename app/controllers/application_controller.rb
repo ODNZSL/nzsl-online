@@ -75,6 +75,7 @@ class ApplicationController < ActionController::Base
   def check_browser_support
     setup_browser_rules
     return if browser.modern?
+
     flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
                       not display properly. <a href="https://updatemybrowser.org/"> Would you like to
                       upgrade your browser? </a>).html_safe
@@ -82,6 +83,7 @@ class ApplicationController < ActionController::Base
 
   def staging_http_auth
     return unless staging_env?
+
     authenticate_or_request_with_http_basic('Username and Password please') do |username, password|
       username == ENV['HTTP_BASIC_AUTH_USERNAME'] && password == ENV['HTTP_BASIC_AUTH_PASSWORD']
     end

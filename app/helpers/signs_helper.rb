@@ -44,6 +44,7 @@ module SignsHelper
 
   def render_back_to_search_results
     return unless request.referer
+
     referer = URI(request.referer)
     case referer.path
     when search_signs_path

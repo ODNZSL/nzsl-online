@@ -11,7 +11,9 @@ namespace :db do
     total_destroyed += Request.where('created_at < ?', STORAGE_DAYS.days.ago).destroy_all.length
 
     # Ensure we have no more than MAX_REQUESTS of the most recent requests
-    total_destroyed += Request.order(created_at: :desc).offset(MAX_REQUESTS).destroy_all.length if Request.count > MAX_REQUESTS
+    if Request.count > MAX_REQUESTS
+      total_destroyed += Request.order(created_at: :desc).offset(MAX_REQUESTS).destroy_all.length
+    end
 
     puts "A total of #{total_destroyed} requests were deleted, remaining #{Request.count} "\
          "requests are those made since #{STORAGE_DAYS.days.ago}."

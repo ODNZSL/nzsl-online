@@ -3,14 +3,15 @@
 module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
     return @numbers if @numbers.present?
+
     @number_signs = {}
     Sign.all(tag: 29).each { |s| @number_signs[s.id.to_i] = s }
-    @numbers = { cardinal:  signs_from_array(cardinal_array),
-                 ordinal:   signs_from_array(ordinal_array),
+    @numbers = { cardinal: signs_from_array(cardinal_array),
+                 ordinal: signs_from_array(ordinal_array),
                  fractions: signs_from_array(fractions_array),
-                 time:      signs_from_array(time_array),
-                 age:       signs_from_array(age_array),
-                 money:     signs_from_array(money_array) }
+                 time: signs_from_array(time_array),
+                 age: signs_from_array(age_array),
+                 money: signs_from_array(money_array) }
   end
 
   private
