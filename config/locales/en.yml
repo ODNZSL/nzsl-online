@@ -1,153 +1,81 @@
-# encoding: UTF-8
-# Sample localization file for English. Add more files in this directory for other locales.
-# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
-
+---
 en:
-  back: Back
+  admin:
+    setting:
+      '404': Page not Found
+      footer: Footer
+      glossary: Glossary
+      help: Search help
+  feedback:
+    failure: Your feedback didn't send
+    submit: Send Feedback
+    success: Your feedback has been sent
   layout:
+    meta_description: 'NZSL Online : Dictionary of New Zealand Sign Language'
     title: NZSL Online
-    meta_description: "NZSL Online : Dictionary of New Zealand Sign Language"
-  not_found:
-    title: "Sorry, That page was not found."
-    content: "Please navigate to the page you want with the menu or search for a sign using the search tools"
-  static:
-    index: 'Home'
-    nzsl: About NZSL
-    alphabet: Alphabet
-    numbers: Numbers
-    classifiers: Classifiers
-    learning: Learning
-    about: About Us
-    contact_us: Contact Us
-    links: Links
-    topics: Topics
-  signs:
-    sign_of_the_day: Show me a sign
-    another_sign_of_the_day: Show me another sign
-    show:
-      back_to:
-        search_results: Back to search results
-        numbers: Back to numbers page
-        classifiers: Back to classifiers page
-        home: Back to home page
-      field:
-        contains_numbers: contains numbers
-        is_fingerspelling: fingerspelling
-        is_directional: person agreement
-        is_locatable: spatial agreement
-        one_or_two_handed: one or two handed
-        inflection_plural: inflection for pluralisation
-        inflection_manner_and_degree: inflection for manner and degree
-        inflection_temporal: temporal inflection
-      usage_examples: Usage
-      notes: Notes
-      hint: Hint
-      usage_notes: Usage Notes
-      related_to: Borrowed From
-      age_groups: Age Variation
-      in_slow_motion: Play in slow motion
-      at_normal_speed: Play at normal speed
-    not_found:
-      title: "Sorry, That sign was not found."
-      content: "It may have been removed from the database."
+  pagination:
+    next: next
+    previous: previous
   search:
+    advanced:
+      topic_tags: Topic
+      usage_tags: Usage
     close: close
-    tabs:
-      keyword: Search by word (English/Māori)
-      sign: Search by Sign Features
-      advanced: Advanced Search Options
-      help: Help
-    keywords:
-      prompt: "Enter search keywords&hellip;"
     signs:
       default_handshape: Hand Shape
       default_location: Body Location
       handshapes_help: Click a hand shape to search for signs with that shape
       locations_help: Click a location to search for signs using that location
-    advanced:
-      topic_tags: 'Topic'
-      usage_tags: 'Usage'
-      topic_tags_any: '- Any topic -'
-      usage_tags_any: '- Any usage -'
-    submit: Search
-    results:
-      for: "Search results for"
-      results: result
+    tabs:
+      advanced: Advanced Search Options
+      help: Help
+  signs:
+    another_sign_of_the_day: Show me another sign
+    not_found:
+      content: It may have been removed from the database.
+      title: Sorry, That sign was not found.
+    show:
+      age_groups: Age Variation
+      back_to:
+        classifiers: Back to classifiers page
+        home: Back to home page
+        numbers: Back to numbers page
+        search_results: Back to search results
+      field:
+        contains_numbers: contains numbers
+        inflection_manner_and_degree: inflection for manner and degree
+        inflection_plural: inflection for pluralisation
+        inflection_temporal: temporal inflection
+        is_directional: person agreement
+        is_fingerspelling: fingerspelling
+        is_locatable: spatial agreement
+        one_or_two_handed: one or two handed
+      hint: Hint
+      notes: Notes
+      related_to: Borrowed From
+      usage_examples: Usage
+    sign_of_the_day: Show me a sign
   vocab_sheet:
-    title: Vocab Sheet
-    item:
-      add: Add to Vocab Sheet
-      add_success: You have added a sign to your Vocab Sheet.
-      add_failure: This sign could not be added to your Vocab sheet - please try again in a moment.
-      add_duplicate: This sign is already in your vocab sheet.
-      remove: Remove
-      remove_success: Sign removed
-      remove_failure: This sign has been removed from your Vocab Sheet.
-      update: Rename
-      update_success: You have updated a sign
-      update_failure: This sign could not be updated - please try again.
-    sheet:
-      update_success: Vocab sheet updated.
-      update_failure: Failure. Vocab sheet not updated."
-    link_to: View
-    print: Print
-    download: Download as PDF
-    download_in_progress: "Please wait. Your vocabulary sheet is being generated and will download soon."
-    empty: Your vocab sheet is empty.
-    delete: Clear Sheet
+    delete_failure: Your Vocab Sheet could not be emptied - please try again in a
+      second.
     delete_success: Your Vocab Sheet is empty.
-    delete_failure: Your Vocab Sheet could not be emptied - please try again in a second.
-    sortable_instruction: Drag signs to change the order. Click any text label to change it
+    download_in_progress: Please wait. Your vocabulary sheet is being generated and
+      will download soon.
+    empty: Your vocab sheet is empty.
+    item:
+      add_duplicate: This sign is already in your vocab sheet.
+      add_failure: This sign could not be added to your Vocab sheet - please try again
+        in a moment.
+      add_success: You have added a sign to your Vocab Sheet.
+      remove: Remove
+      remove_failure: This sign has been removed from your Vocab Sheet.
+      remove_success: Sign removed
+      update_failure: This sign could not be updated - please try again.
+      update_success: You have updated a sign
     name: Your vocab sheet
-    change: Change Label
-    update: Update
-  feedback:
-    submit: Send Feedback
-    success: Your feedback has been sent
-    failure: Your feedback didn't send
-  page_not_found:
-    title: Page not found (404)
-    content: "Sorry, this page seems to have been moved, or the address has been mistyped. Please try again later."
-  pagination:
-    next: next
-    previous: previous
-  play_this_page: Play this page in NZSL
-  play_this_section: Play this section in NZSL
-  clear: clear
-  formtastic:
-    labels:
-      page:
-        show_in_nav: ' Show in navigation'
-      feedback:
-        name: 'Name:'
-        email: 'Email:'
-        hearing_level: 'Are you:'
-        nzsl_level: 'Are you a:'
-
-        include_sign: ' Suggest an NZSL sign to be included in the dictionary'
-        include_describe: "Show the sign on its own, and the same sign used in a sentence"
-        include_define: "What does this sign mean (in English)?"
-        include_users: "Who uses this sign? (e.g. older, younger, area)"
-        include_comments: Other Comments
-
-        change_sign: ' Suggest changes for a sign in the dictionary'
-        change_sign_gloss: What is the main gloss for this sign?
-        change_sign_url: What is the URL (web address) for this sign?
-        change_sign_entry: Part of the sign you want to change/add
-        change_comments: comments
-
-        technical_fault: ' Report a technical fault'
-        video: 'Video:'
-        message: 'Message:'
-    hints:
-      feedback:
-        change_sign_url: Go to the entry for this sign in the dictionary and look at the address box. Copy the text and paste here. (e.g. http://nzsl.vuw.ac.nz/signs/1234)
-        email: 'If provided, must be a valid email address'
-        video: 'Maximum size 50MB &mdash; larger files may take some time to upload'
-  admin:
-    save: Save
-    setting:
-      help: Search help
-      glossary: Glossary
-      '404': Page not Found
-      footer: Footer
+    sheet:
+      update_failure: Failure. Vocab sheet not updated."
+      update_success: Vocab sheet updated.
+    sortable_instruction: Drag signs to change the order. Click any text label to
+      change it
+    title: Vocab Sheet
