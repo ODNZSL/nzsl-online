@@ -12,12 +12,12 @@
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
-      = image_tag "/images/signs/400-400/#{@sign.drawing}", class: "main-image"
+      = image_tag sign_image_url(image_name: @sign.drawing), class: "main-image"
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
       .buttons-container
-        = link_to "/images/signs/400-400/#{convert_to_high_resolution(@sign.drawing)}", { class: "download-link", "data-sign-id": @sign.id } do
+        = link_to sign_image_url(image_name: @sign.drawing, high_res: true), { class: "download-link", "data-sign-id": @sign.id } do
           %span
             = image_tag "ui/download-button.svg", class: "card__button download-button"
           %span.buttons-action  Download Drawing
