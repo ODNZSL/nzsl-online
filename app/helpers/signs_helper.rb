@@ -20,8 +20,18 @@ module SignsHelper
     end.compact.join(', ').html_safe
   end
 
-  def convert_to_high_resolution(sign_drawing)
-    sign_drawing.gsub(/default.png$/i, 'high_resolution.png')
+  ##
+  # This function should be the one and only place in the app which generates
+  # URLs to sign images.
+  #
+  def sign_image_url(image_name: '', width: 400, height: 400, high_res: false)
+    file_name = if high_res
+                  image_name.gsub(/default.png$/i, 'high_resolution.png')
+                else
+                  image_name
+                end
+
+    "/images/signs/#{width}-#{height}/#{file_name}"
   end
 
   def render_transcription(transcription, id)
