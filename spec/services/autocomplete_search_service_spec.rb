@@ -16,7 +16,7 @@ RSpec.describe AutocompleteSearchService do
       end
 
       subject do
-        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+        described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
       end
 
       it 'Returns the expected suggestions' do
@@ -43,7 +43,7 @@ RSpec.describe AutocompleteSearchService do
       end
 
       subject do
-        AutocompleteSearchService.new(search_term: search_term,
+        described_class.new(search_term: search_term,
                                       faraday_connection: stubbed_faraday_connection,
                                       logger: logger)
       end
@@ -79,7 +79,7 @@ RSpec.describe AutocompleteSearchService do
       end
 
       subject do
-        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+        described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
       end
 
       it 'Discards extra results' do
