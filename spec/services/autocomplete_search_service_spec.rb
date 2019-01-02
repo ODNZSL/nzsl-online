@@ -3,6 +3,9 @@ require 'rails_helper'
 RSpec.describe AutocompleteSearchService do
   describe '#find_suggestions' do
     context 'When the external services behaves as expected' do
+      subject do
+        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+      end
       let(:search_term) { 'Anything' }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
       let(:stubbed_faraday_connection) do
@@ -15,9 +18,6 @@ RSpec.describe AutocompleteSearchService do
         end
       end
 
-      subject do
-        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
-      end
 
       it 'Returns the expected suggestions' do
         results = subject.find_suggestions
@@ -26,6 +26,11 @@ RSpec.describe AutocompleteSearchService do
     end
 
     context 'When there is an error communicating with the external search service' do
+      subject do
+        AutocompleteSearchService.new(search_term: search_term,
+                                      faraday_connection: stubbed_faraday_connection,
+                                      logger: logger)
+      end
       let(:search_term) { 'Anything' }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
       let(:stubbed_faraday_connection) do
@@ -42,11 +47,6 @@ RSpec.describe AutocompleteSearchService do
         Logger.new(StringIO.new(log_accumulator))
       end
 
-      subject do
-        AutocompleteSearchService.new(search_term: search_term,
-                                      faraday_connection: stubbed_faraday_connection,
-                                      logger: logger)
-      end
 
       it 'Recovers from the error by returning an empty result-set' do
         results = subject.find_suggestions
@@ -65,6 +65,9 @@ RSpec.describe AutocompleteSearchService do
     end
 
     context 'When it receives more than the requested number of results' do
+      subject do
+        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+      end
       let(:search_term) { 'Anything' }
       let(:all_suggestions) { %w{1 2 3 4 5 6 7 8 9 10 11 12} }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
@@ -78,9 +81,6 @@ RSpec.describe AutocompleteSearchService do
         end
       end
 
-      subject do
-        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
-      end
 
       it 'Discards extra results' do
         results = subject.find_suggestions
