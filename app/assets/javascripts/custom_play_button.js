@@ -25,18 +25,30 @@ $(document).ready(function() {
 
   function playVideo(video) {
     pauseOtherVideos(video);
-    $(video).closest('.video-container').children('.play-button').css('opacity', '0');
-    $(video).get(0).play();
+    $(video)
+      .closest('.video-container')
+      .children('.play-button')
+      .css('opacity', '0');
+    $(video)
+      .get(0)
+      .play();
   }
 
   function pauseVideo(video) {
-    $(video).closest('.video-container').children('.play-button').css('opacity', '0');
-    $(video).get(0).pause();
+    $(video)
+      .closest('.video-container')
+      .children('.play-button')
+      .css('opacity', '0');
+    $(video)
+      .get(0)
+      .pause();
   }
 
   function pauseOtherVideos(currentVideo) {
     $('video').each(function() {
-      if (this != currentVideo) { pauseVideo(this); }
+      if (this != currentVideo) {
+        pauseVideo(this);
+      }
     });
   }
 });

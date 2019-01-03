@@ -10,9 +10,11 @@ $(document).ready(function() {
           containment: 'parent',
           update: function(event, ui) {
             var new_order = [];
-            $('ul#vocab_sheet .item_id').each(function() { new_order.push($(this).val()); });
+            $('ul#vocab_sheet .item_id').each(function() {
+              new_order.push($(this).val());
+            });
             $.post('/vocab_sheet/items/reorder/', { 'items[]': new_order });
-          }
+          },
         });
       }
 
@@ -21,7 +23,10 @@ $(document).ready(function() {
         input.val($.trim(input.val()));
         if (input.val() === '') {
           input.val(input.next('.old_name').val());
-        } else if (input.val() !== input.next('.old_name').val() && input.val() !== '') {
+        } else if (
+          input.val() !== input.next('.old_name').val() &&
+          input.val() !== ''
+        ) {
           var form = input.closest('form');
           $.post(form.attr('action'), form.serialize(), function(data) {
             input.next('.old_name').val(data.vocab_sheet.name);
@@ -38,7 +43,9 @@ $(document).ready(function() {
         }
         return true;
       });
-      $('input.vocab_sheet_name').blur(function() { submit_vocab_sheet_name($(this)); });
+      $('input.vocab_sheet_name').blur(function() {
+        submit_vocab_sheet_name($(this));
+      });
 
       if (document.printView) {
         $('textarea').attr('readonly', true);
@@ -75,7 +82,8 @@ $(document).ready(function() {
       var maxLength = elem.attr('maxlength');
 
       if (notes !== '') {
-        elem.siblings('.character-count__wrap')
+        elem
+          .siblings('.character-count__wrap')
           .children('.character-count__count')
           .text(maxLength - notes.length);
       }
@@ -98,7 +106,8 @@ $(document).ready(function() {
       var notes = elem.val();
       var maxLength = elem.attr('maxlength');
 
-      elem.siblings('.character-count__wrap')
+      elem
+        .siblings('.character-count__wrap')
         .children('.character-count__count')
         .text(maxLength - notes.length);
     }
@@ -132,13 +141,18 @@ $(document).ready(function() {
           method: 'PUT',
           data: assignItemParams(params),
           headers: {
-            'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
+            'X-CSRF-Token': $('meta[name="authenticity-token"]').attr(
+              'content',
+            ),
           },
         }).fail(function(error) {
           console.error(error.statusText);
         });
       } else {
-        console.error('Error, cannot update vocab sheet item without ID. Parameters presented:', params);
+        console.error(
+          'Error, cannot update vocab sheet item without ID. Parameters presented:',
+          params,
+        );
       }
     }, 100);
   }
@@ -162,7 +176,10 @@ $(document).ready(function() {
     return actionSegments[actionSegments.length - 1];
   }
   function toSnakeCase(varName) {
-    return varName.split(/(?=[A-Z])/).join('_').toLowerCase();
+    return varName
+      .split(/(?=[A-Z])/)
+      .join('_')
+      .toLowerCase();
   }
 
   setup_vocab_sheet_page();
