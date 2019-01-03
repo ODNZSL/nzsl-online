@@ -18,7 +18,6 @@ RSpec.describe AutocompleteSearchService do
         end
       end
 
-
       it 'Returns the expected suggestions' do
         results = subject.find_suggestions
         expect(results).to eq(expected_suggestions)
@@ -46,7 +45,6 @@ RSpec.describe AutocompleteSearchService do
       let(:logger) do
         Logger.new(StringIO.new(log_accumulator))
       end
-
 
       it 'Recovers from the error by returning an empty result-set' do
         results = subject.find_suggestions
@@ -80,7 +78,6 @@ RSpec.describe AutocompleteSearchService do
           end
         end
       end
-
 
       it 'Discards extra results' do
         results = subject.find_suggestions
