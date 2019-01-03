@@ -3,9 +3,15 @@ var search_analytics_string = function() {
 
   var search_tab = '';
 
-  if ($('.search_tabs .keywords').hasClass('selected')) { search_tab = 'keywords'; }
-  if ($('.search_tabs .signs').hasClass('selected')) { search_tab = 'signs'; }
-  if ($('.search_tabs .advanced').hasClass('selected')) { search_tab = 'advanced'; }
+  if ($('.search_tabs .keywords').hasClass('selected')) {
+    search_tab = 'keywords';
+  }
+  if ($('.search_tabs .signs').hasClass('selected')) {
+    search_tab = 'signs';
+  }
+  if ($('.search_tabs .advanced').hasClass('selected')) {
+    search_tab = 'advanced';
+  }
 
   var query_val = $('input#s').val();
 
@@ -19,16 +25,32 @@ var search_analytics_string = function() {
   query_val = escape(query_val);
 
   handshapes_val = handshapes_val.replace(/ /g, ',');
-  locations_val = locations_val = $('input#l').val().replace(/ /g, ',');
+  locations_val = locations_val = $('input#l')
+    .val()
+    .replace(/ /g, ',');
   location_groups_val = location_groups_val.replace(/ /g, ',');
 
-  var string = 'search_tab=' + search_tab
-               + ' ' + 'query=' + query_val
-               + ' ' + 'handshapes=' + handshapes_val
-               + ' ' + 'locations=' + locations_val
-               + ' ' + 'location_groups=' + location_groups_val
-               + ' ' + 'tag=' + tag_val
-               + ' ' + 'usage=' + usage_val;
+  var string =
+    'search_tab=' +
+    search_tab +
+    ' ' +
+    'query=' +
+    query_val +
+    ' ' +
+    'handshapes=' +
+    handshapes_val +
+    ' ' +
+    'locations=' +
+    locations_val +
+    ' ' +
+    'location_groups=' +
+    location_groups_val +
+    ' ' +
+    'tag=' +
+    tag_val +
+    ' ' +
+    'usage=' +
+    usage_val;
 
   return string;
 };
@@ -42,7 +64,9 @@ var ga_form_submission = function(event) {
     var search_string = search_analytics_string();
     _gaq.push(['_trackEvent', 'Search', 'Params', search_string]);
 
-    setTimeout(function() { form.submit(); }, 200);
+    setTimeout(function() {
+      form.submit();
+    }, 200);
 
     return false;
   }
@@ -55,7 +79,9 @@ var ga_link_submission = function(event) {
   var link = $(this);
 
   var dest = link.attr('href');
-  if (typeof (dest) !== 'undefined' && dest !== '') {
-    setTimeout(function() { window.location.href = dest; }, 100);
+  if (typeof dest !== 'undefined' && dest !== '') {
+    setTimeout(function() {
+      window.location.href = dest;
+    }, 100);
   }
 };
