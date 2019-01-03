@@ -9,9 +9,7 @@ $(document).ready(function() {
 
   function select(target, targetClass, searchContainerId) {
     var id;
-    $(targetClass)
-      .not(target)
-      .removeClass('selected');
+    $(targetClass).not(target).removeClass('selected');
     target.toggleClass('selected');
 
     if (target.hasClass('selected')) {
@@ -26,9 +24,7 @@ $(document).ready(function() {
 
   function dropdownState(searchContainerId, targetClass) {
     var targetId = $(searchContainerId).val();
-    var targetValue = $(
-      'li[class="' + targetClass + '"][id="' + targetId + '"]',
-    );
+    var targetValue = $('li[class="' + targetClass + '"][id="' + targetId + '"]');
     targetValue.addClass('selected');
   }
 

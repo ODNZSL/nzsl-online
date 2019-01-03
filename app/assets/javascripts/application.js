@@ -20,6 +20,5 @@
 //= require search-result-load-in
 //= require search-vocab
 
-$(function() {
-  $(document).foundation();
-});
+
+$(function() { $(document).foundation(); });
