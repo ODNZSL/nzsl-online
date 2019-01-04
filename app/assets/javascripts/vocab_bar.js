@@ -14,10 +14,8 @@ $(document).ready(function() {
 
       if (windowScroll < bottom) {
         bar.css({ top: initialOffset - offset });
-      } else if (
-        barBottom < footerTop ||
-        windowScroll < footerTop - (bar.outerHeight(true) + baseMargin)
-      ) {
+      } else if (barBottom < footerTop
+        || (windowScroll < footerTop - (bar.outerHeight(true) + baseMargin))) {
         bar.css({ top: windowScroll - offset + baseMargin });
       }
     }
