@@ -29,11 +29,13 @@ $(document).ready(function() {
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
         },
-      }).done(function(data) {
-        onVocabItemAdded(data);
-      }).fail(function(error) {
-        onVocabItemError(error.statusText);
-      });
+      })
+        .done(function(data) {
+          onVocabItemAdded(data);
+        })
+        .fail(function(error) {
+          onVocabItemError(error.statusText);
+        });
     }
 
     function onVocabItemAdded(htmlElem) {
@@ -41,7 +43,9 @@ $(document).ready(function() {
         $('.vocab-sidebar').show();
       }
 
-      $(notice).removeClass('hide-flash').text('Sign added');
+      $(notice)
+        .removeClass('hide-flash')
+        .text('Sign added');
       $(vocabList).append(htmlElem);
       removeVocabItemOnClick();
       hideNotice();
@@ -57,15 +61,19 @@ $(document).ready(function() {
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
         },
-      }).done(function(data) {
-        onVocabItemRemoved(itemId);
-      }).fail(function(error) {
-        onVocabItemError(error.statusText);
-      });
+      })
+        .done(function(data) {
+          onVocabItemRemoved(itemId);
+        })
+        .fail(function(error) {
+          onVocabItemError(error.statusText);
+        });
     }
 
     function onVocabItemRemoved(itemId) {
-      $(notice).removeClass('hide-flash').text('Sign removed');
+      $(notice)
+        .removeClass('hide-flash')
+        .text('Sign removed');
       $('.vocab-sidebar__item[data-sign-id=' + itemId + ']').remove();
       hideNotice();
     }
@@ -81,16 +89,16 @@ $(document).ready(function() {
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
-          '<div class="flash error">'
-          + 'Error, please try again.'
-          + '</div>'
+          '<div class="flash error">' + 'Error, please try again.' + '</div>',
         );
       }
     }
 
     function hideNotice() {
       setTimeout(function() {
-        $(notice).addClass('hide-flash').removeClass('error');
+        $(notice)
+          .addClass('hide-flash')
+          .removeClass('error');
       }, 2000);
     }
   }
