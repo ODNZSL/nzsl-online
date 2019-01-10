@@ -4,7 +4,7 @@ RSpec.describe AutocompleteSearchService do
   describe '#find_suggestions' do
     context 'When the external services behaves as expected' do
       subject do
-        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+        described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
       end
       let(:search_term) { 'Anything' }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
@@ -26,7 +26,7 @@ RSpec.describe AutocompleteSearchService do
 
     context 'When there is an error communicating with the external search service' do
       subject do
-        AutocompleteSearchService.new(search_term: search_term,
+        described_class.new(search_term: search_term,
                                       faraday_connection: stubbed_faraday_connection,
                                       logger: logger)
       end
@@ -64,7 +64,7 @@ RSpec.describe AutocompleteSearchService do
 
     context 'When it receives more than the requested number of results' do
       subject do
-        AutocompleteSearchService.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+        described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
       end
       let(:search_term) { 'Anything' }
       let(:all_suggestions) { %w{1 2 3 4 5 6 7 8 9 10 11 12} }
