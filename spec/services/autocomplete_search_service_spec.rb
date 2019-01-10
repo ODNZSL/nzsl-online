@@ -6,6 +6,7 @@ RSpec.describe AutocompleteSearchService do
       subject do
         described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
       end
+
       let(:search_term) { 'Anything' }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
       let(:stubbed_faraday_connection) do
@@ -30,6 +31,7 @@ RSpec.describe AutocompleteSearchService do
                                       faraday_connection: stubbed_faraday_connection,
                                       logger: logger)
       end
+
       let(:search_term) { 'Anything' }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
       let(:stubbed_faraday_connection) do
@@ -66,6 +68,7 @@ RSpec.describe AutocompleteSearchService do
       subject do
         described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
       end
+
       let(:search_term) { 'Anything' }
       let(:all_suggestions) { %w{1 2 3 4 5 6 7 8 9 10 11 12} }
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
