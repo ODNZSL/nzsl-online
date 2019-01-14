@@ -13,7 +13,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 4.9.2'
-gem 'nokogiri', '~> 1.10.0'
+gem 'nokogiri', '~> 1.10.1'
 gem 'pandoc-ruby'
 gem 'whenever'
 
