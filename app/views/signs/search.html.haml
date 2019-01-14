@@ -26,7 +26,7 @@
       .card__bottom-row
         .card__sign-container
           = link_to sign_url(sign.id), { class: 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent','Search','Click','#{query_text}-#{sign.id}',#{@signs.find_index(sign) + 1}]);" } do
-            = image_tag "/images/signs/400-400/#{sign.drawing}", { class: 'card__drawing-image' }
+            = image_tag sign_image_url(image_name: sign.drawing), { class: 'card__drawing-image' }
         .card__button-container
           = link_to sign_url(sign.id), { class: "card__button" } do
             %span.card__button-symbol.card__button-symbol--blue →
@@ -37,4 +37,4 @@
   .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
       %ol.pagination
-        = pagination_links
+        = @pagination_html

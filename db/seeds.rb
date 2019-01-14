@@ -2,7 +2,7 @@
 
 require 'csv'
 
-def load(data_type)
+def load_data(data_type)
   data_klass = data_type.to_s.singularize.camelize.constantize
   data_klass.transaction do
     CSV.foreach(csv_filename(data_type)) do |row|
@@ -20,6 +20,6 @@ def csv_filename(data_type)
   filename
 end
 
-load(:settings)
-load(:pages)
-load(:page_parts)
+load_data(:settings)
+load_data(:pages)
+load_data(:page_parts)

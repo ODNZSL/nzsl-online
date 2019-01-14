@@ -6,12 +6,13 @@ class VocabSheetsController < ApplicationController
   before_action :set_search_query, :footer_content
   respond_to :html, :json
 
-  def show
+  def show # rubocop:disable Metrics/AbcSize
     set_vocab_sheet_size
 
     respond_to do |format|
       format.html do
         return render :print if params[:print] == 'true'
+
         render :show
       end
 

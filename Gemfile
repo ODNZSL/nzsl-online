@@ -13,7 +13,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'mini_magick', '~> 4.9.2'
-gem 'nokogiri', '~> 1.9.1'
+gem 'nokogiri', '~> 1.10.0'
 gem 'pandoc-ruby'
 gem 'whenever'
 
@@ -70,7 +70,10 @@ group :development, :test do
   # for checking images in specs
   gem 'fastimage'
 
-  gem 'rubocop', '~> 0.61.1', require: false
+  ##
+  # We want to use the same version of rubocop as Codeclimate does - see
+  # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
+  gem 'rubocop', '~> 0.60.0', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
@@ -95,6 +98,8 @@ end
 group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
+  gem 'capybara-selenium'
+  gem 'chromedriver-helper'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
   gem 'rails-controller-testing'

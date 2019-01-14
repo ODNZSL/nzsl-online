@@ -1,5 +1,5 @@
-%li{ class:"vocab-sheet__item vocab-sidebar__item", "data-sign-id": vocab_sheet_item.id }
-  = image_tag "/images/signs/80-80/#{vocab_sheet_item.drawing}", class: "vocab-sidebar__image"
+%li{ class: "vocab-sheet__item vocab-sidebar__item", "data-sign-id": vocab_sheet_item.id }
+  = image_tag sign_image_url(image_name: vocab_sheet_item.drawing, width: 80, height: 80), class: "vocab-sidebar__image"
   %p.main_gloss.vocab-sidebar__gloss
     = vocab_sheet_item.name
   %p.maori_gloss.vocab-sidebar__gloss
