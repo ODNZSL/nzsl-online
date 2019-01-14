@@ -1,10 +1,10 @@
-$(document).ready(function() {
+$(document).ready(function () {
   if ($('.vocab-sheet__text-input').length > 0) {
-    $('.vocab-sheet__text-input').each(function() {
+    $('.vocab-sheet__text-input').each(function () {
       autoExpandTextarea($(this));
     });
 
-    $('.vocab-sheet__text-input').keyup(function() {
+    $('.vocab-sheet__text-input').keyup(function () {
       autoExpandTextarea($(this));
     });
 
@@ -17,7 +17,7 @@ $(document).ready(function() {
       } else if (field.hasClass('item-maori-name')) {
         nameBeingChanged = '.item-maori-name';
       }
-      $(nameBeingChanged).each(function() {
+      $(nameBeingChanged).each(function () {
         $(this).css({ height: textHeight });
       });
     }
