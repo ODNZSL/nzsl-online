@@ -48,7 +48,7 @@ GEM
       io-like (~> 0.3.0)
     arel (9.0.0)
     ast (2.4.0)
-    autoprefixer-rails (9.4.4)
+    autoprefixer-rails (9.4.5)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -179,7 +179,7 @@ GEM
     multi_xml (0.6.0)
     multipart-post (2.0.0)
     nio4r (2.3.1)
-    nokogiri (1.10.0)
+    nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pandoc-ruby (2.0.2)
@@ -372,7 +372,7 @@ DEPENDENCIES
   mini_magick (~> 4.9.2)
   mini_racer
   modernizr-rails
-  nokogiri (~> 1.10.0)
+  nokogiri (~> 1.10.1)
   pandoc-ruby
   paperclip
   pg (~> 1.1)
