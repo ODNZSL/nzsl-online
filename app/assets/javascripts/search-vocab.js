@@ -1,9 +1,9 @@
-$(document).ready(function() {
+$(document).ready(function () {
   if ($('.add-to-vocab-btn').length > 0) {
     var notice = '.vocab-sidebar .ajax-flash';
     var vocabList = '.vocab-sidebar ul';
 
-    $('.add-to-vocab-btn').click(function(e) {
+    $('.add-to-vocab-btn').click(function (e) {
       e.preventDefault();
       addVocabItem($(this).attr('data-sign-id'));
     });
@@ -13,7 +13,7 @@ $(document).ready(function() {
     }
 
     function removeVocabItemOnClick() {
-      $('.remove').click(function(e) {
+      $('.remove').click(function (e) {
         e.preventDefault();
         removeVocabItem($(this).attr('data-sign-id'));
       });
@@ -29,9 +29,9 @@ $(document).ready(function() {
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
         },
-      }).done(function(data) {
+      }).done(function (data) {
         onVocabItemAdded(data);
-      }).fail(function(error) {
+      }).fail(function (error) {
         onVocabItemError(error.statusText);
       });
     }
@@ -57,9 +57,9 @@ $(document).ready(function() {
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
         },
-      }).done(function(data) {
+      }).done(function (data) {
         onVocabItemRemoved(itemId);
-      }).fail(function(error) {
+      }).fail(function (error) {
         onVocabItemError(error.statusText);
       });
     }
@@ -89,14 +89,14 @@ $(document).ready(function() {
     }
 
     function hideNotice() {
-      setTimeout(function() {
+      setTimeout(function () {
         $(notice).addClass('hide-flash').removeClass('error');
       }, 2000);
     }
   }
 
   if ($('.vocab-sidebar .flash').length > 0) {
-    setTimeout(function() {
+    setTimeout(function () {
       $('.vocab-sidebar .flash').addClass('hide-flash');
     }, 2000);
   }
