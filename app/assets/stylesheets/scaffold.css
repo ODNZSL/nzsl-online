@@ -3,7 +3,11 @@ body {
   color: #333;
 }
 
-body, p, ol, ul, td {
+body,
+p,
+ol,
+ul,
+td {
   font-family: verdana, arial, helvetica, sans-serif;
   font-size: 13px;
   line-height: 18px;
@@ -15,9 +19,13 @@ pre {
   font-size: 11px;
 }
 
-a { color: #000; }
+a {
+  color: #000;
+}
 
-a:visited { color: #666; }
+a:visited {
+  color: #666;
+}
 
 a:hover {
   color: #fff;
@@ -25,9 +33,13 @@ a:hover {
 }
 
 div.field,
-div.actions { margin-bottom: 10px; }
+div.actions {
+  margin-bottom: 10px;
+}
 
-#notice { color: green; }
+#notice {
+  color: green;
+}
 
 .field_with_errors {
   padding: 2px;

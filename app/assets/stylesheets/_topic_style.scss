@@ -1,5 +1,7 @@
 .topic-container {
-  h2 { margin: 20px 0; }
+  h2 {
+    margin: 20px 0;
+  }
   ol {
     overflow: auto;
     column-width: 200px;
@@ -12,6 +14,8 @@
     }
   }
   @media screen and(min-width: $medium-screen) {
-    .typography { margin: 20px; }
+    .typography {
+      margin: 20px;
+    }
   }
 }

@@ -54,7 +54,7 @@ $foundation-palette: (
   secondary: #767676,
   success: #3adb76,
   warning: #ffae00,
-  alert: #cc4b37,
+  alert: #cc4b37
 );
 $light-gray: #e6e6e6;
 $medium-gray: #cacaca;
@@ -84,7 +84,7 @@ $breakpoints: (
   medium: 640px,
   large: 1024px,
   xlarge: 1200px,
-  xxlarge: 1440px,
+  xxlarge: 1440px
 );
 $print-breakpoint: large;
 $breakpoint-classes: (small medium large xlarge);
@@ -96,7 +96,7 @@ $grid-row-width: $global-width;
 $grid-column-count: 12;
 $grid-column-gutter: (
   small: 20px,
-  medium: 30px,
+  medium: 30px
 );
 $grid-column-align-edge: true;
 $block-grid-max: 8;
@@ -113,21 +113,45 @@ $header-lineheight: 1.4;
 $header-margin-bottom: 0.5rem;
 $header-styles: (
   small: (
-    'h1': ('font-size': 24),
-    'h2': ('font-size': 20),
-    'h3': ('font-size': 19),
-    'h4': ('font-size': 18),
-    'h5': ('font-size': 17),
-    'h6': ('font-size': 16),
+    'h1': (
+      'font-size': 24
+    ),
+    'h2': (
+      'font-size': 20
+    ),
+    'h3': (
+      'font-size': 19
+    ),
+    'h4': (
+      'font-size': 18
+    ),
+    'h5': (
+      'font-size': 17
+    ),
+    'h6': (
+      'font-size': 16
+    )
   ),
   medium: (
-    'h1': ('font-size': 48),
-    'h2': ('font-size': 40),
-    'h3': ('font-size': 31),
-    'h4': ('font-size': 25),
-    'h5': ('font-size': 20),
-    'h6': ('font-size': 16),
-  ),
+    'h1': (
+      'font-size': 48
+    ),
+    'h2': (
+      'font-size': 40
+    ),
+    'h3': (
+      'font-size': 31
+    ),
+    'h4': (
+      'font-size': 25
+    ),
+    'h5': (
+      'font-size': 20
+    ),
+    'h6': (
+      'font-size': 16
+    )
+  )
 );
 $header-text-rendering: optimizeLegibility;
 $small-font-size: 80%;
@@ -252,7 +276,7 @@ $button-sizes: (
   tiny: 0.6rem,
   small: 0.75rem,
   default: 0.9rem,
-  large: 1.25rem,
+  large: 1.25rem
 );
 $button-palette: $foundation-palette;
 $button-opacity-disabled: 0.25;
@@ -300,15 +324,15 @@ $card-margin: $global-margin;
 $closebutton-position: right top;
 $closebutton-offset-horizontal: (
   small: 0.66rem,
-  medium: 1rem,
+  medium: 1rem
 );
 $closebutton-offset-vertical: (
   small: 0.33em,
-  medium: 0.5rem,
+  medium: 0.5rem
 );
 $closebutton-size: (
   small: 1.5em,
-  medium: 2em,
+  medium: 2em
 );
 $closebutton-lineheight: 1;
 $closebutton-color: $dark-gray;
@@ -335,7 +359,7 @@ $dropdown-radius: $global-radius;
 $dropdown-sizes: (
   tiny: 100px,
   small: 200px,
-  large: 400px,
+  large: 400px
 );
 
 // 18. Dropdown Menu
@@ -492,7 +516,7 @@ $progress-radius: $global-radius;
 $responsive-embed-margin-bottom: rem-calc(16);
 $responsive-embed-ratios: (
   default: 4 by 3,
-  widescreen: 16 by 9,
+  widescreen: 16 by 9
 );
 
 // 29. Reveal
@@ -546,7 +570,10 @@ $table-border: 1px solid smart-scale($table-background, $table-color-scale);
 $table-padding: rem-calc(8 10 10);
 $table-hover-scale: 2%;
 $table-row-hover: darken($table-background, $table-hover-scale);
-$table-row-stripe-hover: darken($table-background, $table-color-scale + $table-hover-scale);
+$table-row-stripe-hover: darken(
+  $table-background,
+  $table-color-scale + $table-hover-scale
+);
 $table-is-striped: true;
 $table-striped-background: smart-scale($table-background, $table-color-scale);
 $table-stripe: even;

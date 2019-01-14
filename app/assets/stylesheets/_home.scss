@@ -4,8 +4,12 @@
   overflow: hidden;
   padding: 20px 0;
   .home-content {
-    p { line-height: 1.8; }
-    ul { margin-left: 2rem; }
+    p {
+      line-height: 1.8;
+    }
+    ul {
+      margin-left: 2rem;
+    }
     h1 {
       @include montserrat-regular;
       font-size: $h2-font-size;
@@ -28,7 +32,9 @@
     position: relative;
     margin: 0 auto;
     max-width: 600px;
-    video { margin: 0; }
+    video {
+      margin: 0;
+    }
   }
 
   .sign-container {

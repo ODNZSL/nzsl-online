@@ -1,12 +1,12 @@
 /*
 *= require jquery-ui
 */
-@import "color";
-@import "variables";
-@import "foundation_and_overrides";
-@import "foundation-icons";
-@import "custom_icons";
-@import "buttons";
+@import 'color';
+@import 'variables';
+@import 'foundation_and_overrides';
+@import 'foundation-icons';
+@import 'custom_icons';
+@import 'buttons';
 @include foundation-menu;
 @include foundation-menu-icon;
 
@@ -24,7 +24,7 @@ $admin-dashboard-top-nav-height: 55px;
   display: flex;
 }
 
-.admin-dashboard-top-nav-bar  {
+.admin-dashboard-top-nav-bar {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -94,8 +94,8 @@ $admin-dashboard-top-nav-height: 55px;
   z-index: 1;
   transition: all $offcanvas-transition-length $offcanvas-transition-timing;
 
-
-  .admin-dashboard-open-sidebar, .admin-dashboard-close-sidebar{
+  .admin-dashboard-open-sidebar,
+  .admin-dashboard-close-sidebar {
     align-items: baseline;
     display: flex;
     justify-content: space-between;
@@ -148,7 +148,8 @@ $admin-dashboard-top-nav-height: 55px;
 }
 
 @mixin shrunk-sidebar() {
-  .admin-dashboard-close-sidebar, .admin-dashboard-sidebar-text {
+  .admin-dashboard-close-sidebar,
+  .admin-dashboard-sidebar-text {
     display: none;
   }
 
@@ -171,7 +172,6 @@ $admin-dashboard-top-nav-height: 55px;
   .navigation {
     margin-top: 2rem;
     text-align: center;
-
   }
   .menu.vertical > li > a {
     justify-content: center;
@@ -205,12 +205,11 @@ $admin-dashboard-top-nav-height: 55px;
 // mini sidebar on medium/tablet size
 @include breakpoint(medium only) {
   .admin-dashboard.shrink-medium {
-    @include shrunk-sidebar()
+    @include shrunk-sidebar();
   }
 }
 @include breakpoint(large) {
   .admin-dashboard.shrink-large {
-    @include shrunk-sidebar()
+    @include shrunk-sidebar();
   }
 }
-

@@ -82,12 +82,12 @@ footer {
 
       a:before,
       span:before {
-        content: "\A";
+        content: '\A';
         display: block;
         padding: 5px;
       }
 
-      span{
+      span {
         text-decoration: underline;
       }
     }
