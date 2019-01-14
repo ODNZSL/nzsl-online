@@ -1,4 +1,3 @@
-
 .vocab-sidebar {
   @include border-radius-small;
 
@@ -15,7 +14,7 @@
   &:after {
     background: linear-gradient(transparent, $vocab-bg 2.5rem, $vocab-bg);
     bottom: 0;
-    content: '';
+    content: "";
     height: 3rem;
     left: 0;
     position: absolute;
@@ -25,24 +24,24 @@
 
   &__header {
     background-color: $vocab-header-bg;
-    padding: .5rem 0 1rem;
+    padding: 0.5rem 0 1rem;
   }
 
   &__list {
-    box-shadow: inset 0 1px .125rem $light-med-grey;
+    box-shadow: inset 0 1px 0.125rem $light-med-grey;
     box-sizing: border-box;
     list-style-type: none;
     margin: 0;
     overflow: hidden;
     overflow-y: auto;
-    padding: .5rem .3rem 1rem;
+    padding: 0.5rem 0.3rem 1rem;
   }
 
   &__item {
     @include border-radius-small;
 
     background-color: $white;
-    box-shadow: 0 .125rem .25rem $light-med-grey;
+    box-shadow: 0 0.125rem 0.25rem $light-med-grey;
     box-sizing: border-box;
     margin: 1rem 0;
     width: 100%;
@@ -65,13 +64,19 @@
 
   .flash {
     @include border-radius-small;
-    @include transition($short-time, opacity, max-height, margin-top, margin-bottom);
+    @include transition(
+      $short-time,
+      opacity,
+      max-height,
+      margin-top,
+      margin-bottom
+    );
 
     background-color: $success-green;
     margin: 1rem auto;
     max-height: 4rem;
     opacity: 1;
-    padding: .25rem;
+    padding: 0.25rem;
     width: 80%;
 
     &:empty,

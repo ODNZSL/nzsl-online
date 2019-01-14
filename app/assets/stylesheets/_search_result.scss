@@ -4,7 +4,9 @@
     padding: 25px 0;
   }
   &-container {
-    .glosses-container { margin-bottom: 20px; }
+    .glosses-container {
+      margin-bottom: 20px;
+    }
     .video-container .button {
       @extend .play_video_button;
       margin: 5px 0 30px 0;
@@ -17,7 +19,9 @@
         border-bottom: none;
         margin-left: 10px;
       }
-      span { color: $link-blue; }
+      span {
+        color: $link-blue;
+      }
     }
 
     .sign-container {
@@ -37,7 +41,9 @@
         width: 60px;
         .image {
           margin: 10px auto;
-          img { margin: 0; }
+          img {
+            margin: 0;
+          }
         }
       }
     }
@@ -54,11 +60,15 @@
 
 @media screen and (min-width: $medium-screen) {
   .search-result-container {
-    .sign-container { float: right; }
+    .sign-container {
+      float: right;
+    }
     .notes,
     .videos {
       float: left;
-      video { margin-bottom: 10px; }
+      video {
+        margin-bottom: 10px;
+      }
     }
   }
 }

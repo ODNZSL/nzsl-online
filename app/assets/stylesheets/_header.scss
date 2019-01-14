@@ -1,8 +1,8 @@
 .header {
-  position:relative;
+  position: relative;
   .nav {
     background: $primary-blue;
-    position:relative;
+    position: relative;
   }
 }
 header {
@@ -77,10 +77,12 @@ header {
         display: inline;
         padding: 10px;
         a,
-        span { color: $light-grey; }
+        span {
+          color: $light-grey;
+        }
       }
 
-      &__selected{
+      &__selected {
         text-decoration: underline;
       }
     }
@@ -88,7 +90,9 @@ header {
   .header-logo,
   .tablet-logo {
     width: 40%;
-    img { @include center-element; }
+    img {
+      @include center-element;
+    }
   }
 }
 

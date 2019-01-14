@@ -6,8 +6,12 @@
   font-size: inherit;
   padding: 0;
   &:hover {
-    .text-container { color: $med-grey; }
-    .icon-container { background: $med-grey; }
+    .text-container {
+      color: $med-grey;
+    }
+    .icon-container {
+      background: $med-grey;
+    }
   }
   .icon-container {
     width: 35px;
@@ -43,7 +47,9 @@
 }
 
 .play_video_button {
-  &:hover { color: white; }
+  &:hover {
+    color: white;
+  }
   i {
     font-size: 22px;
     margin: 0 5px;
@@ -63,10 +69,16 @@ a .button,
 .button input,
 .button button,
 .button a,
-.button { @extend .orange_submit_button; }
+.button {
+  @extend .orange_submit_button;
+}
 
-.orange_submit_button { padding: 5px; }
-.translation_button { @extend .play_video_button; }
+.orange_submit_button {
+  padding: 5px;
+}
+.translation_button {
+  @extend .play_video_button;
+}
 
 .buttons-container {
   bottom: 0;
