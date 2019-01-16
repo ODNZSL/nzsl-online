@@ -28,8 +28,8 @@ RSpec.describe AutocompleteSearchService do
     context 'When there is an error communicating with the external search service' do
       subject do
         described_class.new(search_term: search_term,
-                                      faraday_connection: stubbed_faraday_connection,
-                                      logger: logger)
+                            faraday_connection: stubbed_faraday_connection,
+                            logger: logger)
       end
 
       let(:search_term) { 'Anything' }
