@@ -26,7 +26,28 @@ class AutocompleteSearchService
       request.params[:q] = CGI.escape(@search_term)
     end
 
-    results = response.body.split("\n")
+    # The response from the autocomplete service sets the HTTP header:
+    #
+    #   Content-Type: text/html; charset=ISO-8859-1
+    #
+    # but in reality the body string is UTF-8.
+    #
+    # rubocop:disable Style/AsciiComments
+    #
+    # For example, the results for search term "wha" include strings with
+    # macrons e.g. "Whangārei". By inspection of the content in a hex editor
+    # the "lowercase a with macron" is 0xC481 which corresponds to the UTF-8
+    # encoding for that grapheme e.g. https://en.wikipedia.org/wiki/%C4%80
+    #
+    # To work around this, we tell ruby to change the encoding tag on the body
+    # String (#force_encoding only changes the tag, it does not attempt to
+    # transcode the data).
+    #
+    # rubocop:enable Style/AsciiComments
+    #
+    results = response.body
+                      .force_encoding(Encoding::UTF_8)
+                      .split("\n")
 
     if results.length > MAX_NUM_SUGGESTIONS
       msg = <<~EO_MSG
