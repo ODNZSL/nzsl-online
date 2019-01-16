@@ -21,4 +21,4 @@
 //= require search-vocab
 
 
-$(function() { $(document).foundation(); });
+$(function () { $(document).foundation(); });
