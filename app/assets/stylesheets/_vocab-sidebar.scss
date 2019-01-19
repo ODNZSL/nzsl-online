@@ -5,11 +5,11 @@
   background-color: $vocab-bg;
   display: none;
   height: 90vh;
-  width: 10rem;
   overflow: hidden;
   position: absolute;
   right: 1rem;
   text-align: center;
+  width: 10rem;
   z-index: 100;
 
   &:after {

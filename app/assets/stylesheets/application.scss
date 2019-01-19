@@ -26,77 +26,79 @@
 @import 'placeholder';
 
 .hide { display: none; }
+
 .show { display: inline-block; }
 
 li { margin: 0; }
 
 .no-bullet {
   list-style: none;
-  padding: 0;
   margin-left: auto;
   overflow: auto;
-  overflow-y: hidden;
   overflow-x: hidden;
+  overflow-y: hidden;
+  padding: 0;
 }
 
 .grid-image {
-  margin: 0 auto;
   display: block;
   height: 90px;
+  margin: 0 auto;
 }
 
 .image-caption,
 .grid-image-caption {
-  width: 80%;
+  border-bottom: 0;
   display: block;
-  border-bottom: none;
   margin: 0 auto;
+  width: 80%;
 }
 
 .grid-stack { height: 165px; }
 
- img {
-   display: inline;
-   margin: 5px 10px;
- }
+img {
+  display: inline;
+  margin: 5px 10px;
+}
 
- .before_sticky_footer { min-height: 400px; }
+.before_sticky_footer { min-height: 400px; }
 
 // --------------------------------------
 
-html, body {
-  height: 100%;
-  width: 100%;
-  min-width: $small-screen;
-  margin: 0 auto;
+html,
+body {
   color: $dark-grey;
+  height: 100%;
+  margin: 0 auto;
+  min-width: $small-screen;
+  width: 100%;
 }
 
 .not_sticky_footer {
-  position: relative;
-  padding-bottom: 20px;
   overflow: hidden;
+  padding-bottom: 20px;
+  position: relative;
  }
 
-/* Opera Fix */
+// Opera Fix
 body:before {
   content: '';
-  height:100%;
-  float:left;
-  width:0;
-  margin-top:-32767px;
+  float: left;
+  height: 100%;
+  margin-top: -32767px;
+  width: 0;
 }
 
 a.logo {
-  height:71px;
-  width:92px;
   background: top left no-repeat;
   background-image: image-url('ui/logo.png');
-  text-indent:-9999px;
-  border:0;
+  border: 0;
+  height: 71px;
+  text-indent: -9999px;
+  width: 92px;
 }
 
-.logo--print { display:none; }
+.logo--print { display: none; }
 
 .selected { display: block; }
 
@@ -104,20 +106,21 @@ a.logo {
 // -----------------
 
 .prompt_input_wrapper ul {
-  position: absolute;
-  z-index: 37;
+  background: #ffffff;
+  border: 1px solid #99a0a5;
   left: 0;
-  width: 400px;
-  background: white;
   margin: 0;
   padding: 0;
-  border: 1px solid #99a0a5;
+  position: absolute;
+  width: 400px;
+  z-index: 37;
 }
 
 .attribute_options {
-  overflow: scroll;
   height: 430px;
+  overflow: scroll;
 }
+
 .attribute_options .rows {
   clear: left;
   position: relative;
@@ -125,27 +128,27 @@ a.logo {
 }
 
 .attribute_options li {
-  display: block;
-  margin: 0 0 2px 2px;
-  float: left;
-  position: relative;
   border: 1px solid #bbb;
+  display: block;
+  float: left;
+  margin: 0 0 2px 2px;
+  position: relative;
   zoom: 1;
 }
 
 .attribute_options .group {
-  width: 71px;
   height: 71px;
+  width: 71px;
 }
 
 .attribute_options .selected { border-color: #598afb; }
 
 .image {
+  height: 42px;
+  line-height: 42px;
+  text-align: center;
   text-decoration: none;
   width: 42px;
-  height: 42px;
-  text-align: center;
-  line-height: 42px;
 }
 
 .image .value { display: none; }
@@ -155,11 +158,14 @@ a.logo {
     margin: 5px 15px;
     img { margin: 0; }
   }
+
   .sub img { margin: 0; }
 }
 
 .locations .main_image img,
-.locations .image img { margin: 0; }
+.locations .image img {
+  margin: 0;
+}
 
 .attribute_options ul {
   margin: 0;
@@ -168,25 +174,25 @@ a.logo {
 
 .attribute_options .selected .sub:hover,
 .sub {
-  top: 48px;
-  right: 0;
-  height: 23px;
+  background: #ffffff;
+  border: 0;
   display: block;
+  float: left;
+  height: 23px;
   margin: 0;
   padding: 0;
-  float: left;
   position: absolute;
-  background: white;
-  border: 0;
+  right: 0;
+  top: 48px;
 }
 
 .attribute_options .selected .sub:hover { background: transparent; }
 
 .attribute_options .selected .sub:hover .image,
 .sub .image {
-  width: 21px;
   height: 21px;
   line-height: 1;
+  width: 21px;
 }
 
 .handshapes .dropdown ul.sub { padding: 0; }
@@ -194,110 +200,121 @@ a.logo {
 .sub .image img { height: 100%; }
 
 .sub li {
-  border-color: white;
+  border-color: #ffffff;
   margin: 0;
-  z-index: 12;
   position: relative;
+  z-index: 12;
 }
 
-.attribute_options .selected .sub li{
+.attribute_options .selected .sub li {
   border-color: #e2edfc;
   margin: 0;
 }
 
-.sub1, .attribute_options .selected .sub1:hover { width: 23px; }
+.sub1,
+.attribute_options .selected .sub1:hover {
+  width: 23px;
+}
 
-.sub2, .attribute_options .selected .sub2:hover { width: 46px; }
+.sub2,
+.attribute_options .selected .sub2:hover {
+  width: 46px;
+}
 
-.sub3, .attribute_options .selected .sub3:hover { width: 69px; }
+.sub3,
+.attribute_options .selected .sub3:hover {
+  width: 69px;
+}
 
 .sub1:hover {
-  width: 44px;
   right: -12px;
+  width: 44px;
 }
 
 .sub2:hover {
-  width: 88px;
   right: -24px;
+  width: 88px;
 }
 
 .sub3:hover {
-  width: 132px;
   right: -36px;
+  width: 132px;
 }
 
 .sub:hover {
+  border: 1px solid #bbb;
   height: 44px;
   top: 38px;
-  border: 1px solid #bbb;
 }
 
 .sub:hover .image {
-  width: 42px;
   height: 42px;
   line-height: 1;
+  width: 42px;
 }
 
 .attribute_options .selected,
 .attribute_options .selected ul,
 .selected_icon,
-.ui-state-hover { background-color: #e2edfc; }
+.ui-state-hover {
+  background-color: #e2edfc;
+}
 
 .attribute_options .sub { z-index: 1; }
 
 .locations .image {
-  width: 72px;
   height: 72px;
+  width: 72px;
 }
 
 .locations .attribute_options li {
   font-size: 8px;
-  text-align: center;
   line-height: 10px;
+  text-align: center;
 }
 
 .selected_signs_wrapper .default { float: left; }
 
 .default {
   font-size: $subtitle-font-size;
-  padding-left: 10px;
   font-style: normal;
+  padding-left: 10px;
 }
 
 .selected.dropdown_arrow .border_mask {
-  background-color: white;
-  width: 100%;
+  background-color: #ffffff;
   height: 3px;
-  top: 29px;
-  position: absolute;
   left: 0;
+  position: absolute;
+  top: 29px;
+  width: 100%;
   z-index: 31;
 }
 
 .selected_signs .image {
-  margin: 0;
   float: left;
-  width: 42px;
   height: 42px;
+  margin: 0;
   margin: 0 0 4px 4px;
+  width: 42px;
 }
 
 a.drawing {
-  border: 0;
   background: transparent;
+  border: 0;
 }
 
 .entry_drawing .offset { position: relative; }
 
 .sign_attributes .image {
-  position: relative;
   display: inline-block;
+  position: relative;
 }
 
 .back_to_results {
+  left: 0;
   position: absolute;
   top: 0;
-  left: 0;
 }
 
 .form-li-settings ol {
@@ -307,8 +324,8 @@ a.drawing {
 
 .form-li-settings li {
   margin: 0 0 0.6em;
-  width: 500px;
   position: relative;
+  width: 500px;
 }
 
 abbr {
@@ -317,24 +334,26 @@ abbr {
 }
 
 .inline {
-  width: auto;
   float: left;
   margin-right: 10px;
+  width: auto;
 }
 
 .radio ol { padding-top: 0.5em; }
 
 .boolean label,
-.radio label { line-height: 1; }
+.radio label {
+  line-height: 1;
+}
 
 .text-input { width: 300px; }
 
 .area-text { width: 450px; }
 
-// scss-lint:disable SelectorFormat
 .field_with_errors {
   display: inline;
   .text-input { border-color: $required-red; }
+
   .message-input { border-color: $required-red; }
 }
 
@@ -349,17 +368,17 @@ abbr {
 .send-feedback-button { margin-top: 20px; }
 
 .inline-errors {
-  position: absolute;
   color: #f53;
-  top: 0;
+  position: absolute;
   right: 195px;
+  top: 0;
 }
 
 .boolean { margin-bottom: 10px; }
 
 .inline-hints {
-  font-style: italic;
   font-size: 85%;
+  font-style: italic;
 }
 
 .text .inline-errors { right: 45px; }
@@ -367,13 +386,13 @@ abbr {
 .sub-form { margin-left: 15px; }
 
 .view_print_back_link {
-  float: right;
   display: block;
+  float: right;
 }
 
 body .video_replace {
-  display: block;
   border: 0;
+  display: block;
   float: left;
 }
 
@@ -384,15 +403,19 @@ body .video_replace {
 .vertical_space { padding-bottom: 16px; }
 
 .js .text_input_hidden {
-  border: 1px solid white;
+  border: 1px solid #ffffff;
   outline: none;
 }
 
 .no-js .if_js,
-.js .unless_js { display: none; }
+.js .unless_js {
+  display: none;
+}
 
 .no-js .unless_js,
-.js .if_js { display: block; }
+.js .if_js {
+  display: block;
+}
 
 .visuallyhidden {
   border: 0;
@@ -436,4 +459,7 @@ body .video_replace {
 
 .clearfix_left:after { clear: left;}
 
-.clearfix, .clearfix_left { zoom: 1; }
+.clearfix,
+.clearfix_left {
+  zoom: 1;
+}

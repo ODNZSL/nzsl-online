@@ -1,63 +1,73 @@
 .header {
-  position:relative;
+  position: relative;
+
   .nav {
     background: $primary-blue;
-    position:relative;
+    position: relative;
   }
 }
+
 header {
   background: $primary-blue;
   height: 65px;
+
   .mobile-logo {
     display: inline-block;
     width: 80%;
+
     img {
-      width: 120px;
       margin: 5px 0 0;
+      width: 120px;
     }
   }
+
   .hamburger-menu-icon {
     border-right: 1px solid $light-grey;
-    width: calc(15% - 1px);
+    height: 100%;
     max-width: 50px;
     top: 0;
-    height: 100%;
+    width: calc(15% - 1px);
+
     img {
       @include center-element;
-      top: 25px;
       position: relative;
+      top: 25px;
     }
   }
+
   .overlay {
     @include transition($long-time, all);
 
-    width: 0;
-    height: 100%;
-    position: fixed;
-    z-index: 100;
-    left: 0;
-    top: 0;
     background-color: $primary-blue;
+    height: 100%;
+    left: 0;
     overflow-x: hidden;
+    position: fixed;
+    top: 0;
+    width: 0;
+    z-index: 100;
+
     a,
     span {
       @include montserrat-light;
       @include transition($medium-time, all);
 
-      font-size: 20px;
       color: $light-grey;
+      font-size: 20px;
       line-height: 2.1;
     }
+
     .overlay-content {
       position: relative;
       top: 30px;
     }
+
     .closebtn {
-      position: absolute;
-      top: 20px;
-      right: 35px;
       font-size: 60px;
       line-height: 1;
+      position: absolute;
+      right: 35px;
+      top: 20px;
       z-index: 200;
     }
   }
@@ -66,25 +76,32 @@ header {
 @media screen and (min-width: $medium-screen) {
   header {
     height: auto;
+
     .header-nav {
-      padding-top: 10px;
       overflow: auto;
+      padding-top: 10px;
     }
+
     .menu-list {
       @include montserrat-light;
       width: 60%;
+
       li {
         display: inline;
         padding: 10px;
+
         a,
-        span { color: $light-grey; }
+        span {
+          color: $light-grey;
+        }
       }
 
-      &__selected{
+      &__selected {
         text-decoration: underline;
       }
     }
   }
+
   .header-logo,
   .tablet-logo {
     width: 40%;
