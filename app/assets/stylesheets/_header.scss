@@ -1,5 +1,6 @@
 .header {
   position: relative;
+
   .nav {
     background: $primary-blue;
     position: relative;
@@ -9,9 +10,11 @@
 header {
   background: $primary-blue;
   height: 65px;
+
   .mobile-logo {
     display: inline-block;
     width: 80%;
+
     img {
       margin: 5px 0 0;
       width: 120px;
@@ -24,6 +27,7 @@ header {
     max-width: 50px;
     top: 0;
     width: calc(15% - 1px);
+
     img {
       @include center-element;
       position: relative;
@@ -42,6 +46,7 @@ header {
     top: 0;
     width: 0;
     z-index: 100;
+
     a,
     span {
       @include montserrat-light;
@@ -71,6 +76,7 @@ header {
 @media screen and (min-width: $medium-screen) {
   header {
     height: auto;
+
     .header-nav {
       overflow: auto;
       padding-top: 10px;
@@ -79,14 +85,18 @@ header {
     .menu-list {
       @include montserrat-light;
       width: 60%;
+
       li {
         display: inline;
         padding: 10px;
+
         a,
-        span { color: $light-grey; }
+        span {
+          color: $light-grey;
+        }
       }
 
-      &__selected{
+      &__selected {
         text-decoration: underline;
       }
     }
