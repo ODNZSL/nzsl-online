@@ -52,9 +52,26 @@ Rails.application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   config.force_ssl = true
 
-  # Use the lowest log level to ensure availability of diagnostic information
-  # when problems arise.
-  config.log_level = :debug
+  config.log_level = :info
+
+  config.lograge.enabled = true
+
+  # Do not log requests to SignImageController#show because whenever we get
+  # *any* request for *any* page, we get many subsequent requests to this
+  # action to serve the images that go with that page. This adds a lot of noise
+  # to the logs.
+  config.lograge.ignore_actions = ['SignImageController#show']
+
+  config.lograge.custom_options = lambda do |event|
+    # 'controller', 'action' and 'format' are already part of the lograge log
+    # line. 'id' can be read from the URL which is already part of the lograge
+    # log line.
+    exceptions = %w(controller action format id)
+
+    {
+      params: event.payload[:params].except(*exceptions)
+    }
+  end
 
   # Prepend all log lines with the following tags.
   config.log_tags = [:request_id]
