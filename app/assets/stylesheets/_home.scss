@@ -5,7 +5,9 @@
   padding: 20px 0;
   .home-content {
     p { line-height: 1.8; }
+
     ul { margin-left: 2rem; }
+
     h1 {
       @include montserrat-regular;
       font-size: $h2-font-size;
@@ -19,15 +21,15 @@
 
   .button {
     margin: 10px auto;
-    width: 145px;
     padding: 10px;
+    width: 145px;
   }
 
   .sign-content-container {
-    overflow: hidden;
-    position: relative;
     margin: 0 auto;
     max-width: 600px;
+    overflow: hidden;
+    position: relative;
     video { margin: 0; }
   }
 
@@ -41,10 +43,10 @@
 
   .sign-heading {
     @include montserrat-regular;
-    font-size: $h1-font-size;
     color: $primary-blue;
     display: block;
-    text-transform: capitalize;
+    font-size: $h1-font-size;
     margin: 10px 0;
+    text-transform: capitalize;
   }
 }

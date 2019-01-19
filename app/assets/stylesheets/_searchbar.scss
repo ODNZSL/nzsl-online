@@ -4,97 +4,112 @@
     background-color: $primary-blue;
     float: right;
   }
+
   &-field {
     @include border-radius-large;
-    border: none;
+    border: 0;
+    display: inline-block;
     height: 30px;
     padding: 0 10px;
-    display: inline-block;
   }
+
   &-label {
-    text-align: center;
-    padding: 20px 0 15px;
+    color: #ffffff;
     display: block;
-    color: white;
     font-size: $h3-font-size;
+    padding: 20px 0 15px;
+    text-align: center;
   }
+
   &-button {
-    display: inline-block;
-    border: none;
     background-color: initial;
+    border: 0;
+    display: inline-block;
     transform: scale(-1, 1);
     i {
-      font-size: 22px;
       color: $primary-blue;
+      font-size: 22px;
     }
   }
+
   &-tab {
-    padding: 20px 0 10px 0;
     font-size: $subtitle-font-size;
+    padding: 20px 0 10px 0;
     .small-caret {
       margin-left: 10px;
-      top: 12px;
       position: relative;
+      top: 12px;
     }
+
     a {
-      color: white;
-      border: none;
+      border: 0;
+      color: #ffffff;
     }
   }
+
   &_field {
     position: relative;
   }
 }
+
 .empty {
-  position: absolute;
   font-size: 30px;
   line-height: 30px;
+  position: absolute;
   right: 12px;
   top: 0;
 }
+
 .search-buttons-container, .advanced-search-container { display: none; }
 
 @media screen and (min-width: $medium-screen) {
   .search-container { float: none; }
+
   .search-buttons-container {
     display: block;
-    width: 112px;
     overflow: auto;
     position: absolute;
-    top: 66px;
     right: -5px;
+    top: 66px;
+    width: 112px;
     .search-button {
       @include border-radius-small;
       background-color: $peach;
-      top: initial;
-      right: initial;
       position: relative;
+      right: initial;
+      top: initial;
       i {
+        color: #ffffff;
         font-size: 28px;
-        color: white;
       }
     }
-    .empty:hover span { color: white; }
+
+    .empty:hover span { color: #ffffff; }
   }
+
   .advanced-search-container { padding-bottom: 10px; }
+
   .advanced-search-button {
     @include montserrat-light;
     @include border-radius-small;
-    position: relative;
-    height: 65px;
     background-color: $light-blue;
-    margin: 0 2.5px;
-    width: calc(25% - 5px);
     cursor: pointer;
     font-size: $subtitle-font-size;
+    height: 65px;
+    margin: 0 2.5px;
+    position: relative;
+    width: calc(25% - 5px);
     a:hover { opacity: 1; }
-    .default { color: white; }
+
+    .default { color: #ffffff; }
+
     .usage-dropdown,
     .topic-dropdown {
-      width: 100%;
       height: auto;
+      width: 100%;
       &:hover { background-color: $pale-blue; }
     }
+
     &.topic,
     &.usage {
       .selected {
@@ -102,26 +117,29 @@
       }
     }
   }
+
   .empty {
-    position: relative;
+    color: #ffffff;
     font-size: 16px;
-    color: white;
     left: 12px;
+    position: relative;
     top: -4px;
     &:hover, &:focus {
       color: $white;
     }
+
     span {
       color: $white;
       font-size: 24px;
-      top: 3px;
       position: relative;
+      top: 3px;
       &:hover, &:focus {
         color: $white;
       }
     }
   }
 }
+
 @media screen and (min-width: $large-screen) {
   .search-buttons-container { right: 5%;}
 }
@@ -129,13 +147,13 @@
 .signs { line-height: 56px; }
 
 .dropdown {
-  position: absolute;
-  top: 70px;
-  left: 0;
-  background: white;
+  background: #ffffff;
   border: 1px solid $light-grey;
   display: none;
+  left: 0;
   padding: 5px;
+  position: absolute;
+  top: 70px;
   .selected {
     background-color: $super-pale-blue;
   }
@@ -153,35 +171,36 @@
 
 .topic .dropdown,
 .usage .dropdown {
-  padding: 0;
-  width: 260px;
   max-height: 400px;
   overflow: scroll;
   overflow-x: hidden;
+  padding: 0;
+  width: 260px;
   ul { margin: 0; }
+
   li {
-    padding-left: 5px;
     line-height: 2.5;
+    padding-left: 5px;
   }
 }
 
 .usage .dropdown { overflow-y: hidden; }
 
 .dropdown .title {
-  padding: 3px 3px 7px;
   line-height: 1;
+  padding: 3px 3px 7px;
   text-align: left;
 }
 
 .dropdown .close {
-  position: absolute;
-  top: 5px;
-  right: 5px;
   background: right center no-repeat;
   background-image: image_url('ui/close_search.png');
-  padding-right: 20px;
   height: 15px;
   line-height: 15px;
+  padding-right: 20px;
+  position: absolute;
+  right: 5px;
+  top: 5px;
 }
 
 ::-webkit-search-cancel-button {

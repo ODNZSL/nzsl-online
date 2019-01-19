@@ -7,12 +7,12 @@
   position: relative;
   text-align: center;
   ul {
-    padding: 0;
-    margin-left: auto;
-    list-style-type: none;
+    align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    list-style-type: none;
+    margin-left: auto;
+    padding: 0;
   }
 }
 
@@ -24,17 +24,17 @@
 /* sheet specific */
 
 .vocab_sheet_page {
-  padding-bottom: 10px;
   clear: left;
-  width: 690px;
   margin: 0 auto;
+  padding-bottom: 10px;
+  width: 690px;
 }
 
 /* no-js friendly */
 .no-js .vocab-sheet__item .button {
+  left: 10px;
   position: absolute;
   top: 10px;
-  left: 10px;
   z-index: 15;
 }
 
@@ -47,16 +47,16 @@
 }
 
 .no-js .vocab_sheet_name .button {
+  clear: left;
   display: block;
   float: left;
-  clear: left;
   margin-top: -10px;
 }
 
 .flash {
+  background: #9acd32;
+  color: #ffffff;
   padding: 10px;
-  background: yellowgreen;
-  color: white;
   text-align: center;
   width: 100%;
 }
@@ -104,15 +104,15 @@
 
         .notes-view {
           &__gloss {
-            max-width: 20rem;
-            flex: 20rem;
-            padding: .5rem 1rem .5rem .5rem;
             border-right: 1px solid $light-med-grey;
+            flex: 20rem;
+            max-width: 20rem;
+            padding: .5rem 1rem .5rem .5rem;
           }
 
           &__notes {
-            max-width: 90%;
             flex: 90% 9;
+            max-width: 90%;
             padding: .5rem .5rem .5rem 1rem;
           }
         }
@@ -128,36 +128,36 @@
     }
 
     a {
-      text-align: center;
-      display: block;
-      color: #34414b;
-      text-decoration: none;
       background-color: transparent;
       border: 0;
+      color: #34414b;
+      display: block;
+      text-align: center;
+      text-decoration: none;
     }
 
     .remove {
-      position: absolute;
-      width: 28px;
-      height: 25px;
-      border: 0;
-      text-indent: -9999px;
-      overflow: hidden;
       background: {
         color: transparent;
         image: image-url('ui/vocab-delete.png');
       };
+      border: 0;
+      height: 25px;
+      overflow: hidden;
+      position: absolute;
+      text-indent: -9999px;
+      width: 28px;
     }
   }
 
   &__text-input {
-    resize: none;
-    text-align: center;
     height: inherit;
     line-height: 1;
-    position: relative;
     margin-bottom: 5px;
     position: relative;
+    position: relative;
+    resize: none;
+    text-align: center;
     white-space: pre-wrap;
     z-index: 11;
 
@@ -172,13 +172,13 @@
   }
 
   &__page-item {
+    background: #ffffff;
     border: 1px solid $light-med-grey;
     margin-right: 11px;
-    background: white;
 
     .drawing {
-      vertical-align: middle;
       padding: 0 3px;
+      vertical-align: middle;
 
       img {
         margin: 0;
@@ -187,8 +187,8 @@
     }
 
     .remove {
-      top: -10px;
       right: -14px;
+      top: -10px;
     }
   }
 }
@@ -221,10 +221,10 @@
     margin-top: -.3rem;
 
     .radio_wrapper {
+      display: block;
+      float: left;
       height: 32px;
       line-height: 32px;
-      float: left;
-      display: block;
     }
 
     .selected_icon {
@@ -266,12 +266,12 @@
 
         background: rgba($white, 0.9);
         border: 1px solid $light-med-grey;
-        content: attr(data-tooltip-text);
         color: $primary-blue;
-        right: -1rem;
+        content: attr(data-tooltip-text);
         opacity: 0;
         padding: 0.5rem 1rem;
         position: absolute;
+        right: -1rem;
         text-align: center;
         top: -1000vh;
         width: 10rem;

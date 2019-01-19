@@ -1,7 +1,7 @@
 .footer-link a,
 .footer-link span {
+  border-bottom: 0;
   color: $light-grey;
-  border-bottom: none;
 }
 
 footer {
@@ -44,7 +44,7 @@ footer {
       padding: 10px 0 20px 0;
 
       h3 {
-        color: white;
+        color: #ffffff;
       }
 
       img {
@@ -59,9 +59,9 @@ footer {
 
   .copyright {
     background-color: $darkest-blue;
-    border-top: 1px solid white;
-    padding: 20px 0;
+    border-top: 1px solid #ffffff;
     overflow: auto;
+    padding: 20px 0;
 
     .footer-link {
       padding: 10px 0;
@@ -94,20 +94,20 @@ footer {
 
     .github {
       margin: 15px auto;
-      overflow: auto;
       max-width: 340px;
+      overflow: auto;
 
       img {
         margin: 0 10px;
       }
 
       div {
-        width: calc(100% - 52px);
         display: inline-block;
+        width: calc(100% - 52px);
       }
 
       a {
-        color: white;
+        color: #ffffff;
       }
     }
   }
@@ -135,14 +135,14 @@ footer {
 
     .copyright {
       img {
-        float: left;
         display: inline-block;
+        float: left;
       }
 
       .footer-link {
         float: left;
-        width: calc(100% - 110px);
         padding: 0 10px;
+        width: calc(100% - 110px);
       }
     }
 

@@ -8,12 +8,12 @@
   }
 
   .pagination .current {
-    color: black;
+    color: #000000;
   }
 
   .pagination li {
-    font-size: $pagination-font-size;
     display: inline-block;
+    font-size: $pagination-font-size;
   }
 
   .pagination .a,

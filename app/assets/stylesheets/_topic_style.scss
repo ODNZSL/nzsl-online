@@ -1,16 +1,19 @@
 .topic-container {
   h2 { margin: 20px 0; }
+
   ol {
-    overflow: auto;
     column-width: 200px;
+    overflow: auto;
   }
+
   .topic-li-style {
     list-style: none;
     a {
+      border-bottom: 0;
       line-height: 2;
-      border-bottom: none;
     }
   }
+
   @media screen and(min-width: $medium-screen) {
     .typography { margin: 20px; }
   }
