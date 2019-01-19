@@ -1,34 +1,37 @@
 .add-to-vocab-btn {
   background-color: initial;
-  border: none;
+  border: 0;
   bottom: -5px;
   font-family: inherit;
   font-size: inherit;
   padding: 0;
   &:hover {
     .text-container { color: $med-grey; }
+
     .icon-container { background: $med-grey; }
   }
+
   .icon-container {
-    width: 35px;
-    height: 33px;
     background-color: $peach;
-    margin-right: 10px;
     float: left;
+    height: 33px;
+    margin-right: 10px;
     position: relative;
+    width: 35px;
     i {
       @include center;
-      color: white;
+      color: #ffffff;
       font-size: 0.85em;
     }
   }
+
   .text-container {
-    width: calc(100% - 45px);
+    color: $peach;
     float: left;
     font-size: $subtitle-font-size;
-    color: $peach;
-    text-align: left;
     margin-top: 5px;
+    text-align: left;
+    width: calc(100% - 45px);
   }
 }
 
@@ -36,14 +39,15 @@
 .play_video_button {
   @include border-radius-small;
   background-color: $peach;
-  border: none;
-  color: white !important;
-  padding: 0 10px 5px 10px;
+  border: 0;
+  color: #ffffff !important;
   font-size: $subtitle-font-size;
+  padding: 0 10px 5px 10px;
 }
 
 .play_video_button {
-  &:hover { color: white; }
+  &:hover { color: #ffffff; }
+
   i {
     font-size: 22px;
     margin: 0 5px;
@@ -54,7 +58,7 @@
 
 .play-button {
   @include center;
-  color: white;
+  color: #ffffff;
   font-size: 70px;
   z-index: 50;
 }
@@ -66,6 +70,7 @@ a .button,
 .button { @extend .orange_submit_button; }
 
 .orange_submit_button { padding: 5px; }
+
 .translation_button { @extend .play_video_button; }
 
 .buttons-container {
