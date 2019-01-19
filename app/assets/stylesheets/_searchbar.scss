@@ -26,6 +26,7 @@
     border: 0;
     display: inline-block;
     transform: scale(-1, 1);
+
     i {
       color: $primary-blue;
       font-size: 22px;
@@ -35,6 +36,7 @@
   &-tab {
     font-size: $subtitle-font-size;
     padding: 20px 0 10px 0;
+
     .small-caret {
       margin-left: 10px;
       position: relative;
@@ -60,7 +62,10 @@
   top: 0;
 }
 
-.search-buttons-container, .advanced-search-container { display: none; }
+.search-buttons-container,
+.advanced-search-container {
+  display: none;
+}
 
 @media screen and (min-width: $medium-screen) {
   .search-container { float: none; }
@@ -72,12 +77,14 @@
     right: -5px;
     top: 66px;
     width: 112px;
+
     .search-button {
       @include border-radius-small;
       background-color: $peach;
       position: relative;
       right: initial;
       top: initial;
+
       i {
         color: #ffffff;
         font-size: 28px;
@@ -99,6 +106,7 @@
     margin: 0 2.5px;
     position: relative;
     width: calc(25% - 5px);
+
     a:hover { opacity: 1; }
 
     .default { color: #ffffff; }
@@ -124,6 +132,7 @@
     left: 12px;
     position: relative;
     top: -4px;
+
     &:hover, &:focus {
       color: $white;
     }
@@ -133,6 +142,7 @@
       font-size: 24px;
       position: relative;
       top: 3px;
+
       &:hover, &:focus {
         color: $white;
       }
@@ -154,6 +164,7 @@
   padding: 5px;
   position: absolute;
   top: 70px;
+
   .selected {
     background-color: $super-pale-blue;
   }

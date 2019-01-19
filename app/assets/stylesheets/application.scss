@@ -56,16 +56,17 @@ li { margin: 0; }
 
 .grid-stack { height: 165px; }
 
- img {
-   display: inline;
-   margin: 5px 10px;
- }
+img {
+  display: inline;
+  margin: 5px 10px;
+}
 
- .before_sticky_footer { min-height: 400px; }
+.before_sticky_footer { min-height: 400px; }
 
 // --------------------------------------
 
-html, body {
+html,
+body {
   color: $dark-grey;
   height: 100%;
   margin: 0 auto;
@@ -79,7 +80,7 @@ html, body {
   position: relative;
  }
 
-/* Opera Fix */
+// Opera Fix
 body:before {
   content: '';
   float: left;
@@ -162,7 +163,9 @@ a.logo {
 }
 
 .locations .main_image img,
-.locations .image img { margin: 0; }
+.locations .image img {
+  margin: 0;
+}
 
 .attribute_options ul {
   margin: 0;
@@ -203,16 +206,25 @@ a.logo {
   z-index: 12;
 }
 
-.attribute_options .selected .sub li{
+.attribute_options .selected .sub li {
   border-color: #e2edfc;
   margin: 0;
 }
 
-.sub1, .attribute_options .selected .sub1:hover { width: 23px; }
+.sub1,
+.attribute_options .selected .sub1:hover {
+  width: 23px;
+}
 
-.sub2, .attribute_options .selected .sub2:hover { width: 46px; }
+.sub2,
+.attribute_options .selected .sub2:hover {
+  width: 46px;
+}
 
-.sub3, .attribute_options .selected .sub3:hover { width: 69px; }
+.sub3,
+.attribute_options .selected .sub3:hover {
+  width: 69px;
+}
 
 .sub1:hover {
   right: -12px;
@@ -244,7 +256,9 @@ a.logo {
 .attribute_options .selected,
 .attribute_options .selected ul,
 .selected_icon,
-.ui-state-hover { background-color: #e2edfc; }
+.ui-state-hover {
+  background-color: #e2edfc;
+}
 
 .attribute_options .sub { z-index: 1; }
 
@@ -328,13 +342,14 @@ abbr {
 .radio ol { padding-top: 0.5em; }
 
 .boolean label,
-.radio label { line-height: 1; }
+.radio label {
+  line-height: 1;
+}
 
 .text-input { width: 300px; }
 
 .area-text { width: 450px; }
 
-// scss-lint:disable SelectorFormat
 .field_with_errors {
   display: inline;
   .text-input { border-color: $required-red; }
@@ -393,10 +408,14 @@ body .video_replace {
 }
 
 .no-js .if_js,
-.js .unless_js { display: none; }
+.js .unless_js {
+  display: none;
+}
 
 .no-js .unless_js,
-.js .if_js { display: block; }
+.js .if_js {
+  display: block;
+}
 
 .visuallyhidden {
   border: 0;
@@ -440,4 +459,7 @@ body .video_replace {
 
 .clearfix_left:after { clear: left;}
 
-.clearfix, .clearfix_left { zoom: 1; }
+.clearfix,
+.clearfix_left {
+  zoom: 1;
+}

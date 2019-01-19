@@ -14,9 +14,9 @@ footer {
   }
 
   .social-media {
-    width: 115px;
-
     @include center-element;
+
+    width: 115px;
 
     a {
       display: inline-block;
@@ -87,7 +87,7 @@ footer {
         padding: 5px;
       }
 
-      span{
+      span {
         text-decoration: underline;
       }
     }
