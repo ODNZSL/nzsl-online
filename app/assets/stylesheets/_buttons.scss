@@ -5,6 +5,7 @@
   font-family: inherit;
   font-size: inherit;
   padding: 0;
+
   &:hover {
     .text-container { color: $med-grey; }
 
@@ -18,6 +19,7 @@
     margin-right: 10px;
     position: relative;
     width: 35px;
+
     i {
       @include center;
       color: #ffffff;
@@ -58,6 +60,7 @@
 
 .play-button {
   @include center;
+
   color: #ffffff;
   font-size: 70px;
   z-index: 50;
@@ -67,7 +70,9 @@ a .button,
 .button input,
 .button button,
 .button a,
-.button { @extend .orange_submit_button; }
+.button {
+  @extend .orange_submit_button;
+}
 
 .orange_submit_button { padding: 5px; }
 

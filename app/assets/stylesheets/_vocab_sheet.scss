@@ -1,11 +1,13 @@
-.vocab_sheet .title {
+.vocab_sheet
+.title {
   font-size: $h4-font-size;
 }
 
-/* generic */
+// generic
 .vocab_sheet {
   position: relative;
   text-align: center;
+
   ul {
     align-content: flex-start;
     display: flex;
@@ -16,12 +18,12 @@
   }
 }
 
-/* bar specific */
+// bar specific
 .column_wrapper {
   overflow-y: hidden;
 }
 
-/* sheet specific */
+// sheet specific
 
 .vocab_sheet_page {
   clear: left;
@@ -30,7 +32,7 @@
   width: 690px;
 }
 
-/* no-js friendly */
+// no-js friendly
 .no-js .vocab-sheet__item .button {
   left: 10px;
   position: absolute;
@@ -154,7 +156,6 @@
     height: inherit;
     line-height: 1;
     margin-bottom: 5px;
-    position: relative;
     position: relative;
     resize: none;
     text-align: center;

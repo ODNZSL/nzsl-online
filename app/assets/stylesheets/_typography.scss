@@ -4,8 +4,17 @@
 
 body { @include montserrat-light; }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
@@ -14,7 +23,8 @@ q:after {
   content: '';
 }
 
-ins, mark {
+ins,
+mark {
   background-color: $bright-yellow;
   color: $blue-grey;
   text-decoration: none;
@@ -22,7 +32,8 @@ ins, mark {
 
 del { text-decoration: line-through; }
 
-abbr[title], dfn[title] {
+abbr[title],
+dfn[title] {
   border-bottom: 1px dotted;
   cursor: help;
 }
@@ -40,9 +51,11 @@ hr {
   padding: 0;
 }
 
-input, select { vertical-align: middle; }
+input,
+select { vertical-align: middle; }
 
-sub, sup {
+sub,
+sup {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
@@ -113,19 +126,36 @@ a:hover span {
   opacity: 0.8;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @include montserrat-light;
   margin: 10px 0;
   padding: 0;
 }
 
-h1, .h1 { font-size: $h1-font-size; }
+h1,
+.h1 {
+  font-size: $h1-font-size;
+}
 
-h2, .h2 { font-size: $h2-font-size; }
+h2,
+.h2 {
+  font-size: $h2-font-size;
+}
 
-h3, .h3 { font-size: $h3-font-size; }
+h3,
+.h3 {
+  font-size: $h3-font-size;
+}
 
-h4, .h4 { font-size: $h4-font-size; }
+h4,
+.h4 {
+  font-size: $h4-font-size;
+}
 
 h5 { font-size: $h5-font-size; }
 
@@ -159,7 +189,8 @@ h6 { font-size: $h6-font-size; }
     padding: 15px 15px 1px;
   }
 
-  a[name], a[name]:hover {
+  a[name],
+  a[name]:hover {
     background: transparent;
     border: 0;
     color: $blue-grey;
@@ -170,7 +201,9 @@ h2+h3 { margin-top: 1em; }
 
 .main_gloss,
 .static-page-heading,
-.maori-gloss { @include montserrat-regular; }
+.maori-gloss {
+  @include montserrat-regular;
+}
 
 .static-page-heading { text-transform: capitalize; }
 
@@ -212,4 +245,6 @@ a.main_gloss {
 }
 
 .grammar,
-.glosses { margin-bottom: 1.2em; }
+.glosses {
+  margin-bottom: 1.2em;
+}

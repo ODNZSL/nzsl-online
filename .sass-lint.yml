@@ -5,3 +5,6 @@ rules:
   class-name-format:
     - 1
     - convention: strictbem
+  nesting-depth:
+    - 1
+    - max-depth: 3

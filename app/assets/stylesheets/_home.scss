@@ -3,6 +3,7 @@
   background: $pale-blue;
   overflow: hidden;
   padding: 20px 0;
+
   .home-content {
     p { line-height: 1.8; }
 
@@ -35,6 +36,7 @@
 
   .sign-container {
     position: relative;
+
     img {
       @include center;
       height: 80%;
