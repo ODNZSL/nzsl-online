@@ -1,12 +1,12 @@
 /*
 *= require jquery-ui
 */
-@import "color";
-@import "variables";
-@import "foundation_and_overrides";
-@import "foundation-icons";
-@import "custom_icons";
-@import "buttons";
+@import 'color';
+@import 'variables';
+@import 'foundation_and_overrides';
+@import 'foundation-icons';
+@import 'custom_icons';
+@import 'buttons';
 @include foundation-menu;
 @include foundation-menu-icon;
 
@@ -32,6 +32,7 @@ $admin-dashboard-top-nav-height: 55px;
   height: $admin-dashboard-top-nav-height;
   justify-content: center;
   width: 100%;
+
   .menu-icon {
     vertical-align: text-bottom;
   }
@@ -78,6 +79,7 @@ $admin-dashboard-top-nav-height: 55px;
     &.hollow {
       border-color: $white;
       color: $white;
+
       &:hover {
         background: $white;
         color: $primary-color;
@@ -110,6 +112,7 @@ $admin-dashboard-top-nav-height: 55px;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+
     .menu > li > a {
       align-items: center;
     }
@@ -159,6 +162,7 @@ $admin-dashboard-top-nav-height: 55px;
 
   .admin-dashboard-sidebar {
     width: 80px;
+
     .fa.large {
       width: auto;
     }
