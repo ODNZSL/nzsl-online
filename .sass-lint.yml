@@ -1,3 +1,7 @@
 # https://github.com/sasstools/sass-lint
 files:
   include: 'app/assets/stylesheets/**/*.s+(a|c)ss'
+rules:
+  class-name-format:
+    - 1
+    - convention: strictbem
