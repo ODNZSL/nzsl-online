@@ -93,6 +93,7 @@ group :development, :test do
 end
 
 group :development do
+  gem 'bundle-audit', require: false
   gem 'listen'
 end
 
