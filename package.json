@@ -14,7 +14,7 @@
     "type": "git",
     "url": "git+https://github.com/ODNZSL/nzsl-online.git"
   },
-  "license": "GPL",
+  "license": "GPL-3.0-only",
   "bugs": {
     "url": "https://github.com/ODNZSL/nzsl-online/issues"
   },
