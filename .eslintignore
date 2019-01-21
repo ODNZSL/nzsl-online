@@ -1,0 +1,21 @@
+# node_modules is always ignored
+bin/
+app/assets/images/
+app/assets/stylesheets/
+app/controllers/
+app/helpers/
+app/mailers/
+app/models/
+app/services/
+app/views/
+config/
+coverage/
+db/
+doc/
+lib/
+log/
+public/
+script/
+spec/
+tmp/
+vendor/
