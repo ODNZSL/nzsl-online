@@ -3,9 +3,15 @@ var search_analytics_string = function() {
 
   var search_tab = '';
 
-  if ($('.search_tabs .keywords').hasClass('selected')) { search_tab = 'keywords'; }
-  if ($('.search_tabs .signs').hasClass('selected')) { search_tab = 'signs'; }
-  if ($('.search_tabs .advanced').hasClass('selected')) { search_tab = 'advanced'; }
+  if ($('.search_tabs .keywords').hasClass('selected')) {
+    search_tab = 'keywords';
+  }
+  if ($('.search_tabs .signs').hasClass('selected')) {
+    search_tab = 'signs';
+  }
+  if ($('.search_tabs .advanced').hasClass('selected')) {
+    search_tab = 'advanced';
+  }
 
   var query_val = $('input#s').val();
 
@@ -33,6 +39,7 @@ var search_analytics_string = function() {
   return string;
 };
 
+/* exported ga_form_submission */
 var ga_form_submission = function(event) {
   var form = this;
 
@@ -42,7 +49,9 @@ var ga_form_submission = function(event) {
     var search_string = search_analytics_string();
     _gaq.push(['_trackEvent', 'Search', 'Params', search_string]);
 
-    setTimeout(function() { form.submit(); }, 200);
+    setTimeout(function() {
+      form.submit();
+    }, 200);
 
     return false;
   }
@@ -50,12 +59,15 @@ var ga_form_submission = function(event) {
   return true;
 };
 
+/* exported ga_link_submission */
 var ga_link_submission = function(event) {
   event.preventDefault();
   var link = $(this);
 
   var dest = link.attr('href');
   if (typeof (dest) !== 'undefined' && dest !== '') {
-    setTimeout(function() { window.location.href = dest; }, 100);
+    setTimeout(function() {
+      window.location.href = dest;
+    }, 100);
   }
 };

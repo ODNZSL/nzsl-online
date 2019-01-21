@@ -21,10 +21,10 @@ $(document).ready(function() {
 
     function resultTransition(searchResultItem, counter, transitionClass) {
       searchResultItem
-        .css({
-          transitionDelay: (counter * 0.1) + 's',
-        })
-        .addClass(transitionClass);
+          .css({
+            transitionDelay: (counter * 0.1) + 's',
+          })
+          .addClass(transitionClass);
     }
   }
 });

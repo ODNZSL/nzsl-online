@@ -1,3 +1,4 @@
+/* eslint spaced-comment: "off" */
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor-jquery
@@ -21,4 +22,6 @@
 //= require search-vocab
 
 
-$(function() { $(document).foundation(); });
+$(function() {
+  $(document).foundation();
+});
