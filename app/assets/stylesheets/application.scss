@@ -94,6 +94,11 @@ body::before {
 }
 
 a {
+  &.drawing {
+    background: transparent;
+    border: 0;
+  }
+
   &.logo {
     background: top left no-repeat;
     background-image: image-url('ui/logo.png');
@@ -185,6 +190,9 @@ a {
   }
 
   .image {
+    height: 72px;
+    width: 72px;
+
     img {
       margin: 0;
     }
@@ -287,11 +295,6 @@ a {
 
 .attribute_options .sub { z-index: 1; }
 
-.locations .image {
-  height: 72px;
-  width: 72px;
-}
-
 .locations .attribute_options li {
   font-size: 8px;
   line-height: 10px;
@@ -322,13 +325,6 @@ a {
     height: 42px;
     margin: 0 0 4px 4px;
     width: 42px;
-  }
-}
-
-a {
-  &.drawing {
-    background: transparent;
-    border: 0;
   }
 }
 
