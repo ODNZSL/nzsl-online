@@ -57,7 +57,7 @@
 
 .flash {
   background: #9acd32;
-  color: #ffffff;
+  color: $white;
   padding: 10px;
   text-align: center;
   width: 100%;
@@ -173,7 +173,7 @@
   }
 
   &__page-item {
-    background: #ffffff;
+    background: $white;
     border: 1px solid $light-med-grey;
     margin-right: 11px;
 
