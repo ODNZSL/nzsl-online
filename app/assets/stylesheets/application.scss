@@ -123,9 +123,7 @@ a {
 .attribute_options {
   height: 430px;
   overflow: scroll;
-}
 
-.attribute_options {
   .rows {
     clear: left;
     position: relative;
@@ -362,6 +360,8 @@ abbr {
 }
 
 .boolean {
+  margin-bottom: 10px;
+
   label {
     line-height: 1;
   }
@@ -395,7 +395,6 @@ abbr {
   top: 0;
 }
 
-.boolean { margin-bottom: 10px; }
 
 .inline-hints {
   font-size: 85%;

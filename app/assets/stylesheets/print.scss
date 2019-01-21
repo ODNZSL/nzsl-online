@@ -175,10 +175,6 @@ img.vocab-download-button,
   box-shadow: none;
 }
 
-.video_replace {
-  height: auto;
-}
-
 a.drawing {
   text-decoration: none;
 }
@@ -223,6 +219,7 @@ h1,
 }
 
 .video_replace {
+  height: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
