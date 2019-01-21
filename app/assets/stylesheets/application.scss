@@ -1,8 +1,12 @@
+// sass-lint:disable no-css-comments
+
 /*
 *= require jquery-ui
 *= require_self
 *= require video-js
 */
+
+// sass-lint:enable no-css-comments
 
 @import 'color';
 @import 'variables';
@@ -173,9 +177,18 @@ a {
   }
 }
 
-.locations .main_image img,
-.locations .image img {
-  margin: 0;
+.locations {
+  .main_image {
+    img {
+      margin: 0;
+    }
+  }
+
+  .image {
+    img {
+      margin: 0;
+    }
+  }
 }
 
 
@@ -303,24 +316,31 @@ a {
   z-index: 31;
 }
 
-.selected_signs .image {
-  float: left;
-  height: 42px;
-  margin: 0;
-  margin: 0 0 4px 4px;
-  width: 42px;
+.selected_signs {
+  .image {
+    float: left;
+    height: 42px;
+    margin: 0 0 4px 4px;
+    width: 42px;
+  }
 }
 
-a.drawing {
-  background: transparent;
-  border: 0;
+a {
+  &.drawing {
+    background: transparent;
+    border: 0;
+  }
 }
 
-.entry_drawing .offset { position: relative; }
+.entry_drawing {
+  .offset { position: relative; }
+}
 
-.sign_attributes .image {
-  display: inline-block;
-  position: relative;
+.sign_attributes {
+  .image {
+    display: inline-block;
+    position: relative;
+  }
 }
 
 .back_to_results {
@@ -329,15 +349,17 @@ a.drawing {
   top: 0;
 }
 
-.form-li-settings ol {
-  list-style-type: none;
-  margin-left: 0;
-}
+.form-li-settings {
+  ol {
+    list-style-type: none;
+    margin-left: 0;
+  }
 
-.form-li-settings li {
-  margin: 0 0 0.6em;
-  position: relative;
-  width: 500px;
+  li {
+    margin: 0 0 0.6em;
+    position: relative;
+    width: 500px;
+  }
 }
 
 abbr {
@@ -401,7 +423,9 @@ abbr {
   font-style: italic;
 }
 
-.text .inline-errors { right: 45px; }
+.text {
+  .inline-errors { right: 45px; }
+}
 
 .sub-form { margin-left: 15px; }
 
@@ -410,10 +434,12 @@ abbr {
   float: right;
 }
 
-body .video_replace {
-  border: 0;
-  display: block;
-  float: left;
+body {
+  .video_replace {
+    border: 0;
+    display: block;
+    float: left;
+  }
 }
 
 .center { position: relative; }
@@ -422,19 +448,29 @@ body .video_replace {
 
 .vertical_space { padding-bottom: 16px; }
 
-.js .text_input_hidden {
-  border: 1px solid $white;
-  outline: none;
+.js {
+  .text_input_hidden {
+    border: 1px solid $white;
+    outline: none;
+  }
+
+  .unless_js {
+    display: none;
+  }
+
+  .if_js {
+    display: block;
+  }
 }
 
-.no-js .if_js,
-.js .unless_js {
-  display: none;
-}
+.no-js {
+  .if_js {
+    display: none;
+  }
 
-.no-js .unless_js,
-.js .if_js {
-  display: block;
+  .unless_js {
+    display: block;
+  }
 }
 
 .visuallyhidden {
@@ -446,16 +482,16 @@ body .video_replace {
   padding: 0;
   position: absolute;
   width: 1px;
-}
 
-.visuallyhidden.focusable:active,
-.visuallyhidden.focusable:focus {
-  clip: auto;
-  height: auto;
-  margin: 0;
-  overflow: visible;
-  position: static;
-  width: auto;
+  &.focusable:active,
+  &.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+  }
 }
 
 .invisible { visibility: hidden; }
