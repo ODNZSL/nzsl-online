@@ -1,6 +1,4 @@
-var search_analytics_string = function() {
-  /* Tabs, query string, etc, from search box in header. */
-
+var selectedSearchTab = function() {
   var search_tab = '';
 
   if ($('.search_tabs .keywords').hasClass('selected')) {
@@ -13,12 +11,14 @@ var search_analytics_string = function() {
     search_tab = 'advanced';
   }
 
-  var query_val = $('input#s').val();
+  return search_tab;
+};
 
+var search_analytics_string = function() {
+  var query_val = $('input#s').val();
   var handshapes_val = $('input#hs').val();
   var locations_val = $('input#l').val();
   var location_groups_val = $('input#lg').val();
-
   var tag_val = $('select#tag').val();
   var usage_val = $('select#usage').val();
 
@@ -28,7 +28,7 @@ var search_analytics_string = function() {
   locations_val = locations_val = $('input#l').val().replace(/ /g, ',');
   location_groups_val = location_groups_val.replace(/ /g, ',');
 
-  var string = 'search_tab=' + search_tab
+  var string = 'search_tab=' + selectedSearchTab()
                + ' ' + 'query=' + query_val
                + ' ' + 'handshapes=' + handshapes_val
                + ' ' + 'locations=' + locations_val
