@@ -31,7 +31,7 @@ gem 'modernizr-rails'
 # on Feedback model
 gem 'paperclip'
 
-gem 'responders', '~> 2.0'
+gem 'responders', '~> 2.4'
 gem 'videojs_rails'
 
 # records crashes
