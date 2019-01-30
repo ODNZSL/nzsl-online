@@ -1,4 +1,4 @@
-var search_analytics_string = function() {
+var search_analytics_string = function () {
   /* Tabs, query string, etc, from search box in header. */
 
   var search_tab = '';
@@ -33,7 +33,7 @@ var search_analytics_string = function() {
   return string;
 };
 
-var ga_form_submission = function(event) {
+var ga_form_submission = function (event) {
   var form = this;
 
   if (_gaq) {
@@ -42,7 +42,7 @@ var ga_form_submission = function(event) {
     var search_string = search_analytics_string();
     _gaq.push(['_trackEvent', 'Search', 'Params', search_string]);
 
-    setTimeout(function() { form.submit(); }, 200);
+    setTimeout(function () { form.submit(); }, 200);
 
     return false;
   }
@@ -50,12 +50,12 @@ var ga_form_submission = function(event) {
   return true;
 };
 
-var ga_link_submission = function(event) {
+var ga_link_submission = function (event) {
   event.preventDefault();
   var link = $(this);
 
   var dest = link.attr('href');
   if (typeof (dest) !== 'undefined' && dest !== '') {
-    setTimeout(function() { window.location.href = dest; }, 100);
+    setTimeout(function () { window.location.href = dest; }, 100);
   }
 };

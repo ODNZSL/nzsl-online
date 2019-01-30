@@ -1,9 +1,9 @@
-$(document).ready(function() {
-  $('.usage-dropdown').click(function() {
+$(document).ready(function () {
+  $('.usage-dropdown').click(function () {
     select($(this), '.usage-dropdown', '#usage');
   });
 
-  $('.topic-dropdown').click(function() {
+  $('.topic-dropdown').click(function () {
     select($(this), '.topic-dropdown', '#tag');
   });
 

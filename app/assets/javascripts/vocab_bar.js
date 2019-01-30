@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   if ($('.vocab-sidebar').length > 0) {
     var bar = $('.vocab-sidebar');
     var searchResultBanner = $('.search-result-banner');
@@ -34,12 +34,12 @@ $(document).ready(function() {
       });
     }
 
-    $(window).scroll(function() {
+    $(window).scroll(function () {
       barBottom = bar.offset().top + bar.outerHeight(true) + baseMargin;
       positionVocabBar();
     });
 
-    $(window).resize(function() {
+    $(window).resize(function () {
       footerTop = $('.sticky_footer').offset().top;
       checkVocabBarHeight();
     });
