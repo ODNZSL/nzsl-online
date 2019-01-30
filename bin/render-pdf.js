@@ -22,11 +22,11 @@ console.log("Output path:", outputPath);
 but due to issues getting it running on Heroku this option is required. */
 
 (async () => {
-  const browser = await puppeteer.launch({args: ["--no-sandbox"]});
+  const browser = await puppeteer.launch({ args: ["--no-sandbox"] });
   const page = await browser.newPage();
 
   if (basic_auth_username) {
-    await page.authenticate({username: basic_auth_username, password: basic_auth_password});
+    await page.authenticate({ username: basic_auth_username, password: basic_auth_password });
   }
 
   console.log("Starting PDF conversion");

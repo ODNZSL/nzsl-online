@@ -13,7 +13,7 @@ $(function() {
           .pathname
           .replace(/((edit|new)\/?)$/, 'page_parts')
           .replace(/(\/)$/, '') + '/reorder';
-      $.post(reorder_path, {'items[]': new_order});
+      $.post(reorder_path, { 'items[]': new_order });
     },
   });
 });
