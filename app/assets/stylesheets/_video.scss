@@ -3,29 +3,35 @@
   position: relative;
 }
 
-.main_video,
-.main_video video,
-.main_video embed {
+.main_video {
   max-width: 480px;
   width: 100%;
+
+  video,
+  embed {
+    max-width: 480px;
+    width: 100%;
+  }
 }
 
 video {
   width: 100%;
 }
 
-.videos .slow {
-  display: none;
-}
+.videos {
+  .slow {
+    display: none;
+  }
 
-.videos .button {
-  float: right;
-}
+  .button {
+    float: right;
+  }
 
-.videos .hidden_video {
-  display: none;
-}
+  .hidden_video {
+    display: none;
+  }
 
-.videos .selected {
-  display: block;
+  .selected {
+    display: block;
+  }
 }

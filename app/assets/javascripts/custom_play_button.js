@@ -36,7 +36,9 @@ $(document).ready(function() {
 
   function pauseOtherVideos(currentVideo) {
     $('video').each(function() {
-      if (this != currentVideo) { pauseVideo(this); }
+      if (this != currentVideo) {
+        pauseVideo(this);
+      }
     });
   }
 });

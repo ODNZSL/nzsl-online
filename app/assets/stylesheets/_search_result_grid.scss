@@ -5,23 +5,23 @@
 
   .pagination {
     margin: 0;
-  }
 
-  .pagination .current {
-    color: #000000;
-  }
+    .current {
+      color: $black;
+    }
 
-  .pagination li {
-    display: inline-block;
-    font-size: $pagination-font-size;
-  }
+    li {
+      display: inline-block;
+      font-size: $pagination-font-size;
+    }
 
-  .pagination .a,
-  .pagination a {
-    padding: 0 10px;
-  }
+    a {
+      padding: 0 10px;
+    }
 
-  .pagination .a {
-    color: $med-grey;
+    .a {
+      color: $med-grey;
+      padding: 0 10px;
+    }
   }
 }
