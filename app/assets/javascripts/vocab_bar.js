@@ -13,19 +13,19 @@ $(document).ready(function() {
       var windowScroll = $(window).scrollTop();
 
       if (windowScroll < bottom) {
-        bar.css({ top: initialOffset - offset });
+        bar.css({top: initialOffset - offset});
       } else if (barBottom < footerTop
         || (windowScroll < footerTop - (bar.outerHeight(true) + baseMargin))) {
-        bar.css({ top: windowScroll - offset + baseMargin });
+        bar.css({top: windowScroll - offset + baseMargin});
       }
     }
 
     function checkVocabBarHeight() {
       if (barBottom > footerTop) {
         if ($('.search-results__container').length > 0) {
-          bar.css({ height: $('.search-results__container').innerHeight() });
+          bar.css({height: $('.search-results__container').innerHeight()});
         } else if ($('.search-result-container').length > 0) {
-          bar.css({ height: $('.search-result-container').innerHeight() });
+          bar.css({height: $('.search-result-container').innerHeight()});
         }
       }
 

@@ -1,8 +1,10 @@
-.error.flash {
-  background: $error-red;
+.error {
+  .flash {
+    background: $error-red;
 
-  a {
-    color: #ffffff;
-    text-decoration: underline;
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
   }
 }
