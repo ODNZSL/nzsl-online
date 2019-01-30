@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "eslint-config-google": "0.11.0",
-    "eslint": "^5.12.1",
-    "sass-lint": "^1.12.1"
+    "eslint": "5.12.1",
+    "sass-lint": "1.12.1"
   }
 }
