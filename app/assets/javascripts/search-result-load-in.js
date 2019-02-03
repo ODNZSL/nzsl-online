@@ -1,4 +1,4 @@
-$(document).ready(function() {
+$(document).ready(function () {
   if ($('.search-results__card').length > 0) {
     // # Why is so much of this commented?
     // The Jira story has been rejected with this implementation as of last sprint ending on 31/08/2018.
@@ -7,7 +7,7 @@ $(document).ready(function() {
 
     var searchResult = 0; // eslint-disable-line no-var
     // var searchResultPlaceholder = 0;
-    $('.search-results__card').each(function() {
+    $('.search-results__card').each(function () {
       resultTransition($(this), searchResult, 'show-card');
       searchResult++;
     });
