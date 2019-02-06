@@ -7,7 +7,7 @@ module.exports = {
   rules: {
     "no-var": "off",
     "require-jsdoc": "off",
-    "max-len": ["error", {"code": 120}],
+    "max-len": ["error", { "code": 120 }],
 
     // We have many existing variables in snake_case so we do not enforce
     // camelCase

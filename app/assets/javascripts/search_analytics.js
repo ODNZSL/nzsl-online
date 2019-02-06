@@ -1,4 +1,4 @@
-var selectedSearchTab = function() {
+var selectedSearchTab = function () {
   var search_tab = '';
 
   if ($('.search_tabs .keywords').hasClass('selected')) {
@@ -14,7 +14,7 @@ var selectedSearchTab = function() {
   return search_tab;
 };
 
-var search_analytics_string = function() {
+var search_analytics_string = function () {
   var query_val = $('input#s').val();
   var handshapes_val = $('input#hs').val();
   var locations_val = $('input#l').val();
@@ -40,7 +40,7 @@ var search_analytics_string = function() {
 };
 
 /* exported ga_form_submission */
-var ga_form_submission = function(event) {
+var ga_form_submission = function (event) {
   var form = this;
 
   if (_gaq) {
@@ -49,7 +49,7 @@ var ga_form_submission = function(event) {
     var search_string = search_analytics_string();
     _gaq.push(['_trackEvent', 'Search', 'Params', search_string]);
 
-    setTimeout(function() {
+    setTimeout(function () {
       form.submit();
     }, 200);
 
@@ -60,13 +60,13 @@ var ga_form_submission = function(event) {
 };
 
 /* exported ga_link_submission */
-var ga_link_submission = function(event) {
+var ga_link_submission = function (event) {
   event.preventDefault();
   var link = $(this);
 
   var dest = link.attr('href');
   if (typeof (dest) !== 'undefined' && dest !== '') {
-    setTimeout(function() {
+    setTimeout(function () {
       window.location.href = dest;
     }, 100);
   }

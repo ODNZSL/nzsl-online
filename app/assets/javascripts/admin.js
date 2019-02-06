@@ -1,10 +1,10 @@
-$(function() {
+$(function () {
   // $('.ckeditor').ckeditor();
   $('tbody.sortable').sortable({
     containment: 'parent',
-    update: function(/* Event, ui */) {
+    update: function (/* Event, ui */) {
       var new_order = [];
-      $('tbody.sortable tr').each(function() {
+      $('tbody.sortable tr').each(function () {
         var page_id = $(this).attr('id').replace('id', '');
         new_order.push(page_id);
       });
@@ -13,7 +13,7 @@ $(function() {
           .pathname
           .replace(/((edit|new)\/?)$/, 'page_parts')
           .replace(/(\/)$/, '') + '/reorder';
-      $.post(reorder_path, {'items[]': new_order});
+      $.post(reorder_path, { 'items[]': new_order });
     },
   });
 });
