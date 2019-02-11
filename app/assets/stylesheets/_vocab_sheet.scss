@@ -31,7 +31,6 @@
   width: 690px;
 }
 
-
 .vocab_sheet_name {
   input {
     font-size: $h1-font-size;
@@ -150,7 +149,7 @@
       background: {
         color: transparent;
         image: image-url('ui/vocab-delete.png');
-      };
+      }
       border: 0;
       height: 25px;
       overflow: hidden;

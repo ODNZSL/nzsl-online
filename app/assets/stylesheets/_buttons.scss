@@ -7,9 +7,13 @@
   padding: 0;
 
   &:hover {
-    .text-container { color: $med-grey; }
+    .text-container {
+      color: $med-grey;
+    }
 
-    .icon-container { background: $med-grey; }
+    .icon-container {
+      background: $med-grey;
+    }
   }
 
   .icon-container {
@@ -48,7 +52,9 @@
 }
 
 .play_video_button {
-  &:hover { color: $white; }
+  &:hover {
+    color: $white;
+  }
 
   i {
     font-size: 22px;
@@ -82,10 +88,13 @@ a {
   }
 }
 
+.orange_submit_button {
+  padding: 5px;
+}
 
-.orange_submit_button { padding: 5px; }
-
-.translation_button { @extend .play_video_button; }
+.translation_button {
+  @extend .play_video_button;
+}
 
 .buttons-container {
   bottom: 0;
@@ -130,6 +139,7 @@ a {
 
 // Browser specific style for Chrome to hide the default videojs BigPlayButton
 // User expects to view video without any obsufication and the default button was obsuring the video
-video::-webkit-media-controls-overlay-play-button { // sass-lint:disable-line  no-vendor-prefixes
+video::-webkit-media-controls-overlay-play-button {
+  // sass-lint:disable-line  no-vendor-prefixes
   display: none;
 }

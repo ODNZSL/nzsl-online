@@ -71,7 +71,9 @@
 }
 
 @media screen and (min-width: $medium-screen) {
-  .search-container { float: none; }
+  .search-container {
+    float: none;
+  }
 
   .search-buttons-container {
     display: block;
@@ -95,11 +97,15 @@
     }
 
     .empty:hover {
-      span { color: $white; }
+      span {
+        color: $white;
+      }
     }
   }
 
-  .advanced-search-container { padding-bottom: 10px; }
+  .advanced-search-container {
+    padding-bottom: 10px;
+  }
 
   .advanced-search-button {
     @include montserrat-light;
@@ -112,15 +118,21 @@
     position: relative;
     width: calc(25% - 5px);
 
-    a:hover { opacity: 1; }
+    a:hover {
+      opacity: 1;
+    }
 
-    .default { color: $white; }
+    .default {
+      color: $white;
+    }
 
     .usage-dropdown,
     .topic-dropdown {
       height: auto;
       width: 100%;
-      &:hover { background-color: $pale-blue; }
+      &:hover {
+        background-color: $pale-blue;
+      }
     }
 
     &.topic,
@@ -158,22 +170,30 @@
 }
 
 @media screen and (min-width: $large-screen) {
-  .search-buttons-container { right: 5%;}
+  .search-buttons-container {
+    right: 5%;
+  }
 }
 
-.signs { line-height: 56px; }
+.signs {
+  line-height: 56px;
+}
 
 .handshapes {
   .dropdown {
     width: 450px;
-    ul { padding: 10px 0; }
+    ul {
+      padding: 10px 0;
+    }
   }
 }
 
 .locations {
   .dropdown {
     width: 430px;
-    ul { padding: 10px 0; }
+    ul {
+      padding: 10px 0;
+    }
   }
 }
 
@@ -184,7 +204,9 @@
     overflow-x: hidden;
     padding: 0;
     width: 260px;
-    ul { margin: 0; }
+    ul {
+      margin: 0;
+    }
 
     li {
       line-height: 2.5;
@@ -202,7 +224,9 @@
     padding: 0;
     width: 260px;
 
-    ul { margin: 0; }
+    ul {
+      margin: 0;
+    }
 
     li {
       line-height: 2.5;

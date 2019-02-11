@@ -2,7 +2,9 @@
   font-weight: 500;
 }
 
-body { @include montserrat-light; }
+body {
+  @include montserrat-light;
+}
 
 article,
 aside,
@@ -30,7 +32,9 @@ mark {
   text-decoration: none;
 }
 
-del { text-decoration: line-through; }
+del {
+  text-decoration: line-through;
+}
 
 abbr[title],
 dfn[title] {
@@ -64,9 +68,13 @@ sup {
   position: relative;
 }
 
-sup { top: -0.5em; }
+sup {
+  top: -0.5em;
+}
 
-sub { bottom: -0.25em; }
+sub {
+  bottom: -0.25em;
+}
 
 pre {
   padding: 15px;
@@ -79,13 +87,21 @@ textarea {
   width: 100%;
 }
 
-input[type='radio'] { vertical-align: bottom; }
+input[type='radio'] {
+  vertical-align: bottom;
+}
 
-input[type='checkbox'] { vertical-align: bottom; }
+input[type='checkbox'] {
+  vertical-align: bottom;
+}
 
-.ie7 input[type='checkbox'] { vertical-align: baseline; }
+.ie7 input[type='checkbox'] {
+  vertical-align: baseline;
+}
 
-.ie6 input { vertical-align: text-bottom; }
+.ie6 input {
+  vertical-align: text-bottom;
+}
 
 label,
 input[type='button'],
@@ -123,7 +139,9 @@ a:visited span {
   text-decoration: none;
 }
 
-a:active { color: $peach; }
+a:active {
+  color: $peach;
+}
 
 a:hover,
 a:hover span {
@@ -131,7 +149,6 @@ a:hover span {
   cursor: pointer;
   opacity: 0.8;
 }
-
 
 h1,
 h2,
@@ -164,9 +181,13 @@ h4,
   font-size: $h4-font-size;
 }
 
-h5 { font-size: $h5-font-size; }
+h5 {
+  font-size: $h5-font-size;
+}
 
-h6 { font-size: $h6-font-size; }
+h6 {
+  font-size: $h6-font-size;
+}
 
 .typography {
   li {
@@ -187,7 +208,9 @@ h6 { font-size: $h6-font-size; }
     position: relative;
     top: 1.6em;
     width: 150px;
-    &::after { content: ':'; }
+    &::after {
+      content: ':';
+    }
   }
 
   blockquote {
@@ -204,7 +227,9 @@ h6 { font-size: $h6-font-size; }
   }
 }
 
-h2+h3 { margin-top: 1em; }
+h2 + h3 {
+  margin-top: 1em;
+}
 
 .main_gloss,
 .static-page-heading,
@@ -212,7 +237,9 @@ h2+h3 { margin-top: 1em; }
   @include montserrat-regular;
 }
 
-.static-page-heading { text-transform: capitalize; }
+.static-page-heading {
+  text-transform: capitalize;
+}
 
 h2 {
   .main_gloss {

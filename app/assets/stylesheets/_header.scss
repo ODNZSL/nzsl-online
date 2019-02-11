@@ -105,7 +105,9 @@ header {
   .header-logo,
   .tablet-logo {
     width: 40%;
-    img { @include center-element; }
+    img {
+      @include center-element;
+    }
   }
 }
 

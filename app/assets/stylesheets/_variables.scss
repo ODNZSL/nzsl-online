@@ -69,7 +69,7 @@ $default-timing-function: ease-in-out;
     duration: $duration;
     property: $properties;
     timing-function: $default-timing-function;
-  };
+  }
 }
 
 @mixin vocab-sheet-image-heights($height) {

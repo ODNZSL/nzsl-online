@@ -1,4 +1,3 @@
-
 .vocab-sidebar {
   @include border-radius-small;
 
@@ -65,7 +64,13 @@
 
   .flash {
     @include border-radius-small;
-    @include transition($short-time, opacity, max-height, margin-top, margin-bottom);
+    @include transition(
+      $short-time,
+      opacity,
+      max-height,
+      margin-top,
+      margin-bottom
+    );
 
     background-color: $success-green;
     margin: 1rem auto;
