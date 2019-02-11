@@ -1,38 +1,38 @@
-$(document).ready(function() {
+$(document).ready(function () {
   var typeTimer = null;
 
-  var setup_vocab_sheet_page = function() {
+  var setup_vocab_sheet_page = function () {
     // Reorder vocab sheet items
     if ($('ul#vocab_sheet').length) {
       $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
       if (!document.printView) {
         $('ul#vocab_sheet').sortable({
           containment: 'parent',
-          update: function(event, ui) {
+          update: function (event, ui) {
             var new_order = [];
-            $('ul#vocab_sheet .item_id').each(function() {
+            $('ul#vocab_sheet .item_id').each(function () {
               new_order.push($(this).val());
             });
-            $.post('/vocab_sheet/items/reorder/', {'items[]': new_order});
+            $.post('/vocab_sheet/items/reorder/', { 'items[]': new_order });
           },
         });
       }
 
       // Change the name of vocab sheet
-      var submit_vocab_sheet_name = function(input) {
+      var submit_vocab_sheet_name = function (input) {
         input.val($.trim(input.val()));
         if (input.val() === '') {
           input.val(input.next('.old_name').val());
         } else if (input.val() !== input.next('.old_name').val() && input.val() !== '') {
           var form = input.closest('form');
-          $.post(form.attr('action'), form.serialize(), function(data) {
+          $.post(form.attr('action'), form.serialize(), function (data) {
             input.next('.old_name').val(data.vocab_sheet.name);
             input.val(data.vocab_sheet.name);
           });
         }
       };
 
-      $('input.vocab_sheet_name').keypress(function(e) {
+      $('input.vocab_sheet_name').keypress(function (e) {
         if (e.which == 13) {
           e.preventDefault();
           $(this).blur();
@@ -40,7 +40,7 @@ $(document).ready(function() {
         }
         return true;
       });
-      $('input.vocab_sheet_name').blur(function() {
+      $('input.vocab_sheet_name').blur(function () {
         submit_vocab_sheet_name($(this));
       });
 
@@ -49,10 +49,10 @@ $(document).ready(function() {
       }
     }
 
-    $('.vocab-sheet__page-controls--download').on('click', function() {
+    $('.vocab-sheet__page-controls--download').on('click', function () {
       $('.vocab-sheet__download-notice').removeClass('hide');
     });
-    $('button.orange_submit_button').on('click', function() {
+    $('button.orange_submit_button').on('click', function () {
       $('span.icon-container').remove();
     });
   };
@@ -61,15 +61,15 @@ $(document).ready(function() {
     var textBoxes = $('.input-with-character-count textarea');
 
     function checkCharacterCount() {
-      textBoxes.each(function() {
+      textBoxes.each(function () {
         setupCharacterCount($(this));
       });
 
-      textBoxes.keypress(function() {
+      textBoxes.keypress(function () {
         checkForMaxLength($(this));
       });
 
-      textBoxes.keyup(function() {
+      textBoxes.keyup(function () {
         setCharacterCount($(this));
       });
     }
@@ -92,7 +92,7 @@ $(document).ready(function() {
       if (notes.length >= maxLength) {
         elem.addClass('max-length-reached');
 
-        setTimeout(function() {
+        setTimeout(function () {
           textBoxes.removeClass('max-length-reached');
         }, 1000);
       }
@@ -111,7 +111,7 @@ $(document).ready(function() {
   }
 
   if ($('.vocab-sheet__text-input').length > 0) {
-    $('.vocab-sheet__text-input').keyup(function() {
+    $('.vocab-sheet__text-input').keyup(function () {
       var field = $(this);
       var action = getFormAction(field);
       var data = {
@@ -129,7 +129,7 @@ $(document).ready(function() {
   function updateVocabItem(action, params) {
     clearTimeout(typeTimer);
 
-    typeTimer = setTimeout(function() {
+    typeTimer = setTimeout(function () {
       if (params.signId !== null) {
         $.ajax({
           url: action || '/vocab_sheet/items/' + params.signId,
@@ -138,7 +138,7 @@ $(document).ready(function() {
           headers: {
             'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
           },
-        }).fail(function(error) {
+        }).fail(function (error) {
           console.error(error.statusText);
         });
       } else {
