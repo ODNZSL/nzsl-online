@@ -26,6 +26,7 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
+gem 'newrelic_rpm'
 
 # For attaching files on the feedback form
 # on Feedback model
