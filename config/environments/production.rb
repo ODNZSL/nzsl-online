@@ -28,7 +28,7 @@ Rails.application.configure do
     # header allows browsers and CDN to cache assets for longer thereby
     # reducing re-requests for assets they already have.
     config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{1.year.to_i}",
+      'Cache-Control' => "public, max-age=#{1.year.to_i}"
     }
   end
 
