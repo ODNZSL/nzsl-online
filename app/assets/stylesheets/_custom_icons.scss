@@ -2,7 +2,7 @@
 .caret {
   border-left: 6px solid transparent;
   border-right: 6px solid transparent;
-  border-top: 10px solid #ffffff;
+  border-top: 10px solid $white;
   height: 0;
   position: absolute;
   right: 5px;
@@ -13,5 +13,5 @@
 .small-caret {
   border-left: 4px solid transparent;
   border-right: 4px solid transparent;
-  border-top: 6px solid #ffffff;
+  border-top: 6px solid $white;
 }

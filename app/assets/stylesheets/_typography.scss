@@ -18,8 +18,8 @@ section {
   display: block;
 }
 
-q:before,
-q:after {
+q::before,
+q::after {
   content: '';
 }
 
@@ -45,14 +45,17 @@ table {
 
 hr {
   border: 0;
-  border-top: 1px solid $light-med-grey; display: block;
+  border-top: 1px solid $light-med-grey;
+  display: block;
   height: 1px;
   margin: 1em 0;
   padding: 0;
 }
 
 input,
-select { vertical-align: middle; }
+select {
+  vertical-align: middle;
+}
 
 sub,
 sup {
@@ -67,7 +70,6 @@ sub { bottom: -0.25em; }
 
 pre {
   padding: 15px;
-  white-space: pre;
   white-space: pre-wrap;
   word-wrap: break-word;
 }
@@ -77,24 +79,28 @@ textarea {
   width: 100%;
 }
 
-input[type="radio"] { vertical-align: bottom; }
+input[type='radio'] { vertical-align: bottom; }
 
-input[type="checkbox"] { vertical-align: bottom; }
+input[type='checkbox'] { vertical-align: bottom; }
 
-.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie7 input[type='checkbox'] { vertical-align: baseline; }
 
 .ie6 input { vertical-align: text-bottom; }
 
 label,
-input[type="button"],
-input[type="submit"],
-input[type="image"],
-button { cursor: pointer; }
+input[type='button'],
+input[type='submit'],
+input[type='image'],
+button {
+  cursor: pointer;
+}
 
 button,
 input,
 select,
-textarea { margin: 0; }
+textarea {
+  margin: 0;
+}
 
 input:invalid,
 textarea:invalid {
@@ -125,6 +131,7 @@ a:hover span {
   cursor: pointer;
   opacity: 0.8;
 }
+
 
 h1,
 h2,
@@ -180,7 +187,7 @@ h6 { font-size: $h6-font-size; }
     position: relative;
     top: 1.6em;
     width: 150px;
-    &:after { content: ':'; }
+    &::after { content: ':'; }
   }
 
   blockquote {
@@ -207,12 +214,22 @@ h2+h3 { margin-top: 1em; }
 
 .static-page-heading { text-transform: capitalize; }
 
-h2.main_gloss,
-a.main_gloss {
-  display: block;
-  font-size: $main-gloss;
-  margin: 10px 0;
-  padding: 0;
+h2 {
+  .main_gloss {
+    display: block;
+    font-size: $main-gloss;
+    margin: 10px 0;
+    padding: 0;
+  }
+}
+
+a {
+  .main_gloss {
+    display: block;
+    font-size: $main-gloss;
+    margin: 10px 0;
+    padding: 0;
+  }
 }
 
 .secondary_gloss {
@@ -232,9 +249,16 @@ a.main_gloss {
   font-style: italic;
 }
 
-.glosses-container.maori-gloss,
-.item-maori-name.maori-gloss {
-  font-size: $main-gloss;
+.glosses-container {
+  .maori-gloss {
+    font-size: $main-gloss;
+  }
+}
+
+.item-maori-name {
+  .maori-gloss {
+    font-size: $main-gloss;
+  }
 }
 
 .search-result-banner {

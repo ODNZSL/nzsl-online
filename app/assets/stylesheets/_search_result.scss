@@ -7,14 +7,17 @@
   &-container {
     .glosses-container { margin-bottom: 20px; }
 
-    .video-container .button {
-      @extend .play_video_button;
-      margin: 5px 0 30px 0;
+    .video-container {
+      .button {
+        @extend .play_video_button;
+        margin: 5px 0 30px 0;
+      }
     }
 
     .back-button-container {
       margin: 30px 0;
       position: relative;
+
       a {
         border-bottom: 0;
         margin-left: 10px;
@@ -29,6 +32,7 @@
       box-shadow: -2px 3px 12px 0 $light-med-grey;
       margin-bottom: 20px;
       position: relative;
+
       .main-image {
         display: block;
         height: 12.5rem;
@@ -40,6 +44,7 @@
         position: absolute;
         top: 0;
         width: 60px;
+
         .image {
           margin: 10px auto;
           img { margin: 0; }

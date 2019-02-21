@@ -22,7 +22,7 @@
 
     i {
       @include center;
-      color: #ffffff;
+      color: $white;
       font-size: 0.85em;
     }
   }
@@ -42,13 +42,13 @@
   @include border-radius-small;
   background-color: $peach;
   border: 0;
-  color: #ffffff !important;
+  color: $white !important;
   font-size: $subtitle-font-size;
   padding: 0 10px 5px 10px;
 }
 
 .play_video_button {
-  &:hover { color: #ffffff; }
+  &:hover { color: $white; }
 
   i {
     font-size: 22px;
@@ -61,18 +61,27 @@
 .play-button {
   @include center;
 
-  color: #ffffff;
+  color: $white;
   font-size: 70px;
   z-index: 50;
 }
 
-a .button,
-.button input,
-.button button,
-.button a,
+a {
+  .button {
+    @extend .orange_submit_button;
+  }
+}
+
 .button {
   @extend .orange_submit_button;
+
+  input,
+  button,
+  a {
+    @extend .orange_submit_button;
+  }
 }
+
 
 .orange_submit_button { padding: 5px; }
 
@@ -113,12 +122,14 @@ a .button,
 
 // Browser specific styles ( Firefox IE 11 and Safari ) to hide the default videojs BigPlayButton
 // User expects to view video without any obsufication and the default button was obsuring the video
-.video-js.vjs-big-play-button {
-  display: none;
+.video-js {
+  &.vjs-big-play-button {
+    display: none;
+  }
 }
 
 // Browser specific style for Chrome to hide the default videojs BigPlayButton
 // User expects to view video without any obsufication and the default button was obsuring the video
-video::-webkit-media-controls-overlay-play-button {
+video::-webkit-media-controls-overlay-play-button { // sass-lint:disable-line  no-vendor-prefixes
   display: none;
 }

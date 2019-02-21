@@ -18,7 +18,7 @@ $(document).ready(function() {
         nameBeingChanged = '.item-maori-name';
       }
       $(nameBeingChanged).each(function() {
-        $(this).css({ height: textHeight });
+        $(this).css({height: textHeight});
       });
     }
   }

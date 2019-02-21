@@ -1,8 +1,11 @@
 .search {
   &-container {
-    form { position: relative; }
     background-color: $primary-blue;
     float: right;
+
+    form {
+      position: relative;
+    }
   }
 
   &-field {
@@ -14,7 +17,7 @@
   }
 
   &-label {
-    color: #ffffff;
+    color: $white;
     display: block;
     font-size: $h3-font-size;
     padding: 20px 0 15px;
@@ -45,7 +48,7 @@
 
     a {
       border: 0;
-      color: #ffffff;
+      color: $white;
     }
   }
 
@@ -86,12 +89,14 @@
       top: initial;
 
       i {
-        color: #ffffff;
+        color: $white;
         font-size: 28px;
       }
     }
 
-    .empty:hover span { color: #ffffff; }
+    .empty:hover {
+      span { color: $white; }
+    }
   }
 
   .advanced-search-container { padding-bottom: 10px; }
@@ -109,7 +114,7 @@
 
     a:hover { opacity: 1; }
 
-    .default { color: #ffffff; }
+    .default { color: $white; }
 
     .usage-dropdown,
     .topic-dropdown {
@@ -127,13 +132,14 @@
   }
 
   .empty {
-    color: #ffffff;
+    color: $white;
     font-size: 16px;
     left: 12px;
     position: relative;
     top: -4px;
 
-    &:hover, &:focus {
+    &:hover,
+    &:focus {
       color: $white;
     }
 
@@ -143,7 +149,8 @@
       position: relative;
       top: 3px;
 
-      &:hover, &:focus {
+      &:hover,
+      &:focus {
         color: $white;
       }
     }
@@ -156,8 +163,56 @@
 
 .signs { line-height: 56px; }
 
+.handshapes {
+  .dropdown {
+    width: 450px;
+    ul { padding: 10px 0; }
+  }
+}
+
+.locations {
+  .dropdown {
+    width: 430px;
+    ul { padding: 10px 0; }
+  }
+}
+
+.topic {
+  .dropdown {
+    max-height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    padding: 0;
+    width: 260px;
+    ul { margin: 0; }
+
+    li {
+      line-height: 2.5;
+      padding-left: 5px;
+    }
+  }
+}
+
+.usage {
+  .dropdown {
+    max-height: 400px;
+    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: hidden;
+    padding: 0;
+    width: 260px;
+
+    ul { margin: 0; }
+
+    li {
+      line-height: 2.5;
+      padding-left: 5px;
+    }
+  }
+}
+
 .dropdown {
-  background: #ffffff;
+  background: $white;
   border: 1px solid $light-grey;
   display: none;
   left: 0;
@@ -165,53 +220,26 @@
   position: absolute;
   top: 70px;
 
+  .title {
+    line-height: 1;
+    padding: 3px 3px 7px;
+    text-align: left;
+  }
+
+  .close {
+    background: right center no-repeat;
+    background-image: image_url('ui/close_search.png');
+    height: 15px;
+    line-height: 15px;
+    padding-right: 20px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
   .selected {
     background-color: $super-pale-blue;
   }
-}
-
-.handshapes .dropdown {
-  width: 450px;
-  ul { padding: 10px 0; }
-}
-
-.locations .dropdown {
-  width: 430px;
-  ul { padding: 10px 0; }
-}
-
-.topic .dropdown,
-.usage .dropdown {
-  max-height: 400px;
-  overflow: scroll;
-  overflow-x: hidden;
-  padding: 0;
-  width: 260px;
-  ul { margin: 0; }
-
-  li {
-    line-height: 2.5;
-    padding-left: 5px;
-  }
-}
-
-.usage .dropdown { overflow-y: hidden; }
-
-.dropdown .title {
-  line-height: 1;
-  padding: 3px 3px 7px;
-  text-align: left;
-}
-
-.dropdown .close {
-  background: right center no-repeat;
-  background-image: image_url('ui/close_search.png');
-  height: 15px;
-  line-height: 15px;
-  padding-right: 20px;
-  position: absolute;
-  right: 5px;
-  top: 5px;
 }
 
 ::-webkit-search-cancel-button {

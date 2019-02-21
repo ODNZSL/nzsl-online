@@ -21,17 +21,19 @@ gem 'whenever'
 gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
-gem 'foundation-rails', '~> 6.3.1.0'
+gem 'foundation-rails', '~> 6.5.3.0'
 gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
+gem 'newrelic_rpm'
+gem 'rack-canonical-host', '~> 0.2.3'
 
 # For attaching files on the feedback form
 # on Feedback model
 gem 'paperclip'
 
-gem 'responders', '~> 2.0'
+gem 'responders', '~> 2.4'
 gem 'videojs_rails'
 
 # records crashes

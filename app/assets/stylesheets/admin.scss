@@ -1,6 +1,11 @@
+// sass-lint:disable no-css-comments
+
 /*
 *= require jquery-ui
 */
+
+// sass-lint:disable no-css-comments
+
 @import 'color';
 @import 'variables';
 @import 'foundation_and_overrides';
@@ -97,7 +102,8 @@ $admin-dashboard-top-nav-height: 55px;
   z-index: 1;
 
 
-  .admin-dashboard-open-sidebar, .admin-dashboard-close-sidebar {
+  .admin-dashboard-open-sidebar,
+  .admin-dashboard-close-sidebar {
     align-items: baseline;
     display: flex;
     justify-content: space-between;
@@ -118,9 +124,11 @@ $admin-dashboard-top-nav-height: 55px;
     }
   }
 
-  .fa.large {
-    font-size: rem-calc(24);
-    width: 40px;
+  .fa {
+    .large {
+      font-size: rem-calc(24);
+      width: 40px;
+    }
   }
 }
 
@@ -164,8 +172,10 @@ $admin-dashboard-top-nav-height: 55px;
   .admin-dashboard-sidebar {
     width: 80px;
 
-    .fa.large {
-      width: auto;
+    .fa {
+      .large {
+        width: auto;
+      }
     }
   }
 
@@ -180,11 +190,11 @@ $admin-dashboard-top-nav-height: 55px;
 
   }
 
-  .menu.vertical > li > a {
-    justify-content: center;
-  }
-
   .menu {
+    &.vertical > li > a {
+      justify-content: center;
+    }
+
     li {
       &::after {
         @include transition($long-time, opacity);
@@ -213,14 +223,18 @@ $admin-dashboard-top-nav-height: 55px;
 
 // mini sidebar on medium/tablet size
 @include breakpoint(medium only) {
-  .admin-dashboard.shrink-medium {
-    @include shrunk-sidebar
+  .admin-dashboard {
+    .shrink-medium {
+      @include shrunk-sidebar
+    }
   }
 }
 
 @include breakpoint(large) {
-  .admin-dashboard.shrink-large {
-    @include shrunk-sidebar
+  .admin-dashboard {
+    .shrink-large {
+      @include shrunk-sidebar
+    }
   }
 }
 
