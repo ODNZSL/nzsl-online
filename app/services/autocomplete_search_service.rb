@@ -1,5 +1,5 @@
 class AutocompleteSearchService
-  MAX_NUM_SUGGESTIONS = 10
+  MAX_NUM_SUGGESTIONS = 100
   AUTOCOMPLETE_SEARCH_TIMEOUT = 10 # seconds
 
   class AutocompleteSearchServiceError < StandardError; end
@@ -20,7 +20,7 @@ class AutocompleteSearchService
   #
   # @return [Array<String>] array of autocomplete suggestions
   #
-  def find_suggestions # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+  def find_suggestions # rubocop:disable Metrics/MethodLength
     response = @faraday_connection.get do |request|
       request.params[:limit] = MAX_NUM_SUGGESTIONS
       request.params[:q] = CGI.escape(@search_term)
@@ -45,20 +45,12 @@ class AutocompleteSearchService
     #
     # rubocop:enable Style/AsciiComments
     #
-    results = response.body
-                      .force_encoding(Encoding::UTF_8)
-                      .split("\n")
-
-    if results.length > MAX_NUM_SUGGESTIONS
-      msg = <<~EO_MSG
-        Received #{results.count} autocomplete suggestions (#{results.count - MAX_NUM_SUGGESTIONS} more than expected):
-          #{results}
-      EO_MSG
-
-      @logger.info(msg)
-    end
-
-    results.take(MAX_NUM_SUGGESTIONS)
+    response
+      .body
+      .force_encoding(Encoding::UTF_8)
+      .split("\n")
+      .sort
+      .take(MAX_NUM_SUGGESTIONS)
   rescue Faraday::Error => e
     msg = <<~EO_MSG
       Recovered from failed autocomplete search.
