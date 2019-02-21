@@ -188,6 +188,7 @@ GEM
     msgpack (1.2.6)
     multi_xml (0.6.0)
     multipart-post (2.0.0)
+    newrelic_rpm (6.0.0.351)
     nio4r (2.3.1)
     nokogiri (1.10.1)
       mini_portile2 (~> 2.4.0)
@@ -393,6 +394,7 @@ DEPENDENCIES
   mini_magick (~> 4.9.2)
   mini_racer
   modernizr-rails
+  newrelic_rpm
   nokogiri (~> 1.10.1)
   pandoc-ruby
   paperclip
