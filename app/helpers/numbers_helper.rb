@@ -2,16 +2,21 @@
 
 module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
-    return @numbers if @numbers.present?
+    Rails.cache.fetch("numbers", expires_in: 24.hours) do
+      Rails.logger.info("Fetching new numbers signs from Freelex")
 
-    @number_signs = {}
-    Sign.all(tag: 29).each { |s| @number_signs[s.id.to_i] = s }
-    @numbers = { cardinal: signs_from_array(cardinal_array),
-                 ordinal: signs_from_array(ordinal_array),
-                 fractions: signs_from_array(fractions_array),
-                 time: signs_from_array(time_array),
-                 age: signs_from_array(age_array),
-                 money: signs_from_array(money_array) }
+      number_signs = {}
+      Sign.all(tag: 29).each { |s| number_signs[s.id.to_i] = s }
+
+      {
+        cardinal: signs_from_array(cardinal_array, number_signs),
+        ordinal: signs_from_array(ordinal_array, number_signs),
+        fractions: signs_from_array(fractions_array, number_signs),
+        time: signs_from_array(time_array, number_signs),
+        age: signs_from_array(age_array, number_signs),
+        money: signs_from_array(money_array, number_signs)
+      }
+    end
   end
 
   private
@@ -89,9 +94,9 @@ module NumbersHelper
      ['one dollar', 6234]]
   end
 
-  def signs_from_array(array)
+  def signs_from_array(array, number_signs)
     signs = array.map do |v|
-      [v[0], @number_signs[v[1]]]
+      [v[0], number_signs[v[1]]]
     end
 
     signs.reject { |v| v[1].nil? }
