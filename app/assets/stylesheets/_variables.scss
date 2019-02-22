@@ -17,15 +17,15 @@ $main-gloss: 1.333em;
 $secondary-gloss: .933em;
 $search-result-banner: 1.8em;
 
-$short-time: .2s;
-$medium-time: .3s;
-$long-time: .5s;
+$short-time: 0.2s;
+$medium-time: 0.3s;
+$long-time: 0.5s;
 $default-timing-function: ease-in-out;
 
 @mixin montserrat-light {
   font: {
     family: 'Montserrat', arial, sans-serif;
-    size: .9rem;
+    size: 0.9rem;
     weight: 300;
   }
 }
@@ -57,7 +57,7 @@ $default-timing-function: ease-in-out;
 }
 
 @mixin border-radius-small {
-  border-radius: .25rem;
+  border-radius: 0.25rem;
 }
 
 @mixin border-radius-large {

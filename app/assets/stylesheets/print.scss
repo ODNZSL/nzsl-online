@@ -21,20 +21,24 @@ body {
   }
 }
 
-footer .copyright {
-  background-color: transparent;
-  border: 0;
-  padding: .5rem 1rem 0;
+footer {
+  .copyright {
+    background-color: transparent;
+    border: 0;
+    padding: 0.5rem 1rem 0;
 
-  .footer-link {
-    color: $black;
-    float: none;
-    width: auto;
+    .footer-link {
+      color: $black;
+      float: none;
+      width: auto;
+    }
   }
 }
 
-.footer-link a {
-  color: $black;
+.footer-link {
+  a {
+    color: $black;
+  }
 }
 
 .creative-commons-logo {
@@ -88,7 +92,7 @@ a.button::after,
 }
 
 @page {
-  margin: .5cm;
+  margin: 0.5cm;
 }
 
 p,
@@ -123,7 +127,7 @@ body {
 }
 
 a.button {
-  color: #ffffff !important;
+  color: $white !important;
   text-decoration: none;
 }
 
@@ -171,10 +175,6 @@ img.vocab-download-button,
   box-shadow: none;
 }
 
-.video_replace {
-  height: auto;
-}
-
 a.drawing {
   text-decoration: none;
 }
@@ -219,6 +219,7 @@ h1,
 }
 
 .video_replace {
+  height: auto;
   white-space: pre-wrap;
   word-wrap: break-word;
 }

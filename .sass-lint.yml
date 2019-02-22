@@ -8,3 +8,19 @@ rules:
   nesting-depth:
     - 1
     - max-depth: 3
+  leading-zero:
+    - 1
+    - include: true
+
+  # This app has a lot of existing SCSS which uses extend with real classes.
+  placeholder-in-extend:
+    - 0
+  force-pseudo-nesting:
+    - 0
+  shorthand-values:
+    - 1
+    -
+      allowed-shorthands:
+        - 1
+        - 2
+
