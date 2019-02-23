@@ -27,6 +27,7 @@ gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'newrelic_rpm'
+gem 'puma', '~> 3.12'
 gem 'rack-canonical-host', '~> 0.2.3'
 gem 'dalli'
 
@@ -68,8 +69,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rb-readline'
   gem 'simplecov', require: false
-  # Use Puma as the app server for dev and test
-  gem 'puma', '~> 3.12'
 
   # for checking images in specs
   gem 'fastimage'
@@ -112,5 +111,4 @@ end
 
 group :staging, :production do
   gem 'rails_12factor'
-  gem 'unicorn'
 end
