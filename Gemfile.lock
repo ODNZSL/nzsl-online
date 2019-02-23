@@ -151,7 +151,6 @@ GEM
     jquery-ui-rails (6.0.1)
       railties (>= 3.2.16)
     json (2.1.0)
-    kgio (2.11.2)
     launchy (2.4.3)
       addressable (~> 2.3)
     letter_opener (1.7.0)
@@ -255,7 +254,6 @@ GEM
       rake (>= 0.8.7)
       thor (>= 0.19.0, < 2.0)
     rainbow (3.0.0)
-    raindrops (0.19.0)
     rake (12.3.2)
     raygun4ruby (2.7.1)
       concurrent-ruby
@@ -343,9 +341,6 @@ GEM
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
     unicode-display_width (1.4.1)
-    unicorn (5.4.1)
-      kgio (~> 2.6)
-      raindrops (~> 0.7)
     videojs_rails (4.12.15)
     warden (1.2.8)
       rack (>= 2.0.6)
@@ -415,7 +410,6 @@ DEPENDENCIES
   sass-rails
   simplecov
   uglifier
-  unicorn
   videojs_rails
   whenever
   will_paginate
