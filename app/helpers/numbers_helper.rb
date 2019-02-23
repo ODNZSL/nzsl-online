@@ -2,8 +2,8 @@
 
 module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
-    Rails.cache.fetch("numbers", expires_in: 24.hours) do
-      Rails.logger.info("Fetching new numbers signs from Freelex")
+    Rails.cache.fetch('numbers', expires_in: 24.hours) do
+      Rails.logger.info('Fetching new numbers signs from Freelex')
 
       number_signs = {}
       Sign.all(tag: 29).each { |s| number_signs[s.id.to_i] = s }

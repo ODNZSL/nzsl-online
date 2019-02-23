@@ -21,6 +21,7 @@ gem 'whenever'
 gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
+gem 'dalli'
 gem 'foundation-rails', '~> 6.5.3.0'
 gem 'i18n'
 gem 'mail'
@@ -29,7 +30,6 @@ gem 'modernizr-rails'
 gem 'newrelic_rpm'
 gem 'puma', '~> 3.12'
 gem 'rack-canonical-host', '~> 0.2.3'
-gem 'dalli'
 
 # For attaching files on the feedback form
 # on Feedback model
