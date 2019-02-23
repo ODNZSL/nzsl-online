@@ -49,7 +49,7 @@ class AutocompleteSearchService
       .body
       .force_encoding(Encoding::UTF_8)
       .split("\n")
-      .sort
+      .sort_by(&:downcase)
       .take(MAX_NUM_SUGGESTIONS)
   rescue Faraday::Error => e
     msg = <<~EO_MSG
