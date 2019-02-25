@@ -22,7 +22,7 @@ en:
     links: Links
     topics: Topics
   signs:
-    sign_of_the_day: Show me a sign
+    sign_of_the_day: Sign of the day
     another_sign_of_the_day: Show me another sign
     show:
       back_to:
