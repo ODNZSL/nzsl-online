@@ -23,7 +23,7 @@ Rails.application.configure do
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
 
-    config.cache_store = :file_store
+    config.cache_store = :file_store, "#{Rails.root}/tmp/rails-cache"
     # config.cache_store = :mem_cache_store, "localhost"
   else
     config.action_controller.perform_caching = false
