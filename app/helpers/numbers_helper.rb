@@ -2,7 +2,7 @@
 
 module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
-    Rails.cache.fetch('numbers', expires_in: 24.hours) do
+    Rails.cache.fetch('numbers', expires_in: 7.days) do
       Rails.logger.info('Fetching new numbers signs from Freelex')
 
       number_signs = {}
