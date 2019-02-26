@@ -101,6 +101,7 @@ GEM
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.4)
     crass (1.0.4)
+    dalli (2.7.9)
     database_cleaner (1.7.0)
     devise (4.6.1)
       bcrypt (~> 3.0)
@@ -369,6 +370,7 @@ DEPENDENCIES
   ckeditor_rails
   codeclimate-test-reporter (~> 1.0.9)
   coffee-rails
+  dalli
   database_cleaner
   devise
   dotenv-rails
