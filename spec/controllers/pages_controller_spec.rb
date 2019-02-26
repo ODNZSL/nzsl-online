@@ -3,12 +3,12 @@
 require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
-  before(:all) do
-    Rails.application.load_seed
-  end
-
   describe '#random_sign' do
-    before { get :random_sign }
+    before(:each) do
+      FactoryBot.create(:page, slug: '/')
+
+      get(:random_sign)
+    end
 
     it 'returns HTTP 200' do
       expect(response).to have_http_status(:ok)
