@@ -18,10 +18,13 @@ Rails.application.configure do
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?
     config.action_controller.perform_caching = true
-    config.cache_store = :memory_store
+
     config.public_file_server.headers = {
       'Cache-Control' => "public, max-age=#{2.days.to_i}"
     }
+
+    config.cache_store = :file_store, "#{Rails.root}/tmp/rails-cache"
+    # config.cache_store = :mem_cache_store, "localhost"
   else
     config.action_controller.perform_caching = false
 

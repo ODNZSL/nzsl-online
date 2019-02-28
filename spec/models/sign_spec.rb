@@ -52,13 +52,30 @@ RSpec.describe 'Sign', type: :model do
   end
 
   describe '.random' do
-    describe 'retrieves two random signs' do
-      let(:sign_one) { Sign.random }
-      let(:sign_two) { Sign.random }
+    it 'returns a Sign' do
+      expect(Sign.random).to be_an_instance_of(Sign)
+    end
+  end
 
-      it { expect(sign_one).to be_an_instance_of(Sign) }
-      it { expect(sign_two).to be_an_instance_of(Sign) }
-      it { expect(sign_one.id).not_to eq(sign_two.id) }
+  describe '.sign_of_the_day' do
+    it 'returns a Sign' do
+      expect(Sign.sign_of_the_day).to be_an_instance_of(Sign)
+    end
+
+    it 'returns the same sign when called repeatedly' do
+      expect(Sign.sign_of_the_day.id).to eq(Sign.sign_of_the_day.id)
+    end
+
+    it 'recovers if an exception is rasied by Rails caching' do
+      # given we are not in dev|test env
+      allow(Rails.env).to receive(:development?).and_return(false)
+      allow(Rails.env).to receive(:test?).and_return(false)
+
+      # and Rails caching raises and exception for some reason
+      allow(Rails.cache).to receive(:fetch).and_raise(TypeError)
+
+      # then we expect the method to still return a sign
+      expect(Sign.sign_of_the_day).to be_an_instance_of(Sign)
     end
   end
 

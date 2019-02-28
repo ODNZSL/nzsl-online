@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require 'nokogiri'
-
-## a sign in New Zealand Sign Language
-class Sign
+##
+# A sign in New Zealand Sign Language
+#
+class Sign # rubocop:disable Metrics/ClassLength
   # Create a custom error class.
   #
   # * Callers of this class can `rescue` one exception class if they want to
@@ -64,7 +64,19 @@ class Sign
   end
 
   def self.random
-    first random: 1
+    first(random: 1)
+  end
+
+  def self.sign_of_the_day # rubocop:disable Metrics/AbcSize
+    Rails.cache.fetch('sign-of-the-day', expires_in: 24.hours) do
+      Rails.logger.debug('Fetching new random sign from Freelex')
+      random
+    end
+  rescue StandardError => e
+    raise e if Rails.env.test? || Rails.env.development?
+
+    Raygun.track_exception(Exception.new("Recovered from sign-of-the-day cache lookup error. error=#{e.inspect}"))
+    random
   end
 
   def self.paginate(search_query, page_number)

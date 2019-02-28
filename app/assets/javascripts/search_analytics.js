@@ -42,6 +42,7 @@ var search_analytics_string = function() {
 /* exported ga_form_submission */
 var ga_form_submission = function(event) {
   var form = this;
+  var _gaq = _gaq || [];
 
   if (_gaq) {
     event.preventDefault();

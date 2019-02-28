@@ -13,7 +13,7 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.10.0'
-gem 'mini_magick', '~> 4.9.2'
+gem 'mini_magick', '~> 4.9.3'
 gem 'nokogiri', '~> 1.10.1'
 gem 'pandoc-ruby'
 gem 'whenever'
@@ -21,12 +21,14 @@ gem 'whenever'
 gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
+gem 'dalli'
 gem 'foundation-rails', '~> 6.5.3.0'
 gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'newrelic_rpm'
+gem 'puma', '~> 3.12'
 gem 'rack-canonical-host', '~> 0.2.3'
 
 # For attaching files on the feedback form
@@ -67,8 +69,6 @@ group :development, :test do
   gem 'pry-rails'
   gem 'rb-readline'
   gem 'simplecov', require: false
-  # Use Puma as the app server for dev and test
-  gem 'puma', '~> 3.12'
 
   # for checking images in specs
   gem 'fastimage'
@@ -111,5 +111,4 @@ end
 
 group :staging, :production do
   gem 'rails_12factor'
-  gem 'unicorn'
 end
