@@ -4,22 +4,30 @@ module NumbersHelper
   def numbers # rubocop:disable Metrics/AbcSize
     Rails.cache.fetch('numbers', expires_in: 7.days) do
       Rails.logger.info('Fetching new numbers signs from Freelex')
-
-      number_signs = {}
-      Sign.all(tag: 29).each { |s| number_signs[s.id.to_i] = s }
-
-      {
-        cardinal: signs_from_array(cardinal_array, number_signs),
-        ordinal: signs_from_array(ordinal_array, number_signs),
-        fractions: signs_from_array(fractions_array, number_signs),
-        time: signs_from_array(time_array, number_signs),
-        age: signs_from_array(age_array, number_signs),
-        money: signs_from_array(money_array, number_signs)
-      }
+      fetch_numbers_signs
     end
+  rescue StandardError => e
+    raise e if Rails.env.test? || Rails.env.development?
+
+    Raygun.track_exception(Exception.new("Recovered from number signs cache lookup error. error=#{e.inspect}"))
+    fetch_numbers_signs
   end
 
   private
+
+  def fetch_numbers_signs # rubocop:disable Metrics/AbcSize
+    number_signs = {}
+    Sign.all(tag: 29).each { |s| number_signs[s.id.to_i] = s }
+
+    {
+      cardinal: signs_from_array(cardinal_array, number_signs),
+      ordinal: signs_from_array(ordinal_array, number_signs),
+      fractions: signs_from_array(fractions_array, number_signs),
+      time: signs_from_array(time_array, number_signs),
+      age: signs_from_array(age_array, number_signs),
+      money: signs_from_array(money_array, number_signs)
+    }
+  end
 
   def cardinal_array # rubocop:disable Metrics/MethodLength
     [[0,  5655],     [0,  4056],
