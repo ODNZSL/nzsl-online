@@ -21,3 +21,8 @@ public/assets
 
 coverage/*
 .env
+
+postgres/*
+
+node_modules
+yarn-error.log

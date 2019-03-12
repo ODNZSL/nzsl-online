@@ -1,15 +1,10 @@
-.ie7,
-.ie8,
-.ie9 {
-  header,
-  footer,
-  .home-sign-container,
-  .home-container { display: none; }
-}
-.error.flash {
-  background: $error-red;
-  a {
-    color: white;
-    text-decoration: underline;
+.error {
+  .flash {
+    background: $error-red;
+
+    a {
+      color: $white;
+      text-decoration: underline;
+    }
   }
 }

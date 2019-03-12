@@ -14,4 +14,4 @@
           New to this site?
           = link_to "View our help page.", '/help'
 .home-sign-container.small-12.medium-8
-  = render partial: '/signs/sign_of_the_day', locals: { sign: Sign.random }
+  = render partial: '/signs/sign_of_the_day', locals: { sign: @sign }

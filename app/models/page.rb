@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 ## A page within our basic CMS
-class Page < ActiveRecord::Base
+class Page < ApplicationRecord
   RESTRICTED_SLUGS = %w[admin signs feedback sign_image images javascripts
                         stylesheets system 500 favicon
                         robots crossdomain].freeze # top level routes & public dir.
@@ -28,12 +28,13 @@ class Page < ActiveRecord::Base
 
   validates :template, presence: true, inclusion: { in: Page.templates }
 
-  default_scope { order('"pages"."order" ASC') }
+  default_scope { order(order: :asc) }
 
   scope :in_nav, -> { where(show_in_nav: true) }
 
   def self.find_by_slug(slug)
     return find_by(slug: '/') if slug.blank?
+
     find_by(slug: slug)
   end
 
@@ -70,6 +71,7 @@ class Page < ActiveRecord::Base
 
   def path
     return '/' if slug == '/'
+
     "/#{slug}/"
   end
 

@@ -2,7 +2,7 @@
 
 ##
 # A "sheet" of items (signs) saved by a user
-class VocabSheet < ActiveRecord::Base
+class VocabSheet < ApplicationRecord
   has_many :items, dependent: :destroy
 
   def includes_sign?(sign_id)

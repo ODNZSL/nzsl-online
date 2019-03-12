@@ -1,70 +1,117 @@
-.footer-link a,
-.footer-link span {
-  color: $light-grey;
-  border-bottom: none;
+
+.footer-link {
+  a,
+  span {
+    border-bottom: 0;
+    color: $light-grey;
+  }
 }
 
 footer {
   color: $light-grey;
+
   img {
     @include center-element;
+
     max-width: 250px;
   }
 
   .social-media {
-    width: 115px;
     @include center-element;
-    a { display: inline-block; }
-    img { margin: 10px; }
+
+    width: 115px;
+
+    a {
+      display: inline-block;
+    }
+
+    img {
+      margin: 10px;
+    }
   }
 
-  .print_footer { clear: left; }
+  .footer--print {
+    clear: left;
+  }
 
   .footer-heading {
     @include montserrat-bold;
+
     padding: 15px 0;
   }
+
   .sub-footer-container {
     background: $dark-blue;
+
     .sub-footer-content {
       padding: 10px 0 20px 0;
-      h3 { color: white; }
-      img { padding: 10px 0; }
+
+      h3 {
+        color: $white;
+      }
+
+      img {
+        padding: 10px 0;
+      }
     }
   }
-  .first { border: 0; }
+
+  .first {
+    border: 0;
+  }
 
   .copyright {
     background-color: $darkest-blue;
-    border-top: 1px solid white;
-    padding: 20px 0;
+    border-top: 1px solid $white;
     overflow: auto;
-    .footer-link { padding: 10px 0; }
+    padding: 20px 0;
+
+    .footer-link {
+      padding: 10px 0;
+    }
   }
 
   .footer-container {
     background-color: $darkest-blue;
     overflow: auto;
     padding: 30px 0 20px;
+
     .footer-columns {
       margin: 0 auto;
-      .learnnzsl { max-width: 180px; }
-      a:before {
-        content: "\A";
+
+      .learnnzsl {
+        max-width: 180px;
+      }
+
+      a::before,
+      span::before {
+        content: '\A';
         display: block;
         padding: 5px;
       }
+
+      span {
+        text-decoration: underline;
+      }
     }
+
     .github {
       margin: 15px auto;
-      overflow: auto;
       max-width: 340px;
-      img { margin: 0 10px; }
-      div {
-        width: calc(100% - 52px);
-        display: inline-block;
+      overflow: auto;
+
+      img {
+        margin: 0 10px;
       }
-      a { color: white; }
+
+      div {
+        display: inline-block;
+        width: calc(100% - 52px);
+      }
+
+      a {
+        color: $white;
+      }
     }
   }
 }
@@ -74,32 +121,61 @@ footer {
     .footer-container {
       .github {
         margin: 10px 0;
-        img { margin-left: 0;}
+
+        img {
+          margin-left: 0;
+        }
       }
+
       .footer-columns {
         float: left;
-        .learnnzsl { margin: initial; }
+
+        .learnnzsl {
+          margin: initial;
+        }
       }
     }
+
     .copyright {
       img {
-        float: left;
         display: inline-block;
+        float: left;
       }
+
       .footer-link {
         float: left;
-        width: calc(100% - 110px);
         padding: 0 10px;
+        width: calc(100% - 110px);
       }
     }
-    .sub-footer-container .sub-footer-content {
-      img { display: inline-block; }
-      a:first-child img { float: left; }
-      a:nth-child(2) img { float: right; }
+
+    .sub-footer-container {
+      .sub-footer-content {
+        img {
+          display: inline-block;
+        }
+
+        a:first-child {
+          img {
+            float: left;
+          }
+        }
+
+        a:nth-child(2) {
+          img {
+            float: right;
+          }
+        }
+      }
+
+      .social-media {
+        margin: 0;
+
+        img {
+          margin: 0 20px 30px 0;
+        }
+      }
     }
-    .social-media {
-      margin: 0;
-      img { margin: 0 20px 30px 0; }
-    }
+
   }
 }

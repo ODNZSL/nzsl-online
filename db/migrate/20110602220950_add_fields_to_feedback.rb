@@ -1,4 +1,4 @@
-class AddFieldsToFeedback < ActiveRecord::Migration
+class AddFieldsToFeedback < ActiveRecord::Migration[4.2]
   def self.up
     add_column :feedbacks, :hearing_level, :string
     add_column :feedbacks, :nzsl_level, :string

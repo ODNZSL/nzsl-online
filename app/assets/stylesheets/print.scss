@@ -1,0 +1,259 @@
+@import 'color';
+@import 'variables';
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+}
+
+.print-page-wrapper {
+  position: relative;
+
+  .footer--print {
+    border-top: 1px solid $darkest-blue;
+    bottom: 0;
+    display: block;
+    height: 5rem;
+    left: 0;
+    position: absolute;
+    width: 100%;
+  }
+}
+
+footer {
+  .copyright {
+    background-color: transparent;
+    border: 0;
+    padding: 0.5rem 1rem 0;
+
+    .footer-link {
+      color: $black;
+      float: none;
+      width: auto;
+    }
+  }
+}
+
+.footer-link {
+  a {
+    color: $black;
+  }
+}
+
+.creative-commons-logo {
+  margin: 0 1rem 1rem 0;
+}
+
+.vocab__sheet-name--print-view {
+  display: inline-block;
+}
+
+.vocab_sheet_page {
+  padding-bottom: 5rem;
+}
+
+.vocab-sheet__item {
+  &--column {
+    &-6 {
+      margin: 0;
+
+      &:not(:last-of-type) {
+        border-bottom: 1px solid $light-med-grey;
+      }
+    }
+  }
+
+  .vocab_sheet_drawing {
+    &--download {
+      display: none;
+    }
+  }
+}
+
+// from boilerplate
+// (removed a couple of rules)
+a::after {
+  content: '';
+  text-decoration: none;
+}
+
+abbr[title]::after {
+  content: ' (' attr(title) ')';
+}
+
+.ir a::after,
+a[href^='javascript:']::after,
+a[href^='#']::after,
+.center a::after,
+a.button::after,
+.copyright a::after {
+  content: '';
+}
+
+@page {
+  margin: 0.5cm;
+}
+
+p,
+h2,
+h3 {
+  orphans: 3;
+  widows: 3;
+}
+
+// modding boilerplate
+
+body {
+  color: $black;
+}
+
+.vocab_sheet * {
+  background: transparent;
+  color: $black;
+  filter: none;
+  text-shadow: none;
+}
+
+.vocab-sheet__text-input,
+.vocab-sheet__text-input[readonly] {
+  background-color: transparent;
+}
+
+.main_column a {
+  border: 0;
+  color: #444 !important;
+  text-decoration: underline;
+}
+
+a.button {
+  color: $white !important;
+  text-decoration: none;
+}
+
+a.main_gloss {
+  text-decoration: none;
+}
+
+a.main_gloss::after {
+  font-size: 10px;
+  line-height: 10px;
+}
+
+// hiding useless things
+.nav,
+.vocab-sidebar,
+.empty_vocab_sheet,
+.button,
+.logo,
+.flashes,
+object,
+.view_print_back_link,
+.remove,
+.js .if_js,
+.vocab-sheet__controls,
+.menu-list,
+.search-container,
+.hamburger-menu-icon,
+img.vocab-download-button,
+.character-count__wrap {
+  display: none;
+}
+
+.header-nav {
+  overflow: auto;
+}
+
+// remove shadows of my mind
+.ui-widget,
+.shadow,
+.text_input,
+.text_input_hidden,
+.text_input_hidden:focus,
+.vocab-sheet__text-input,
+.vocab-sheet__text-input:focus {
+  box-shadow: none;
+}
+
+a.drawing {
+  text-decoration: none;
+}
+
+// hiding link destinations after text
+a.drawing::after {
+  content: '';
+}
+
+// making the vocabsheet have a not editing looking view
+.vocab-sheet__page-item {
+  border: 0;
+}
+
+.vocab_sheet_page textarea {
+  border: 0 !important;
+  outline: none;
+  text-align: center;
+}
+
+// restyling the main page layout to not just be a centered column of text, and to unsticky the footer (because it becomes unprintable otherwise)
+.not_sticky_footer {
+  height: auto;
+  min-height: 0;
+  padding-bottom: 0;
+}
+
+.before_sticky_footer {
+  overflow: visible;
+  padding-bottom: 0;
+}
+
+// show logo for printing
+.logo--print {
+  display: block;
+  float: left;
+}
+
+h1,
+.h1 {
+  padding-top: 23px;
+}
+
+.video_replace {
+  height: auto;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+}
+
+.center {
+  padding: 0;
+  width: 690px;
+}
+
+@media only print {
+  .print-page-wrapper {
+    height: 100vh;
+    overflow: hidden;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page__header {
+    display: none;
+  }
+
+  .creative-commons-logo {
+    float: left;
+  }
+
+  .footer-link {
+    margin-top: -1rem;
+  }
+
+  .vocab-sheet__text-input {
+    appearance: none;
+  }
+
+  .download-link[href]::after {
+    content: none;
+  }
+}

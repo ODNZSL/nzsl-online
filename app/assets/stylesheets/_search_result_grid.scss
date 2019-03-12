@@ -1,50 +1,27 @@
-.link_and_drawing_container {
-  overflow: auto;
-  margin-bottom: 10px;
-  position: relative;
-  .link_container {
-    width: 45%;
-    text-align: left;
-    margin-top: 80px;
-    margin-left: 5px
-  }
-
-  .unicode_arrow { color: $primary-blue; }
-
-  .show_link {
-    @include montserrat-regular;
-    font-size: $subgloss-font-size;
-    border-bottom: 0;
-    a {
-      text-decoration: none;
-      float: left;
-    }
-  }
-
-  .drawing_container {
-    width: 52%;
-    .drawing img {
-      max-width: 100%;
-      margin: 0;
-    }
-  }
-}
-
 .pagination_container {
   @include montserrat-light;
+
   margin: 70px 0;
 
-  .pagination { margin: 0; }
+  .pagination {
+    margin: 0;
 
-  .pagination .current { color: black; }
+    .current {
+      color: $black;
+    }
 
-  .pagination li {
-    font-size: $pagination-font-size;
-    display: inline-block;
+    li {
+      display: inline-block;
+      font-size: $pagination-font-size;
+    }
+
+    a {
+      padding: 0 10px;
+    }
+
+    .a {
+      color: $med-grey;
+      padding: 0 10px;
+    }
   }
-
-  .pagination .a,
-  .pagination  a { padding: 0 10px; }
-
-  .pagination .a { color: $med-grey; }
 }

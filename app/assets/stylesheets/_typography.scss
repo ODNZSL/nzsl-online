@@ -4,17 +4,27 @@
 
 body { @include montserrat-light; }
 
-article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+menu,
+nav,
+section {
   display: block;
 }
 
-q:before,
-q:after {
+q::before,
+q::after {
   content: '';
 }
 
-ins, mark {
+ins,
+mark {
   background-color: $bright-yellow;
   color: $blue-grey;
   text-decoration: none;
@@ -22,7 +32,8 @@ ins, mark {
 
 del { text-decoration: line-through; }
 
-abbr[title], dfn[title] {
+abbr[title],
+dfn[title] {
   border-bottom: 1px dotted;
   cursor: help;
 }
@@ -33,16 +44,21 @@ table {
 }
 
 hr {
-  display: block;
-  height: 1px; border: 0;
+  border: 0;
   border-top: 1px solid $light-med-grey;
+  display: block;
+  height: 1px;
   margin: 1em 0;
   padding: 0;
 }
 
-input, select { vertical-align: middle; }
+input,
+select {
+  vertical-align: middle;
+}
 
-sub, sup {
+sub,
+sup {
   font-size: 0.75em;
   line-height: 0;
   position: relative;
@@ -53,44 +69,48 @@ sup { top: -0.5em; }
 sub { bottom: -0.25em; }
 
 pre {
-  white-space: pre;
+  padding: 15px;
   white-space: pre-wrap;
   word-wrap: break-word;
-  padding: 15px;
 }
 
-textarea { overflow: auto; }
+textarea {
+  min-height: 1em;
+  width: 100%;
+}
 
-input[type="radio"] { vertical-align: bottom; }
+input[type='radio'] { vertical-align: bottom; }
 
-input[type="checkbox"] { vertical-align: bottom; }
+input[type='checkbox'] { vertical-align: bottom; }
 
-.ie7 input[type="checkbox"] { vertical-align: baseline; }
+.ie7 input[type='checkbox'] { vertical-align: baseline; }
 
 .ie6 input { vertical-align: text-bottom; }
 
 label,
-input[type="button"],
-input[type="submit"],
-input[type="image"],
-button { cursor: pointer; }
+input[type='button'],
+input[type='submit'],
+input[type='image'],
+button {
+  cursor: pointer;
+}
 
 button,
 input,
 select,
-textarea { margin: 0; }
+textarea {
+  margin: 0;
+}
 
 input:invalid,
 textarea:invalid {
   border-radius: 1px;
-  -moz-box-shadow: 0 0 5px red;
-  -webkit-box-shadow: 0 0 5px red;
-  box-shadow: 0 0 5px red;
+  box-shadow: 0 0 5px #ff0000;
 }
 
 button {
-  width: auto;
   overflow: visible;
+  width: auto;
 }
 
 a,
@@ -100,28 +120,52 @@ a span,
 a:active span,
 a:visited span {
   color: $link-blue;
-  text-decoration:none;
+  text-decoration: none;
 }
 
 a:active { color: $peach; }
+
 a:hover,
 a:hover span {
   color: $link-blue;
-  opacity: 0.8;
   cursor: pointer;
+  opacity: 0.8;
 }
 
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   @include montserrat-light;
   margin: 10px 0;
   padding: 0;
 }
 
-h1, .h1 { font-size: $h1-font-size; }
-h2, .h2 { font-size: $h2-font-size; }
-h3, .h3 { font-size: $h3-font-size; }
-h4, .h4 { font-size: $h4-font-size; }
+h1,
+.h1 {
+  font-size: $h1-font-size;
+}
+
+h2,
+.h2 {
+  font-size: $h2-font-size;
+}
+
+h3,
+.h3 {
+  font-size: $h3-font-size;
+}
+
+h4,
+.h4 {
+  font-size: $h4-font-size;
+}
+
 h5 { font-size: $h5-font-size; }
+
 h6 { font-size: $h6-font-size; }
 
 .typography {
@@ -129,45 +173,63 @@ h6 { font-size: $h6-font-size; }
     margin: 0 0 0.6em;
     word-wrap: break-word;
   }
+
   dl {
-    width: 250px;
     margin-left: 150px;
     margin-top: -1.6em;
+    width: 250px;
   }
+
   dt {
-    width: 150px;
-    position: relative;
-    overflow: visible;
     left: -150px;
-    top: 1.6em;
     line-height: 1.6;
-    &:after { content:':'; }
+    overflow: visible;
+    position: relative;
+    top: 1.6em;
+    width: 150px;
+    &::after { content: ':'; }
   }
+
   blockquote {
     background: $oat-grey;
-    padding: 15px 15px 1px;
     margin: 15px 0;
+    padding: 15px 15px 1px;
   }
-  a[name], a[name]:hover {
+
+  a[name],
+  a[name]:hover {
     background: transparent;
     border: 0;
     color: $blue-grey;
   }
 }
 
-h2+h3 { margin-top:1em; }
+h2+h3 { margin-top: 1em; }
 
 .main_gloss,
 .static-page-heading,
-.maori_gloss { @include montserrat-regular; }
+.maori-gloss {
+  @include montserrat-regular;
+}
 
 .static-page-heading { text-transform: capitalize; }
 
-.main_gloss {
-  font-size: $main-gloss;
-  padding: 0;
-  margin: 10px 0;
-  display: block;
+h2 {
+  .main_gloss {
+    display: block;
+    font-size: $main-gloss;
+    margin: 10px 0;
+    padding: 0;
+  }
+}
+
+a {
+  .main_gloss {
+    display: block;
+    font-size: $main-gloss;
+    margin: 10px 0;
+    padding: 0;
+  }
 }
 
 .secondary_gloss {
@@ -181,16 +243,32 @@ h2+h3 { margin-top:1em; }
 }
 
 .word_gloss,
-.maori_gloss {
-  font-style: italic;
+.maori-gloss {
   display: block;
   font-size: $secondary-gloss;
+  font-style: italic;
+}
+
+.glosses-container {
+  .maori-gloss {
+    font-size: $main-gloss;
+  }
+}
+
+.item-maori-name {
+  .maori-gloss {
+    font-size: $main-gloss;
+  }
 }
 
 .search-result-banner {
   @include montserrat-light;
+  box-sizing: border-box;
   font-size: $search-result-banner;
+  height: 130px;
 }
 
 .grammar,
-.glosses { margin-bottom: 1.2em; }
+.glosses {
+  margin-bottom: 1.2em;
+}

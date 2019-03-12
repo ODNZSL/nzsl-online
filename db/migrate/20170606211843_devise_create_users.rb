@@ -1,9 +1,9 @@
-class DeviseCreateUsers < ActiveRecord::Migration
-  def change
+class DeviseCreateUsers < ActiveRecord::Migration[4.2]
+  def change # rubocop:disable Metrics/MethodLength
     create_table :users do |t|
       ## Database authenticatable
-      t.string :email,              null: false, default: ""
-      t.string :encrypted_password, null: false, default: ""
+      t.string :email,              null: false, default: ''
+      t.string :encrypted_password, null: false, default: ''
 
       ## Recoverable
       t.string   :reset_password_token

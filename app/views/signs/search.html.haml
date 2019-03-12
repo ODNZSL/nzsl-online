@@ -1,47 +1,40 @@
+= render partial: 'shared/vocab_sheet', locals: { sheet: @sheet }
 .search-result-banner.small-12.text-center
   %h2
     = @results_total
-    = t('search.results.for')
-    &ldquo;#{display_search_term}&rdquo;
-.search_results_container.text-center.small-12.small-centered.medium-8.large-9
-  .row#search-container{ data: { "equalizer": true } }
-    - @signs.each do |sign|
-      .small-12.medium-6.large-4.xlarge-3.float-left
-        .search_results_card.float-left{ data: { "equalizer-watch": true } }
-          - if @query[:s]
-            - query_text = @query[:s].join(" ")
-          - else
-            - query_text = " "
-          .video-container
-            %i.fi-play.play-button
-            = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
-          %div.clickable_link.small-12.small-centered
-            %a.div_link{ href: "#{sign_url(sign.id)}" }
-              %span
-                .gloss_container.small-11.small-centered
-                  = link_to sign_url(sign.id), { class: 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);" } do
-                    = sign.gloss_main
-                  - if sign.gloss_secondary.present?
-                    .secondary_gloss.text-left= sign.gloss_secondary
-                  - if sign.gloss_maori
-                    .maori_gloss.small-12.text-left= sign.gloss_maori
-                  - if sign.word_classes.present?
-                    .word_gloss.small-12.text-left= sign.word_classes
-          .link_and_drawing_container.small-12
-            .link_container.float-left
-              = link_to "learn more", sign_url(sign.id), { class: "show_link float-left" }
-              %span.unicode_arrow.float-left &rarr;
-            .drawing_container.float-left
-              = link_to(sign_url(sign.id),
-                        class: 'drawing grid_drawing js-ga-link-submission',
-                        onclick: "_gaq.push(['_trackEvent',
-                          'Search',
-                          'Click',
-                          '#{query_text}-#{sign.id}',
-                          #{@signs.find_index(sign) + 1}]);") do
-                = image_tag "signs/150-100/#{sign.drawing}"
-
+    search results for #{display_search_term}
+.search-results__container.text-center.small-12.small-centered.medium-7.large-8.xlarge-9
+  - @signs.each do |sign|
+    .search-results__card
+      - @query[:s] ? query_text = @query[:s].join(" ") : query_text = " "
+      .video-container.video--placeholder
+        %i.fi-play.play-button
+        = videojs_rails sources: { mp4: sign.video }, class: "normal", controlsList:"nodownload", controls: false, preload: "auto", loop: true
+      -# %span.search-results--placeholder
+      .clickable_link.small-12.small-centered
+        %a.div_link{:href => "#{sign_url(sign.id)}"}
+          %span
+            .gloss_container.small-11.small-centered
+              = link_to sign_url(sign.id), { class: 'main_gloss text-left js-ga-link-submission', onclick: "_gaq.push(['_trackEvent', 'Search', 'Click', '#{query_text}-#{sign.id}', #{@signs.find_index(sign)  + 1}]);" } do
+                = sign.gloss_main
+              .secondary_gloss.text-left
+                = sign.gloss_secondary if sign.gloss_secondary.present?
+              .maori-gloss.small-12.text-left
+                = sign.gloss_maori if sign.gloss_maori
+              .word_gloss.small-12.text-left
+                = sign.word_classes if sign.word_classes.present?
+      .card__bottom-row
+        .card__sign-container
+          = link_to sign_url(sign.id), { class: 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent','Search','Click','#{query_text}-#{sign.id}',#{@signs.find_index(sign) + 1}]);" } do
+            = image_tag sign_image_url(image_name: sign.drawing), { class: 'card__drawing-image' }
+        .card__button-container
+          = link_to sign_url(sign.id), { class: "card__button" } do
+            %span.card__button-symbol.card__button-symbol--blue →
+            %span.card__button-action Learn More
+          = link_to "#", { class: "card__button add-to-vocab-btn card__button--peach", "data-sign-id": sign.id } do
+            %span.card__button-symbol.card__button-symbol--peach +
+            %span.card__button-action.card__button-action--peach Vocab Sheet
   .pagination_container.small-12.float-left.text-center
     - if @results_total > Sign::RESULTS_PER_PAGE
       %ol.pagination
-        = pagination_links
+        = @pagination_html

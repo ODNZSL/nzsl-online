@@ -7,9 +7,9 @@
     %div{class: "sign-content-container row", id: "sign-content-container", data: {"equalizer": true }}
       %div{ class: "sign-container small-12 medium-6 float-right", data: {"equalizer-watch": true }}
         = link_to sign_url(sign.id), {class: 'drawing'} do
-          = image_tag "signs/320-180/#{sign.drawing}", class: "sign-image"
+          = image_tag sign_image_url(image_name: sign.drawing), class: "sign-image"
       %div{ class: "video-container small-12 medium-6 float-left", data: {"equalizer-watch": true }}
         %i.fi-play.play-button
         = videojs_rails sources: { mp4: sign.video }, class: "main_video video normal", preload: "auto", controlsList:"nodownload", loop: true, controls: false
   .button.text-center
-    = link_to t('signs.another_sign_of_the_day'), '/'
+    = link_to t('signs.another_sign_of_the_day'), random_sign_path

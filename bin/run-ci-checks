@@ -1,0 +1,40 @@
+#!/usr/bin/env bash
+
+# exit if any command fails (failure indicated by
+# returning a non-zero exit status)
+set -e
+
+echo "***************************************"
+echo "Running Ruby static analysis (Brakeman)"
+echo "***************************************"
+brakeman --run-all-checks --exit-on-warn --format plain .
+
+echo "*************************"
+echo "Running Javascript linter"
+echo "*************************"
+
+yarn run eslint
+
+echo "*******************"
+echo "Running SCSS linter"
+echo "*******************"
+
+yarn run sass-lint
+
+echo "*******************************************************"
+echo "Checking Ruby dependencies for security vulnerabilities"
+echo "*******************************************************"
+
+bundle exec bundle-audit check --update
+
+echo "*******************"
+echo "Running ruby linter"
+echo "*******************"
+
+bundle exec rubocop --display-cop-names
+
+echo "******************"
+echo "Running ruby specs"
+echo "******************"
+
+bundle exec rspec spec

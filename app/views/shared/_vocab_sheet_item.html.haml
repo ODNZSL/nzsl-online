@@ -1,9 +1,8 @@
-%li.vocab_sheet_item.vocab_sheet_bar_item
-  = image_tag "signs/80-80/#{vocab_sheet_item.drawing}"
-  %p.main_gloss
+%li{ class: "vocab-sheet__item vocab-sidebar__item", "data-sign-id": vocab_sheet_item.id }
+  = image_tag sign_image_url(image_name: vocab_sheet_item.drawing, width: 80, height: 80), class: "vocab-sidebar__image"
+  %p.main_gloss.vocab-sidebar__gloss
     = vocab_sheet_item.name
-  %p.maori_gloss
+  %p.maori_gloss.vocab-sidebar__gloss
     = vocab_sheet_item.maori_name
-  .b
-  = form_tag vocab_sheet_item_path(vocab_sheet_item), method: :delete do
-    %button.remove{ type: 'submit' }= t('vocab_sheet.item.remove')
+  = link_to "#", { class: "remove", "data-sign-id": vocab_sheet_item.id } do
+    %button

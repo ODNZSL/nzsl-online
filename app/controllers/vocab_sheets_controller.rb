@@ -6,11 +6,21 @@ class VocabSheetsController < ApplicationController
   before_action :set_search_query, :footer_content
   respond_to :html, :json
 
-  def show
-    @size = params[:size].to_i
-    @size = session[:vocab_sheet_size].to_i if @size.zero?
-    @size = 4 if @size.zero?
-    session[:vocab_sheet_size] = @size
+  def show # rubocop:disable Metrics/AbcSize
+    set_vocab_sheet_size
+
+    respond_to do |format|
+      format.html do
+        return render :print if params[:print] == 'true'
+
+        render :show
+      end
+
+      format.pdf do
+        pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
+        send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
+      end
+    end
   end
 
   def update
@@ -28,7 +38,7 @@ class VocabSheetsController < ApplicationController
   end
 
   def destroy
-    if @sheet && @sheet.destroy
+    if @sheet&.destroy
       session[:vocab_sheet_id] = nil
       flash[:notice] = t('vocab_sheet.delete_success')
     else
@@ -47,5 +57,18 @@ class VocabSheetsController < ApplicationController
 
   def set_title
     @title = @sheet.name
+  end
+
+  def build_rendered_pdf(html:)
+    renderer = PdfRenderingService.new(from_html: html)
+    renderer.render
+    renderer.pdf
+  end
+
+  def set_vocab_sheet_size
+    @size = params[:size].to_i
+    @size = session[:vocab_sheet_size].to_i if @size.zero?
+    @size = 4 if @size.zero?
+    session[:vocab_sheet_size] = @size
   end
 end

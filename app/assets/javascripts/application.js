@@ -1,3 +1,4 @@
+/* eslint spaced-comment: "off" */
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor-jquery
@@ -15,7 +16,12 @@
 //= require admin
 //= require search_result_link
 //= require custom_play_button
-//= require foundation-equalizer
 //= require video
+//= require auto_expand_textarea
+//= require search-result-load-in
+//= require search-vocab
 
-$(function(){ $(document).foundation(); });
+
+$(function() {
+  $(document).foundation();
+});

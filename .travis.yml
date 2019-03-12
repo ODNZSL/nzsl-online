@@ -1,27 +1,25 @@
 language: ruby
 bundler_args: "--without development"
 sudo: false
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
 env:
   global:
-  - S3_BUCKET_URL=http://s3-ap-southeast-2.amazonaws.com/test-asset-bucket/
-  - CC_TEST_REPORTER_ID=$CODECLIMATE_REPO_TOKEN
-  - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
-    else git log -1 --skip 1 --pretty=format:%ct; fi)
-rvm:
-- 2.3.7
 before_script:
-- gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit' 'pandoc-ruby'
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- RAILS_ENV=test bundle exec rake db:create db:schema:load
+  - gem install --no-document brakeman pandoc-ruby
+  - nvm install node 9.10.0
+  - yarn install
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - RAILS_ENV=test bundle exec rails db:create db:migrate db:schema:load
 addons:
   apt_packages:
     - pandoc
-  code_climate:
-    repo_token: CC_TEST_REPORTER_ID
+    - google-chrome-stable
 script:
-- brakeman --run-all-checks --exit-on-warn --format plain .
-- bundle exec rspec spec
-after_success:
-- ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+  - brakeman --run-all-checks --exit-on-warn --format plain .
+  - bundle exec rspec spec
+after_script:
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT

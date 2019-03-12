@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Item < ActiveRecord::Base
+class Item < ApplicationRecord
   validates :sign_id, :name, presence: true
   validates :sign_id, :position, numericality: true
   # validates :position, greater_than: 0, allow_nil: true
@@ -8,10 +8,10 @@ class Item < ActiveRecord::Base
   belongs_to :vocab_sheet
 
   before_validation do
-    self.name = (sign.is_a?(Sign) ? sign.gloss_main : nil) if name.nil? || name.blank?
-    self.maori_name = (sign.is_a?(Sign) ? sign.gloss_maori : nil) if maori_name.nil? || maori_name.blank?
+    self.name = (sign.is_a?(Sign) ? sign.gloss_main : nil) if name.nil?
+    self.maori_name = (sign.is_a?(Sign) ? sign.gloss_maori : nil) if maori_name.nil?
     self.sign_id = sign.id if sign_id.nil?
-    self.drawing = sign.drawing
+    self.drawing = sign.drawing if drawing.nil?
   end
 
   default_scope { order('position ASC', 'created_at ASC') }
@@ -27,6 +27,7 @@ class Item < ActiveRecord::Base
 
   def update_maori_name_if_missing
     return unless self[:maori_name].nil? && persisted?
+
     self.maori_name = sign.gloss_maori
     save
   end

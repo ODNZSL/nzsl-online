@@ -2,22 +2,36 @@
 
 module SignsHelper
   def render_grammar_notes(sign)
-    [:contains_numbers,
-     :is_fingerspelling,
-     :is_directional,
-     :is_locatable,
-     :one_or_two_handed,
-     :inflection_temporal,
-     :inflection_plural,
-     :inflection_manner_and_degree].map do |note|
-       next unless sign.send(note)
+    %i[contains_numbers
+       is_fingerspelling
+       is_directional
+       is_locatable
+       one_or_two_handed
+       inflection_temporal
+       inflection_plural
+       inflection_manner_and_degree].map do |note|
+      next unless sign.send(note)
 
-       attrs = { class: 'js-ga-link-submission',
-                 onclick: "_gaq.push(['_trackEvent',
-                 'Sign', 'Click', 'glossary #{note}']);" }
-       link_to(t("signs.show.field.#{note}"),
-               "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
-     end.compact.join(', ').html_safe
+      attrs = { class: 'js-ga-link-submission',
+                onclick: "_gaq.push(['_trackEvent',
+                'Sign', 'Click', 'glossary #{note}']);" }
+      link_to(t("signs.show.field.#{note}"),
+              "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
+    end.compact.join(', ').html_safe
+  end
+
+  ##
+  # This function should be the one and only place in the app which generates
+  # URLs to sign images.
+  #
+  def sign_image_url(image_name: '', width: 400, height: 400, high_res: false)
+    file_name = if high_res
+                  image_name.gsub(/default.png$/i, 'high_resolution.png')
+                else
+                  image_name
+                end
+
+    "/images/signs/#{width}-#{height}/#{file_name}"
   end
 
   def render_transcription(transcription, id)
@@ -40,6 +54,7 @@ module SignsHelper
 
   def render_back_to_search_results
     return unless request.referer
+
     referer = URI(request.referer)
     case referer.path
     when search_signs_path

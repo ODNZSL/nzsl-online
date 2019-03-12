@@ -302,14 +302,25 @@ $(function(){
       $('.if_'+$(this).attr('id')).toggle(this.checked);
     }).trigger('change');
   };
+
   var setup_keyword_autocomplete = function(){
-    var input = $('#s');
-    input.autocomplete({
+    var $searchForm = $(".js-ga-form-submission");
+    var $searchInput = $('#s');
+
+    $searchInput.autocomplete({
       source: '/signs/autocomplete',
       delay:10,
       minLength:3,
-      appendTo:input.parent()
+      appendTo: $searchInput.parent(),
+      autoFocus: true,
+      select: function(_event, ui) {
+        if(ui && ui.item && ui.item.value) {
+          $searchInput.val(ui.item.value);
+          $searchForm.trigger("submit");
+        }
+      }
     });
   };
+
   setup();
 });

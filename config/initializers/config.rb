@@ -3,4 +3,14 @@
 SIGN_URL         = 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/publicsearch'
 ASSET_URL        = 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/assets/'
 AUTOCOMPLETE_URL = 'http://nzsl-assets.vuw.ac.nz/dnzsl/ncbin/public_search_lookup'
-ADMIN_EMAIL      = 'david.mckee@vuw.ac.nz'
+ADMIN_EMAIL      = 'micky.vale@vuw.ac.nz'
+
+##
+# Heroku enforces a 30 second timeout on our generating a response. We set a
+# timeout for Freelex that allows us time to process the response and return it
+# to our client within that constraint.
+#
+# This timeout option specifies when how long we should wait (in seconds) for
+# data to be available to be read from the socket.
+#
+FREELEX_TIMEOUT = 20 # seconds

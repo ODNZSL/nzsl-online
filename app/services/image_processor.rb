@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
+require 'mini_magick'
+require 'open-uri'
+
 ## Retrieves images from Freelex, resizes and saves locally
 class ImageProcessor
-  require 'mini_magick'
-  require 'open-uri'
-
   def initialize(filename:, height:, width:)
     @filename = filename
     @height = height
@@ -14,26 +14,26 @@ class ImageProcessor
     @local_filename = calculate_local_filename
   end
 
-  def resize_and_cache
+  def return_file_from_cache
     return @local_filename if local_file_exists && local_file_age_in_days < 1
-    resize
+
+    write_file_locally
     @local_filename
   end
 
   private
 
-  def resize
-    image = MiniMagick::Image.open(@remote_filename)
-    image.shave CROP_IMAGES_BY if CROP_IMAGES
+  def write_file_locally # rubocop:disable Metrics/AbcSize
+    image = nil
+    image_retrieval =
+      Benchmark.measure("retriving image '#{@remote_filename}'") { image = MiniMagick::Image.open(@remote_filename) }
 
-    # Reset page size to cropped image to avoid offset issue.
-    # See here: http://studio.imagemagick.org/pipermail/magick-bugs/2008-May/002933.html
-    width  = Integer(image['width'])
-    height = Integer(image['height'])
-    image.set('page', "#{width}x#{height}+0+0")
-    image.resize dimensions.join('x') + '>'
+    Rails.logger.debug image_retrieval.label + image_retrieval.to_s
+
     image.format 'png'
-    image.write @local_filename
+
+    image_caching = Benchmark.measure("caching image '#{@local_filename}'") { image.write @local_filename }
+    Rails.logger.debug image_caching.label + image_caching.to_s
   end
 
   def local_file_exists

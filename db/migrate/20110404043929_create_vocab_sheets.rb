@@ -1,8 +1,6 @@
-class CreateVocabSheets < ActiveRecord::Migration
+class CreateVocabSheets < ActiveRecord::Migration[4.2]
   def self.up
-    create_table :vocab_sheets do |t|
-      t.timestamps
-    end
+    create_table :vocab_sheets, &:timestamps
   end
 
   def self.down

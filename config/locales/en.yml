@@ -22,7 +22,7 @@ en:
     links: Links
     topics: Topics
   signs:
-    sign_of_the_day: Show me a sign
+    sign_of_the_day: Sign of the day
     another_sign_of_the_day: Show me another sign
     show:
       back_to:
@@ -81,7 +81,7 @@ en:
       add_failure: This sign could not be added to your Vocab sheet - please try again in a moment.
       add_duplicate: This sign is already in your vocab sheet.
       remove: Remove
-      remove_success: You have removed a sign from your Vocab Sheet.
+      remove_success: Sign removed
       remove_failure: This sign has been removed from your Vocab Sheet.
       update: Rename
       update_success: You have updated a sign
@@ -91,6 +91,8 @@ en:
       update_failure: Failure. Vocab sheet not updated."
     link_to: View
     print: Print
+    download: Download as PDF
+    download_in_progress: "Please wait. Your vocabulary sheet is being generated and will download soon."
     empty: Your vocab sheet is empty.
     delete: Clear Sheet
     delete_success: Your Vocab Sheet is empty.

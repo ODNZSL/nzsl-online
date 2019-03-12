@@ -1,0 +1,14 @@
+.print-page-wrapper
+  .header
+    = image_tag "ui/logo.png", class: "logo--print"
+    %h2.vocab__sheet-name--print-view= @sheet.name.present? ? @sheet.name : t('vocab_sheet.name')
+  - if @sheet.items.length > 0
+    .vocab_sheet.vocab_sheet_page
+      %ul#vocab_sheet
+        - @sheet.items.each_with_index do |vocab_sheet_item, i|
+          - if params[:print] && !i.zero? && i.multiple_of?(vocab_sheet_offset_multiple)
+            = render partial: "shared/print_page_boundary"
+          = render partial: "vocab_sheets/vocab_sheet_item", locals: { vocab_sheet_item: vocab_sheet_item, size: @size }
+    = render partial: "shared/print_footer", locals: {last: false}
+  - else
+    = t("vocab_sheet.empty")

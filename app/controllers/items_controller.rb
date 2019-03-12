@@ -7,17 +7,15 @@ class ItemsController < ApplicationController
   before_action :set_item, only: %i(update destroy)
   respond_to :html, :json
 
-  def create # rubocop:disable Metrics/AbcSize, MethodLength, Metrics/PerceivedComplexity
-    sign_id = params[:sign_id].to_i
-    if @sheet.includes_sign?(sign_id: sign_id)
+  def create # rubocop:disable Metrics/AbcSize, MethodLength
+    if @sheet.includes_sign?(sign_id: params[:sign_id])
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
     else
-      @item = Item.new
-      @item.sign = Sign.first(id: sign_id)
-      @item.sign_id = sign_id
-      @item.name = params[:name].to_s if params[:name]
-      @item.maori_name = params[:maori_name].to_s if params[:maori_name]
-      @item.position = 1 # added at position one.
+      @item = Item.new(item_params)
+      @item.sign = Sign.first(id: params[:sign_id])
+      @item.position = 1
+      @item.vocab_sheet_id = @sheet.id
+
       if @item.valid?
         @sheet.items << @item
         flash[:notice] = t('vocab_sheet.item.add_success')
@@ -33,14 +31,13 @@ class ItemsController < ApplicationController
     end
   end
 
-  def update # rubocop:disable Metrics/AbcSize
-    @item.name = params[:item][:name] if params[:item][:name].present?
-    @item.maori_name = params[:item][:maori_name] if params[:item][:maori_name].present?
-    if @item.save
+  def update
+    if @item.update(item_params)
       flash[:notice] = t('vocab_sheet.item.update_success')
     else
       flash[:error] = t('vocab_sheet.item.update_failure')
     end
+
     return respond_with_json_or_redirect(@item) unless request.xhr?
 
     flash[:notice] = flash[:error] = nil
@@ -61,7 +58,7 @@ class ItemsController < ApplicationController
     return respond_with_json_or_redirect(@item) unless request.xhr?
 
     flash[:vocab_bar_notice] = flash[:vocab_bar_error] = nil
-    render nothing: true
+    render json: nil, status: :ok
   end
 
   def reorder
@@ -72,10 +69,14 @@ class ItemsController < ApplicationController
         updated_at: Time.current
       )
     end
-    render nothing: true
+    head :ok
   end
 
   private
+
+  def item_params
+    params.permit(:sign_id, :name, :maori_name, :notes)
+  end
 
   def set_item
     @item = @sheet.items.find(params[:id])
