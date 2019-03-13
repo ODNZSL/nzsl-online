@@ -99,7 +99,7 @@ GEM
       coffee-script-source
       execjs
     coffee-script-source (1.12.2)
-    concurrent-ruby (1.1.4)
+    concurrent-ruby (1.1.5)
     crass (1.0.4)
     dalli (2.7.9)
     database_cleaner (1.7.0)
@@ -141,7 +141,7 @@ GEM
       tilt
     httparty (0.16.2)
       multi_xml (>= 0.5.2)
-    i18n (1.5.3)
+    i18n (1.6.0)
       concurrent-ruby (~> 1.0)
     io-like (0.3.0)
     jaro_winkler (1.5.1)
