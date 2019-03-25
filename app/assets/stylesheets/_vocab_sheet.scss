@@ -1,68 +1,78 @@
-.vocab_sheet .title {
-  font-size: $h4-font-size;
-}
-
-/* generic */
+// generic
 .vocab_sheet {
   position: relative;
   text-align: center;
+
+  .title {
+    font-size: $h4-font-size;
+  }
+
   ul {
-    padding: 0;
-    margin-left: auto;
-    list-style-type: none;
+    align-content: flex-start;
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
+    list-style-type: none;
+    margin-left: auto;
+    padding: 0;
   }
 }
 
-/* bar specific */
+// bar specific
 .column_wrapper {
   overflow-y: hidden;
 }
 
-/* sheet specific */
+// sheet specific
 
 .vocab_sheet_page {
-  padding-bottom: 10px;
   clear: left;
-  width: 690px;
   margin: 0 auto;
+  padding-bottom: 10px;
+  width: 690px;
 }
 
-/* no-js friendly */
-.no-js .vocab-sheet__item .button {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-  z-index: 15;
+
+.vocab_sheet_name {
+  input {
+    font-size: $h1-font-size;
+  }
 }
 
-.vocab_sheet_name input {
-  font-size: $h1-font-size;
-}
+.no-js {
+  .vocab_sheet_name {
+    float: left;
+  }
 
-.no-js .vocab_sheet_name {
-  float: left;
-}
+  // no-js friendly
+  .vocab-sheet__item {
+    .button {
+      left: 10px;
+      position: absolute;
+      top: 10px;
+      z-index: 15;
+    }
+  }
 
-.no-js .vocab_sheet_name .button {
-  display: block;
-  float: left;
-  clear: left;
-  margin-top: -10px;
+  .button {
+    clear: left;
+    display: block;
+    float: left;
+    margin-top: -10px;
+  }
 }
 
 .flash {
+  background: #9acd32;
+  color: $white;
   padding: 10px;
-  background: yellowgreen;
-  color: white;
   text-align: center;
   width: 100%;
 }
 
-.radio_wrapper input {
-  vertical-align: middle;
+.radio_wrapper {
+  input {
+    vertical-align: middle;
+  }
 }
 
 .vocab-sheet {
@@ -104,16 +114,16 @@
 
         .notes-view {
           &__gloss {
-            max-width: 20rem;
-            flex: 20rem;
-            padding: .5rem 1rem .5rem .5rem;
             border-right: 1px solid $light-med-grey;
+            flex: 20rem;
+            max-width: 20rem;
+            padding: 0.5rem 1rem 0.5rem 0.5rem;
           }
 
           &__notes {
-            max-width: 90%;
             flex: 90% 9;
-            padding: .5rem .5rem .5rem 1rem;
+            max-width: 90%;
+            padding: 0.5rem 0.5rem 0.5rem 1rem;
           }
         }
       }
@@ -122,42 +132,41 @@
     .character-count {
       &__wrap {
         color: $light-med-grey;
-        font-size: .75rem;
+        font-size: 0.75rem;
         text-align: right;
       }
     }
 
     a {
-      text-align: center;
-      display: block;
-      color: #34414b;
-      text-decoration: none;
       background-color: transparent;
       border: 0;
+      color: #34414b;
+      display: block;
+      text-align: center;
+      text-decoration: none;
     }
 
     .remove {
-      position: absolute;
-      width: 28px;
-      height: 25px;
-      border: 0;
-      text-indent: -9999px;
-      overflow: hidden;
       background: {
         color: transparent;
         image: image-url('ui/vocab-delete.png');
       };
+      border: 0;
+      height: 25px;
+      overflow: hidden;
+      position: absolute;
+      text-indent: -9999px;
+      width: 28px;
     }
   }
 
   &__text-input {
-    resize: none;
-    text-align: center;
     height: inherit;
     line-height: 1;
-    position: relative;
     margin-bottom: 5px;
     position: relative;
+    resize: none;
+    text-align: center;
     white-space: pre-wrap;
     z-index: 11;
 
@@ -167,18 +176,18 @@
     }
 
     &.max-length-reached {
-      box-shadow: 0 0 .5rem $error-red;
+      box-shadow: 0 0 0.5rem $error-red;
     }
   }
 
   &__page-item {
+    background: $white;
     border: 1px solid $light-med-grey;
     margin-right: 11px;
-    background: white;
 
     .drawing {
-      vertical-align: middle;
       padding: 0 3px;
+      vertical-align: middle;
 
       img {
         margin: 0;
@@ -187,44 +196,21 @@
     }
 
     .remove {
-      top: -10px;
       right: -14px;
+      top: -10px;
     }
   }
-}
 
-.vocab_sheet_drawing__size {
-  &--2 {
-    @include vocab-sheet-image-heights(290px);
-  }
-
-  &--3 {
-    @include vocab-sheet-image-heights(190px);
-  }
-
-  &--4 {
-    @include vocab-sheet-image-heights(140px);
-  }
-
-  &--5,
-  &--6 {
-    @include vocab-sheet-image-heights(110px);
-  }
-}
-
-// Buttons for user to specify print layout of their vocab sheet - do not delete:
-
-.vocab-sheet {
   &__size-controls {
     float: left;
-    margin-left: .75rem;
-    margin-top: -.3rem;
+    margin-left: 0.75rem;
+    margin-top: -0.3rem;
 
     .radio_wrapper {
+      display: block;
+      float: left;
       height: 32px;
       line-height: 32px;
-      float: left;
-      display: block;
     }
 
     .selected_icon {
@@ -235,10 +221,10 @@
   &__size-control-box {
     background-color: rgba($black, 0.1);
     border: 1px solid $light-med-grey;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     display: inline-block;
-    margin: 0 .5rem .5rem 0;
-    padding: .3rem;
+    margin: 0 0.5rem 0.5rem 0;
+    padding: 0.3rem;
   }
 
   &__size-label {
@@ -252,7 +238,7 @@
     z-index: 1;
 
     &:not(:last-of-type) {
-      margin-right: .75rem;
+      margin-right: 0.75rem;
     }
 
     &.current-size {
@@ -260,18 +246,18 @@
     }
 
     &.has-tip {
-      &:after {
+      &::after {
         @include border-radius-small;
         @include transition($short-time, opacity);
 
         background: rgba($white, 0.9);
         border: 1px solid $light-med-grey;
-        content: attr(data-tooltip-text);
         color: $primary-blue;
-        right: -1rem;
+        content: attr(data-tooltip-text);
         opacity: 0;
         padding: 0.5rem 1rem;
         position: absolute;
+        right: -1rem;
         text-align: center;
         top: -1000vh;
         width: 10rem;
@@ -281,7 +267,7 @@
       &:hover {
         filter: grayscale(0);
 
-        &:after {
+        &::after {
           opacity: 1;
           top: 2rem;
         }
@@ -311,5 +297,24 @@
       float: left;
       margin-right: 5px;
     }
+  }
+}
+
+.vocab_sheet_drawing__size {
+  &--2 {
+    @include vocab-sheet-image-heights(290px);
+  }
+
+  &--3 {
+    @include vocab-sheet-image-heights(190px);
+  }
+
+  &--4 {
+    @include vocab-sheet-image-heights(140px);
+  }
+
+  &--5,
+  &--6 {
+    @include vocab-sheet-image-heights(110px);
   }
 }

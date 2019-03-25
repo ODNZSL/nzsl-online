@@ -12,11 +12,15 @@
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
-      = image_tag "/images/signs/400-400/#{@sign.drawing}", class: "main-image"
+      = image_tag sign_image_url(image_name: @sign.drawing), class: "main-image"
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
       .buttons-container
+        = link_to sign_image_url(image_name: @sign.drawing, high_res: true), { class: "download-link", "data-sign-id": @sign.id } do
+          %span
+            = image_tag "ui/download-button.svg", class: "card__button download-button"
+          %span.buttons-action  Download Drawing
         = link_to "#", { class: "card__button add-to-vocab-btn sign__button--peach", "data-sign-id": @sign.id } do
           %span.icon-container.add-button-icon
             %i.fi-plus
@@ -67,7 +71,6 @@
           %p
             = "#{t('signs.show.age_groups')}: "
             %em= @sign.age_groups
-        =#TODO @sign.usage_tag
         - if @sign.borrowed_from.present?
           %p
             = "#{t('signs.show.related_to')}: "

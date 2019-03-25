@@ -52,7 +52,7 @@ $(document).ready(function() {
         url: '/vocab_sheet/items/' + itemId,
         method: 'POST',
         data: {
-          '_method': 'delete',
+          _method: 'delete',
         },
         headers: {
           'X-CSRF-Token': $('meta[name="authenticity-token"]').attr('content'),
@@ -75,13 +75,13 @@ $(document).ready(function() {
 
       if ($('.vocab-sidebar').css('display') !== 'none') {
         $(notice)
-          .removeClass('hide-flash')
-          .addClass('error')
-          .text('Error, please try again.');
+            .removeClass('hide-flash')
+            .addClass('error')
+            .text('Error, please try again.');
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
-          '<div class="flash error">'
+            '<div class="flash error">'
           + 'Error, please try again.'
           + '</div>'
         );

@@ -15,8 +15,8 @@ module SearchHelper # rubocop:disable ModuleLength
     sign_attribute_image :location, number, main, in_menu
   end
 
-  def sign_attribute_image(attribute, number, main, in_menu = false)
-    return unless number
+  def sign_attribute_image(attribute, number, main, in_menu = false) # rubocop:disable Metrics/AbcSize
+    return unless number.present?
 
     size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
@@ -40,6 +40,7 @@ module SearchHelper # rubocop:disable ModuleLength
 
   def handshape_selected?(shape)
     return unless @query[:hs].present?
+
     query_hs = @query[:hs]
 
     # if it's the first, the search is just on the first two numbers
@@ -153,6 +154,7 @@ module SearchHelper # rubocop:disable ModuleLength
 
   def search_term(key)
     return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?)
+
     h @query[key].join(' ')
   end
 
@@ -171,6 +173,7 @@ module SearchHelper # rubocop:disable ModuleLength
     if attribute == :handshape
       # if it's the first, just search on the first two numbers
       return number.split('.')[0, 2].join('.') if main
+
       return number
     end
 

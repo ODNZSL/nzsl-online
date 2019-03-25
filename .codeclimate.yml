@@ -1,14 +1,12 @@
 engines:
+  # https://docs.codeclimate.com/docs/eslint
   eslint:
     enabled: true
-    checks:
-      no-var:
-        enabled: false
-      require-jsdoc:
-        enabled: false
+    channel: "eslint-5"
   rubocop:
     enabled: true
-  scss-lint:
+    channel: rubocop-0-60
+  sass-lint:
     enabled: true
   shellcheck:
     enabled: true
@@ -39,3 +37,4 @@ exclude_paths:
 - db/
 - spec/
 - bin/
+- vendor/

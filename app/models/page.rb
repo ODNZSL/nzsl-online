@@ -34,6 +34,7 @@ class Page < ApplicationRecord
 
   def self.find_by_slug(slug)
     return find_by(slug: '/') if slug.blank?
+
     find_by(slug: slug)
   end
 
@@ -70,6 +71,7 @@ class Page < ApplicationRecord
 
   def path
     return '/' if slug == '/'
+
     "/#{slug}/"
   end
 

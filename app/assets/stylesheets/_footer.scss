@@ -1,7 +1,10 @@
-.footer-link a,
-.footer-link span {
-  color: $light-grey;
-  border-bottom: none;
+
+.footer-link {
+  a,
+  span {
+    border-bottom: 0;
+    color: $light-grey;
+  }
 }
 
 footer {
@@ -14,9 +17,9 @@ footer {
   }
 
   .social-media {
-    width: 115px;
-
     @include center-element;
+
+    width: 115px;
 
     a {
       display: inline-block;
@@ -44,7 +47,7 @@ footer {
       padding: 10px 0 20px 0;
 
       h3 {
-        color: white;
+        color: $white;
       }
 
       img {
@@ -59,9 +62,9 @@ footer {
 
   .copyright {
     background-color: $darkest-blue;
-    border-top: 1px solid white;
-    padding: 20px 0;
+    border-top: 1px solid $white;
     overflow: auto;
+    padding: 20px 0;
 
     .footer-link {
       padding: 10px 0;
@@ -80,34 +83,34 @@ footer {
         max-width: 180px;
       }
 
-      a:before,
-      span:before {
-        content: "\A";
+      a::before,
+      span::before {
+        content: '\A';
         display: block;
         padding: 5px;
       }
 
-      span{
+      span {
         text-decoration: underline;
       }
     }
 
     .github {
       margin: 15px auto;
-      overflow: auto;
       max-width: 340px;
+      overflow: auto;
 
       img {
         margin: 0 10px;
       }
 
       div {
-        width: calc(100% - 52px);
         display: inline-block;
+        width: calc(100% - 52px);
       }
 
       a {
-        color: white;
+        color: $white;
       }
     }
   }
@@ -135,37 +138,44 @@ footer {
 
     .copyright {
       img {
-        float: left;
         display: inline-block;
+        float: left;
       }
 
       .footer-link {
         float: left;
-        width: calc(100% - 110px);
         padding: 0 10px;
+        width: calc(100% - 110px);
       }
     }
 
-    .sub-footer-container .sub-footer-content {
-      img {
-        display: inline-block;
+    .sub-footer-container {
+      .sub-footer-content {
+        img {
+          display: inline-block;
+        }
+
+        a:first-child {
+          img {
+            float: left;
+          }
+        }
+
+        a:nth-child(2) {
+          img {
+            float: right;
+          }
+        }
       }
 
-      a:first-child img {
-        float: left;
-      }
+      .social-media {
+        margin: 0;
 
-      a:nth-child(2) img {
-        float: right;
+        img {
+          margin: 0 20px 30px 0;
+        }
       }
     }
 
-    .social-media {
-      margin: 0;
-
-      img {
-        margin: 0 20px 30px 0;
-      }
-    }
   }
 }

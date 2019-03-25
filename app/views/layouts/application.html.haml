@@ -8,12 +8,13 @@
       %meta{content: "noindex", :name => "robots"}/
     %meta{content: "#{t("layout.meta_description")}", name: "description"}/
     %meta{content: "IE-edge,chrome=1", "http-equiv" => "X-UA-Compatible"}/
+    %link{href: Rails.application.config.base_url, rel: "canonical"}/
     - if protect_against_forgery?
       %meta#authenticity-token{content: form_authenticity_token, name: "authenticity-token"}/
     = render partial: "shared/google_tag_manager_head"
     %title
       = page_title
-    = favicon_link_tag '/images/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
+    = favicon_link_tag '/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => false
     = yield :head

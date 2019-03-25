@@ -26,6 +26,7 @@ New Zealand Sign Language Dictionary consists of 3 major units
 [![Code Climate](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/gpa.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 [![Test Coverage](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/coverage.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online/coverage)
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
+[![Waffle.io - Columns and their card count](https://badge.waffle.io/ODNZSL/nzsl-online.svg?columns=all)](https://waffle.io/ODNZSL/nzsl-online)
 
 ## Getting Started
 
@@ -34,12 +35,11 @@ Please read the accompanying CONTRIBUTING.md (in progress) before you follow the
 Fork the base repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you have a copy then clone your fork.
 
 ```
-git clone <your fork>
-cp env-example .env
-bundle
-yarn
-bundle exec rails s
-
+$ git clone <your fork>
+$ cp env-example .env
+$ bundle install
+$ yarn install
+$ bundle exec rails server
 ```
 
 A suggestion is to create a local staging branch that acts as your local master. Then branch from your staging/master branch when resolving issues or adding features.
@@ -56,9 +56,30 @@ A suggestion is to create a local staging branch that acts as your local master.
 
 ## Running the tests
 
-`bundle exec rails test`
+```
+# Ruby specs
+$ bundle exec rspec
 
-## Design and brand guidelines  
+# ruby static analysis
+brakeman --run-all-checks --exit-on-warn --format plain .
+
+# Javascript linter
+yarn run eslint
+
+# SCSS linter
+yarn run sass-lint
+
+# Ruby dependency security vulnerability check
+bundle exec bundle-audit check --update
+
+# Ruby linter
+bundle exec rubocop --display-cop-names
+
+# ... or run all lints and specs sequentially
+$ ./bin/run-ci-checks
+```
+
+## Design and brand guidelines
 
   * The design should follow brand guidelines (Link TBA)
   * The design must follow [accessibility guidelines](https://material.io/design/usability/accessibility.html#composition)

@@ -20,6 +20,20 @@ module SignsHelper
     end.compact.join(', ').html_safe
   end
 
+  ##
+  # This function should be the one and only place in the app which generates
+  # URLs to sign images.
+  #
+  def sign_image_url(image_name: '', width: 400, height: 400, high_res: false)
+    file_name = if high_res
+                  image_name.gsub(/default.png$/i, 'high_resolution.png')
+                else
+                  image_name
+                end
+
+    "/images/signs/#{width}-#{height}/#{file_name}"
+  end
+
   def render_transcription(transcription, id)
     transcription.map do |sign|
       if sign.is_a?(String)
@@ -40,6 +54,7 @@ module SignsHelper
 
   def render_back_to_search_results
     return unless request.referer
+
     referer = URI(request.referer)
     case referer.path
     when search_signs_path

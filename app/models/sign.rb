@@ -1,8 +1,17 @@
 # frozen_string_literal: true
 
-## a sign in New Zealand Sign Language
-class Sign
-  require 'nokogiri'
+##
+# A sign in New Zealand Sign Language
+#
+class Sign # rubocop:disable Metrics/ClassLength
+  # Create a custom error class.
+  #
+  # * Callers of this class can `rescue` one exception class if they want to
+  #   catch **all** possible exceptions from this class.
+  # * All uncaught exceptions related to this class are grouped together in
+  #   exception monitoring tools.
+  #
+  class FreelexCommunicationError < StandardError; end
 
   ELEMENT_NAME = 'entry'
 
@@ -33,6 +42,7 @@ class Sign
   def self.first(params)
     _count, entries = search(params)
     return nil if entries.empty?
+
     SignParser.new(entries.first).build_sign
   end
 
@@ -54,7 +64,19 @@ class Sign
   end
 
   def self.random
-    first random: 1
+    first(random: 1)
+  end
+
+  def self.sign_of_the_day # rubocop:disable Metrics/AbcSize
+    Rails.cache.fetch('sign-of-the-day', expires_in: 24.hours) do
+      Rails.logger.debug('Fetching new random sign from Freelex')
+      random
+    end
+  rescue StandardError => e
+    raise e if Rails.env.test? || Rails.env.development?
+
+    Raygun.track_exception(Exception.new("Recovered from sign-of-the-day cache lookup error. error=#{e.inspect}"))
+    random
   end
 
   def self.paginate(search_query, page_number)
@@ -69,8 +91,17 @@ class Sign
 
   def self.search(params)
     xml_request(params)
-  rescue OpenURI::HTTPError => e
+  rescue FreelexCommunicationError => e
+    msg = <<~EO_MSG
+      Recovered from a failure to retrieve data from Freelex!
+        * An empty result-set will be returned to the calling code.
+        * Error details:
+          #{e}
+    EO_MSG
+
+    Rails.logger.warn(msg)
     Raygun.track_exception(e)
+
     [0, []]
   end
 
@@ -79,12 +110,23 @@ class Sign
     entries = xml_document.css(ELEMENT_NAME)
     count = xml_document.css('totalhits').inner_text.to_i
     [count, entries]
+  rescue Faraday::ConnectionFailed
+    raise(FreelexCommunicationError, "Failed to connect to Freelex at URL: '#{SIGN_URL}'")
+  rescue Faraday::TimeoutError
+    raise(FreelexCommunicationError, 'Connection timeout')
+  rescue Faraday::Error
+    raise(FreelexCommunicationError, 'Generic communication error')
+  rescue Nokogiri::SyntaxError
+    raise(FreelexCommunicationError, 'Failed to parse response')
+  rescue StandardError => e
+    raise(FreelexCommunicationError, "Failed to communicate with Freelex because #{e}")
   end
 
   def self.uri_for_search(query)
     # The handling of arrays in query strings is different
     # in the API than in rails
     return SIGN_URL unless query.is_a?(Hash)
+
     '?' + query_string_for_search(query).join('&')
   end
 
@@ -103,7 +145,7 @@ class Sign
   def self.http_conn
     Faraday.new(url: SIGN_URL) do |faraday|
       faraday.use FaradayMiddleware::FollowRedirects
-      faraday.options[:timeout] = 60
+      faraday.options.timeout = FREELEX_TIMEOUT
       faraday.adapter Faraday.default_adapter
     end
   end

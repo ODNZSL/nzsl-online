@@ -1,12 +1,17 @@
+// sass-lint:disable no-css-comments
+
 /*
 *= require jquery-ui
 */
-@import "color";
-@import "variables";
-@import "foundation_and_overrides";
-@import "foundation-icons";
-@import "custom_icons";
-@import "buttons";
+
+// sass-lint:disable no-css-comments
+
+@import 'color';
+@import 'variables';
+@import 'foundation_and_overrides';
+@import 'foundation-icons';
+@import 'custom_icons';
+@import 'buttons';
 @include foundation-menu;
 @include foundation-menu-icon;
 
@@ -14,24 +19,25 @@ $admin-dashboard-top-nav-color: $dark-blue;
 $admin-dashboard-top-nav-height: 55px;
 
 .admin-dashboard {
-  height: 100vh;
   display: flex;
   flex-direction: column;
+  height: 100vh;
 }
 
 .admin-dashboard-body {
-  flex: 1 1 auto;
   display: flex;
+  flex: 1 1 auto;
 }
 
 .admin-dashboard-top-nav-bar  {
-  display: flex;
   align-items: center;
-  justify-content: center;
   background: $admin-dashboard-top-nav-color;
-  height: $admin-dashboard-top-nav-height;
-  width: 100%;
+  display: flex;
   flex: 0 0 $admin-dashboard-top-nav-height;
+  height: $admin-dashboard-top-nav-height;
+  justify-content: center;
+  width: 100%;
+
   .menu-icon {
     vertical-align: text-bottom;
   }
@@ -39,8 +45,8 @@ $admin-dashboard-top-nav-height: 55px;
 
 .admin-dashboard-logo {
   color: $white;
-  text-transform: uppercase;
   font-weight: bold;
+  text-transform: uppercase;
 }
 
 .admin-dashboard-search-bar-container {
@@ -50,8 +56,8 @@ $admin-dashboard-top-nav-height: 55px;
 .admin-dashboard-search {
   background: lighten($admin-dashboard-top-nav-color, 10%);
   border: 0;
-  margin-bottom: 0;
   color: $white;
+  margin-bottom: 0;
 
   &:active,
   &:focus {
@@ -60,8 +66,8 @@ $admin-dashboard-top-nav-height: 55px;
 }
 
 .admin-dashboard-search-icon {
-  position: absolute;
   color: $white;
+  position: absolute;
   right: 1rem;
   top: 50%;
   transform: translateY(-50%);
@@ -78,6 +84,7 @@ $admin-dashboard-top-nav-height: 55px;
     &.hollow {
       border-color: $white;
       color: $white;
+
       &:hover {
         background: $white;
         color: $primary-color;
@@ -91,11 +98,12 @@ $admin-dashboard-top-nav-height: 55px;
   height: 100%;
   overflow-x: visible;
   overflow-y: auto;
-  z-index: 1;
   transition: all $offcanvas-transition-length $offcanvas-transition-timing;
+  z-index: 1;
 
 
-  .admin-dashboard-open-sidebar, .admin-dashboard-close-sidebar{
+  .admin-dashboard-open-sidebar,
+  .admin-dashboard-close-sidebar {
     align-items: baseline;
     display: flex;
     justify-content: space-between;
@@ -110,13 +118,17 @@ $admin-dashboard-top-nav-height: 55px;
     height: 100%;
     overflow-x: hidden;
     overflow-y: auto;
+
     .menu > li > a {
       align-items: center;
     }
   }
-  .fa.large {
-    font-size: rem-calc(24);
-    width: 40px;
+
+  .fa {
+    .large {
+      font-size: rem-calc(24);
+      width: 40px;
+    }
   }
 }
 
@@ -140,15 +152,16 @@ $admin-dashboard-top-nav-height: 55px;
 }
 
 .admin-dashboard-body-content {
-  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
-  overflow-y: auto;
-  flex: 1 1 0;
-  padding: 20px;
   background-color: $white;
+  flex: 1 1 0;
+  overflow-y: auto;
+  padding: 20px;
+  transition: all $offcanvas-transition-length $offcanvas-transition-timing;
 }
 
-@mixin shrunk-sidebar() {
-  .admin-dashboard-close-sidebar, .admin-dashboard-sidebar-text {
+@mixin shrunk-sidebar {
+  .admin-dashboard-close-sidebar,
+  .admin-dashboard-sidebar-text {
     display: none;
   }
 
@@ -158,8 +171,11 @@ $admin-dashboard-top-nav-height: 55px;
 
   .admin-dashboard-sidebar {
     width: 80px;
-    .fa.large {
-      width: auto;
+
+    .fa {
+      .large {
+        width: auto;
+      }
     }
   }
 
@@ -173,11 +189,12 @@ $admin-dashboard-top-nav-height: 55px;
     text-align: center;
 
   }
-  .menu.vertical > li > a {
-    justify-content: center;
-  }
 
   .menu {
+    &.vertical > li > a {
+      justify-content: center;
+    }
+
     li {
       &::after {
         @include transition($long-time, opacity);
@@ -188,9 +205,11 @@ $admin-dashboard-top-nav-height: 55px;
 
       a {
         padding: 0.75rem;
+
         svg {
           margin: 0;
         }
+
         span {
           @include transition($long-time, opacity);
 
@@ -204,13 +223,18 @@ $admin-dashboard-top-nav-height: 55px;
 
 // mini sidebar on medium/tablet size
 @include breakpoint(medium only) {
-  .admin-dashboard.shrink-medium {
-    @include shrunk-sidebar()
+  .admin-dashboard {
+    .shrink-medium {
+      @include shrunk-sidebar
+    }
   }
 }
+
 @include breakpoint(large) {
-  .admin-dashboard.shrink-large {
-    @include shrunk-sidebar()
+  .admin-dashboard {
+    .shrink-large {
+      @include shrunk-sidebar
+    }
   }
 }
 

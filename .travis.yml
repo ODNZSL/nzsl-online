@@ -1,30 +1,25 @@
 language: ruby
 bundler_args: "--without development"
 sudo: false
-cache: bundler
+cache:
+  bundler: true
+  yarn: true
 env:
   global:
-  - S3_BUCKET_URL=http://s3-ap-southeast-2.amazonaws.com/test-asset-bucket/
-  - APP_DOMAIN_NAME="localhost:3000"
-  - APP_PROTOCOL="http"
-  - GIT_COMMITTED_AT=$(if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then git log -1 --pretty=format:%ct;
-    else git log -1 --skip 1 --pretty=format:%ct; fi)
-  - secure: X+/ddae/aP2HY3cely16CQUa+hQdfh5N34/GkfoLCAfX6vDqTpzEz4ZmflTI3uX/iQTbvBwbTvRcTKLIHO8y7hMpui+9tZs1nbF1QnpRrBXZA7iKekJhuPoMmyxtqJ3BtDaBkHdKlyu7S2Z5qHsDNkpv0gyfCGn4sl3KI+tRJ7xkWtF9K3di3ICFLL6rB0zKFUWgWPylMmC700P1pvNlIrMHQr77FGrFsCKqjHOrUxwMOYc7fWeiBRpc65Di/HzLxe5GLhDxXu1WYirhQZxHK+zvJRrX3IoJzvdss7pnftoMYHn/2HJl66WL9/d7le5lIOG92PVtL+1/AnUhzNaLmSjYiJG06iWgTagY2fE0NPoulUvNeUZRsCzO81goQl93iNaOFJ/rgGEfKDdf6UUxs3NUrS5C5P6tL/dyV+PKrFcOWZwqTCJZupeEPP1lL1Qmgy9kIO5jubG1rbHKqXEY7U64ZxRvPVBPXU6Zue4RI0F+310WGsQB2Uw3YB5Mmci2U6yhp1HlW5m4xqFHpZamA08BYUj197JP4J3Z8jrPC4UkabgE8BMbHovw+ObN/SGUV+ou49xpxuGThJoHcgABcC/+CCHrYgHNJXGX7fxDmhbZU0zAPl3EtzPvx6wJGeIJGQGwLKyTjlEHwspgDW/vMx6Y71/XjeSp+L0Yp8VbLz4=
 before_script:
-- gem install  --no-rdoc --no-ri 'brakeman' 'bundler-audit' 'pandoc-ruby'
-- nvm install node 9.10.0
-- npm install -g yarn@1.5.1
-- yarn install
-- curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-- chmod +x ./cc-test-reporter
-- RAILS_ENV=test bundle exec rails db:create db:migrate db:schema:load
+  - gem install --no-document brakeman pandoc-ruby
+  - nvm install node 9.10.0
+  - yarn install
+  - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
+  - chmod +x ./cc-test-reporter
+  - ./cc-test-reporter before-build
+  - RAILS_ENV=test bundle exec rails db:create db:migrate db:schema:load
 addons:
   apt_packages:
     - pandoc
-  code_climate:
-    repo_token: CC_TEST_REPORTER_ID
+    - google-chrome-stable
 script:
-- brakeman --run-all-checks --exit-on-warn --format plain .
-- bundle exec rspec spec
+  - brakeman --run-all-checks --exit-on-warn --format plain .
+  - bundle exec rspec spec
 after_script:
-- "./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT -t simplecov --id $CODECLIMATE_REPO_TOKEN"
+  - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
