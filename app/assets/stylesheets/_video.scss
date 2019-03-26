@@ -35,3 +35,10 @@ video {
     display: block;
   }
 }
+
+// Hides the default videojs BigPlayButton because we have our own custom one
+.video-js {
+  &.vjs-big-play-button {
+    display: none;
+  }
+}
