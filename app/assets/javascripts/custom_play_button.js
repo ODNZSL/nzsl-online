@@ -24,6 +24,9 @@ $(document).ready(function() {
         $(this).prop("controls", true);
         $(this).prop("controlsList", "nodownload");
       });
+    } else {
+      $(".play-button").show();
+      $(this).prop("controls", false);
     }
   }
 
