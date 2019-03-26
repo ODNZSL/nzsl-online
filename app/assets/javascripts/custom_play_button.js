@@ -1,18 +1,18 @@
-$(document).ready(function () {
+$(document).ready(function() {
   adjustVideoControlsToScreenSize();
 
-  $(window).resize(function () {
+  $(window).resize(function() {
     adjustVideoControlsToScreenSize();
   });
 
-  $('video').click(function (e) {
+  $('video').click(function(e) {
     if ($('.play-button').length) {
       e.preventDefault();
       videoResponse(this);
     }
   });
 
-  $('.play-button').click(function (e) {
+  $('.play-button').click(function(e) {
     e.preventDefault();
     videoResponse(this.nextElementSibling);
   });
