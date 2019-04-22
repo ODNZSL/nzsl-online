@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.10.0'
 gem 'mini_magick', '~> 4.9.3'
-gem 'nokogiri', '~> 1.10.2'
+gem 'nokogiri', '~> 1.10.3'
 gem 'pandoc-ruby'
 gem 'whenever'
 
