@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.5.3'
+ruby '2.6.3'
 
-gem 'rails', '~> 5.2.2.1'
+gem 'rails', '~> 5.2.3'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.1'
@@ -12,9 +12,9 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'lograge', '~> 0.10.0'
+gem 'lograge', '~> 0.11.0'
 gem 'mini_magick', '~> 4.9.3'
-gem 'nokogiri', '~> 1.10.1'
+gem 'nokogiri', '~> 1.10.3'
 gem 'pandoc-ruby'
 gem 'whenever'
 
