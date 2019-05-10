@@ -106,8 +106,8 @@ group :test do
   gem 'chromedriver-helper'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
-  gem 'rails-controller-testing'
   gem 'percy-capybara', '~> 4.0.0'
+  gem 'rails-controller-testing'
 end
 
 group :staging, :production do
