@@ -1,4 +1,3 @@
-
 class SeedDataService
   def self.load_all
     load_data(:settings)
