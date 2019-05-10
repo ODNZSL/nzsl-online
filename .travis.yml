@@ -6,6 +6,7 @@ cache:
   yarn: true
 env:
   global:
+    PERCY_TARGET_BRANCH=staging
 before_script:
   - gem install --no-document brakeman pandoc-ruby
   - nvm install node 9.10.0
