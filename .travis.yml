@@ -20,6 +20,6 @@ addons:
     - google-chrome-stable
 script:
   - brakeman --run-all-checks --exit-on-warn --format plain .
-  - bundle exec rspec spec
+  - npx percy exec -- bundle exec rspec spec
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
