@@ -6,8 +6,10 @@ describe 'Test with visual testing', type: :feature, js: true do
   # before {Timecop.freeze(Time.local(2019, 1, 1)) }
   # after { Timecop.return }
 
-  before { SeedDataService.load_all }
-  before { allow Sign.to receive(:random).and_return Sign.first(id: sign_id) }
+  before do
+    SeedDataService.load_all
+    allow(Sign).to receive(:random).and_return Sign.first(id: sign_id)
+  end
   describe 'home' do
     it 'root_path' do
       # Make sure we have the same random sign,
