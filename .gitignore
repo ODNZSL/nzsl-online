@@ -26,3 +26,4 @@ postgres/*
 
 node_modules
 yarn-error.log
+public/packs
