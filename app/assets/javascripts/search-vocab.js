@@ -75,13 +75,13 @@ $(document).ready(function() {
 
       if ($('.vocab-sidebar').css('display') !== 'none') {
         $(notice)
-            .removeClass('hide-flash')
-            .addClass('error')
-            .text('Error, please try again.');
+          .removeClass('hide-flash')
+          .addClass('error')
+          .text('Error, please try again.');
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
-            '<div class="flash error">'
+          '<div class="flash error">'
           + 'Error, please try again.'
           + '</div>'
         );

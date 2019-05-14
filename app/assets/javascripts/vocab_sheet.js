@@ -80,8 +80,8 @@ $(document).ready(function() {
 
       if (notes !== '') {
         elem.siblings('.character-count__wrap')
-            .children('.character-count__count')
-            .text(maxLength - notes.length);
+          .children('.character-count__count')
+          .text(maxLength - notes.length);
       }
     }
 
@@ -103,8 +103,8 @@ $(document).ready(function() {
       var maxLength = elem.attr('maxlength');
 
       elem.siblings('.character-count__wrap')
-          .children('.character-count__count')
-          .text(maxLength - notes.length);
+        .children('.character-count__count')
+        .text(maxLength - notes.length);
     }
 
     checkCharacterCount();
