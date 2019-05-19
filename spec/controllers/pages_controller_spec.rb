@@ -4,7 +4,7 @@ require 'rails_helper'
 
 RSpec.describe PagesController, type: :controller do
   describe '#random_sign' do
-    before(:each) do
+    before do
       FactoryBot.create(:page, slug: '/')
 
       get(:random_sign)
