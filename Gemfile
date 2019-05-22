@@ -103,7 +103,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-selenium'
-  gem 'chromedriver-helper'
+  gem 'webdrivers'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
   gem 'percy-capybara', '~> 4.0.0'
