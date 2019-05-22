@@ -24,6 +24,7 @@
     "yarn": ">=1.3.2"
   },
   "dependencies": {
+    "@percy/agent": "^0.4.3",
     "puppeteer": "^1.8.0"
   },
   "devDependencies": {
