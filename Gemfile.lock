@@ -203,6 +203,7 @@ GEM
     parallel (1.12.1)
     parser (2.5.3.0)
       ast (~> 2.4.0)
+    percy-capybara (4.0.0)
     pg (1.1.4)
     powerpack (0.1.2)
     pry (0.12.2)
@@ -395,6 +396,7 @@ DEPENDENCIES
   nokogiri (~> 1.10.3)
   pandoc-ruby
   paperclip
+  percy-capybara (~> 4.0.0)
   pg (~> 1.1)
   pry-byebug
   pry-rails
