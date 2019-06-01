@@ -40,7 +40,17 @@
     supports-color "^5.4.0"
     tslib "^1"
 
-"@oclif/command@^1", "@oclif/command@^1.5.3", "@oclif/command@^1.5.8":
+"@oclif/command@1.5.10":
+  version "1.5.10"
+  resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.5.10.tgz#74696d9d76e1b83c13ec21df98e90ecc99f8482a"
+  integrity sha512-zZdPHKj7u7d50XIcWer0x/YriL8c3NHPZCNhqA/RP62Bg9BgmvLAdn1dJ8YuxxNrhFCv+DmTyukyCYGLle+eNQ==
+  dependencies:
+    "@oclif/errors" "^1.2.2"
+    "@oclif/parser" "^3.7.2"
+    debug "^4.1.1"
+    semver "^5.6.0"
+
+"@oclif/command@^1.5.3", "@oclif/command@^1.5.8":
   version "1.5.13"
   resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.5.13.tgz#7047f3e5c3abb8a08fb88ba3bf00ea96ea9a1d77"
   integrity sha512-zkO8hRd5Sjl7a+GM9ZMNHLD8rneAPjFBFjkAwLPs/hEv72RnFeWSyW6eE1nDbKVzMyDUYmmWNQFp0lQuwhHCdA==
@@ -73,6 +83,15 @@
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/@oclif/linewrap/-/linewrap-1.0.0.tgz#aedcb64b479d4db7be24196384897b5000901d91"
   integrity sha512-Ups2dShK52xXa8w6iBWLgcjPJWjais6KPJQq3gQ/88AY6BXoTX+MIGFPrWQO1KLMiQfoTpcLnUwloN4brrVUHw==
+
+"@oclif/parser@^3.7.2":
+  version "3.8.1"
+  resolved "https://registry.yarnpkg.com/@oclif/parser/-/parser-3.8.1.tgz#3c842ef4a8ce3d1f5bcfa5938d3fbebf1c6a0618"
+  integrity sha512-0OavFuLj6FBTdZDD6DXdNqH4qdLFLQD/PKK1OvNZhUd4/5v/lp6Ftzilwmirf549naNHq0u15uk1YCBvym5tNQ==
+  dependencies:
+    "@oclif/linewrap" "^1.0.0"
+    chalk "^2.4.2"
+    tslib "^1.9.3"
 
 "@oclif/parser@^3.7.3":
   version "3.8.0"
@@ -113,12 +132,12 @@
   resolved "https://registry.yarnpkg.com/@oclif/screen/-/screen-1.0.4.tgz#b740f68609dfae8aa71c3a6cab15d816407ba493"
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
-"@percy/agent@^0.4.3":
-  version "0.4.3"
-  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.4.3.tgz#c13031644b574553c32ac4de129cbb1cd3cc216b"
-  integrity sha512-cC82u5Qc/xbl3itxRt6zWQmTDd4uL8chAM5fiFLd6bb8DOpqP0umCYd0SgwI98plLNQp+Xu8G7LPRcaT4G7TSQ==
+"@percy/agent@^0.5.0":
+  version "0.5.0"
+  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.5.0.tgz#2f1678b2a1555c8885cfea797226d0ff8f0d240a"
+  integrity sha512-uAz1MlxF3SOFi50TRh2IWQKCFaI8+RYuEgPzl0oQhix+fxCY2/AfmE7lYxSSY2Yf+iD1L+guqzeHROAEMo2ibg==
   dependencies:
-    "@oclif/command" "^1"
+    "@oclif/command" "1.5.10"
     "@oclif/config" "^1"
     "@oclif/plugin-help" "^2"
     "@oclif/plugin-not-found" "^1.2"
@@ -131,6 +150,7 @@
     cors "^2.8.4"
     cross-spawn "^6.0.5"
     express "^4.16.3"
+    generic-pool "^3.7.1"
     globby "^9.2.0"
     js-yaml "^3.13.1"
     percy-client "^3.0.3"
@@ -1538,6 +1558,11 @@ generate-object-property@^1.1.0:
   integrity sha1-nA4cQDCM6AT0eDYYuTf6iPmdUNA=
   dependencies:
     is-property "^1.0.0"
+
+generic-pool@^3.7.1:
+  version "3.7.1"
+  resolved "https://registry.yarnpkg.com/generic-pool/-/generic-pool-3.7.1.tgz#36fe5bb83e7e0e032e5d32cd05dc00f5ff119aa8"
+  integrity sha512-ug6DAZoNgWm6q5KhPFA+hzXfBLFQu5sTXxPpv44DmE0A2g+CiHoq9LTVdkXpZMkYVMoGw83F6W+WT0h0MFMK/w==
 
 get-value@^2.0.3, get-value@^2.0.6:
   version "2.0.6"
