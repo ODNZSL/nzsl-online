@@ -4,6 +4,11 @@ sudo: false
 cache:
   bundler: true
   yarn: true
+addons:
+  apt:
+    packages:
+    - chromium-chromedriver
+    - google-chrome-stable
 env:
   global:
     PERCY_TARGET_BRANCH=staging
