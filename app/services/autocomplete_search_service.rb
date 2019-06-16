@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class AutocompleteSearchService
   MAX_NUM_SUGGESTIONS = 100
   AUTOCOMPLETE_SEARCH_TIMEOUT = 10 # seconds
