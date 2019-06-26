@@ -35,7 +35,7 @@ gem 'rack-canonical-host', '~> 0.2.3'
 # on Feedback model
 gem 'paperclip'
 
-gem 'responders', '~> 2.4'
+gem 'responders', '~> 3.0'
 gem 'videojs_rails'
 
 # records crashes
