@@ -10,7 +10,10 @@ class VocabSheet < ApplicationRecord
   end
 
   def self.purge_old_sheets
-    max_days = 15
-    VocabSheet.where('updated_at < ?', max_days.days.ago).destroy_all
+    VocabSheet.where('updated_at < ?', 15.days.ago).destroy_all
+  end
+
+  def self.aggressively_purge_old_sheets
+    VocabSheet.where('updated_at < ?', 7.days.ago).destroy_all
   end
 end
