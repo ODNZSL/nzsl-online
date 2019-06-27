@@ -12,7 +12,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'lograge', '~> 0.11.0'
+gem 'lograge', '~> 0.11.2'
 gem 'mini_magick', '~> 4.9.3'
 gem 'nokogiri', '~> 1.10.3'
 gem 'pandoc-ruby'
@@ -35,7 +35,7 @@ gem 'rack-canonical-host', '~> 0.2.3'
 # on Feedback model
 gem 'paperclip'
 
-gem 'responders', '~> 2.4'
+gem 'responders', '~> 3.0'
 gem 'videojs_rails'
 
 # records crashes
@@ -103,10 +103,11 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-selenium'
-  gem 'chromedriver-helper'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
+  gem 'percy-capybara', '~> 4.0.1'
   gem 'rails-controller-testing'
+  gem 'webdrivers'
 end
 
 group :staging, :production do

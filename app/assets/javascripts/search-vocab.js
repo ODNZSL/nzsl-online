@@ -36,13 +36,13 @@ $(document).ready(function() {
       });
     }
 
-    function onVocabItemAdded(htmlElem) {
+    function onVocabItemAdded(htmlElement) {
       if ($('.vocab-sidebar').css('display') === 'none') {
         $('.vocab-sidebar').show();
       }
 
       $(notice).removeClass('hide-flash').text('Sign added');
-      $(vocabList).append(htmlElem);
+      $(vocabList).append(htmlElement);
       removeVocabItemOnClick();
       hideNotice();
     }

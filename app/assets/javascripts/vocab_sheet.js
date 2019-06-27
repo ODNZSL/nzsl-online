@@ -74,23 +74,23 @@ $(document).ready(function() {
       });
     }
 
-    function setupCharacterCount(elem) {
-      var notes = elem.val();
-      var maxLength = elem.attr('maxlength');
+    function setupCharacterCount(element) {
+      var notes = element.val();
+      var maxLength = element.attr('maxlength');
 
       if (notes !== '') {
-        elem.siblings('.character-count__wrap')
+        element.siblings('.character-count__wrap')
             .children('.character-count__count')
             .text(maxLength - notes.length);
       }
     }
 
-    function checkForMaxLength(elem) {
-      var notes = elem.val();
-      var maxLength = elem.attr('maxlength');
+    function checkForMaxLength(element) {
+      var notes = element.val();
+      var maxLength = element.attr('maxlength');
 
       if (notes.length >= maxLength) {
-        elem.addClass('max-length-reached');
+        element.addClass('max-length-reached');
 
         setTimeout(function() {
           textBoxes.removeClass('max-length-reached');
@@ -98,11 +98,11 @@ $(document).ready(function() {
       }
     }
 
-    function setCharacterCount(elem) {
-      var notes = elem.val();
-      var maxLength = elem.attr('maxlength');
+    function setCharacterCount(element) {
+      var notes = element.val();
+      var maxLength = element.attr('maxlength');
 
-      elem.siblings('.character-count__wrap')
+      element.siblings('.character-count__wrap')
           .children('.character-count__count')
           .text(maxLength - notes.length);
     }
