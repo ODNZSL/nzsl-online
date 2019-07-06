@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SeedDataService
   def self.load_all
     load_data(:settings)
