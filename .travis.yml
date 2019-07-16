@@ -4,8 +4,14 @@ sudo: false
 cache:
   bundler: true
   yarn: true
+addons:
+  apt:
+    packages:
+    - chromium-chromedriver
+    - google-chrome-stable
 env:
   global:
+    PERCY_TARGET_BRANCH=staging
 before_script:
   - gem install --no-document brakeman pandoc-ruby
   - nvm install node 9.10.0
@@ -20,6 +26,8 @@ addons:
     - google-chrome-stable
 script:
   - brakeman --run-all-checks --exit-on-warn --format plain .
-  - bundle exec rspec spec
+  - npx percy exec -- bundle exec rspec spec
 after_script:
   - ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+PERCY_TOKEN:
+  secure: OdRsPf9G94Dv7qjmPZoIUFqoFyMqHXdaeY6CNGc+DSQQXKtx+BCfK3TH2solS0ncgqegG6CcshVAg77w/D9IUqSUkJXKG3nE/jkJQJxA5yoMPYbQoSJJU2UAqNh+XRr2iDqUC0TGq8cHMASxgYmo2qIwknJRRTTTxxafo22HB7UaQRrk0g4RSx8K+UAJxMMz57KSBrrBfZS+E6SIS6f/ndXB8hcM6DjuYmrKjRbEvxRQe8TWMIhcE+1772KWbfIxnA/E0nEFiodo/Dqc/7FPkrS+aV3gCVofIGQxKFWas4hrXJeI3MJfiGI31n6K+PMD/YuizNVwk8uxbRvWiHlxa12A3Fd0Xcm1EBM5s/lYLRSdeXnfEfAlramNqFImeuaMOjPUvOo5XeNQjCYgmPB10Ox78nwgsZiRfOIQn6y1/LgW2MWksUBTEM3lrMTmYouMrEgOt3WrMfXMYz3GreTipjPXugsAuzOJVvQq2KfyCdd94gIVQbeobR+HzuCCBPIlTzJ0Mmg6SY+zEE6Ry1RZVyBXOwfEeZadWPEsTuwSLmke2YvgWy4InURAvr1ysS55El/OaRzzfR8wNN1r5d9fsD2jktOTGIjVT3dyywzTQhEi6Vk51gwOtGn2h5BjdPkaVg9ZjUCw6+yV4xydfiCmzwVjoXzzNdEc3mcZg9/1FbU=

@@ -12,8 +12,8 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
-gem 'lograge', '~> 0.11.0'
-gem 'mini_magick', '~> 4.9.3'
+gem 'lograge', '~> 0.11.2'
+gem 'mini_magick', '~> 4.9.4'
 gem 'nokogiri', '~> 1.10.3'
 gem 'pandoc-ruby'
 gem 'whenever'
@@ -28,14 +28,14 @@ gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'newrelic_rpm'
-gem 'puma', '~> 3.12'
+gem 'puma', '~> 4.0'
 gem 'rack-canonical-host', '~> 0.2.3'
 
 # For attaching files on the feedback form
 # on Feedback model
 gem 'paperclip'
 
-gem 'responders', '~> 2.4'
+gem 'responders', '~> 3.0'
 gem 'videojs_rails'
 
 # records crashes
@@ -103,10 +103,11 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-selenium'
-  gem 'chromedriver-helper'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
+  gem 'percy-capybara', '~> 4.0.1'
   gem 'rails-controller-testing'
+  gem 'webdrivers'
 end
 
 group :staging, :production do
