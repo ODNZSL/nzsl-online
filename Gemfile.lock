@@ -56,7 +56,7 @@ GEM
     bootsnap (1.4.4)
       msgpack (~> 1.0)
     brakeman (4.5.1)
-    browser (2.6.0)
+    browser (2.6.1)
     builder (3.2.3)
     bundle-audit (0.1.0)
       bundler-audit
