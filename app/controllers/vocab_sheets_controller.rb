@@ -6,7 +6,7 @@ class VocabSheetsController < ApplicationController
   before_action :set_search_query, :footer_content
   respond_to :html, :json
 
-  def show # rubocop:disable Metrics/AbcSize
+  def show
     set_vocab_sheet_size
 
     respond_to do |format|
@@ -23,7 +23,7 @@ class VocabSheetsController < ApplicationController
     end
   end
 
-  def update
+  def update # rubocop:disable Metrics/AbcSize
     @sheet.name = params[:vocab_sheet][:name]
     if @sheet.save
       flash[:notice] = t('vocab_sheet.sheet.update_success')
