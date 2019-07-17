@@ -26,8 +26,8 @@ $(document).ready(function() {
         } else if (input.val() !== input.next('.old_name').val() && input.val() !== '') {
           var form = input.closest('form');
           $.post(form.attr('action'), form.serialize(), function(data) {
-            input.next('.old_name').val(data.vocab_sheet.name);
-            input.val(data.vocab_sheet.name);
+            input.next('.old_name').val(data.name);
+            input.val(data.name);
           });
         }
       };
