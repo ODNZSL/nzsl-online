@@ -15,26 +15,26 @@ var selectedSearchTab = function() {
 };
 
 var search_analytics_string = function() {
-  var query_val = $('input#s').val();
-  var handshapes_val = $('input#hs').val();
-  var locations_val = $('input#l').val();
-  var location_groups_val = $('input#lg').val();
-  var tag_val = $('select#tag').val();
-  var usage_val = $('select#usage').val();
+  var queryValue = $('input#s').val();
+  var handshapesValue = $('input#hs').val();
+  var locationsValue = $('input#l').val();
+  var locationGroupsValue = $('input#lg').val();
+  var tagValue = $('select#tag').val();
+  var usageValue = $('select#usage').val();
 
-  query_val = escape(query_val);
+  queryValue = escape(queryValue);
 
-  handshapes_val = handshapes_val.replace(/ /g, ',');
-  locations_val = locations_val = $('input#l').val().replace(/ /g, ',');
-  location_groups_val = location_groups_val.replace(/ /g, ',');
+  handshapesValue = handshapesValue.replace(/ /g, ',');
+  locationsValue = locationsValue = $('input#l').val().replace(/ /g, ',');
+  locationGroupsValue = locationGroupsValue.replace(/ /g, ',');
 
   var string = 'search_tab=' + selectedSearchTab()
-               + ' ' + 'query=' + query_val
-               + ' ' + 'handshapes=' + handshapes_val
-               + ' ' + 'locations=' + locations_val
-               + ' ' + 'location_groups=' + location_groups_val
-               + ' ' + 'tag=' + tag_val
-               + ' ' + 'usage=' + usage_val;
+               + ' ' + 'query=' + queryValue
+               + ' ' + 'handshapes=' + handshapesValue
+               + ' ' + 'locations=' + locationsValue
+               + ' ' + 'location_groups=' + locationGroupsValue
+               + ' ' + 'tag=' + tagValue
+               + ' ' + 'usage=' + usageValue;
 
   return string;
 };
@@ -65,10 +65,10 @@ var ga_link_submission = function(event) {
   event.preventDefault();
   var link = $(this);
 
-  var dest = link.attr('href');
-  if (typeof (dest) !== 'undefined' && dest !== '') {
+  var destination = link.attr('href');
+  if (typeof (destination) !== 'undefined' && destination !== '') {
     setTimeout(function() {
-      window.location.href = dest;
+      window.location.href = destination;
     }, 100);
   }
 };
