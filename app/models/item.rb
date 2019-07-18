@@ -1,7 +1,7 @@
 class Item
   include ActiveModel::Model
 
-  UPDATABLE_ATTRIBUTES = %w{name maori_name}.freeze
+  UPDATABLE_ATTRIBUTES = %w{name maori_name notes}.freeze
 
   validates :sign_id, :name, presence: true
 
@@ -9,6 +9,7 @@ class Item
                 :sign_id,
                 :drawing,
                 :name,
+                :notes,
                 :maori_name
 
   def initialize(attrs = {}) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
