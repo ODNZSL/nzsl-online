@@ -40,17 +40,7 @@
     supports-color "^5.4.0"
     tslib "^1"
 
-"@oclif/command@1.5.15":
-  version "1.5.15"
-  resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.5.15.tgz#b926a6eb0491636150a256c0797f786c1f0938bc"
-  integrity sha512-bNfXihQ+piSa3WVA3DgSpptFtN2Ex/Xzv16qZt88Kp4P2tFUTcvMhyaisGYy7UjAW6mcjJrxx/141/Kfz5vtxA==
-  dependencies:
-    "@oclif/errors" "^1.2.2"
-    "@oclif/parser" "^3.7.3"
-    debug "^4.1.1"
-    semver "^5.6.0"
-
-"@oclif/command@^1.5.13", "@oclif/command@^1.5.3":
+"@oclif/command@1.5.16", "@oclif/command@^1.5.13", "@oclif/command@^1.5.3":
   version "1.5.16"
   resolved "https://registry.yarnpkg.com/@oclif/command/-/command-1.5.16.tgz#88b578d37e981034303effbcbdd73c332a6f5543"
   integrity sha512-bzqNz9/EblkohokXbico/14r05oRe8aa06S3MLEo4GlmyOce2abIOx1oZfUDl8ekQuKO+Ycw9Jco+hN2aL423A==
@@ -124,12 +114,12 @@
   resolved "https://registry.yarnpkg.com/@oclif/screen/-/screen-1.0.4.tgz#b740f68609dfae8aa71c3a6cab15d816407ba493"
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
-"@percy/agent@^0.8.0":
-  version "0.8.3"
-  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.8.3.tgz#78931f999820900a963b8a17cfb870bff1853a18"
-  integrity sha512-FhFg2gUezSfXc8GsOe0JPElbiacr/ccmg89SdujHgCQRUT8YtW/j4wMFnJ8w9dHFY8tn8q/pCXtK6Mh1Jq6/Og==
+"@percy/agent@^0.9.0":
+  version "0.9.0"
+  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.9.0.tgz#4c775aac4855f110042091b6213316bffadf159b"
+  integrity sha512-VjkqHLguwcY6WgKtxc2kviK/RzsBMMcMPp2EkuIhEjunQb5x5OJ3B7rm3bVMsdDOvToD/YHo0xaMVGOzIZ50Fg==
   dependencies:
-    "@oclif/command" "1.5.15"
+    "@oclif/command" "1.5.16"
     "@oclif/config" "^1"
     "@oclif/plugin-help" "^2"
     "@oclif/plugin-not-found" "^1.2"
