@@ -4,11 +4,15 @@ sudo: false
 cache:
   bundler: true
   yarn: true
+services:
+  - postgresql
 addons:
-  apt:
-    packages:
-    - chromium-chromedriver
+  postgresql: "9.6"
+  apt_packages:
+    - pandoc
     - google-chrome-stable
+    - postgresql-9.6
+    - postgresql-client-9.6
 env:
   global:
     PERCY_TARGET_BRANCH=staging
@@ -20,10 +24,6 @@ before_script:
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
   - RAILS_ENV=test bundle exec rails db:create db:migrate db:schema:load
-addons:
-  apt_packages:
-    - pandoc
-    - google-chrome-stable
 script:
   - brakeman --run-all-checks --exit-on-warn --format plain .
   - npx percy exec -- bundle exec rspec spec
