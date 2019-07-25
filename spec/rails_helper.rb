@@ -9,7 +9,7 @@ require 'rspec/rails'
 
 require 'capybara'
 require 'capybara/rspec'
-require "selenium/webdriver"
+require 'selenium/webdriver'
 require 'capybara-screenshot/rspec'
 require 'percy'
 
