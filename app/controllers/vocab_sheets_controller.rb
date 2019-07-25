@@ -23,7 +23,7 @@ class VocabSheetsController < ApplicationController
     end
   end
 
-  def update
+  def update # rubocop:disable Metrics/AbcSize
     @sheet.name = params[:vocab_sheet][:name]
     if @sheet.save
       flash[:notice] = t('vocab_sheet.sheet.update_success')
