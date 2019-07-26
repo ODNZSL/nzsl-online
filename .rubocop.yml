@@ -1,6 +1,8 @@
 # Built-in config:
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
+require: rubocop-performance
+
 Lint/Void:
   Enabled: false # see spec/controllers/vocab_sheet_controller_spec.rb
 

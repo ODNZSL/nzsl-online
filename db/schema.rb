@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_26_041728) do
+ActiveRecord::Schema.define(version: 2019_07_16_173959) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -38,19 +38,6 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.string "change_sign_entry"
     t.text "change_comments"
     t.boolean "technical_fault"
-  end
-
-  create_table "items", id: :serial, force: :cascade do |t|
-    t.integer "sign_id", null: false
-    t.integer "vocab_sheet_id", null: false
-    t.string "name", null: false
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer "position"
-    t.string "drawing"
-    t.string "maori_name"
-    t.string "notes", default: "", null: false
-    t.index ["vocab_sheet_id"], name: "index_items_on_vocab_sheet_id"
   end
 
   create_table "page_parts", id: :serial, force: :cascade do |t|
@@ -122,6 +109,7 @@ ActiveRecord::Schema.define(version: 2018_09_26_041728) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string "name"
+    t.jsonb "raw_item_attrs", default: [], null: false
   end
 
 end
