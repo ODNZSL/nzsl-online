@@ -106,7 +106,7 @@ group :test do
   gem 'capybara-selenium'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
-  gem 'percy-capybara', '~> 4.0.1'
+  gem 'percy-capybara', '~> 4.0.2'
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
