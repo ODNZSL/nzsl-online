@@ -76,7 +76,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.73.0', require: false
+  gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-performance'
 
   # catches email sending, and logs instead
