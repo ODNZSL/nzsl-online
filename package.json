@@ -27,7 +27,7 @@
     "puppeteer": "^1.8.0"
   },
   "devDependencies": {
-    "@percy/agent": "^0.9.0",
+    "@percy/agent": "^0.10.0",
     "eslint": "^5.12.1",
     "eslint-config-google": "0.13.0",
     "sass-lint": "^1.12.1"
