@@ -30,7 +30,8 @@ but due to issues getting it running on Heroku this option is required. */
   }
 
   console.log("Starting PDF conversion");
-  await page.goto(inputPath, { waitUntil: "networkidle2" });
+  // https://github.com/GoogleChrome/puppeteer/blob/v1.4.0/docs/api.md#pagegotourl-options
+  await page.goto(inputPath, { waitUntil: "load" });
 
   // https://github.com/GoogleChrome/puppeteer/blob/v1.4.0/docs/api.md#pagepdfoptions
   await page.pdf({
