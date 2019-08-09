@@ -51,6 +51,9 @@ gem 'faraday_middleware'
 # logins
 gem 'devise'
 
+# Application performance monitoring
+gem 'skylight'
+
 group :assets do
   gem 'coffee-rails'
   gem 'sass-rails'
