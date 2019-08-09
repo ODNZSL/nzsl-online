@@ -28,7 +28,7 @@ gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'newrelic_rpm'
-gem 'puma', '~> 4.0'
+gem 'puma', '~> 4.1'
 gem 'rack-canonical-host', '~> 0.2.3'
 
 # For attaching files on the feedback form
