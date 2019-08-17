@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.11.2'
 gem 'mini_magick', '~> 4.9.5'
-gem 'nokogiri', '~> 1.10.3'
+gem 'nokogiri', '~> 1.10.4'
 gem 'pandoc-ruby'
 gem 'whenever'
 
@@ -28,7 +28,7 @@ gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
 gem 'newrelic_rpm'
-gem 'puma', '~> 4.0'
+gem 'puma', '~> 4.1'
 gem 'rack-canonical-host', '~> 0.2.3'
 
 # For attaching files on the feedback form
@@ -50,6 +50,9 @@ gem 'faraday_middleware'
 
 # logins
 gem 'devise'
+
+# Application performance monitoring
+gem 'skylight'
 
 group :assets do
   gem 'coffee-rails'
@@ -76,7 +79,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.73.0', require: false
+  gem 'rubocop', '~> 0.74.0', require: false
   gem 'rubocop-performance'
 
   # catches email sending, and logs instead
@@ -106,7 +109,7 @@ group :test do
   gem 'capybara-selenium'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
-  gem 'percy-capybara', '~> 4.0.1'
+  gem 'percy-capybara', '~> 4.0.2'
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
