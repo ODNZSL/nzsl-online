@@ -126,7 +126,7 @@ RSpec.describe VocabSheet, type: :model do
     context 'When there is an item in the VocabSheet' do
       it 'reorders the items as expected' do
         original_order = [item.id, item_2.id]
-        new_order = [item_2.id, item_2.id]
+        new_order = [item_2.id, item.id]
 
         subject.add_item(item)
         subject.add_item(item_2)
