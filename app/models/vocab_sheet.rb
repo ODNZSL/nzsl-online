@@ -4,6 +4,8 @@
 # A "sheet" of items (signs) saved by a user
 #
 class VocabSheet < ApplicationRecord
+  after_save :clear_items_cache
+
   ##
   # @param item [Item] The item you wish to add
   # @return [Boolean] true on success, false on failure
@@ -40,7 +42,21 @@ class VocabSheet < ApplicationRecord
   # @return [Array<Item>] array of items
   #
   def items
-    raw_item_attrs.map { |item_attrs| Item.new(item_attrs) }
+    # Having no items is a very common case (every requests for users who don't
+    # have vocab sheets will be in this situation) so we bail early (and hence
+    # quickly) if that is the case.
+    return [] if raw_item_attrs.empty?
+
+    # It is common for controllers/views to call this method repeatedly in
+    # generating the response to a single request. Creating new Item objects is
+    # expensive because it involves a request to Freelex to fill in all the
+    # attributes. For these reasons, we cache the items created. The cache is
+    # used within a single request.
+    if raw_item_attrs_changed? || @cached_items.nil?
+      @cached_items = raw_item_attrs.map { |item_attrs| Item.new(item_attrs) }
+    end
+
+    @cached_items
   end
 
   ##
@@ -73,7 +89,7 @@ class VocabSheet < ApplicationRecord
 
     new_raw_items = []
 
-    item_ids.each do |id|
+    item_ids.uniq.each do |id|
       new_raw_items << raw_item_attrs.find { |item| item['id'] == id }
     end
 
@@ -100,6 +116,10 @@ class VocabSheet < ApplicationRecord
   end
 
   private
+
+  def clear_items_cache
+    @cached_items = nil
+  end
 
   def find_item_by(id:)
     item_attrs = raw_item_attrs.find { |raw_item| raw_item['id'] == id }
