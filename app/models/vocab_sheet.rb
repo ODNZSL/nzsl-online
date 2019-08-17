@@ -89,7 +89,7 @@ class VocabSheet < ApplicationRecord
 
     new_raw_items = []
 
-    item_ids.each do |id|
+    item_ids.uniq.each do |id|
       new_raw_items << raw_item_attrs.find { |item| item['id'] == id }
     end
 
