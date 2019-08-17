@@ -14,20 +14,44 @@ class Sign # rubocop:disable Metrics/ClassLength
   class FreelexCommunicationError < StandardError; end
 
   ELEMENT_NAME = 'entry'
+  SIGN_OF_THE_DAY_CACHE_KEY = 'sign-of-the-day'
 
   # The breakpoints for this app allow a 1x, 2x, 3x, and 4x layout. 12, 24, etc.
   # are the best page numbers for this. Because of performance concerns, I'm
   # starting with 12.
   RESULTS_PER_PAGE = 24
 
-  # Sign attributes
-  attr_accessor :id, :video, :video_slow, :drawing, :handshape, :location_name,
-                :gloss_main, :gloss_secondary, :gloss_minor, :gloss_maori,
-                :word_classes, :inflection, :contains_numbers,
-                :is_fingerspelling, :is_directional, :is_locatable,
-                :one_or_two_handed, :age_groups, :gender_groups, :hint,
-                :usage_notes, :related_to, :usage, :examples,
-                :inflection_temporal, :inflection_manner_and_degree, :inflection_plural
+  SIGN_ATTRIBUTES = %i[
+    age_groups
+    contains_numbers
+    drawing
+    examples
+    gender_groups
+    gloss_main
+    gloss_maori
+    gloss_minor
+    gloss_secondary
+    handshape
+    hint
+    id
+    inflection
+    inflection_manner_and_degree
+    inflection_plural
+    inflection_temporal
+    is_directional
+    is_fingerspelling
+    is_locatable
+    location_name
+    one_or_two_handed
+    related_to
+    usage
+    usage_notes
+    video
+    video_slow
+    word_classes
+  ].freeze
+
+  attr_accessor(*SIGN_ATTRIBUTES)
 
   def borrowed_from
     related_to unless related_to == 'nzsl'
@@ -38,6 +62,62 @@ class Sign # rubocop:disable Metrics/ClassLength
   end
 
   # class #
+
+  ##
+  # Fetch a sign for the given ID. The sign is fetched from `Rails.cache` if
+  # possible, otherwise it is fetched from Freelex and then cached for later
+  # use.
+  #
+  # @param [String] sign_id
+  # @return [Sign, nil]
+  #
+  def self.find_by_id_via_cache(sign_id)
+    return first(id: sign_id) unless FeatureFlags::StoreVocabSheetItemsInRailsCache.enabled?
+
+    # We use the more verbose `Rails.cache.fetch` and `Rails.cache.write`
+    # instead of the more concise `Rails.cache.fetch` because many things could
+    # go wrong fetching a sign from Freelex so we only want to write the sign
+    # to the cache if we got a valid sign. `Rails.cache.fetch` with the block
+    # is not conveient for this because it will **always** write the return
+    # value of the block to the cache
+    cached_sign_json = Rails.cache.read(sign_id)
+
+    # return immediately if we got a cache hit
+    return from_json(cached_sign_json) if cached_sign_json.present?
+
+    # otherwise we had a cache miss
+    sign = first(id: sign_id) # attempt to fetch sign from Freelex
+
+    # only write the sign to the cache if we successfully got a sign from Freelex
+    if sign.present?
+      Rails.cache.write(sign_id,
+                        sign.to_json,
+                        expires_in: FeatureFlags::StoreVocabSheetItemsInRailsCache.cache_timeout.hours)
+    end
+
+    sign
+  end
+
+  ##
+  # Creates a new instance of a `Sign` object given a set of JSON attributes.
+  # This method is designed to be used as the inverse of `Sign#to_json`
+  #
+  # @param [String] json - JSON representation of a `Sign` as created by `Sign#to_json`
+  # @return [Sign, nil]
+  #
+  def self.from_json(json)
+    return nil if json.nil? || json.empty? || json == 'null'
+
+    sign = Sign.new
+
+    JSON
+      .parse(json, symbolize_names: true)
+      .each do |attr_name, attr_value|
+        sign.public_send("#{attr_name}=", attr_value)
+      end
+
+    sign
+  end
 
   def self.first(params)
     _count, entries = search(params)
@@ -67,16 +147,27 @@ class Sign # rubocop:disable Metrics/ClassLength
     first(random: 1)
   end
 
-  def self.sign_of_the_day # rubocop:disable Metrics/AbcSize
-    Rails.cache.fetch('sign-of-the-day', expires_in: 24.hours) do
-      Rails.logger.debug('Fetching new random sign from Freelex')
-      random
-    end
-  rescue StandardError => e
-    raise e if Rails.env.test? || Rails.env.development?
+  def self.sign_of_the_day
+    # We use the more verbose `Rails.cache.fetch` and `Rails.cache.write`
+    # instead of the more concise `Rails.cache.fetch` because many things could
+    # go wrong fetching a sign from Freelex so we only want to write the sign
+    # to the cache if we got a valid sign. `Rails.cache.fetch` with the block
+    # is not conveient for this because it will **always** write the return
+    # value of the block to the cache
+    #
+    cached_sign_json = Rails.cache.read(SIGN_OF_THE_DAY_CACHE_KEY)
 
-    Raygun.track_exception(Exception.new("Recovered from sign-of-the-day cache lookup error. error=#{e.inspect}"))
-    random
+    # return immediately if we had a cache hit
+    return from_json(cached_sign_json) if cached_sign_json.present?
+
+    # Otherwise we had a cache miss
+    Rails.logger.info('Fetching new random sign from Freelex')
+    sign = random # attempt to fetch sign from Freelex
+
+    # only write the sign to the cache if we successfully got a sign from Freelex
+    Rails.cache.write(SIGN_OF_THE_DAY_CACHE_KEY, sign.to_json, expires_in: 24.hours) if sign.present?
+
+    sign
   end
 
   def self.paginate(search_query, page_number)
