@@ -17,6 +17,12 @@ RSpec.describe VocabSheetsController, type: :controller do
     it { expect(response).to have_http_status(:ok) }
   end
 
+  describe '#download_pdf' do
+    before { get :download_pdf }
+
+    it { expect(response).to have_http_status(:ok) }
+  end
+
   describe '#update' do
     before do
       allow_any_instance_of(Browser::Generic)
