@@ -5,7 +5,7 @@
   .vocab-sheet__download-notice.flash.hide
     = t("vocab_sheet.download_in_progress")
   .vocab-sheet__controls.vocab-sheet__page-controls
-    = orange_submit_button "vocab_sheet.download", {format: :pdf, print: true}, class:"vocab-sheet__page-controls--download"
+    = orange_submit_button "vocab_sheet.download", download_pdf_vocab_sheet_path, class:"vocab-sheet__page-controls--download"
     = orange_submit_button "vocab_sheet.print", {print: true}
     = form_tag vocab_sheet_path, method: :delete, class: "" do
       = orange_submit_button "vocab_sheet.delete"
