@@ -3,6 +3,32 @@
 class SignParser
   VIDEO_EXAMPLES_TOTAL = 4
 
+  BOOLEAN_MAP = {
+    contains_numbers: 'number_incorp',
+    is_fingerspelling: 'fingerspelling',
+    is_directional: 'directional',
+    is_locatable: 'locatable',
+    one_or_two_handed: 'one_or_two_hand'
+  }.freeze
+
+  TAG_MAP = {
+    age_groups: 'VARIATIONAGE',
+    gender_groups: 'VARIATIONGENDER',
+    hint: 'hint',
+    usage: 'usage',
+    usage_notes: 'essay',
+    related_to: 'RELATEDTO',
+    gloss_main: 'glossmain',
+    gloss_secondary: 'glosssecondary',
+    gloss_minor: 'glossminor',
+    gloss_maori: 'glossmaori',
+    drawing: 'ASSET picture',
+    handshape: 'handshape',
+    location_name: 'location',
+    word_classes: 'SECONDARYWORDCLASS',
+    inflection: 'INFLECTION'
+  }.freeze
+
   def initialize(data)
     @data = data
   end
@@ -35,27 +61,14 @@ class SignParser
   end
 
   def parse_tags
-    { age_groups: 'VARIATIONAGE', gender_groups: 'VARIATIONGENDER',
-      hint: 'hint', usage: 'usage',
-      usage_notes: 'essay', related_to: 'RELATEDTO',
-      gloss_main: 'glossmain', gloss_secondary: 'glosssecondary',
-      gloss_minor: 'glossminor', gloss_maori:   'glossmaori',
-      drawing: 'ASSET picture', handshape:     'handshape',
-      location_name: 'location', word_classes:  'SECONDARYWORDCLASS',
-      inflection: 'INFLECTION' }.symbolize_keys.each do |key, tag|
+    TAG_MAP.each do |key, tag|
       value = @data.value_for_tag(tag)
       @sign.send("#{key}=", value)
     end
   end
 
   def parse_booleans
-    {
-      contains_numbers: 'number_incorp',
-      is_fingerspelling: 'fingerspelling',
-      is_directional: 'directional',
-      is_locatable: 'locatable',
-      one_or_two_handed: 'one_or_two_hand'
-    }.each do |key, tag|
+    BOOLEAN_MAP.each do |key, tag|
       value = @data.value_for_tag(tag).to_bool
       @sign.send("#{key}=", value)
     end
@@ -71,16 +84,16 @@ class SignParser
                      "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}_slow")}"
                    end
 
-      @sign.examples << { transcription: parse_transcription(@data, "videoexample#{i}"),
+      @sign.examples << { transcription: parse_transcription("videoexample#{i}"),
                           translation: @data.value_for_tag("videoexample#{i}translation"),
                           video: "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}")}",
                           video_slow: video_slow }
     end
   end
 
-  def parse_transcription(data, tag)
+  def parse_transcription(tag)
     transcription = []
-    data.css(tag).children.each do |item|
+    @data.css(tag).children.each do |item|
       if item.is_a?(Nokogiri::XML::Text)
         transcription += item.content.split(' ')
       else
