@@ -19,18 +19,15 @@ class VocabSheetsController < ApplicationController
   def show
     set_vocab_sheet_size
 
-    respond_to do |format|
-      format.html do
-        return render :print if params[:print] == 'true'
+    return render :print if params[:print] == 'true'
 
-        render :show
-      end
+    render :show
+  end
 
-      format.pdf do
-        pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
-        send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
-      end
-    end
+  def download_pdf
+    set_vocab_sheet_size
+    pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
+    send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
   end
 
   def update # rubocop:disable Metrics/AbcSize

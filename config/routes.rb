@@ -37,6 +37,10 @@ NzslOnline::Application.routes.draw do
   resources :feedback, only: [:create]
 
   resource :vocab_sheet, only: %i[show destroy update] do
+    member do
+      get :download_pdf
+    end
+
     resources :items, only: %i[create destroy update] do
       collection do
         post 'reorder'
