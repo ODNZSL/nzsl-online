@@ -44,6 +44,82 @@ RSpec.describe 'Sign', type: :model do
     end
   end
 
+  describe '.from_json' do
+    it 'returns nil if given JSON is obviously invalid' do
+      expect(Sign.from_json(nil)).to eq(nil)
+      expect(Sign.from_json('')).to eq(nil)
+
+      # nil.to_json # => 'null'
+      expect(Sign.from_json('null')).to eq(nil)
+    end
+
+    it 'creates a Sign with identical attributes from JSON outputted by Sign#to_json' do
+      original_sign = Sign.first(id: 1000)
+      original_sign_json = original_sign.to_json
+      rehydrated_sign = Sign.from_json(original_sign_json)
+
+      Sign::SIGN_ATTRIBUTES.each do |attr|
+        expect(rehydrated_sign.send(attr)).to eq(original_sign.send(attr))
+      end
+    end
+  end
+
+  describe '.find_by_id_via_cache' do
+    let(:sign_id) { 1234 }
+
+    context 'when Rails cache is enabled' do
+      let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
+
+      before(:each) do
+        allow(Rails).to receive(:cache).and_return(memory_store)
+        Rails.cache.clear
+      end
+
+      context 'when the Item caching feature is enabled' do
+        before(:each) do
+          allow(FeatureFlags::StoreVocabSheetItemsInRailsCache).to receive(:enabled?).and_return(true)
+        end
+
+        it 'caches the Sign as expected' do
+          # given an empty cache
+          expect(Rails.cache.exist?(sign_id)).to be(false)
+
+          # when we create a new Sign from the given sign_id
+          Sign.find_by_id_via_cache(sign_id)
+
+          # then we expect the sign to be cached
+          expect(Rails.cache.exist?(sign_id)).to be(true)
+
+          # and we expect the cached JSON to be identical to the JSON generated
+          # by calling `#to_json` on the sign fetched directly from Freelex
+          sign_directly_from_freelex_json = Sign.first(id: sign_id).to_json
+          cached_sign_json = Rails.cache.fetch(sign_id)
+          expect(cached_sign_json).to eq(sign_directly_from_freelex_json)
+        end
+
+        it 'caches calls to Freelex when called repeatedly with the same input' do
+          expect(Sign).to receive(:first).once.and_call_original
+
+          Sign.find_by_id_via_cache(sign_id)
+          Sign.find_by_id_via_cache(sign_id)
+        end
+      end
+
+      context 'when the Item caching feature is disabled' do
+        before(:each) do
+          allow(FeatureFlags::StoreVocabSheetItemsInRailsCache).to receive(:enabled?).and_return(false)
+        end
+
+        it 'does not cache calls to Freelex when creating the same Sign repeatedly' do
+          expect(Sign).to receive(:first).twice
+
+          Sign.find_by_id_via_cache(sign_id)
+          Sign.find_by_id_via_cache(sign_id)
+        end
+      end
+    end
+  end
+
   describe '.first' do
     it 'finds a sign' do
       sign = Sign.first(id: 1000)
@@ -58,14 +134,6 @@ RSpec.describe 'Sign', type: :model do
   end
 
   describe '.sign_of_the_day' do
-    it 'returns a Sign' do
-      expect(Sign.sign_of_the_day).to be_an_instance_of(Sign)
-    end
-
-    it 'returns the same sign when called repeatedly' do
-      expect(Sign.sign_of_the_day.id).to eq(Sign.sign_of_the_day.id)
-    end
-
     it 'recovers if an exception is rasied by Rails caching' do
       # given we are not in dev|test env
       allow(Rails.env).to receive(:development?).and_return(false)
@@ -76,6 +144,19 @@ RSpec.describe 'Sign', type: :model do
 
       # then we expect the method to still return a sign
       expect(Sign.sign_of_the_day).to be_an_instance_of(Sign)
+    end
+
+    context 'when caching is enabled' do
+      let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
+
+      before(:each) do
+        allow(Rails).to receive(:cache).and_return(memory_store)
+        Rails.cache.clear
+      end
+
+      it 'returns the same sign when called repeatedly' do
+        expect(Sign.sign_of_the_day.id).to eq(Sign.sign_of_the_day.id)
+      end
     end
   end
 
