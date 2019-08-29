@@ -26,6 +26,12 @@ class VocabSheetsController < ApplicationController
 
   def download_pdf
     set_vocab_sheet_size
+
+    # Many Haml templates test `params[:print]` directly and make choices
+    # depending on its value so we need to set it here until those templates
+    # can be refactored.
+    params[:print] = 'true'
+
     pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
     send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
   end
