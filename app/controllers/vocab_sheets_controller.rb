@@ -6,21 +6,34 @@ class VocabSheetsController < ApplicationController
   before_action :set_search_query, :footer_content
   respond_to :html, :json
 
+  ##
+  # Tell New Relic agent to not inject it's Javascript into any HTML returned
+  # from endpoints in this controller. We do this because we depend on the
+  # browser "load" event firing in a timely manner when rendering the Vocab
+  # sheet as a PDF. The New Relic JS sometimes delays this (this delay doesn't
+  # matter to human users). For more details see:
+  # https://docs.newrelic.com/docs/agents/ruby-agent/api-guides/ignoring-specific-transactions#ignore-rails
+  #
+  newrelic_ignore_enduser
+
   def show
     set_vocab_sheet_size
 
-    respond_to do |format|
-      format.html do
-        return render :print if params[:print] == 'true'
+    return render :print if params[:print] == 'true'
 
-        render :show
-      end
+    render :show
+  end
 
-      format.pdf do
-        pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
-        send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
-      end
-    end
+  def download_pdf
+    set_vocab_sheet_size
+
+    # Many Haml templates test `params[:print]` directly and make choices
+    # depending on its value so we need to set it here until those templates
+    # can be refactored.
+    params[:print] = 'true'
+
+    pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
+    send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
   end
 
   def update # rubocop:disable Metrics/AbcSize
