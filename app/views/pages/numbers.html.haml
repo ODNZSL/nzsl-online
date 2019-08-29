@@ -2,11 +2,11 @@
   .typography.small-11.small-centered.medium-10.large-8
     %h1 Numbers
     .clearfix_left.column-block
-      .translation_video{"data-ratio" => "0.75", :style => "display: none;"}
-        %video.video-js.vjs-default-skin{:controls => "controls", :controlslist => "nodownload", :loop => "loop", :preload => "auto"}
-          %source{:src => "http://s3-ap-southeast-2.amazonaws.com/nzsl-assets/number-signs.mp4", :type => "video/mp4"}
-            %source{:src => "http://s3-ap-southeast-2.amazonaws.com/nzsl-assets/number-signs.webm", :type => "video/webm"}
-      %a.button.translation_button{:href => "javascript:void(0);"}
+      .translation_video{"data-ratio" => "0.75", style: "display: none;"}
+        %video.video-js.vjs-default-skin{controls: "controls", controlslist: "nodownload", loop: "loop", preload: "auto"}
+          %source{src: "http://s3-ap-southeast-2.amazonaws.com/nzsl-assets/number-signs.mp4", type: "video/mp4"}
+            %source{src: "http://s3-ap-southeast-2.amazonaws.com/nzsl-assets/number-signs.webm", type: "video/webm"}
+      %a.button.translation_button{href: "javascript:void(0);"}
         %i.fi-play>
         Play this page in NZSL
     .rule_after.ckeditor_content
@@ -19,19 +19,19 @@
         including:
       %ul
         %li
-          %a{:href => "#cardinal"} Cardinal Numbers
+          %a{href: "#cardinal"} Cardinal Numbers
           (counting)
         %li
-          %a{:href => "#ordinal"} Ordinal Numbers
+          %a{href: "#ordinal"} Ordinal Numbers
           (ordering: 1st)
         %li
-          %a{:href => "#age"} Age
+          %a{href: "#age"} Age
         %li
-          %a{:href => "#time"} Time
+          %a{href: "#time"} Time
         %li
-          %a{:href => "#money"} Money
+          %a{href: "#money"} Money
         %li
-          %a{:href => "#fractions"} Fractions
+          %a{href: "#fractions"} Fractions
   .small-11.small-centered.medium-10.large-8
     .typography
       %h2#cardinal Cardinal Numbers
@@ -39,349 +39,349 @@
     .typography
       %ul.no-bullet
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5655")}"}
-            %img.grid-image{:alt => "0", :src => "#{sign_image_url(image_name: "5655/zero-5655-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5655")}"}
+          %a.drawing{href: "#{sign_path("5655")}"}
+            %img.grid-image{alt: "0", src: "#{sign_image_url(image_name: "5655/zero-5655-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5655")}"}
             0
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("4056")}"}
-            %img.grid-image{:alt => "0", :src => "#{sign_image_url(image_name: "4056/zero-4056-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("4056")}"}
+          %a.drawing{href: "#{sign_path("4056")}"}
+            %img.grid-image{alt: "0", src: "#{sign_image_url(image_name: "4056/zero-4056-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("4056")}"}
             0
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5607")}"}
-            %img.grid-image{:alt => "1", :src => "#{sign_image_url(image_name: "5607/one-5607-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5607")}"}
+          %a.drawing{href: "#{sign_path("5607")}"}
+            %img.grid-image{alt: "1", src: "#{sign_image_url(image_name: "5607/one-5607-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5607")}"}
             1
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5617")}"}
-            %img.grid-image{:alt => "2", :src => "#{sign_image_url(image_name: "5617/two-5617-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5617")}"}
+          %a.drawing{href: "#{sign_path("5617")}"}
+            %img.grid-image{alt: "2", src: "#{sign_image_url(image_name: "5617/two-5617-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5617")}"}
             2
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5619")}"}
-            %img.grid-image{:alt => "3", :src => "#{sign_image_url(image_name: "5619/three-5619-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5619")}"}
+          %a.drawing{href: "#{sign_path("5619")}"}
+            %img.grid-image{alt: "3", src: "#{sign_image_url(image_name: "5619/three-5619-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5619")}"}
             3
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5665")}"}
-            %img.grid-image{:alt => "3", :src => "#{sign_image_url(image_name: "5665/three-5665-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5665")}"}
+          %a.drawing{href: "#{sign_path("5665")}"}
+            %img.grid-image{alt: "3", src: "#{sign_image_url(image_name: "5665/three-5665-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5665")}"}
             3
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5688")}"}
-            %img.grid-image{:alt => "3", :src => "#{sign_image_url(image_name: "5688/three-5688-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5688")}"}
+          %a.drawing{href: "#{sign_path("5688")}"}
+            %img.grid-image{alt: "3", src: "#{sign_image_url(image_name: "5688/three-5688-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5688")}"}
             3
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5620")}"}
-            %img.grid-image{:alt => "4", :src => "#{sign_image_url(image_name: "5620/four-5620-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5620")}"}
+          %a.drawing{href: "#{sign_path("5620")}"}
+            %img.grid-image{alt: "4", src: "#{sign_image_url(image_name: "5620/four-5620-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5620")}"}
             4
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5621")}"}
-            %img.grid-image{:alt => "5", :src => "#{sign_image_url(image_name: "5621/five-5621-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5621")}"}
+          %a.drawing{href: "#{sign_path("5621")}"}
+            %img.grid-image{alt: "5", src: "#{sign_image_url(image_name: "5621/five-5621-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5621")}"}
             5
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5622")}"}
-            %img.grid-image{:alt => "6", :src => "#{sign_image_url(image_name: "5622/six-5622-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5622")}"}
+          %a.drawing{href: "#{sign_path("5622")}"}
+            %img.grid-image{alt: "6", src: "#{sign_image_url(image_name: "5622/six-5622-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5622")}"}
             6
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5623")}"}
-            %img.grid-image{:alt => "7", :src => "#{sign_image_url(image_name: "5623/seven-5623-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5623")}"}
+          %a.drawing{href: "#{sign_path("5623")}"}
+            %img.grid-image{alt: "7", src: "#{sign_image_url(image_name: "5623/seven-5623-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5623")}"}
             7
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5691")}"}
-            %img.grid-image{:alt => "7", :src => "#{sign_image_url(image_name: "5691/seven-5691-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5691")}"}
+          %a.drawing{href: "#{sign_path("5691")}"}
+            %img.grid-image{alt: "7", src: "#{sign_image_url(image_name: "5691/seven-5691-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5691")}"}
             7
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5624")}"}
-            %img.grid-image{:alt => "8", :src => "#{sign_image_url(image_name: "5624/eight-5624-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5624")}"}
+          %a.drawing{href: "#{sign_path("5624")}"}
+            %img.grid-image{alt: "8", src: "#{sign_image_url(image_name: "5624/eight-5624-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5624")}"}
             8
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5692")}"}
-            %img.grid-image{:alt => "8", :src => "#{sign_image_url(image_name: "5692/eight-5692-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5692")}"}
+          %a.drawing{href: "#{sign_path("5692")}"}
+            %img.grid-image{alt: "8", src: "#{sign_image_url(image_name: "5692/eight-5692-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5692")}"}
             8
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5694")}"}
-            %img.grid-image{:alt => "8", :src => "#{sign_image_url(image_name: "5694/eight-5694-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5694")}"}
+          %a.drawing{href: "#{sign_path("5694")}"}
+            %img.grid-image{alt: "8", src: "#{sign_image_url(image_name: "5694/eight-5694-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5694")}"}
             8
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5693")}"}
-            %img.grid-image{:alt => "8", :src => "#{sign_image_url(image_name: "5693/eight-5693-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5693")}"}
+          %a.drawing{href: "#{sign_path("5693")}"}
+            %img.grid-image{alt: "8", src: "#{sign_image_url(image_name: "5693/eight-5693-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5693")}"}
             8
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5696")}"}
-            %img.grid-image{:alt => "9", :src => "#{sign_image_url(image_name: "5696/nine-5696-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5696")}"}
+          %a.drawing{href: "#{sign_path("5696")}"}
+            %img.grid-image{alt: "9", src: "#{sign_image_url(image_name: "5696/nine-5696-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5696")}"}
             9
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5697")}"}
-            %img.grid-image{:alt => "9", :src => "#{sign_image_url(image_name: "5697/nine-5697-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5697")}"}
+          %a.drawing{href: "#{sign_path("5697")}"}
+            %img.grid-image{alt: "9", src: "#{sign_image_url(image_name: "5697/nine-5697-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5697")}"}
             9
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5695")}"}
-            %img.grid-image{:alt => "9", :src => "#{sign_image_url(image_name: "5695/nine-5695-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5695")}"}
+          %a.drawing{href: "#{sign_path("5695")}"}
+            %img.grid-image{alt: "9", src: "#{sign_image_url(image_name: "5695/nine-5695-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5695")}"}
             9
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("4065")}"}
-            %img.grid-image{:alt => "10", :src => "#{sign_image_url(image_name: "4065/ten-4065-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("4065")}"}
+          %a.drawing{href: "#{sign_path("4065")}"}
+            %img.grid-image{alt: "10", src: "#{sign_image_url(image_name: "4065/ten-4065-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("4065")}"}
             10
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5653")}"}
-            %img.grid-image{:alt => "10", :src => "#{sign_image_url(image_name: "5653/ten-5653-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5653")}"}
+          %a.drawing{href: "#{sign_path("5653")}"}
+            %img.grid-image{alt: "10", src: "#{sign_image_url(image_name: "5653/ten-5653-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5653")}"}
             10
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5608")}"}
-            %img.grid-image{:alt => "11", :src => "#{sign_image_url(image_name: "5608/eleven-5608-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5608")}"}
+          %a.drawing{href: "#{sign_path("5608")}"}
+            %img.grid-image{alt: "11", src: "#{sign_image_url(image_name: "5608/eleven-5608-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5608")}"}
             11
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("2335")}"}
-            %img.grid-image{:alt => "11", :src => "#{sign_image_url(image_name: "2335/eleven-2335-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("2335")}"}
+          %a.drawing{href: "#{sign_path("2335")}"}
+            %img.grid-image{alt: "11", src: "#{sign_image_url(image_name: "2335/eleven-2335-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("2335")}"}
             11
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("2741")}"}
-            %img.grid-image{:alt => "11", :src => "#{sign_image_url(image_name: "2741/eleven-2741-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("2741")}"}
+          %a.drawing{href: "#{sign_path("2741")}"}
+            %img.grid-image{alt: "11", src: "#{sign_image_url(image_name: "2741/eleven-2741-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("2741")}"}
             11
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("2865")}"}
-            %img.grid-image{:alt => "12", :src => "#{sign_image_url(image_name: "2865/twelve-2865-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("2865")}"}
+          %a.drawing{href: "#{sign_path("2865")}"}
+            %img.grid-image{alt: "12", src: "#{sign_image_url(image_name: "2865/twelve-2865-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("2865")}"}
             12
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5609")}"}
-            %img.grid-image{:alt => "12", :src => "#{sign_image_url(image_name: "5609/twelve-5609-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5609")}"}
+          %a.drawing{href: "#{sign_path("5609")}"}
+            %img.grid-image{alt: "12", src: "#{sign_image_url(image_name: "5609/twelve-5609-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5609")}"}
             12
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5610")}"}
-            %img.grid-image{:alt => "13", :src => "#{sign_image_url(image_name: "5610/thirteen-5610-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5610")}"}
+          %a.drawing{href: "#{sign_path("5610")}"}
+            %img.grid-image{alt: "13", src: "#{sign_image_url(image_name: "5610/thirteen-5610-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5610")}"}
             13
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5570")}"}
-            %img.grid-image{:alt => "13", :src => "#{sign_image_url(image_name: "5570/thirteen-5570-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5570")}"}
+          %a.drawing{href: "#{sign_path("5570")}"}
+            %img.grid-image{alt: "13", src: "#{sign_image_url(image_name: "5570/thirteen-5570-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5570")}"}
             13
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5652")}"}
-            %img.grid-image{:alt => "13", :src => "#{sign_image_url(image_name: "5652/thirteen-5652-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5652")}"}
+          %a.drawing{href: "#{sign_path("5652")}"}
+            %img.grid-image{alt: "13", src: "#{sign_image_url(image_name: "5652/thirteen-5652-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5652")}"}
             13
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5611")}"}
-            %img.grid-image{:alt => "14", :src => "#{sign_image_url(image_name: "5611/fourteen-5611-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5611")}"}
+          %a.drawing{href: "#{sign_path("5611")}"}
+            %img.grid-image{alt: "14", src: "#{sign_image_url(image_name: "5611/fourteen-5611-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5611")}"}
             14
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5612")}"}
-            %img.grid-image{:alt => "15", :src => "#{sign_image_url(image_name: "5612/fifteen-5612-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5612")}"}
+          %a.drawing{href: "#{sign_path("5612")}"}
+            %img.grid-image{alt: "15", src: "#{sign_image_url(image_name: "5612/fifteen-5612-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5612")}"}
             15
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5613")}"}
-            %img.grid-image{:alt => "16", :src => "#{sign_image_url(image_name: "5613/sixteen-5613-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5613")}"}
+          %a.drawing{href: "#{sign_path("5613")}"}
+            %img.grid-image{alt: "16", src: "#{sign_image_url(image_name: "5613/sixteen-5613-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5613")}"}
             16
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5614")}"}
-            %img.grid-image{:alt => "17", :src => "#{sign_image_url(image_name: "5614/seventeen-5614-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5614")}"}
+          %a.drawing{href: "#{sign_path("5614")}"}
+            %img.grid-image{alt: "17", src: "#{sign_image_url(image_name: "5614/seventeen-5614-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5614")}"}
             17
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5698")}"}
-            %img.grid-image{:alt => "17", :src => "#{sign_image_url(image_name: "5698/seventeen-5698-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5698")}"}
+          %a.drawing{href: "#{sign_path("5698")}"}
+            %img.grid-image{alt: "17", src: "#{sign_image_url(image_name: "5698/seventeen-5698-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5698")}"}
             17
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5615")}"}
-            %img.grid-image{:alt => "18", :src => "#{sign_image_url(image_name: "5615/eighteen-5615-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5615")}"}
+          %a.drawing{href: "#{sign_path("5615")}"}
+            %img.grid-image{alt: "18", src: "#{sign_image_url(image_name: "5615/eighteen-5615-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5615")}"}
             18
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5699")}"}
-            %img.grid-image{:alt => "18", :src => "#{sign_image_url(image_name: "5699/eighteen-5699-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5699")}"}
+          %a.drawing{href: "#{sign_path("5699")}"}
+            %img.grid-image{alt: "18", src: "#{sign_image_url(image_name: "5699/eighteen-5699-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5699")}"}
             18
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5700")}"}
-            %img.grid-image{:alt => "18", :src => "#{sign_image_url(image_name: "5700/eighteen-5700-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5700")}"}
+          %a.drawing{href: "#{sign_path("5700")}"}
+            %img.grid-image{alt: "18", src: "#{sign_image_url(image_name: "5700/eighteen-5700-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5700")}"}
             18
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5702")}"}
-            %img.grid-image{:alt => "19", :src => "#{sign_image_url(image_name: "5702/nineteen-5702-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5702")}"}
+          %a.drawing{href: "#{sign_path("5702")}"}
+            %img.grid-image{alt: "19", src: "#{sign_image_url(image_name: "5702/nineteen-5702-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5702")}"}
             19
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5701")}"}
-            %img.grid-image{:alt => "19", :src => "#{sign_image_url(image_name: "5701/nineteen-5701-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5701")}"}
+          %a.drawing{href: "#{sign_path("5701")}"}
+            %img.grid-image{alt: "19", src: "#{sign_image_url(image_name: "5701/nineteen-5701-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5701")}"}
             19
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5616")}"}
-            %img.grid-image{:alt => "19", :src => "#{sign_image_url(image_name: "5616/nineteen-5616-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5616")}"}
+          %a.drawing{href: "#{sign_path("5616")}"}
+            %img.grid-image{alt: "19", src: "#{sign_image_url(image_name: "5616/nineteen-5616-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5616")}"}
             19
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5618")}"}
-            %img.grid-image{:alt => "20", :src => "#{sign_image_url(image_name: "5618/twenty-5618-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5618")}"}
+          %a.drawing{href: "#{sign_path("5618")}"}
+            %img.grid-image{alt: "20", src: "#{sign_image_url(image_name: "5618/twenty-5618-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5618")}"}
             20
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5703")}"}
-            %img.grid-image{:alt => "21", :src => "#{sign_image_url(image_name: "5703/twenty_one-5703-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5703")}"}
+          %a.drawing{href: "#{sign_path("5703")}"}
+            %img.grid-image{alt: "21", src: "#{sign_image_url(image_name: "5703/twenty_one-5703-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5703")}"}
             21
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5704")}"}
-            %img.grid-image{:alt => "22", :src => "#{sign_image_url(image_name: "5704/twenty_two-5704-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5704")}"}
+          %a.drawing{href: "#{sign_path("5704")}"}
+            %img.grid-image{alt: "22", src: "#{sign_image_url(image_name: "5704/twenty_two-5704-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5704")}"}
             22
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5705")}"}
-            %img.grid-image{:alt => "23", :src => "#{sign_image_url(image_name: "5705/twenty_three-5705-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5705")}"}
+          %a.drawing{href: "#{sign_path("5705")}"}
+            %img.grid-image{alt: "23", src: "#{sign_image_url(image_name: "5705/twenty_three-5705-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5705")}"}
             23
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5715")}"}
-            %img.grid-image{:alt => "24", :src => "#{sign_image_url(image_name: "5715/twenty_four-5715-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5715")}"}
+          %a.drawing{href: "#{sign_path("5715")}"}
+            %img.grid-image{alt: "24", src: "#{sign_image_url(image_name: "5715/twenty_four-5715-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5715")}"}
             24
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5716")}"}
-            %img.grid-image{:alt => "25", :src => "#{sign_image_url(image_name: "5716/twenty_five-5716-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5716")}"}
+          %a.drawing{href: "#{sign_path("5716")}"}
+            %img.grid-image{alt: "25", src: "#{sign_image_url(image_name: "5716/twenty_five-5716-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5716")}"}
             25
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5717")}"}
-            %img.grid-image{:alt => "26", :src => "#{sign_image_url(image_name: "5717/twenty_six-5717-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5717")}"}
+          %a.drawing{href: "#{sign_path("5717")}"}
+            %img.grid-image{alt: "26", src: "#{sign_image_url(image_name: "5717/twenty_six-5717-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5717")}"}
             26
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5718")}"}
-            %img.grid-image{:alt => "27", :src => "#{sign_image_url(image_name: "5718/twenty_seven-5718-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5718")}"}
+          %a.drawing{href: "#{sign_path("5718")}"}
+            %img.grid-image{alt: "27", src: "#{sign_image_url(image_name: "5718/twenty_seven-5718-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5718")}"}
             27
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5719")}"}
-            %img.grid-image{:alt => "28", :src => "#{sign_image_url(image_name: "5719/twenty_eight-5719-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5719")}"}
+          %a.drawing{href: "#{sign_path("5719")}"}
+            %img.grid-image{alt: "28", src: "#{sign_image_url(image_name: "5719/twenty_eight-5719-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5719")}"}
             28
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5720")}"}
-            %img.grid-image{:alt => "29", :src => "#{sign_image_url(image_name: "5720/twenty_nine-5720-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5720")}"}
+          %a.drawing{href: "#{sign_path("5720")}"}
+            %img.grid-image{alt: "29", src: "#{sign_image_url(image_name: "5720/twenty_nine-5720-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5720")}"}
             29
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6221")}"}
-            %img.grid-image{:alt => "29", :src => "#{sign_image_url(image_name: "6221/twenty_nine-6221-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6221")}"}
+          %a.drawing{href: "#{sign_path("6221")}"}
+            %img.grid-image{alt: "29", src: "#{sign_image_url(image_name: "6221/twenty_nine-6221-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("6221")}"}
             29
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5706")}"}
-            %img.grid-image{:alt => "30", :src => "#{sign_image_url(image_name: "5706/thirty-5706-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5706")}"}
+          %a.drawing{href: "#{sign_path("5706")}"}
+            %img.grid-image{alt: "30", src: "#{sign_image_url(image_name: "5706/thirty-5706-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5706")}"}
             30
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5707")}"}
-            %img.grid-image{:alt => "40", :src => "#{sign_image_url(image_name: "5707/forty-5707-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5707")}"}
+          %a.drawing{href: "#{sign_path("5707")}"}
+            %img.grid-image{alt: "40", src: "#{sign_image_url(image_name: "5707/forty-5707-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5707")}"}
             40
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5708")}"}
-            %img.grid-image{:alt => "50", :src => "#{sign_image_url(image_name: "5708/fifty-5708-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5708")}"}
+          %a.drawing{href: "#{sign_path("5708")}"}
+            %img.grid-image{alt: "50", src: "#{sign_image_url(image_name: "5708/fifty-5708-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5708")}"}
             50
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5711")}"}
-            %img.grid-image{:alt => "60", :src => "#{sign_image_url(image_name: "5711/sixty-5711-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5711")}"}
+          %a.drawing{href: "#{sign_path("5711")}"}
+            %img.grid-image{alt: "60", src: "#{sign_image_url(image_name: "5711/sixty-5711-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5711")}"}
             60
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5712")}"}
-            %img.grid-image{:alt => "70", :src => "#{sign_image_url(image_name: "5712/seventy-5712-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5712")}"}
+          %a.drawing{href: "#{sign_path("5712")}"}
+            %img.grid-image{alt: "70", src: "#{sign_image_url(image_name: "5712/seventy-5712-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5712")}"}
             70
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5713")}"}
-            %img.grid-image{:alt => "80", :src => "#{sign_image_url(image_name: "5713/eighty-5713-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5713")}"}
+          %a.drawing{href: "#{sign_path("5713")}"}
+            %img.grid-image{alt: "80", src: "#{sign_image_url(image_name: "5713/eighty-5713-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5713")}"}
             80
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5730")}"}
-            %img.grid-image{:alt => "90", :src => "#{sign_image_url(image_name: "5730/ninety-5730-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5730")}"}
+          %a.drawing{href: "#{sign_path("5730")}"}
+            %img.grid-image{alt: "90", src: "#{sign_image_url(image_name: "5730/ninety-5730-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5730")}"}
             90
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5714")}"}
-            %img.grid-image{:alt => "90", :src => "#{sign_image_url(image_name: "5714/ninety-5714-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5714")}"}
+          %a.drawing{href: "#{sign_path("5714")}"}
+            %img.grid-image{alt: "90", src: "#{sign_image_url(image_name: "5714/ninety-5714-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5714")}"}
             90
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("386")}"}
-            %img.grid-image{:alt => "100", :src => "#{sign_image_url(image_name: "386/hundred-386-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("386")}"}
+          %a.drawing{href: "#{sign_path("386")}"}
+            %img.grid-image{alt: "100", src: "#{sign_image_url(image_name: "386/hundred-386-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("386")}"}
             100
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5709")}"}
-            %img.grid-image{:alt => "100", :src => "#{sign_image_url(image_name: "5709/one_hundred-5709-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5709")}"}
+          %a.drawing{href: "#{sign_path("5709")}"}
+            %img.grid-image{alt: "100", src: "#{sign_image_url(image_name: "5709/one_hundred-5709-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5709")}"}
             100
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5710")}"}
-            %img.grid-image{:alt => "100", :src => "#{sign_image_url(image_name: "5710/one_hundred-5710-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5710")}"}
+          %a.drawing{href: "#{sign_path("5710")}"}
+            %img.grid-image{alt: "100", src: "#{sign_image_url(image_name: "5710/one_hundred-5710-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5710")}"}
             100
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("2290")}"}
-            %img.grid-image{:alt => "1,000", :src => "#{sign_image_url(image_name: "2290/thousand-2290-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("2290")}"}
+          %a.drawing{href: "#{sign_path("2290")}"}
+            %img.grid-image{alt: "1,000", src: "#{sign_image_url(image_name: "2290/thousand-2290-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("2290")}"}
             1,000
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6237")}"}
-            %img.grid-image{:alt => "10,000", :src => "#{sign_image_url(image_name: "6237/ten_thousand-6237-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6237")}"}
+          %a.drawing{href: "#{sign_path("6237")}"}
+            %img.grid-image{alt: "10,000", src: "#{sign_image_url(image_name: "6237/ten_thousand-6237-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("6237")}"}
             10,000
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6238")}"}
-            %img.grid-image{:alt => "100,000", :src => "#{sign_image_url(image_name: "6238/hundred_thousand-6238-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6238")}"}
+          %a.drawing{href: "#{sign_path("6238")}"}
+            %img.grid-image{alt: "100,000", src: "#{sign_image_url(image_name: "6238/hundred_thousand-6238-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6238")}"}
             100,000
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6239")}"}
-            %img.grid-image{:alt => "100,000", :src => "#{sign_image_url(image_name: "6239/hundred_thousand-6239-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6239")}"}
+          %a.drawing{href: "#{sign_path("6239")}"}
+            %img.grid-image{alt: "100,000", src: "#{sign_image_url(image_name: "6239/hundred_thousand-6239-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6239")}"}
             100,000
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6240")}"}
-            %img.grid-image{:alt => "100,000", :src => "#{sign_image_url(image_name: "6240/hundred_thousand-6240-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6240")}"}
+          %a.drawing{href: "#{sign_path("6240")}"}
+            %img.grid-image{alt: "100,000", src: "#{sign_image_url(image_name: "6240/hundred_thousand-6240-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("6240")}"}
             100,000
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("1109")}"}
-            %img.grid-image{:alt => "1,000,000 (million)", :src => "#{sign_image_url(image_name: "1109/million-1109-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("1109")}"}
+          %a.drawing{href: "#{sign_path("1109")}"}
+            %img.grid-image{alt: "1,000,000 (million)", src: "#{sign_image_url(image_name: "1109/million-1109-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("1109")}"}
             1,000,000 (million)
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("4086")}"}
-            %img.grid-image{:alt => "1,000,000,000 (billion)", :src => "#{sign_image_url(image_name: "4086/billion-4086-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("4086")}"}
+          %a.drawing{href: "#{sign_path("4086")}"}
+            %img.grid-image{alt: "1,000,000,000 (billion)", src: "#{sign_image_url(image_name: "4086/billion-4086-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("4086")}"}
             1,000,000,000 (billion)
     .typography
       %h2#ordinal Ordinal Numbers
@@ -389,19 +389,19 @@
     .typography
       %ul.no-bullet
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5663")}"}
-            %img.grid-image{:alt => "first", :src => "#{sign_image_url(image_name: "5663/first-5663-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5663")}"}
+          %a.drawing{href: "#{sign_path("5663")}"}
+            %img.grid-image{alt: "first", src: "#{sign_image_url(image_name: "5663/first-5663-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5663")}"}
             first
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5438")}"}
-            %img.grid-image{:alt => "second", :src => "#{sign_image_url(image_name: "5438/second-5438-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5438")}"}
+          %a.drawing{href: "#{sign_path("5438")}"}
+            %img.grid-image{alt: "second", src: "#{sign_image_url(image_name: "5438/second-5438-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("5438")}"}
             second
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5689")}"}
-            %img.grid-image{:alt => "third", :src => "#{sign_image_url(image_name: "5689/third-5689-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5689")}"}
+          %a.drawing{href: "#{sign_path("5689")}"}
+            %img.grid-image{alt: "third", src: "#{sign_image_url(image_name: "5689/third-5689-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5689")}"}
             third
     .typography
       %h2#age Age
@@ -409,9 +409,9 @@
     .typography
       %ul.no-bullet
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("2099")}"}
-            %img.grid-image{:alt => "one year old", :src => "#{sign_image_url(image_name: "2099/one_year_old-2099-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("2099")}"}
+          %a.drawing{href: "#{sign_path("2099")}"}
+            %img.grid-image{alt: "one year old", src: "#{sign_image_url(image_name: "2099/one_year_old-2099-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("2099")}"}
             one year old
     .typography
       %h2#time Time
@@ -419,39 +419,39 @@
     .typography
       %ul.no-bullet
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5425")}"}
-            %img.grid-image{:alt => "one hour", :src => "#{sign_image_url(image_name: "5425/one_hour-5425-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5425")}"}
+          %a.drawing{href: "#{sign_path("5425")}"}
+            %img.grid-image{alt: "one hour", src: "#{sign_image_url(image_name: "5425/one_hour-5425-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5425")}"}
             one hour
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("5662")}"}
-            %img.grid-image{:alt => "one o'clock", :src => "#{sign_image_url(image_name: "5662/one_o_clock-5662-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("5662")}"}
+          %a.drawing{href: "#{sign_path("5662")}"}
+            %img.grid-image{alt: "one o'clock", src: "#{sign_image_url(image_name: "5662/one_o_clock-5662-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("5662")}"}
             one o'clock
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("787")}"}
-            %img.grid-image{:alt => "quarter (to / past the hour)", :src => "#{sign_image_url(image_name: "787/quarter_to_past_hour-787-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("787")}"}
+          %a.drawing{href: "#{sign_path("787")}"}
+            %img.grid-image{alt: "quarter (to / past the hour)", src: "#{sign_image_url(image_name: "787/quarter_to_past_hour-787-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("787")}"}
             quarter (to / past the hour)
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("791")}"}
-            %img.grid-image{:alt => "quarter to", :src => "#{sign_image_url(image_name: "791/quarter_to-791-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("791")}"}
+          %a.drawing{href: "#{sign_path("791")}"}
+            %img.grid-image{alt: "quarter to", src: "#{sign_image_url(image_name: "791/quarter_to-791-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("791")}"}
             quarter to
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("788")}"}
-            %img.grid-image{:alt => "quarter past", :src => "#{sign_image_url(image_name: "788/quarter_past-788-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("788")}"}
+          %a.drawing{href: "#{sign_path("788")}"}
+            %img.grid-image{alt: "quarter past", src: "#{sign_image_url(image_name: "788/quarter_past-788-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("788")}"}
             quarter past
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6230")}"}
-            %img.grid-image{:alt => "half past", :src => "#{sign_image_url(image_name: "6230/half_past_time-6230-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6230")}"}
+          %a.drawing{href: "#{sign_path("6230")}"}
+            %img.grid-image{alt: "half past", src: "#{sign_image_url(image_name: "6230/half_past_time-6230-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6230")}"}
             half past
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6229")}"}
-            %img.grid-image{:alt => "past (the hour)", :src => "#{sign_image_url(image_name: "6229/past_the_hour-6229-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6229")}"}
+          %a.drawing{href: "#{sign_path("6229")}"}
+            %img.grid-image{alt: "past (the hour)", src: "#{sign_image_url(image_name: "6229/past_the_hour-6229-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6229")}"}
             past (the hour)
     .typography
       %h2#money Money
@@ -459,14 +459,14 @@
     .typography
       %ul.no-bullet
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6233")}"}
-            %img.grid-image{:alt => "one dollar", :src => "#{sign_image_url(image_name: "6233/one_dollar-6233-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6233")}"}
+          %a.drawing{href: "#{sign_path("6233")}"}
+            %img.grid-image{alt: "one dollar", src: "#{sign_image_url(image_name: "6233/one_dollar-6233-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6233")}"}
             one dollar
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6234")}"}
-            %img.grid-image{:alt => "one dollar", :src => "#{sign_image_url(image_name: "6234/one_dollar-6234-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6234")}"}
+          %a.drawing{href: "#{sign_path("6234")}"}
+            %img.grid-image{alt: "one dollar", src: "#{sign_image_url(image_name: "6234/one_dollar-6234-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("6234")}"}
             one dollar
     .typography
       %h2#fractions Fractions
@@ -474,18 +474,18 @@
     .typography
       %ul.no-bullet
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6235")}"}
-            %img.grid-image{:alt => "1/2", :src => "#{sign_image_url(image_name: "6235/one_half-6235-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6235")}"}
+          %a.drawing{href: "#{sign_path("6235")}"}
+            %img.grid-image{alt: "1/2", src: "#{sign_image_url(image_name: "6235/one_half-6235-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6235")}"}
             1/2
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6232")}"}
-            %img.grid-image{:alt => "1/3", :src => "#{sign_image_url(image_name: "6232/one_third-6232-default.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6232")}"}
+          %a.drawing{href: "#{sign_path("6232")}"}
+            %img.grid-image{alt: "1/3", src: "#{sign_image_url(image_name: "6232/one_third-6232-default.png")}"}/
+          %a.image-caption{href: "#{sign_path("6232")}"}
             1/3
         %li.small-6.medium-4.grid-stack.float-left.text-left
-          %a.drawing{:href => "#{sign_path("6236")}"}
-            %img.grid-image{:alt => "1/4", :src => "#{sign_image_url(image_name: "6236/one_quarter-6236-high_resolution.png")}"}/
-          %a.image-caption{:href => "#{sign_path("6236")}"}
+          %a.drawing{href: "#{sign_path("6236")}"}
+            %img.grid-image{alt: "1/4", src: "#{sign_image_url(image_name: "6236/one_quarter-6236-high_resolution.png")}"}/
+          %a.image-caption{href: "#{sign_path("6236")}"}
             1/4
 
