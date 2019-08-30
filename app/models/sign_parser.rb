@@ -29,6 +29,7 @@ class SignParser
     inflection: 'INFLECTION'
   }.freeze
 
+  # @param data [Nokogiri::XML::Element]
   def initialize(data)
     @data = data
   end
