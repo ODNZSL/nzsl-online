@@ -93,16 +93,18 @@ class Sign # rubocop:disable Metrics/ClassLength
     # @return [Sign] if we successfully found a sign
     # @return [nil] if we did not find a sign
     def first(search_query_params)
-      _count, xml_nodeset = search(search_query_params)
-      return nil if xml_nodeset.empty?
+      signs = all(search_query_params)
+      return nil if signs.empty?
 
-      SignParser.new(xml_nodeset.first).build_sign
+      signs.first
     end
 
     # @param search_query_params [Hash] The search query
     # @return [Array<Sign>]
     def all(search_query_params)
-      all_with_count(search_query_params)[1]
+      search(search_query_params).map do |xml_node|
+        SignParser.new(xml_node).build_sign
+      end
     end
 
     # @return [Sign] if we successfully found a sign
@@ -141,7 +143,10 @@ class Sign # rubocop:disable Metrics/ClassLength
     def paginate(search_query, page_number)
       start_index = RESULTS_PER_PAGE * (page_number - 1) + 1
       start_index = 1 if start_index < 1
-      all_with_count(search_query.merge(start: start_index, num: RESULTS_PER_PAGE))
+      paginated_query = search_query.merge(start: start_index, num: RESULTS_PER_PAGE)
+      signs = all(paginated_query)
+
+      [signs.length, signs]
     end
 
     # Creates a new instance of a `Sign` object given a set of JSON attributes.
@@ -165,21 +170,9 @@ class Sign # rubocop:disable Metrics/ClassLength
 
     private
 
-    # @param search_query_params [Hash]
-    # @return [Array(Integer, Array<Sign>)]
-    def all_with_count(search_query_params)
-      signs = []
-      count, xml_nodeset = search(search_query_params)
-      xml_nodeset.each do |entry|
-        signs << SignParser.new(entry).build_sign
-      end
-
-      [count, signs]
-    end
-
     # @param [Hash] search_query_params
-    # @return [Array(Integer, Nokogiri::XML::NodeSet)] if the search was successful
-    # @return [Array(0, [])] if there was an error
+    # @return [Nokogiri::XML::NodeSet] if the search was successful
+    # @return [[]] if there was an error
     def search(search_query_params)
       xml_request(search_query_params)
     rescue FreelexCommunicationError => e
@@ -193,16 +186,14 @@ class Sign # rubocop:disable Metrics/ClassLength
       Rails.logger.warn(msg)
       Raygun.track_exception(e)
 
-      [0, []]
+      []
     end
 
     # @param [Hash] search_query_params
-    # @return [Array(Integer, Nokogiri::XML::NodeSet)]
-    def xml_request(params)
-      xml_document = Nokogiri::XML(http_conn.get(uri_for_search(params)).body)
-      entries = xml_document.css(ELEMENT_NAME)
-      count = xml_document.css('totalhits').inner_text.to_i
-      [count, entries]
+    # @return [Nokogiri::XML::NodeSet]
+    def xml_request(search_query_params)
+      xml_document = Nokogiri::XML(http_conn.get(query_string_for_search(search_query_params)).body)
+      xml_document.css(ELEMENT_NAME)
     rescue Faraday::ConnectionFailed
       raise(FreelexCommunicationError, "Failed to connect to Freelex at URL: '#{SIGN_URL}'")
     rescue Faraday::TimeoutError
@@ -215,28 +206,22 @@ class Sign # rubocop:disable Metrics/ClassLength
       raise(FreelexCommunicationError, "Failed to communicate with Freelex because #{e}")
     end
 
-    # @param query [Hash]
-    # @return [String] URI safe string which can be sent to Freelex
-    def uri_for_search(query)
-      # The handling of arrays in query strings is different
-      # in the API than in rails
-      return SIGN_URL unless query.is_a?(Hash)
+    # @param search_query_params [Hash]
+    # @return [String] the URI-safe query string
+    def query_string_for_search(search_query_params)
+      query_parts = []
 
-      '?' + query_string_for_search(query).join('&')
-    end
+      search_query_params.each do |k, v|
+        next if v.nil?
 
-    # @param query [Hash]
-    # @return [Array<String>]
-    def query_string_for_search(query)
-      query_string = []
-      query.each do |k, v|
         if v.is_a?(Array)
-          v.each { |ea| query_string << "#{k}=#{CGI.escape(ea.to_s)}" if ea.present? }
-        elsif v.present?
-          query_string << "#{k}=#{CGI.escape(v.to_s)}"
+          v.each { |ea| query_parts << "#{k}=#{CGI.escape(ea.to_s)}" if ea.present? }
+        else
+          query_parts << "#{k}=#{CGI.escape(v.to_s)}"
         end
       end
-      query_string
+
+      "?#{query_parts.join('&')}"
     end
 
     # @return [Faraday::Connection]
