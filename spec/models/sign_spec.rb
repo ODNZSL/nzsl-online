@@ -64,6 +64,25 @@ RSpec.describe 'Sign', type: :model do
     end
   end
 
+  describe '.many_from_json' do
+    it 'returns empty Array if given JSON is obviously invalid' do
+      expect(Sign.many_from_json(nil)).to eq([])
+      expect(Sign.many_from_json('')).to eq([])
+      expect(Sign.many_from_json('null')).to eq([])
+      expect(Sign.many_from_json('[]')).to eq([])
+    end
+
+    it 'Sign objects have identical attributes after a round-trip to and from JSON' do
+      original_signs = [Sign.first(id: 1000)]
+      original_signs_json = original_signs.to_json
+      rehydrated_signs = Sign.many_from_json(original_signs_json)
+
+      Sign::SIGN_ATTRIBUTES.each do |attr|
+        expect(rehydrated_signs.first.send(attr)).to eq(original_signs.first.send(attr))
+      end
+    end
+  end
+
   describe '.find_by_id_via_cache' do
     let(:sign_id) { 1234 }
 
@@ -120,6 +139,58 @@ RSpec.describe 'Sign', type: :model do
     end
   end
 
+  describe '.all' do
+    let(:sign_id) { 1234 }
+    let(:search_query_params) { { id: sign_id } }
+    let(:search_query_url) { "?id=#{sign_id}" }
+
+    context 'when Rails cache is enabled' do
+      let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
+
+      before(:each) do
+        allow(Rails).to receive(:cache).and_return(memory_store)
+        Rails.cache.clear
+      end
+
+      context 'when the Sign caching feature is enabled' do
+        before(:each) do
+          allow(FeatureFlags::StoreAllSignsInRailsCache).to receive(:enabled?).and_return(true)
+        end
+
+        it 'caches the Sign as expected' do
+          # given an empty cache
+          expect(Rails.cache.exist?(search_query_url)).to be(false)
+
+          # when we search for signs using the query
+          Sign.all(search_query_params)
+
+          # then we expect the sign to be cached
+          expect(Rails.cache.exist?(search_query_url)).to be(true)
+        end
+
+        it 'caches calls to Freelex when called repeatedly with the same input' do
+          expect(Sign).to receive(:xml_request).once.and_call_original
+
+          Sign.all(search_query_params)
+          Sign.all(search_query_params)
+        end
+      end
+
+      context 'when the Sign caching feature is disabled' do
+        before(:each) do
+          allow(FeatureFlags::StoreAllSignsInRailsCache).to receive(:enabled?).and_return(false)
+        end
+
+        it 'does not cache calls to Freelex when searching the same Sign repeatedly' do
+          expect(Sign).to receive(:xml_request).twice.and_return([])
+
+          Sign.all(search_query_params)
+          Sign.all(search_query_params)
+        end
+      end
+    end
+  end
+
   describe '.first' do
     it 'finds a sign' do
       sign = Sign.first(id: 1000)
@@ -134,13 +205,15 @@ RSpec.describe 'Sign', type: :model do
   end
 
   describe '.sign_of_the_day' do
+    class DummyTestError < StandardError; end
+
     it 'recovers if an exception is rasied by Rails caching' do
       # given we are not in dev|test env
       allow(Rails.env).to receive(:development?).and_return(false)
       allow(Rails.env).to receive(:test?).and_return(false)
 
-      # and Rails caching raises and exception for some reason
-      allow(Rails.cache).to receive(:fetch).and_raise(TypeError)
+      # and Rails caching raises an exception for some reason
+      allow(Rails.cache).to receive(:fetch).and_raise(DummyTestError)
 
       # then we expect the method to still return a sign
       expect(Sign.sign_of_the_day).to be_an_instance_of(Sign)

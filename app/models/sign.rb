@@ -101,10 +101,32 @@ class Sign # rubocop:disable Metrics/ClassLength
 
     # @param search_query_params [Hash] The search query
     # @return [Array<Sign>]
-    def all(search_query_params)
-      search(search_query_params).map do |xml_node|
-        SignParser.new(xml_node).build_sign
+    def all(search_query_params) # rubocop:disable Metrics/MethodLength, Metrics/AbcSize
+      if FeatureFlags::StoreAllSignsInRailsCache.disabled?
+        Rails.logger.info 'SIGN_CACHE: Caching Sign objects is disabled'
+        return search(search_query_params).map { |xml_node| SignParser.new(xml_node).build_sign }
       end
+
+      # The query string we send Freelex is an ideal cache key
+      cache_key = query_string_for_search(search_query_params)
+      expiry = FeatureFlags::StoreAllSignsInRailsCache.cache_timeout.hours
+      log_prefix = "SIGN_CACHE: Key: '#{cache_key}' Message:"
+
+      Rails.logger.info "#{log_prefix} Starting search"
+
+      search_results_json = Rails.cache.fetch(cache_key, expires_in: expiry) do |_key|
+        Rails.logger.info "#{log_prefix} Fetching new signs"
+
+        search(search_query_params)
+          .map { |xml_node| SignParser.new(xml_node).build_sign }
+          .to_json
+      end
+
+      Rails.logger.info "#{log_prefix} Converting JSON signs to Sign objects"
+      many_from_json(search_results_json)
+    rescue StandardError
+      # Try fetching the sign without the cache if something went wrong
+      search(search_query_params).map { |xml_node| SignParser.new(xml_node).build_sign }
     end
 
     # @return [Sign] if we successfully found a sign
@@ -159,6 +181,9 @@ class Sign # rubocop:disable Metrics/ClassLength
 
       sign = Sign.new
 
+      # We need `symbolize_names: true` when parsing the JSON because some
+      # attributes have nested Hashes and the rest of the app expects these to
+      # have Symbol keys
       JSON
         .parse(json, symbolize_names: true)
         .each do |attr_name, attr_value|
@@ -166,6 +191,31 @@ class Sign # rubocop:disable Metrics/ClassLength
         end
 
       sign
+    rescue JSON::ParserError
+      nil
+    end
+
+    # Creates a array of a `Sign` objects given a JSON String representing that array.
+    # @param json [String] JSON representation of an array of `Sign` objects
+    # @return [Array<Sign>] if we successfully converted the JSON
+    # @return [[]] if there were no signs in the JSON or there was some problem with the JSON
+    def many_from_json(json)
+      return [] if json.nil? || json.empty? || json == 'null' || json == '[]'
+
+      # We need `symbolize_names: true` when parsing the JSON because some
+      # attributes have nested Hashes and the rest of the app expects these to
+      # have Symbol keys
+      JSON
+        .parse(json, symbolize_names: true)
+        .map do |sign_attrs|
+          sign = Sign.new
+          sign_attrs.each do |attr_name, attr_value|
+            sign.public_send("#{attr_name}=", attr_value)
+          end
+          sign
+        end
+    rescue JSON::ParserError
+      []
     end
 
     private

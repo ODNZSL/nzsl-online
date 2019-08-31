@@ -24,6 +24,28 @@ module FeatureFlags
       "#{self} is #{enabled? ? 'enabled' : 'not enabled'} (cache timeout: #{cache_timeout} hours)"
     end
   end
+
+  class StoreAllSignsInRailsCache
+    def self.enabled?
+      return false if Rails.env.test?
+
+      ENV['FEATURE_CACHE_ALL_SIGNS_ENABLED'] == 'true'
+    end
+
+    def self.disabled?
+      !enabled?
+    end
+
+    def self.cache_timeout
+      # cache for 24 hours but allow env variable to override this at runtime
+      Integer(ENV.fetch('FEATURE_CACHE_ALL_SIGNS_NUM_HOURS', 24))
+    end
+
+    def self.status_msg
+      "#{self} is #{enabled? ? 'enabled' : 'not enabled'} (cache timeout: #{cache_timeout} hours)"
+    end
+  end
 end
 
 Rails.logger.info(FeatureFlags::StoreVocabSheetItemsInRailsCache.status_msg)
+Rails.logger.info(FeatureFlags::StoreAllSignsInRailsCache.status_msg)
