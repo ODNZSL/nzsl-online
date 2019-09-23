@@ -8,8 +8,8 @@
         %ul.rows
           - row.each do |group|
             %li.group{ class: handshape_selected?(group.first) }
-              = handshape_image group.shift, true
-              - unless group.length.zero?
+              = handshape_image group.first, true
+              - unless group[1..].length.zero?
                 %ul.sub.transition{ class: "sub#{group.length}" }
                   -group.each do |shape|
                     %li{ class: handshape_selected?(shape) }= handshape_image shape
