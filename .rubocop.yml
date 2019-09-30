@@ -38,4 +38,5 @@ Naming/FileName:
 AllCops:
   Exclude:
     - 'vendor/**/*'
+    - 'node_modules/**/*'
     - 'db/schema.rb'

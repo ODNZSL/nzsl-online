@@ -102,7 +102,9 @@ class Sign # rubocop:disable Metrics/ClassLength
     # @param search_query_params [Hash] The search query
     # @return [Array<Sign>]
     def all(search_query_params)
-      search(search_query_params).map do |xml_node|
+      _count, xml_nodes = search(search_query_params)
+
+      xml_nodes.map do |xml_node|
         SignParser.new(xml_node).build_sign
       end
     end
@@ -140,13 +142,18 @@ class Sign # rubocop:disable Metrics/ClassLength
     # @param search_query [Hash]
     # @param page_number [Integer]
     # @return [Array(Integer, Array<Sign>)]
-    def paginate(search_query, page_number)
+    def paginate(search_query_params, page_number)
       start_index = RESULTS_PER_PAGE * (page_number - 1) + 1
       start_index = 1 if start_index < 1
-      paginated_query = search_query.merge(start: start_index, num: RESULTS_PER_PAGE)
-      signs = all(paginated_query)
 
-      [signs.length, signs]
+      paginated_query_params = search_query_params.merge(start: start_index, num: RESULTS_PER_PAGE)
+      count, xml_nodes = search(paginated_query_params)
+
+      signs = xml_nodes.map do |xml_node|
+        SignParser.new(xml_node).build_sign
+      end
+
+      [count, signs]
     end
 
     # Creates a new instance of a `Sign` object given a set of JSON attributes.
@@ -171,8 +178,7 @@ class Sign # rubocop:disable Metrics/ClassLength
     private
 
     # @param [Hash] search_query_params
-    # @return [Nokogiri::XML::NodeSet] if the search was successful
-    # @return [[]] if there was an error
+    # @return [Array<(Integer, Nokogiri::XML::NodeSet)>]
     def search(search_query_params)
       xml_request(search_query_params)
     rescue FreelexCommunicationError => e
@@ -190,10 +196,14 @@ class Sign # rubocop:disable Metrics/ClassLength
     end
 
     # @param [Hash] search_query_params
-    # @return [Nokogiri::XML::NodeSet]
+    # @return [Array<(Integer, Nokogiri::XML::NodeSet)>]
     def xml_request(search_query_params)
       xml_document = Nokogiri::XML(http_conn.get(query_string_for_search(search_query_params)).body)
-      xml_document.css(ELEMENT_NAME)
+
+      total_num_results_for_query = xml_document.css('totalhits').inner_text.to_i
+      result_nodes = xml_document.css(ELEMENT_NAME)
+
+      [total_num_results_for_query, result_nodes]
     rescue Faraday::ConnectionFailed
       raise(FreelexCommunicationError, "Failed to connect to Freelex at URL: '#{SIGN_URL}'")
     rescue Faraday::TimeoutError
