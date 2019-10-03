@@ -197,7 +197,7 @@ GEM
     parallel (1.17.0)
     parser (2.6.4.1)
       ast (~> 2.4.0)
-    percy-capybara (4.1.0)
+    percy-capybara (4.1.1)
     pg (1.1.4)
     pry (0.12.2)
       coderay (~> 1.1.0)
@@ -398,7 +398,7 @@ DEPENDENCIES
   nokogiri (~> 1.10.4)
   pandoc-ruby
   paperclip
-  percy-capybara (~> 4.1.0)
+  percy-capybara (~> 4.1.1)
   pg (~> 1.1)
   pry-byebug
   pry-rails
