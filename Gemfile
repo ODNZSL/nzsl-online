@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 source 'https://rubygems.org'
-ruby '2.6.4'
+ruby File.read('.ruby-version')
 
 gem 'rails', '~> 5.2.3'
 
@@ -79,7 +79,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.74.0', require: false
+  gem 'rubocop', '~> 0.75.0', require: false
   gem 'rubocop-performance'
 
   # catches email sending, and logs instead
@@ -109,7 +109,7 @@ group :test do
   gem 'capybara-selenium'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
-  gem 'percy-capybara', '~> 4.1.0'
+  gem 'percy-capybara', '~> 4.1.1'
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
