@@ -193,8 +193,8 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
       terrapin (~> 0.6.0)
-    parallel (1.17.0)
-    parser (2.6.4.1)
+    parallel (1.18.0)
+    parser (2.6.5.0)
       ast (~> 2.4.0)
     percy-capybara (4.2.0)
     pg (1.1.4)
@@ -284,7 +284,7 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.0)
-    rubocop (0.75.0)
+    rubocop (0.75.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.6)
@@ -411,7 +411,7 @@ DEPENDENCIES
   rerun
   responders (~> 3.0)
   rspec-rails
-  rubocop (~> 0.75.0)
+  rubocop (~> 0.75.1)
   rubocop-performance
   sass-rails
   simplecov
