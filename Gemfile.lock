@@ -183,7 +183,7 @@ GEM
     multipart-post (2.1.1)
     newrelic_rpm (6.7.0.359)
     nio4r (2.5.2)
-    nokogiri (1.10.4)
+    nokogiri (1.10.5)
       mini_portile2 (~> 2.4.0)
     orm_adapter (0.5.0)
     pandoc-ruby (2.0.2)
@@ -394,7 +394,7 @@ DEPENDENCIES
   mini_racer
   modernizr-rails
   newrelic_rpm
-  nokogiri (~> 1.10.4)
+  nokogiri (~> 1.10.5)
   pandoc-ruby
   paperclip
   percy-capybara (~> 4.2.0)
