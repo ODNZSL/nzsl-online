@@ -57,7 +57,7 @@ GEM
       msgpack (~> 1.0)
     brakeman (4.7.2)
     browser (2.7.1)
-    builder (3.2.3)
+    builder (3.2.4)
     bundle-audit (0.1.0)
       bundler-audit
     bundler-audit (0.6.1)
@@ -116,7 +116,7 @@ GEM
     factory_bot_rails (4.11.1)
       factory_bot (~> 4.11.1)
       railties (>= 3.0.0)
-    faker (2.8.1)
+    faker (2.9.0)
       i18n (>= 1.6, < 1.8)
     faraday (0.17.1)
       multipart-post (>= 1.2, < 3)
@@ -124,7 +124,7 @@ GEM
       faraday (>= 0.7.4, < 1.0)
     fastimage (2.1.7)
     ffi (1.11.3)
-    foundation-rails (6.5.3.0)
+    foundation-rails (6.6.1.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
       sprockets-es6 (>= 0.9.0)
@@ -294,7 +294,7 @@ GEM
       rubocop (>= 0.71.0)
     ruby-progressbar (1.10.1)
     rubyzip (2.0.0)
-    sass (3.7.3)
+    sass (3.7.4)
       sass-listen (~> 4.0.0)
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
@@ -379,7 +379,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   fastimage
-  foundation-rails (~> 6.5.3.0)
+  foundation-rails (~> 6.6.1.0)
   haml
   i18n
   jquery-rails
