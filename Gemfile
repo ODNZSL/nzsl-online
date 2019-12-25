@@ -6,7 +6,7 @@ ruby File.read('.ruby-version')
 gem 'rails', '~> 5.2.4'
 
 # Use Postgresql as the database for Active Record
-gem 'pg', '~>1.1'
+gem 'pg', '~>1.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
