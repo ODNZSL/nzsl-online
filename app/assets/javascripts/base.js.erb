@@ -80,7 +80,7 @@ $(function(){
           var webmSourceElement = $('<source />', {src: "<%= Rails.application.secrets.s3_bucket_url %>" + href + ".webm"});
           videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(webmSourceElement, mp4SourceElement);
         }
-        wrapper.empty().append(videoElement);
+        wrapper.attr('href', 'javascript:void(0)').empty().append(videoElement);
       });
     }
   };
