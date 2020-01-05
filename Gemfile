@@ -6,7 +6,7 @@ ruby File.read('.ruby-version')
 gem 'rails', '~> 5.2.4'
 
 # Use Postgresql as the database for Active Record
-gem 'pg', '~>1.1'
+gem 'pg', '~>1.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
@@ -79,7 +79,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.77.0', require: false
+  gem 'rubocop', '~> 0.78.0', require: false
   gem 'rubocop-performance'
 
   # catches email sending, and logs instead
