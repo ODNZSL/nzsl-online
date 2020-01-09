@@ -173,7 +173,7 @@ GEM
     mini_magick (4.10.1)
     mini_mime (1.0.2)
     mini_portile2 (2.4.0)
-    mini_racer (0.2.8)
+    mini_racer (0.2.9)
       libv8 (>= 6.9.411)
     minitest (5.13.0)
     modernizr-rails (2.7.1)
