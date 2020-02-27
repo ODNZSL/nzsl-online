@@ -5,7 +5,7 @@ engines:
     channel: "eslint-5"
   rubocop:
     enabled: true
-    channel: rubocop-0-78
+    channel: rubocop-0-80
   sass-lint:
     enabled: true
   shellcheck:
