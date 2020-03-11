@@ -11,13 +11,13 @@ RSpec.describe Item, type: :model do
 
   subject { Item.new('sign_id' => sign_id) }
 
-  before(:each) do
+  before do
     allow(Sign).to receive(:first).and_return(sign)
   end
 
   describe '.new' do
     context 'using a stubbed call to Freelex' do
-      before(:each) do
+      before do
         allow(Sign).to receive(:first).and_return(sign)
       end
 
@@ -54,7 +54,7 @@ RSpec.describe Item, type: :model do
 
   describe '#to_param' do
     context 'using a stubbed call to Freelex' do
-      before(:each) do
+      before do
         allow(Sign).to receive(:first).and_return(sign)
       end
 
