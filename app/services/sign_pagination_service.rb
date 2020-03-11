@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class SignPaginationService # rubocop:disable Metrics/ClassLength
   include ActionView::Helpers::TagHelper
   include ActionView::Helpers::UrlHelper

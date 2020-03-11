@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 ##
 # Simple toggles which allow us to turn featurs on/off with environment
 # variables. These flags are particularly useful when a feature may behave
