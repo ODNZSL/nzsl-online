@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe VocabSheet, type: :model do
-  subject { VocabSheet.new(name: 'My Vocab Sheet name') }
+  subject { described_class.new(name: 'My Vocab Sheet name') }
 
   let(:sign_id) { '1234' }
   let(:sign) do
