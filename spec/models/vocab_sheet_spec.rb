@@ -16,7 +16,7 @@ RSpec.describe VocabSheet, type: :model do
   let(:item) { Item.new('sign_id' => sign_id) }
 
   describe '#add_item' do
-    before(:each) do
+    before do
       allow(Sign).to receive(:first).and_return(sign)
     end
 
@@ -49,7 +49,7 @@ RSpec.describe VocabSheet, type: :model do
   end
 
   describe '#update_item' do
-    before(:each) do
+    before do
       allow(Sign).to receive(:first).and_return(sign)
     end
 
@@ -75,7 +75,7 @@ RSpec.describe VocabSheet, type: :model do
   end
 
   describe '#items' do
-    before(:each) do
+    before do
       allow(Sign).to receive(:first).and_return(sign)
     end
 
@@ -90,7 +90,7 @@ RSpec.describe VocabSheet, type: :model do
   end
 
   describe '#destroy_items' do
-    before(:each) do
+    before do
       allow(Sign).to receive(:first).and_return(sign)
     end
 
@@ -119,7 +119,7 @@ RSpec.describe VocabSheet, type: :model do
     end
     let(:item_2) { Item.new('sign_id' => sign_2_id) }
 
-    before(:each) do
+    before do
       allow(Sign).to receive(:first).and_return(sign, sign_2)
     end
 
