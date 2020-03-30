@@ -123,8 +123,8 @@ GEM
     faraday_middleware (0.14.0)
       faraday (>= 0.7.4, < 1.0)
     fastimage (2.1.7)
-    ffi (1.11.3)
-    foundation-rails (6.6.1.0)
+    ffi (1.12.2)
+    foundation-rails (6.6.2.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
       sprockets-es6 (>= 0.9.0)
@@ -255,7 +255,7 @@ GEM
       json
       rack
     rb-fsevent (0.10.3)
-    rb-inotify (0.10.0)
+    rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
     regexp_parser (1.6.0)
@@ -381,7 +381,7 @@ DEPENDENCIES
   faraday
   faraday_middleware
   fastimage
-  foundation-rails (~> 6.6.1.0)
+  foundation-rails (~> 6.6.2.0)
   haml
   i18n
   jquery-rails
