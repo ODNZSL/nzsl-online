@@ -22,7 +22,7 @@ gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
 gem 'dalli'
-gem 'foundation-rails', '~> 6.6.1.0'
+gem 'foundation-rails', '~> 6.6.2.0'
 gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
