@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ClassifiersHelper
-  def classifiers # rubocop:disable Metrics/AbcSize, MethodLength
+  def classifiers # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
     {
       sass: [
         ['spot on face', classifier_image('SASS.spot_on_face')],
