@@ -49,7 +49,7 @@ module SignsHelper
     end.join(' ').html_safe
   end
 
-  # rubocop:disable MethodLength
+  # rubocop:disable Metrics/MethodLength
   # rubocop:disable Metrics/AbcSize
 
   def render_back_to_search_results
@@ -71,6 +71,6 @@ module SignsHelper
       ''
     end
   end
-  # rubocop:enable MethodLength
+  # rubocop:enable Metrics/MethodLength
   # rubocop:enable Metrics/AbcSize
 end
