@@ -100,6 +100,15 @@
     chalk "^2.4.2"
     tslib "^1.9.3"
 
+"@oclif/parser@^3.8.3":
+  version "3.8.4"
+  resolved "https://registry.yarnpkg.com/@oclif/parser/-/parser-3.8.4.tgz#1a90fc770a42792e574fb896325618aebbe8c9e4"
+  integrity sha512-cyP1at3l42kQHZtqDS3KfTeyMvxITGwXwH1qk9ktBYvqgMp5h4vHT+cOD74ld3RqJUOZY/+Zi9lb4Tbza3BtuA==
+  dependencies:
+    "@oclif/linewrap" "^1.0.0"
+    chalk "^2.4.2"
+    tslib "^1.9.3"
+
 "@oclif/plugin-help@^2":
   version "2.2.3"
   resolved "https://registry.yarnpkg.com/@oclif/plugin-help/-/plugin-help-2.2.3.tgz#b993041e92047f0e1762668aab04d6738ac06767"
@@ -130,10 +139,10 @@
   resolved "https://registry.yarnpkg.com/@oclif/screen/-/screen-1.0.4.tgz#b740f68609dfae8aa71c3a6cab15d816407ba493"
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
-"@percy/agent@^0.20.0":
-  version "0.20.13"
-  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.20.13.tgz#3b1f2d832f61369f349ba251d43fb961c76c1cac"
-  integrity sha512-dg4YIKOmmxTu95tru0dgkAnIhgugY7U/6AYWgnC1BTR1fyF3Q9Mr1oIHaazVyys9o9Lr3vEr78kcVy5xtfGPBg==
+"@percy/agent@^0.26.0":
+  version "0.26.0"
+  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.26.0.tgz#9f06849d752df7368198835d0b5edc16c2d69a0c"
+  integrity sha512-PKah93vdcmHWlvDd2/QTir4iboqpLAcbAxhUDJYfp8rTzVy5kBstKyPrQk+8IifnGRWNSjsXOO6+qZr+cYHdjA==
   dependencies:
     "@oclif/command" "1.5.19"
     "@oclif/config" "^1"
@@ -743,7 +752,7 @@ debug@=3.1.0:
   dependencies:
     ms "2.0.0"
 
-debug@^3.0.0:
+debug@^3.0.0, debug@^3.1.0:
   version "3.2.6"
   resolved "https://registry.yarnpkg.com/debug/-/debug-3.2.6.tgz#e83d17de16d8a7efb7717edbe5fb10135eee629b"
   integrity sha512-mel+jf7nrtEl5Pn1Qx46zARXKDpBbvzezse7p7LqINmdoIk8PYP5SySaxEmYv6TZ0JyEKA1hsCId6DIhgITtWQ==

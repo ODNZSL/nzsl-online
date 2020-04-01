@@ -70,13 +70,13 @@ RSpec.describe 'Sign', type: :model do
     context 'when Rails cache is enabled' do
       let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
 
-      before(:each) do
+      before do
         allow(Rails).to receive(:cache).and_return(memory_store)
         Rails.cache.clear
       end
 
       context 'when the Item caching feature is enabled' do
-        before(:each) do
+        before do
           allow(FeatureFlags::StoreVocabSheetItemsInRailsCache).to receive(:enabled?).and_return(true)
         end
 
@@ -106,7 +106,7 @@ RSpec.describe 'Sign', type: :model do
       end
 
       context 'when the Item caching feature is disabled' do
-        before(:each) do
+        before do
           allow(FeatureFlags::StoreVocabSheetItemsInRailsCache).to receive(:enabled?).and_return(false)
         end
 
@@ -149,7 +149,7 @@ RSpec.describe 'Sign', type: :model do
     context 'when caching is enabled' do
       let(:memory_store) { ActiveSupport::Cache.lookup_store(:memory_store) }
 
-      before(:each) do
+      before do
         allow(Rails).to receive(:cache).and_return(memory_store)
         Rails.cache.clear
       end

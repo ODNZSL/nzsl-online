@@ -9,20 +9,20 @@ RSpec.describe Item, type: :model do
   let(:drawing) { 'foo.jpg' }
   let(:sign) { instance_double('Sign', id: sign_id, gloss_maori: maori_name, gloss_main: name, drawing: drawing) }
 
-  subject { Item.new('sign_id' => sign_id) }
+  subject { described_class.new('sign_id' => sign_id) }
 
-  before(:each) do
+  before do
     allow(Sign).to receive(:first).and_return(sign)
   end
 
   describe '.new' do
     context 'using a stubbed call to Freelex' do
-      before(:each) do
+      before do
         allow(Sign).to receive(:first).and_return(sign)
       end
 
       it 'initializes successfully given just a sign_id' do
-        item = Item.new('sign_id' => sign_id)
+        item = described_class.new('sign_id' => sign_id)
         expect(item.valid?).to eq(true)
 
         expect(item.name).to eq(name)
@@ -42,7 +42,7 @@ RSpec.describe Item, type: :model do
           'maori_name' => attr_maori_name
         }
 
-        item = Item.new(attrs)
+        item = described_class.new(attrs)
         expect(item.valid?).to eq(true)
 
         expect(item.name).to eq(attr_name)
@@ -54,12 +54,12 @@ RSpec.describe Item, type: :model do
 
   describe '#to_param' do
     context 'using a stubbed call to Freelex' do
-      before(:each) do
+      before do
         allow(Sign).to receive(:first).and_return(sign)
       end
 
       it 'returns the sign_id' do
-        item = Item.new('sign_id' => sign_id)
+        item = described_class.new('sign_id' => sign_id)
         expect(item.to_param).to eq(sign_id)
       end
     end

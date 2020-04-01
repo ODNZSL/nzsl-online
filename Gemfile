@@ -3,18 +3,18 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 5.2.3'
+gem 'rails', '~> 5.2.4'
 
 # Use Postgresql as the database for Active Record
-gem 'pg', '~>1.1'
+gem 'pg', '~>1.2'
 
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.11.2'
-gem 'mini_magick', '~> 4.9.5'
-gem 'nokogiri', '~> 1.10.5'
+gem 'mini_magick', '~> 4.10.1'
+gem 'nokogiri', '~> 1.10.9'
 gem 'pandoc-ruby'
 gem 'whenever'
 
@@ -22,7 +22,7 @@ gem 'autoprefixer-rails'
 gem 'browser'
 gem 'ckeditor_rails'
 gem 'dalli'
-gem 'foundation-rails', '~> 6.5.3.0'
+gem 'foundation-rails', '~> 6.6.2.0'
 gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
@@ -79,7 +79,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.76.0', require: false
+  gem 'rubocop', '~> 0.80.1', require: false
   gem 'rubocop-performance'
 
   # catches email sending, and logs instead
