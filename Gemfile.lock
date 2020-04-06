@@ -284,7 +284,7 @@ GEM
       rspec-mocks (~> 3.9.0)
       rspec-support (~> 3.9.0)
     rspec-support (3.9.2)
-    rubocop (0.81.0)
+    rubocop (0.80.1)
       jaro_winkler (~> 1.5.1)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
@@ -411,7 +411,7 @@ DEPENDENCIES
   rerun
   responders (~> 3.0)
   rspec-rails
-  rubocop (~> 0.81.0)
+  rubocop (~> 0.80.1)
   rubocop-performance
   sass-rails
   simplecov
