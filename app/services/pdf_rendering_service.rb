@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PdfRenderingService
   class Error < StandardError; end
   class MissingChromeBinaryError < Error; end
