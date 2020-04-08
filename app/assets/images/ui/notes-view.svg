@@ -1,18 +1,1 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<svg width="30px" height="30px" viewBox="0 0 30 30" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 51.2 (57519) - http://www.bohemiancoding.com/sketch -->
-    <title>notes-view</title>
-    <desc>Created with Sketch.</desc>
-    <defs></defs>
-    <g id="🔍-Search-page-Futures-Copy" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="notes-view" fill-rule="nonzero">
-            <rect id="Rectangle-8" stroke="#2980B9" fill="#FFFFFF" x="0.770644492" y="0.869511494" width="27.9846792" height="28.5291372" rx="3"></rect>
-            <rect id="Rectangle-9" fill="#2980B9" x="3.51989658" y="5.13408012" width="9" height="9" rx="1"></rect>
-            <rect id="Rectangle-9-Copy" fill="#3498DB" x="3.51989658" y="16.2560718" width="9" height="9" rx="1"></rect>
-            <path d="M14.4040811,7.39702426 L24.7557522,7.39702426" id="Line-4" stroke="#2980B9" fill="#F47958" stroke-linecap="square"></path>
-            <path d="M14.4040811,18.5190159 L24.7557522,18.5190159" id="Line-4-Copy-3" stroke="#2980B9" fill="#F47958" stroke-linecap="square"></path>
-            <path d="M14.4040811,11.871136 L24.7557522,11.871136" id="Line-4-Copy-2" stroke="#2980B9" fill="#F47958" stroke-linecap="square"></path>
-            <path d="M14.4040811,22.9931276 L24.7557522,22.9931276" id="Line-4-Copy-4" stroke="#2980B9" fill="#F47958" stroke-linecap="square"></path>
-        </g>
-    </g>
-</svg>
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="30" height="30" version="1.1" viewBox="0 0 30 30"><title>notes-view</title><desc>Created with Sketch.</desc><g id="🔍-Search-page-Futures-Copy" fill="none" fill-rule="evenodd" stroke="none" stroke-width="1"><g id="notes-view" fill-rule="nonzero"><rect id="Rectangle-8" width="27.985" height="28.529" x=".771" y=".87" fill="#FFF" stroke="#2980B9" rx="3"/><rect id="Rectangle-9" width="9" height="9" x="3.52" y="5.134" fill="#2980B9" rx="1"/><rect id="Rectangle-9-Copy" width="9" height="9" x="3.52" y="16.256" fill="#3498DB" rx="1"/><path id="Line-4" fill="#F47958" stroke="#2980B9" stroke-linecap="square" d="M14.4040811,7.39702426 L24.7557522,7.39702426"/><path id="Line-4-Copy-3" fill="#F47958" stroke="#2980B9" stroke-linecap="square" d="M14.4040811,18.5190159 L24.7557522,18.5190159"/><path id="Line-4-Copy-2" fill="#F47958" stroke="#2980B9" stroke-linecap="square" d="M14.4040811,11.871136 L24.7557522,11.871136"/><path id="Line-4-Copy-4" fill="#F47958" stroke="#2980B9" stroke-linecap="square" d="M14.4040811,22.9931276 L24.7557522,22.9931276"/></g></g></svg>
