@@ -55,7 +55,7 @@ GEM
     bcrypt (3.1.13)
     bootsnap (1.4.6)
       msgpack (~> 1.0)
-    brakeman (4.8.0)
+    brakeman (4.8.1)
     browser (3.0.3)
     builder (3.2.4)
     bundle-audit (0.1.0)
