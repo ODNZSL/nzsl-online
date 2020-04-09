@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'rails_helper'
 
 RSpec.describe AutocompleteSearchService do
@@ -44,7 +46,10 @@ RSpec.describe AutocompleteSearchService do
           end
         end
       end
-      let(:log_accumulator) { '' }
+      let(:log_accumulator) do
+        # string literals are frozen so we explicitly opt-in to a mutable string
+        String.new
+      end
       let(:logger) do
         Logger.new(StringIO.new(log_accumulator))
       end

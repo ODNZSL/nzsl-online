@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class PdfRenderingService
   class Error < StandardError; end
   class MissingChromeBinaryError < Error; end
@@ -13,7 +15,7 @@ class PdfRenderingService
   attr_reader :pdf, :html
 
   def initialize(from_html:)
-    @html = from_html
+    @html = String.new(from_html) # we want a mutable string here
 
     # We create some temporary files and we want to use a consistent unique
     # prefix for their names because it makes debugging easier if we can easily
