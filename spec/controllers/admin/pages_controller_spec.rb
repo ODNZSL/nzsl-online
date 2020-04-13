@@ -44,28 +44,28 @@ RSpec.describe Admin::PagesController, type: :controller do
     describe '#index' do
       before { get :index }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
       it { expect(response).not_to render_template(:index) }
     end
 
     describe '#new' do
       before { get :new }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
       it { expect(response).not_to render_template(:n) }
     end
 
     describe '#edit' do
       before { get :edit, params: { id: page.to_param } }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
       it { expect(response).not_to render_template(:edit) }
     end
 
     describe '#update' do
       before { patch :update, params: { id: page.to_param, page: valid_page_params } }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
     end
   end
 end
