@@ -83,7 +83,7 @@ RSpec.describe 'Page', type: :model do
   describe '.find_by_slug' do
     it 'finds by slug' do
       subject.save!
-      found_page = Page.find_by_slug('so-true')
+      found_page = Page.find_by(slug: 'so-true')
       expect(found_page).to eq(subject)
     end
   end

@@ -11,7 +11,7 @@ class Setting < ApplicationRecord
   end
 
   def self.get(key)
-    setting = find_by_key(key.to_s)
+    setting = find_by(key: key.to_s)
     setting&.value
   end
 
