@@ -1,5 +1,5 @@
-@import 'color';
-@import 'variables';
+@import "color";
+@import "variables";
 
 html,
 body {
@@ -74,21 +74,21 @@ footer {
 // from boilerplate
 // (removed a couple of rules)
 a::after {
-  content: '';
+  content: "";
   text-decoration: none;
 }
 
 abbr[title]::after {
-  content: ' (' attr(title) ')';
+  content: " (" attr(title) ")";
 }
 
 .ir a::after,
-a[href^='javascript:']::after,
-a[href^='#']::after,
+a[href^="javascript:"]::after,
+a[href^="#"]::after,
 .center a::after,
 a.button::after,
 .copyright a::after {
-  content: '';
+  content: "";
 }
 
 @page {
@@ -181,7 +181,7 @@ a.drawing {
 
 // hiding link destinations after text
 a.drawing::after {
-  content: '';
+  content: "";
 }
 
 // making the vocabsheet have a not editing looking view

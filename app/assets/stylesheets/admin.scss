@@ -6,12 +6,12 @@
 
 // sass-lint:disable no-css-comments
 
-@import 'color';
-@import 'variables';
-@import 'foundation_and_overrides';
-@import 'foundation-icons';
-@import 'custom_icons';
-@import 'buttons';
+@import "color";
+@import "variables";
+@import "foundation_and_overrides";
+@import "foundation-icons";
+@import "custom_icons";
+@import "buttons";
 @include foundation-menu;
 @include foundation-menu-icon;
 
@@ -29,7 +29,7 @@ $admin-dashboard-top-nav-height: 55px;
   flex: 1 1 auto;
 }
 
-.admin-dashboard-top-nav-bar  {
+.admin-dashboard-top-nav-bar {
   align-items: center;
   background: $admin-dashboard-top-nav-color;
   display: flex;
@@ -100,7 +100,6 @@ $admin-dashboard-top-nav-height: 55px;
   overflow-y: auto;
   transition: all $offcanvas-transition-length $offcanvas-transition-timing;
   z-index: 1;
-
 
   .admin-dashboard-open-sidebar,
   .admin-dashboard-close-sidebar {
@@ -187,7 +186,6 @@ $admin-dashboard-top-nav-height: 55px;
   .navigation {
     margin-top: 2rem;
     text-align: center;
-
   }
 
   .menu {
@@ -225,7 +223,7 @@ $admin-dashboard-top-nav-height: 55px;
 @include breakpoint(medium only) {
   .admin-dashboard {
     .shrink-medium {
-      @include shrunk-sidebar
+      @include shrunk-sidebar;
     }
   }
 }
@@ -233,8 +231,7 @@ $admin-dashboard-top-nav-height: 55px;
 @include breakpoint(large) {
   .admin-dashboard {
     .shrink-large {
-      @include shrunk-sidebar
+      @include shrunk-sidebar;
     }
   }
 }
-

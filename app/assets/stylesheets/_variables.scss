@@ -9,12 +9,12 @@ $h3-font-size: 1.4em;
 $h4-font-size: 1.2em;
 $h5-font-size: 1.1em;
 $h6-font-size: 1em;
-$subtitle-font-size: .85em;
+$subtitle-font-size: 0.85em;
 $main-gloss-font-size: 1.25em;
-$subgloss-font-size: .87em;
-$pagination-font-size: .75em;
+$subgloss-font-size: 0.87em;
+$pagination-font-size: 0.75em;
 $main-gloss: 1.333em;
-$secondary-gloss: .933em;
+$secondary-gloss: 0.933em;
 $search-result-banner: 1.8em;
 
 $short-time: 0.2s;
@@ -24,7 +24,7 @@ $default-timing-function: ease-in-out;
 
 @mixin montserrat-light {
   font: {
-    family: 'Montserrat', arial, sans-serif;
+    family: "Montserrat", arial, sans-serif;
     size: 0.9rem;
     weight: 300;
   }
@@ -32,14 +32,14 @@ $default-timing-function: ease-in-out;
 
 @mixin montserrat-bold {
   font: {
-    family: 'Montserrat', arial, sans-serif;
+    family: "Montserrat", arial, sans-serif;
     weight: 500;
   }
 }
 
 @mixin montserrat-regular {
   font: {
-    family: 'Montserrat', arial, sans-serif;
+    family: "Montserrat", arial, sans-serif;
     weight: 400;
   }
 }
@@ -69,7 +69,7 @@ $default-timing-function: ease-in-out;
     duration: $duration;
     property: $properties;
     timing-function: $default-timing-function;
-  };
+  }
 }
 
 @mixin vocab-sheet-image-heights($height) {

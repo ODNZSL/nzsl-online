@@ -8,32 +8,38 @@
 
 // sass-lint:enable no-css-comments
 
-@import 'color';
-@import 'variables';
-@import 'foundation_and_overrides';
-@import 'foundation-icons';
-@import 'custom_icons';
-@import 'buttons';
-@import 'video';
-@import 'header';
-@import 'typography';
-@import 'searchbar';
-@import 'search_results';
-@import 'search_result';
-@import 'footer';
-@import 'topic_style';
-@import 'vocab_sheet';
-@import 'vocab-sidebar';
-@import 'search_result_grid';
-@import 'home';
-@import 'ie_browser_support';
-@import 'placeholder';
+@import "color";
+@import "variables";
+@import "foundation_and_overrides";
+@import "foundation-icons";
+@import "custom_icons";
+@import "buttons";
+@import "video";
+@import "header";
+@import "typography";
+@import "searchbar";
+@import "search_results";
+@import "search_result";
+@import "footer";
+@import "topic_style";
+@import "vocab_sheet";
+@import "vocab-sidebar";
+@import "search_result_grid";
+@import "home";
+@import "ie_browser_support";
+@import "placeholder";
 
-.hide { display: none; }
+.hide {
+  display: none;
+}
 
-.show { display: inline-block; }
+.show {
+  display: inline-block;
+}
 
-li { margin: 0; }
+li {
+  margin: 0;
+}
 
 .no-bullet {
   list-style: none;
@@ -58,14 +64,18 @@ li { margin: 0; }
   width: 80%;
 }
 
-.grid-stack { height: 165px; }
+.grid-stack {
+  height: 165px;
+}
 
 img {
   display: inline;
   margin: 5px 10px;
 }
 
-.before_sticky_footer { min-height: 400px; }
+.before_sticky_footer {
+  min-height: 400px;
+}
 
 // --------------------------------------
 
@@ -82,11 +92,11 @@ body {
   overflow: hidden;
   padding-bottom: 20px;
   position: relative;
- }
+}
 
 // Opera Fix
 body::before {
-  content: '';
+  content: "";
   float: left;
   height: 100%;
   margin-top: -32767px;
@@ -101,7 +111,7 @@ a {
 
   &.logo {
     background: top left no-repeat;
-    background-image: image-url('ui/logo.png');
+    background-image: image-url("ui/logo.png");
     border: 0;
     height: 71px;
     text-indent: -9999px;
@@ -109,9 +119,13 @@ a {
   }
 }
 
-.logo--print { display: none; }
+.logo--print {
+  display: none;
+}
 
-.selected { display: block; }
+.selected {
+  display: block;
+}
 
 // Keywords
 // -----------------
@@ -153,7 +167,9 @@ a {
     width: 71px;
   }
 
-  .selected { border-color: #598afb; }
+  .selected {
+    border-color: #598afb;
+  }
 
   ul {
     margin: 0;
@@ -168,17 +184,23 @@ a {
   text-decoration: none;
   width: 42px;
 
-  .value { display: none; }
+  .value {
+    display: none;
+  }
 }
 
 .handshapes {
   .main_image {
     margin: 5px 15px;
-    img { margin: 0; }
+    img {
+      margin: 0;
+    }
   }
 
   .sub {
-    img { margin: 0; }
+    img {
+      margin: 0;
+    }
   }
 }
 
@@ -199,7 +221,6 @@ a {
   }
 }
 
-
 .attribute_options .selected .sub:hover,
 .sub {
   background: $white;
@@ -214,7 +235,9 @@ a {
   top: 48px;
 }
 
-.attribute_options .selected .sub:hover { background: transparent; }
+.attribute_options .selected .sub:hover {
+  background: transparent;
+}
 
 .attribute_options .selected .sub:hover .image,
 .sub .image {
@@ -223,8 +246,9 @@ a {
   width: 21px;
 }
 
-.handshapes .dropdown ul.sub { padding: 0; }
-
+.handshapes .dropdown ul.sub {
+  padding: 0;
+}
 
 .sub {
   li {
@@ -235,7 +259,9 @@ a {
   }
 
   .image {
-    img { height: 100%; }
+    img {
+      height: 100%;
+    }
   }
 }
 
@@ -293,7 +319,9 @@ a {
   background-color: #e2edfc;
 }
 
-.attribute_options .sub { z-index: 1; }
+.attribute_options .sub {
+  z-index: 1;
+}
 
 .locations .attribute_options li {
   font-size: 8px;
@@ -301,7 +329,9 @@ a {
   text-align: center;
 }
 
-.selected_signs_wrapper .default { float: left; }
+.selected_signs_wrapper .default {
+  float: left;
+}
 
 .default {
   font-size: $subtitle-font-size;
@@ -329,7 +359,9 @@ a {
 }
 
 .entry_drawing {
-  .offset { position: relative; }
+  .offset {
+    position: relative;
+  }
 }
 
 .sign_attributes {
@@ -370,7 +402,9 @@ abbr {
 }
 
 .radio {
-  ol { padding-top: 0.5em; }
+  ol {
+    padding-top: 0.5em;
+  }
 
   label {
     line-height: 1;
@@ -385,26 +419,44 @@ abbr {
   }
 }
 
-.text-input { width: 300px; }
+.text-input {
+  width: 300px;
+}
 
-.area-text { width: 450px; }
+.area-text {
+  width: 450px;
+}
 
 .field_with_errors {
   display: inline;
-  .text-input { border-color: $required-red; }
+  .text-input {
+    border-color: $required-red;
+  }
 
-  .message-input { border-color: $required-red; }
+  .message-input {
+    border-color: $required-red;
+  }
 }
 
-.item-style { margin: 8px; }
+.item-style {
+  margin: 8px;
+}
 
-.feedback-select-style { margin: 7px; }
+.feedback-select-style {
+  margin: 7px;
+}
 
-.feedback-entry-style { margin: 3px; }
+.feedback-entry-style {
+  margin: 3px;
+}
 
-.avoid-bottom-margin { margin-bottom: 0; }
+.avoid-bottom-margin {
+  margin-bottom: 0;
+}
 
-.send-feedback-button { margin-top: 20px; }
+.send-feedback-button {
+  margin-top: 20px;
+}
 
 .inline-errors {
   color: #f53;
@@ -413,17 +465,20 @@ abbr {
   top: 0;
 }
 
-
 .inline-hints {
   font-size: 85%;
   font-style: italic;
 }
 
 .text {
-  .inline-errors { right: 45px; }
+  .inline-errors {
+    right: 45px;
+  }
 }
 
-.sub-form { margin-left: 15px; }
+.sub-form {
+  margin-left: 15px;
+}
 
 .view_print_back_link {
   display: block;
@@ -438,11 +493,17 @@ body {
   }
 }
 
-.center { position: relative; }
+.center {
+  position: relative;
+}
 
-.rounded { @include border-radius-small; }
+.rounded {
+  @include border-radius-small;
+}
 
-.vertical_space { padding-bottom: 16px; }
+.vertical_space {
+  padding-bottom: 16px;
+}
 
 .js {
   .text_input_hidden {
@@ -490,13 +551,15 @@ body {
   }
 }
 
-.invisible { visibility: hidden; }
+.invisible {
+  visibility: hidden;
+}
 
 .clearfix_left::before,
 .clearfix_left::after,
 .clearfix::before,
 .clearfix::after {
-  content: '\0020';
+  content: "\0020";
   display: block;
   height: 0;
   overflow: hidden;
@@ -505,13 +568,17 @@ body {
 .required {
   label::after {
     color: $required-red;
-    content: '*';
+    content: "*";
   }
 }
 
-.clearfix::after { clear: both; }
+.clearfix::after {
+  clear: both;
+}
 
-.clearfix_left::after { clear: left;}
+.clearfix_left::after {
+  clear: left;
+}
 
 .clearfix,
 .clearfix_left {
