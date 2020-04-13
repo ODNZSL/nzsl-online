@@ -6,15 +6,17 @@ module VocabSheetHelper
   end
 
   def vocab_sheet_offset_multiple
-    @vocab_sheet_offset_multiple = (
-      return offsets[:"size_#{@size}"] if @size.present?
+    @vocab_sheet_offset_multiple =
+      (
+        return offsets[:"size_#{@size}"] if @size.present?
 
-      offsets[:default]
-    )
+        offsets[:default]
+      )
   end
 
   def vocab_sheet_pages
-    @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
+    @vocab_sheet_pages ||=
+      @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil # rubocop:disable Metrics/LineLength
   end
 
   def vocab_sheet_max_field_length
@@ -24,14 +26,6 @@ module VocabSheetHelper
   private
 
   def offsets
-    {
-      size_6: 3,
-      size_5: 15,
-      size_4: 12,
-      size_3: 6,
-      size_2: 4,
-      size_1: 1,
-      default: 1
-    }
+    { size_6: 3, size_5: 15, size_4: 12, size_3: 6, size_2: 4, size_1: 1, default: 1 }
   end
 end

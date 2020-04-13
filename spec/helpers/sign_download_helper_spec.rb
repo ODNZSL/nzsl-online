@@ -24,7 +24,9 @@ RSpec.describe SignsHelper, type: :helper do
 
     context 'when provided with a "default.png" sign drawing and the string "default" as part of the drawing name' do
       it 'returns the sign drawing with the text "default-1234-high_resolution" as part of the file name' do
-        expect(helper.sign_image_url(image_name: drawing_3, high_res: true)).to include('default-1234-high_resolution.png') # rubocop:disable Metrics/LineLength
+        expect(helper.sign_image_url(image_name: drawing_3, high_res: true)).to include(
+          'default-1234-high_resolution.png'
+        ) # rubocop:disable Metrics/LineLength
       end
     end
 

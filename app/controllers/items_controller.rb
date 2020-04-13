@@ -6,7 +6,7 @@ class ItemsController < ApplicationController
   before_action :find_or_create_vocab_sheet, :set_search_query, :footer_content
   respond_to :html, :json
 
-  def create # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def create
     if @sheet.includes_sign?(sign_id: params[:sign_id])
       flash[:notice] = t('vocab_sheet.item.add_duplicate')
     else
@@ -43,15 +43,16 @@ class ItemsController < ApplicationController
     render json: @item
   end
 
-  def destroy # rubocop:disable Metrics/AbcSize
+  def destroy
     @item = @sheet.destroy_item(params[:id])
 
     if @item
-      flash[:vocab_bar_notice] = if @sheet.items.length.zero?
-                                   t('vocab_sheet.delete_success')
-                                 else
-                                   t('vocab_sheet.item.remove_success')
-                                 end
+      flash[:vocab_bar_notice] =
+        if @sheet.items.length.zero?
+          t('vocab_sheet.delete_success')
+        else
+          t('vocab_sheet.item.remove_success')
+        end
     else
       flash[:vocab_bar_error] = t('vocab_sheet.item.remove_failure')
     end
@@ -75,5 +76,5 @@ class ItemsController < ApplicationController
 
   def update_item_params
     params.permit(:id, :sign_id, :name, :maori_name, :notes)
-  end
+  end # rubocop:disable Metrics/AbcSize
 end

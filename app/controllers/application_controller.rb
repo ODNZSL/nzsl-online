@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     devise_controller? ? 'admin' : 'application'
   end
 
-  def setup_browser_rules # rubocop:disable Metrics/AbcSize
+  def setup_browser_rules
     Browser.modern_rules.clear
     Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 55 }
     Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 51 }
@@ -76,9 +76,10 @@ class ApplicationController < ActionController::Base
     setup_browser_rules
     return if browser.modern?
 
-    flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
+    flash[:error] =
+      'Your browser is not supported. This may mean that some features of NZSL Online will
                       not display properly. <a href="https://updatemybrowser.org/"> Would you like to
-                      upgrade your browser? </a>).html_safe
+                      upgrade your browser? </a>'.html_safe
   end
 
   def staging_http_auth
@@ -87,5 +88,5 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic('Username and Password please') do |username, password|
       username == ENV['HTTP_BASIC_AUTH_USERNAME'] && password == ENV['HTTP_BASIC_AUTH_PASSWORD']
     end
-  end
+  end # rubocop:disable Metrics/AbcSize
 end

@@ -20,21 +20,17 @@ class SignPaginationService # rubocop:disable Metrics/ClassLength
   #
   def pagination_links_html
     pagination_links =
-      (1..@total_num_pages)
-      .reject { |page_num| page_num_should_be_removed?(page_num) }
-      .map { |page_num| prepare_for_presentation(page_num) }
+      (1..@total_num_pages).reject { |page_num| page_num_should_be_removed?(page_num) }.map do |page_num|
+        prepare_for_presentation(page_num)
+      end
 
-    pagination_links
-      .unshift(prev_link)
-      .push(next_link)
-      .join("\n")
-      .html_safe
+    pagination_links.unshift(prev_link).push(next_link).join("\n").html_safe
   end
 
   private
 
   def prepare_for_presentation(page_num)
-    return wrap_without_link('...')       if page_num_should_be_replaced_with_elipsis?(page_num)
+    return wrap_without_link('...') if page_num_should_be_replaced_with_elipsis?(page_num)
     return wrap_as_current_page(page_num) if current_page?(page_num)
 
     wrap_with_link(page_num)
@@ -45,10 +41,7 @@ class SignPaginationService # rubocop:disable Metrics/ClassLength
   end
 
   def wrap_with_link(page_num, text: page_num)
-    wrap_in_li(
-      link_to(content_tag(:span, text),
-              build_search_path_for(page_num))
-    )
+    wrap_in_li(link_to(content_tag(:span, text), build_search_path_for(page_num)))
   end
 
   def wrap_without_link(text)
@@ -59,36 +52,24 @@ class SignPaginationService # rubocop:disable Metrics/ClassLength
     content_tag(:li, content)
   end
 
-  def page_num_should_be_removed?(page_num) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength
-    (
-      @current_page_number < 5 &&
-      page_num > 6 &&
-      not_last_page?(page_num)
-    ) || (
-      @current_page_number > @total_num_pages - 4 &&
-      page_num < @total_num_pages - 5 &&
-      not_first_page?(page_num)
-    ) || (
-      @current_page_number > 4 &&
-      @current_page_number < @total_num_pages - 3 &&
-      more_than_two_pages_away_from_current_page?(page_num) &&
-      not_first_page?(page_num) &&
-      not_last_page?(page_num)
-    )
+  def page_num_should_be_removed?(page_num)
+    # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength
+    (@current_page_number < 5 && page_num > 6 && not_last_page?(page_num)) ||
+      (@current_page_number > @total_num_pages - 4 && page_num < @total_num_pages - 5 && not_first_page?(page_num)) ||
+      (
+        @current_page_number > 4 && @current_page_number < @total_num_pages - 3 &&
+          more_than_two_pages_away_from_current_page?(page_num) && not_first_page?(page_num) && not_last_page?(page_num)
+      )
   end
 
-  def page_num_should_be_replaced_with_elipsis?(page_num) # rubocop:disable Metrics/CyclomaticComplexity
-    (
-      @current_page_number < 5 &&
-      page_num == 6
-    ) || (
-      @current_page_number > @total_num_pages - 4 &&
-      page_num == @total_num_pages - 5
-    ) || (
-      @current_page_number > 4 &&
-      @current_page_number < @total_num_pages - 3 &&
-      exactly_two_pages_away_from_current_page?(page_num)
-    )
+  def page_num_should_be_replaced_with_elipsis?(page_num)
+    # rubocop:disable Metrics/CyclomaticComplexity
+    (@current_page_number < 5 && page_num == 6) ||
+      (@current_page_number > @total_num_pages - 4 && page_num == @total_num_pages - 5) ||
+      (
+        @current_page_number > 4 && @current_page_number < @total_num_pages - 3 &&
+          exactly_two_pages_away_from_current_page?(page_num)
+      )
   end
 
   def prev_link
@@ -108,9 +89,7 @@ class SignPaginationService # rubocop:disable Metrics/ClassLength
   # @return [String]
   #
   def build_search_path_for(page_num)
-    path_helper_params = @search_query
-                         .transform_values { |v| v.is_a?(Array) ? v.join(' ') : v }
-                         .merge('p' => page_num)
+    path_helper_params = @search_query.transform_values { |v| v.is_a?(Array) ? v.join(' ') : v }.merge('p' => page_num)
 
     Rails.application.routes.url_helpers.search_signs_path(path_helper_params)
   end

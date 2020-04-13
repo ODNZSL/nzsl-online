@@ -23,7 +23,7 @@ class ImageProcessor
 
   private
 
-  def write_file_locally # rubocop:disable Metrics/AbcSize
+  def write_file_locally
     image = nil
     image_retrieval =
       Benchmark.measure("retriving image '#{@remote_filename}'") { image = MiniMagick::Image.open(@remote_filename) }
@@ -64,7 +64,6 @@ class ImageProcessor
   end
 
   def calculate_local_filename
-    File.join(create_or_return_path(@filename),
-              dimensions.join('x') + "-#{@filename.gsub(%r{[\/\\]}, '-')}")
-  end
+    File.join(create_or_return_path(@filename), dimensions.join('x') + "-#{@filename.gsub(%r{[\/\\]}, '-')}")
+  end # rubocop:disable Metrics/AbcSize
 end

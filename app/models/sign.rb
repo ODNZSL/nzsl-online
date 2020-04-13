@@ -81,9 +81,11 @@ class Sign # rubocop:disable Metrics/ClassLength
 
       # only write the sign to the cache if we successfully got a sign from Freelex
       if sign.present?
-        Rails.cache.write(sign_id,
-                          sign.to_json,
-                          expires_in: FeatureFlags::StoreVocabSheetItemsInRailsCache.cache_timeout.hours)
+        Rails.cache.write(
+          sign_id,
+          sign.to_json,
+          expires_in: FeatureFlags::StoreVocabSheetItemsInRailsCache.cache_timeout.hours
+        )
       end
 
       sign
@@ -149,9 +151,10 @@ class Sign # rubocop:disable Metrics/ClassLength
       paginated_query_params = search_query_params.merge(start: start_index, num: RESULTS_PER_PAGE)
       count, xml_nodes = search(paginated_query_params)
 
-      signs = xml_nodes.map do |xml_node|
-        SignParser.new(xml_node).build_sign
-      end
+      signs =
+        xml_nodes.map do |xml_node|
+          SignParser.new(xml_node).build_sign
+        end
 
       [count, signs]
     end
@@ -166,11 +169,9 @@ class Sign # rubocop:disable Metrics/ClassLength
 
       sign = Sign.new
 
-      JSON
-        .parse(json, symbolize_names: true)
-        .each do |attr_name, attr_value|
-          sign.public_send("#{attr_name}=", attr_value)
-        end
+      JSON.parse(json, symbolize_names: true).each do |attr_name, attr_value|
+        sign.public_send("#{attr_name}=", attr_value)
+      end
 
       sign
     end
@@ -198,7 +199,7 @@ class Sign # rubocop:disable Metrics/ClassLength
     # @param [Hash] search_query_params
     # @return [Array<(Integer, Nokogiri::XML::NodeSet)>]
     def xml_request(search_query_params)
-      xml_document = Nokogiri::XML(http_conn.get(query_string_for_search(search_query_params)).body)
+      xml_document = Nokogiri.XML(http_conn.get(query_string_for_search(search_query_params)).body)
 
       total_num_results_for_query = xml_document.css('totalhits').inner_text.to_i
       result_nodes = xml_document.css(ELEMENT_NAME)

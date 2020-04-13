@@ -12,11 +12,12 @@ class SitemapBuilder
   def generate_xml(slugs)
     base_url = Rails.application.config.base_url
 
-    builder = Nokogiri::XML::Builder.new do |xml|
-      xml.urlset(xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9') do
-        slugs.each { |slug| xml.url { xml.loc base_url + slug } }
+    builder =
+      Nokogiri::XML::Builder.new do |xml|
+        xml.urlset(xmlns: 'http://www.sitemaps.org/schemas/sitemap/0.9') do
+          slugs.each { |slug| xml.url { xml.loc base_url + slug } }
+        end
       end
-    end
 
     builder.to_xml
   end

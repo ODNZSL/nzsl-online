@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 module ClassifiersHelper
-  def classifiers # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
+  def classifiers
     {
       sass: [
         ['spot on face', classifier_image('SASS.spot_on_face')],
@@ -23,25 +23,37 @@ module ClassifiersHelper
         ['sunshine', classifier_image('texture_consistency_quality.visual.sunshine')]
       ],
       entity: [
-        ['vehicle', [
-          ['into garage', classifier_image('entity.vehicle.into_garage')],
-          ['nose-to-tail collision', classifier_image('entity.vehicle.nose_to_tail_collision')],
-          ['reversing', classifier_image('entity.vehicle.reversing')]
-        ]],
-        ['person', [
-          ['approach', classifier_image('entity.person.approach')],
-          ['meet', classifier_image('entity.persons.meet')],
-          ['turn and walk away', classifier_image('entity.person.turn_and_walk_away')]
-        ]],
-        ['two legged', [
-          ['fall', classifier_image('entity.legs.fall')],
-          ['jump', classifier_image('entity.legs.jump')],
-          ['stand up', classifier_image('entity.legs.stand_up')]
-        ]],
-        ['plane', [
-          ['plane fly', classifier_image('entity.plane.plane_fly')],
-          ['plane take-off', classifier_image('entity.plane.plane_take_off')]
-        ]]
+        [
+          'vehicle',
+          [
+            ['into garage', classifier_image('entity.vehicle.into_garage')],
+            ['nose-to-tail collision', classifier_image('entity.vehicle.nose_to_tail_collision')],
+            ['reversing', classifier_image('entity.vehicle.reversing')]
+          ]
+        ],
+        [
+          'person',
+          [
+            ['approach', classifier_image('entity.person.approach')],
+            ['meet', classifier_image('entity.persons.meet')],
+            ['turn and walk away', classifier_image('entity.person.turn_and_walk_away')]
+          ]
+        ],
+        [
+          'two legged',
+          [
+            ['fall', classifier_image('entity.legs.fall')],
+            ['jump', classifier_image('entity.legs.jump')],
+            ['stand up', classifier_image('entity.legs.stand_up')]
+          ]
+        ],
+        [
+          'plane',
+          [
+            ['plane fly', classifier_image('entity.plane.plane_fly')],
+            ['plane take-off', classifier_image('entity.plane.plane_take_off')]
+          ]
+        ]
       ],
       body_parts: [
         ['flap wings', classifier_image('body_parts.wings.flap')],
@@ -63,21 +75,30 @@ module ClassifiersHelper
         ['holding basketball', classifier_image('handling_or_instrumental.holding_objects.basketball')]
       ],
       element: [
-        ['Fire', [
-          ['candle-flame', classifier_image('element.fire.candle_flame')],
-          ['small-fire', classifier_image('element.fire.small_fire')],
-          ['bonfire', classifier_image('element.fire.bonfire')]
-        ]],
-        ['Water', [
-          ['water-drip', classifier_image('element.water.water_drip')],
-          ['flowing-water', classifier_image('element.water.flowing_water')],
-          ['water-flooding', classifier_image('element.water.water_flooding')],
-          ['water-overflowing', classifier_image('element.water.water_overflowing')]
-        ]],
-        ['Air', [
-          ['gentle breeze', classifier_image('element.air.gentle_breeze')],
-          ['strong wind', classifier_image('element.air.strong_wind')]
-        ]]
+        [
+          'Fire',
+          [
+            ['candle-flame', classifier_image('element.fire.candle_flame')],
+            ['small-fire', classifier_image('element.fire.small_fire')],
+            ['bonfire', classifier_image('element.fire.bonfire')]
+          ]
+        ],
+        [
+          'Water',
+          [
+            ['water-drip', classifier_image('element.water.water_drip')],
+            ['flowing-water', classifier_image('element.water.flowing_water')],
+            ['water-flooding', classifier_image('element.water.water_flooding')],
+            ['water-overflowing', classifier_image('element.water.water_overflowing')]
+          ]
+        ],
+        [
+          'Air',
+          [
+            ['gentle breeze', classifier_image('element.air.gentle_breeze')],
+            ['strong wind', classifier_image('element.air.strong_wind')]
+          ]
+        ]
       ]
     }
   end
@@ -86,5 +107,5 @@ module ClassifiersHelper
 
   def classifier_image(partial_image_identifier)
     "classifiers/90/Classifiers.#{partial_image_identifier}.png"
-  end
+  end # rubocop:disable Metrics/AbcSize, Metrics/MethodLength
 end
