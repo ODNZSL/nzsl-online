@@ -16,7 +16,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
   end
 
   def sign_attribute_image(attribute, number, main, in_menu = false)
-    return unless number.present?
+    return if number.blank?
 
     size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
@@ -39,7 +39,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
   # Sign Attribute is Selected?
 
   def handshape_selected?(shape)
-    return unless @query[:hs].present?
+    return if @query[:hs].blank?
 
     query_hs = @query[:hs]
 

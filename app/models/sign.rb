@@ -162,7 +162,7 @@ class Sign # rubocop:disable Metrics/ClassLength
     # @return [Sign] if we successfully found a sign
     # @return [nil] if we did not find a sign
     def from_json(json)
-      return nil if json.nil? || json.empty? || json == 'null'
+      return nil if json.blank? || json == 'null'
 
       sign = Sign.new
 
