@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SignPaginationService # rubocop:disable Metrics/ClassLength
+class SignPaginationService
   include ActionView::Helpers::TagHelper
   include ActionView::Helpers::UrlHelper
 
@@ -59,7 +59,7 @@ class SignPaginationService # rubocop:disable Metrics/ClassLength
     content_tag(:li, content)
   end
 
-  def page_num_should_be_removed?(page_num) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity, Metrics/LineLength
+  def page_num_should_be_removed?(page_num)
     (
       @current_page_number < 5 &&
       page_num > 6 &&
@@ -77,7 +77,7 @@ class SignPaginationService # rubocop:disable Metrics/ClassLength
     )
   end
 
-  def page_num_should_be_replaced_with_elipsis?(page_num) # rubocop:disable Metrics/CyclomaticComplexity
+  def page_num_should_be_replaced_with_elipsis?(page_num)
     (
       @current_page_number < 5 &&
       page_num == 6

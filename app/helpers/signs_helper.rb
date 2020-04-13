@@ -49,9 +49,6 @@ module SignsHelper
     end.join(' ').html_safe
   end
 
-  # rubocop:disable Metrics/MethodLength
-  # rubocop:disable Metrics/AbcSize
-
   def render_back_to_search_results
     return unless request.referer
 
