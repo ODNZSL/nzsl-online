@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SearchHelper # rubocop:disable Metrics/ModuleLength
+module SearchHelper
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
@@ -21,14 +21,14 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
     size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
       [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe # rubocop:disable Style/RegexpLiteral, Layout/LineLength
+       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe
     end
     output << number.split('.').last if attribute == :location && in_menu
     output
   end
 
   def sign_attribute_image_tag(attribute, number)
-    image_tag("#{attribute}s/42/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png", class: 'image') # rubocop:disable Style/RegexpLiteral, Layout/LineLength
+    image_tag("#{attribute}s/42/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png", class: 'image')
   end
 
   # these images have been resized with
@@ -145,11 +145,11 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank? # rubocop:disable Metrics/LineLength
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank?
   end
 
   def display_topic_tag_search_term
-    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank? # rubocop:disable Metrics/LineLength
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank?
   end
 
   def search_term(key)

@@ -22,7 +22,7 @@ class AutocompleteSearchService
   #
   # @return [Array<String>] array of autocomplete suggestions
   #
-  def find_suggestions # rubocop:disable Metrics/MethodLength
+  def find_suggestions
     response = @faraday_connection.get do |request|
       request.params[:limit] = MAX_NUM_SUGGESTIONS
       request.params[:q] = CGI.escape(@search_term)
@@ -34,7 +34,6 @@ class AutocompleteSearchService
     #
     # but in reality the body string is UTF-8.
     #
-    # rubocop:disable Style/AsciiComments
     #
     # For example, the results for search term "wha" include strings with
     # macrons e.g. "Whangārei". By inspection of the content in a hex editor

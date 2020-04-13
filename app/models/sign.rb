@@ -3,7 +3,7 @@
 ##
 # A sign in New Zealand Sign Language
 #
-class Sign # rubocop:disable Metrics/ClassLength
+class Sign
   ##
   # Create a custom error class.
   #
