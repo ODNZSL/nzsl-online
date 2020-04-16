@@ -19,10 +19,13 @@ module SearchHelper
     return unless number.present?
 
     size = attribute == :location && in_menu ? '72' : '42'
-    output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
-      [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")].join.html_safe
-    end
+    output =
+      content_tag :div, class: classes_for_sign_attribute(attribute, main) do
+        [
+          content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
+          image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(/[ \/]/, '_')}.png")
+        ].join.html_safe
+      end
     output << number.split('.').last if attribute == :location && in_menu
     output
   end
@@ -81,75 +84,71 @@ module SearchHelper
 
   def tab_selected?(classes)
     keys = @query.select { |_key, value| value.present? }.keys
-    selected = if %w(tag usage).any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
-                 classes.include?(:advanced)
-               elsif %w(hs l lg).any? { |key| keys.include?(key) }
-                 classes.include?(:signs)
-               else
-                 classes.include?(:keywords)
-               end
+    selected =
+      if %w[tag usage].any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
+        classes.include?(:advanced)
+      elsif %w[hs l lg].any? { |key| keys.include?(key) }
+        classes.include?(:signs)
+      else
+        classes.include?(:keywords)
+      end
 
     selected
   end
 
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    locations = SignMenu.locations.flatten.select do |location|
-      location_selected?(location)
-    end
+    locations =
+      SignMenu.locations.flatten.select do |location|
+        location_selected?(location)
+      end
     return if @query[:l].blank?
 
-    locations = locations.map do |location|
-      location_image(
-        location,
-        false,
-        false,
-        simple
-      )
-    end
+    locations =
+      locations.map do |location|
+        location_image(location, false, false, simple)
+      end
     locations.join(' ').html_safe
   end
 
   def display_handshapes_search_term(simple = false)
-    selected = SignMenu.handshapes.flatten.flatten.select do |hand_shape|
-      handshape_selected?(hand_shape)
-    end
+    selected =
+      SignMenu.handshapes.flatten.flatten.select do |hand_shape|
+        handshape_selected?(hand_shape)
+      end
     return if @query[:hs].blank?
 
-    selected = selected.map do |hand_shape|
-      handshape_image(
-        hand_shape,
-        hand_shape.split('.').last == '1',
-        simple
-      )
-    end
+    selected =
+      selected.map do |hand_shape|
+        handshape_image(hand_shape, hand_shape.split('.').last == '1', simple)
+      end
     selected.join(' ').html_safe
   end
 
   def display_location_groups_search_term(simple = false)
-    locations = SignMenu.location_groups.select do |location_group|
-      location_group_selected?(location_group)
-    end
+    locations =
+      SignMenu.location_groups.select do |location_group|
+        location_group_selected?(location_group)
+      end
     return if @query[:lg].blank?
 
-    locations = locations.map do |location_group|
-      location_image(
-        location_group,
-        true,
-        false,
-        simple
-      )
-    end
+    locations =
+      locations.map do |location_group|
+        location_image(location_group, true, false, simple)
+      end
     locations.join(' ').html_safe
   end
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank?
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(
+        ' '
+      ) unless @query[:usage].blank?
   end
 
   def display_topic_tag_search_term
-    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank?
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag]
+      .blank?
   end
 
   def search_term(key)
@@ -159,19 +158,22 @@ module SearchHelper
   end
 
   def display_search_term
-    @display_search_term ||= [search_term('s'),
-                              display_handshapes_search_term(true),
-                              display_locations_search_term(true),
-                              display_location_groups_search_term(true),
-                              display_usage_tag_search_term,
-                              display_topic_tag_search_term].compact.join(' ').html_safe
+    @display_search_term ||=
+      [
+        search_term('s'),
+        display_handshapes_search_term(true),
+        display_locations_search_term(true),
+        display_location_groups_search_term(true),
+        display_usage_tag_search_term,
+        display_topic_tag_search_term
+      ].compact.join(' ').html_safe
   end
 
   private
 
   def value_for_sign_attribute(number, attribute, main)
+    # if it's the first, just search on the first two numbers
     if attribute == :handshape
-      # if it's the first, just search on the first two numbers
       return number.split('.')[0, 2].join('.') if main
 
       return number
@@ -188,7 +190,7 @@ module SearchHelper
   def classes_for_sign_attribute(attribute, main)
     # a space is required after the base class names below to ensure that they are
     # properly separated from other classes assigned in the conditionals.
-    classes = %w(image rounded)
+    classes = %w[image rounded]
     classes << 'main_image' if main
     classes << 'transition' if attribute == :handshape
     classes.join(' ')

@@ -31,10 +31,7 @@ RSpec.describe 'Feedback', type: :model do
     subject { super().send_email }
 
     it 'delegates to Feedbackmailer' do
-      expect(FeedbackMailer)
-        .to receive_message_chain(:email, :deliver)
-        .with(self)
-        .with(no_args)
+      expect(FeedbackMailer).to receive_message_chain(:email, :deliver).with(self).with(no_args)
       subject
     end
   end

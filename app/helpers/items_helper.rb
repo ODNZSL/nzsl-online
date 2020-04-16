@@ -1,4 +1,3 @@
 # frozen_string_literal: true
 
-module ItemsHelper
-end
+module ItemsHelper; end

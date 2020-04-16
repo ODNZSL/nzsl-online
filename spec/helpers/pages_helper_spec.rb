@@ -4,10 +4,7 @@ require 'rails_helper'
 
 RSpec.describe PagesHelper, type: :helper do
   let(:page) do
-    FactoryBot.build(
-      :page,
-      page_parts: FactoryBot.build_stubbed_list(:page_part, 1)
-    )
+    FactoryBot.build(:page, page_parts: FactoryBot.build_stubbed_list(:page_part, 1))
   end
 
   describe '#all_sources_present?' do
@@ -21,9 +18,7 @@ RSpec.describe PagesHelper, type: :helper do
 
     context 'source missing' do
       before do
-        allow_any_instance_of(PagePart)
-          .to receive(:translation_path)
-          .and_return('')
+        allow_any_instance_of(PagePart).to receive(:translation_path).and_return('')
       end
 
       it 'returns false' do

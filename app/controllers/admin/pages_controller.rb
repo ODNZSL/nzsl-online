@@ -2,7 +2,7 @@
 
 module Admin
   class PagesController < ApplicationController
-    before_action :fetch_page, only: %i(edit update destroy)
+    before_action :fetch_page, only: %i[edit update destroy]
     before_action :authenticate_user!, :set_title
     layout 'admin'
     protect_from_forgery except: [:reorder]

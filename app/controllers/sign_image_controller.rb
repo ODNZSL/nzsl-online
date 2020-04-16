@@ -23,13 +23,9 @@ class SignImageController < ApplicationController
   skip_before_action :staging_http_auth, only: [:show]
 
   def show
-    @local_filename = ImageProcessor.new(filename: filename_param,
-                                         height: height_param,
-                                         width: width_param).return_file_from_cache
-    send_file(@local_filename,
-              type: 'image/png',
-              disposition: 'attachment',
-              filename: filename_param)
+    @local_filename =
+      ImageProcessor.new(filename: filename_param, height: height_param, width: width_param).return_file_from_cache
+    send_file(@local_filename, type: 'image/png', disposition: 'attachment', filename: filename_param)
   rescue OpenURI::HTTPError
     head(:not_found)
   rescue RuntimeError

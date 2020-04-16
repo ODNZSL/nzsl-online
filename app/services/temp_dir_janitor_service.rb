@@ -12,9 +12,7 @@ class TempDirJanitorService
   # This is enough time that we won't clobber a file that another rails
   # thread/process may be in the middle of serving to a different user.
   def remove_old_files
-    Dir
-      .glob("#{@tmp_dir_path}/**/*")
-      .each { |path| FileUtils.rm_rf(path) if old?(path) }
+    Dir.glob("#{@tmp_dir_path}/**/*").each { |path| FileUtils.rm_rf(path) if old?(path) }
   end
 
   private
