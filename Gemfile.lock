@@ -209,7 +209,7 @@ GEM
     puma (4.3.3)
       nio4r (~> 2.0)
     rack (2.2.2)
-    rack-canonical-host (0.2.3)
+    rack-canonical-host (1.0.0)
       addressable (> 0, < 3)
       rack (>= 1.0.0, < 3)
     rack-test (1.1.0)
@@ -402,7 +402,7 @@ DEPENDENCIES
   pry-byebug
   pry-rails
   puma (~> 4.3)
-  rack-canonical-host (~> 0.2.3)
+  rack-canonical-host (~> 1.0.0)
   rails (~> 5.2.4)
   rails-controller-testing
   rails_12factor
