@@ -64,7 +64,6 @@ class ImageProcessor
   end
 
   def calculate_local_filename
-    File.join(create_or_return_path(@filename),
-              dimensions.join('x') + "-#{@filename.gsub(%r{[\/\\]}, '-')}")
+    File.join(create_or_return_path(@filename), dimensions.join('x') + "-#{@filename.gsub(%r{[\/\\]}, '-')}")
   end
 end
