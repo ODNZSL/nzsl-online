@@ -49,10 +49,10 @@ NzslOnline::Application.routes.draw do
   end
 
   get 'sign_image/show'
-  get '/images/signs/:width-:height/*filename' => 'sign_image#show', :width => /\d+/, :height => /\d+/, :format => false
-  get '/assets/signs/:width-:height/*filename' => 'sign_image#show', :width => /\d+/, :height => /\d+/, :format => false
+  get '/images/signs/:width-:height/*filename' => 'sign_image#show', width: /\d+/, height: /\d+/, format: false
+  get '/assets/signs/:width-:height/*filename' => 'sign_image#show', width: /\d+/, height: /\d+/, format: false
   get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }, as: :sitemap
 
   get '/random_sign' => 'pages#random_sign'
-  get '/:slug' => 'pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
+  get '/:slug' => 'pages#show', as: :page, slug: /[A-Za-z0-9\-\_]+/
 end

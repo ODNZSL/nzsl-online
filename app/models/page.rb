@@ -2,9 +2,20 @@
 
 ## A page within our basic CMS
 class Page < ApplicationRecord
-  RESTRICTED_SLUGS = %w[admin signs feedback sign_image images javascripts
-                        stylesheets system 500 favicon
-                        robots crossdomain].freeze # top level routes & public dir.
+  RESTRICTED_SLUGS = %w[
+    admin
+    signs
+    feedback
+    sign_image
+    images
+    javascripts
+    stylesheets
+    system
+    500
+    favicon
+    robots
+    crossdomain
+  ].freeze # top level routes & public dir.
 
   HEADER_NAV = %w[topics alphabet numbers classifiers].freeze
 
@@ -13,10 +24,11 @@ class Page < ApplicationRecord
   before_validation :slug_and_label_from_title, :strip_text
 
   validates :title, :label, presence: true
-  validates :slug, presence: true,
-                   uniqueness: true,
-                   format: { with: %r{\A(\/|[a-z0-9\-\_]*)\Z} },
-                   exclusion: { in: RESTRICTED_SLUGS }
+  validates :slug,
+            presence: true,
+            uniqueness: true,
+            format: { with: %r{\A(\/|[a-z0-9\-\_]*)\Z} },
+            exclusion: { in: RESTRICTED_SLUGS }
 
   validates :order, numericality: { integer_only: true, allow_nil: true }
 
@@ -41,9 +53,7 @@ class Page < ApplicationRecord
   ##
   # Find pages that should display in footer navigation
   def self.in_nav
-    where(show_in_nav: true).where(
-      '(SELECT COUNT(*) FROM page_parts where page_id = "pages"."id") > 0'
-    )
+    where(show_in_nav: true).where('(SELECT COUNT(*) FROM page_parts where page_id = "pages"."id") > 0')
   end
 
   ##

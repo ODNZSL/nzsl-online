@@ -15,7 +15,7 @@ namespace :db do
       total_destroyed += Request.order(created_at: :desc).offset(MAX_REQUESTS).destroy_all.length
     end
 
-    puts "A total of #{total_destroyed} requests were deleted, remaining #{Request.count} "\
-         "requests are those made since #{STORAGE_DAYS.days.ago}."
+    puts "A total of #{total_destroyed} requests were deleted, remaining #{Request.count} " \
+           "requests are those made since #{STORAGE_DAYS.days.ago}."
   end
 end

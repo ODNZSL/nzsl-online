@@ -40,10 +40,12 @@ module NzslOnline
     # More details: https://github.com/tylerhunt/rack-canonical-host
     #
     if ENV['CANONICAL_HOST']
-      config.middleware.insert_before(Rack::Sendfile,
-                                      Rack::CanonicalHost,
-                                      ENV['CANONICAL_HOST'],
-                                      cache_control: 'max-age=3600')
+      config.middleware.insert_before(
+        Rack::Sendfile,
+        Rack::CanonicalHost,
+        ENV['CANONICAL_HOST'],
+        cache_control: 'max-age=3600'
+      )
     end
 
     # Settings in config/environments/* take precedence over those specified here.

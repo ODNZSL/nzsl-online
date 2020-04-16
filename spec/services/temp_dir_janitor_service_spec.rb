@@ -12,7 +12,8 @@ RSpec.describe TempDirJanitorService do
     it 'removes all files & folders which are older than an hour' do
       Dir.mktmpdir do |tmp_dir|
         # given
-        subject = described_class.new(tmp_dir_path: tmp_dir)
+        subject =
+          described_class.new(tmp_dir_path: tmp_dir)
         Dir.chdir(tmp_dir) do
           # 'mtime' parameter requires an actual instance if Time, not
           # ActiveSupport::TimeWithZone so we need to call #to_time

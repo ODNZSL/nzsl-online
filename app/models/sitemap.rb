@@ -1,4 +1,3 @@
 # frozen_string_literal: true
 
-class Sitemap < ApplicationRecord
-end
+class Sitemap < ApplicationRecord; end
