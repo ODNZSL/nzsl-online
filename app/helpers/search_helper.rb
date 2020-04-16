@@ -16,7 +16,7 @@ module SearchHelper
   end
 
   def sign_attribute_image(attribute, number, main, in_menu = false)
-    return unless number.present?
+    return if number.blank?
 
     size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
@@ -39,7 +39,7 @@ module SearchHelper
   # Sign Attribute is Selected?
 
   def handshape_selected?(shape)
-    return unless @query[:hs].present?
+    return if @query[:hs].blank?
 
     query_hs = @query[:hs]
 
@@ -145,11 +145,11 @@ module SearchHelper
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:usage].blank?
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:usage].present?
   end
 
   def display_topic_tag_search_term
-    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') unless @query[:tag].blank?
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:tag].present?
   end
 
   def search_term(key)

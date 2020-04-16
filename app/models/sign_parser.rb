@@ -79,7 +79,7 @@ class SignParser
     # examples
     @sign.examples = []
     VIDEO_EXAMPLES_TOTAL.times do |i|
-      next unless @data.value_for_tag("ASSET finalexample#{i}").present?
+      next if @data.value_for_tag("ASSET finalexample#{i}").blank?
 
       video_slow = if @data.value_for_tag("ASSET finalexample#{i}_slow").present?
                      "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}_slow")}"
