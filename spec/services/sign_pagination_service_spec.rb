@@ -13,8 +13,7 @@ RSpec.describe SignPaginationService do
         <li><span class="a">previous</span></li>
         <li><span class="current a">1</span></li>
         <li><span class="a">next</span></li>
-      EO_EXPECTED
-                 .strip
+      EO_EXPECTED.strip
       expect(result).to eq(expected)
     end
 
@@ -29,8 +28,7 @@ RSpec.describe SignPaginationService do
         <li><a href="/signs/search?p=4&amp;tag=6"><span>4</span></a></li>
         <li><a href="/signs/search?p=5&amp;tag=6"><span>5</span></a></li>
         <li><a href="/signs/search?p=3&amp;tag=6"><span>next</span></a></li>
-      EO_EXPECTED
-                 .strip
+      EO_EXPECTED.strip
       expect(result).to eq(expected)
     end
 
@@ -47,8 +45,7 @@ RSpec.describe SignPaginationService do
         <li><span class="a">...</span></li>
         <li><a href="/signs/search?p=42&amp;tag=6"><span>42</span></a></li>
         <li><a href="/signs/search?p=2&amp;tag=6"><span>next</span></a></li>
-      EO_EXPECTED
-                 .strip
+      EO_EXPECTED.strip
       expect(result).to eq(expected)
     end
 
@@ -65,8 +62,7 @@ RSpec.describe SignPaginationService do
         <li><span class="a">...</span></li>
         <li><a href="/signs/search?p=42&amp;tag=6"><span>42</span></a></li>
         <li><a href="/signs/search?p=4&amp;tag=6"><span>next</span></a></li>
-      EO_EXPECTED
-                 .strip
+      EO_EXPECTED.strip
       expect(result).to eq(expected)
     end
 
@@ -83,8 +79,7 @@ RSpec.describe SignPaginationService do
         <li><a href="/signs/search?p=41&amp;tag=6"><span>41</span></a></li>
         <li><a href="/signs/search?p=42&amp;tag=6"><span>42</span></a></li>
         <li><a href="/signs/search?p=41&amp;tag=6"><span>next</span></a></li>
-      EO_EXPECTED
-                 .strip
+      EO_EXPECTED.strip
       expect(result).to eq(expected)
     end
   end

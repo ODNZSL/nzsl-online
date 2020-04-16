@@ -81,14 +81,18 @@ class SignParser
     VIDEO_EXAMPLES_TOTAL.times do |i|
       next if @data.value_for_tag("ASSET finalexample#{i}").blank?
 
-      video_slow = if @data.value_for_tag("ASSET finalexample#{i}_slow").present?
-                     "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}_slow")}"
-                   end
+      video_slow =
+        if @data.value_for_tag("ASSET finalexample#{i}_slow").present?
+          "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}_slow")}"
+        end
 
-      @sign.examples << { transcription: parse_transcription("videoexample#{i}"),
-                          translation: @data.value_for_tag("videoexample#{i}translation"),
-                          video: "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}")}",
-                          video_slow: video_slow }
+      @sign.examples <<
+        {
+          transcription: parse_transcription("videoexample#{i}"),
+          translation: @data.value_for_tag("videoexample#{i}translation"),
+          video: "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}")}",
+          video_slow: video_slow
+        }
     end
   end
 
