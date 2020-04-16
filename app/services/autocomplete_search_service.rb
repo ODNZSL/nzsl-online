@@ -44,7 +44,7 @@ class AutocompleteSearchService
     # String (#force_encoding only changes the tag, it does not attempt to
     # transcode the data).
     #
-    # rubocop:enable Style/AsciiComments
+    
     #
     response
       .body
