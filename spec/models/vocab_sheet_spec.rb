@@ -7,11 +7,7 @@ RSpec.describe VocabSheet, type: :model do
 
   let(:sign_id) { '1234' }
   let(:sign) do
-    instance_double('Sign',
-                    id: sign_id,
-                    gloss_maori: 'Some maori name',
-                    gloss_main: 'Some name',
-                    drawing: 'foo.jpg')
+    instance_double('Sign', id: sign_id, gloss_maori: 'Some maori name', gloss_main: 'Some name', drawing: 'foo.jpg')
   end
   let(:item) { Item.new('sign_id' => sign_id) }
 
@@ -59,11 +55,7 @@ RSpec.describe VocabSheet, type: :model do
 
         new_name = 'new name'
         new_maori_name = 'new maori name'
-        new_attrs = {
-          'id' => item.id,
-          'name' => new_name,
-          'maori_name' => new_maori_name
-        }
+        new_attrs = { 'id' => item.id, 'name' => new_name, 'maori_name' => new_maori_name }
 
         subject.update_item(new_attrs)
 
@@ -111,11 +103,10 @@ RSpec.describe VocabSheet, type: :model do
   describe '#reorder_items' do
     let(:sign_2_id) { '4567' }
     let(:sign_2) do
-      instance_double('Sign',
-                      id: sign_2_id,
-                      gloss_maori: 'Some maori name',
-                      gloss_main: 'Some name',
-                      drawing: 'foo.jpg')
+      instance_double(
+        'Sign',
+        id: sign_2_id, gloss_maori: 'Some maori name', gloss_main: 'Some name', drawing: 'foo.jpg'
+      )
     end
     let(:item_2) { Item.new('sign_id' => sign_2_id) }
 

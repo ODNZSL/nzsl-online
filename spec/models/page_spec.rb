@@ -6,11 +6,10 @@ RSpec.describe 'Page', type: :model do
   subject { page }
 
   let!(:page) do
-    FactoryBot.build(:page,
-                     title: 'Automated testing rocks',
-                     slug: 'so-true',
-                     label: 'Test all the things',
-                     template: 'standard')
+    FactoryBot.build(
+      :page,
+      title: 'Automated testing rocks', slug: 'so-true', label: 'Test all the things', template: 'standard'
+    )
   end
 
   it { is_expected.to have_attribute :title }
@@ -23,26 +22,22 @@ RSpec.describe 'Page', type: :model do
   describe 'validations' do
     it 'requires a title' do
       expect do
-        Page.new(slug: 'so-true',
-                 label: 'Test all the things',
-                 template: 'standard').save!
+        Page.new(slug: 'so-true', label: 'Test all the things', template: 'standard').save!
       end.to raise_error ActiveRecord::RecordInvalid
     end
 
     it 'validates template is in our list' do
       expect do
-        Page.new(title: 'Automated testing rocks',
-                 slug: 'so-true',
-                 label: 'Test all the things',
-                 template: 'Made up').save!
+        Page.new(title: 'Automated testing rocks', slug: 'so-true', label: 'Test all the things', template: 'Made up')
+          .save!
       end.to raise_error ActiveRecord::RecordInvalid
     end
 
     it 'cleans up whitespace' do
-      page = Page.new(title: '  extra white space   ',
-                      slug: 'so-true',
-                      label: "\n    Test all the things\r",
-                      template: 'standard')
+      page =
+        Page.new(
+          title: '  extra white space   ', slug: 'so-true', label: "\n    Test all the things\r", template: 'standard'
+        )
       page.save!
 
       expect(page.title).to eq('extra white space')
@@ -50,10 +45,14 @@ RSpec.describe 'Page', type: :model do
     end
 
     it 'checks slug is valid' do
-      page = Page.new(title: 'extra white space',
-                      slug: '   so-true', # leading white space
-                      label: 'Test all the things',
-                      template: 'standard')
+      page =
+        Page.new(
+          title: 'extra white space',
+          slug: '   so-true',
+          # leading white space
+          label: 'Test all the things',
+          template: 'standard'
+        )
 
       page.save!
       expect(page.slug.blank?).to eq(false)
@@ -62,16 +61,12 @@ RSpec.describe 'Page', type: :model do
     it 'slug needs to be unique' do
       subject.save
       expect do
-        Page.new(title: 'title',
-                 slug: 'so-true',
-                 label: 'Test all the things',
-                 template: 'standard').save!
+        Page.new(title: 'title', slug: 'so-true', label: 'Test all the things', template: 'standard').save!
       end.to raise_error ActiveRecord::RecordInvalid
     end
 
     it 'populates slug and label with title if they are blank' do
-      page = Page.new(title: 'title',
-                      template: 'standard')
+      page = Page.new(title: 'title', template: 'standard')
 
       page.save!
 
@@ -121,8 +116,7 @@ RSpec.describe 'Page', type: :model do
   describe '.create_from_csv!' do
     context 'when the page exists in the database' do
       let(:row) do
-        [page.id, 'Automated testing rocks', 'help', 'help', 23, 'standard',
-         true, page.created_at, page.updated_at]
+        [page.id, 'Automated testing rocks', 'help', 'help', 23, 'standard', true, page.created_at, page.updated_at]
       end
 
       it 'updates the record' do
