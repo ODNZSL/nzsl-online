@@ -15,7 +15,7 @@ RSpec.describe PagesController, type: :controller do
     end
 
     it 'sets @page to the home page' do
-      expect(assigns(:page)).to eq Page.find_by_slug('/')
+      expect(assigns(:page)).to eq Page.find_by(slug: '/')
     end
 
     it 'assigns @sign to a sign' do

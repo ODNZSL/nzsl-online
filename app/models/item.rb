@@ -19,7 +19,7 @@ class Item
 
     super
 
-    sign = Sign.find_by_id_via_cache(sign_id)
+    sign = Sign.find_by(id_via_cache: sign_id)
 
     return if sign.nil?
 
