@@ -14,7 +14,7 @@ class Item
                 :notes,
                 :maori_name
 
-  def initialize(attrs = {}) # rubocop:disable Metrics/AbcSize, Metrics/CyclomaticComplexity
+  def initialize(attrs = {})
     raise 'Item requires a sign_id to be initialized correctly' if attrs['sign_id'].nil?
 
     super

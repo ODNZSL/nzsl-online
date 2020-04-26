@@ -22,7 +22,7 @@ RSpec.describe Admin::SettingsController, type: :controller do
     describe '#update' do
       before { patch :update, params: { settings: valid_params } }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
       it 'updates the setting' do
         setting.reload
         expect(setting.value).to eq('newvalue')
@@ -34,14 +34,14 @@ RSpec.describe Admin::SettingsController, type: :controller do
     describe '#edit' do
       before { get :edit }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
       it { expect(response).not_to render_template(:edit) }
     end
 
     describe '#update' do
       before { patch :update }
 
-      it { expect(response).to have_http_status(302) }
+      it { expect(response).to have_http_status(:found) }
     end
   end
 end
