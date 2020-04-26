@@ -16,7 +16,7 @@
       = page_title
     = favicon_link_tag '/apple-touch-icon.png', rel: 'apple-touch-icon', type: 'image/png'
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => false
+    = javascript_include_tag "application", "defer" => "defer", "data-turbolinks-track" => false
     = yield :head
     = print_stylesheet_tag params[:print]
     %link{href: "https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap", :rel => "stylesheet"}/
