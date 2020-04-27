@@ -13,9 +13,9 @@ Rails.application.configure do
   config.eager_load = true
 
   # Full error reports are disabled and caching is turned on.
-  config.consider_all_requests_local       = false
+  config.consider_all_requests_local = false
   config.action_controller.perform_caching = true
-  config.assets.precompile += %w(video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff)
+  config.assets.precompile += %w[video-js.swf vjs.eot vjs.svg vjs.ttf vjs.woff]
 
   # Ensures that a master key has been made available in either ENV["RAILS_MASTER_KEY"]
   # or in config/master.key. This key is used to decrypt credentials (and other encrypted files).
@@ -27,9 +27,7 @@ Rails.application.configure do
     # Serve static files with cache headers set to expire in 1 year. This
     # header allows browsers and CDN to cache assets for longer thereby
     # reducing re-requests for assets they already have.
-    config.public_file_server.headers = {
-      'Cache-Control' => "public, max-age=#{1.year.to_i}"
-    }
+    config.public_file_server.headers = { 'Cache-Control' => "public, max-age=#{1.year.to_i}" }
   end
 
   # Compress JavaScripts and CSS.
@@ -73,11 +71,9 @@ Rails.application.configure do
     # 'controller', 'action' and 'format' are already part of the lograge log
     # line. 'id' can be read from the URL which is already part of the lograge
     # log line.
-    exceptions = %w(controller action format id)
+    exceptions = %w[controller action format id]
 
-    {
-      params: event.payload[:params].except(*exceptions)
-    }
+    { params: event.payload[:params].except(*exceptions) }
   end
 
   # Prepend all log lines with the following tags.
@@ -86,10 +82,10 @@ Rails.application.configure do
   # Use a different cache store in production.
   # config.cache_store = :mem_cache_store
   if ENV['MEMCACHEDCLOUD_SERVERS']
-    config.cache_store = :mem_cache_store,
-                         ENV['MEMCACHEDCLOUD_SERVERS'].split(','),
-                         { username: ENV['MEMCACHEDCLOUD_USERNAME'],
-                           password: ENV['MEMCACHEDCLOUD_PASSWORD'] }
+    config.cache_store =
+      :mem_cache_store,
+      ENV['MEMCACHEDCLOUD_SERVERS'].split(','),
+      { username: ENV['MEMCACHEDCLOUD_USERNAME'], password: ENV['MEMCACHEDCLOUD_PASSWORD'] }
   end
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
@@ -130,9 +126,9 @@ Rails.application.configure do
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
   if ENV['RAILS_LOG_TO_STDOUT'].present?
-    logger           = ActiveSupport::Logger.new(STDOUT)
+    logger = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter
-    config.logger    = ActiveSupport::TaggedLogging.new(logger)
+    config.logger = ActiveSupport::TaggedLogging.new(logger)
   end
 
   # Do not dump schema after migrations.

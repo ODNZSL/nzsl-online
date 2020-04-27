@@ -80,10 +80,11 @@ class PdfRenderingService
   end
 
   def render_as_pdf(input_html_path:, output_pdf_path:, credentials:)
-    cmd = "node #{Rails.root.join('bin', 'render-pdf.js')} #{input_html_path}"\
-                                                         " #{output_pdf_path}"\
-                                                         " #{credentials[:username]}"\
-                                                         " #{credentials[:password]}"
+    cmd =
+      "node #{Rails.root.join('bin', 'render-pdf.js')} #{input_html_path}" \
+        " #{output_pdf_path}" \
+        " #{credentials[:username]}" \
+        " #{credentials[:password]}"
     Rails.logger.info(cmd)
 
     error_msg = "Chrome did not complete the PDF conversion within the #{PDF_CONVERSION_TIMEOUT_SECONDS} second timeout"
@@ -115,7 +116,7 @@ class PdfRenderingService
     #
     # We add the <base ... /> tag just after <head> - it must be added before
     # any <style> or <script></script> tags.
-    @html.sub!(/#{Regexp.quote("<head>")}/, "<head>#{base_tag}")
+    @html.sub!(/#{Regexp.quote('<head>')}/, "<head>#{base_tag}")
   end
 
   def base_tag

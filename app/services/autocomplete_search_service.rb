@@ -23,10 +23,11 @@ class AutocompleteSearchService
   # @return [Array<String>] array of autocomplete suggestions
   #
   def find_suggestions
-    response = @faraday_connection.get do |request|
-      request.params[:limit] = MAX_NUM_SUGGESTIONS
-      request.params[:q] = CGI.escape(@search_term)
-    end
+    response =
+      @faraday_connection.get do |request|
+        request.params[:limit] = MAX_NUM_SUGGESTIONS
+        request.params[:q] = CGI.escape(@search_term)
+      end
 
     # The response from the autocomplete service sets the HTTP header:
     #
@@ -44,14 +45,9 @@ class AutocompleteSearchService
     # String (#force_encoding only changes the tag, it does not attempt to
     # transcode the data).
     #
-    
+
     #
-    response
-      .body
-      .force_encoding(Encoding::UTF_8)
-      .split("\n")
-      .sort_by(&:downcase)
-      .take(MAX_NUM_SUGGESTIONS)
+    response.body.force_encoding(Encoding::UTF_8).split("\n").sort_by(&:downcase).take(MAX_NUM_SUGGESTIONS)
   rescue Faraday::Error => e
     msg = <<~EO_MSG
       Recovered from failed autocomplete search.

@@ -162,14 +162,7 @@ RSpec.describe 'Sign', type: :model do
 
   describe '.paginate' do
     it 'must find a single Sign with a simple search string' do
-      search_query = {
-        's' => ['hello'],
-        'hs' => [],
-        'l' => [],
-        'lg' => [],
-        'tag' => [],
-        'usage' => []
-      }
+      search_query = { 's' => ['hello'], 'hs' => [], 'l' => [], 'lg' => [], 'tag' => [], 'usage' => [] }
       page_number = 1
       search_result = Sign.paginate(search_query, page_number)
       # we get at least one result

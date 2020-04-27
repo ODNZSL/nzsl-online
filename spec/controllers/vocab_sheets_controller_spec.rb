@@ -25,9 +25,7 @@ RSpec.describe VocabSheetsController, type: :controller do
 
   describe '#update' do
     before do
-      allow_any_instance_of(Browser::Generic)
-        .to receive(:modern?)
-        .and_return(true)
+      allow_any_instance_of(Browser::Generic).to receive(:modern?).and_return(true)
     end
 
     context 'new vocab sheet' do
@@ -70,9 +68,7 @@ RSpec.describe VocabSheetsController, type: :controller do
     end
 
     before do
-      allow_any_instance_of(Browser::Generic)
-        .to receive(:modern?)
-        .and_return(true)
+      allow_any_instance_of(Browser::Generic).to receive(:modern?).and_return(true)
     end
 
     context 'successful deletion' do

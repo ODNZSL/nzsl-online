@@ -36,10 +36,7 @@ RSpec.describe Item, type: :model do
         attr_drawing = 'my.jpg'
 
         attrs = {
-          'sign_id' => sign_id,
-          'drawing' => attr_drawing,
-          'name' => attr_name,
-          'maori_name' => attr_maori_name
+          'sign_id' => sign_id, 'drawing' => attr_drawing, 'name' => attr_name, 'maori_name' => attr_maori_name
         }
 
         item = described_class.new(attrs)

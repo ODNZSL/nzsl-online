@@ -18,12 +18,7 @@ class Setting < ApplicationRecord
   def self.create_from_csv!(row)
     _id, key, value, created_at, updated_at = row
     setting = Setting.where(key: key).first_or_initialize
-    setting.update!(
-      key: key,
-      value: value,
-      updated_at: updated_at,
-      created_at: created_at
-    )
+    setting.update!(key: key, value: value, updated_at: updated_at, created_at: created_at)
     setting
   end
 end

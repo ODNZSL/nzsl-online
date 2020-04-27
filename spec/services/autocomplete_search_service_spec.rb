@@ -10,8 +10,8 @@ RSpec.describe AutocompleteSearchService do
       end
 
       let(:search_term) { 'Anything' }
-      let(:freelex_suggestions) { %w{ad ba bb aa ab ac bc bd} }
-      let(:expected_suggestions) { %w{aa ab ac ad ba bb bc bd} }
+      let(:freelex_suggestions) { %w[ad ba bb aa ab ac bc bd] }
+      let(:expected_suggestions) { %w[aa ab ac ad ba bb bc bd] }
       let(:stubbed_faraday_connection) do
         Faraday::Connection.new do |faraday|
           faraday.use Faraday::Adapter::Test do |stub|
@@ -30,13 +30,11 @@ RSpec.describe AutocompleteSearchService do
 
     context 'When there is an error communicating with the external search service' do
       subject do
-        described_class.new(search_term: search_term,
-                            faraday_connection: stubbed_faraday_connection,
-                            logger: logger)
+        described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection, logger: logger)
       end
 
       let(:search_term) { 'Anything' }
-      let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
+      let(:expected_suggestions) { %w[1 2 3 4 5 6 7 8 9 10] }
       let(:stubbed_faraday_connection) do
         Faraday::Connection.new do |faraday|
           faraday.use Faraday::Adapter::Test do |stub|
