@@ -27,7 +27,6 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
-gem 'newrelic_rpm'
 gem 'puma', '~> 4.3'
 gem 'rack-canonical-host', '~> 1.0.0'
 
@@ -52,6 +51,7 @@ gem 'faraday_middleware'
 gem 'devise'
 
 # Application performance monitoring
+gem 'newrelic_rpm'
 gem 'skylight'
 
 group :assets do
