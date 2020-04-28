@@ -45,8 +45,16 @@
 </header>
 <!-- Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.-->
 <% content_for(:scripts) do %>
-  <script>
-    $(function() { $(".js-ga-form-submission").on('submit', ga_form_submission); });
-    $(function() { $(".js-ga-link-submission").on('click', ga_link_submission); });
-  </script>
+<script>
+  window.addEventListener('DOMContentLoaded', function() {
+    (function($) {
+      $(function() {
+        $(".js-ga-form-submission").on('submit', ga_form_submission);
+      });
+      $(function() {
+        $(".js-ga-link-submission").on('click', ga_link_submission);
+      });
+    })(jQuery);
+  });
+</script>
 <% end %>
