@@ -68,6 +68,4 @@ module SignsHelper
       ''
     end
   end
-  
-  
 end

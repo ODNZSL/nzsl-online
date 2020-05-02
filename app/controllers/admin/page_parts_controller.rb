@@ -28,7 +28,7 @@ module Admin
     end
 
     def update
-      if @page_part.update_attributes(page_part_params)
+      if @page_part.update(page_part_params)
         redirect_to edit_admin_page_path(@page), notice: 'Page part was successfully updated.'
       else
         render action: :edit
