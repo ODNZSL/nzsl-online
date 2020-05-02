@@ -12,7 +12,7 @@ class AutocompleteSearchService
   # @param [Logger] logger - has a sensible default value which can be overridden by test code
   #
   def initialize(search_term:, faraday_connection: build_faraday_connection, logger: Rails.logger)
-    @search_term = search_term
+    @search_term = SearchQuerySanitizationService.new.sanitize_for_autocomplete_search(search_term)
     @faraday_connection = faraday_connection
     @logger = logger
   end
@@ -44,8 +44,7 @@ class AutocompleteSearchService
     # String (#force_encoding only changes the tag, it does not attempt to
     # transcode the data).
     #
-    
-    #
+
     response
       .body
       .force_encoding(Encoding::UTF_8)
