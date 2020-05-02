@@ -12,7 +12,7 @@ RSpec.describe 'Setting', type: :model do
   it { is_expected.to have_attribute :key }
   it { is_expected.to have_attribute :value }
 
-  describe '.update_all' do
+  describe '.update_all_settings' do
     let(:params) do
       [
         %w(boo yikes),
@@ -24,7 +24,7 @@ RSpec.describe 'Setting', type: :model do
 
     it 'updates records in the db' do
       subject
-      Setting.update_all(params)
+      Setting.update_all_settings(params)
       new_setting = Setting.find_by(key: setting.key)
       expect(new_setting.value).to eq 'hydra'
     end
@@ -32,7 +32,7 @@ RSpec.describe 'Setting', type: :model do
     it 'creates new records where needed' do
       subject
       expect(Setting.all.length).to eq 1
-      Setting.update_all(params)
+      Setting.update_all_settings(params)
       expect(Setting.all.length).to eq 4
     end
   end

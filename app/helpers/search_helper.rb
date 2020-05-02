@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SearchHelper
+module SearchHelper # rubocop:disable Metrics/ModuleLength
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
@@ -145,15 +145,11 @@ module SearchHelper
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    if @query[:usage].present?
-      h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ')
-    end
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:usage].present?
   end
 
   def display_topic_tag_search_term
-    if @query[:tag].present?
-      h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ')
-    end
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:tag].present?
   end
 
   def search_term(key)

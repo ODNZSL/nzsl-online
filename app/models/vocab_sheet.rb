@@ -52,9 +52,7 @@ class VocabSheet < ApplicationRecord
     # expensive because it involves a request to Freelex to fill in all the
     # attributes. For these reasons, we cache the items created. The cache is
     # used within a single request.
-    if raw_item_attrs_changed? || @cached_items.nil?
-      @cached_items = raw_item_attrs.map { |item_attrs| Item.new(item_attrs) }
-    end
+    @cached_items = raw_item_attrs.map { |item_attrs| Item.new(item_attrs) } if raw_item_attrs_changed? || @cached_items.nil?
 
     @cached_items
   end

@@ -20,7 +20,7 @@ class ApplicationController < ActionController::Base
     devise_controller? ? 'admin' : 'application'
   end
 
-  def setup_browser_rules
+  def setup_browser_rules # rubocop:disable Metrics/AbcSize
     Browser.modern_rules.clear
     Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 55 }
     Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 51 }
@@ -78,7 +78,7 @@ class ApplicationController < ActionController::Base
 
     flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
                       not display properly. <a href="https://updatemybrowser.org/"> Would you like to
-                      upgrade your browser? </a>).html_safe
+                      upgrade your browser? </a>).html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def staging_http_auth
