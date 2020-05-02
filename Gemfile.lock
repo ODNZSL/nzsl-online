@@ -294,6 +294,10 @@ GEM
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-performance (1.5.2)
       rubocop (>= 0.71.0)
+    rubocop-rails (2.5.2)
+      activesupport
+      rack (>= 1.1)
+      rubocop (>= 0.72.0)
     ruby-progressbar (1.10.1)
     rubyzip (2.3.0)
     sass (3.7.4)
@@ -413,6 +417,7 @@ DEPENDENCIES
   rspec-rails
   rubocop (~> 0.82.0)
   rubocop-performance
+  rubocop-rails
   sass-rails
   simplecov
   skylight
