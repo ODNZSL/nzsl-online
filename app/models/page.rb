@@ -8,7 +8,7 @@ class Page < ApplicationRecord
 
   HEADER_NAV = %w[topics alphabet numbers classifiers].freeze
 
-  has_many :page_parts
+  has_many :page_parts, dependent: :destroy
 
   before_validation :slug_and_label_from_title, :strip_text
 
