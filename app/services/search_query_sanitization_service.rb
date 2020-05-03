@@ -14,7 +14,7 @@ class SearchQuerySanitizationService
   # @param [ActionController::Parameters] params
   # @return [Hash]
   #
-  def sanitize_for_standard_search(params)
+  def sanitize_for_standard_search(params) # rubocop:disable Metrics/AbcSize
     return {} if params.nil?
 
     clean_search_term          = sanitize_search_term(params['s'])

@@ -28,7 +28,7 @@ class SignPaginationService
       .unshift(prev_link)
       .push(next_link)
       .join("\n")
-      .html_safe
+      .html_safe # rubocop:disable Rails/OutputSafety
   end
 
   private

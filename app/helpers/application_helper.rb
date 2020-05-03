@@ -2,7 +2,7 @@
 
 module ApplicationHelper
   def page_title
-    "#{@title}#{' -' if @title} #{t('layout.title')}"
+    "#{@title}#{' -' if @title} #{t('layout.title')}" # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def render_navigation_link(link)
@@ -14,18 +14,18 @@ module ApplicationHelper
   def submit_button(text = 'search.submit', options = {})
     "<div class='button input_button'>
       #{submit_tag(t(text), options.merge(name: nil))}
-     </div>".html_safe
+     </div>".html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def submit_search_button
     "<button type='submit' class='search-button'>
       <i class='fi-magnifying-glass'></i>
-    </button>".html_safe
+    </button>".html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def link_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to t(text).to_s.html_safe,
+    link_to t(text).to_s.html_safe, # rubocop:disable Rails/OutputSafety
             url,
             { class: "button #{options[:class]}" }.reverse_merge(options)
   end
@@ -34,14 +34,14 @@ module ApplicationHelper
     url ||= 'javascript:void(0);'
     link_to "<button type='submit' class='orange_submit_button'>
               #{t(text)}
-            </button>".html_safe,
+            </button>".html_safe, # rubocop:disable Rails/OutputSafety
             url,
             { class: (options[:class]).to_s }.reverse_merge(options)
   end
 
   def play_video_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to "<i class='fi-play'></i>#{t(text)}".html_safe,
+    link_to "<i class='fi-play'></i>#{t(text)}".html_safe, # rubocop:disable Rails/OutputSafety
             url,
             { class: "button #{options[:class]}" }.reverse_merge(options)
   end
@@ -50,8 +50,12 @@ module ApplicationHelper
     # if the url looks like ?print=true
     # change the print button to a back button that's visible on screen but hidden on print.
     if print
-      "#{stylesheet_link_tag('print', media: 'all')}
-              #{stylesheet_link_tag('print_screen', media: 'screen')}".html_safe
+      output = <<~EO_OUTPUT
+        #{stylesheet_link_tag('print', media: 'all')}
+        #{stylesheet_link_tag('print_screen', media: 'screen')}
+      EO_OUTPUT
+
+      output.html_safe # rubocop:disable Rails/OutputSafety
     else
       stylesheet_link_tag('print', media: 'print')
     end
@@ -67,7 +71,7 @@ module ApplicationHelper
                                       wrapper_class: 'translation_video main_video hidden_video'),
                        play_video_button(link_text,
                                          nil,
-                                         class: 'translation_button float-left')].join(' ').html_safe,
+                                         class: 'translation_button float-left')].join(' ').html_safe, # rubocop:disable Rails/OutputSafety
                 class: 'videos clearfix_left'
   end
 end

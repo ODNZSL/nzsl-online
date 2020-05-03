@@ -17,7 +17,7 @@ module SignsHelper
                 'Sign', 'Click', 'glossary #{note}']);" }
       link_to(t("signs.show.field.#{note}"),
               "#{Page.find(Setting.get(:glossary)).try(:path)}##{note}", attrs)
-    end.compact.join(', ').html_safe
+    end.compact.join(', ').html_safe # rubocop:disable Rails/OutputSafety
   end
 
   ##
@@ -46,7 +46,7 @@ module SignsHelper
                 class: 'js-ga-link-submission',
                 onclick: "_gaq.push(['_trackEvent', 'Sign', 'Click', 'example #{sign[:id]}']);"
       end
-    end.join(' ').html_safe
+    end.join(' ').html_safe # rubocop:disable Rails/OutputSafety
   end
 
   def render_back_to_search_results
