@@ -4,7 +4,7 @@ class PagesController < ApplicationController
   before_action :set_search_query, :footer_content
 
   def show
-    @page = Page.find_by(slug: params[:slug])
+    @page = Page.find_by(slug: slug_param)
     return render_404 unless @page
 
     @title = @page.title
@@ -20,5 +20,11 @@ class PagesController < ApplicationController
     @sign = Sign.random
 
     render template: "pages/#{@page.template}"
+  end
+
+  private
+
+  def slug_param
+    params[:slug].presence || '/'
   end
 end
