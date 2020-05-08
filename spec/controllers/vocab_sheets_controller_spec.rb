@@ -24,12 +24,6 @@ RSpec.describe VocabSheetsController, type: :controller do
   end
 
   describe '#update' do
-    before do
-      allow_any_instance_of(Browser::Generic)
-        .to receive(:modern?)
-        .and_return(true)
-    end
-
     context 'new vocab sheet' do
       before { patch :update, params: valid_attributes }
 
@@ -67,12 +61,6 @@ RSpec.describe VocabSheetsController, type: :controller do
     let(:valid_request) { delete :destroy, params: { id: vocab_sheet.id } }
     let(:invalid_request) do
       delete :destroy, params: { id: vocab_sheet.id + 100 }
-    end
-
-    before do
-      allow_any_instance_of(Browser::Generic)
-        .to receive(:modern?)
-        .and_return(true)
     end
 
     context 'successful deletion' do
