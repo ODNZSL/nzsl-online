@@ -4,10 +4,8 @@ class ApplicationController < ActionController::Base
   include BasicAuthHelper
 
   protect_from_forgery with: :exception
-  require 'browser'
   layout :layout_by_resource
 
-  before_action :check_browser_support
   before_action :staging_http_auth
 
   private
@@ -18,14 +16,6 @@ class ApplicationController < ActionController::Base
 
   def layout_by_resource
     devise_controller? ? 'admin' : 'application'
-  end
-
-  def setup_browser_rules # rubocop:disable Metrics/AbcSize
-    Browser.modern_rules.clear
-    Browser.modern_rules << ->(b) { b.chrome? && b.version.to_i >= 55 }
-    Browser.modern_rules << ->(b) { b.firefox? && b.version.to_i >= 51 }
-    Browser.modern_rules << ->(b) { b.safari? && b.version.to_i >= 9 }
-    Browser.modern_rules << ->(b) { b.ie? && b.version.to_i >= 10 }
   end
 
   def find_or_create_vocab_sheet
@@ -71,15 +61,6 @@ class ApplicationController < ActionController::Base
   end
 
   protected
-
-  def check_browser_support
-    setup_browser_rules
-    return if browser.modern?
-
-    flash[:error] = %(Your browser is not supported. This may mean that some features of NZSL Online will
-                      not display properly. <a href="https://updatemybrowser.org/"> Would you like to
-                      upgrade your browser? </a>).html_safe # rubocop:disable Rails/OutputSafety
-  end
 
   def staging_http_auth
     return unless staging_env?

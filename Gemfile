@@ -19,7 +19,6 @@ gem 'pandoc-ruby'
 gem 'whenever'
 
 gem 'autoprefixer-rails'
-gem 'browser'
 gem 'ckeditor_rails'
 gem 'dalli'
 gem 'foundation-rails', '~> 6.6.2.0'
