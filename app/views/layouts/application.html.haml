@@ -18,7 +18,11 @@
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "defer" => "defer", "data-turbolinks-track" => false
     = yield :head
-    = print_stylesheet_tag params[:print]
+    - if params[:print]
+      = stylesheet_link_tag('print', media: 'all')
+      = stylesheet_link_tag('print_screen', media: 'screen')
+    - else
+      = stylesheet_link_tag('print', media: 'print')
     %link{href: "https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap", :rel => "stylesheet"}/
   %body.row
     = render partial: "shared/google_tag_manager_body"
@@ -34,5 +38,6 @@
         = yield
     - if !params[:print]
       = render partial: 'shared/footer', locals: { last: true }
-    = print_javascripts_tag params[:print]
+    - if params[:print]
+      = javascript_tag('document.printView = true;')
     = yield :scripts
