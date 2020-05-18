@@ -19,7 +19,6 @@ gem 'pandoc-ruby'
 gem 'whenever'
 
 gem 'autoprefixer-rails'
-gem 'browser'
 gem 'ckeditor_rails'
 gem 'dalli'
 gem 'foundation-rails', '~> 6.6.2.0'
@@ -27,9 +26,8 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
-gem 'newrelic_rpm'
 gem 'puma', '~> 4.3'
-gem 'rack-canonical-host', '~> 0.2.3'
+gem 'rack-canonical-host', '~> 1.0.0'
 
 # For attaching files on the feedback form
 # on Feedback model
@@ -52,6 +50,7 @@ gem 'faraday_middleware'
 gem 'devise'
 
 # Application performance monitoring
+gem 'newrelic_rpm'
 gem 'skylight'
 
 group :assets do
@@ -79,7 +78,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.80.1', require: false
+  gem 'rubocop', '~> 0.82.0', require: false
   gem 'rubocop-performance'
 
   # catches email sending, and logs instead
