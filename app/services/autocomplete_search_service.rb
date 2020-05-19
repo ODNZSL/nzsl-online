@@ -12,7 +12,7 @@ class AutocompleteSearchService
   # @param [Logger] logger - has a sensible default value which can be overridden by test code
   #
   def initialize(search_term:, faraday_connection: build_faraday_connection, logger: Rails.logger)
-    @search_term = search_term
+    @search_term = SearchQuerySanitizationService.new.sanitize_for_autocomplete_search(search_term)
     @faraday_connection = faraday_connection
     @logger = logger
   end
@@ -22,7 +22,7 @@ class AutocompleteSearchService
   #
   # @return [Array<String>] array of autocomplete suggestions
   #
-  def find_suggestions # rubocop:disable Metrics/MethodLength
+  def find_suggestions
     response = @faraday_connection.get do |request|
       request.params[:limit] = MAX_NUM_SUGGESTIONS
       request.params[:q] = CGI.escape(@search_term)
@@ -34,7 +34,6 @@ class AutocompleteSearchService
     #
     # but in reality the body string is UTF-8.
     #
-    # rubocop:disable Style/AsciiComments
     #
     # For example, the results for search term "wha" include strings with
     # macrons e.g. "Whangārei". By inspection of the content in a hex editor
@@ -45,8 +44,7 @@ class AutocompleteSearchService
     # String (#force_encoding only changes the tag, it does not attempt to
     # transcode the data).
     #
-    # rubocop:enable Style/AsciiComments
-    #
+
     response
       .body
       .force_encoding(Encoding::UTF_8)

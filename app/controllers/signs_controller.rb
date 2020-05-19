@@ -6,7 +6,7 @@ class SignsController < ApplicationController
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
   def search
-    search_query = process_search_query
+    search_query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
     @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
     @results_total, @signs = Sign.paginate(search_query, @page_number)
     @query = search_query
@@ -38,18 +38,6 @@ class SignsController < ApplicationController
   end
 
   private
-
-  def process_search_query
-    search_keys = %w(s hs l lg usage tag)
-    query = permitted_params.select { |key| search_keys.include?(key) }
-    return {} if query.nil?
-
-    query.each do |key, value|
-      secondary_value = value.nil? ? '' : value.split(' ')
-      query[key] = key == 's' ? [value] : secondary_value
-    end
-    query.to_h
-  end
 
   def permitted_params
     params.permit(%i[s hs l lg usage tag term p id])

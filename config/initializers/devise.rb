@@ -3,7 +3,7 @@
 # Use this hook to configure devise mailer, warden hooks and so forth.
 # Many of these configuration options can be set straight in your model.
 Devise.setup do |config|
-  config.secret_key = 'dabd54db3b77f2b880cffc1e90c85270063db8c636eb3280dd0c81bf40f633c3901a5c3d0ec04cb5965c2ab9aceac8e39ea08ad6b7dd3f431d2b4651080e586b' # rubocop:disable Metrics/LineLength
+  config.secret_key = 'dabd54db3b77f2b880cffc1e90c85270063db8c636eb3280dd0c81bf40f633c3901a5c3d0ec04cb5965c2ab9aceac8e39ea08ad6b7dd3f431d2b4651080e586b'
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.

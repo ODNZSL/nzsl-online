@@ -19,7 +19,7 @@ common: &default_settings
   app_name: NZSL
 
   # To disable the agent regardless of other settings, uncomment the following:
-  # agent_enabled: false
+  agent_enabled: <%= ENV.fetch('NEW_RELIC_ENABLED', '').upcase == 'YES' %>
 
   # Logging level for log/newrelic_agent.log
   log_level: info

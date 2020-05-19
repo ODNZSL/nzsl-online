@@ -36,7 +36,7 @@ class VocabSheetsController < ApplicationController
     send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
   end
 
-  def update # rubocop:disable Metrics/AbcSize
+  def update
     @sheet.name = params[:vocab_sheet][:name]
     if @sheet.save
       flash[:notice] = t('vocab_sheet.sheet.update_success')

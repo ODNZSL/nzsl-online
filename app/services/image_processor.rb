@@ -23,7 +23,7 @@ class ImageProcessor
 
   private
 
-  def write_file_locally # rubocop:disable Metrics/AbcSize
+  def write_file_locally
     image = nil
     image_retrieval =
       Benchmark.measure("retriving image '#{@remote_filename}'") { image = MiniMagick::Image.open(@remote_filename) }
