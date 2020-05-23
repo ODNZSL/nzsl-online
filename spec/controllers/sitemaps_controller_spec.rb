@@ -19,7 +19,7 @@ RSpec.describe SitemapsController, type: :controller do
     end
 
     it 'renders xml as the content type' do
-      expect(response.content_type).to eq('application/xml')
+      expect(response.media_type).to eq('application/xml')
     end
 
     it 'renders xml content' do
