@@ -28,6 +28,15 @@ New Zealand Sign Language Dictionary consists of 3 major units
 [![Issue Count](https://codeclimate.com/github/ODNZSL/nzsl-online/badges/issue_count.svg)](https://codeclimate.com/github/ODNZSL/nzsl-online)
 [![Waffle.io - Columns and their card count](https://badge.waffle.io/ODNZSL/nzsl-online.svg?columns=all)](https://waffle.io/ODNZSL/nzsl-online)
 
+## Browser support
+
+As of May 2020 this app supports:
+
+* IE10+
+* Last two versions of evergreen browsers
+
+IE 10 support is currently important for some sections of our user-base.
+
 ## Getting Started
 
 Please read the accompanying CONTRIBUTING.md (in progress) before you follow the setup steps.
