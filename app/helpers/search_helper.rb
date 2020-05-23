@@ -20,8 +20,10 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
 
     size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
-      [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(%r{[ /]}, '_')}.png")].join.html_safe # rubocop:disable Rails/OutputSafety
+      safe_join([
+                  content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
+                  image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(%r{[ /]}, '_')}.png")
+                ])
     end
     output << number.split('.').last if attribute == :location && in_menu
     output
@@ -107,7 +109,8 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
         simple
       )
     end
-    locations.join(' ').html_safe # rubocop:disable Rails/OutputSafety
+
+    safe_join(locations, ' ')
   end
 
   def display_handshapes_search_term(simple = false)
@@ -123,7 +126,8 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
         simple
       )
     end
-    selected.join(' ').html_safe # rubocop:disable Rails/OutputSafety
+
+    safe_join(selected, ' ')
   end
 
   def display_location_groups_search_term(simple = false)
@@ -140,7 +144,8 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
         simple
       )
     end
-    locations.join(' ').html_safe # rubocop:disable Rails/OutputSafety
+
+    safe_join(locations, ' ')
   end
 
   def display_usage_tag_search_term
@@ -159,12 +164,16 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
   end
 
   def display_search_term
-    @display_search_term ||= [search_term('s'), # rubocop:disable Rails/HelperInstanceVariable
-                              display_handshapes_search_term(true),
-                              display_locations_search_term(true),
-                              display_location_groups_search_term(true),
-                              display_usage_tag_search_term,
-                              display_topic_tag_search_term].compact.join(' ').html_safe # rubocop:disable Rails/OutputSafety
+    search_term_elements = [
+      search_term('s'),
+      display_handshapes_search_term(true),
+      display_locations_search_term(true),
+      display_location_groups_search_term(true),
+      display_usage_tag_search_term,
+      display_topic_tag_search_term
+    ].compact
+
+    @display_search_term ||= safe_join(search_term_elements, ' ') # rubocop:disable Rails/HelperInstanceVariable
   end
 
   private
