@@ -85,3 +85,12 @@ AllCops:
     - 'vendor/**/*'
     - 'node_modules/**/*'
     - 'db/schema.rb'
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
