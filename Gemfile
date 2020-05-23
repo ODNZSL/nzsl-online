@@ -120,7 +120,3 @@ group :test do
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
-
-group :staging, :production do
-  gem 'rails_12factor'
-end
