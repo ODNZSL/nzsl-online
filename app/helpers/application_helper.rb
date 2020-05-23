@@ -2,72 +2,49 @@
 
 module ApplicationHelper
   def page_title
-    "#{@title}#{' -' if @title} #{t('layout.title')}"
+    "#{@title}#{' -' if @title} #{t('layout.title')}" # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def render_navigation_link(link)
     link_to_unless_current(link.label, link.path) do
-      content_tag :span, link.label, class: 'menu-list__selected'
+      content_tag(:span, link.label, class: 'menu-list__selected')
     end
   end
 
   def submit_button(text = 'search.submit', options = {})
-    "<div class='button input_button'>
-      #{submit_tag(t(text), options.merge(name: nil))}
-     </div>".html_safe
+    content_tag(:div, class: 'button input_button') do
+      submit_tag(t(text), options.merge(name: nil))
+    end
   end
 
   def submit_search_button
-    "<button type='submit' class='search-button'>
-      <i class='fi-magnifying-glass'></i>
-    </button>".html_safe
+    button_tag(name: nil, class: 'search-button') do
+      content_tag(:i, '', class: 'fi-magnifying-glass')
+    end
   end
 
-  def link_button(text, url = nil, options = {})
-    url ||= 'javascript:void(0);'
-    link_to t(text).to_s.html_safe,
-            url,
-            { class: "button #{options[:class]}" }.reverse_merge(options)
+  def link_button(text, url, options = {})
+    link_options = {
+      class: "button #{options[:class]}"
+    }.reverse_merge(options)
+
+    link_to(t(text), url, link_options)
   end
 
-  def orange_submit_button(text, url = nil, options = {})
-    url ||= 'javascript:void(0);'
-    link_to "<button type='submit' class='orange_submit_button'>
-              #{t(text)}
-            </button>".html_safe,
-            url,
-            { class: (options[:class]).to_s }.reverse_merge(options)
+  def orange_submit_button(text, url, options = {})
+    button = button_tag(t(text), name: nil, class: 'orange_submit_button')
+    link_options = {
+      class: (options[:class]).to_s
+    }.reverse_merge(options)
+
+    link_to(button, url, link_options)
   end
 
   def play_video_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_to "<i class='fi-play'></i>#{t(text)}".html_safe,
-            url,
-            { class: "button #{options[:class]}" }.reverse_merge(options)
-  end
+    link_text = safe_join([content_tag(:i, '', class: 'fi-play'), t(text)])
+    link_options = { class: "button #{options[:class]}" }.reverse_merge(options)
 
-  def print_stylesheet_tag(print)
-    # if the url looks like ?print=true
-    # change the print button to a back button that's visible on screen but hidden on print.
-    if print
-      "#{stylesheet_link_tag('print', media: 'all')}
-              #{stylesheet_link_tag('print_screen', media: 'screen')}".html_safe
-    else
-      stylesheet_link_tag('print', media: 'print')
-    end
-  end
-
-  def print_javascripts_tag(print)
-    '<script> document.printView = true; </script>'.html_safe if print
-  end
-
-  def video_translation(part)
-    link_text = (part.page.multiple_page_parts? ? 'play_this_section' : 'play_this_page')
-    content_tag :div, [flow_video_tag(asset_path(part.translation_path),
-                                      wrapper_class: 'translation_video main_video hidden_video'),
-                       play_video_button(link_text,
-                                         nil,
-                                         class: 'translation_button float-left')].join(' ').html_safe,
-                class: 'videos clearfix_left'
+    link_to(link_text, url, link_options)
   end
 end

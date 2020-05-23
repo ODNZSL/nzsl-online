@@ -54,9 +54,9 @@ class ApplicationController < ActionController::Base
   def render_404
     @page = Page.find(Setting.get(:'404'))
     if @page
-      render template: "pages/#{@page.template}", status: 404, formats: :html
+      render template: "pages/#{@page.template}", status: :not_found, formats: :html
     else
-      render text: '404 - page not found', status: 404
+      render text: '404 - page not found', status: :not_found
     end
   end
 

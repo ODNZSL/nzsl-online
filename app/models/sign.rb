@@ -62,7 +62,7 @@ class Sign
     # @param sign_id [String]
     # @return [Sign] if we could find a sign
     # @return [nil] if we could not find a sign
-    def find_by_id_via_cache(sign_id)
+    def fetch_by_id_via_cache(sign_id)
       return first(id: sign_id) unless FeatureFlags::StoreVocabSheetItemsInRailsCache.enabled?
 
       # We use the more verbose `Rails.cache.fetch` and `Rails.cache.write`

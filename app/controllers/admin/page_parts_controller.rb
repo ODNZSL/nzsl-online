@@ -3,7 +3,7 @@
 module Admin
   class PagePartsController < ApplicationController
     before_action :authenticate_user!, :fetch_page, :set_title
-    before_action :fetch_page_part, only: %i[edit show update destroy]
+    before_action :fetch_page_part, only: %i[edit update destroy]
     layout 'admin'
     protect_from_forgery except: [:reorder]
 
@@ -28,7 +28,7 @@ module Admin
     end
 
     def update
-      if @page_part.update_attributes(page_part_params)
+      if @page_part.update(page_part_params)
         redirect_to edit_admin_page_path(@page), notice: 'Page part was successfully updated.'
       else
         render action: :edit

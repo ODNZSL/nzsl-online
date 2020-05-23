@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SearchHelper
+module SearchHelper # rubocop:disable Metrics/ModuleLength
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
@@ -20,8 +20,10 @@ module SearchHelper
 
     size = attribute == :location && in_menu ? '72' : '42'
     output = content_tag :div, class: classes_for_sign_attribute(attribute, main) do
-      [content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
-       image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(%r{[ /]}, '_')}.png")].join.html_safe
+      safe_join([
+                  content_tag(:span, value_for_sign_attribute(number, attribute, main), class: 'value'),
+                  image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(%r{[ /]}, '_')}.png")
+                ])
     end
     output << number.split('.').last if attribute == :location && in_menu
     output
@@ -39,22 +41,22 @@ module SearchHelper
   # Sign Attribute is Selected?
 
   def handshape_selected?(shape)
-    return if @query[:hs].blank?
+    return if @query[:hs].blank? # rubocop:disable Rails/HelperInstanceVariable
 
-    query_hs = @query[:hs]
+    query_hs = @query[:hs] # rubocop:disable Rails/HelperInstanceVariable
 
     # if it's the first, the search is just on the first two numbers
-    query_hs = @query[:hs].map { |q| "#{q}.1" } if shape.split('.').last == '1'
+    query_hs = @query[:hs].map { |q| "#{q}.1" } if shape.split('.').last == '1' # rubocop:disable Rails/HelperInstanceVariable
 
     'selected' if query_hs.include?(shape)
   end
 
   def location_selected?(location)
-    'selected' if @query[:l].present? && @query[:l].include?(location.split('.')[1])
+    'selected' if @query[:l].present? && @query[:l].include?(location.split('.')[1]) # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def location_group_selected?(location_group)
-    'selected' if @query[:lg].present? && @query[:lg].include?(location_group.split('.')[0])
+    'selected' if @query[:lg].present? && @query[:lg].include?(location_group.split('.')[0]) # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def tab_class(*classes)
@@ -80,7 +82,7 @@ module SearchHelper
   end
 
   def tab_selected?(classes)
-    keys = @query.select { |_key, value| value.present? }.keys
+    keys = @query.select { |_key, value| value.present? }.keys # rubocop:disable Rails/HelperInstanceVariable
     selected = if %w(tag usage).any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
                  classes.include?(:advanced)
                elsif %w(hs l lg).any? { |key| keys.include?(key) }
@@ -97,7 +99,7 @@ module SearchHelper
     locations = SignMenu.locations.flatten.select do |location|
       location_selected?(location)
     end
-    return if @query[:l].blank?
+    return if @query[:l].blank? # rubocop:disable Rails/HelperInstanceVariable
 
     locations = locations.map do |location|
       location_image(
@@ -107,14 +109,15 @@ module SearchHelper
         simple
       )
     end
-    locations.join(' ').html_safe
+
+    safe_join(locations, ' ')
   end
 
   def display_handshapes_search_term(simple = false)
     selected = SignMenu.handshapes.flatten.flatten.select do |hand_shape|
       handshape_selected?(hand_shape)
     end
-    return if @query[:hs].blank?
+    return if @query[:hs].blank? # rubocop:disable Rails/HelperInstanceVariable
 
     selected = selected.map do |hand_shape|
       handshape_image(
@@ -123,14 +126,15 @@ module SearchHelper
         simple
       )
     end
-    selected.join(' ').html_safe
+
+    safe_join(selected, ' ')
   end
 
   def display_location_groups_search_term(simple = false)
     locations = SignMenu.location_groups.select do |location_group|
       location_group_selected?(location_group)
     end
-    return if @query[:lg].blank?
+    return if @query[:lg].blank? # rubocop:disable Rails/HelperInstanceVariable
 
     locations = locations.map do |location_group|
       location_image(
@@ -140,31 +144,36 @@ module SearchHelper
         simple
       )
     end
-    locations.join(' ').html_safe
+
+    safe_join(locations, ' ')
   end
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:usage].present?
+    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:usage].present? # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def display_topic_tag_search_term
-    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:tag].present?
+    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:tag].present? # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def search_term(key)
-    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?)
+    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?) # rubocop:disable Rails/HelperInstanceVariable
 
-    h @query[key].join(' ')
+    h @query[key].join(' ') # rubocop:disable Rails/HelperInstanceVariable
   end
 
   def display_search_term
-    @display_search_term ||= [search_term('s'),
-                              display_handshapes_search_term(true),
-                              display_locations_search_term(true),
-                              display_location_groups_search_term(true),
-                              display_usage_tag_search_term,
-                              display_topic_tag_search_term].compact.join(' ').html_safe
+    search_term_elements = [
+      search_term('s'),
+      display_handshapes_search_term(true),
+      display_locations_search_term(true),
+      display_location_groups_search_term(true),
+      display_usage_tag_search_term,
+      display_topic_tag_search_term
+    ].compact
+
+    @display_search_term ||= safe_join(search_term_elements, ' ') # rubocop:disable Rails/HelperInstanceVariable
   end
 
   private

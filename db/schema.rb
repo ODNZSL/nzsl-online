@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_16_173959) do
+ActiveRecord::Schema.define(version: 2020_05_03_004403) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -61,7 +61,7 @@ ActiveRecord::Schema.define(version: 2019_07_16_173959) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["order"], name: "index_pages_on_order"
-    t.index ["slug"], name: "index_pages_on_slug"
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
   create_table "requests", id: :serial, force: :cascade do |t|
