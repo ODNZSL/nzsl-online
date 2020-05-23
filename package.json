@@ -10,6 +10,9 @@
     "sass-lint": "./node_modules/.bin/sass-lint -v",
     "eslint": "./node_modules/.bin/eslint ."
   },
+  "resolutions": {
+    "sass-lint/gonzales-pe-sl/minimist": "^1.2.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ODNZSL/nzsl-online.git"
@@ -28,7 +31,7 @@
   },
   "devDependencies": {
     "@percy/agent": "^0.26.0",
-    "eslint": "^5.12.1",
+    "eslint": "^7.0.0",
     "eslint-config-google": "0.14.0",
     "sass-lint": "^1.12.1"
   }

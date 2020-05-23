@@ -25,6 +25,9 @@
       = stylesheet_link_tag('print', media: 'print')
     %link{href: "https://fonts.googleapis.com/css?family=Montserrat:300,400,500&display=swap", :rel => "stylesheet"}/
   %body.row
+    /[if lte IE 9]
+      %div{style: 'font-size: 150%; font-weight: bold; padding: 1em; background-color: red; color: white; display: block;'}
+        Sorry, your browser is not supported. This means that some features of NZSL Online will not work correctly.
     = render partial: "shared/google_tag_manager_body"
     .visuallyhidden
       %a{href: "#content"} Skip to Content
