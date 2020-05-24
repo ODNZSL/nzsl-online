@@ -1,8 +1,7 @@
 engines:
   # https://docs.codeclimate.com/docs/eslint
   eslint:
-    enabled: true
-    channel: "eslint-5"
+    enabled: false
   rubocop:
     enabled: true
     channel: rubocop-0-80
