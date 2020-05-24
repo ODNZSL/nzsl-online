@@ -62,7 +62,6 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem 'skylight'
 
-gem 'coffee-rails'
 gem 'sass-rails'
 gem 'uglifier'
 
