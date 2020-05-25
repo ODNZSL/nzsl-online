@@ -28,13 +28,13 @@ var search_analytics_string = function() {
   locationsValue = locationsValue = $('input#l').val().replace(/ /g, ',');
   locationGroupsValue = locationGroupsValue.replace(/ /g, ',');
 
-  var string = 'search_tab=' + selectedSearchTab()
-               + ' ' + 'query=' + queryValue
-               + ' ' + 'handshapes=' + handshapesValue
-               + ' ' + 'locations=' + locationsValue
-               + ' ' + 'location_groups=' + locationGroupsValue
-               + ' ' + 'tag=' + tagValue
-               + ' ' + 'usage=' + usageValue;
+  var string = 'search_tab=' + selectedSearchTab() +
+               ' ' + 'query=' + queryValue +
+               ' ' + 'handshapes=' + handshapesValue +
+               ' ' + 'locations=' + locationsValue +
+               ' ' + 'location_groups=' + locationGroupsValue +
+               ' ' + 'tag=' + tagValue +
+               ' ' + 'usage=' + usageValue;
 
   return string;
 };

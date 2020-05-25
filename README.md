@@ -137,3 +137,18 @@ Current servers (2017-12-15)
 ## LICENSE
 
 This project is licensed under the GNU License - see the [GNU General Public License](https://github.com/ODNZSL/nzsl-online/blob/staging/LICENSE) for details.
+
+
+## Running in production mode locally
+
+```sh
+# Step 1: precompile assets
+$ DEVISE_SECRET_KEY=blah RAILS_FORCE_SSL=false RAILS_ENV=production RAILS_LOG_TO_STDOUT=true RAILS_SERVE_STATIC_FILES=true bundle exec rails assets:precompile
+
+# Step 2: Run server (note you need **all** these flags to run production locally)
+$ DEVISE_SECRET_KEY=blah RAILS_FORCE_SSL=false RAILS_ENV=production RAILS_LOG_TO_STDOUT=true RAILS_SERVE_STATIC_FILES=true bundle exec rails server
+
+# Step 3: Delete pre-compiled assets before you go back to normal development
+$ DEVISE_SECRET_KEY=blah RAILS_FORCE_SSL=false RAILS_ENV=production RAILS_LOG_TO_STDOUT=true RAILS_SERVE_STATIC_FILES=true bundle exec rails assets:clobber
+```
+

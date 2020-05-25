@@ -81,9 +81,9 @@ $(document).ready(function() {
         hideNotice();
       } else {
         $('.before_sticky_footer').prepend(
-            '<div class="flash error">'
-          + 'Error, please try again.'
-          + '</div>'
+            '<div class="flash error">' +
+          'Error, please try again.' +
+          '</div>'
         );
       }
     }

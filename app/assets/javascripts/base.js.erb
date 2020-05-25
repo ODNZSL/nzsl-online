@@ -291,8 +291,8 @@ $(function(){
     //load print
     if (document.printView) {
       $('textarea, input[type="text"]').attr('readonly', true);
-      $(window).bind('load', function(){
-        window.print();
+      $(window).on('load', function() {
+        window.setTimeout(function() { window.print(); }, 1000);
       });
     }
   };
