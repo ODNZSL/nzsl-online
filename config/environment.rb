@@ -4,4 +4,4 @@
 require_relative 'application'
 
 # Initialize the Rails application.
-NzslOnline::Application.initialize!
+Rails.application.initialize!

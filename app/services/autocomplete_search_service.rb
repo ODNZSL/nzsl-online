@@ -28,6 +28,8 @@ class AutocompleteSearchService
       request.params[:q] = CGI.escape(@search_term)
     end
 
+    # rubocop:disable Style/AsciiComments
+    #
     # The response from the autocomplete service sets the HTTP header:
     #
     #   Content-Type: text/html; charset=ISO-8859-1
@@ -43,6 +45,8 @@ class AutocompleteSearchService
     # To work around this, we tell ruby to change the encoding tag on the body
     # String (#force_encoding only changes the tag, it does not attempt to
     # transcode the data).
+    #
+    # rubocop:enable Style/AsciiComments
     #
 
     response

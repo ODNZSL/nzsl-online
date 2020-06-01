@@ -24,11 +24,8 @@ class SignPaginationService
       .reject { |page_num| page_num_should_be_removed?(page_num) }
       .map { |page_num| prepare_for_presentation(page_num) }
 
-    pagination_links
-      .unshift(prev_link)
-      .push(next_link)
-      .join("\n")
-      .html_safe
+    # https://api.rubyonrails.org/classes/ActionView/Helpers/OutputSafetyHelper.html#method-i-safe_join
+    safe_join([prev_link, pagination_links, next_link], "\n")
   end
 
   private

@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 5.2.4'
+gem 'rails', '~> 6.0.3.1'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
@@ -19,7 +19,16 @@ gem 'pandoc-ruby'
 gem 'whenever'
 
 gem 'autoprefixer-rails'
-gem 'ckeditor_rails'
+
+# As of 2020-05-23, the Rails 6 compatible version of ckeditor_rails has not
+# been released to Rubygems so we are instead referencing the commit where the
+# master branch gained Rails 6 support but has the fewest other changes from
+# the released version.
+#
+# It is our intention to revert to the official Rubygems version of the gem as
+# soon as possible.
+gem 'ckeditor_rails', git: 'https://github.com/tsechingho/ckeditor-rails.git', ref: 'dc5de031b0dfde527cf5571bb87b90c59ca24ab1'
+
 gem 'dalli'
 gem 'foundation-rails', '~> 6.6.2.0'
 gem 'i18n'
@@ -53,11 +62,8 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem 'skylight'
 
-group :assets do
-  gem 'coffee-rails'
-  gem 'sass-rails'
-  gem 'uglifier'
-end
+gem 'sass-rails'
+gem 'uglifier'
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
@@ -79,7 +85,8 @@ group :development, :test do
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
   gem 'rubocop', '~> 0.84.0', require: false
-  gem 'rubocop-performance'
+  gem 'rubocop-performance', require: false
+  gem 'rubocop-rails', require: false
 
   # catches email sending, and logs instead
   gem 'letter_opener'
@@ -111,8 +118,4 @@ group :test do
   gem 'percy-capybara', '~> 4.2.0'
   gem 'rails-controller-testing'
   gem 'webdrivers'
-end
-
-group :staging, :production do
-  gem 'rails_12factor'
 end

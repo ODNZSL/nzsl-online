@@ -4,14 +4,14 @@
 class Setting < ApplicationRecord
   validates :key, :value, presence: true
 
-  def self.update_all(params)
+  def self.update_all_settings(params)
     params.each do |k, v|
-      Setting.where(key: k).first_or_create.update_attributes(value: v)
+      Setting.where(key: k).first_or_create.update(value: v)
     end
   end
 
   def self.get(key)
-    setting = find_by_key(key.to_s)
+    setting = find_by(key: key.to_s)
     setting&.value
   end
 

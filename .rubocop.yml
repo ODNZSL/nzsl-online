@@ -1,23 +1,67 @@
 # Built-in config:
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
 
-require: rubocop-performance
+require:
+  - rubocop-rails
+  - rubocop-performance
 
 Lint/Void:
   Enabled: false # see spec/controllers/vocab_sheet_controller_spec.rb
 
-Documentation:
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/HashEachMethods:
+  Enabled: true
+
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/Documentation:
   Enabled: false
 
-Metrics/LineLength:
-  Max: 120
+Layout/LineLength:
+  Max: 130
+
+Metrics/ClassLength:
+  Max: 150
 
 Metrics/MethodLength:
-  Max: 15
+  Max: 20
+
+Metrics/AbcSize:
+  Max: 22
+
+Metrics/PerceivedComplexity:
+  Max: 12
+
+Rails/FilePath:
+  EnforcedStyle: arguments
+
+Metrics/CyclomaticComplexity:
+  Max: 12
 
 Metrics/ModuleLength:
   Exclude:
     - 'spec/**/*_spec.rb'
+
+Performance/UnfreezeString:
+  Enabled: false
 
 Style/FrozenStringLiteralComment:
   Enabled: false
@@ -36,7 +80,17 @@ Naming/FileName:
     - Gemfile.lock
 
 AllCops:
+  TargetRubyVersion: 2.6
   Exclude:
     - 'vendor/**/*'
     - 'node_modules/**/*'
     - 'db/schema.rb'
+
+Layout/EmptyLinesAroundAttributeAccessor:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true

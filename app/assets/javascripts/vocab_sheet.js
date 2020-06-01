@@ -5,6 +5,7 @@ $(document).ready(function() {
     // Reorder vocab sheet items
     if ($('ul#vocab_sheet').length) {
       $('ul#vocab_sheet .button, .vocab_sheet_name .button').hide();
+
       if (!document.printView) {
         $('ul#vocab_sheet').sortable({
           containment: 'parent',

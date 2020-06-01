@@ -2,19 +2,17 @@
 
 module VocabSheetHelper
   def vocab_sheet?
-    @sheet.blank? || @sheet.items.length.zero? || params[:controller] == 'vocab_sheets' ? nil : 'vocab_sheet_background'
+    return nil if @sheet.blank? # rubocop:disable Rails/HelperInstanceVariable
+    return nil if @sheet.items.length.zero? # rubocop:disable Rails/HelperInstanceVariable
+    return nil if params[:controller] == 'vocab_sheets'
+
+    'vocab_sheet_background'
   end
 
   def vocab_sheet_offset_multiple
-    @vocab_sheet_offset_multiple = (
-      return offsets[:"size_#{@size}"] if @size.present?
+    return offsets[:"size_#{@size}"] if @size.present? # rubocop:disable Rails/HelperInstanceVariable
 
-      offsets[:default]
-    )
-  end
-
-  def vocab_sheet_pages
-    @vocab_sheet_pages ||= @sheet.blank? || @sheet.items.length.zero? ? 0 : (@sheet.items.length.to_f / vocab_sheet_offset_multiple).ceil
+    offsets[:default]
   end
 
   def vocab_sheet_max_field_length
