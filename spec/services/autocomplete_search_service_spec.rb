@@ -14,7 +14,7 @@ RSpec.describe AutocompleteSearchService do
       let(:expected_suggestions) { %w{aa ab ac ad ba bb bc bd} }
       let(:stubbed_faraday_connection) do
         Faraday::Connection.new do |faraday|
-          faraday.use Faraday::Adapter::Test do |stub|
+          faraday.adapter Faraday::Adapter::Test do |stub|
             stub.get '/' do
               [200, { 'Content-Type' => 'text/plain' }, freelex_suggestions.join("\n")]
             end
@@ -39,7 +39,7 @@ RSpec.describe AutocompleteSearchService do
       let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
       let(:stubbed_faraday_connection) do
         Faraday::Connection.new do |faraday|
-          faraday.use Faraday::Adapter::Test do |stub|
+          faraday.adapter Faraday::Adapter::Test do |stub|
             stub.get '/' do
               raise(Faraday::Error, 'Simulated autocomplete service failure')
             end
