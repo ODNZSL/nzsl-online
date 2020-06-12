@@ -38,22 +38,22 @@ class SignPaginationService
   end
 
   def wrap_as_current_page(page_num)
-    wrap_in_li(content_tag(:span, page_num, class: 'current a'))
+    wrap_in_li(tag.span(page_num, class: 'current a'))
   end
 
   def wrap_with_link(page_num, text: page_num)
     wrap_in_li(
-      link_to(content_tag(:span, text),
+      link_to(tag.span(text),
               build_search_path_for(page_num))
     )
   end
 
   def wrap_without_link(text)
-    wrap_in_li(content_tag(:span, text, class: 'a'))
+    wrap_in_li(tag.span(text, class: 'a'))
   end
 
   def wrap_in_li(content)
-    content_tag(:li, content)
+    tag.li(content)
   end
 
   def page_num_should_be_removed?(page_num)

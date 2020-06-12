@@ -94,3 +94,16 @@ Lint/DeprecatedOpenSSLConstant:
 
 Style/SlicingWithRange:
   Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_lint.html#lintmixedregexpcapturetypes
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpcharacterclass
+Style/RedundantRegexpCharacterClass:
+  Enabled: true
+
+# https://docs.rubocop.org/rubocop/cops_style.html#styleredundantregexpescape
+Style/RedundantRegexpEscape:
+  Enabled: true
+
