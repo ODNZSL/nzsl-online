@@ -54,5 +54,5 @@ NzslOnline::Application.routes.draw do
   get '/sitemap.xml' => 'sitemaps#index', defaults: { format: 'xml' }, as: :sitemap
 
   get '/random_sign' => 'pages#random_sign'
-  get '/:slug' => 'pages#show', :as => :page, :slug => /[A-Za-z0-9\-\_]+/
+  get '/:slug' => 'pages#show', :as => :page, :slug => /[A-Za-z0-9\-_]+/
 end

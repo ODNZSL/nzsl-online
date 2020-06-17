@@ -48,7 +48,7 @@ module SignsHelper
       if sign.is_a?(String)
         sign
       elsif sign[:id] == id
-        content_tag :strong, sign[:gloss]
+        tag.strong sign[:gloss]
       else
         link_to h(sign[:gloss]),
                 sign_url(sign[:id]),

@@ -7,19 +7,19 @@ module ApplicationHelper
 
   def render_navigation_link(link)
     link_to_unless_current(link.label, link.path) do
-      content_tag(:span, link.label, class: 'menu-list__selected')
+      tag.span(link.label, class: 'menu-list__selected')
     end
   end
 
   def submit_button(text = 'search.submit', options = {})
-    content_tag(:div, class: 'button input_button') do
+    tag.div(class: 'button input_button') do
       submit_tag(t(text), options.merge(name: nil))
     end
   end
 
   def submit_search_button
     button_tag(name: nil, class: 'search-button') do
-      content_tag(:i, '', class: 'fi-magnifying-glass')
+      tag.i('', class: 'fi-magnifying-glass')
     end
   end
 
@@ -42,7 +42,7 @@ module ApplicationHelper
 
   def play_video_button(text, url = nil, options = {})
     url ||= 'javascript:void(0);'
-    link_text = safe_join([content_tag(:i, '', class: 'fi-play'), t(text)])
+    link_text = safe_join([tag.i('', class: 'fi-play'), t(text)])
     link_options = { class: "button #{options[:class]}" }.reverse_merge(options)
 
     link_to(link_text, url, link_options)
