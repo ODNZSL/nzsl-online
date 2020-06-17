@@ -9,6 +9,7 @@
 //= require jquery-ui/widgets/menu
 
 //= require modernizr
+//= require foundation
 
 //= require base
 //= require vocab_bar
@@ -23,3 +24,7 @@
 //= require auto_expand_textarea
 //= require search-result-load-in
 //= require search-vocab
+
+$(function() {
+  $(document).foundation();
+});
