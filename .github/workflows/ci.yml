@@ -13,7 +13,9 @@ jobs:
       db:
         image: postgres
         env:
-          # Note: This service fails its docker health check unless you specify these environment variables
+          # Note:
+          # The Postgres service fails its docker health check unless you
+          # specify these environment variables
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: nzsl_test
@@ -27,14 +29,19 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        # this action will install whatever ruby is given in .ruby-version file
+      - name: Install required OS packages
+        run: |
+          sudo apt-get -y install libpq-dev
 
       - name: Install NodeJS
         uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
+
+      - name: Install Ruby (version given by .ruby-version) and Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
 
       - name: Install required JS packages
         run: |
@@ -48,12 +55,11 @@ jobs:
 
       - name: Prepare app for testing
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
+          DEVISE_SECRET_KEY: anything
           RAILS_ENV: test
         run: |
-          sudo apt-get -yqq install libpq-dev
-          gem install bundler
-          bundle install --jobs 4 --retry 3
+          # bundle install --jobs 4 --retry 3
           bundle exec rails db:prepare
 
       - name: Run JS linting
@@ -71,9 +77,13 @@ jobs:
 
       - name: Run ruby specs
         env:
-          DATABASE_URL: postgres://postgres:@localhost:5432/test
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
+          DEVISE_SECRET_KEY: anything
           PERCY_TARGET_BRANCH: staging
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
         run: |
           npx percy exec -- bundle exec rspec spec
 
+      # - name: Report results to CodeClimate
+      #   run: |
+      #     ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
