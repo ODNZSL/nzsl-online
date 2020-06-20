@@ -54,7 +54,6 @@ jobs:
         uses: actions/setup-node@v2-beta
         with:
           node-version: '12'
-          # TODO: can this be read from package.json
 
       - name: Install Ruby (version given by .ruby-version) and Bundler
         uses: ruby/setup-ruby@v1
