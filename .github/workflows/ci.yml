@@ -13,9 +13,10 @@ jobs:
       db:
         image: postgres
         env:
-          # Note:
+          ##
           # The Postgres service fails its docker health check unless you
           # specify these environment variables
+          #
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: nzsl_test
@@ -27,7 +28,8 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout this repo
+        uses: actions/checkout@v2
 
       ##
       # Cache Yarn modules
@@ -91,7 +93,7 @@ jobs:
         run: |
           bundle exec rails db:prepare
 
-      - name: Run ruby specs
+      - name: Run rspec (report results to Percy.io and CodeClimate)
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
           DEVISE_SECRET_KEY: anything
