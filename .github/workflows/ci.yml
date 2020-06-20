@@ -71,14 +71,6 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
 
-      - name: Prepare app for testing
-        env:
-          DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
-          DEVISE_SECRET_KEY: anything
-          RAILS_ENV: test
-        run: |
-          bundle exec rails db:prepare
-
       - name: Run JS linting
         run: |
           npm run eslint
@@ -92,6 +84,14 @@ jobs:
         run: |
           bundle exec rubocop -D
 
+      - name: Prepare database for testing
+        env:
+          DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
+          DEVISE_SECRET_KEY: anything
+          RAILS_ENV: test
+        run: |
+          bundle exec rails db:prepare
+
       - name: Run ruby specs
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
@@ -103,10 +103,7 @@ jobs:
 
           PERCY_TARGET_BRANCH: staging
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-          # CC_TEST_REPORTER_ID: [secure]
+          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
           npx percy exec -- bundle exec rspec spec
-
-      # - name: Report results to CodeClimate
-      #   run: |
-      #     ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT
+          ./cc-test-reporter after-build --exit-code $?
