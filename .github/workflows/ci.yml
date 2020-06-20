@@ -13,6 +13,7 @@ jobs:
       db:
         image: postgres
         env:
+          # Note: This service fails its docker health check unless you specify these environment variables
           POSTGRES_USER: postgres
           POSTGRES_PASSWORD: postgres
           POSTGRES_DB: nzsl_test
@@ -30,9 +31,14 @@ jobs:
         uses: ruby/setup-ruby@v1
         # this action will install whatever ruby is given in .ruby-version file
 
-      - uses: borales/actions-yarn@v2.0.0
+      - name: Install NodeJS
+        uses: actions/setup-node@v2-beta
         with:
-          cmd: install
+          node-version: '12'
+
+      - name: Install required JS packages
+        run: |
+          yarn install
 
       - name: Setup CodeClimate Reporter
         run: |
