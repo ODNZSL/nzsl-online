@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     services:
       db:
-        image: postgres:11
+        image: postgres
         ports: ['5432:5432']
         options: >-
           --health-cmd pg_isready
@@ -20,12 +20,11 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v1
+      - uses: actions/checkout@v2
 
       - name: Setup Ruby
-        uses: actions/setup-ruby@v1
-        with:
-          ruby-version: 2.6.x
+        uses: ruby/setup-ruby@v1
+        # this action will install whatever ruby is given in .ruby-version file
 
       - uses: borales/actions-yarn@v2.0.0
         with:
