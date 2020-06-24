@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 6.0.3.1'
+gem 'rails', '~> 6.0.3.2'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
@@ -84,7 +84,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.85.1', require: false
+  gem 'rubocop', '~> 0.86.0', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
 
