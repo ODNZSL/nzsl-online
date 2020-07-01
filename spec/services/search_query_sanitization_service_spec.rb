@@ -64,7 +64,8 @@ RSpec.describe SearchQuerySanitizationService do
       input_output_map = {
         # search-term      => expected-result
         'hello  12' => 'hello  12', # letters, numbers, spaces
-        'hello Māori' => 'hello Māori', # macrons
+        'hello Māori' => 'hello Māori', # macrons in the middle
+        'Ōtara' => 'Ōtara', # macrons at the start
         'hello ' => 'hello', # trailing whitespace removed
         'file%3A%2F%2F%2F' => 'file3A2F2F2F' # malicious
       }
