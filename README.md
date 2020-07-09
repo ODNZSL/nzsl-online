@@ -50,7 +50,7 @@ $ yarn install
 $ bundle exec rails server
 ```
 
-A suggestion is to create a local staging branch that acts as your local master. Then branch from your staging/master branch when resolving issues or adding features.
+A suggestion is to create a local staging branch that acts as your local main. Then branch from your staging/main branch when resolving issues or adding features.
 
   * Create your feature branch. For example `Bugfix/Back-to-search-results`
   * Make changes
@@ -119,7 +119,7 @@ Deployment is managed only by Brenda and Elspeth - the site administrators menti
 
 ## For site administrators
 
-To deploy to production: merge ODNZSL staging to ODNZSL master.
+To deploy to production: merge ODNZSL staging to ODNZSL main.
 
 ## Environments:
 
@@ -128,7 +128,7 @@ Current servers (2017-12-15)
 | Environment        | URL                                       | Git Branch | Status       |
 |--------------------|-------------------------------------------|------------|--------------|
 | ODNZSL Staging     | http://nzsl-staging.herokuapp.com/        | staging    | staging      |
-| ODNZSL Production  | http://nzsl.herokuapp.com/                | master     | live         |
+| ODNZSL Production  | http://nzsl.herokuapp.com/                | main       | live         |
 
 ## Built with
 
