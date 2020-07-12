@@ -83,15 +83,14 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
 
   def tab_selected?(classes)
     keys = @query.select { |_key, value| value.present? }.keys # rubocop:disable Rails/HelperInstanceVariable
-    selected = if %w(tag usage).any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
-                 classes.include?(:advanced)
-               elsif %w(hs l lg).any? { |key| keys.include?(key) }
-                 classes.include?(:signs)
-               else
-                 classes.include?(:keywords)
-               end
 
-    selected
+    if %w(tag usage).any? { |key| keys.include?(key) } || (keys.include?('s') && keys.length > 1)
+      classes.include?(:advanced)
+    elsif %w(hs l lg).any? { |key| keys.include?(key) }
+      classes.include?(:signs)
+    else
+      classes.include?(:keywords)
+    end
   end
 
   def display_locations_search_term(simple = false)
