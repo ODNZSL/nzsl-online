@@ -5,8 +5,15 @@ class ApplicationController < ActionController::Base
 
   protect_from_forgery with: :exception
   layout :layout_by_resource
+  helper_method :freelex_enabled?
 
   before_action :staging_http_auth
+
+  protected
+
+  def freelex_enabled?
+    FeatureFlags::Freelex.enabled?
+  end
 
   private
 

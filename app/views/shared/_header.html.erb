@@ -41,7 +41,7 @@
       </ul>
     </div>
   </div>
-  <%= render "shared/search" %>
+  <%= render "shared/search" if freelex_enabled? %>
 </header>
 <!-- Because it's in the header-nav it binds the js-ga-*-submission elements for all pages.-->
 <% content_for(:scripts) do %>
