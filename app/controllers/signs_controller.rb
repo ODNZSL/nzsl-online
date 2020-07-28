@@ -6,6 +6,8 @@ class SignsController < ApplicationController
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
   def search
+    return redirect_to root_path, alert: t("freelex.unavailable") unless freelex_enabled?
+
     search_query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
     @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
     @results_total, @signs = Sign.paginate(search_query, @page_number)
