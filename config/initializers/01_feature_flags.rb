@@ -31,7 +31,7 @@ module FeatureFlags
     def self.enabled?
       return true if Rails.env.test?
 
-      ENV["FREELEX_ENABLED"] == 'true'
+      ENV['FREELEX_ENABLED'] == 'true'
     end
 
     def self.timeout

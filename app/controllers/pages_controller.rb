@@ -11,7 +11,7 @@ class PagesController < ApplicationController
     @feedback = Feedback.new if @page.template == 'feedback'
     @sign = Sign.sign_of_the_day if @page.template == 'home' && freelex_enabled?
 
-    flash[:error] = t("freelex.unavailable") unless freelex_enabled?
+    flash[:error] = t('freelex.unavailable') unless freelex_enabled?
 
     render template: "pages/#{@page.template}"
   end
