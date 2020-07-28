@@ -43,7 +43,7 @@ class SignsController < ApplicationController
 
   def find_sign
     id = permitted_params[:id]
-    freelex_enabled? ? Sign.first(id: id) : OfflineSign.find_by!(id: id)
+    freelex_enabled? ? Sign.first(id: id) : OfflineSign.find_by_id!(id) # rubocop:disable Rails/DynamicFindBy
   end
 
   def permitted_params
