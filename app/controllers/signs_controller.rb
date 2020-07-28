@@ -18,7 +18,7 @@ class SignsController < ApplicationController
   end
 
   def show
-    @sign = Sign.first(id: permitted_params[:id])
+    @sign = find_sign
 
     if @sign.blank?
       render_404
@@ -40,6 +40,11 @@ class SignsController < ApplicationController
   end
 
   private
+
+  def find_sign
+    id = permitted_params[:id]
+    freelex_enabled? ? Sign.first(id: id) : OfflineSign.find_by_id!(id)
+  end
 
   def permitted_params
     params.permit(%i[s hs l lg usage tag term p id])
