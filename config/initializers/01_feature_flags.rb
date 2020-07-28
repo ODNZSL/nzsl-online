@@ -26,6 +26,28 @@ module FeatureFlags
       "#{self} is #{enabled? ? 'enabled' : 'not enabled'} (cache timeout: #{cache_timeout} hours)"
     end
   end
+
+  class Freelex
+    def self.enabled?
+      return true if Rails.env.test?
+
+      ENV["FREELEX_ENABLED"] == 'true'
+    end
+
+    def self.timeout
+      # Allow requests to take up to 20 seconds but allow env variable to override this at runtime
+      Integer(ENV.fetch('FREELEX_TIMEOUT_SECONDS', enabled? ? default_timeout : 0))
+    end
+
+    def self.default_timeout
+      20.seconds
+    end
+
+    def self.status_msg
+      "#{self} is #{enabled? ? 'enabled' : 'not enabled'} (connection timeout: #{timeout} seconds)"
+    end
+  end
 end
 
 Rails.logger.info(FeatureFlags::StoreVocabSheetItemsInRailsCache.status_msg)
+Rails.logger.info(FeatureFlags::Freelex.status_msg)
