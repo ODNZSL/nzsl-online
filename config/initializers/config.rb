@@ -14,4 +14,4 @@ ASSET_URL = ENV.fetch('ASSET_URL', 'https://nzsl-assets.vuw.ac.nz/dnzsl/freelex/
 # This timeout option specifies when how long we should wait (in seconds) for
 # data to be available to be read from the socket.
 #
-FREELEX_TIMEOUT = 20 # seconds
+FREELEX_TIMEOUT = FeatureFlags::Freelex.timeout
