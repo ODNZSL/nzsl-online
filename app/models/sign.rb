@@ -52,6 +52,10 @@ class Sign
     word_classes
   ].freeze
 
+  def drawing_url
+    nil # For compatiblity with OfflineSign
+  end
+
   ##
   # Class (static) methods
   #
