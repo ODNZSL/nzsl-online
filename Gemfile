@@ -8,6 +8,9 @@ gem 'rails', '~> 6.0.3.2'
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
 
+# Use SQLite for loading fallback sign data
+gem 'sqlite3'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
