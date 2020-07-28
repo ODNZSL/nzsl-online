@@ -4,7 +4,7 @@ SIGN_URL         = ENV.fetch('FREELEX_SIGN_URL', 'http://nzsl-assets.vuw.ac.nz/d
 AUTOCOMPLETE_URL = ENV.fetch('FREELEX_AUTOCOMPLETE_URL', 'http://nzsl-assets.vuw.ac.nz/dnzsl/ncbin/public_search_lookup')
 ADMIN_EMAIL      = ENV.fetch('ADMIN_EMAIL', 'micky.vale@vuw.ac.nz')
 
-ASSET_URL = ENV.fetch('ASSET_URL', 'http://nzsl-assets.vuw.ac.nz/dnzsl/freelex/assets/')
+ASSET_URL = ENV.fetch('ASSET_URL', 'https://nzsl-assets.vuw.ac.nz/dnzsl/freelex/assets/')
 
 ##
 # Heroku enforces a 30 second timeout on our generating a response. We set a

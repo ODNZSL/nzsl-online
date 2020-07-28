@@ -13,7 +13,7 @@ RSpec.describe 'Sign', type: :model do
   describe 'attributes' do
     it 'must have set class attributes' do
       expect(SIGN_URL.start_with?('http:')).to eq(true)
-      expect(ASSET_URL.start_with?('http:')).to eq(true)
+      expect(ASSET_URL.start_with?('https:')).to eq(true)
     end
 
     it 'must have all attributes of a Sign' do
