@@ -82,10 +82,6 @@ jobs:
           gem install --no-document brakeman
           brakeman --run-all-checks --exit-on-warn --format plain .
 
-      - name: Run Ruby linting
-        run: |
-          bundle exec rubocop -D
-
       - name: Prepare database for testing
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
