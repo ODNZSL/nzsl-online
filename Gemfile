@@ -65,7 +65,7 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem 'skylight'
 
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'uglifier'
 
 # Bundle gems for the local environment. Make sure to
