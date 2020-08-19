@@ -39,7 +39,7 @@ RSpec.describe 'Sign', type: :model do
       sign = Sign.new
       required_attributes.each do |att|
         expect(sign.respond_to?(att)).to eq(true)
-        expect(sign.respond_to?(att.to_s + '=', '')).to eq(true)
+        expect(sign.respond_to?("#{att}=", '')).to eq(true)
       end
     end
   end
