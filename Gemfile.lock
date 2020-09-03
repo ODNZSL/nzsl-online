@@ -67,7 +67,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
-    autoprefixer-rails (9.8.6.1)
+    autoprefixer-rails (9.8.6.3)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -206,7 +206,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
-    percy-capybara (4.2.0)
+    percy-capybara (4.3.1)
     pg (1.2.3)
     pry (0.13.0)
       coderay (~> 1.1)
@@ -413,7 +413,7 @@ DEPENDENCIES
   nokogiri (~> 1.10.10)
   pandoc-ruby
   paperclip
-  percy-capybara (~> 4.2.0)
+  percy-capybara (~> 4.3.0)
   pg (~> 1.2)
   pry-byebug
   pry-rails

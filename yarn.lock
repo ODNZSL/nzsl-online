@@ -171,10 +171,10 @@
   resolved "https://registry.yarnpkg.com/@oclif/screen/-/screen-1.0.4.tgz#b740f68609dfae8aa71c3a6cab15d816407ba493"
   integrity sha512-60CHpq+eqnTxLZQ4PGHYNwUX572hgpMHGPtTWMjdTMsAvlm69lZV/4ly6O3sAYkomo4NggGcomrDpBe34rxUqw==
 
-"@percy/agent@^0.28.0":
-  version "0.28.0"
-  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.28.0.tgz#28ad18fcc565222c0c9d1152e6b7e8d391f71592"
-  integrity sha512-t+Pan/vQnxSW6wKC57UV6kSoWR2t2SwB38Zmr91SI1fYkoWEsKfmJNTIfSpmbM3rnpdpMnxIMjRfdejb2NwVoA==
+"@percy/agent@^0.28.1":
+  version "0.28.1"
+  resolved "https://registry.yarnpkg.com/@percy/agent/-/agent-0.28.1.tgz#e4cb7f4477bd6889fd4bdf96da3111390907c619"
+  integrity sha512-urS0Vep2wakU08+44tjQz9KnR5cIq8ogRfkS8xipEdR9/SYOBLxj0BaVQ/6wQh9n24jKJSGiema5QZmvQQRl7g==
   dependencies:
     "@oclif/command" "1.5.19"
     "@oclif/config" "^1"
@@ -436,9 +436,9 @@ bcrypt-pbkdf@^1.0.0:
     tweetnacl "^0.14.3"
 
 bl@^4.0.1:
-  version "4.0.2"
-  resolved "https://registry.yarnpkg.com/bl/-/bl-4.0.2.tgz#52b71e9088515d0606d9dd9cc7aa48dc1f98e73a"
-  integrity sha512-j4OH8f6Qg2bGuWfRiltT2HYGx0e1QcBTrK9KAHNMwMZdQnDZFk0ZSYIpADjYCB3U12nicC5tVJwSIhwOWjb4RQ==
+  version "4.0.3"
+  resolved "https://registry.yarnpkg.com/bl/-/bl-4.0.3.tgz#12d6287adc29080e22a705e5764b2a9522cdc489"
+  integrity sha512-fs4G6/Hu4/EE+F75J8DuN/0IpQqNjAdC7aEQv7Qt8MHGUH7Ckv2MwTEEeN9QehD0pfIDkMI1bkHYkKy7xHyKIg==
   dependencies:
     buffer "^5.5.0"
     inherits "^2.0.4"
