@@ -221,7 +221,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
-    percy-capybara (4.3.2)
+    percy-capybara (4.3.3)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -316,7 +316,7 @@ GEM
       concord (~> 0.1)
       parser (~> 2.3)
       rspec (~> 3.0)
-    rubocop (0.87.1)
+    rubocop (0.90.0)
       parallel (~> 1.10)
       parser (>= 2.7.1.1)
       rainbow (>= 2.2.2, < 4.0)
@@ -340,8 +340,6 @@ GEM
     sass-listen (4.0.0)
       rb-fsevent (~> 0.9, >= 0.9.4)
       rb-inotify (~> 0.9, >= 0.9.7)
-    sass-rails (6.0.0)
-      sassc-rails (~> 2.1, >= 2.1.1)
     sassc (2.4.0)
       ffi (~> 1.9)
     sassc-rails (2.1.2)
@@ -453,7 +451,7 @@ DEPENDENCIES
   responders (~> 3.0)
   rspec-rails
   rspectre
-  rubocop (~> 0.87.1)
+  rubocop (~> 0.90.0)
   rubocop-performance
   rubocop-rails
   sassc-rails
