@@ -9,8 +9,6 @@ RSpec.describe Item, type: :model do
   let(:drawing) { 'foo.jpg' }
   let(:sign) { instance_double('Sign', id: sign_id, gloss_maori: maori_name, gloss_main: name, drawing: drawing) }
 
-  subject { described_class.new('sign_id' => sign_id) }
-
   before do
     allow(Sign).to receive(:first).and_return(sign)
   end

@@ -36,7 +36,6 @@ RSpec.describe AutocompleteSearchService do
       end
 
       let(:search_term) { 'Anything' }
-      let(:expected_suggestions) { %w{1 2 3 4 5 6 7 8 9 10} }
       let(:stubbed_faraday_connection) do
         Faraday::Connection.new do |faraday|
           faraday.adapter Faraday::Adapter::Test do |stub|

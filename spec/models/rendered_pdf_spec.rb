@@ -3,8 +3,6 @@
 require 'rails_helper'
 
 RSpec.describe 'RenderedPdf', type: :model do
-  subject { RenderedPdf }
-
   let!(:rendered_pdf) { RenderedPdf.new(file_path: Faker::Internet.url) }
 
   describe '#download_as_filename' do
