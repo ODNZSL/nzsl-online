@@ -8,8 +8,6 @@ class SearchQuerySanitizationService
 
   MAX_QUERY_TERM_LENGTH = 50 # characters
 
-  def initialize; end
-
   ##
   # @param [ActionController::Parameters] params
   # @return [Hash]
