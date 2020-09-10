@@ -6,11 +6,6 @@ on:
     branches:
       - main
       - staging
-
-env:
-  CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
-
 jobs:
   rubocop:
     runs-on: ubuntu-latest
@@ -140,4 +135,4 @@ jobs:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run:
           npx percy exec -- bundle exec rspec spec
-          ./cc-test-reporter after-build --exit-code $? --id ${{ secrets.CC_TEST_REPORTER_ID }}
+          ./cc-test-reporter after-build --exit-code $?
