@@ -8,6 +8,18 @@ on:
       - staging
 
 jobs:
+  rubocop:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      - name: Install Ruby (version given by .ruby-version) and Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: true
+      - name: Run Ruby linting
+        run: |
+          bundle exec rubocop -D
   test:
     runs-on: ubuntu-latest
     services:
@@ -81,10 +93,6 @@ jobs:
         run: |
           gem install --no-document brakeman
           brakeman --run-all-checks --exit-on-warn --format plain .
-
-      - name: Run Ruby linting
-        run: |
-          bundle exec rubocop -D
 
       - name: Prepare database for testing
         env:
