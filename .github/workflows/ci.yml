@@ -134,5 +134,4 @@ jobs:
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
         run: |
-          npx percy exec -- bundle exec rspec spec
-          ./cc-test-reporter after-build --exit-code $?
+          npx percy exec -- bundle exec rspec spec &&  ./cc-test-reporter after-build
