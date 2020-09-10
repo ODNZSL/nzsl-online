@@ -118,7 +118,6 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
 
-
       - name: Prepare database for testing
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
@@ -139,6 +138,6 @@ jobs:
           PERCY_TARGET_BRANCH: staging
           PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        run: |
+        run:
           npx percy exec -- bundle exec rspec spec
-          ./cc-test-reporter after-build --exit-code $?
+          ./cc-test-reporter after-build --exit-code $? --id ${{ secrets.CC_TEST_REPORTER_ID }}
