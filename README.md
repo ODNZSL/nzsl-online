@@ -109,7 +109,7 @@ Because of the visual nature of NZSL, it is important that the videos take centr
 
 NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online).
 
-Open source contributors pull requests should be to the ODNZSL Staging branch. The administrators for ODNZSL is currently [Elspeth Dick](https://github.com/elspeth-rabid) and [Brenda Wallace](https://github.com/Br3nda).
+Open source contributors pull requests should be to the ODNZSL Staging branch. The administrators for ODNZSL is currently [Eoin Kelly](https://github.com/eoinkelly) and [Brenda Wallace](https://github.com/Br3nda).
 
 Open source contributors should merge the ODNZSL staging branch to your local staging branch so that your repo is up-to-date.
 

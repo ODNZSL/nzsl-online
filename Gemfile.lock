@@ -221,7 +221,7 @@ GEM
     parallel (1.19.2)
     parser (2.7.1.4)
       ast (~> 2.4.1)
-    percy-capybara (4.2.0)
+    percy-capybara (4.3.2)
     pg (1.2.3)
     pry (0.13.1)
       coderay (~> 1.1)
@@ -322,7 +322,7 @@ GEM
       rainbow (>= 2.2.2, < 4.0)
       regexp_parser (>= 1.7)
       rexml
-      rubocop-ast (>= 0.1.0, < 1.0)
+      rubocop-ast (>= 0.3.0, < 1.0)
       ruby-progressbar (~> 1.7)
       unicode-display_width (>= 1.4.0, < 2.0)
     rubocop-ast (0.3.0)
@@ -439,7 +439,7 @@ DEPENDENCIES
   nokogiri (~> 1.10.10)
   pandoc-ruby
   paperclip
-  percy-capybara (~> 4.2.0)
+  percy-capybara (~> 4.3.2)
   pg (~> 1.2)
   pry-byebug
   pry-rails
@@ -456,7 +456,7 @@ DEPENDENCIES
   rubocop (~> 0.87.1)
   rubocop-performance
   rubocop-rails
-  sass-rails
+  sassc-rails
   simplecov
   skylight
   uglifier
