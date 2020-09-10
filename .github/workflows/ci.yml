@@ -18,8 +18,37 @@ jobs:
         with:
           bundler-cache: true
       - name: Run Ruby linting
+        run: bundle exec rubocop -D
+  brakeman:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      - name: Install Ruby (version given by .ruby-version) and Bundler
+        uses: ruby/setup-ruby@v1
+        with:
+          bundler-cache: false
+
+      - name: Run Ruby static analysis
         run: |
-          bundle exec rubocop -D
+          gem install --no-document brakeman
+          brakeman --run-all-checks --exit-on-warn --format plain .
+
+  eslint:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout this repo
+        uses: actions/checkout@v2
+      - name: Install NodeJS
+        uses: actions/setup-node@v2-beta
+        with:
+          node-version: '12'
+
+      - name: Install required JS packages
+        run: yarn install
+      - name: Run JS linting
+        run: npm run eslint
+
   test:
     runs-on: ubuntu-latest
     services:
@@ -85,14 +114,6 @@ jobs:
           chmod +x ./cc-test-reporter
           ./cc-test-reporter before-build
 
-      - name: Run JS linting
-        run: |
-          npm run eslint
-
-      - name: Run Ruby static analysis
-        run: |
-          gem install --no-document brakeman
-          brakeman --run-all-checks --exit-on-warn --format plain .
 
       - name: Prepare database for testing
         env:
