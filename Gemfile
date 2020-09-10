@@ -71,7 +71,6 @@ gem 'uglifier'
 group :development, :test do
   gem 'dotenv-rails'
   gem 'rspec-rails'
-  gem  'rspectre'
 
   # for debugging
   gem 'pry-byebug'
