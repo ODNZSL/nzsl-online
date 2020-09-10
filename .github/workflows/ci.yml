@@ -9,6 +9,7 @@ on:
 
 env:
   CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+  PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
 
 jobs:
   rubocop:
@@ -52,7 +53,7 @@ jobs:
       - name: Run JS linting
         run: npm run eslint
 
-  test:
+  rspec:
     runs-on: ubuntu-latest
     services:
       db:
