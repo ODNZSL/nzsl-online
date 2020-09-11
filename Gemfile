@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 6.0.3.2'
+gem 'rails', '~> 6.0.3.3'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
@@ -62,7 +62,7 @@ gem 'devise'
 gem 'newrelic_rpm'
 gem 'skylight'
 
-gem 'sass-rails'
+gem 'sassc-rails'
 gem 'uglifier'
 
 # Bundle gems for the local environment. Make sure to
@@ -84,7 +84,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.87.1', require: false
+  gem 'rubocop', '~> 0.90.0', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
 
@@ -115,7 +115,7 @@ group :test do
   gem 'capybara-selenium'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
-  gem 'percy-capybara', '~> 4.2.0'
+  gem 'percy-capybara', '~> 4.3.2'
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end

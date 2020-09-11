@@ -172,7 +172,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
       display_topic_tag_search_term
     ].compact
 
-    @display_search_term ||= safe_join(search_term_elements, ' ') # rubocop:disable Rails/HelperInstanceVariable
+    @display_search_term ||= safe_join(search_term_elements, ' ')
   end
 
   private

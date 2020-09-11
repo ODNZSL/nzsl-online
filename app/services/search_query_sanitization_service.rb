@@ -2,13 +2,11 @@
 
 class SearchQuerySanitizationService
   ANYTHING_EXCEPT_NUMBERS_AND_SPACE_REGEX = /[^[[:digit:]] ]+/.freeze
-  ANYTHING_EXCEPT_NUMBERS_SPACE_PERIOD_REGEX = /[^[[:digit:]]\. ]+/.freeze
+  ANYTHING_EXCEPT_NUMBERS_SPACE_PERIOD_REGEX = /[^[[:digit:]]. ]+/.freeze
   ANYTHING_EXCEPT_NUMBERS_REGEX = /[^[[:digit:]]]+/.freeze
   ANYTHING_EXCEPT_LETTERS_NUMBERS_HYPHEN_SPACE_REGEX = /[^[[:alnum:]] -]+/.freeze
 
   MAX_QUERY_TERM_LENGTH = 50 # characters
-
-  def initialize; end
 
   ##
   # @param [ActionController::Parameters] params
