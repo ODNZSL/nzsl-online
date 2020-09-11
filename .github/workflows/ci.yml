@@ -129,9 +129,5 @@ jobs:
           APP_DOMAIN_NAME: localhost:3000
           APP_PROTOCOL: http
           S3_BUCKET_URL: http://s3-ap-southeast-2.amazonaws.com/dummy-fake/
-
-          PERCY_TARGET_BRANCH: staging
-          PERCY_TOKEN: ${{ secrets.PERCY_TOKEN }}
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        run: |
-          npx percy exec -- bundle exec rspec spec &&  ./cc-test-reporter after-build
+        run: bundle exec rspec spec &&  ./cc-test-reporter after-build
