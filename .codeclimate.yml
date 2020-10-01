@@ -4,7 +4,7 @@ engines:
     enabled: false
   rubocop:
     enabled: true
-    channel: rubocop-0-90
+    channel: rubocop-0-92
   sass-lint:
     enabled: true
   shellcheck:
