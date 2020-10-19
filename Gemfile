@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 6.0.3.3'
+gem 'rails', '~> 6.0.3.4'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
@@ -35,7 +35,7 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
-gem 'puma', '~> 4.3'
+gem 'puma', '~> 5.0'
 gem 'rack-canonical-host', '~> 1.0.0'
 
 # For attaching files on the feedback form
@@ -84,7 +84,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.91.0', require: false
+  gem 'rubocop', '~> 0.93.0', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
 
