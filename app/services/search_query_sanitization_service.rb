@@ -4,7 +4,7 @@ class SearchQuerySanitizationService
   ANYTHING_EXCEPT_NUMBERS_AND_SPACE_REGEX = /[^[[:digit:]] ]+/.freeze
   ANYTHING_EXCEPT_NUMBERS_SPACE_PERIOD_REGEX = /[^[[:digit:]]. ]+/.freeze
   ANYTHING_EXCEPT_NUMBERS_REGEX = /[^[[:digit:]]]+/.freeze
-  ANYTHING_EXCEPT_LETTERS_NUMBERS_HYPHEN_SPACE_REGEX = /[^[[:alnum:]] -]+/.freeze
+  ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX = /[^[[:alnum:]] ā ē ī ō ū Ā Ē Ī Ō Ū - () ']+/.freeze
 
   MAX_QUERY_TERM_LENGTH = 50 # characters
 
@@ -48,7 +48,7 @@ class SearchQuerySanitizationService
     return '' if term.nil?
 
     term
-      .gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_HYPHEN_SPACE_REGEX, '')
+      .gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, '')
       .strip
       .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
   end
