@@ -4,7 +4,7 @@ class SearchQuerySanitizationService
   ANYTHING_EXCEPT_NUMBERS_AND_SPACE_REGEX = /[^[[:digit:]] ]+/.freeze
   ANYTHING_EXCEPT_NUMBERS_SPACE_PERIOD_REGEX = /[^[[:digit:]]. ]+/.freeze
   ANYTHING_EXCEPT_NUMBERS_REGEX = /[^[[:digit:]]]+/.freeze
-  ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX = /[^[[:alnum:]] ā ē ī ō ū Ā Ē Ī Ō Ū \- () ']+/.freeze
+  ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX = /[^[[:alnum:]]āēīōūĀĒĪŌŪ\-() ']+/.freeze
 
   MAX_QUERY_TERM_LENGTH = 50 # characters
 
