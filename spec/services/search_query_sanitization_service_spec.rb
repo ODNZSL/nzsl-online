@@ -13,7 +13,7 @@ RSpec.describe SearchQuerySanitizationService do
         { 's' => '' } => {},
         { 's' => 'hello' } => { 's' => ['hello'] },
         { 's' => 'hello-world' } => { 's' => ['hello-world'] },
-        { 's' => "he!@\#$%^&*()llo" } => { 's' => ['hello'] },
+        { 's' => "he!@\#$%^&*()llo" } => { 's' => ['he()llo'] },
         { 's' => ('x' * 1000) } => { 's' => [('x' * SearchQuerySanitizationService::MAX_QUERY_TERM_LENGTH)] },
 
         { 'hs' => nil } => {},
