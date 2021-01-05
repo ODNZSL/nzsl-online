@@ -184,7 +184,7 @@ GEM
     mimemagic (0.3.5)
     mini_magick (4.11.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.0)
     mini_racer (0.3.1)
       libv8 (~> 8.4.255)
     minitest (5.14.2)
@@ -194,8 +194,9 @@ GEM
     multipart-post (2.1.1)
     newrelic_rpm (6.13.1)
     nio4r (2.5.4)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.0)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pandoc-ruby (2.1.4)
     paperclip (6.1.0)
@@ -220,6 +221,7 @@ GEM
     public_suffix (4.0.6)
     puma (5.0.2)
       nio4r (~> 2.0)
+    racc (1.5.2)
     rack (2.2.3)
     rack-canonical-host (1.0.0)
       addressable (> 0, < 3)
@@ -413,7 +415,7 @@ DEPENDENCIES
   mini_racer
   modernizr-rails
   newrelic_rpm
-  nokogiri (~> 1.10.10)
+  nokogiri (~> 1.11.0)
   pandoc-ruby
   paperclip
   percy-capybara (~> 4.3.2)
