@@ -67,7 +67,7 @@ GEM
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.1)
-    autoprefixer-rails (10.0.1.3)
+    autoprefixer-rails (10.1.0.0)
       execjs
     babel-source (5.8.35)
     babel-transpiler (0.7.0)
@@ -135,7 +135,7 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     fastimage (2.2.0)
-    ffi (1.13.1)
+    ffi (1.14.2)
     foundation-rails (6.6.2.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
@@ -162,7 +162,7 @@ GEM
     letter_opener (1.7.0)
       launchy (~> 2.2)
     libv8 (8.4.255.0)
-    listen (3.2.1)
+    listen (3.4.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lograge (0.11.2)
@@ -182,9 +182,9 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.0512)
     mimemagic (0.3.5)
-    mini_magick (4.10.1)
+    mini_magick (4.11.0)
     mini_mime (1.0.2)
-    mini_portile2 (2.4.0)
+    mini_portile2 (2.5.0)
     mini_racer (0.3.1)
       libv8 (~> 8.4.255)
     minitest (5.14.2)
@@ -194,8 +194,9 @@ GEM
     multipart-post (2.1.1)
     newrelic_rpm (6.13.1)
     nio4r (2.5.4)
-    nokogiri (1.10.10)
-      mini_portile2 (~> 2.4.0)
+    nokogiri (1.11.0)
+      mini_portile2 (~> 2.5.0)
+      racc (~> 1.4)
     orm_adapter (0.5.0)
     pandoc-ruby (2.1.4)
     paperclip (6.1.0)
@@ -218,8 +219,9 @@ GEM
     pry-rails (0.3.9)
       pry (>= 0.10.4)
     public_suffix (4.0.6)
-    puma (5.0.2)
+    puma (5.1.1)
       nio4r (~> 2.0)
+    racc (1.5.2)
     rack (2.2.3)
     rack-canonical-host (1.0.0)
       addressable (> 0, < 3)
@@ -409,18 +411,18 @@ DEPENDENCIES
   listen
   lograge (~> 0.11.2)
   mail
-  mini_magick (~> 4.10.1)
+  mini_magick (~> 4.11.0)
   mini_racer
   modernizr-rails
   newrelic_rpm
-  nokogiri (~> 1.10.10)
+  nokogiri (~> 1.11.0)
   pandoc-ruby
   paperclip
   percy-capybara (~> 4.3.2)
   pg (~> 1.2)
   pry-byebug
   pry-rails
-  puma (~> 5.0)
+  puma (~> 5.1)
   rack-canonical-host (~> 1.0.0)
   rails (~> 6.0.3.4)
   rails-controller-testing

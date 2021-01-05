@@ -13,8 +13,8 @@ gem 'haml'
 gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.11.2'
-gem 'mini_magick', '~> 4.10.1'
-gem 'nokogiri', '~> 1.10.10'
+gem 'mini_magick', '~> 4.11.0'
+gem 'nokogiri', '~> 1.11.0'
 gem 'pandoc-ruby'
 gem 'whenever'
 
@@ -35,7 +35,7 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.1'
 gem 'rack-canonical-host', '~> 1.0.0'
 
 # For attaching files on the feedback form
