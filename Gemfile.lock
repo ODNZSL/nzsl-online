@@ -272,7 +272,7 @@ GEM
     regexp_parser (1.8.2)
     request_store (1.5.0)
       rack (>= 1.4)
-    rerun (0.13.0)
+    rerun (0.13.1)
       listen (~> 3.0)
     responders (3.0.1)
       actionpack (>= 5.0)
