@@ -84,7 +84,7 @@ group :development, :test do
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', '~> 0.93.0', require: false
+  gem 'rubocop', '~> 1.8.0', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
 
