@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 6.0.3.4'
+gem 'rails', '~> 6.0.3.5'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
@@ -14,7 +14,7 @@ gem 'jquery-rails'
 gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.11.2'
 gem 'mini_magick', '~> 4.11.0'
-gem 'nokogiri', '~> 1.11.0'
+gem 'nokogiri', '~> 1.11.1'
 gem 'pandoc-ruby'
 gem 'whenever'
 
@@ -35,7 +35,7 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
-gem 'puma', '~> 5.1'
+gem 'puma', '~> 5.2'
 gem 'rack-canonical-host', '~> 1.0.0'
 
 # For attaching files on the feedback form
