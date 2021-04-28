@@ -192,7 +192,7 @@ class Sign
       Rails.logger.warn(msg)
       Raygun.track_exception(e)
 
-      []
+      [0, []]
     end
 
     # @param [Hash] search_query_params
