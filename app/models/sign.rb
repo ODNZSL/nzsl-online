@@ -102,7 +102,7 @@ class Sign
     # @param search_query_params [Hash] The search query
     # @return [Array<Sign>]
     def all(search_query_params)
-      _count, xml_nodes = search(search_query_params)
+      _count, xml_nodes, _freelex_errored = search(search_query_params)
 
       xml_nodes.map do |xml_node|
         SignParser.new(xml_node).build_sign
@@ -141,19 +141,19 @@ class Sign
 
     # @param search_query [Hash]
     # @param page_number [Integer]
-    # @return [Array(Integer, Array<Sign>)]
+    # @return [Array(Integer, Array<Sign>, Boolean)]
     def paginate(search_query_params, page_number)
       start_index = RESULTS_PER_PAGE * (page_number - 1) + 1
       start_index = 1 if start_index < 1
 
       paginated_query_params = search_query_params.merge(start: start_index, num: RESULTS_PER_PAGE)
-      count, xml_nodes = search(paginated_query_params)
+      count, xml_nodes, freelex_errored = search(paginated_query_params)
 
       signs = xml_nodes.map do |xml_node|
         SignParser.new(xml_node).build_sign
       end
 
-      [count, signs]
+      [count, signs, freelex_errored]
     end
 
     # Creates a new instance of a `Sign` object given a set of JSON attributes.
@@ -192,18 +192,18 @@ class Sign
       Rails.logger.warn(msg)
       Raygun.track_exception(e)
 
-      [0, []]
+      [0, [], true]
     end
 
     # @param [Hash] search_query_params
-    # @return [Array<(Integer, Nokogiri::XML::NodeSet)>]
+    # @return [Array<(Integer, Nokogiri::XML::NodeSet, Boolean)>]
     def xml_request(search_query_params)
       xml_document = Nokogiri::XML(http_conn.get(query_string_for_search(search_query_params)).body)
 
       total_num_results_for_query = xml_document.css('totalhits').inner_text.to_i
       result_nodes = xml_document.css(ELEMENT_NAME)
 
-      [total_num_results_for_query, result_nodes]
+      [total_num_results_for_query, result_nodes, false]
     rescue Faraday::ConnectionFailed
       raise(FreelexCommunicationError, "Failed to connect to Freelex at URL: '#{SIGN_URL}'")
     rescue Faraday::TimeoutError
