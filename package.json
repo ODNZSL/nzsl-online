@@ -7,11 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "sass-lint": "./node_modules/.bin/sass-lint -v",
     "eslint": "./node_modules/.bin/eslint ."
-  },
-  "resolutions": {
-    "sass-lint/gonzales-pe-sl/minimist": "^1.2.x"
   },
   "repository": {
     "type": "git",
@@ -31,7 +27,6 @@
   },
   "devDependencies": {
     "eslint": "^7.22.0",
-    "eslint-config-google": "0.14.0",
-    "sass-lint": "^1.12.1"
+    "eslint-config-google": "0.14.0"
   }
 }

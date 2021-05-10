@@ -74,9 +74,6 @@ brakeman --run-all-checks --exit-on-warn --format plain .
 # Javascript linter
 yarn run eslint
 
-# SCSS linter
-yarn run sass-lint
-
 # Ruby dependency security vulnerability check
 bundle exec bundle-audit check --update
 

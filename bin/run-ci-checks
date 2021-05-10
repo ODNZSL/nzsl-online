@@ -15,12 +15,6 @@ echo "*************************"
 
 yarn run eslint
 
-echo "*******************"
-echo "Running SCSS linter"
-echo "*******************"
-
-yarn run sass-lint
-
 echo "*******************************************************"
 echo "Checking Ruby dependencies for security vulnerabilities"
 echo "*******************************************************"
