@@ -89,7 +89,7 @@ group :development, :test do
   gem 'rubocop-rails', require: false
 
   # catches email sending, and logs instead
-  gem 'letter_opener'
+  gem 'letter_opener', '>= 1.7.0'
 
   # scans code for silly mistakes
   gem 'brakeman'
@@ -110,9 +110,9 @@ group :development do
 end
 
 group :test do
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  gem 'capybara-selenium'
+  gem 'capybara', '>= 3.35.3'
+  gem 'capybara-screenshot', '>= 1.0.25'
+  gem 'capybara-selenium', '>= 0.0.6'
   gem 'codeclimate-test-reporter', '~> 1.0.9'
   gem 'database_cleaner'
   gem 'percy-capybara', '~> 4.3.2'
