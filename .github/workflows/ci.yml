@@ -105,12 +105,6 @@ jobs:
         run: |
           yarn install
 
-      - name: Setup CodeClimate Reporter
-        run: |
-          curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
-          chmod +x ./cc-test-reporter
-          ./cc-test-reporter before-build
-
       - name: Prepare database for testing
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
@@ -119,7 +113,7 @@ jobs:
         run: |
           bundle exec rails db:prepare
 
-      - name: Run rspec (report results to Percy.io and CodeClimate)
+      - name: Run rspec
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
           DEVISE_SECRET_KEY: anything
@@ -127,5 +121,4 @@ jobs:
           APP_DOMAIN_NAME: localhost:3000
           APP_PROTOCOL: http
           S3_BUCKET_URL: http://s3-ap-southeast-2.amazonaws.com/dummy-fake/
-          CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
-        run: bundle exec rspec spec &&  ./cc-test-reporter after-build
+        run: bundle exec rspec spec
