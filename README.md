@@ -47,14 +47,14 @@ $ yarn install
 $ bundle exec rails server
 ```
 
-A suggestion is to create a local staging branch that acts as your local main. Then branch from your staging/main branch when resolving issues or adding features.
+A suggestion is to create a local `main` branch that acts as your local main. Then branch from your main branch when resolving issues or adding features.
 
   * Create your feature branch. For example `Bugfix/Back-to-search-results`
   * Make changes
   * Commit your changes
   * Push to your remote branch. For example `git push origin <your feature branch>`
   * Ensure all changes to existing functionality and additions of new functionality have tests
-  * Create a new pull request to the ODNZSL Staging branch.
+  * Create a new pull request to the ODNZSL `main` branch.
   * If you are not sure on any of the steps please do not hesitate to ask.
   * The PR process requires that 2 reviewers must approve before the PR progresses.
   * [Waffle](https://waffle.io) is used for project management. Contributors sign in with your github username.
@@ -103,9 +103,9 @@ Because of the visual nature of NZSL, it is important that the videos take centr
 
 NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online).
 
-Open source contributors pull requests should be to the ODNZSL Staging branch. The administrators for ODNZSL is currently [Eoin Kelly](https://github.com/eoinkelly) and [Brenda Wallace](https://github.com/Br3nda).
+Open source contributors pull requests should be to the ODNZSL `main` branch. The administrators for ODNZSL is currently [Eoin Kelly](https://github.com/eoinkelly) and [Brenda Wallace](https://github.com/Br3nda).
 
-Open source contributors should merge the ODNZSL staging branch to your local staging branch so that your repo is up-to-date.
+Open source contributors should merge the ODNZSL `main` branch to your local `main` branch so that your repo is up-to-date.
 
 ## The deployment process explained to open source contributors
 
@@ -113,16 +113,16 @@ Deployment is managed only by Brenda and Elspeth - the site administrators menti
 
 ## For site administrators
 
-To deploy to production: merge ODNZSL staging to ODNZSL main.
+To deploy to production: merge ODNZSL `main` to ODNZSL `production`.
 
 ## Environments:
 
 Current servers (2017-12-15)
 
-| Environment        | URL                                       | Git Branch | Status       |
-|--------------------|-------------------------------------------|------------|--------------|
-| ODNZSL Staging     | http://nzsl-staging.herokuapp.com/        | staging    | staging      |
-| ODNZSL Production  | http://nzsl.herokuapp.com/                | main       | live         |
+| Environment        | URL                                | Git Branch | Status       |
+|--------------------|------------------------------------|------------|--------------|
+| ODNZSL Staging     | http://nzsl-staging.herokuapp.com/ | main       | staging      |
+| ODNZSL Production  | http://nzsl.herokuapp.com/         | production | live         |
 
 ## Built with
 
@@ -138,7 +138,7 @@ Current servers (2017-12-15)
 
 ## LICENSE
 
-This project is licensed under the GNU License - see the [GNU General Public License](https://github.com/ODNZSL/nzsl-online/blob/staging/LICENSE) for details.
+This project is licensed under the GNU License - see the [GNU General Public License](https://github.com/ODNZSL/nzsl-online/blob/main/LICENSE) for details.
 
 
 ## Running in production mode locally
