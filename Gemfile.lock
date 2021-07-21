@@ -156,7 +156,7 @@ GEM
     faraday_middleware (1.0.0)
       faraday (~> 1.0)
     fastimage (2.2.4)
-    ffi (1.14.2)
+    ffi (1.15.3)
     foundation-rails (6.6.2.0)
       railties (>= 3.1.0)
       sass (>= 3.3.0)
@@ -183,7 +183,7 @@ GEM
     letter_opener (1.7.0)
       launchy (~> 2.2)
     libv8-node (15.14.0.1)
-    listen (3.4.1)
+    listen (3.6.0)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     lograge (0.11.2)
@@ -287,7 +287,7 @@ GEM
       httparty (> 0.13.7)
       json
       rack
-    rb-fsevent (0.10.4)
+    rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rb-readline (0.5.5)
