@@ -114,7 +114,7 @@ group :test do
   gem 'capybara-screenshot'
   gem 'capybara-selenium'
   gem 'database_cleaner'
-  gem 'percy-capybara', '~> 4.3.2'
+  gem 'percy-capybara', '~> 5.0.0'
   gem 'rails-controller-testing'
   gem 'webdrivers'
 end
