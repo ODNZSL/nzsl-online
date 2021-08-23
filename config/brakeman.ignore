@@ -1,0 +1,26 @@
+{
+  "ignored_warnings": [
+    {
+      "warning_type": "Command Injection",
+      "warning_code": 14,
+      "fingerprint": "03f2e6d3ea60b06a921f4c6898be77c4f70d96565827dd79b686a877490dd2ec",
+      "check_name": "Execute",
+      "message": "Possible command injection",
+      "file": "app/services/pdf_rendering_service.rb",
+      "line": 92,
+      "link": "https://brakemanscanner.org/docs/warning_types/command_injection/",
+      "code": "system(\"node #{Rails.root.join(\"bin\", \"render-pdf.js\")} #{input_html_path} #{output_pdf_path} #{credentials[:username]} #{credentials[:password]}\")",
+      "render_path": null,
+      "location": {
+        "type": "method",
+        "class": "PdfRenderingService",
+        "method": "render_as_pdf"
+      },
+      "user_input": "Rails.root.join(\"bin\", \"render-pdf.js\")",
+      "confidence": "Medium",
+      "note": ""
+    }
+  ],
+  "updated": "2021-08-24 11:49:44 +1200",
+  "brakeman_version": "5.1.1"
+}
