@@ -206,7 +206,7 @@ GEM
       rake
     mini_magick (4.11.0)
     mini_mime (1.1.1)
-    mini_portile2 (2.5.3)
+    mini_portile2 (2.6.1)
     mini_racer (0.4.0)
       libv8-node (~> 15.14.0.0)
     minitest (5.14.4)
@@ -216,8 +216,8 @@ GEM
     multipart-post (2.1.1)
     newrelic_rpm (7.2.0)
     nio4r (2.5.8)
-    nokogiri (1.11.7)
-      mini_portile2 (~> 2.5.0)
+    nokogiri (1.12.3)
+      mini_portile2 (~> 2.6.1)
       racc (~> 1.4)
     orm_adapter (0.5.0)
     pandoc-ruby (2.1.4)
@@ -435,7 +435,7 @@ DEPENDENCIES
   mini_racer
   modernizr-rails
   newrelic_rpm
-  nokogiri (~> 1.11.1)
+  nokogiri (~> 1.12.0)
   pandoc-ruby
   paperclip
   percy-capybara (~> 4.3.2)
