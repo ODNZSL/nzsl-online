@@ -163,7 +163,7 @@ GEM
       sprockets-es6 (>= 0.9.0)
     globalid (0.5.2)
       activesupport (>= 5.0)
-    haml (5.2.1)
+    haml (5.2.2)
       temple (>= 0.8.0)
       tilt
     httparty (0.18.1)
