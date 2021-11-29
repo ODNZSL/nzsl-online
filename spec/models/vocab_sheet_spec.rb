@@ -38,12 +38,13 @@ RSpec.describe VocabSheet, type: :model do
     end
 
     context 'When adding an item which already exists in the VocabSheet' do
-      it 'does not save a duplicate item' do
+      it 'does save a duplicate item' do
         subject.add_item(item)
         subject.add_item(item)
 
-        expect(subject.items.length).to eq(1)
+        expect(subject.items.length).to eq(2)
         expect(subject.items.first.id).to eq(item.id)
+        expect(subject.items.second.id).to eq(item.id)
       end
     end
   end
