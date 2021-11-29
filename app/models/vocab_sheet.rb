@@ -11,8 +11,16 @@ class VocabSheet < ApplicationRecord
   # @return [Boolean] true on success, false on failure
   #
   def add_item(item)
-    # Don't add duplicates
-    return true if raw_item_attrs.any? { |raw_item| raw_item['id'] == item.id }
+    # The customer has requested we do not prune duplicate entries
+    # because one sign can translate to many words
+    # such as pear, peach, and apple, and the vocab sheet can be edited
+    # to differentiate these signs.
+    # Also, some people use the vocab sheets to create running sentences/phrases
+    # - for example, a school is talking about puppies and foals and want to
+    # include the signs 'baby dog' and 'baby horse' on the same sheet,
+    # necessitating two copies of 'baby'
+    # Also, the customer has previously asked that duplicates are removed,
+    # for this and is surprised duplciates are pruned.
 
     raw_item_attrs << convert_to_storable_hash(item)
     save
