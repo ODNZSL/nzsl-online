@@ -1,5 +1,0 @@
-{
-  "extends": ["config:base"],
-  "pinVersions": false,
-  "ignoreDeps": ["puppeteer"]
-}
