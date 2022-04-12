@@ -56,8 +56,6 @@ A suggestion is to create a local `main` branch that acts as your local main. Th
   * Ensure all changes to existing functionality and additions of new functionality have tests
   * Create a new pull request to the ODNZSL `main` branch.
   * If you are not sure on any of the steps please do not hesitate to ask.
-  * The PR process requires that 2 reviewers must approve before the PR progresses.
-  * [Waffle](https://waffle.io) is used for project management. Contributors sign in with your github username.
 
 ## Running the tests
 
@@ -101,15 +99,13 @@ Because of the visual nature of NZSL, it is important that the videos take centr
 
 ## Deployment
 
-NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online).
+NZSL has taken ownership of the project at their [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), but is administrated by Ackama.
 
-Open source contributors pull requests should be to the ODNZSL `main` branch. The administrators for ODNZSL is currently [Eoin Kelly](https://github.com/eoinkelly) and [Brenda Wallace](https://github.com/Br3nda).
-
-Open source contributors should merge the ODNZSL `main` branch to your local `main` branch so that your repo is up-to-date.
+Open source contributors pull requests should be to the ODNZSL `main` branch and ideally up to date with `main`
 
 ## The deployment process explained to open source contributors
 
-Deployment is managed only by Brenda and Elspeth - the site administrators mentioned above.
+Deployments are done by Ackama, who will attempt to do so in a timely manner, but does depend on their availability - critical changes like security patches will receive priority.
 
 ## For site administrators
 
