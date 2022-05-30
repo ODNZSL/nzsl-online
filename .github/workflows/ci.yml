@@ -37,9 +37,10 @@ jobs:
       - name: Checkout this repo
         uses: actions/checkout@v2
       - name: Install NodeJS
-        uses: actions/setup-node@v2-beta
+        uses: actions/setup-node@v3
         with:
-          node-version: '12'
+          node-version: '16'
+          cache: 'yarn'
 
       - name: Install required JS packages
         run: yarn install
@@ -75,9 +76,9 @@ jobs:
           sudo apt-get -y install libpq-dev google-chrome-stable
 
       - name: Install NodeJS
-        uses: actions/setup-node@v2
+        uses: actions/setup-node@v3
         with:
-          node-version: '12'
+          node-version: '16'
           cache: 'yarn'
 
       - name: Install Ruby (version given by .ruby-version) and Bundler
