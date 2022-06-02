@@ -19,7 +19,8 @@ video {
 }
 
 .videos {
-  .slow {
+  // Hide 'normal' playback speed by default
+  .button.normal {
     display: none;
   }
 

@@ -28,11 +28,9 @@
     .videos.small-12.medium-5
       .video-container
         %i.fi-play.play-button
-        = videojs_rails sources: { mp4: @sign.video }, class: "main_video video normal", controlsList:"nodownload", controls: true, preload: "metadata", loop: true
-        - if @sign.video_slow.present?
-          = videojs_rails sources: { mp4: @sign.video_slow }, class: "main_video video slow", controls: true, controlsList:"nodownload",  preload: "metadata", loop: true, width: "100%"
-          = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
-          = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
+        = videojs_rails sources: { mp4: @sign.video }, class: "main_video video", controlsList:"nodownload", controls: true, preload: "metadata", loop: true
+        = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left slow')
+        = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left normal')
       .glosses-container.glosses.small-12.float-left
         %h2.main_gloss= @sign.gloss_main
         %h2.secondary_gloss= @sign.gloss_secondary
@@ -47,11 +45,9 @@
           .typography.videos
             .video-container
               %i.fi-play.play-button
-              = videojs_rails sources: { mp4: example[:video]}, class: "example_video video normal", controls: true, controlsList:"nodownload noremoteplayback", preload: "metadata"
-              - if example[:video_slow]
-                = videojs_rails sources: { mp4: example[:video_slow] }, class: "example_video video slow", controls: true, controlsList:"nodownload noremoteplayback", preload: "metadata", width: "100%"
-                = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left normal')
-                = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left slow')
+              = videojs_rails sources: { mp4: example[:video]}, class: "example_video video", controls: true, controlsList:"nodownload noremoteplayback", preload: "metadata"
+              = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left slow')
+              = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left normal')
             .small-12.float-left
               %p.secondary_gloss= render_transcription(example[:transcription], @sign.id)
               %h4.translation-gloss

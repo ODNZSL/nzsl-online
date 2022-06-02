@@ -85,21 +85,26 @@ $(function(){
     }
   };
 
-  var setup_slow_motion_videos = function(){
+  var setup_slow_motion_videos = function() {
     $('.button.normal, .button.slow').click(function(){
-      var show, hide, video;
-      var videos = $(this).closest('.videos');
-      if ($(this).hasClass('normal')){
-        show = 'slow';
-        hide = 'normal';
-      } else if ($(this).hasClass('slow')) {
-        show = 'normal';
-        hide = 'slow';
+      var $this = $(this);
+      var container = $this.parents(".video-container");
+      var videos = container.find("video");
+      var playbackRate = 1.0;
+
+      $this.hide();
+
+      if ($this.hasClass('slow')){
+        playbackRate = 0.25;
+        $(".button.normal", container).show();
+      } else {
+        $(".button.slow", container).show();
       }
-      videos.find("."+hide).toggle(hide);
-      videos.find("."+show).toggle(show);
-      pause_video(hide, videos);
-      play_video(show, videos);
+
+      $.each(videos, function() {
+        this.playbackRate = playbackRate;
+        this.play();
+      });
     });
   };
 
