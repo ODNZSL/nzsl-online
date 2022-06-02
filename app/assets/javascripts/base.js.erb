@@ -1,4 +1,4 @@
-$(function(){
+$(function() {
   var setup = function(){
     setup_ckeditor_video_links();
     setup_videos();
@@ -95,7 +95,7 @@ $(function(){
       $this.hide();
 
       if ($this.hasClass('slow')){
-        playbackRate = 0.25;
+        playbackRate = 0.5;
         $(".button.normal", container).show();
       } else {
         $(".button.slow", container).show();
