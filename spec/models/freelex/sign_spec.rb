@@ -2,11 +2,11 @@
 
 require 'rails_helper'
 
-RSpec.describe 'Sign', type: :model do
+RSpec.describe Freelex::Sign, type: :model do
   describe '.new' do
-    it 'must create a new Sign object' do
-      sign = Sign.new
-      expect(sign.is_a?(Sign)).to eq(true)
+    it 'must create a new Freelex::Sign object' do
+      sign = Freelex::Sign.new
+      expect(sign.is_a?(Freelex::Sign)).to eq(true)
     end
   end
 
@@ -16,7 +16,7 @@ RSpec.describe 'Sign', type: :model do
       expect(ASSET_URL.start_with?('http:')).to eq(true)
     end
 
-    it 'must have all attributes of a Sign' do
+    it 'must have all attributes of a Freelex::Sign' do
       # As per the spec'd requirements of DNZSL:
       required_attributes = %i[
         id
@@ -36,7 +36,7 @@ RSpec.describe 'Sign', type: :model do
         is_directional
         is_locatable
       ]
-      sign = Sign.new
+      sign = Freelex::Sign.new
       required_attributes.each do |att|
         expect(sign.respond_to?(att)).to eq(true)
         expect(sign.respond_to?("#{att}=", '')).to eq(true)
@@ -46,19 +46,19 @@ RSpec.describe 'Sign', type: :model do
 
   describe '.from_json' do
     it 'returns nil if given JSON is obviously invalid' do
-      expect(Sign.from_json(nil)).to eq(nil)
-      expect(Sign.from_json('')).to eq(nil)
+      expect(Freelex::Sign.from_json(nil)).to eq(nil)
+      expect(Freelex::Sign.from_json('')).to eq(nil)
 
       # nil.to_json # => 'null'
-      expect(Sign.from_json('null')).to eq(nil)
+      expect(Freelex::Sign.from_json('null')).to eq(nil)
     end
 
-    it 'creates a Sign with identical attributes from JSON outputted by Sign#to_json' do
-      original_sign = Sign.first(id: 1000)
+    it 'creates a Freelex::Sign with identical attributes from JSON outputted by Freelex::Sign#to_json' do
+      original_sign = Freelex::Sign.first(id: 1000)
       original_sign_json = original_sign.to_json
-      rehydrated_sign = Sign.from_json(original_sign_json)
+      rehydrated_sign = Freelex::Sign.from_json(original_sign_json)
 
-      Sign::SIGN_ATTRIBUTES.each do |attr|
+      Freelex::Sign::SIGN_ATTRIBUTES.each do |attr|
         expect(rehydrated_sign.send(attr)).to eq(original_sign.send(attr))
       end
     end
@@ -80,28 +80,28 @@ RSpec.describe 'Sign', type: :model do
           allow(FeatureFlags::StoreVocabSheetItemsInRailsCache).to receive(:enabled?).and_return(true)
         end
 
-        it 'caches the Sign as expected' do
+        it 'caches the Freelex::Sign as expected' do
           # given an empty cache
           expect(Rails.cache.exist?(sign_id)).to be(false)
 
-          # when we create a new Sign from the given sign_id
-          Sign.fetch_by_id_via_cache(sign_id)
+          # when we create a new Freelex::Sign from the given sign_id
+          Freelex::Sign.fetch_by_id_via_cache(sign_id)
 
           # then we expect the sign to be cached
           expect(Rails.cache.exist?(sign_id)).to be(true)
 
           # and we expect the cached JSON to be identical to the JSON generated
           # by calling `#to_json` on the sign fetched directly from Freelex
-          sign_directly_from_freelex_json = Sign.first(id: sign_id).to_json
+          sign_directly_from_freelex_json = Freelex::Sign.first(id: sign_id).to_json
           cached_sign_json = Rails.cache.fetch(sign_id)
           expect(cached_sign_json).to eq(sign_directly_from_freelex_json)
         end
 
         it 'caches calls to Freelex when called repeatedly with the same input' do
-          expect(Sign).to receive(:first).once.and_call_original
+          expect(Freelex::Sign).to receive(:first).once.and_call_original
 
-          Sign.fetch_by_id_via_cache(sign_id)
-          Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.fetch_by_id_via_cache(sign_id)
         end
       end
 
@@ -110,11 +110,11 @@ RSpec.describe 'Sign', type: :model do
           allow(FeatureFlags::StoreVocabSheetItemsInRailsCache).to receive(:enabled?).and_return(false)
         end
 
-        it 'does not cache calls to Freelex when creating the same Sign repeatedly' do
-          expect(Sign).to receive(:first).twice
+        it 'does not cache calls to Freelex when creating the same Freelex::Sign repeatedly' do
+          expect(Freelex::Sign).to receive(:first).twice
 
-          Sign.fetch_by_id_via_cache(sign_id)
-          Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.fetch_by_id_via_cache(sign_id)
         end
       end
     end
@@ -122,14 +122,14 @@ RSpec.describe 'Sign', type: :model do
 
   describe '.first' do
     it 'finds a sign' do
-      sign = Sign.first(id: 1000)
-      expect(sign.is_a?(Sign)).to eq(true)
+      sign = Freelex::Sign.first(id: 1000)
+      expect(sign.is_a?(Freelex::Sign)).to eq(true)
     end
   end
 
   describe '.random' do
-    it 'returns a Sign' do
-      expect(Sign.random).to be_an_instance_of(Sign)
+    it 'returns a Freelex::Sign' do
+      expect(Freelex::Sign.random).to be_an_instance_of(Freelex::Sign)
     end
   end
 
@@ -143,7 +143,7 @@ RSpec.describe 'Sign', type: :model do
       allow(Rails.cache).to receive(:fetch).and_raise(TypeError)
 
       # then we expect the method to still return a sign
-      expect(Sign.sign_of_the_day).to be_an_instance_of(Sign)
+      expect(Freelex::Sign.sign_of_the_day).to be_an_instance_of(Freelex::Sign)
     end
 
     context 'when caching is enabled' do
@@ -155,13 +155,13 @@ RSpec.describe 'Sign', type: :model do
       end
 
       it 'returns the same sign when called repeatedly' do
-        expect(Sign.sign_of_the_day.id).to eq(Sign.sign_of_the_day.id)
+        expect(Freelex::Sign.sign_of_the_day.id).to eq(Freelex::Sign.sign_of_the_day.id)
       end
     end
   end
 
   describe '.paginate' do
-    it 'must find a single Sign with a simple search string' do
+    it 'must find a single Freelex::Sign with a simple search string' do
       search_query = {
         's' => ['hello'],
         'hs' => [],
@@ -171,7 +171,7 @@ RSpec.describe 'Sign', type: :model do
         'usage' => []
       }
       page_number = 1
-      search_result = Sign.paginate(search_query, page_number)
+      search_result = Freelex::Sign.paginate(search_query, page_number)
       # we get at least one result
       expect(search_result.length).to be > 0
     end

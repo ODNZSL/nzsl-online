@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SearchQuerySanitizationService do
+RSpec.describe Freelex::SearchQuerySanitizationService do
   subject { described_class.new }
 
   describe '#sanitize_for_standard_search' do
@@ -14,7 +14,7 @@ RSpec.describe SearchQuerySanitizationService do
         { 's' => 'hello' } => { 's' => ['hello'] },
         { 's' => 'hello-world' } => { 's' => ['hello-world'] },
         { 's' => "he!@\#$%^&*()llo" } => { 's' => ['he()llo'] },
-        { 's' => ('x' * 1000) } => { 's' => [('x' * SearchQuerySanitizationService::MAX_QUERY_TERM_LENGTH)] },
+        { 's' => ('x' * 1000) } => { 's' => [('x' * described_class::MAX_QUERY_TERM_LENGTH)] },
 
         { 'hs' => nil } => {},
         { 'hs' => '' } => {},
@@ -81,7 +81,7 @@ RSpec.describe SearchQuerySanitizationService do
 
     it 'truncates the input if it is too long' do
       long_input = 'X' * 1024
-      expected_output = 'X' * SearchQuerySanitizationService::MAX_QUERY_TERM_LENGTH
+      expected_output = 'X' * described_class::MAX_QUERY_TERM_LENGTH
       expect(subject.sanitize_for_autocomplete_search(long_input)).to eq(expected_output)
     end
   end

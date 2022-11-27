@@ -27,7 +27,7 @@ NzslOnline::Application.routes.draw do
 
   root to: 'pages#show'
 
-  resources :signs, only: :show do
+  resources :signs, only: :show, module: :freelex do
     collection do
       get 'search'
       get 'autocomplete'

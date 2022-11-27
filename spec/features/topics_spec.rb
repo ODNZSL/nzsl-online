@@ -7,7 +7,7 @@ describe 'Topics', js: true do
 
   before do
     SeedDataService.load_all
-    allow(Sign).to receive(:random).and_return Sign.first(id: sign_id)
+    allow(SignModel.resolve).to receive(:random).and_return SignModel.resolve.first(id: sign_id)
   end
 
   describe 'Actions and Activities' do

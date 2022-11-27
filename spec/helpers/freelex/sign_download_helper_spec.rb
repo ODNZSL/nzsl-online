@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SignsHelper, type: :helper do
+RSpec.describe Freelex::SignsHelper, type: :helper do
   drawing_1 = '1234/test01-1234-default.png'
   drawing_2 = '1234/test02-1234.png'
   drawing_3 = '1234/test03-default-1234-default.png'

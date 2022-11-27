@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
-module SignsHelper
+module Freelex
+  module SignsHelper
   NOTES = %i[
     contains_numbers
     is_fingerspelling
@@ -79,4 +80,5 @@ module SignsHelper
       ''
     end
   end
+end
 end

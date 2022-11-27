@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-module SearchHelper # rubocop:disable Metrics/ModuleLength
+module Freelex::SearchHelper # rubocop:disable Metrics/ModuleLength
   # Sign Attribute Image Helpers
 
   def handshape_image(number, main = false, simple = false)
@@ -95,7 +95,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
 
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    locations = SignMenu.locations.flatten.select do |location|
+    locations = Freelex::SignMenu.locations.flatten.select do |location|
       location_selected?(location)
     end
     return if @query[:l].blank? # rubocop:disable Rails/HelperInstanceVariable
@@ -113,7 +113,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
   end
 
   def display_handshapes_search_term(simple = false)
-    selected = SignMenu.handshapes.flatten.flatten.select do |hand_shape|
+    selected = Freelex::SignMenu.handshapes.flatten.flatten.select do |hand_shape|
       handshape_selected?(hand_shape)
     end
     return if @query[:hs].blank? # rubocop:disable Rails/HelperInstanceVariable
@@ -130,7 +130,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
   end
 
   def display_location_groups_search_term(simple = false)
-    locations = SignMenu.location_groups.select do |location_group|
+    locations = Freelex::SignMenu.location_groups.select do |location_group|
       location_group_selected?(location_group)
     end
     return if @query[:lg].blank? # rubocop:disable Rails/HelperInstanceVariable
@@ -149,11 +149,15 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength
 
   def display_usage_tag_search_term
     # reduce the list to the selected
-    h SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:usage].present? # rubocop:disable Rails/HelperInstanceVariable
+    if @query[:usage].present?
+      h Freelex::SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ')
+    end
   end
 
   def display_topic_tag_search_term
-    h SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ') if @query[:tag].present? # rubocop:disable Rails/HelperInstanceVariable
+    if @query[:tag].present?
+      h Freelex::SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ')
+    end
   end
 
   def search_term(key)
