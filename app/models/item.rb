@@ -19,7 +19,7 @@ class Item
 
     super
 
-    sign = Sign.fetch_by_id_via_cache(sign_id)
+    sign = SignModel.resolve.fetch_by_id_via_cache(sign_id)
 
     return if sign.nil?
 
