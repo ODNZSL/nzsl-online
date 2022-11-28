@@ -208,7 +208,6 @@ GEM
     mimemagic (0.3.10)
       nokogiri (~> 1)
       rake
-    mini_magick (4.11.0)
     mini_mime (1.1.2)
     mini_portile2 (2.8.0)
     mini_racer (0.4.0)
@@ -433,7 +432,6 @@ DEPENDENCIES
   listen
   lograge (~> 0.11.2)
   mail
-  mini_magick (~> 4.11.0)
   mini_racer
   modernizr-rails
   newrelic_rpm
