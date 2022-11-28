@@ -9,10 +9,11 @@ class SignPaginationService
   # @param [Integer] total_num_results
   # @param [Hash(String => String)] search_query
   #
-  def initialize(current_page_number:, total_num_results:, search_query:)
+  def initialize(current_page_number:, total_num_results:, search_query:, page_size: default_page_size)
     @current_page_number = current_page_number
     @search_query = search_query
-    @total_num_pages = (total_num_results.to_f / SignModel.resolve::RESULTS_PER_PAGE).ceil
+    @page_size = page_size
+    @total_num_pages = (total_num_results.to_f / @page_size).ceil
   end
 
   ##
@@ -29,6 +30,10 @@ class SignPaginationService
   end
 
   private
+
+  def default_page_size
+    Rails.application.config.results_per_page
+  end
 
   def prepare_for_presentation(page_num)
     return wrap_without_link('...')       if page_num_should_be_replaced_with_elipsis?(page_num)

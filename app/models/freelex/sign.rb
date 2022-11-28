@@ -21,7 +21,7 @@ module Freelex
     # The breakpoints for this app allow a 1x, 2x, 3x, and 4x layout. 12, 24, etc.
     # are the best page numbers for this. Because of performance concerns, I'm
     # starting with 12.
-    RESULTS_PER_PAGE = 24
+    RESULTS_PER_PAGE = Rails.application.config.results_per_page
 
     SIGN_ATTRIBUTES = %i[
       age_groups

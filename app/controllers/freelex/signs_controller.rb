@@ -11,9 +11,9 @@ module Freelex
       @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
       @results_total, @signs, @freelex_errored = Sign.paginate(search_query, @page_number)
       @query = search_query
-      @pagination_html = SignPaginationService.new(current_page_number: @page_number,
-                                                   total_num_results: @results_total,
-                                                   search_query: @query).pagination_links_html
+      @pagination = SignPaginationService.new(current_page_number: @page_number,
+                                              total_num_results: @results_total,
+                                              search_query: @query)
     end
 
     def show

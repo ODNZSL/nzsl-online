@@ -10,8 +10,8 @@
   - if @sign.present?
     .sign-container.small-12.small-centered.medium-6.medium-uncentered.text-center
       .sign_attributes
-        = handshape_image @sign.handshape
-        = location_image @sign.location
+        -# = handshape_image @sign.handshape
+        -# = location_image @sign.location
       = image_tag sign_image_url(image_name: @sign.drawing), class: "main-image"
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
