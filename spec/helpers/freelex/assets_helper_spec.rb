@@ -12,31 +12,31 @@ RSpec.describe Freelex::AssetsHelper, type: :helper do
   describe '#convert_to_high_resolution' do
     context 'when provided with a "default.png" sign drawing' do
       it 'returns the sign drawing with the text "high_resolution" as part of the file name' do
-        expect(helper.freelex_asset_url(image_name: drawing_1, high_res: true)).to include('high_resolution.png')
+        expect(helper.freelex_asset_url(filename: drawing_1, high_res: true)).to include('high_resolution.png')
       end
     end
 
     context 'when not provided with a "default.png" sign drawing' do
       it 'returns the sign drawing with the text "test02-1234" as part of the file name' do
-        expect(helper.freelex_asset_url(image_name: drawing_2, high_res: true)).to include('test02-1234.png')
+        expect(helper.freelex_asset_url(filename: drawing_2, high_res: true)).to include('test02-1234.png')
       end
     end
 
     context 'when provided with a "default.png" sign drawing and the string "default" as part of the drawing name' do
       it 'returns the sign drawing with the text "default-1234-high_resolution" as part of the file name' do
-        expect(helper.freelex_asset_url(image_name: drawing_3, high_res: true)).to include('default-1234-high_resolution.png')
+        expect(helper.freelex_asset_url(filename: drawing_3, high_res: true)).to include('default-1234-high_resolution.png')
       end
     end
 
     context 'when provided with a mixed case "default.png" sign drawing' do
       it 'returns the sign drawing with the text "high_resolution" as part of the file name' do
-        expect(helper.freelex_asset_url(image_name: drawing_4, high_res: true)).to include('high_resolution.png')
+        expect(helper.freelex_asset_url(filename: drawing_4, high_res: true)).to include('high_resolution.png')
       end
     end
 
     context 'when provided with an upper case "default.png" sign drawing' do
       it 'returns the sign drawing with the text "high_resolution" as part of the file name' do
-        expect(helper.freelex_asset_url(image_name: drawing_5, high_res: true)).to include('high_resolution.png')
+        expect(helper.freelex_asset_url(filename: drawing_5, high_res: true)).to include('high_resolution.png')
       end
     end
   end
