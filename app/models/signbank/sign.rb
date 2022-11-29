@@ -3,12 +3,11 @@ module Signbank
     self.table_name = :words
     self.primary_key = :id
 
-    has_many :assets, class_name: :"Signbank::Asset", inverse_of: :sign, dependent: :destroy, foreign_key: :word_id
-    has_one :picture,
-            -> { where(video_type: :main).where("filename LIKE '%.png'") },
-            foreign_key: :word_id,
-            class_name: :"Signbank::Asset",
-            inverse_of: :sign
+    with_options foreign_key: :word_id, inverse_of: :sign, dependent: :destroy do |signbank|
+      signbank.has_many :assets, class_name: :"Signbank::Asset"
+      signbank.has_many :examples, class_name: :"Signbank::Example"
+      signbank.has_one :picture, -> { image }, class_name: :"Signbank::Asset"
+    end
 
     def self.sign_of_the_day
       first
@@ -34,17 +33,9 @@ module Signbank
     end
 
     ##
-    # Examples aren't in the exported database.
-    # Need to consider whether we continue wacking columns in, or whether
-    # we try and map examples (I'd prefer this).
-    def examples
-      []
-    end
-
-    ##
     # Signbank locations just have the minor identifier, not the group identifier.
-    # We can approximate this by replacing slashes with underscores and looking up
-    # using ends_with, but need to think about how to map these neatly.
+    # Because of this, we just look up locations by their name, not their identifier.
+    # This will work so long as location names remain unique.
     def location
       super.gsub(' - ', '.')
     end
