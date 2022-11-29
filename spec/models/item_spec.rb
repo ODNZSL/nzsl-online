@@ -7,7 +7,7 @@ RSpec.describe Item, type: :model do
   let(:name) { 'Some name' }
   let(:maori_name) { 'Some maori name' }
   let(:drawing) { 'foo.jpg' }
-  let(:sign) { instance_double('Sign', id: sign_id, gloss_maori: maori_name, gloss_main: name, drawing: drawing) }
+  let(:sign) { instance_double('Sign', id: sign_id, gloss_maori: maori_name, gloss_main: name, picture_url: drawing) }
 
   subject { described_class.new('sign_id' => sign_id) }
 
@@ -33,11 +33,9 @@ RSpec.describe Item, type: :model do
       it 'respects the attributes given and does not overwrite them from the Sign' do
         attr_name = 'my name'
         attr_maori_name = 'my maori name'
-        attr_drawing = 'my.jpg'
 
         attrs = {
           'sign_id' => sign_id,
-          'drawing' => attr_drawing,
           'name' => attr_name,
           'maori_name' => attr_maori_name
         }
@@ -47,7 +45,6 @@ RSpec.describe Item, type: :model do
 
         expect(item.name).to eq(attr_name)
         expect(item.maori_name).to eq(attr_maori_name)
-        expect(item.drawing).to eq(attr_drawing)
       end
     end
   end

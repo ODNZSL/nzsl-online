@@ -11,7 +11,7 @@ RSpec.describe VocabSheet, type: :model do
                     id: sign_id,
                     gloss_maori: 'Some maori name',
                     gloss_main: 'Some name',
-                    drawing: 'foo.jpg')
+                    picture_url: 'foo.jpg')
   end
   let(:item) { Item.new('sign_id' => sign_id) }
 
@@ -116,7 +116,7 @@ RSpec.describe VocabSheet, type: :model do
                       id: sign_2_id,
                       gloss_maori: 'Some maori name',
                       gloss_main: 'Some name',
-                      drawing: 'foo.jpg')
+                      picture_url: 'foo.jpg')
     end
     let(:item_2) { Item.new('sign_id' => sign_2_id) }
 
