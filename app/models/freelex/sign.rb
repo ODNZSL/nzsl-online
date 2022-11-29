@@ -257,6 +257,10 @@ module Freelex
       related_to unless related_to == 'nzsl'
     end
 
+    def picture_url
+      Freelex::AssetsHelper.freelex_asset_url(drawing)
+    end
+
     # @return [String] if we find the location
     # @return [nil] otherwise
     def location
