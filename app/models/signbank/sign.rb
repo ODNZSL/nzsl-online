@@ -1,9 +1,14 @@
 module Signbank
-  class Sign < ApplicationRecord
-    establish_connection "sqlite3://#{Rails.root.join('db', 'dictionary.sqlite3')}"
-
+  class Sign < Record
     self.table_name = :words
     self.primary_key = :id
+
+    has_many :assets, class_name: :"Signbank::Asset", inverse_of: :sign, dependent: :destroy, foreign_key: :word_id
+    has_one :picture,
+            -> { where(video_type: :main).where("filename LIKE '%.png'") },
+            foreign_key: :word_id,
+            class_name: :"Signbank::Asset",
+            inverse_of: :sign
 
     def self.sign_of_the_day
       first
@@ -15,6 +20,10 @@ module Signbank
 
     def self.fetch_by_id_via_cache(id)
       find(id)
+    end
+
+    def picture_url
+      picture&.url
     end
 
     ##
@@ -41,7 +50,7 @@ module Signbank
     # We can approximate this by replacing slashes with underscores and looking up
     # using ends_with, but need to think about how to map these neatly.
     def location
-      location_identifier.gsub(' - ', '.')
+      super.gsub(' - ', '.')
     end
   end
 end
