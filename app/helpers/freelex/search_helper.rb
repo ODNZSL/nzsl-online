@@ -11,6 +11,26 @@ module Freelex
       sign_attribute_image :handshape, number, main
     end
 
+    def render_back_to_search_results
+      return unless request.referer
+
+      referer = URI(request.referer)
+      case referer.path
+      when search_signs_path
+        link_to t('signs.show.back_to.search_results'),
+                "#{search_signs_path}?#{h referer.query}",
+                class: 'back_to_search_results'
+      when '/numbers'
+        link_to t('signs.show.back_to.numbers'), '/numbers', class: 'back_to_search_results'
+      when '/classifiers'
+        link_to t('signs.show.back_to.classifiers'), '/classifiers', class: 'back_to_search_results'
+      when '/'
+        link_to t('signs.show.back_to.home'), '/', class: 'back_to_search_results'
+      else
+        ''
+      end
+    end
+
     def location_image(number, main = false, in_menu = false, simple = false)
       return sign_attribute_image_tag :location, number if simple
 
