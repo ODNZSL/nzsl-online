@@ -45,15 +45,15 @@
           .typography.videos
             .video-container
               %i.fi-play.play-button
-              = videojs_rails sources: { mp4: example[:video]}, class: "example_video video", controls: true, controlsList:"nodownload noremoteplayback", preload: "metadata"
+              = videojs_rails sources: { mp4: example.video }, class: "example_video video", controls: true, controlsList:"nodownload noremoteplayback", preload: "metadata"
               = play_video_button('signs.show.in_slow_motion', nil, class: 'float-left slow')
               = play_video_button('signs.show.at_normal_speed', nil, class: 'float-left normal')
             .small-12.float-left
-              %p.secondary_gloss= render_transcription(example[:transcription], @sign.id)
+              %p.secondary_gloss= autolink_glosses(example.sentence, current_sign_id: @sign.id)
               %h4.translation-gloss
                 Translation
               %p.secondary_gloss
-                %em= example[:translation]
+                %em= example.translation
 
     - if %w(usage_notes hint age_groups borrowed_from).any?{|note| @sign.send(note.to_sym).present? }
       .notes.small-12.typography
