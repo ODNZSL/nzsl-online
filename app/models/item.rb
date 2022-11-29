@@ -23,10 +23,10 @@ class Item
 
     return if sign.nil?
 
-    self.id         = sign.id          if id.nil?
-    self.name       = sign.gloss_main  if name.nil?
-    self.maori_name = sign.gloss_maori if maori_name.nil?
-    self.drawing    = sign.drawing     if drawing.nil?
+    self.id         = sign.id
+    self.name       = sign.gloss_main
+    self.maori_name = sign.gloss_maori
+    self.drawing    = sign.picture_url
   end
 
   def to_param
