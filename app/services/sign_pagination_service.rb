@@ -29,6 +29,8 @@ class SignPaginationService
     safe_join([prev_link, pagination_links, next_link], "\n")
   end
 
+  attr_reader :page_size
+
   private
 
   def default_page_size
