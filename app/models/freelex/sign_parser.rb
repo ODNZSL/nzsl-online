@@ -82,9 +82,9 @@ module Freelex
       VIDEO_EXAMPLES_TOTAL.times do |i|
         next if @data.value_for_tag("ASSET finalexample#{i}").blank?
 
-        @sign.examples << Example.new(sentence: @data.value_for_tag("videoexample#{i}"),
-                                      translation: @data.value_for_tag("videoexample#{i}translation"),
-                                      video: "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}")}")
+        @sign.examples << { sentence: @data.value_for_tag("videoexample#{i}"),
+                            translation: @data.value_for_tag("videoexample#{i}translation"),
+                            video: "#{ASSET_URL}#{@data.value_for_tag("ASSET finalexample#{i}")}" }
       end
     end
 

@@ -5,6 +5,8 @@
 #
 module Freelex
   class Sign
+    include Freelex::AssetsHelper
+
     ##
     # Create a custom error class.
     #
@@ -24,33 +26,13 @@ module Freelex
     RESULTS_PER_PAGE = Rails.application.config.results_per_page
 
     SIGN_ATTRIBUTES = %i[
-      age_groups
-      contains_numbers
-      drawing
-      examples
-      gender_groups
-      gloss_main
-      gloss_maori
-      gloss_minor
-      gloss_secondary
-      handshape
-      hint
-      id
-      inflection
-      inflection_manner_and_degree
-      inflection_plural
-      inflection_temporal
-      is_directional
-      is_fingerspelling
-      is_locatable
-      location_name
-      one_or_two_handed
-      related_to
-      usage
-      usage_notes
-      video
-      video_slow
-      word_classes
+      age_groups contains_numbers drawing examples
+      gender_groups gloss_main gloss_maori gloss_minor
+      gloss_secondary handshape hint id inflection
+      inflection_manner_and_degree inflection_plural
+      inflection_temporal is_directional is_fingerspelling
+      is_locatable location_name one_or_two_handed related_to
+      usage usage_notes video video_slow word_classes
     ].freeze
 
     ##
@@ -258,7 +240,11 @@ module Freelex
     end
 
     def picture_url
-      Freelex::AssetsHelper.freelex_asset_url(drawing)
+      freelex_asset_url(filename: drawing)
+    end
+
+    def examples
+      (@examples || []).map { |data| Example.new(data) }
     end
 
     # @return [String] if we find the location
