@@ -18,10 +18,6 @@ module Signbank
       order('RANDOM()').first
     end
 
-    def self.fetch_by_id_via_cache(id)
-      find(id)
-    end
-
     def picture_url
       picture&.url
     end
