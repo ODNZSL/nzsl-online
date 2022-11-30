@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Freelex::SearchQuerySanitizationService do
+RSpec.describe SearchQuerySanitizationService do
   subject { described_class.new }
 
   describe '#sanitize_for_standard_search' do
