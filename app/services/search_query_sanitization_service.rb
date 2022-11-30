@@ -31,7 +31,7 @@ class SearchQuerySanitizationService
     result['usage'] = clean_usage.split(' ')                unless clean_usage.empty?
     result['tag']   = clean_tag.split(' ')                  unless clean_tag.empty?
 
-    result
+    result.with_indifferent_access
   end
 
   def sanitize_for_autocomplete_search(term)
