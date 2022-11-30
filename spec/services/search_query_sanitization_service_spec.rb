@@ -15,6 +15,7 @@ RSpec.describe SearchQuerySanitizationService do
         { 's' => 'hello-world' } => { 's' => ['hello-world'] },
         { 's' => "he!@\#$%^&*()llo" } => { 's' => ['he()llo'] },
         { 's' => ('x' * 1000) } => { 's' => [('x' * described_class::MAX_QUERY_TERM_LENGTH)] },
+        { 's' => 'Māori' } => { 's' => ['Māori'] },
 
         { 'hs' => nil } => {},
         { 'hs' => '' } => {},
