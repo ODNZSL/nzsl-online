@@ -7,13 +7,12 @@ module Freelex
     before_action :find_vocab_sheet, :set_search_query, :footer_content
 
     def search
-      search_query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
+      @query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
       @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
       @results_total, @signs, @freelex_errored = Sign.paginate(search_query, @page_number)
-      @query = search_query
       @pagination = SignPaginationService.new(current_page_number: @page_number,
                                               total_num_results: @results_total,
-                                              search_query: @query)
+                                              pagination_params: @query)
     end
 
     def show

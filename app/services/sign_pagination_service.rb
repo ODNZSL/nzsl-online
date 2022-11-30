@@ -7,11 +7,11 @@ class SignPaginationService
   ##
   # @param [Integer] current_page_number
   # @param [Integer] total_num_results
-  # @param [Hash(String => String)] search_query
+  # @param [Hash(String => String)] pagination_params
   #
-  def initialize(current_page_number:, total_num_results:, search_query:, page_size: default_page_size)
+  def initialize(current_page_number:, total_num_results:, pagination_params:, page_size: default_page_size)
     @current_page_number = current_page_number
-    @search_query = search_query
+    @pagination_params = pagination_params
     @page_size = page_size
     @total_num_pages = (total_num_results.to_f / @page_size).ceil
   end
@@ -112,11 +112,7 @@ class SignPaginationService
   # @return [String]
   #
   def build_search_path_for(page_num)
-    path_helper_params = @search_query
-                         .transform_values { |v| v.is_a?(Array) ? v.join(' ') : v }
-                         .merge('p' => page_num)
-
-    Rails.application.routes.url_helpers.search_signs_path(path_helper_params)
+    Rails.application.routes.url_helpers.search_signs_path(@pagination_params.merge(p: page_num))
   end
 
   def current_page_is_first_page?
