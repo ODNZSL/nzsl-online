@@ -9,7 +9,7 @@ module Freelex
     def search
       @query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
       @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
-      @results_total, @signs, @freelex_errored = Sign.paginate(search_query, @page_number)
+      @results_total, @signs, @freelex_errored = Sign.paginate(@query, @page_number)
       @pagination = SignPaginationService.new(current_page_number: @page_number,
                                               total_num_results: @results_total,
                                               pagination_params: @query)
