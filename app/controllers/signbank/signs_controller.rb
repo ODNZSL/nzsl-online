@@ -3,6 +3,7 @@
 module Signbank
   class SignsController < ApplicationController
     before_action :find_vocab_sheet, :set_search_query, :footer_content
+    AUTOCOMPLETE_LIMIT = 100
 
     def search
       @query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
@@ -12,6 +13,14 @@ module Signbank
       @pagination = SignPaginationService.new(current_page_number: @page_number,
                                               total_num_results: @results_total,
                                               pagination_params: @query)
+    end
+
+    def autocomplete
+      term = SearchQuerySanitizationService.new.sanitize_for_autocomplete_search(permitted_params[:term])
+      search = SignSearchService.new(s: [term])
+      return head(:ok) if term.blank?
+
+      render json: search.results.limit(AUTOCOMPLETE_LIMIT).pluck(:gloss)
     end
 
     def show
