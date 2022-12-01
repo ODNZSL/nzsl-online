@@ -173,13 +173,13 @@ module Freelex
       return if @query[:usage].blank?
 
       # reduce the list to the selected
-      h Freelex::SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ')
+      h ::SignMenu.resolve.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ')
     end
 
     def display_topic_tag_search_term
       return if @query[:tag].blank?
 
-      h Freelex::SignMenu.topic_tags.select { |u| @query[:tag].include?(u.last.to_s) }.map(&:first).join(' ')
+      h ::SignMenu.resolve.topic_tags.select { |u| CGI.escape(@query[:tag].first).include?(u.last.to_s) }.map(&:first).join(' ')
     end
 
     def search_term(key)

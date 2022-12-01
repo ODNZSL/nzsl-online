@@ -4,7 +4,7 @@
   %a.dropdown_arrow{ href: 'javascript:void(0);' }
     .clearfix.dropdown.float-left.text_input
       %ul.no-bullet
-        - Freelex::SignMenu.usage_tags.each do |name, i|
+        - SignMenu.resolve.usage_tags.each do |name, i|
           %li.usage-dropdown{ id: i }
             = name
   .default
