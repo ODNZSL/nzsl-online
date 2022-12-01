@@ -99,10 +99,7 @@ class SearchQuerySanitizationService
   def sanitize_usage(usage)
     return '' if usage.nil?
 
-    usage
-      .gsub(ANYTHING_EXCEPT_NUMBERS_REGEX, '')
-      .strip
-      .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+    usage.strip.truncate(MAX_QUERY_TERM_LENGTH, omission: '')
   end
 
   ##
@@ -112,9 +109,6 @@ class SearchQuerySanitizationService
   def sanitize_tag(tag)
     return '' if tag.nil?
 
-    tag
-      .gsub(ANYTHING_EXCEPT_NUMBERS_AND_SPACE_REGEX, '')
-      .strip
-      .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+    tag.strip.truncate(MAX_QUERY_TERM_LENGTH, omission: '')
   end
 end
