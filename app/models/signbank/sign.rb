@@ -6,6 +6,8 @@ module Signbank
     with_options foreign_key: :word_id, inverse_of: :sign, dependent: :destroy do |signbank|
       signbank.has_many :assets, class_name: :"Signbank::Asset"
       signbank.has_many :examples, class_name: :"Signbank::Example"
+      signbank.has_many :sign_topics, class_name: :"Signbank::SignTopic"
+      signbank.has_many :topics, through: :sign_topics, inverse_of: :signs
       signbank.has_one :picture, -> { image }, class_name: :"Signbank::Asset"
     end
 
@@ -14,6 +16,7 @@ module Signbank
     end
 
     def self.random
+      # Exclude sex & sexuality, obscene
       order('RANDOM()').first
     end
 
