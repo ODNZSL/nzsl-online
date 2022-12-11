@@ -117,7 +117,7 @@ module Freelex
 
     def display_locations_search_term(simple = false)
       # reduce the list to the selected, turn them all into images.
-      locations = Freelex::SignMenu.locations.flatten.select do |location|
+      locations = ::SignMenu.resolve.locations.flatten.select do |location|
         location_selected?(location)
       end
       return if @query[:l].blank? # rubocop:disable Rails/HelperInstanceVariable
@@ -135,7 +135,7 @@ module Freelex
     end
 
     def display_handshapes_search_term(simple = false)
-      selected = Freelex::SignMenu.handshapes.flatten.flatten.select do |hand_shape|
+      selected = ::SignMenu.resolve.handshapes.flatten.flatten.select do |hand_shape|
         handshape_selected?(hand_shape)
       end
       return if @query[:hs].blank? # rubocop:disable Rails/HelperInstanceVariable
@@ -152,7 +152,7 @@ module Freelex
     end
 
     def display_location_groups_search_term(simple = false)
-      locations = Freelex::SignMenu.location_groups.select do |location_group|
+      locations = ::SignMenu.resolve.location_groups.select do |location_group|
         location_group_selected?(location_group)
       end
       return if @query[:lg].blank? # rubocop:disable Rails/HelperInstanceVariable
