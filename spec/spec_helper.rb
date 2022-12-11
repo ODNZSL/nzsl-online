@@ -90,4 +90,16 @@ RSpec.configure do |config|
   # Kernel.srand config.seed
 
   config.example_status_persistence_file_path = './tmp/rspec.txt'
+
+  config.around :each, :sign_model_adapter do |example|
+    sign_model_adapter_was = SignModel.adapter
+    begin
+      SignModel.adapter = example.metadata[:sign_model_adapter]
+      Rails.application.reload_routes!
+
+      example.run
+    ensure
+      SignModel.adapter = sign_model_adapter_was
+    end
+  end
 end
