@@ -30,7 +30,6 @@ module Signbank
     { gloss_main: :gloss,
       gloss_secondary: :minor,
       gloss_maori: :maori,
-      drawing: :picture,
       borrowed_from: :related_to }.each do |(from, to)|
       alias_attribute from, to
     end
