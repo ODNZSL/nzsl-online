@@ -44,8 +44,8 @@ RSpec.describe SearchQuerySanitizationService do
 
         { 'tag' => nil } => {},
         { 'tag' => '' } => {},
-        { 'tag' => 'hetagtago' } => {},
-        { 'tag' => '1hetagtago 2' } => { 'tag' => %w[1 2] },
+        { 'tag' => 'hetagtago' } => {  'tag' => ['hetagtago'] },
+        { 'tag' => '1hetagtago 2' } => { 'tag' => %w[1hetagtago 2] },
         { 'tag' => "1-%\#@!hetagtago 2" } => { 'tag' => %w[1 2] },
         { 'tag' => '1 2 3' } => { 'tag' => %w[1 2 3] }
       }
