@@ -102,7 +102,7 @@ module Signbank
     end
 
     def topic_search(relation)
-      @query[:tag] = Array.wrap(@query[:tag]).map { |tag| CGI.unescape(tag) }
+      @query[:tag] = Array.wrap(@query[:tag])
       relation.includes(:topics).where(topics: { name: @query[:tag] })
     end
 

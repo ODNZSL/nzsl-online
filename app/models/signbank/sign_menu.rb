@@ -2,7 +2,7 @@ require 'cgi'
 
 module Signbank
   class SignMenu < Freelex::SignMenu
-    TOPIC_TAGS = Topic.pluck(:name, :name).sort.map { |tag| [tag.first, CGI.escape(tag.second)] }
+    TOPIC_TAGS = Topic.pluck(:name, :name).sort.map { |tag| [tag.first, tag.second] }
 
     def self.topic_tags
       TOPIC_TAGS

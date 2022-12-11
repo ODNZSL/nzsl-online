@@ -1,4 +1,6 @@
 $(function() {
+  var SEARCH_DELIMITER = '<%= SearchQuerySanitizationService::DELIMITER %>';
+
   var setup = function(){
     setup_ckeditor_video_links();
     setup_videos();
@@ -255,10 +257,10 @@ $(function() {
       }
     });
     if (has_groups){
-      container.find('.selected_groups_field').first().val(output_group.join(' '));
+      container.find('.selected_groups_field').first().val(output_group.join(SEARCH_DELIMITER));
     }
     // set the value of the hidden field for the relevant search topic
-    container.find('.selected_field').first().val(output.join(' '));
+    container.find('.selected_field').first().val(output.join(SEARCH_DELIMITER));
     toggle_clear(container.closest('form'));
   };
 

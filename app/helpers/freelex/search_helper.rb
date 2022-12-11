@@ -179,13 +179,13 @@ module Freelex
     def display_topic_tag_search_term
       return if @query[:tag].blank?
 
-      h ::SignMenu.resolve.topic_tags.select { |u| CGI.escape(@query[:tag].first).include?(u.last.to_s) }.map(&:first).join(' ')
+      h ::SignMenu.resolve.topic_tags.select { |u| @query[:tag].first.include?(u.last.to_s) }.map(&:first).join(' ')
     end
 
     def search_term(key)
       return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?) # rubocop:disable Rails/HelperInstanceVariable
 
-      h @query[key].join(' ') # rubocop:disable Rails/HelperInstanceVariable
+      h @query[key].join(SearchQuerySanitizationService::DELIMITER)
     end
 
     def display_search_term

@@ -13,41 +13,42 @@ RSpec.describe SearchQuerySanitizationService do
         { 's' => '' } => {},
         { 's' => 'hello' } => { 's' => ['hello'] },
         { 's' => 'hello-world' } => { 's' => ['hello-world'] },
+        { 's' => 'hello world' } => { 's' => ['hello world'] },
         { 's' => "he!@\#$%^&*()llo" } => { 's' => ['he()llo'] },
         { 's' => ('x' * 1000) } => { 's' => [('x' * described_class::MAX_QUERY_TERM_LENGTH)] },
         { 's' => 'Māori' } => { 's' => ['Māori'] },
 
         { 'hs' => nil } => {},
         { 'hs' => '' } => {},
-        { 'hs' => '1.2 1.2.3 3.4.5' } => { 'hs' => ['1.2', '1.2.3', '3.4.5'] },
+        { 'hs' => '1.2;;1.2.3;;3.4.5' } => { 'hs' => ['1.2', '1.2.3', '3.4.5'] },
 
         { 'l' => nil } => {},
         { 'l' => '' } => {},
         { 'l' => 'hello' } => {},
-        { 'l' => '1hello 2' } => { 'l' => %w[1 2] },
-        { 'l' => "1-%\#@!hello 2" } => { 'l' => %w[1 2] },
-        { 'l' => '1 2 3' } => { 'l' => %w[1 2 3] },
+        { 'l' => '1hello;;2' } => { 'l' => %w[1 2] },
+        { 'l' => "1-%\#@!hello;;2" } => { 'l' => %w[1 2] },
+        { 'l' => '1;;2;;3' } => { 'l' => %w[1 2 3] },
 
         { 'lg' => nil } => {},
         { 'lg' => '' } => {},
         { 'lg' => 'helglgo' } => {},
-        { 'lg' => '1helglgo 2' } => { 'lg' => %w[1 2] },
-        { 'lg' => "1-%\#@!helglgo 2" } => { 'lg' => %w[1 2] },
-        { 'lg' => '1 2 3' } => { 'lg' => %w[1 2 3] },
+        { 'lg' => '1helglgo;;2' } => { 'lg' => %w[1 2] },
+        { 'lg' => "1-%\#@!helglgo;;2" } => { 'lg' => %w[1 2] },
+        { 'lg' => '1;;2;;3' } => { 'lg' => %w[1 2 3] },
 
         { 'usage' => nil } => {},
         { 'usage' => '' } => {},
-        { 'usage' => 'heusageusageo' } => {},
-        { 'usage' => '1heusageusageo 2' } => { 'usage' => ['12'] },
-        { 'usage' => "1-%\#@!heusageusageo 2" } => { 'usage' => ['12'] },
-        { 'usage' => '1 2 3' } => { 'usage' => ['123'] },
+        { 'usage' => 'heusageusageo' } => {'usage' => ['heusageusageo']},
+        { 'usage' => '1heusageusageo;;2' } => { 'usage' => %w[1heusageusageo 2] },
+        { 'usage' => "1-%\#@!heusageusageo;;2" } => { 'usage' => %w[1-heusageusageo 2] },
+        { 'usage' => '1;;2;;3' } => { 'usage' => %w[1 2 3] },
 
         { 'tag' => nil } => {},
         { 'tag' => '' } => {},
         { 'tag' => 'hetagtago' } => {  'tag' => ['hetagtago'] },
-        { 'tag' => '1hetagtago 2' } => { 'tag' => %w[1hetagtago 2] },
-        { 'tag' => "1-%\#@!hetagtago 2" } => { 'tag' => %w[1 2] },
-        { 'tag' => '1 2 3' } => { 'tag' => %w[1 2 3] }
+        { 'tag' => '1hetagtago;;2' } => { 'tag' => %w[1hetagtago 2] },
+        { 'tag' => "1-%\#@!hetagtago;;2" } => { 'tag' => %w[1-hetagtago 2] },
+        { 'tag' => '1;;2;;3' } => { 'tag' => %w[1 2 3] }
       }
 
       input_output_map.each do |search_term, expected_result|
