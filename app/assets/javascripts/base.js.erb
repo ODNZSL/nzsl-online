@@ -244,21 +244,37 @@ $(function() {
   };
 
   var process_images_for_input = function(container, images){
-    var has_groups = container.find('.selected_groups_field').length;
-    var output = [];
-    var output_group = [];
+    var group_fields = container.find('.selected_groups_field');
+    var fields = container.find('.selected_field');
+    group_fields.filter("[value]").remove();
+    fields.filter("[value]").remove();
+    var has_groups = group_fields.length > 0;
+    var field_values = [];
+    var group_values = [];
+    var output_group_field;
     $(images).each(function(){
       if (has_groups && $(this).hasClass('main_image')){
-        output_group.push($(this).text());
+        group_values.push($(this).text());
       } else {
-        output.push($(this).text());
+        field_values.push($(this).text());
       }
     });
     if (has_groups){
-      container.find('.selected_groups_field').first().val(output_group.join(' '));
+      $.each(group_values, function() {
+        group_fields.first()
+                    .clone()
+                    .val(this)
+                    .insertAfter(group_fields.first());
+      });
     }
     // set the value of the hidden field for the relevant search topic
-    container.find('.selected_field').first().val(output.join(' '));
+    $.each(field_values, function() {
+      fields.first()
+                    .clone()
+                    .val(this)
+                    .insertAfter(fields.first());
+    });
+
     toggle_clear(container.closest('form'));
   };
 

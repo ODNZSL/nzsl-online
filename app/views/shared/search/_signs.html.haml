@@ -17,8 +17,8 @@
   %span.caret
 
 .sign-search-button.advanced-search-button.search_field.sign_attribute_selection.locations.float-left.text_input{ class: tab_class(:advanced, :signs) }
-  = hidden_field_tag :l, search_term(:l), class: 'selected_field'
-  = hidden_field_tag :lg, search_term(:lg), class: 'selected_groups_field'
+  = hidden_field_tag :"l[]", search_term(:l), class: 'selected_field'
+  = hidden_field_tag :"lg[]", search_term(:lg), class: 'selected_groups_field'
   %a.dropdown_arrow{ href: 'javascript:void(0);' }
     .attribute_options.clearfix.dropdown.float-left
       .title= t('search.signs.locations_help')

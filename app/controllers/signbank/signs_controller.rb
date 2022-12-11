@@ -37,7 +37,7 @@ module Signbank
     end
 
     def permitted_params
-      params.permit(%i[s hs l lg usage tag term p id])
+      params.permit(:s, :usage, :tag, :term, :id, :p, hs: [], l: [], lg: [])
     end
   end
 end
