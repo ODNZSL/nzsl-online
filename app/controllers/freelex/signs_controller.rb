@@ -12,7 +12,7 @@ module Freelex
       @results_total, @signs, @freelex_errored = Sign.paginate(@query, @page_number)
       @pagination = SignPaginationService.new(current_page_number: @page_number,
                                               total_num_results: @results_total,
-                                              pagination_params: @query)
+                                              route_params: permitted_params)
     end
 
     def show

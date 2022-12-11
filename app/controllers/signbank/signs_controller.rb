@@ -12,7 +12,7 @@ module Signbank
       @results_total = @signs.total_entries
       @pagination = SignPaginationService.new(current_page_number: @page_number,
                                               total_num_results: @results_total,
-                                              pagination_params: @query)
+                                              route_params: permitted_params)
     end
 
     def autocomplete
