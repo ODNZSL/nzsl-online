@@ -38,14 +38,14 @@ RSpec.describe SearchQuerySanitizationService do
 
         { 'usage' => nil } => {},
         { 'usage' => '' } => {},
-        { 'usage' => 'heusageusageo' } => {'usage' => ['heusageusageo']},
+        { 'usage' => 'heusageusageo' } => { 'usage' => ['heusageusageo'] },
         { 'usage' => '1heusageusageo;;2' } => { 'usage' => %w[1heusageusageo 2] },
         { 'usage' => "1-%\#@!heusageusageo;;2" } => { 'usage' => %w[1-heusageusageo 2] },
         { 'usage' => '1;;2;;3' } => { 'usage' => %w[1 2 3] },
 
         { 'tag' => nil } => {},
         { 'tag' => '' } => {},
-        { 'tag' => 'hetagtago' } => {  'tag' => ['hetagtago'] },
+        { 'tag' => 'hetagtago' } => { 'tag' => ['hetagtago'] },
         { 'tag' => '1hetagtago;;2' } => { 'tag' => %w[1hetagtago 2] },
         { 'tag' => "1-%\#@!hetagtago;;2" } => { 'tag' => %w[1-hetagtago 2] },
         { 'tag' => '1;;2;;3' } => { 'tag' => %w[1 2 3] }
