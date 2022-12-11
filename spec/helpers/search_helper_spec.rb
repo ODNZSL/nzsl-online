@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe Freelex::SearchHelper, type: :helper do
+RSpec.describe SearchHelper, type: :helper do
   describe '#classes_for_sign_attribute' do
     context 'when provided with a true value for main' do
       it 'returns the main_image class as part of the response string' do
