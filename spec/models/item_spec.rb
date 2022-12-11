@@ -12,13 +12,13 @@ RSpec.describe Item, type: :model do
   subject { described_class.new('sign_id' => sign_id) }
 
   before do
-    allow(SignModel.resolve).to receive(:first).and_return(sign)
+    allow(SignModel.resolve).to receive(:find).and_return(sign)
   end
 
   describe '.new' do
     context 'using a stubbed call to Freelex' do
       before do
-        allow(SignModel.resolve).to receive(:first).and_return(sign)
+        allow(SignModel.resolve).to receive(:find).and_return(sign)
       end
 
       it 'initializes successfully given just a sign_id' do

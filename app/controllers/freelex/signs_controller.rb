@@ -16,7 +16,7 @@ module Freelex
     end
 
     def show
-      @sign = Sign.first(id: permitted_params[:id])
+      @sign = Sign.find(permitted_params[:id])
 
       if @sign.blank?
         render_404
