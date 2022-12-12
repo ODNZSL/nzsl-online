@@ -66,7 +66,7 @@ module Freelex
       def fetch_by_id_via_cache(sign_id)
         return first(id: sign_id) unless FeatureFlags::StoreVocabSheetItemsInRailsCache.enabled?
 
-        # We use the more verbose `Rails.cache.fetch` and `Rails.cache.write`
+        # We use the more verbose `Rails.cache.read` and `Rails.cache.write`
         # instead of the more concise `Rails.cache.fetch` because many things could
         # go wrong fetching a sign from Freelex so we only want to write the sign
         # to the cache if we got a valid sign. `Rails.cache.fetch` with the block
@@ -118,7 +118,7 @@ module Freelex
 
       # @return [Sign]
       def sign_of_the_day
-        # We use the more verbose `Rails.cache.fetch` and `Rails.cache.write`
+        # We use the more verbose `Rails.cache.read` and `Rails.cache.write`
         # instead of the more concise `Rails.cache.fetch` because many things could
         # go wrong fetching a sign from Freelex so we only want to write the sign
         # to the cache if we got a valid sign. `Rails.cache.fetch` with the block

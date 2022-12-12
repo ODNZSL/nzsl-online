@@ -77,7 +77,6 @@ module Freelex
     end
 
     def parse_examples
-      # examples
       @sign.examples = []
       VIDEO_EXAMPLES_TOTAL.times do |i|
         next if @data.value_for_tag("ASSET finalexample#{i}").blank?
