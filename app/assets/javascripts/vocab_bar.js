@@ -24,8 +24,8 @@ $(document).ready(function() {
       if (barBottom > footerTop) {
         if ($('.search-results__container').length > 0) {
           bar.css({height: $('.search-results__container').innerHeight()});
-        } else if ($('.search-result-container').length > 0) {
-          bar.css({height: $('.search-result-container').innerHeight()});
+        } else if ($('.vocab_sheet_background').length > 0) {
+          bar.css({height: $('.vocab_sheet_background').innerHeight()});
         }
       }
 
