@@ -135,7 +135,7 @@ module Freelex
     end
 
     def self.locations
-      LOCATIONS = [
+      LOCATIONS
     end
 
     def self.location_groups
