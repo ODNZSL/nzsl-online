@@ -1,6 +1,7 @@
 module Signbank
   class SignTopic < Record
     self.table_name = :word_topics
+    self.primary_key = nil
 
     belongs_to :sign, class_name: :"Signbank::Sign",
                       foreign_key: :word_id,
