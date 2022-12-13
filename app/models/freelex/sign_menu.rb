@@ -49,7 +49,7 @@ module Freelex
       ].freeze
     ].freeze
 
-    LOCACTIONS = [
+    LOCATIONS = [
       ['1.1.In front of body', '2.2.In front of face'].freeze,
       ['3.3.Head', '3.4.Top of Head', '3.5.Eyes', '3.6.Nose', '3.7.Ear', '3.8.Cheek', '3.9.Lower Head'].freeze,
       [
@@ -57,7 +57,7 @@ module Freelex
         '4.10.Neck/Throat',
         '4.11.Shoulders',
         '4.12.Chest',
-        '4.13.Abdomen',
+      '4.13.Abdomen',
         '4.14.Hips/Pelvis/Groin',
         '4.15.Upper Leg'
       ].freeze,
@@ -135,7 +135,7 @@ module Freelex
     end
 
     def self.locations
-      LOCACTIONS
+      LOCATIONS
     end
 
     def self.location_groups

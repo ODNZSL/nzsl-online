@@ -219,7 +219,7 @@ GEM
     multipart-post (2.1.1)
     newrelic_rpm (8.2.0)
     nio4r (2.5.8)
-    nokogiri (1.13.9)
+    nokogiri (1.13.10)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -246,7 +246,7 @@ GEM
     public_suffix (4.0.6)
     puma (5.6.4)
       nio4r (~> 2.0)
-    racc (1.6.0)
+    racc (1.6.1)
     rack (2.2.4)
     rack-canonical-host (1.0.0)
       addressable (> 0, < 3)
@@ -437,7 +437,7 @@ DEPENDENCIES
   mini_racer
   modernizr-rails
   newrelic_rpm
-  nokogiri (~> 1.13.9)
+  nokogiri (~> 1.13.10)
   pandoc-ruby
   paperclip
   percy-capybara (~> 4.3.2)
@@ -467,7 +467,7 @@ DEPENDENCIES
   will_paginate
 
 RUBY VERSION
-   ruby 2.7.6p219
+   ruby 2.7.7p0
 
 BUNDLED WITH
    2.1.4
