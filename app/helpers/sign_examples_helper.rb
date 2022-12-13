@@ -7,7 +7,7 @@ module SignExamplesHelper
     #     square brackets containing a numeric ID. We turn these into links, unless
     #     it's the current sign, in which case it is not linked, but we display it
     #     as bold.
-    sanitize(sentence.tr("^", "").gsub(/(?<gloss>[^\d\s]+)\[(?<id>\d+)\]/) do
+    sanitize(sentence.tr('^', '').gsub(/(?<gloss>[^\d\s]+)\[(?<id>\d+)\]/) do
       sign = Regexp.last_match.named_captures
       next tag.strong(sign['gloss']) if sign['id'] == current_sign_id
 
