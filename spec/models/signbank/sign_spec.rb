@@ -41,6 +41,45 @@ module Signbank
       end
     end
 
+    describe '.safe_for_work' do
+      it 'includes a regular sign' do
+        topic = Signbank::Topic.find_by!(name: 'Animals')
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, topics: [topic])
+        expect(described_class.safe_for_work).to include sign
+      end
+
+      it 'includes a sign without topics' do
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, topics: [])
+        expect(described_class.safe_for_work).to include sign
+      end
+
+      it 'excludes an obscene sign' do
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, usage: 'obscene')
+        expect(described_class.safe_for_work).not_to include sign
+      end
+
+      it "excludes a sign with topic 'Sex and sexuality'" do
+        topic = Signbank::Topic.find_by!(name: 'Sex and sexuality')
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, topics: [topic])
+        expect(described_class.safe_for_work).not_to include sign
+      end
+
+      it "excludes a sign with topic 'Sex and sexuality', and other topics" do
+        topics = [
+          Signbank::Topic.find_by!(name: 'Sex and sexuality'),
+          Signbank::Topic.find_by!(name: 'Animals')
+        ]
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, topics: topics)
+        expect(described_class.safe_for_work).not_to include sign
+      end
+
+      it "excludes a sign that is obscene AND has topic 'Sex and sexuality'" do
+        topic = Signbank::Topic.find_by!(name: 'Sex and sexuality')
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, usage: 'obscene', topics: [topic])
+        expect(described_class.safe_for_work).not_to include sign
+      end
+    end
+
     describe '#location' do
       it 'reformats locations to replace dashes with full stop characters' do
         sign = Sign.new
@@ -50,13 +89,23 @@ module Signbank
     end
 
     describe '#sign_of_the_day' do
-      it 'fetches and caches a #random sign'
+      it 'delegats to SignOfTheDay#find' do
+        expect(SignOfTheDay).to receive(:find)
+        described_class.sign_of_the_day
+      end
     end
 
     describe '#random' do
-      it 'returns a random sign each time it is called'
-      it "excludes signs in topic 'Sex and Sexuality'"
-      it "excludes signs with 'obscene' usage"
+      it 'returns a random sign each time it is called' do
+        sign_1 = described_class.random
+        sign_2 = described_class.random
+        expect(sign_1).not_to eq sign_2
+      end
+
+      it 'requests only safe for work signs' do
+        expect(described_class).to receive(:safe_for_work).and_call_original
+        described_class.random
+      end
     end
   end
 end

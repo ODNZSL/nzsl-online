@@ -3,6 +3,30 @@ module Signbank
     self.table_name = :words
     self.primary_key = :id
 
+    ##
+    # Exclude signs that either have the 'obscene' usage flag, or belong to the
+    # topic 'Sex and sexuality'. This filter is used in places where we feature
+    # signs the 'random sign' feature, and 'sign of the day', where it could be
+    # inappropriate to show such signs. We use HAVING here with a simple scoring
+    # algorithm, since SQLite does not support the EVERY operator. HAVING
+    # operates on a set of rows grouped by the word ID. If any of the rows in
+    # the groups contains the topic 'Sex and sexuality', we add 1 to the sum,
+    # otherwise we add 99. If the resulting number isn't divisible by 99, we
+    # know that at least one row contained 'Sex and Sexuality', and so should be
+    # excluded.
+    def self.safe_for_work
+      left_outer_joins(:topics)
+        .where("usage IS NULL OR usage != 'obscene'")
+        .group(:id)
+        .having <<~SQL.squish
+          SUM(
+            CASE WHEN word_topics.topic_name IS NOT NULL
+                 AND word_topics.topic_name = 'Sex and sexuality'
+            THEN 1 ELSE 99 END
+          ) % 99 = 0
+        SQL
+    end
+
     with_options foreign_key: :word_id, inverse_of: :sign, dependent: :destroy do |signbank|
       signbank.has_many :assets, class_name: :"Signbank::Asset"
       signbank.has_many :examples, class_name: :"Signbank::Example"
@@ -11,13 +35,16 @@ module Signbank
       signbank.has_one :picture, -> { image }, class_name: :"Signbank::Asset"
     end
 
+    ##
+    # This method exists for API compatibility for existing code.
+    # Once Freelex no longer needs to be supported, we should get rid of
+    # this method, and use Signbank::SignOfTheDay directly
     def self.sign_of_the_day
-      first
+      SignOfTheDay.find
     end
 
     def self.random
-      # Exclude sex & sexuality, obscene
-      order('RANDOM()').first
+      safe_for_work.order('RANDOM()').first
     end
 
     def picture_url
