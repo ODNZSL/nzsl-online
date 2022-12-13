@@ -57,7 +57,7 @@ module Freelex
         '4.10.Neck/Throat',
         '4.11.Shoulders',
         '4.12.Chest',
-      '4.13.Abdomen',
+        '4.13.Abdomen',
         '4.14.Hips/Pelvis/Groin',
         '4.15.Upper Leg'
       ].freeze,
