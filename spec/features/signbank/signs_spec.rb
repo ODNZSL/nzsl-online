@@ -6,46 +6,60 @@ RSpec.describe 'Signbank: Sign features', type: :feature, sign_model_adapter: :f
   it 'can search for signs', js: true do
     # Term
     visit root_path
-    fill_in 'Search by English or Māori keywords', with: 'Dictionary'
-    click_on 'Search'
+    within '.search_form' do
+      fill_in 'Search by English or Māori keywords', with: 'Dictionary'
+      click_on 'Search'
+    end
     expect(page).to have_current_path(search_signs_path, ignore_query: true)
     expect(page).to have_content 'search results for Dictionary'
     expect(page).to have_selector '.search-results__card', count: 2
 
     # Handshape
     visit root_path
-    click_on 'Advanced Search Options'
-    find('.advanced-search-button div.default', text: 'Hand Shape').click
-    find('.attribute_options .value + img', match: :first).click
-    click_on 'Search'
+    within '.search_form' do
+      click_on 'Advanced Search Options'
+      find('.advanced-search-button div.default', text: 'Hand Shape').click
+      find('.attribute_options .value + img', match: :first).click
+      click_on 'Search'
+    end
+
     expect(page).to have_current_path(search_signs_path, ignore_query: true)
     expect(page).to have_selector '.search-results__card', minimum: 1
 
     # Location
     visit root_path
-    click_on 'Advanced Search Options'
-    find('.advanced-search-button div.default', text: 'Body Location').click
-    find('.attribute_options .value + img', match: :first).click
-    click_on 'Search'
+    within '.search_form' do
+      click_on 'Advanced Search Options'
+      find('.advanced-search-button div.default', text: 'Body Location').click
+      find('.attribute_options .value + img', match: :first).click
+      click_on 'Search'
+    end
+
     expect(page).to have_current_path(search_signs_path, ignore_query: true)
     expect(page).to have_selector '.search-results__card', minimum: 1
 
     # Usage
     visit root_path
-    click_on 'Advanced Search Options'
-    find('.advanced-search-button div.default', text: 'Usage').click
-    find('.usage-dropdown', text: 'archaic').click
-    click_on 'Search'
+    within '.search_form' do
+      click_on 'Advanced Search Options'
+      find('.advanced-search-button div.default', text: 'Usage').click
+      find('.usage-dropdown', text: 'archaic').click
+      click_on 'Search'
+    end
+
     expect(page).to have_current_path(search_signs_path, ignore_query: true)
     expect(page).to have_content 'search results for archaic'
     expect(page).to have_selector '.search-results__card', minimum: 1
 
     # Topic
     visit root_path
-    click_on 'Advanced Search Options'
-    find('.advanced-search-button div.default', text: 'Topic').click
-    find('.topic-dropdown', text: 'Animals').click
-    click_on 'Search'
+    within '.search_form' do
+      click_on 'Advanced Search Options'
+      find('.advanced-search-button div.default', text: 'Topic').click
+      find('.topic-dropdown', text: 'Animals').click
+      click_on 'Search'
+    end
+
     expect(page).to have_current_path(search_signs_path, ignore_query: true)
     expect(page).to have_content 'search results for Animals'
     expect(page).to have_selector '.search-results__card', minimum: 1
