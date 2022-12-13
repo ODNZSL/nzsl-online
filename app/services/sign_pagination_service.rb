@@ -12,7 +12,7 @@ class SignPaginationService
   def initialize(current_page_number:, total_num_results:, search_query:)
     @current_page_number = current_page_number
     @search_query = search_query
-    @total_num_pages = (total_num_results.to_f / Sign::RESULTS_PER_PAGE).ceil
+    @total_num_pages = (total_num_results.to_f / SignModel.resolve::RESULTS_PER_PAGE).ceil
   end
 
   ##

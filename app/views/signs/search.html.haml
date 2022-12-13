@@ -38,6 +38,6 @@
             %span.card__button-symbol.card__button-symbol--peach +
             %span.card__button-action.card__button-action--peach Vocab Sheet
   .pagination_container.small-12.float-left.text-center
-    - if @results_total > Sign::RESULTS_PER_PAGE
+    - if @results_total > SignModel.resolve::RESULTS_PER_PAGE
       %ol.pagination
         = @pagination_html

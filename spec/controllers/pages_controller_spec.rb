@@ -19,7 +19,7 @@ RSpec.describe PagesController, type: :controller do
     end
 
     it 'assigns @sign to a sign' do
-      expect(assigns(:sign)).to be_instance_of(Sign)
+      expect(assigns(:sign)).to respond_to(:gloss_main)
     end
   end
 end

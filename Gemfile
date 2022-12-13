@@ -8,6 +8,9 @@ gem 'rails', '~> 6.1.4'
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
 
+# Use SQLite to access signs from a Signbank dictionary export
+gem 'sqlite3'
+
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'

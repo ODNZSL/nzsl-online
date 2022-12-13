@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe AutocompleteSearchService do
+RSpec.describe Freelex::AutocompleteSearchService do
   describe '#find_suggestions' do
     context 'When the external services behaves as expected' do
       subject do

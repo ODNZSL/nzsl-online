@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe SignsController, type: :controller do
+RSpec.describe Freelex::SignsController, type: :controller do
   describe '#show' do
     before { get :show, params: { id: '1301' } }
 
