@@ -42,8 +42,7 @@ Fork the base repo [ODNZSL repo](https://github.com/ODNZSL/nzsl-online), so you 
 ```
 $ git clone <your fork>
 $ cp env-example .env
-$ bundle install
-$ yarn install
+$ bin/setup
 $ bundle exec rails server
 ```
 
@@ -56,6 +55,13 @@ A suggestion is to create a local `main` branch that acts as your local main. Th
   * Ensure all changes to existing functionality and additions of new functionality have tests
   * Create a new pull request to the ODNZSL `main` branch.
   * If you are not sure on any of the steps please do not hesitate to ask.
+
+If you have run `bin/setup`, then you will have the latest release of the published dictionary data. While a copy of
+the data is included in this repository, this datafile is not necessarily up-to-date. If you have not run `bin/setup`,
+or you wish to make sure you are using the latest published data, you can run `bundle exec rake dictionary:update` to
+update your local database.
+
+Note that the dictionary SQLite file is gitignored to avoid growing the repository size unnecesarily.
 
 ## Running the tests
 
