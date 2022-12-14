@@ -1,6 +1,6 @@
 namespace :dictionary do
   desc 'Updates the NZSL dictionary packaged with the application to the latest release from Signbank'
-  task update: :environment do
+  task :update do # rubocop:disable Rails/RakeEnvironment - we need to place this file before the app can start
     repo = 'odnzsl/nzsl-dictionary-scripts'
     filename = 'nzsl.db'
     content_type = 'application/vnd.sqlite3'
