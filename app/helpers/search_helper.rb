@@ -116,7 +116,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
 
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    locations = ::SignMenu.resolve.locations.flatten.select do |location|
+    locations = SignMenu.resolve.locations.flatten.select do |location|
       location_selected?(location)
     end
     return if @query[:l].blank?
