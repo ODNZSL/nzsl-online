@@ -39,6 +39,19 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     expect(described_class.new({ s: %w[Hello] }, relation: relation).results).to eq [sign]
   end
 
+  it 'sanitizes within the glob pattern' do
+    query = { s: ['; DELETE FROM words --'] }
+    generated_sql = described_class.new(query).results.to_sql
+    expect(generated_sql).to include "'*[ ,]; DELETE FROM words --[ ,]*'"
+  end
+
+  it 'escapes glob characters within the term' do
+    query = { s: ['*'] }
+    generated_sql = described_class.new(query).results.to_sql
+    expect(generated_sql).not_to include '*[ ,]*[ ,]*' # We don't want to allow this sort of thing
+    expect(generated_sql).to include '*[ ,]\\*[ ,]*'
+  end
+
   it 'searches by multiple OR handshapes' do
     signs = []
     signs << handshape_match_1 = make_sign(handshape: '1.1.1')

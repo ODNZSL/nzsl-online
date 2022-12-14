@@ -19,7 +19,7 @@ module Signbank
                       2 AS rank_precedence,
                       RANK() OVER (ORDER BY words.gloss_normalized) AS rank_order
           FROM words
-          WHERE ' ' || words.gloss_normalized || ' ' LIKE :like_term
+          WHERE ' ' || LOWER(words.gloss_normalized) || ' ' GLOB LOWER(:glob_term)
           UNION SELECT words.id,
                       3 AS rank_precedence,
                       RANK() OVER (ORDER BY words.minor_normalized) AS rank_order
@@ -29,7 +29,7 @@ module Signbank
                       4 AS rank_precedence,
                       RANK() OVER (ORDER BY words.minor_normalized) AS rank_order
           FROM words
-          WHERE ' ' || words.minor_normalized || ' ' LIKE :like_term
+          WHERE LOWER(' ' || words.minor_normalized || ' ') GLOB LOWER(:glob_term)
           UNION SELECT words.id,
                       5 AS rank_precedence,
                       RANK() OVER (ORDER BY words.maori_normalized) AS rank_order
@@ -39,7 +39,7 @@ module Signbank
                       6 AS rank_precedence,
                       RANK() OVER (ORDER BY words.maori_normalized) AS rank_order
           FROM words
-          WHERE ' ' || words.maori_normalized || ' ' LIKE :like_term) AS rs1)
+          WHERE LOWER(' ' || words.maori_normalized || ' ') GLOB LOWER(:glob_term)) AS rs1)
     SELECT *
     FROM sign_search
     WHERE sign_search.row_num = 1
@@ -50,10 +50,22 @@ module Signbank
       @query = query
     end
 
+    # Escape glob characters, to avoid influencing the search
+    # we perform in ways we don't support
+    def glob_escape(term)
+      term.gsub(/[*?{}\[\]\\]/, '\\\\\\&')
+    end
+
     def keyword_search_args
       term = @query[:s].first
       unaccented_term = ActiveSupport::Inflector.transliterate(term)
-      { term: unaccented_term, like_term: "% #{Sign.sanitize_sql_like(unaccented_term)} %" }
+
+      { term: unaccented_term,
+        # Match a whole word in any position in the string, so long as it has
+        # leading or trailing whitespace or comma.
+        # We wrap glosses with space characters to make sure words at the beginning
+        # or end of the gloss match.
+        glob_term: "*[ ,]#{glob_escape(unaccented_term)}[ ,]*" }
     end
 
     def keyword_search(relation)
