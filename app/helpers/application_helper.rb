@@ -18,7 +18,7 @@ module ApplicationHelper
   end
 
   def submit_search_button
-    button_tag(name: nil, class: 'search-button') do
+    button_tag(name: nil, title: 'Search', class: 'search-button') do
       tag.i('', class: 'fi-magnifying-glass')
     end
   end

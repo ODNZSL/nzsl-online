@@ -4,10 +4,10 @@ require 'rails_helper'
 require 'percy'
 
 module Freelex
-  describe 'Test with visual testing', type: :feature, js: true do
+  describe 'Test with visual testing', type: :feature, js: true, sign_model_adapter: :freelex do
     let(:sign_id) { '1301' }
     before { SeedDataService.load_all }
-    before { allow(Sign).to receive(:random).and_return Sign.first(id: sign_id) }
+    before { allow(Sign).to receive(:random).and_return Sign.find(sign_id) }
 
     describe 'signs' do
       describe 'signs#show' do

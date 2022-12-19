@@ -5,6 +5,8 @@
 #
 module Freelex
   class Sign
+    include Freelex::AssetsHelper
+
     ##
     # Create a custom error class.
     #
@@ -21,36 +23,16 @@ module Freelex
     # The breakpoints for this app allow a 1x, 2x, 3x, and 4x layout. 12, 24, etc.
     # are the best page numbers for this. Because of performance concerns, I'm
     # starting with 12.
-    RESULTS_PER_PAGE = 24
+    RESULTS_PER_PAGE = Rails.application.config.results_per_page
 
     SIGN_ATTRIBUTES = %i[
-      age_groups
-      contains_numbers
-      drawing
-      examples
-      gender_groups
-      gloss_main
-      gloss_maori
-      gloss_minor
-      gloss_secondary
-      handshape
-      hint
-      id
-      inflection
-      inflection_manner_and_degree
-      inflection_plural
-      inflection_temporal
-      is_directional
-      is_fingerspelling
-      is_locatable
-      location_name
-      one_or_two_handed
-      related_to
-      usage
-      usage_notes
-      video
-      video_slow
-      word_classes
+      age_groups contains_numbers drawing examples
+      gender_groups gloss_main gloss_maori gloss_minor
+      gloss_secondary handshape hint id inflection
+      inflection_manner_and_degree inflection_plural
+      inflection_temporal is_directional is_fingerspelling
+      is_locatable location_name one_or_two_handed related_to
+      usage usage_notes video video_slow word_classes
     ].freeze
 
     ##
@@ -63,7 +45,7 @@ module Freelex
       # @param sign_id [String]
       # @return [Sign] if we could find a sign
       # @return [nil] if we could not find a sign
-      def fetch_by_id_via_cache(sign_id)
+      def find(sign_id)
         return first(id: sign_id) unless FeatureFlags::StoreVocabSheetItemsInRailsCache.enabled?
 
         # We use the more verbose `Rails.cache.read` and `Rails.cache.write`
@@ -255,6 +237,14 @@ module Freelex
     # @return [String] otherwise
     def borrowed_from
       related_to unless related_to == 'nzsl'
+    end
+
+    def picture_url
+      freelex_asset_url(filename: drawing)
+    end
+
+    def examples
+      (@examples || []).map { |data| Example.new(data) }
     end
 
     # @return [String] if we find the location

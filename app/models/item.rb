@@ -19,14 +19,13 @@ class Item
 
     super
 
-    sign = SignModel.resolve.fetch_by_id_via_cache(sign_id)
-
+    sign = SignModel.resolve.find(sign_id)
     return if sign.nil?
 
     self.id         = sign.id          if id.nil?
     self.name       = sign.gloss_main  if name.nil?
     self.maori_name = sign.gloss_maori if maori_name.nil?
-    self.drawing    = sign.drawing     if drawing.nil?
+    self.drawing    = sign.picture_url
   end
 
   def to_param

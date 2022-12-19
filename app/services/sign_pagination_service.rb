@@ -7,12 +7,13 @@ class SignPaginationService
   ##
   # @param [Integer] current_page_number
   # @param [Integer] total_num_results
-  # @param [Hash(String => String)] search_query
+  # @param [Hash(String => String)] route_params
   #
-  def initialize(current_page_number:, total_num_results:, search_query:)
+  def initialize(current_page_number:, total_num_results:, route_params:, page_size: default_page_size)
     @current_page_number = current_page_number
-    @search_query = search_query
-    @total_num_pages = (total_num_results.to_f / SignModel.resolve::RESULTS_PER_PAGE).ceil
+    @route_params = route_params
+    @page_size = page_size
+    @total_num_pages = (total_num_results.to_f / @page_size).ceil
   end
 
   ##
@@ -28,7 +29,13 @@ class SignPaginationService
     safe_join([prev_link, pagination_links, next_link], "\n")
   end
 
+  attr_reader :page_size
+
   private
+
+  def default_page_size
+    Rails.application.config.results_per_page
+  end
 
   def prepare_for_presentation(page_num)
     return wrap_without_link('...')       if page_num_should_be_replaced_with_elipsis?(page_num)
@@ -105,11 +112,7 @@ class SignPaginationService
   # @return [String]
   #
   def build_search_path_for(page_num)
-    path_helper_params = @search_query
-                         .transform_values { |v| v.is_a?(Array) ? v.join(' ') : v }
-                         .merge('p' => page_num)
-
-    Rails.application.routes.url_helpers.search_signs_path(path_helper_params)
+    Rails.application.routes.url_helpers.search_signs_path(@route_params.merge(p: page_num))
   end
 
   def current_page_is_first_page?

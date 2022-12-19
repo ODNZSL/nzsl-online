@@ -29,7 +29,7 @@
       .card__bottom-row
         .card__sign-container
           = link_to sign_url(sign.id), { class: 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent','Search','Click','#{query_text}-#{sign.id}',#{@signs.find_index(sign) + 1}]);" } do
-            = image_tag sign_image_url(image_name: sign.drawing), { class: 'card__drawing-image' }
+            = image_tag sign.picture_url, { class: 'card__drawing-image' }
         .card__button-container
           = link_to sign_url(sign.id), { class: "card__button" } do
             %span.card__button-symbol.card__button-symbol--blue →
@@ -38,6 +38,6 @@
             %span.card__button-symbol.card__button-symbol--peach +
             %span.card__button-action.card__button-action--peach Vocab Sheet
   .pagination_container.small-12.float-left.text-center
-    - if @results_total > SignModel.resolve::RESULTS_PER_PAGE
+    - if @results_total > @pagination.page_size
       %ol.pagination
-        = @pagination_html
+        = @pagination.pagination_links_html
