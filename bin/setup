@@ -20,9 +20,6 @@ FileUtils.chdir APP_ROOT do
   # Install JavaScript dependencies
   # system('bin/yarn')
 
-  puts "\n== Updating dictionary data =="
-  system! 'bin/rake dictionary:update'
-
   puts "\n== Preparing database =="
   system! 'bin/rails db:prepare'
 
