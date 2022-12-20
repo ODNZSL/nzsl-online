@@ -14,6 +14,9 @@ namespace :dictionary do
 
     File.open('db/new-dictionary.sqlite3', 'wb') do |f|
       f.write URI.parse(database_url).open.read
+    rescue OpenURI::HTTPError
+      sleep 5 # Wait a few seconds before retrying
+      retry
     end
 
     database = SQLite3::Database.open('db/new-dictionary.sqlite3')
