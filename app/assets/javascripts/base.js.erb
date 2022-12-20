@@ -1,4 +1,6 @@
 $(function() {
+  var SEARCH_DELIMITER = '<%= SearchQuerySanitizationService::DELIMITER %>';
+
   var setup = function(){
     setup_ckeditor_video_links();
     setup_videos();
@@ -236,9 +238,6 @@ $(function() {
     var selected_images = container.find('.selected:not(.group.selected .selected)').children('.image');
     selected_images.clone().appendTo(selected_container);
     /* each of the images needs to be pointing to the smaller image. boom. */
-    selected_container.find('img').each(function(){
-      $(this).attr('src', $(this).attr('src').replace('/72/', '/42/'));
-    });
     container.find('.selected_signs').replaceWith(selected_container);
     process_images_for_input(container, selected_images);
   };
@@ -255,10 +254,10 @@ $(function() {
       }
     });
     if (has_groups){
-      container.find('.selected_groups_field').first().val(output_group.join(' '));
+      container.find('.selected_groups_field').first().val(output_group.join(SEARCH_DELIMITER));
     }
     // set the value of the hidden field for the relevant search topic
-    container.find('.selected_field').first().val(output.join(' '));
+    container.find('.selected_field').first().val(output.join(SEARCH_DELIMITER));
     toggle_clear(container.closest('form'));
   };
 

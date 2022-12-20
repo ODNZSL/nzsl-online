@@ -136,6 +136,6 @@ class VocabSheet < ApplicationRecord
   end
 
   def convert_to_storable_hash(item)
-    item.as_json.except('errors', 'validation_context')
+    item.as_json(only: %w[id sign_id])
   end
 end

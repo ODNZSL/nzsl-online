@@ -7,17 +7,16 @@ module Freelex
     before_action :find_vocab_sheet, :set_search_query, :footer_content
 
     def search
-      search_query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
+      @query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
       @page_number = permitted_params[:p].present? ? permitted_params[:p].to_i : 1
-      @results_total, @signs, @freelex_errored = Sign.paginate(search_query, @page_number)
-      @query = search_query
-      @pagination_html = SignPaginationService.new(current_page_number: @page_number,
-                                                   total_num_results: @results_total,
-                                                   search_query: @query).pagination_links_html
+      @results_total, @signs, @freelex_errored = Sign.paginate(@query, @page_number)
+      @pagination = SignPaginationService.new(current_page_number: @page_number,
+                                              total_num_results: @results_total,
+                                              route_params: permitted_params)
     end
 
     def show
-      @sign = Sign.first(id: permitted_params[:id])
+      @sign = Sign.find(permitted_params[:id])
 
       if @sign.blank?
         render_404

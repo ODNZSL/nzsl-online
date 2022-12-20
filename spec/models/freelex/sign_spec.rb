@@ -64,7 +64,7 @@ RSpec.describe Freelex::Sign, type: :model do
     end
   end
 
-  describe '.fetch_by_id_via_cache' do
+  describe '.find' do
     let(:sign_id) { 1234 }
 
     context 'when Rails cache is enabled' do
@@ -85,7 +85,7 @@ RSpec.describe Freelex::Sign, type: :model do
           expect(Rails.cache.exist?(sign_id)).to be(false)
 
           # when we create a new Freelex::Sign from the given sign_id
-          Freelex::Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.find(sign_id)
 
           # then we expect the sign to be cached
           expect(Rails.cache.exist?(sign_id)).to be(true)
@@ -100,8 +100,8 @@ RSpec.describe Freelex::Sign, type: :model do
         it 'caches calls to Freelex when called repeatedly with the same input' do
           expect(Freelex::Sign).to receive(:first).once.and_call_original
 
-          Freelex::Sign.fetch_by_id_via_cache(sign_id)
-          Freelex::Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.find(sign_id)
+          Freelex::Sign.find(sign_id)
         end
       end
 
@@ -113,8 +113,8 @@ RSpec.describe Freelex::Sign, type: :model do
         it 'does not cache calls to Freelex when creating the same Freelex::Sign repeatedly' do
           expect(Freelex::Sign).to receive(:first).twice
 
-          Freelex::Sign.fetch_by_id_via_cache(sign_id)
-          Freelex::Sign.fetch_by_id_via_cache(sign_id)
+          Freelex::Sign.find(sign_id)
+          Freelex::Sign.find(sign_id)
         end
       end
     end

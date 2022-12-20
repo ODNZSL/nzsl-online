@@ -2,13 +2,13 @@
   .topic-container.medium-11.medium-centered
     = render partial: 'pages/content'
     %ol
-      - Freelex::SignMenu.topic_tags.each do |topic|
+      - SignMenu.resolve.topic_tags.each do |topic|
         %li.topic-li-style.small-12
           = link_to topic[0], search_signs_path(tag: topic[1])
     %h2
       Usage Status
     .usage-tags
       %ol
-        - Freelex::SignMenu.usage_tags.each do |u|
+        - SignMenu.resolve.usage_tags.each do |u|
           %li.topic-li-style
             = link_to u[0], search_signs_path(usage: u[1])
