@@ -29,7 +29,6 @@ module Freelex
         request.params[:q] = CGI.escape(@search_term)
       end
 
-      # rubocop:disable Style/AsciiComments
       #
       # The response from the autocomplete service sets the HTTP header:
       #

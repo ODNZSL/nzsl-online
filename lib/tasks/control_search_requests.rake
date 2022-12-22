@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-namespace :db do
-  MAX_REQUESTS = 1000
-  STORAGE_DAYS = 10
+MAX_REQUESTS = 1000
+STORAGE_DAYS = 10
 
+namespace :db do
   desc 'Limits the requests in the database to the most recent and limit the total number'
   task manage_requests: :environment do
     total_destroyed = 0

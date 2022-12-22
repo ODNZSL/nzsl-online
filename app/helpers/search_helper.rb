@@ -82,7 +82,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
 
   def tab_class(*classes)
     selected = tab_selected?(classes) if params[:tab].blank?
-    # note: comparing as a string, to avoid a DOS ruby bug
+    # NOTE: comparing as a string, to avoid a DOS ruby bug
     #   # see http://brakemanscanner.org/docs/warning_types/denial_of_service/
     selected = true if classes.map(&:to_s).include?(params[:tab])
 
