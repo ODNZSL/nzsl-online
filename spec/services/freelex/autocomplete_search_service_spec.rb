@@ -6,7 +6,7 @@ RSpec.describe Freelex::AutocompleteSearchService do
   describe '#find_suggestions' do
     context 'When the external services behaves as expected' do
       subject do
-        described_class.new(search_term: search_term, faraday_connection: stubbed_faraday_connection)
+        described_class.new(search_term:, faraday_connection: stubbed_faraday_connection)
       end
 
       let(:search_term) { 'Anything' }
@@ -30,9 +30,9 @@ RSpec.describe Freelex::AutocompleteSearchService do
 
     context 'When there is an error communicating with the external search service' do
       subject do
-        described_class.new(search_term: search_term,
+        described_class.new(search_term:,
                             faraday_connection: stubbed_faraday_connection,
-                            logger: logger)
+                            logger:)
       end
 
       let(:search_term) { 'Anything' }

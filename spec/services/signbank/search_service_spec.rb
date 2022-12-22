@@ -105,7 +105,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     unmatched_sign = make_sign(usage: 'informal')
     relation = Signbank::Sign.where(id: [sign, unmatched_sign].map(&:id))
 
-    expect(described_class.new({ usage: ['archaic'] }, relation: relation).results).to eq [sign]
+    expect(described_class.new({ usage: ['archaic'] }, relation:).results).to eq [sign]
   end
 
   it 'searches by topic' do

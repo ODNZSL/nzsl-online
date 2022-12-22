@@ -3,7 +3,7 @@
 require 'rails_helper'
 
 RSpec.describe TempDirJanitorService do
-  subject { described_class.new(tmp_dir_path: tmp_dir_path) }
+  subject { described_class.new(tmp_dir_path:) }
 
   let(:keepable_file) { 'keep-me.txt' }
   let(:removable_file) { 'remove-me.txt' }

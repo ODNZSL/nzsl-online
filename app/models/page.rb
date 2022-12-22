@@ -35,7 +35,7 @@ class Page < ApplicationRecord
   def self.find_by_slug(slug)
     return find_by(slug: '/') if slug.blank?
 
-    find_by(slug: slug)
+    find_by(slug:)
   end
 
   ##
@@ -55,16 +55,16 @@ class Page < ApplicationRecord
   def self.create_from_csv!(row)
     id, title, slug, label, order, template, show_in_nav, created_at, updated_at = row
 
-    page = Page.where(id: id).first_or_initialize
+    page = Page.where(id:).first_or_initialize
     page.update!(
-      title: title,
-      slug: slug,
-      label: label,
-      order: order,
-      template: template,
-      show_in_nav: show_in_nav,
-      updated_at: updated_at,
-      created_at: created_at
+      title:,
+      slug:,
+      label:,
+      order:,
+      template:,
+      show_in_nav:,
+      updated_at:,
+      created_at:
     )
     page
   end

@@ -18,15 +18,15 @@ class PagePart < ApplicationRecord
   def self.create_from_csv!(row)
     id, title, order, body, translation_path, page_id, created_at, updated_at = row
 
-    page_part = PagePart.where(id: id).first_or_initialize
+    page_part = PagePart.where(id:).first_or_initialize
     page_part.update!(
-      title: title,
-      order: order,
-      body: body,
-      translation_path: translation_path,
-      page_id: page_id,
-      created_at: created_at,
-      updated_at: updated_at
+      title:,
+      order:,
+      body:,
+      translation_path:,
+      page_id:,
+      created_at:,
+      updated_at:
     )
     page_part
   end

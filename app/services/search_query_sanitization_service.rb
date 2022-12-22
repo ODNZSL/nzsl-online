@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
 class SearchQuerySanitizationService
-  ANYTHING_EXCEPT_NUMBERS_PERIOD_REGEX = /[^[[:digit:]].]+/.freeze
-  ANYTHING_EXCEPT_NUMBERS_REGEX = /[^[[:digit:]]]+/.freeze
-  ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX = /[^[[:alnum:]]āēīōūĀĒĪŌŪ\-,() ']+/.freeze
+  ANYTHING_EXCEPT_NUMBERS_PERIOD_REGEX = /[^[[:digit:]].]+/
+  ANYTHING_EXCEPT_NUMBERS_REGEX = /[^[[:digit:]]]+/
+  ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX = /[^[[:alnum:]]āēīōūĀĒĪŌŪ\-,() ']+/
 
   MAX_QUERY_TERM_LENGTH = 50 # characters
   DELIMITER = ';;'
