@@ -5,6 +5,12 @@ require:
   - rubocop-rails
   - rubocop-performance
 
+AllCops:
+  Exclude:
+    - 'vendor/**/*'
+    - 'node_modules/**/*'
+    - 'db/schema.rb'
+
 Rails/WhereNot:
   Enabled: true
 
@@ -150,13 +156,6 @@ Naming/FileName:
   Exclude:
     - Gemfile
     - Gemfile.lock
-
-AllCops:
-  TargetRubyVersion: 2.6
-  Exclude:
-    - 'vendor/**/*'
-    - 'node_modules/**/*'
-    - 'db/schema.rb'
 
 Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
