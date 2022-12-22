@@ -152,31 +152,31 @@ RSpec.describe 'Page', type: :model do
   end
 
   describe '#multiple_page_parts?' do
-    let(:page_part1) { PagePart.new(title: 'part of a page') }
-    let(:page_part2) { PagePart.new(title: 'other part of a page') }
+    let(:page_part_1) { PagePart.new(title: 'part of a page') }
+    let(:page_part_2) { PagePart.new(title: 'other part of a page') }
 
     it 'determines the page does not have multiple parts' do
       expect(subject.multiple_page_parts?).to eq(false)
     end
 
     it 'determines the page has multiple parts' do
-      page.page_parts = [page_part1, page_part2]
+      page.page_parts = [page_part_1, page_part_2]
       subject.save!
       expect(subject.multiple_page_parts?).to eq(true)
     end
   end
 
   describe '#first_part' do
-    let(:page_part1) { PagePart.new(title: 'part of a page') }
-    let(:page_part2) { PagePart.new(title: 'other part of a page') }
+    let(:page_part_1) { PagePart.new(title: 'part of a page') }
+    let(:page_part_2) { PagePart.new(title: 'other part of a page') }
 
     before do
-      page.page_parts = [page_part1, page_part2]
+      page.page_parts = [page_part_1, page_part_2]
     end
 
     it 'determines the first part of the page' do
       subject.save!
-      expect(subject.first_part).to eq(page_part1)
+      expect(subject.first_part).to eq(page_part_1)
     end
   end
 end

@@ -23,7 +23,7 @@ class Page < ApplicationRecord
   def self.templates
     # apparently this needs to be defined before the validation
     path = Rails.root.join('app', 'views', 'pages')
-    Dir.glob(path.join('[^_]*.html.haml')).map { |t| t[(path.to_s.length + 1)..-11] }.sort
+    Dir.glob(path.join('[^_]*.html.haml')).pluck((path.to_s.length + 1)..-11).sort
   end
 
   validates :template, presence: true, inclusion: { in: Page.templates }

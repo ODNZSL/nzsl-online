@@ -19,8 +19,8 @@ RSpec.describe TempDirJanitorService do
           #
           # Rubocop thinks that 1.1.hours.ago returns an instance of Date but
           # it returns an instance of ActiveSupport::TimeWithZone
-          FileUtils.touch(removable_file, mtime: 1.1.hours.ago.to_time) # rubocop:disable Rails/Date
-          FileUtils.touch(keepable_file, mtime: 0.9.hours.ago.to_time) # rubocop:disable Rails/Date
+          FileUtils.touch(removable_file, mtime: 1.1.hours.ago.to_time)
+          FileUtils.touch(keepable_file, mtime: 0.9.hours.ago.to_time)
         end
 
         # when
