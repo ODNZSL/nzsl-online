@@ -11,7 +11,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     signs << minor_gloss = make_sign(minor_normalized: 'Test gloss')
     signs << minor_partial_gloss = make_sign(minor_normalized: 'Partial gloss')
     relation = Signbank::Sign.where(id: signs.map(&:id))
-    results = described_class.new(s: %w[gloss], relation: relation).results
+    results = described_class.new({ s: %w[gloss] }, relation:).results
 
     expect(results.count).to eq 6
     expect(results).to eq [
@@ -27,9 +27,9 @@ RSpec.describe Signbank::SignSearchService, type: :service do
   it 'only matches terms on whole words' do
     sign = make_sign(gloss_normalized: 'Testword')
     relation = Signbank::Sign.where(id: sign.id)
-    expect(described_class.new(s: %w[Testw], relation: relation).results.count).to eq 0
-    expect(described_class.new(s: %w[Testwordz], relation: relation).results.count).to eq 0
-    expect(described_class.new(s: %w[Testword], relation: relation).results.count).to eq 1
+    expect(described_class.new({ s: %w[Testw] }, relation:).results.count).to eq 0
+    expect(described_class.new({ s: %w[Testwordz] }, relation:).results.count).to eq 0
+    expect(described_class.new({ s: %w[Testword] }, relation:).results.count).to eq 1
   end
 
   it 'searches by multiple OR handshapes' do
@@ -47,7 +47,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     }
 
     searches.each do |query, expected_results|
-      expect(described_class.new(query, relation: relation).results).to eq expected_results
+      expect(described_class.new(query, relation:).results).to eq expected_results
     end
   end
 
@@ -65,7 +65,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     }
 
     searches.each do |query, expected_results|
-      expect(described_class.new(query, relation: relation).results).to eq expected_results
+      expect(described_class.new(query, relation:).results).to eq expected_results
     end
   end
 
@@ -83,7 +83,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     }
 
     searches.each do |query, expected_results|
-      expect(described_class.new(query, relation: relation).results).to eq expected_results
+      expect(described_class.new(query, relation:).results).to eq expected_results
     end
   end
 
@@ -97,7 +97,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
 
     query = { lg: %w[3 4], l: %w[16] }
     expected_results = [location_match_1, location_match_2, location_match_3]
-    expect(described_class.new(query, relation: relation).results).to eq expected_results
+    expect(described_class.new(query, relation:).results).to eq expected_results
   end
 
   it 'searches by usage' do
@@ -115,7 +115,7 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     unmatched_sign = make_sign(topics: [another_topic])
     relation = Signbank::Sign.where(id: [sign, unmatched_sign].map(&:id))
 
-    expect(described_class.new({ tag: [topic.name] }, relation: relation).results).to eq [sign]
+    expect(described_class.new({ tag: [topic.name] }, relation:).results).to eq [sign]
   end
 
   private
