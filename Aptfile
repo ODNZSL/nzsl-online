@@ -1,0 +1,5 @@
+# This application pulls dictionary data from a static, readonly SQLite database
+# located at db/dictionary.sqlite3. Heroku doesn't include SQLite3, so we must install
+# the dev packages required to install the sqlite3 gem with native extensions:
+libsqlite3-dev
+libsqlite3-0
