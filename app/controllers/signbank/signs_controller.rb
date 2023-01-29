@@ -17,7 +17,7 @@ module Signbank
 
     def autocomplete
       term = SearchQuerySanitizationService.new.sanitize_for_autocomplete_search(permitted_params[:term])
-      search = SignSearchService.new(s: [term])
+      search = SignSearchService.new({ s: [term] })
       return head(:ok) if term.blank?
 
       render json: search.results.limit(AUTOCOMPLETE_LIMIT).pluck(:gloss)

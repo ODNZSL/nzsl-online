@@ -9,7 +9,7 @@ module Signbank
         sign = Sign.create!(id: SecureRandom.uuid)
 
         expect do
-          Asset.create!(sign: sign, filename: 'test.png', url: '/test.png')
+          Asset.create!(sign:, filename: 'test.png', url: '/test.png')
           sign.reload
         end.to change(sign, :picture_url).from(nil).to('/test.png')
       end
@@ -69,7 +69,7 @@ module Signbank
           Signbank::Topic.find_by!(name: 'Sex and sexuality'),
           Signbank::Topic.find_by!(name: 'Animals')
         ]
-        sign = Signbank::Sign.create!(id: SecureRandom.uuid, topics: topics)
+        sign = Signbank::Sign.create!(id: SecureRandom.uuid, topics:)
         expect(described_class.safe_for_work).not_to include sign
       end
 
