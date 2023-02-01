@@ -12,15 +12,17 @@
       .sign_attributes
         = handshape_image @sign.handshape
         = location_image @sign.location
-      = image_tag @sign.picture_url, class: "main-image"
+      - # We still render an image tag in this case to not break the layout
+      = image_tag @sign.picture_url || "", class: "main-image"
       .glosses-container.glosses
         %h2.main_gloss= @sign.gloss_main
         %h2.main_gloss.maori-gloss= @sign.gloss_maori
       .buttons-container
-        = link_to @sign.picture_url, { class: "download-link", "data-sign-id": @sign.id } do
-          %span
-            = image_tag "ui/download-button.svg", class: "card__button download-button"
-          %span.buttons-action  Download Drawing
+        - if @sign.picture_url
+          = link_to @sign.picture_url, { class: "download-link", "data-sign-id": @sign.id } do
+            %span
+              = image_tag "ui/download-button.svg", class: "card__button download-button"
+            %span.buttons-action  Download Drawing
         = link_to "#", { class: "card__button add-to-vocab-btn sign__button--peach", "data-sign-id": @sign.id } do
           %span.icon-container.add-button-icon
             %i.fi-plus

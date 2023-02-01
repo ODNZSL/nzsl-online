@@ -27,9 +27,10 @@
               .word_gloss.small-12.text-left
                 = sign.word_classes if sign.word_classes.present?
       .card__bottom-row
-        .card__sign-container
-          = link_to sign_url(sign.id), { class: 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent','Search','Click','#{query_text}-#{sign.id}',#{@signs.find_index(sign) + 1}]);" } do
-            = image_tag sign.picture_url, { class: 'card__drawing-image' }
+        - if sign.picture_url
+          .card__sign-container
+            = link_to sign_url(sign.id), { class: 'drawing grid_drawing js-ga-link-submission', onclick: "_gaq.push(['_trackEvent','Search','Click','#{query_text}-#{sign.id}',#{@signs.find_index(sign) + 1}]);" } do
+              = image_tag sign.picture_url, { class: 'card__drawing-image' }
         .card__button-container
           = link_to sign_url(sign.id), { class: "card__button" } do
             %span.card__button-symbol.card__button-symbol--blue →
