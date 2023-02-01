@@ -74,6 +74,19 @@ RSpec.describe 'Signbank: Sign features', type: :system, sign_model_adapter: :si
     expect(page).to have_selector '.secondary_gloss', text: sign.minor
     expect(page).to have_selector '.maori-gloss', text: sign.maori
     expect(page).to have_selector 'video.main_video'
+    expect(page).to have_link 'Download Drawing'
+    expect(page).to have_link 'Add to Vocab Sheet'
+  end
+
+  it 'can view a sign when the sign is missing a drawing' do
+    sign = Signbank::Sign.find('1301').dup
+    sign.id = SecureRandom.uuid # New ID, no picture
+    sign.save!
+    visit sign_path(sign)
+    expect(page).to have_selector '.main_gloss', text: sign.gloss
+    expect(page).not_to have_link 'Download drawing'
+    expect(page).to have_link 'Add to Vocab Sheet'
+    expect(page).to have_selector "img.main-image[src='']"
   end
 
   it "can see a 'sign of the day'" do
