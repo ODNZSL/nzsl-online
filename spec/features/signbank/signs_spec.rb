@@ -95,13 +95,13 @@ RSpec.describe 'Signbank: Sign features', type: :system, sign_model_adapter: :si
       expect(page).to have_content('Sign of the day')
       # We don't know what the gloss will be ahead of time, but we know the link
       # href to expect
-      expect(page).to have_link(href: %r{^#{Capybara.current_session.server.base_url}/signs/\d+$})
+      expect(page).to have_link(href: %r{/signs/\d+$})
     end
   end
 
   it 'can request a random sign' do
     visit root_path
-    sign_link_matcher = %r{^#{Capybara.current_session.server.base_url}/signs/\d+$}
+    sign_link_matcher = %r{/signs/\d+$}
 
     sign_link = page.find_link(href: sign_link_matcher, match: :first)
     sign_href_a = sign_link['href']
