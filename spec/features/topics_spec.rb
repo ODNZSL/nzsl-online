@@ -2,13 +2,8 @@
 
 require 'rails_helper'
 
-describe 'Topics', js: true do
-  let(:sign_id) { '1301' }
-
-  before do
-    SeedDataService.load_all
-    allow(SignModel.resolve).to receive(:random).and_return SignModel.resolve.find(sign_id)
-  end
+describe 'Topics', js: true, sign_model_adapter: :signbank do
+  before { SeedDataService.load_all }
 
   describe 'Actions and Activities' do
     it 'works' do
