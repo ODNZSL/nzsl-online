@@ -92,6 +92,10 @@ module Freelex
         end
       end
 
+      def where(id:)
+        id.map { |record_id| find(record_id) }.compact
+      end
+
       # @return [Sign] if we successfully found a sign
       # @return [nil] if we did not find a sign
       def random
