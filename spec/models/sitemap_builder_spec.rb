@@ -7,7 +7,7 @@ RSpec.describe 'SitemapBuilder', type: :model do
 
   before do
     signs = (1..3).map do |i|
-      sign = SignModel.resolve.new
+      sign = Signbank::Sign.new
       sign.id = i
       sign
     end

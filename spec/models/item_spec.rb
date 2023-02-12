@@ -12,13 +12,13 @@ RSpec.describe Item, type: :model do
   subject { described_class.new('sign_id' => sign_id) }
 
   before do
-    allow(SignModel.resolve).to receive(:find).and_return(sign)
+    allow(Signbank::Sign).to receive(:find).and_return(sign)
   end
 
   describe '.new' do
-    context 'using a stubbed call to Freelex' do
+    context 'using a stubbed call to Signbank' do
       before do
-        allow(SignModel.resolve).to receive(:find).and_return(sign)
+        allow(Signbank::Sign).to receive(:find).and_return(sign)
       end
 
       it 'initializes successfully given just a sign_id' do
@@ -50,9 +50,9 @@ RSpec.describe Item, type: :model do
   end
 
   describe '#to_param' do
-    context 'using a stubbed call to Freelex' do
+    context 'using a stubbed call to Signbank' do
       before do
-        allow(SignModel.resolve).to receive(:first).and_return(sign)
+        allow(Signbank::Sign).to receive(:first).and_return(sign)
       end
 
       it 'returns the sign_id' do

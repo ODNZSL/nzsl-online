@@ -10,17 +10,16 @@
 
 ## Website and Apps
 
-In 2013 <a href="https://www.ackama.com/" target="_blank">Ackama</a> took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including <a href="https://dave.moskovitz.co.nz" target="_blank">Dave Moskovitz</a>, the creator of the ‘Freelex’ database that provides the back-end for the website, and
+In 2013 <a href="https://www.ackama.com/" target="_blank">Ackama</a> took over responsibility for the website and both the iOS and Android apps, which were originally built by an independent developer. As well as maintenance and open sourcing, both the website and the apps required considerable updating and redesign. We worked closely with the language experts at DSRU and with other developers including <a href="https://dave.moskovitz.co.nz" target="_blank">Dave Moskovitz</a>, the creator of the ‘Freelex’ database that originally provided the back-end for the website, and
 <a href="https://hewgill.com" target="_blank">Greg Hewgill</a>, the developer of the original mobile app. Although much of this work was funded through grants obtained by the DSRU from the <a href="https://www.odi.govt.nz/nzsl/nzsl-fund/" target="_blank">NZSL Fund</a> and other sources, Ackama has also sponsored and funded time on the project and Ackama staff have also volunteered their own investment time to contribute to the project.
 
 Together with the DSRU, Ackama went on a journey from using open source technology for reasons of price and flexibility to building an entirely open source ecosystem whereby the website, apps, data and scripts are all open source technical components which work together to provide the NZSL dictionary. The community has access to all of these components and can improve upon them or add new features. By open sourcing the NZSL dictionary we encourage the wider community to be involved in making NZSL more accessible. We are also enabling international reuse of the codebase for other countries to have a technical head start in creating their own online sign language dictionary.
 
 In May 2018 the NZSL Android app got up to the number 6 ranking in the worldwide category “Top Free in Books and Reference” apps on Google Play.
 
-New Zealand Sign Language Dictionary consists of 3 major units
+New Zealand Sign Language Dictionary consists of 2 major units
 * Ruby on Rails Website (this repo)
 * Mobile apps (transfer of ownership currently in motion)
-* Freelex, an open source project for maintaining the signs lexicon data.
 
 ![Build Status](https://github.com/ODNZSL/nzsl-online/workflows/CI/badge.svg)
 

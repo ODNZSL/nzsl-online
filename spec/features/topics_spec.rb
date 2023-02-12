@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-describe 'Topics', js: true, sign_model_adapter: :signbank do
+describe 'Topics', js: true do
   before { SeedDataService.load_all }
 
   describe 'Actions and Activities' do

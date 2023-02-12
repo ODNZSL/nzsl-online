@@ -24,7 +24,7 @@ class SitemapBuilder
   private
 
   def fetch_all_signs
-    SignModel.resolve.all(xmldump: 1)
+    Signbank::Sign.all(xmldump: 1)
   end
 
   def page_slugs

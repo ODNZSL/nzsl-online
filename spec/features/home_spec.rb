@@ -10,7 +10,7 @@ describe 'Test with visual testing', type: :feature, js: true do
 
   before do
     SeedDataService.load_all
-    allow(SignModel.resolve).to receive(:random).and_return SignModel.resolve.find(sign_id)
+    allow(Signbank::Sign).to receive(:random).and_return Signbank::Sign.find(sign_id)
   end
 
   describe 'home' do

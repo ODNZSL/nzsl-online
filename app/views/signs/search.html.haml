@@ -1,11 +1,8 @@
 = render partial: 'shared/vocab_sheet', locals: { sheet: @sheet }
 .search-result-banner.small-12.text-center
   %h2
-    - if @freelex_errored
-      Search is currently unavailable
-    - else
-      = @results_total
-      search results for #{display_search_term}
+    = @results_total
+    search results for #{display_search_term}
 .search-results__container.text-center.small-12.small-centered.medium-7.large-8.xlarge-9
   - @signs.each do |sign|
     .search-results__card

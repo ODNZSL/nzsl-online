@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'Signbank: Sign features', type: :system, sign_model_adapter: :signbank do
+RSpec.describe 'Signbank: Sign features', type: :system do
   before { Rails.application.load_seed }
 
   it 'can search for signs', js: true do
