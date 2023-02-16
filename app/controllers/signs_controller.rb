@@ -7,7 +7,7 @@ class SignsController < ApplicationController
   def search
     @query = SearchQuerySanitizationService.new.sanitize_for_standard_search(permitted_params)
     @page_number = permitted_params.fetch(:p, 1).to_i
-    @signs = Signbank::SignSearchService.new(@query).results.page(@page_number)
+    @signs = SignSearchService.new(@query).results.page(@page_number)
     @results_total = @signs.total_entries
     @pagination = SignPaginationService.new(current_page_number: @page_number,
                                             total_num_results: @results_total,
@@ -16,7 +16,7 @@ class SignsController < ApplicationController
 
   def autocomplete
     term = SearchQuerySanitizationService.new.sanitize_for_autocomplete_search(permitted_params[:term])
-    search = Signbank::SignSearchService.new({ s: [term] })
+    search = SignSearchService.new({ s: [term] })
     return head(:ok) if term.blank?
 
     render json: search.results.limit(AUTOCOMPLETE_LIMIT).pluck(:gloss)
