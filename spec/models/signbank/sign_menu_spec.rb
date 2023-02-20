@@ -1,10 +1,13 @@
 require 'rails_helper'
 
 RSpec.describe Signbank::SignMenu, type: :model do
-  it 'has the same menu collections as Freelex::SignMenu' do
-    expect(Signbank::SignMenu.locations).to eq Freelex::SignMenu.locations
-    expect(Signbank::SignMenu.handshapes).to eq Freelex::SignMenu.handshapes
-    expect(Signbank::SignMenu.location_groups).to eq Freelex::SignMenu.location_groups
+  it 'must not throw errors' do
+    # call the classmethods
+    Signbank::SignMenu.usage_tags
+    Signbank::SignMenu.topic_tags
+    Signbank::SignMenu.locations
+    Signbank::SignMenu.location_groups
+    # TODO: check returned result
   end
 
   describe '.topic_tags' do

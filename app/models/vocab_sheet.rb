@@ -57,7 +57,7 @@ class VocabSheet < ApplicationRecord
 
     # It is common for controllers/views to call this method repeatedly in
     # generating the response to a single request. Creating new Item objects is
-    # expensive because it involves a request to Freelex to fill in all the
+    # expensive because it involves a request to Signbank to fill in all the
     # attributes. For these reasons, we cache the items created. The cache is
     # used within a single request.
     @cached_items = raw_item_attrs.map { |item_attrs| Item.new(item_attrs) } if raw_item_attrs_changed? || @cached_items.nil?

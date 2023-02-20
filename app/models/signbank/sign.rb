@@ -35,14 +35,6 @@ module Signbank
       has_one :picture, -> { image }, class_name: :"Signbank::Asset"
     end
 
-    ##
-    # This method exists for API compatibility for existing code.
-    # Once Freelex no longer needs to be supported, we should get rid of
-    # this method, and use Signbank::SignOfTheDay directly
-    def self.sign_of_the_day
-      SignOfTheDay.find
-    end
-
     def self.random
       safe_for_work.order('RANDOM()').first
     end

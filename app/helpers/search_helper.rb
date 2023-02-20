@@ -116,7 +116,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
 
   def display_locations_search_term(simple = false)
     # reduce the list to the selected, turn them all into images.
-    locations = SignMenu.resolve.locations.flatten.select do |location|
+    locations = Signbank::SignMenu.locations.flatten.select do |location|
       location_selected?(location)
     end
     return if @query[:l].blank?
@@ -134,7 +134,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
   end
 
   def display_handshapes_search_term(simple = false)
-    selected = ::SignMenu.resolve.handshapes.flatten.flatten.select do |hand_shape|
+    selected = Signbank::SignMenu.handshapes.flatten.flatten.select do |hand_shape|
       handshape_selected?(hand_shape)
     end
     return if @query[:hs].blank?
@@ -151,7 +151,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
   end
 
   def display_location_groups_search_term(simple = false)
-    locations = ::SignMenu.resolve.location_groups.select do |location_group|
+    locations = Signbank::SignMenu.location_groups.select do |location_group|
       location_group_selected?(location_group)
     end
     return if @query[:lg].blank?
@@ -172,13 +172,13 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
     return if @query[:usage].blank?
 
     # reduce the list to the selected
-    h ::SignMenu.resolve.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ')
+    h Signbank::SignMenu.usage_tags.select { |u| @query[:usage].include?(u.last.to_s) }.map(&:first).join(' ')
   end
 
   def display_topic_tag_search_term
     return if @query[:tag].blank?
 
-    h ::SignMenu.resolve.topic_tags.select { |u| @query[:tag].first.include?(u.last.to_s) }.map(&:first).join(' ')
+    h Signbank::SignMenu.topic_tags.select { |u| @query[:tag].first.include?(u.last.to_s) }.map(&:first).join(' ')
   end
 
   def search_term(key)

@@ -19,7 +19,7 @@ class Item
 
     super
 
-    sign = SignModel.resolve.find(sign_id)
+    sign = Signbank::Sign.find(sign_id)
     return if sign.nil?
 
     self.id         = sign.id          if id.nil?

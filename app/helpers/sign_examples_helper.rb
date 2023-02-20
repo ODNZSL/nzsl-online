@@ -2,7 +2,8 @@ module SignExamplesHelper
   def autolink_glosses(sentence, current_sign_id: nil)
     # Sentences have two notation styles that we handle:
     #   * Leading caret is used as an 'escape sequence'. We just strip these, they
-    #     are mostly left over from Freelex - e.g. ^hs:, ^fp:. They don't get formatted otherwise.
+    #     are mostly left over from Freelex (the old database system that is no longer used)
+    #     - e.g. ^hs:, ^fp:. They don't get formatted otherwise.
     #   * Gloss links are notated by non-numeric and non-space characters, followed by
     #     square brackets containing a numeric ID. We turn these into links, unless
     #     it's the current sign, in which case it is not linked, but we display it

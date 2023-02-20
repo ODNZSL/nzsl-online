@@ -50,6 +50,6 @@ class NumbersPage
   private
 
   def category_signs(sign_ids_in_category)
-    SignModel.resolve.where(id: sign_ids_in_category).sort_by { |sign| sign_ids_in_category.index(sign.id) }
+    Signbank::Sign.where(id: sign_ids_in_category).sort_by { |sign| sign_ids_in_category.index(sign.id) }
   end
 end
