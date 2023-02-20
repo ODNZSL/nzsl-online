@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'pages/numbers.html.haml', type: :view, sign_model_adapter: :signbank do
+RSpec.describe 'pages/numbers', type: :view, sign_model_adapter: :signbank do
   it 'renders the expected page title' do
     expect(render).to have_selector('h1', text: 'Numbers')
   end
