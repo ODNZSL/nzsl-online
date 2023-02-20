@@ -19,17 +19,11 @@ gem 'lograge', '~> 0.11.2'
 gem 'nokogiri', '~> 1.13.10'
 gem 'pandoc-ruby'
 gem 'whenever'
+gem 'sprockets-rails'
 
 gem 'autoprefixer-rails'
 
-# As of 2020-05-23, the Rails 6 compatible version of ckeditor_rails has not
-# been released to Rubygems so we are instead referencing the commit where the
-# master branch gained Rails 6 support but has the fewest other changes from
-# the released version.
-#
-# It is our intention to revert to the official Rubygems version of the gem as
-# soon as possible.
-gem 'ckeditor_rails', git: 'https://github.com/tsechingho/ckeditor-rails.git', ref: 'dc5de031b0dfde527cf5571bb87b90c59ca24ab1'
+gem 'ckeditor_rails'
 
 gem 'dalli'
 gem 'foundation-rails', '~> 6.6.2.0'
