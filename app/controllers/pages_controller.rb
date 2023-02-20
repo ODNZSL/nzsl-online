@@ -9,7 +9,7 @@ class PagesController < ApplicationController
 
     @title = @page.title
     @feedback = Feedback.new if @page.template == 'feedback'
-    @sign = SignModel.resolve.sign_of_the_day
+    @sign = Signbank::SignOfTheDay.find
 
     render template: "pages/#{@page.template}"
   end
@@ -17,7 +17,7 @@ class PagesController < ApplicationController
   def random_sign
     @page = Page.find_by(slug: '/')
     @title = @page.title
-    @sign = SignModel.resolve.random
+    @sign = Signbank::Sign.random
 
     render template: "pages/#{@page.template}"
   end

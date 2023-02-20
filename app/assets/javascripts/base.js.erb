@@ -62,13 +62,7 @@ $(function() {
         id_offset += 1;
 
         var videoElement;
-        //if (href.includes("freelex")) {
-        if (~href.indexOf("freelex")) {
-          // don't do anything special for videos from freelex
-          var sourceElement = $('<source />', {src: href});
-          videoElement  = $('<video />', {controls: "controls", preload: !hidden, loop: wrapper.data('loop')}).append(sourceElement);
-        }
-        else if (href.includes(".flv")) {
+        if (href.includes(".flv")) {
 
           // special case for flv videos
           var flvSourceElement = $('<source />', {src: href});

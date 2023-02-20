@@ -17,7 +17,7 @@ RSpec.describe VocabSheet, type: :model do
 
   describe '#add_item' do
     before do
-      allow(SignModel.resolve).to receive(:find).and_return(sign)
+      allow(Signbank::Sign).to receive(:find).and_return(sign)
     end
 
     context 'When adding a new item to the VocabSheet' do
@@ -51,7 +51,7 @@ RSpec.describe VocabSheet, type: :model do
 
   describe '#update_item' do
     before do
-      allow(SignModel.resolve).to receive(:find).and_return(sign)
+      allow(Signbank::Sign).to receive(:find).and_return(sign)
     end
 
     context 'When there is an item in the VocabSheet' do
@@ -77,7 +77,7 @@ RSpec.describe VocabSheet, type: :model do
 
   describe '#items' do
     before do
-      allow(SignModel.resolve).to receive(:find).and_return(sign)
+      allow(Signbank::Sign).to receive(:find).and_return(sign)
     end
 
     context 'When there is an item in the VocabSheet' do
@@ -92,7 +92,7 @@ RSpec.describe VocabSheet, type: :model do
 
   describe '#destroy_items' do
     before do
-      allow(SignModel.resolve).to receive(:find).and_return(sign)
+      allow(Signbank::Sign).to receive(:find).and_return(sign)
     end
 
     context 'When there is an item in the VocabSheet' do
@@ -121,7 +121,7 @@ RSpec.describe VocabSheet, type: :model do
     let(:item_2) { Item.new('sign_id' => sign_2_id) }
 
     before do
-      allow(SignModel.resolve).to receive(:find).and_return(sign, sign_2)
+      allow(Signbank::Sign).to receive(:find).and_return(sign, sign_2)
     end
 
     context 'When there is an item in the VocabSheet' do

@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Signbank::SignSearchService, type: :service do
+RSpec.describe SignSearchService, type: :service do
   it 'searches by term' do
     signs = []
     # Deliberately out of order so we can check they are ordered by relevance
@@ -30,6 +30,26 @@ RSpec.describe Signbank::SignSearchService, type: :service do
     expect(described_class.new({ s: %w[Testw] }, relation:).results.count).to eq 0
     expect(described_class.new({ s: %w[Testwordz] }, relation:).results.count).to eq 0
     expect(described_class.new({ s: %w[Testword] }, relation:).results.count).to eq 1
+  end
+
+  it 'matches on whole words with a trailing comma' do
+    sign = make_sign(gloss_normalized: 'Hello, salute')
+    unmatched_sign = make_sign(gloss_normalized: 'Umatched')
+    relation = Signbank::Sign.where(id: [sign.id, unmatched_sign.id])
+    expect(described_class.new({ s: %w[Hello] }, relation:).results).to eq [sign]
+  end
+
+  it 'sanitizes within the glob pattern' do
+    query = { s: ['; DELETE FROM words --'] }
+    generated_sql = described_class.new(query).results.to_sql
+    expect(generated_sql).to include "'*[ ,]; DELETE FROM words --[ ,]*'"
+  end
+
+  it 'escapes glob characters within the term' do
+    query = { s: ['*'] }
+    generated_sql = described_class.new(query).results.to_sql
+    expect(generated_sql).not_to include '*[ ,]*[ ,]*' # We don't want to allow this sort of thing
+    expect(generated_sql).to include '*[ ,]\\*[ ,]*'
   end
 
   it 'searches by multiple OR handshapes' do

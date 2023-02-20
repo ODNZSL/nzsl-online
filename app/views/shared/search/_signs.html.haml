@@ -4,7 +4,7 @@
     .attribute_options.clearfix.dropdown.float-left
       .title=t('search.signs.handshapes_help');
       .close=t('search.close')
-      - SignMenu.resolve.handshapes.each do |row|
+      - Signbank::SignMenu.handshapes.each do |row|
         %ul.rows
           - row.each do |group|
             %li.group{ class: handshape_selected?(group.first) }
@@ -23,7 +23,7 @@
     .attribute_options.clearfix.dropdown.float-left
       .title= t('search.signs.locations_help')
       .close= t('search.close')
-      - SignMenu.resolve.locations.each_with_index do |row, i|
+      - Signbank::SignMenu.locations.each_with_index do |row, i|
         %ul.rows
           -row.each_with_index do |shape, j|
             - if i.zero? || j.zero?
