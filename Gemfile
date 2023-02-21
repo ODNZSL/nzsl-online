@@ -18,8 +18,8 @@ gem 'jquery-ui-rails'
 gem 'lograge', '~> 0.11.2'
 gem 'nokogiri', '~> 1.13.10'
 gem 'pandoc-ruby'
-gem 'whenever'
 gem 'sprockets-rails'
+gem 'whenever'
 
 gem 'autoprefixer-rails'
 
