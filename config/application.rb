@@ -10,7 +10,7 @@ Bundler.require(*Rails.groups)
 
 module NzslOnline
   class Application < Rails::Application
-    config.load_defaults 6.0
+    config.load_defaults 7.0
 
     config.app_domain_name = ENV['APP_DOMAIN_NAME']
     config.app_protocol = ENV['APP_PROTOCOL']
