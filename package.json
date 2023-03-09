@@ -20,7 +20,7 @@
   "homepage": "https://github.com/ODNZSL/nzsl-online#readme",
   "engines": {
     "node": "^16.0.0",
-    "yarn": ">=1.3.2"
+    "yarn": "^1.3.2"
   },
   "dependencies": {
     "puppeteer": "^2.0.0"
