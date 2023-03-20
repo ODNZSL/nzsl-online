@@ -17,7 +17,9 @@ function initializeDownloadLinks() {
     var path_parts = new URL(link.href).pathname.split('/');
     var filename = path_parts[path_parts.length - 1] || 'file';
 
-    fetch(link.href)
+    // cache: no-store is present because Chrome is not including
+    // the Origin header with the request without this set.
+    fetch(link.href, {cache: 'no-store'})
         .then(function(response) {
           return response.blob();
         })
