@@ -1,7 +1,7 @@
 {
   "name": "nzsl-online",
   "version": "1.0.0",
-  "description": "New Zealand Sign Language Dictionary consists of 2 major units * Ruby on Rails Website (this repo) * Freelex, and open source project for maintaining the signs lexicon data.",
+  "description": "The Ruby on Rails website for the New Zealand Sign Language Dictionary.",
   "main": "index.js",
   "directories": {
     "doc": "doc"
@@ -20,7 +20,7 @@
   "homepage": "https://github.com/ODNZSL/nzsl-online#readme",
   "engines": {
     "node": "^16.0.0",
-    "yarn": ">=1.3.2"
+    "yarn": "^1.3.2"
   },
   "dependencies": {
     "puppeteer": "^2.0.0"

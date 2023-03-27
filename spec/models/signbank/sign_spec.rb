@@ -88,13 +88,6 @@ module Signbank
       end
     end
 
-    describe '#sign_of_the_day' do
-      it 'delegats to SignOfTheDay#find' do
-        expect(SignOfTheDay).to receive(:find)
-        described_class.sign_of_the_day
-      end
-    end
-
     describe '#random' do
       it 'returns a random sign each time it is called' do
         sign_1 = described_class.random

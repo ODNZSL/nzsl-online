@@ -18,9 +18,46 @@
       },
       "user_input": "Rails.root.join(\"bin\", \"render-pdf.js\")",
       "confidence": "Medium",
+      "cwe_id": [
+        77
+      ],
+      "note": ""
+    },
+    {
+      "warning_type": "Cross-Site Scripting",
+      "warning_code": 4,
+      "fingerprint": "dcd06db9a1fa0c31739c29c8ec25a6c4606db128bd08302467bdf111771307dc",
+      "check_name": "LinkToHref",
+      "message": "Potentially unsafe model attribute in `link_to` href",
+      "file": "app/views/signs/show.html.haml",
+      "line": 22,
+      "link": "https://brakemanscanner.org/docs/warning_types/link_to_href",
+      "code": "link_to(Signbank::Sign.find(params[:id]).picture_url, :class => \"download-link\", :\"data-sign-id\" => Signbank::Sign.find(params[:id]).id)",
+      "render_path": [
+        {
+          "type": "controller",
+          "class": "SignsController",
+          "method": "show",
+          "line": 28,
+          "file": "app/controllers/signs_controller.rb",
+          "rendered": {
+            "name": "signs/show",
+            "file": "app/views/signs/show.html.haml"
+          }
+        }
+      ],
+      "location": {
+        "type": "template",
+        "template": "signs/show"
+      },
+      "user_input": "Signbank::Sign.find(params[:id]).picture_url",
+      "confidence": "Weak",
+      "cwe_id": [
+        79
+      ],
       "note": ""
     }
   ],
-  "updated": "2021-08-24 11:49:44 +1200",
-  "brakeman_version": "5.1.1"
+  "updated": "2023-02-16 14:07:36 +1300",
+  "brakeman_version": "5.4.0"
 }

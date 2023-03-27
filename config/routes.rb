@@ -20,14 +20,13 @@ NzslOnline::Application.routes.draw do
       end
     end
     resource :settings, except: %i[destroy create new]
-    resources :requests, only: [:index]
   end
 
   get '/admin', to: redirect('/admin/pages')
 
   root to: 'pages#show'
 
-  resources :signs, only: :show, module: SignModel.adapter.to_sym do
+  resources :signs, only: :show do
     collection do
       get 'search'
       get 'autocomplete'

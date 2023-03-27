@@ -14,6 +14,7 @@ RSpec.describe Signbank::Example, type: :model do
     it 'excludes an example without a video' do
       sign = Signbank::Sign.create!(id: SecureRandom.uuid)
       Signbank::Example.create!(sign:)
+      sign.reload
       expect(sign.examples).to be_empty
     end
   end

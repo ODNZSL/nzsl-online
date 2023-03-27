@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe Signbank::SignsController, type: :controller, sign_model_adapter: :signbank do
+RSpec.describe SignsController, type: :controller do
   describe '/' do
     before { Rails.application.load_seed }
     render_views
