@@ -136,6 +136,6 @@ class SignSearchService
     @relation = location_search(@relation)
     @relation = order_results(@relation)
 
-    @relation
+    @relation.group(:first,:id)
   end
 end
