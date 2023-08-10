@@ -405,10 +405,6 @@ GEM
     videojs_rails (4.12.15)
     warden (1.2.9)
       rack (>= 2.0.9)
-    webdrivers (4.6.0)
-      nokogiri (~> 1.6)
-      rubyzip (>= 1.3.0)
-      selenium-webdriver (>= 3.0, < 4.0)
     websocket-driver (0.7.5)
       websocket-extensions (>= 0.1.0)
     websocket-extensions (0.1.5)
@@ -472,13 +468,13 @@ DEPENDENCIES
   rubocop-performance
   rubocop-rails
   sassc-rails
+  selenium-webdriver
   simplecov
   skylight
   sprockets-rails
   sqlite3
   uglifier
   videojs_rails
-  webdrivers
   whenever
   will_paginate
 
@@ -486,4 +482,4 @@ RUBY VERSION
    ruby 3.1.3p185
 
 BUNDLED WITH
-   2.4.5
+   2.4.3
