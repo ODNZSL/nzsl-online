@@ -112,5 +112,5 @@ group :test do
   gem 'database_cleaner'
   gem 'percy-capybara', '~> 4.3.2'
   gem 'rails-controller-testing'
-  gem 'webdrivers'
+  gem 'selenium-webdriver'
 end
