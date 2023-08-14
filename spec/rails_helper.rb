@@ -12,8 +12,6 @@ require 'selenium/webdriver'
 require 'capybara-screenshot/rspec'
 require 'percy'
 
-require 'webdrivers'
-
 Capybara.default_driver = :selenium_chrome_headless
 Capybara.javascript_driver = :selenium_chrome_headless
 Capybara.default_max_wait_time = 5.seconds
