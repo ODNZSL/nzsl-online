@@ -4,9 +4,7 @@
 
 //= require jquery
 //= require jquery_ujs
-//= require jquery-ui/widgets/autocomplete
-//= require jquery-ui/widgets/sortable
-//= require jquery-ui/widgets/menu
+//= require jquery-ui/dist/jquery-ui.js
 
 //= require modernizr
 //= require foundation
