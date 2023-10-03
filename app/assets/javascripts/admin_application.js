@@ -5,7 +5,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require ckeditor-jquery
-//= require jquery-ui/ui/core.js
+//= require jquery-ui/dist/jquery-ui.js
 //= require modernizr
 //= require foundation
 
