@@ -11,7 +11,7 @@ module Signbank
     def url
       return unless super
 
-      AssetURL.new(super).url
+      AssetURL.new(super).url.to_s
     end
   end
 end
