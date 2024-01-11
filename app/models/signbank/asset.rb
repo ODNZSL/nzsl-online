@@ -7,5 +7,11 @@ module Signbank
     default_scope -> { order(display_order: :asc) }
 
     scope :image, -> { where("filename LIKE '%.png'") }
+
+    def url
+      return unless super
+
+      AssetURL.new(super).url
+    end
   end
 end
