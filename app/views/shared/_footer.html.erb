@@ -46,17 +46,21 @@
   </div>
   <div class="copyright">
     <div class="small-10 small-centered medium-8 large-6">
-      <% if @footer && @footer.first_part %>
-        <%= link_to((image_tag "https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"), "https://creativecommons.org/licenses/by-nc-sa/3.0", target:"_blank" ) %>
-        <div class="footer-link">
-          NZSL Dictionary by
-          <%= link_to "Deaf Studies Research Unit, Victoria University of Wellington", "https://www.victoria.ac.nz/lals/research/projects/dsru.aspx", target: "_blank" %>
-          is licensed under a
-          <%= link_to "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.","https://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" %>
-          <br/>
-          <%= link_to 'View in NZSL', @footer.path %>
-        </div>
-      <% end %>
+      <%= link_to((image_tag "https://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"), "https://creativecommons.org/licenses/by-nc-sa/3.0", target:"_blank" ) %>
+      <div class="footer-link">
+        NZSL Dictionary by
+        <%= link_to "Deaf Studies Research Unit, Victoria University of Wellington", "https://www.victoria.ac.nz/lals/research/projects/dsru.aspx", target: "_blank" %>
+        is licensed under a
+        <%= link_to "Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License.","https://creativecommons.org/licenses/by-nc-sa/4.0/", target: "_blank" %>
+
+          <% if (version = Signbank::Record.database_version) %>
+          <br />
+          Database version <%= version %>.
+        <% end %>
+
+        <br/>
+        <%= link_to 'View in NZSL', @footer.path if @footer && @footer.first_part %>
+      </div>
     </div>
   </div>
 </footer>

@@ -6,6 +6,10 @@ module Signbank
     # to create test records
     after_initialize { readonly! unless Rails.env.test? }
 
+    def self.database_version
+      connection.execute('PRAGMA user_version').first['user_version']
+    end
+
     ##
     # Useful for testing - related Signbank records don't have primary keys,
     # so in this case we consider them equal if they are the same type and
