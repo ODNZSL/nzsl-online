@@ -94,8 +94,10 @@ jobs:
         env:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
           DEVISE_SECRET_KEY: anything
+          AWS_REGION: ap-southeast-2
           RAILS_ENV: test
         run: |
+          cp env-example .env
           bundle exec rails db:prepare
 
       - name: Run rspec
@@ -103,7 +105,8 @@ jobs:
           DATABASE_URL: postgres://postgres:postgres@localhost:5432/nzsl_test
           DEVISE_SECRET_KEY: anything
           NZSL_ONLINE_SECRET_KEY_BASE: anything
-          APP_DOMAIN_NAME: localhost:3000
-          APP_PROTOCOL: http
+          AWS_REGION: ap-southeast-2
           S3_BUCKET_URL: http://s3-ap-southeast-2.amazonaws.com/dummy-fake/
-        run: bundle exec rspec spec
+        run: |
+          cp env-example .env
+          bundle exec rspec spec
