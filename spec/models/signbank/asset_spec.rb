@@ -17,6 +17,25 @@ RSpec.describe Signbank::Asset, type: :model do
     end
   end
 
+  describe '#url' do
+    it 'uses Signbank::AssetURL' do
+      double = instance_double(Signbank::AssetURL, url: URI.parse('/test.png'))
+      allow(Signbank::AssetURL).to receive(:new).and_return(double)
+      asset = Signbank::Asset.new(url: 'test.png')
+      expect(asset.url).to eq '/test.png'
+    end
+
+    it 'is nil when the URL is nil' do
+      asset = Signbank::Asset.new(url: nil)
+      expect(asset.url).to be_nil
+    end
+
+    it 'is nil when the URL is blank' do
+      asset = Signbank::Asset.new(url: '')
+      expect(asset.url).to be_nil
+    end
+  end
+
   describe '.scoped' do
     it 'is ordered by display_order' do
       sign = Signbank::Sign.create!(id: SecureRandom.uuid)

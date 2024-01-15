@@ -101,4 +101,23 @@ module Signbank
       end
     end
   end
+
+  describe '#url' do
+    it 'uses Signbank::AssetURL' do
+      double = instance_double(Signbank::AssetURL, url: URI.parse('/test.png'))
+      allow(Signbank::AssetURL).to receive(:new).and_return(double)
+      sign = Signbank::Sign.new(video: 'test.png')
+      expect(sign.video).to eq '/test.png'
+    end
+
+    it 'is nil when the URL is nil' do
+      sign = Signbank::Sign.new(video: nil)
+      expect(sign.video).to be_nil
+    end
+
+    it 'is nil when the URL is blank' do
+      sign = Signbank::Sign.new(video: '')
+      expect(sign.video).to be_nil
+    end
+  end
 end

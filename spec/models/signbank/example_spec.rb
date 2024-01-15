@@ -18,4 +18,23 @@ RSpec.describe Signbank::Example, type: :model do
       expect(sign.examples).to be_empty
     end
   end
+
+  describe '#video' do
+    it 'uses Signbank::AssetURL' do
+      double = instance_double(Signbank::AssetURL, url: URI.parse('/test.png'))
+      allow(Signbank::AssetURL).to receive(:new).and_return(double)
+      example = Signbank::Example.new(video: 'test.png')
+      expect(example.video).to eq '/test.png'
+    end
+
+    it 'is nil when the URL is nil' do
+      example = Signbank::Example.new(video: nil)
+      expect(example.video).to be_nil
+    end
+
+    it 'is nil when the URL is blank' do
+      example = Signbank::Example.new(video: '')
+      expect(example.video).to be_nil
+    end
+  end
 end
