@@ -31,7 +31,7 @@ RSpec.describe Signbank::Asset, type: :model do
     end
 
     it 'is nil when the URL is blank' do
-      asset = Signbank::Asset.new(url: "")
+      asset = Signbank::Asset.new(url: '')
       expect(asset.url).to be_nil
     end
   end
