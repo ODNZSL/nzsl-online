@@ -9,7 +9,7 @@ module Signbank
     scope :image, -> { where("filename LIKE '%.png'") }
 
     def url
-      return unless super
+      return unless super.presence
 
       AssetURL.new(super).url.to_s
     end

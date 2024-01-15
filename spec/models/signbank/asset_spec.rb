@@ -29,6 +29,11 @@ RSpec.describe Signbank::Asset, type: :model do
       asset = Signbank::Asset.new(url: nil)
       expect(asset.url).to be_nil
     end
+
+    it 'is nil when the URL is blank' do
+      asset = Signbank::Asset.new(url: "")
+      expect(asset.url).to be_nil
+    end
   end
 
   describe '.scoped' do

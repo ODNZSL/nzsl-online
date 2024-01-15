@@ -9,7 +9,7 @@ module Signbank
     default_scope -> { order(display_order: :asc).where.not(video: nil) }
 
     def video
-      return unless super
+      return unless super.presence
 
       AssetURL.new(super).url.to_s
     end

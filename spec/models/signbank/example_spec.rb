@@ -31,5 +31,10 @@ RSpec.describe Signbank::Example, type: :model do
       example = Signbank::Example.new(video: nil)
       expect(example.video).to be_nil
     end
+
+    it 'is nil when the URL is blank' do
+      example = Signbank::Example.new(video: "")
+      expect(example.video).to be_nil
+    end
   end
 end

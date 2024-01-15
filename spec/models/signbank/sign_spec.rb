@@ -114,5 +114,10 @@ module Signbank
       sign = Signbank::Sign.new(video: nil)
       expect(sign.video).to be_nil
     end
+
+    it 'is nil when the URL is blank' do
+      sign = Signbank::Sign.new(video: "")
+      expect(sign.video).to be_nil
+    end
   end
 end
