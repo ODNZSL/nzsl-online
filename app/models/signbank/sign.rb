@@ -43,12 +43,6 @@ module Signbank
       picture&.url
     end
 
-    def video
-      return unless super.presence
-
-      AssetURL.new(super).url.to_s
-    end
-
     ##
     # These are all aliases for the object shape that
     # existing code is expecting
