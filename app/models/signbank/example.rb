@@ -7,11 +7,5 @@ module Signbank
                       foreign_key: :word_id,
                       inverse_of: :examples
     default_scope -> { order(display_order: :asc).where.not(video: nil) }
-
-    def video
-      return unless super.presence
-
-      AssetURL.new(super).url.to_s
-    end
   end
 end
