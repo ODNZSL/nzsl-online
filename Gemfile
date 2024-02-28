@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 7.0.0'
+gem 'rails', '~> 7.0.8'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.2'
@@ -16,7 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'lograge', '~> 0.11.2'
-gem 'nokogiri', '~> 1.14.3'
+gem 'nokogiri', '~> 1.16.2'
 gem 'pandoc-ruby'
 gem 'sprockets-rails'
 gem 'whenever'
