@@ -332,8 +332,8 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.2.8)
-      strscan (>= 3.0.9)
+    rexml (3.3.2)
+      strscan
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -501,4 +501,4 @@ RUBY VERSION
    ruby 3.1.5p0
 
 BUNDLED WITH
-   2.4.3
+   2.3.27
