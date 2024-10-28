@@ -332,8 +332,7 @@ GEM
     responders (3.1.0)
       actionpack (>= 5.2)
       railties (>= 5.2)
-    rexml (3.3.6)
-      strscan
+    rexml (3.3.9)
     rspec-core (3.10.1)
       rspec-support (~> 3.10.0)
     rspec-expectations (3.10.1)
@@ -409,7 +408,6 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.5.4)
       mini_portile2 (~> 2.8.0)
-    strscan (3.1.0)
     temple (0.8.2)
     terrapin (0.6.0)
       climate_control (>= 0.0.3, < 1.0)
