@@ -3,7 +3,7 @@
 module VocabSheetHelper
   def vocab_sheet?
     return nil if @sheet.blank? # rubocop:disable Rails/HelperInstanceVariable
-    return nil if @sheet.items.length.zero? # rubocop:disable Rails/HelperInstanceVariable
+    return nil if @sheet.items.empty? # rubocop:disable Rails/HelperInstanceVariable
     return nil if params[:controller] == 'vocab_sheets'
 
     'vocab_sheet_background'
