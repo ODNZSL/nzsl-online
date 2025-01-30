@@ -115,7 +115,7 @@ class PdfRenderingService
     #
     # We add the <base ... /> tag just after <head> - it must be added before
     # any <style> or <script></script> tags.
-    @html.sub!(/#{Regexp.quote("<head>")}/, "<head>#{base_tag}")
+    @html.sub!(/#{Regexp.quote('<head>')}/, "<head>#{base_tag}")
   end
 
   def base_tag
