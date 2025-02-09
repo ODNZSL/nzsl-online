@@ -47,7 +47,7 @@ class ItemsController < ApplicationController
     @item = @sheet.destroy_item(params[:id])
 
     if @item
-      flash[:vocab_bar_notice] = if @sheet.items.length.zero?
+      flash[:vocab_bar_notice] = if @sheet.items.empty?
                                    t('vocab_sheet.delete_success')
                                  else
                                    t('vocab_sheet.item.remove_success')
