@@ -36,6 +36,7 @@ module Signbank
     end
 
     def self.random
+      binding.pry
       safe_for_work.order('RANDOM()').first
     end
 

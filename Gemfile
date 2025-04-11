@@ -3,7 +3,7 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 7.0.8'
+gem 'rails', '~> 7.2.0'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.3'
