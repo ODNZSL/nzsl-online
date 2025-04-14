@@ -1,5 +1,5 @@
 module Signbank
-  class Record < ActiveRecord::Base
+  class Record < ApplicationRecord
     self.abstract_class = true
 
     establish_connection "sqlite3://#{Rails.root.join('db', 'dictionary.sqlite3')}"
