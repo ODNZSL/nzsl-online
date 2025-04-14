@@ -1,5 +1,7 @@
 module Signbank
-  class Record < ApplicationRecord
+  class Record < ActiveRecord::Base
+    self.abstract_class = true
+
     establish_connection "sqlite3://#{Rails.root.join('db', 'dictionary.sqlite3')}"
 
     # Signbank data should never be mutated, but when we run tests we need
