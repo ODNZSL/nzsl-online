@@ -109,7 +109,7 @@ group :test do
   gem 'capybara'
   gem 'capybara-screenshot'
   gem 'capybara-selenium'
-  gem 'database_cleaner'
+  gem 'database_cleaner-active_record'
   gem 'percy-capybara', '~> 4.3.2'
   gem 'rails-controller-testing'
   gem 'selenium-webdriver'
