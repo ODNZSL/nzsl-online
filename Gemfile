@@ -16,7 +16,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'haml'
 gem 'jquery-rails'
 gem 'lograge', '~> 0.11.2'
-gem 'nokogiri', '~> 1.18.4'
+gem 'nokogiri', '~> 1.18.8'
 gem 'pandoc-ruby'
 gem 'sprockets-rails'
 gem 'whenever'
