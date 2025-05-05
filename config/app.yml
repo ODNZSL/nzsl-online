@@ -1,0 +1,26 @@
+# Be sure to restart your server when you modify this file.
+
+# Use this file to load configuration values from the environment, which will
+# be accessible by the app through `Rails.application.config.app`
+
+default: &default
+  # Your secret key is used for verifying the integrity of signed cookies.
+  # If you change this key, all old signed cookies will become invalid!
+  # Make sure the secret is at least 30 characters and all random,
+  # no regular words, or you'll be exposed to dictionary attacks.
+  # You can use `rails secret` to generate a secure secret key.
+  secret_key_base: <%= ENV["NZSL_ONLINE_SECRET_KEY_BASE"] %>
+  s3_bucket_url:   <%= ENV['S3_BUCKET_URL'] %>
+  track_search_requests?:  <%= ENV['TRACK_SEARCH_REQUESTS'] || false %>
+
+development:
+  <<: *default
+
+test:
+  <<: *default
+
+staging:
+  <<: *default
+
+production:
+  <<: *default

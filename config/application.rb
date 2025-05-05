@@ -10,7 +10,12 @@ Bundler.require(*Rails.groups)
 
 module NzslOnline
   class Application < Rails::Application
-    config.load_defaults 7.0
+    config.load_defaults 7.2
+
+    # load config/app.yml into Rails.application.config.app.*
+    config.app = config_for(:app)
+    # pull the secret_key_base from our app config
+    config.secret_key_base = config.app.secret_key_base
 
     config.app_domain_name = ENV['APP_DOMAIN_NAME']
     config.app_protocol = ENV['APP_PROTOCOL']

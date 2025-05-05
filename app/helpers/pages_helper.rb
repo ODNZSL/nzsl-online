@@ -18,7 +18,7 @@ module PagesHelper
 
   def source_path_components(page)
     {
-      s3_bucket_url: Rails.application.secrets[:s3_bucket_url],
+      s3_bucket_url: Rails.application.config.app[:s3_bucket_url],
       translation_path: page.first_part.try(:translation_path)
     }
   end
