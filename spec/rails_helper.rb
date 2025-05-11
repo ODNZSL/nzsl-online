@@ -12,6 +12,8 @@ require 'selenium/webdriver'
 require 'capybara-screenshot/rspec'
 require 'percy'
 
+require 'database_cleaner/active_record'
+
 Capybara.default_driver = :selenium_chrome_headless
 Capybara.javascript_driver = :selenium_chrome_headless
 Capybara.default_max_wait_time = 5.seconds
@@ -85,5 +87,16 @@ RSpec.configure do |config|
     # change should not be checked into git.
     #
     # driven_by :selenium_chrome
+  end
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
   end
 end
