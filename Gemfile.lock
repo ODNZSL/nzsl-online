@@ -103,7 +103,8 @@ GEM
     bigdecimal (3.2.2)
     bootsnap (1.9.3)
       msgpack (~> 1.0)
-    brakeman (5.4.0)
+    brakeman (7.1.1)
+      racc
     builder (3.3.0)
     bundle-audit (0.1.0)
       bundler-audit
