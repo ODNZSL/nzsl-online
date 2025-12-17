@@ -25,7 +25,7 @@ gem 'whenever'
 
 gem 'autoprefixer-rails'
 
-gem 'ckeditor_rails'
+gem 'ckeditor_rails', github: 'JacobBriggsAckama/ckeditor-rails'
 
 gem 'dalli'
 gem 'foundation-rails', '~> 6.6.2.0'
