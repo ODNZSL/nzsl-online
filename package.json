@@ -7,7 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint ."
+    "eslint": "ESLINT_USE_FLAT_CONFIG=false ./node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",

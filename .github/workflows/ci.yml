@@ -33,8 +33,6 @@ jobs:
 
   eslint:
     runs-on: ubuntu-latest
-    env:
-      ESLINT_USE_FLAT_CONFIG: false
     steps:
       - name: Checkout this repo
         uses: actions/checkout@v2
