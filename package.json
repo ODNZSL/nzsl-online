@@ -7,7 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint ."
+    "eslint": "ESLINT_USE_FLAT_CONFIG=false ./node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",
@@ -27,7 +27,6 @@
     "puppeteer": "^2.0.0"
   },
   "devDependencies": {
-    "eslint": "^8.3.0",
-    "eslint-config-google": "0.14.0"
+    "eslint": "^9.39.2"
   }
 }
