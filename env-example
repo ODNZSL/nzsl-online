@@ -4,4 +4,4 @@ APP_DOMAIN_NAME: "localhost:3000"
 APP_PROTOCOL: "http"
 
 # The latest public release
-DICTIONARY_DATABASE_S3_LOCATION="s3://nzsl-dictionary-data/dictionary-exports/nzsl.db"
+DICTIONARY_DATABASE_S3_LOCATION="s3://nzsl-dictionary-data/dictionary-exports/production/nzsl.db"
