@@ -13,6 +13,7 @@ gem 'sqlite3', '~> 1.7'
 
 gem 'aws-sdk-s3'
 gem 'bootsnap', '>= 1.1.0', require: false
+gem 'csv'
 gem 'haml'
 gem 'jquery-rails'
 gem 'lograge', '~> 0.11.2'
