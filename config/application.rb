@@ -11,7 +11,7 @@ Bundler.require(*Rails.groups)
 
 module NzslOnline
   class Application < Rails::Application
-    config.load_defaults 7.2
+    config.load_defaults 8.1
 
     # load config/app.yml into Rails.application.config.app.*
     config.app = config_for(:app)
