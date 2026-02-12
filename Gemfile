@@ -3,13 +3,13 @@
 source 'https://rubygems.org'
 ruby File.read('.ruby-version')
 
-gem 'rails', '~> 7.2.0'
+gem 'rails', '~> 8.1.1'
 
 # Use Postgresql as the database for Active Record
 gem 'pg', '~>1.3'
 
 # Use SQLite to access signs from a Signbank dictionary export
-gem 'sqlite3', '~> 1.7'
+gem 'sqlite3'
 
 gem 'aws-sdk-s3'
 gem 'bootsnap', '>= 1.1.0', require: false
@@ -32,7 +32,7 @@ gem 'i18n'
 gem 'mail'
 gem 'mini_racer', platforms: :ruby
 gem 'modernizr-rails'
-gem 'puma', '~> 5.6'
+gem 'puma'
 gem 'rack-canonical-host', '~> 1.0.0'
 
 # For attaching files on the feedback form
