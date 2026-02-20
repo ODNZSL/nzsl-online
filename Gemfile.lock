@@ -280,7 +280,7 @@ GEM
       net-protocol
     newrelic_rpm (8.2.0)
     nio4r (2.7.5)
-    nokogiri (1.18.10)
+    nokogiri (1.19.1)
       mini_portile2 (~> 2.8.2)
       racc (~> 1.4)
     orm_adapter (0.5.0)
@@ -534,7 +534,7 @@ DEPENDENCIES
   mini_racer
   modernizr-rails
   newrelic_rpm
-  nokogiri (~> 1.18.9)
+  nokogiri (~> 1.19.1)
   pandoc-ruby
   paperclip
   percy-capybara (~> 4.3.2)
