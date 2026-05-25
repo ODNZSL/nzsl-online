@@ -11,7 +11,8 @@ class AddPrivacyPageAndUpdateCopyright < ActiveRecord::Migration[8.1]
       )
     end
 
-    Page.where(slug: 'copyright').update_all(title: 'Copyright and license conditions - VUW NZSL Resources')
+    copyright_page = Page.find_by(slug: 'copyright')
+    copyright_page&.update!(title: 'Copyright and license conditions - VUW NZSL Resources')
   end
 
   def down; end
