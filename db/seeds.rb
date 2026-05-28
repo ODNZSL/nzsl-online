@@ -2,4 +2,4 @@
 
 require 'csv'
 
-SeedDataService.load_all if Rails.env.test?
+SeedDataService.load_all if Rails.env.local?
