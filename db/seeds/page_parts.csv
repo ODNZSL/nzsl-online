@@ -344,9 +344,87 @@
 18,"Sorry, That page was not found.",,"<p>
 	Sorry, this page seems to have been moved, or the address has been mistyped.</p>
 ",,12,2011-09-26 00:41:19.188728,2011-10-27 22:17:45.889371
-30,Copyright notice,,"<p>
-	<a href=""http://creativecommons.org/licenses/by-nc-sa/3.0/"" rel=""license""><img alt=""Creative Commons License"" src=""http://i.creativecommons.org/l/by-nc-sa/3.0/88x31.png"" style=""border-right-width: 0px; float: right; border-top-width: 0px; border-bottom-width: 0px; border-left-width: 0px"" /></a><span href=""http://purl.org/dc/dcmitype/InteractiveResource"" property=""dct:title"" rel=""dct:type"" xmlns:dct=""http://purl.org/dc/terms/"">NZSL Online</span> by <a href=""http://www.victoria.ac.nz/lals/research/projects/dsru.aspx"" property=""cc:attributionName"" rel=""cc:attributionURL"" xmlns:cc=""http://creativecommons.org/ns#"">Deaf Studies Research Unit, Victoria University of Wellington</a> is licensed under a <a href=""http://creativecommons.org/licenses/by-nc-sa/3.0/"" rel=""license"">Creative Commons Attribution-NonCommercial-ShareAlike 3.0 Unported License</a>.</p>
-",/system/videos/copyright.mp4,11,2011-09-28 01:18:55.445017,2011-10-30 23:54:05.963712
+30,VUW NZSL Resources Licence,,"<h1>VUW NZSL RESOURCES LICENCE</h1>
+
+<p><strong>Effective date:</strong> [date]</p>
+
+<ul>
+	<li><a href=""#about-these-terms"">About these terms</a></li>
+	<li><a href=""#why-these-terms"">Why these terms</a></li>
+	<li><a href=""#ownership"">Ownership</a></li>
+	<li><a href=""#other-terms"">Other terms</a></li>
+	<li><a href=""#ai-and-machine-learning"">AI and machine learning</a></li>
+	<li><a href=""#use-versus-copying"">Use versus copying</a></li>
+	<li><a href=""#personal-use"">Personal use</a></li>
+	<li><a href=""#teaching-use"">Teaching use</a></li>
+	<li><a href=""#commercial-use"">Commercial use</a></li>
+	<li><a href=""#remixing"">Remixing, changing or adapting content</a></li>
+	<li><a href=""#logo-and-branding"">Our logo and branding</a></li>
+	<li><a href=""#asking-for-permission"">Asking for permission</a></li>
+	<li><a href=""#giving-credit"">Giving credit</a></li>
+	<li><a href=""#about-us"">About us</a></li>
+</ul>
+
+<h2><a name=""about-these-terms"">About these terms</a></h2>
+
+<p>The Deaf Studies Research Unit (DSRU) provides a range of resources to help people learn and use New Zealand Sign Language. NZSL belongs to the Deaf community, and our resources document the language to make it accessible for everyone. These terms only apply to the content created by us for the Learn NZSL, NZSL Dictionary, and NZSL Share websites, mobile applications and related resources. This includes the videos, images, drawings, explanations, and the way we present signs. It also includes the structure of our NZSL resources, including the arrangement, tags, topics, ordering, and English/Te Reo labels. You must not copy or reuse this content unless it is allowed under these terms, or you have our permission.</p>
+
+<h2><a name=""why-these-terms"">Why these terms</a></h2>
+
+<p>These terms help us promote NZSL fairly and sustainably. They make sure that our resources are used in ways that benefit the Deaf community and support learning. They also help us set clear limits around new situations that did not exist when this work first began, such as commercial apps built from our videos, and artificial intelligence. We have kept some uses open and easy, especially for learning and teaching. Other uses need permission so we can make sure our content is not used in misleading, commercial, or harmful ways. This approach helps learners, protects the integrity of NZSL education, and ensures that our work continues to serve the community it was created for.</p>
+
+<h2><a name=""ownership"">Ownership</a></h2>
+
+<p>All NZSL resource content is either owned by DSRU or used with permission of its creator(s). People who upload their own videos or images to NZSL Share keep ownership of their own content.</p>
+
+<h2><a name=""other-terms"">Other terms</a></h2>
+
+<p>In certain circumstances, NZSL resources may host content produced or owned by others and used by us with permission. This includes user generated content on NZSL Share. This is usually noted alongside the relevant content. These terms do not apply to that third party content; you must seek permission from the owner to use their content.</p>
+
+<h2><a name=""ai-and-machine-learning"">AI and machine learning</a></h2>
+
+<p>You must not use any of our content to train, test, or build AI systems. This includes scraping, copying, downloading, or adding our content to any dataset used for machine learning. You must not reverse engineer, rebuild or re-record the content or structure of our websites, applications, or other NZSL resources as a dataset for AI.</p>
+
+<h2><a name=""use-versus-copying"">Use versus copying</a></h2>
+
+<p>Other than as stated above, you may always use our NZSL resources directly. You may also refer others to our NZSL resources to use directly themselves. The restrictions set out below only apply if you are taking copies or otherwise reusing our content. For example, someone teaching a class in person may always refer students to our NZSL resources in class or distribute handouts. But a person building a website offering NZSL-related services must not take copies or make adaptations of our content without our permission.</p>
+
+<h2><a name=""personal-use"">Personal use</a></h2>
+
+<p>You may look at, watch, or read anything on our NZSL resources. You may save one copy for your own learning or study. You may share links to our NZSL resources with anyone.</p>
+
+<h2><a name=""teaching-use"">Teaching use</a></h2>
+
+<p>Teachers may use and distribute copies of our content in class &ndash; however please take note of the following paragraphs regarding commercial use and adaptations.</p>
+
+<h2><a name=""commercial-use"">Commercial use</a></h2>
+
+<p>You must not sell our content, use our content to advertise commercial services, or otherwise use our content to directly make money unless we give permission. This includes using our content to build websites, apps, books, and other products or services. You may use content when teaching NZSL classes and distributing copies of our content (such as vocabulary sheets) in class.</p>
+
+<h2><a name=""remixing"">Remixing, changing or adapting content</a></h2>
+
+<p>You must ask us for permission prior to remixing, changing or adapting our content. This includes translating our content into another language, turning it into a new website or app, or combining with other data. We will usually give permission for small adaptations (up to 50 signs) or where the adaptation is clearly to benefit the Deaf community. If we give permission, you must say where the content came from and share your new version under the same rules as this licence.</p>
+
+<h2><a name=""logo-and-branding"">Our logo and branding</a></h2>
+
+<p>You must not use our logos or other branding without permission.</p>
+
+<h2><a name=""asking-for-permission"">Asking for permission</a></h2>
+
+<p>If you want to use our content in a way that is not clearly allowed here, please contact us using this form or by emailing us at <a href=""mailto:dsru@vuw.ac.nz"">dsru@vuw.ac.nz</a>. Tell us which content you want to use, how you want to use it, who will see it, and how the Deaf community may benefit. We will review your request and let you know if it is permitted.</p>
+
+<h2><a name=""giving-credit"">Giving credit</a></h2>
+
+<p>If you use our content with permission, you must say where it came from. Use wording along the lines of:</p>
+
+<p><strong>For direct use:</strong> Content from <a href=""https://www.nzsl.nz"">The Online Dictionary of New Zealand Sign Language - NZSL Online</a></p>
+
+<p><strong>For adaptations:</strong> Based on NZSL Dictionary. Adapted by [your name]. Shared under the same rules as the original. See <a href=""https://www.nzsl.nz"">The Online Dictionary of New Zealand Sign Language - NZSL Online</a> for more.</p>
+
+<h2><a name=""about-us"">About us</a></h2>
+
+<p>The Deaf Studies Research Unit is hosted by the School of Linguistics and Applied Language Studies at Te Herenga Waka Victoria University of Wellington.</p>
+",/system/videos/copyright.mp4,11,2011-09-28 01:18:55.445017,2025-05-28 00:00:00.000000
 48,Where can I learn NZSL?,1,"<p>
 	The best way to start is to take an NZSL course with a qualified Deaf teacher. Credit-bearing courses are offered at Victoria University of Wellington and Auckland University of Technology.</p>
 <p style=""margin-top: 0px; margin-right: 0px; margin-bottom: 1.2em; margin-left: 0px; padding-top: 0px; padding-right: 0px; padding-bottom: 0px; padding-left: 0px; border-top-width: 0px; border-right-width: 0px; border-bottom-width: 0px; border-left-width: 0px; border-style: initial; border-color: initial; font-size: 13px; font: inherit; vertical-align: baseline; line-height: 1.6; "">
@@ -404,3 +482,119 @@
 	&nbsp;</p>
 ",,26,2013-07-01 03:16:46.380052,2013-07-01 03:16:46.380052
 56,Topics,,,,13,2017-05-04 14:03:09.952282,2017-05-04 14:04:09.138004
+57,Privacy notice,,"<h1>Privacy Notice</h1>
+
+<p>NZSL Online Dictionary cares about your privacy and wants to be open with you about what we do with your personal information.</p>
+
+<p>This Privacy Notice describes how we collect, use, and share personal information and explains your rights in relation to those activities.</p>
+
+<p>We must comply with the Privacy Act 1993, the Public Records Act 2005 and, if you are in the European Union, the General Data Protection Regulation (GDPR).</p>
+
+<p>To contact us about privacy matters, you can email us at <a href=""mailto:privacy@vuw.ac.nz"">privacy@vuw.ac.nz</a> or call 0800 VICTORIA (842 867). For other questions, please contact <a href=""mailto:dsru@vuw.ac.nz"">dsru@vuw.ac.nz</a>.</p>
+
+<h2><a name=""who-are-we"">Who are we?</a></h2>
+
+<p>NZSL Online Dictionary is owned by the Deaf Studies Research Unit at Victoria University of Wellington.</p>
+
+<p>We maintain a website:</p>
+<ul>
+	<li><a href=""https://nzsl.nz"">https://nzsl.nz</a></li>
+</ul>
+
+<p>and two mobile apps:</p>
+<ul>
+	<li><a href=""https://itunes.apple.com/nz/app/nzsl-dictionary/id521076445?mt=8"">App Store</a></li>
+	<li><a href=""https://play.google.com/store/apps/details?id=com.hewgill.android.nzsldict&amp;hl=en"">Google Play</a></li>
+</ul>
+
+<p>We have a Facebook page:</p>
+<ul>
+	<li><a href=""https://www.facebook.com/NZSL-Online-Dictionary-211547965549802/"">NZSL Online Dictionary on Facebook</a></li>
+</ul>
+
+<p>We maintain two Twitter accounts:</p>
+<ul>
+	<li>@NZSL_Online, @NZSLdict</li>
+</ul>
+
+<h2><a name=""why-collect"">Why do we collect your information?</a></h2>
+
+<p>We collect your information in order to:</p>
+<ul>
+	<li>carry out activities that are necessary for the web and mobile applications to run</li>
+	<li>communicate with you</li>
+	<li>Monitor, evaluate and improve our performance and effectiveness</li>
+</ul>
+
+<p>These are our &lsquo;purposes&rsquo; or &lsquo;legitimate interests&rsquo;.</p>
+
+<h2><a name=""how-collect"">How do we collect information?</a></h2>
+
+<p>We collect information about you in two ways:</p>
+
+<h3>Information that you provide to us</h3>
+
+<p>This is information provided through your discussions and interactions with us and includes:</p>
+<ul>
+	<li>when you fill in the &lsquo;contact us&rsquo; form on our website</li>
+	<li>when you email or phone us</li>
+	<li>when you leave a comment on our Facebook page or in the App Store or Google Play store</li>
+</ul>
+
+<h3>Information we automatically collect</h3>
+
+<p>Information is collected through your use of our website (including via cookies) and mobile apps.</p>
+
+<p>We use cookies on our site where they are required for particular features to work &ndash; for example, if you are a logged in user, to allow you to remain logged in whilst you complete certain tasks.</p>
+
+<p>We also use tracking cookies to analyse non-identifiable web traffic data to improve our services. This data is aggregated and cannot personally identify you. You can opt out of this at any time.</p>
+
+<p>We use Google Analytics to track use of our website and the mobile app in the Google Play store.</p>
+
+<p>We use Apple Connect analytics to track use of the mobile app in the App Store.</p>
+
+<p>Read more about managing your cookie settings: <a href=""https://www.victoria.ac.nz/site-info/cookies"">https://www.victoria.ac.nz/site-info/cookies</a></p>
+
+<h2><a name=""what-collect"">What information do we collect?</a></h2>
+
+<p>The information we collect includes your:</p>
+<ul>
+	<li>biographical details (including name, hearing status and sign language use)</li>
+	<li>contact details (including email address)</li>
+	<li>other information that you have decided to share with us</li>
+</ul>
+
+<p>Collection of this information is necessary for our Purposes and Legitimate Interests (see above). You may chose not to provide it to us but, if you do, we may be unable to reply to contact requests. If you choose not to enter information about your hearing status or sign language use, we will not be able to consider suggestions for NZSL signs to be included in the dictionary.</p>
+
+<h2><a name=""how-long"">How long do we keep personal information?</a></h2>
+
+<p>Your personal information will be deleted after three years unless we need to retain it for longer to comply with our legal obligations.</p>
+
+<h2><a name=""who-access"">Who will have access to your information?</a></h2>
+
+<p>Our staff will have access to your personal information only where they have a genuine need to do so. We will not share your information with anyone unless permitted or required by law (including the Privacy Act 1993 and Education Act 1989).</p>
+
+<h2><a name=""security"">How do we keep your information secure?</a></h2>
+
+<p>We take all reasonable steps to keep your information safe and secure. In some instances, your personal information may be transferred, and held, by service providers in New Zealand and overseas (for example, where it is stored using a cloud-based service). Where this occurs, we do everything reasonably within our power to ensure that the service provider also has reasonable security measures in place to protect your information.</p>
+
+<p>We will not transfer your information to an overseas-based service provider unless we are satisfied that the service provider has obligations to protect your information in a way that is comparable to the protections afforded by New Zealand privacy law.</p>
+
+<h2><a name=""rights"">What are my rights?</a></h2>
+
+<p>You have the right to ask for a copy of any personal information we hold about you, and to ask for it to be corrected if you think it is wrong (and you are unable to update it yourself through a relevant online service). If you would like to do this, please email <a href=""mailto:privacy@vuw.ac.nz"">privacy@vuw.ac.nz</a>.</p>
+
+<p>We will respond to your request as soon as reasonably practicable and no later than 20 working days after we receive it.</p>
+
+<p>You also have the right to make a complaint to the Office of the Privacy Commissioner if you think we have breached, or may have breached, your privacy. You can contact the Office of the Privacy Commissioner at <a href=""https://www.privacy.org.nz"">www.privacy.org.nz</a>.</p>
+
+<p>In addition, the GDPR gives you the right to:</p>
+<ul>
+	<li>withdraw consent, where consent is the legal basis for our processing of your information;</li>
+	<li>be forgotten, that is your information to be removed from systems that we use to process your personal information. However, under New Zealand law, we are required to retain certain information under the Public Records Act 2005;</li>
+	<li>request copies of your personal information in a structured, commonly used and machine-readable format and/or request us to transmit this information to another person (where this is technically feasible);</li>
+	<li>restrict our processing in certain ways;</li>
+	<li>object to certain processing activities by us; and</li>
+	<li>make a complaint to a supervisory authority.</li>
+</ul>
+",,14,2025-05-28 00:00:00.000000,2025-05-28 00:00:00.000000
