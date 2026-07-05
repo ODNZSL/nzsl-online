@@ -24,6 +24,7 @@ staging:
 
 production:
   <<: *default
+  mail_from: <%= ENV['MAIL_FROM'] %>
   smtp_hostname: <%= ENV['SMTP_HOSTNAME'] %>
   smtp_user_name: <%= ENV['SMTP_USER_NAME'] %>
   smtp_password: <%= ENV['SMTP_PASSWORD'] %>
