@@ -18,6 +18,8 @@
     = stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true
     = javascript_include_tag "application", "defer" => "defer", "data-turbolinks-track" => false
     = yield :head
+    - if turnstile_enabled?
+      = cloudflare_turnstile_script_tag
     - if params[:print]
       = stylesheet_link_tag('print', media: 'all')
       = stylesheet_link_tag('print_screen', media: 'screen')

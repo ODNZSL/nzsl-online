@@ -6,6 +6,8 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   layout :layout_by_resource
 
+  helper_method :turnstile_enabled?
+
   before_action :staging_http_auth
 
   private
@@ -68,5 +70,9 @@ class ApplicationController < ActionController::Base
     authenticate_or_request_with_http_basic('Username and Password please') do |username, password|
       username == ENV['HTTP_BASIC_AUTH_USERNAME'] && password == ENV['HTTP_BASIC_AUTH_PASSWORD']
     end
+  end
+
+  def turnstile_enabled?
+    Rails.env.production?
   end
 end
