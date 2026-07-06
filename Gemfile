@@ -52,6 +52,8 @@ gem 'will_paginate'
 gem 'faraday'
 gem 'faraday_middleware'
 
+gem 'rails_cloudflare_turnstile'
+
 # logins
 gem 'devise'
 

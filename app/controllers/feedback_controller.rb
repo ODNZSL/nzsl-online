@@ -8,7 +8,11 @@ class FeedbackController < ApplicationController
   end
 
   def create
-    process_feedback
+    if turnstile_enabled? && !valid_turnstile?(params)
+      flash.now[:feedback_error] = t('feedback.failure')
+    else
+      process_feedback
+    end
 
     @feedback = Feedback.new
     @page = Page.find(params[:page_id].to_i)
