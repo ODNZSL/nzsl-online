@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class FeedbackController < ApplicationController
+  include RailsCloudflareTurnstile::ControllerHelpers
+
   before_action :find_vocab_sheet, :set_search_query, :footer_content
 
   def new
@@ -8,7 +10,7 @@ class FeedbackController < ApplicationController
   end
 
   def create
-    if turnstile_enabled? && !valid_turnstile?(params)
+    if !cloudflare_turnstile_ok?
       flash.now[:feedback_error] = t('feedback.failure')
     else
       process_feedback

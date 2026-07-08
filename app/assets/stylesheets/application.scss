@@ -398,6 +398,15 @@ abbr {
 
 .feedback-select-style { margin: 7px; }
 
+.checkbox-option {
+  align-items: flex-start;
+  display: flex;
+
+  input[type='checkbox'] {
+    flex-shrink: 0;
+  }
+}
+
 .feedback-entry-style { margin: 3px; }
 
 .avoid-bottom-margin { margin-bottom: 0; }
