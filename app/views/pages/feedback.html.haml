@@ -1,7 +1,7 @@
 = render partial: 'pages/content'
 .rule_after.clearfix_left.vertical_space.small-11.small-centered.medium-10.large-8
 
-  %h2#feedback Send Feedback
+  %h2#feedback Feedback and requests
   = render partial: 'shared/flashes', locals: {prefix: 'feedback_'}
   = form_for @feedback, url: feedback_index_path(anchor: 'feedback'), html: {multipart: true} do |f|
     - if @feedback.errors.any?
@@ -18,7 +18,6 @@
         %label.required
           = f.label :email
           = f.text_field :email, class: "text-input avoid-bottom-margin"
-          %small.inline-hints If provided, must be a valid email address
       .small-12
         %label
           = f.label :hearing_level, "Are you:"
@@ -31,22 +30,15 @@
           - ["Fluent NZSL user", "NZSL user", "NZSL learner"].each do |category|
             = f.radio_button :nzsl_level, category, class: "item-style"
             = category
+      %br/
       .small-12
-        %label
-          %input.feedback-select-style{ type: "checkbox", id: "feedback_include_sign" }
-          = f.label :include_sign, "Suggest an NZSL sign to be included in the dictionary"
-          %li.if_feedback_include_sign.unless_js.sub-form.no-bullet
-            %ol
-              %small Show the sign on its own, and the same sign used in a sentence
-              = f.text_field :include_describe, class: "text-input"
-              %small What does this sign mean (in English)?
-              = f.text_field :include_define, class: "text-input"
-              %small Who uses this sign? (e.g. older, younger, area)
-              = f.text_field :include_users, class: "text-input"
+        %label.checkbox-option
+          %input.feedback-select-style{ type: "checkbox", id: "use_nzsl_content" }
+          = f.label :use_content, "I want to use content from your websites (NZSL Online Dictionary, NZSL Share, Learn NZSL) (please describe your project, the goal, Deaf community involvement, and whether users will have to pay for your product) "
       .small-12
         %label
           %input.feedback-select-style{ type: "checkbox", id: "feedback_change_sign" }
-            = f.label :change_sign, "Suggest changes for a sign in the dictionary"
+            = f.label :change_sign, "I want to feed back about a sign"
             %li.if_feedback_change_sign.unless_js.sub-form.no-bullet
               %ol
                 %small What is the main gloss for this sign?
@@ -65,7 +57,15 @@
       .small-12
         %label
           %input.feedback-select-style{ type: "checkbox" }
-          = f.label :technical_fault, "Report a technical fault"
+          = f.label :suggest_feature, "I want to suggest a feature for your site"
+      .small-12
+        %label
+          %input.feedback-select-style{ type: "checkbox" }
+          = f.label :technical_fault, "I want to report a technical fault"
+      .small-12
+        %label
+          %input.feedback-select-style{ type: "checkbox" }
+          = f.label :other_query, "Other query"
       .small-12
         %label
           = f.label :video, "Video:"
