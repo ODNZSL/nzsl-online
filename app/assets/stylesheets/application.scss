@@ -411,7 +411,13 @@ abbr {
 
 .avoid-bottom-margin { margin-bottom: 0; }
 
-.send-feedback-button { margin-top: 20px; }
+.send-feedback-button {
+  margin-top: 20px;
+  height: 2.5rem;
+  width: 10rem;
+  font-size: medium;
+  padding: 10px;
+}
 
 .inline-errors {
   color: #f53;
