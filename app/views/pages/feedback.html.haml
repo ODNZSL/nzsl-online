@@ -76,5 +76,6 @@
           = f.label :message, "Message:"
           = f.text_area :message, rows: "10", class: "message-input"
       %input{ type: "hidden", value: @page.id, name: "page_id" }
-      = cloudflare_turnstile
       = f.submit t("feedback.submit"), class: "send-feedback-button button"
+      %br/
+      = cloudflare_turnstile
