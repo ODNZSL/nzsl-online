@@ -18,7 +18,7 @@ RSpec.describe 'Signbank: Sign features', type: :system do
     visit root_path
     within '.search_form' do
       click_on 'Advanced Search Options'
-      find('.advanced-search-button div.default', text: 'Hand Shape').click
+      find('.advanced-search-button div.default', text: 'Hand Shape', match: :first).click
       find('.attribute_options .value + img', match: :first).click
       click_on 'Search'
     end
@@ -30,7 +30,7 @@ RSpec.describe 'Signbank: Sign features', type: :system do
     visit root_path
     within '.search_form' do
       click_on 'Advanced Search Options'
-      find('.advanced-search-button div.default', text: 'Body Location').click
+      find('.advanced-search-button div.default', text: 'Body Location', match: :first).click
       find('.attribute_options .value + img', match: :first).click
       click_on 'Search'
     end
@@ -42,8 +42,8 @@ RSpec.describe 'Signbank: Sign features', type: :system do
     visit root_path
     within '.search_form' do
       click_on 'Advanced Search Options'
-      find('.advanced-search-button div.default', text: 'Usage').click
-      find('.usage-dropdown', text: 'archaic').click
+      find('.advanced-search-button div.default', text: 'Usage', match: :first).click
+      find('.usage-dropdown', text: 'archaic', match: :first).click
       click_on 'Search'
     end
 
@@ -55,8 +55,8 @@ RSpec.describe 'Signbank: Sign features', type: :system do
     visit root_path
     within '.search_form' do
       click_on 'Advanced Search Options'
-      find('.advanced-search-button div.default', text: 'Topic').click
-      find('.topic-dropdown', text: 'Animals').click
+      find('.advanced-search-button div.default', text: 'Topic', match: :first).click
+      find('.topic-dropdown', text: 'Animals', match: :first).click
       click_on 'Search'
     end
 
@@ -120,7 +120,7 @@ RSpec.describe 'Signbank: Sign features', type: :system do
     expect(page).to have_content 'Sign added'
     within '.vocab-sheet__item' do
       expect(page).to have_content(sign.gloss)
-      find('.remove').click
+      find('.remove', match: :first).click
     end
 
     expect(page).to have_content 'Sign removed'
