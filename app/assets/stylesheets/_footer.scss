@@ -7,6 +7,12 @@
   }
 }
 
+.footer-copyright-link {
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 footer {
   color: $light-grey;
 
