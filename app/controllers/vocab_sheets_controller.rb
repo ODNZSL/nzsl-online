@@ -19,7 +19,7 @@ class VocabSheetsController < ApplicationController
   def show
     set_vocab_sheet_size
 
-    return render :print if params[:print] == 'true'
+    return render :print if params[:print] == "true"
 
     render :show
   end
@@ -30,7 +30,7 @@ class VocabSheetsController < ApplicationController
     # Many Haml templates test `params[:print]` directly and make choices
     # depending on its value so we need to set it here until those templates
     # can be refactored.
-    params[:print] = 'true'
+    params[:print] = "true"
 
     pdf = build_rendered_pdf(html: render_to_string(:print, formats: [:html]))
     send_file(pdf.file_path, filename: pdf.download_as_filename(@title), type: pdf.mime_type)
@@ -39,9 +39,9 @@ class VocabSheetsController < ApplicationController
   def update
     @sheet.name = params[:vocab_sheet][:name]
     if @sheet.save
-      flash[:notice] = t('vocab_sheet.sheet.update_success')
+      flash[:notice] = t("vocab_sheet.sheet.update_success")
     else
-      flash[:error] = t('vocab_sheet.sheet.update_failure')
+      flash[:error] = t("vocab_sheet.sheet.update_failure")
     end
 
     return respond_with_json_or_redirect(@sheet) unless request.xhr?
@@ -53,9 +53,9 @@ class VocabSheetsController < ApplicationController
   def destroy
     if @sheet&.destroy
       session[:vocab_sheet_id] = nil
-      flash[:notice] = t('vocab_sheet.delete_success')
+      flash[:notice] = t("vocab_sheet.delete_success")
     else
-      flash[:error] = t('vocab_sheet.delete_failure')
+      flash[:error] = t("vocab_sheet.delete_failure")
     end
     redirect_back_or_default
   end

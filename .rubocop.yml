@@ -269,3 +269,10 @@ Style/SoleNestedConditional:
 
 Style/StringConcatenation:
   Enabled: true
+
+# Just always use double quotes and stop thinking about it.
+Style/StringLiterals:
+  EnforcedStyle: double_quotes
+
+Style/StringLiteralsInInterpolation:
+  EnforcedStyle: double_quotes

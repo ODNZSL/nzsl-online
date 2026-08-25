@@ -1,15 +1,15 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe TempDirJanitorService do
   subject { described_class.new(tmp_dir_path:) }
 
-  let(:keepable_file) { 'keep-me.txt' }
-  let(:removable_file) { 'remove-me.txt' }
+  let(:keepable_file) { "keep-me.txt" }
+  let(:removable_file) { "remove-me.txt" }
 
-  describe '#remove_old_files' do
-    it 'removes all files & folders which are older than an hour' do
+  describe "#remove_old_files" do
+    it "removes all files & folders which are older than an hour" do
       Dir.mktmpdir do |tmp_dir|
         # given
         subject = described_class.new(tmp_dir_path: tmp_dir)

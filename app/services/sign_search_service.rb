@@ -75,15 +75,15 @@ class SignSearchService
   end
 
   def handshape_search(relation)
-    handshape_group_ids = @query[:hs].select { |hs_id| hs_id.split('.').size < 3 }
+    handshape_group_ids = @query[:hs].select { |hs_id| hs_id.split(".").size < 3 }
     handshape_ids = @query[:hs] - handshape_group_ids
     handshape_group_ids_clause = handshape_group_ids.map do |hs_id|
-      Signbank::Sign.sanitize_sql_array(['words.handshape LIKE ?', "#{hs_id}.%"])
-    end.join(' OR ')
+      Signbank::Sign.sanitize_sql_array(["words.handshape LIKE ?", "#{hs_id}.%"])
+    end.join(" OR ")
 
-    handshape_ids_clause = (handshape_ids.any? && Signbank::Sign.sanitize_sql_array(['words.handshape IN (?)',
+    handshape_ids_clause = (handshape_ids.any? && Signbank::Sign.sanitize_sql_array(["words.handshape IN (?)",
                                                                                      handshape_ids])) || nil
-    relation.where([handshape_group_ids_clause, handshape_ids_clause].compact_blank.join(' OR '))
+    relation.where([handshape_group_ids_clause, handshape_ids_clause].compact_blank.join(" OR "))
   end
 
   def location_search(relation)
@@ -107,8 +107,8 @@ class SignSearchService
     # so we can do a OR LIKE like we do for handshapes. The location identifier from
     # Signbank is a zero-padded, two-digit string with a dash in front of the location name
     location_ids_clause = location_ids.map do |loc_id|
-      Signbank::Sign.sanitize_sql_array(['words.location_identifier LIKE ?', "#{loc_id.rjust(2, '0')} - %"])
-    end.join(' OR ')
+      Signbank::Sign.sanitize_sql_array(["words.location_identifier LIKE ?", "#{loc_id.rjust(2, "0")} - %"])
+    end.join(" OR ")
 
     relation.where(location_ids_clause)
   end

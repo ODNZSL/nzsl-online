@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'Feedback', type: :model do
+RSpec.describe "Feedback", type: :model do
   subject { feedback }
 
   let!(:feedback) { Feedback.create }
@@ -27,10 +27,10 @@ RSpec.describe 'Feedback', type: :model do
   it { is_expected.to have_attribute :change_comments }
   it { is_expected.to have_attribute :technical_fault }
 
-  describe '#send_email' do
+  describe "#send_email" do
     subject { super().send_email }
 
-    it 'delegates to Feedbackmailer' do
+    it "delegates to Feedbackmailer" do
       expect(FeedbackMailer)
         .to receive_message_chain(:email, :deliver)
         .with(self)

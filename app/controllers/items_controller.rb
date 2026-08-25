@@ -8,21 +8,21 @@ class ItemsController < ApplicationController
 
   def create
     if @sheet.includes_sign?(sign_id: params[:sign_id])
-      flash[:notice] = t('vocab_sheet.item.add_duplicate')
+      flash[:notice] = t("vocab_sheet.item.add_duplicate")
     else
       @item = Item.new(create_params)
 
       if @item.valid?
         @sheet.add_item(@item)
-        flash[:notice] = t('vocab_sheet.item.add_success')
+        flash[:notice] = t("vocab_sheet.item.add_success")
       else
-        flash[:error] = t('vocab_sheet.item.add_failure')
+        flash[:error] = t("vocab_sheet.item.add_failure")
       end
     end
 
     if request.xhr?
       flash[:notice] = flash[:error] = nil
-      render partial: 'shared/vocab_sheet_item', locals: { vocab_sheet_item: @item }
+      render partial: "shared/vocab_sheet_item", locals: { vocab_sheet_item: @item }
     else
       respond_with_json_or_redirect(@item)
     end
@@ -32,9 +32,9 @@ class ItemsController < ApplicationController
     @item = @sheet.update_item(update_item_params)
 
     if @item
-      flash[:notice] = t('vocab_sheet.item.update_success')
+      flash[:notice] = t("vocab_sheet.item.update_success")
     else
-      flash[:error] = t('vocab_sheet.item.update_failure')
+      flash[:error] = t("vocab_sheet.item.update_failure")
     end
 
     return respond_with_json_or_redirect(@item) unless request.xhr?
@@ -48,12 +48,12 @@ class ItemsController < ApplicationController
 
     if @item
       flash[:vocab_bar_notice] = if @sheet.items.empty?
-                                   t('vocab_sheet.delete_success')
+                                   t("vocab_sheet.delete_success")
                                  else
-                                   t('vocab_sheet.item.remove_success')
+                                   t("vocab_sheet.item.remove_success")
                                  end
     else
-      flash[:vocab_bar_error] = t('vocab_sheet.item.remove_failure')
+      flash[:vocab_bar_error] = t("vocab_sheet.item.remove_failure")
     end
 
     return respond_with_json_or_redirect(@item) unless request.xhr?

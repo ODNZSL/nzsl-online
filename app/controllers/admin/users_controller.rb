@@ -3,7 +3,7 @@
 module Admin
   class UsersController < ApplicationController
     before_action :authenticate_user!
-    layout 'admin'
+    layout "admin"
 
     def edit
       @user = current_user
@@ -16,7 +16,7 @@ module Admin
         bypass_sign_in(@user)
         redirect_to admin_path
       else
-        render 'edit'
+        render "edit"
       end
     end
 

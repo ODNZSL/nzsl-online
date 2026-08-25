@@ -35,7 +35,7 @@ class VocabSheet < ApplicationRecord
     # #find will return a reference to, not a copy of, a Hash object in the
     # `raw_item_attrs` Array. This means any changes we make to `item`
     # will be also be made to the object within `raw_item_attrs`.
-    item = raw_item_attrs.find { |raw_item| raw_item['id'] == item_attrs['id'] }
+    item = raw_item_attrs.find { |raw_item| raw_item["id"] == item_attrs["id"] }
 
     Item::UPDATABLE_ATTRIBUTES.each do |attr|
       item[attr] = item_attrs[attr] if item_attrs[attr]
@@ -76,7 +76,7 @@ class VocabSheet < ApplicationRecord
     return nil if item.nil?
 
     # Remove the item from the Array of Hash objects
-    raw_item_attrs.reject! { |raw_item| raw_item['id'] == item_id }
+    raw_item_attrs.reject! { |raw_item| raw_item["id"] == item_id }
 
     # Removing the item does not automatically save (that is a bit of magic
     # that ActiveRecord implements for its relations) so we explicitly save the
@@ -96,7 +96,7 @@ class VocabSheet < ApplicationRecord
     new_raw_items = []
 
     item_ids.uniq.each do |id|
-      new_raw_items << raw_item_attrs.find { |item| item['id'] == id }
+      new_raw_items << raw_item_attrs.find { |item| item["id"] == id }
     end
 
     self.raw_item_attrs = new_raw_items
@@ -110,15 +110,15 @@ class VocabSheet < ApplicationRecord
   # @return [Boolean] Return true on success, false otherwise
   #
   def includes_sign?(sign_id)
-    raw_item_attrs.any? { |item| item['sign_id'] == sign_id }
+    raw_item_attrs.any? { |item| item["sign_id"] == sign_id }
   end
 
   def self.purge_old_sheets
-    VocabSheet.where('updated_at < ?', 15.days.ago).destroy_all
+    VocabSheet.where("updated_at < ?", 15.days.ago).destroy_all
   end
 
   def self.aggressively_purge_old_sheets
-    VocabSheet.where('updated_at < ?', 7.days.ago).destroy_all
+    VocabSheet.where("updated_at < ?", 7.days.ago).destroy_all
   end
 
   private
@@ -128,7 +128,7 @@ class VocabSheet < ApplicationRecord
   end
 
   def find_item_by(id:)
-    item_attrs = raw_item_attrs.find { |raw_item| raw_item['id'] == id }
+    item_attrs = raw_item_attrs.find { |raw_item| raw_item["id"] == id }
 
     return nil if item_attrs.nil?
 
