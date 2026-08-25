@@ -64,11 +64,24 @@ The dependency bump is the easy part; deployment is the risk:
 
 - `google_chrome_path` in `PdfRenderingService` is unused dead code — Puppeteer manages its own binary.
 
+## Investigation findings
+
+### Root cause of staging PDF failure after Puppeteer v25 upgrade (2026-08-25)
+
+- Merged via [#1698](https://github.com/ODNZSL/nzsl-online/pull/1698) (`a1d25804`) to main; deployed staging v1036. Production PR [#1699](https://github.com/ODNZSL/nzsl-online/pull/1699) open — **do not merge until fixed**.
+- Chrome binary **is** present in the slug at `/app/.cache/puppeteer/...` — `heroku-postbuild` worked; buildpacks (apt, jemalloc, nodejs, puppeteer, ruby) OK; heroku-26 stack; no missing `ldd` libs.
+- Error `Failed to launch the browser process: Code: null` with empty stderr is caused by **jemalloc `LD_PRELOAD`** (`JEMALLOC_ENABLED=true`, `LD_PRELOAD=/app/vendor/jemalloc/lib/libjemalloc.so`) inherited by Chrome when Puppeteer spawns it.
+- Dyno A/B test: with `LD_PRELOAD` → FAIL Code null; with `LD_PRELOAD=` → OK (DevTools listening).
+- **Fix direction:** clear `LD_PRELOAD` for the Node/Chrome PDF child only (e.g. in `bin/render-pdf.js` before `puppeteer.launch`, or pass cleaned env from `PdfRenderingService#render_as_pdf`), so Ruby keeps jemalloc.
+- Note: app uses `headless: "new"`; consider `headless: true` / `--disable-dev-shm-usage` as hardening once launch works.
+
 ## Jira
 
 - [CC-2722](https://ackama.atlassian.net/browse/CC-2722) — NZSL Online: upgrade Puppeteer to resolve security vulnerability (Important P2, CLIENT:NZSL)
 
 ## Next steps
 
-1. When executing: review/extend `origin/update-puppeteer`, verify Heroku buildpacks on staging, deploy and QA PDF download before production.
-2. Keep CC-2722 updated with findings during the Heroku validation pass.
+1. Implement fix: clear `LD_PRELOAD` for the PDF Chrome child only; keep jemalloc for Ruby.
+2. Redeploy staging, re-QA vocab sheet PDF download; optionally harden `headless` / `--disable-dev-shm-usage` once launch works.
+3. Only then merge production PR #1699.
+4. Keep CC-2722 updated with findings.
