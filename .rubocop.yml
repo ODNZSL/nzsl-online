@@ -48,7 +48,13 @@ Layout/FirstHashElementIndentation:
   EnforcedStyle: consistent
 
 Layout/LineLength:
-  Max: 130
+  Max: 120
+  AllowedPatterns:
+    - '# @route \w+ /.+' # allow controller route annotations to be any length
+    - '#  index_\w+ +\(.+\) [A-Z ]+ \([\w ]+\)' # allow model index annotations to be any length
+  Exclude:
+    - 'config/**/*'
+    - 'db/**/*'
 
 # We think that:
 #     {
