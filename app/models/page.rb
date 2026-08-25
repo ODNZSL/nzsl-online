@@ -22,8 +22,8 @@ class Page < ApplicationRecord
 
   def self.templates
     # apparently this needs to be defined before the validation
-    path = Rails.root.join('app', 'views', 'pages')
-    Dir.glob(path.join('[^_]*.html.haml')).pluck((path.to_s.length + 1)..-11).sort
+    path = Rails.root.join("app", "views", "pages")
+    Dir.glob(path.join("[^_]*.html.haml")).pluck((path.to_s.length + 1)..-11).sort
   end
 
   validates :template, presence: true, inclusion: { in: Page.templates }
@@ -33,7 +33,7 @@ class Page < ApplicationRecord
   scope :in_nav, -> { where(show_in_nav: true) }
 
   def self.find_by_slug(slug)
-    return find_by(slug: '/') if slug.blank?
+    return find_by(slug: "/") if slug.blank?
 
     find_by(slug:)
   end
@@ -70,7 +70,7 @@ class Page < ApplicationRecord
   end
 
   def path
-    return '/' if slug == '/'
+    return "/" if slug == "/"
 
     "/#{slug}/"
   end
@@ -92,7 +92,7 @@ class Page < ApplicationRecord
   end
 
   def slug_and_label_from_title
-    self.slug = title.downcase.gsub(/[^a-z0-9]/, '-') if slug.blank?
+    self.slug = title.downcase.gsub(/[^a-z0-9]/, "-") if slug.blank?
     self.label = title if label.blank?
   end
 end

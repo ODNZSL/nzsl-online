@@ -1,17 +1,17 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe SignSearchService, type: :service do
-  it 'searches by term' do
+  it "searches by term" do
     signs = []
     # Deliberately out of order so we can check they are ordered by relevance
     # We add an ID assignment so that we can be sure of the order of results
     # within each ranking group
-    signs << maori_gloss = make_sign(maori_normalized: 'Test gloss', id: 10)
-    signs << maori_partial_gloss = make_sign(maori_normalized: 'Partial gloss', id: 15)
-    signs << main_gloss = make_sign(gloss_normalized: 'Test gloss', id: 20)
-    signs << main_partial_gloss = make_sign(gloss_normalized: 'Partial gloss', id: 25)
-    signs << minor_gloss = make_sign(minor_normalized: 'Test gloss', id: 30)
-    signs << minor_partial_gloss = make_sign(minor_normalized: 'Partial gloss', id: 35)
+    signs << maori_gloss = make_sign(maori_normalized: "Test gloss", id: 10)
+    signs << maori_partial_gloss = make_sign(maori_normalized: "Partial gloss", id: 15)
+    signs << main_gloss = make_sign(gloss_normalized: "Test gloss", id: 20)
+    signs << main_partial_gloss = make_sign(gloss_normalized: "Partial gloss", id: 25)
+    signs << minor_gloss = make_sign(minor_normalized: "Test gloss", id: 30)
+    signs << minor_partial_gloss = make_sign(minor_normalized: "Partial gloss", id: 35)
     relation = Signbank::Sign.where(id: signs.map(&:id))
 
     results = described_class.new({ s: %w[gloss] }, relation:).results.order(id: :asc)
@@ -27,39 +27,39 @@ RSpec.describe SignSearchService, type: :service do
     ]
   end
 
-  it 'only matches terms on whole words' do
-    sign = make_sign(gloss_normalized: 'Testword')
+  it "only matches terms on whole words" do
+    sign = make_sign(gloss_normalized: "Testword")
     relation = Signbank::Sign.where(id: sign.id)
     expect(described_class.new({ s: %w[Testw] }, relation:).results.count).to eq 0
     expect(described_class.new({ s: %w[Testwordz] }, relation:).results.count).to eq 0
     expect(described_class.new({ s: %w[Testword] }, relation:).results.count).to eq 1
   end
 
-  it 'matches on whole words with a trailing comma' do
-    sign = make_sign(gloss_normalized: 'Hello, salute')
-    unmatched_sign = make_sign(gloss_normalized: 'Umatched')
+  it "matches on whole words with a trailing comma" do
+    sign = make_sign(gloss_normalized: "Hello, salute")
+    unmatched_sign = make_sign(gloss_normalized: "Umatched")
     relation = Signbank::Sign.where(id: [sign.id, unmatched_sign.id])
     expect(described_class.new({ s: %w[Hello] }, relation:).results).to eq [sign]
   end
 
-  it 'sanitizes within the glob pattern' do
-    query = { s: ['; DELETE FROM words --'] }
+  it "sanitizes within the glob pattern" do
+    query = { s: ["; DELETE FROM words --"] }
     generated_sql = described_class.new(query).results.to_sql
     expect(generated_sql).to include "'*[ ,]; DELETE FROM words --[ ,]*'"
   end
 
-  it 'escapes glob characters within the term' do
-    query = { s: ['*'] }
+  it "escapes glob characters within the term" do
+    query = { s: ["*"] }
     generated_sql = described_class.new(query).results.to_sql
-    expect(generated_sql).not_to include '*[ ,]*[ ,]*' # We don't want to allow this sort of thing
+    expect(generated_sql).not_to include "*[ ,]*[ ,]*" # We don't want to allow this sort of thing
     expect(generated_sql).to include '*[ ,]\\*[ ,]*'
   end
 
-  it 'searches by multiple OR handshapes' do
+  it "searches by multiple OR handshapes" do
     signs = []
-    signs << handshape_match_1 = make_sign(handshape: '1.1.1', id: 10)
-    signs << handshape_match_2 = make_sign(handshape: '1.1.2', id: 15)
-    signs << make_sign(handshape: '1.2.1') # This should not match
+    signs << handshape_match_1 = make_sign(handshape: "1.1.1", id: 10)
+    signs << handshape_match_2 = make_sign(handshape: "1.1.2", id: 15)
+    signs << make_sign(handshape: "1.2.1") # This should not match
     relation = Signbank::Sign.where(id: signs.map(&:id))
 
     searches = {
@@ -74,11 +74,11 @@ RSpec.describe SignSearchService, type: :service do
     end
   end
 
-  it 'searches by multiple OR location groups' do
+  it "searches by multiple OR location groups" do
     signs = []
-    signs << location_match_1 = make_sign(location_identifier: '04 - top of head', id: 10)
-    signs << location_match_2 = make_sign(location_identifier: '10 - neck/throat', id: 15)
-    signs << make_sign(location_identifier: '16 - upper arm', id: 20)
+    signs << location_match_1 = make_sign(location_identifier: "04 - top of head", id: 10)
+    signs << location_match_2 = make_sign(location_identifier: "10 - neck/throat", id: 15)
+    signs << make_sign(location_identifier: "16 - upper arm", id: 20)
     relation = Signbank::Sign.where(id: signs.map(&:id))
 
     searches = {
@@ -93,11 +93,11 @@ RSpec.describe SignSearchService, type: :service do
     end
   end
 
-  it 'searches by multiple OR locations' do
+  it "searches by multiple OR locations" do
     signs = []
-    signs << location_match_1 = make_sign(location_identifier: '04 - top of head', id: 10)
-    signs << location_match_2 = make_sign(location_identifier: '10 - neck/throat', id: 15)
-    signs << make_sign(location_identifier: '16 - upper arm', id: 20)
+    signs << location_match_1 = make_sign(location_identifier: "04 - top of head", id: 10)
+    signs << location_match_2 = make_sign(location_identifier: "10 - neck/throat", id: 15)
+    signs << make_sign(location_identifier: "16 - upper arm", id: 20)
     relation = Signbank::Sign.where(id: signs.map(&:id))
 
     searches = {
@@ -112,12 +112,12 @@ RSpec.describe SignSearchService, type: :service do
     end
   end
 
-  it 'combines multiple locations and location groups' do
+  it "combines multiple locations and location groups" do
     signs = []
-    signs << location_match_1 = make_sign(location_identifier: '04 - top of head', id: 10)
-    signs << location_match_2 = make_sign(location_identifier: '10 - neck/throat', id: 15)
-    signs << location_match_3 = make_sign(location_identifier: '16 - upper arm', id: 20)
-    signs << make_sign(location_identifier: '20 - fingers/thumb', id: 25)
+    signs << location_match_1 = make_sign(location_identifier: "04 - top of head", id: 10)
+    signs << location_match_2 = make_sign(location_identifier: "10 - neck/throat", id: 15)
+    signs << location_match_3 = make_sign(location_identifier: "16 - upper arm", id: 20)
+    signs << make_sign(location_identifier: "20 - fingers/thumb", id: 25)
     relation = Signbank::Sign.where(id: signs.map(&:id))
 
     query = { lg: %w[3 4], l: %w[16] }
@@ -126,15 +126,15 @@ RSpec.describe SignSearchService, type: :service do
     expect(results).to eq expected_results
   end
 
-  it 'searches by usage' do
-    sign = make_sign(usage: 'archaic')
-    unmatched_sign = make_sign(usage: 'informal')
+  it "searches by usage" do
+    sign = make_sign(usage: "archaic")
+    unmatched_sign = make_sign(usage: "informal")
     relation = Signbank::Sign.where(id: [sign, unmatched_sign].map(&:id))
 
-    expect(described_class.new({ usage: ['archaic'] }, relation:).results).to eq [sign]
+    expect(described_class.new({ usage: ["archaic"] }, relation:).results).to eq [sign]
   end
 
-  it 'searches by topic' do
+  it "searches by topic" do
     topic = Signbank::Topic.all.sample
     another_topic = Signbank::Topic.where.not(name: topic.name).sample
     sign = make_sign(topics: [topic])

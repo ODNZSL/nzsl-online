@@ -4,7 +4,7 @@ module Admin
   class PagesController < ApplicationController
     before_action :fetch_page, only: %i(edit update destroy)
     before_action :authenticate_user!, :set_title
-    layout 'admin'
+    layout "admin"
     protect_from_forgery except: [:reorder]
 
     def index
@@ -12,7 +12,7 @@ module Admin
     end
 
     def new
-      @page = Page.new(template: 'standard')
+      @page = Page.new(template: "standard")
     end
 
     def edit; end
@@ -20,7 +20,7 @@ module Admin
     def create
       @page = Page.new(page_params)
       if @page.save
-        redirect_to admin_pages_path, notice: 'Page was successfully created.'
+        redirect_to admin_pages_path, notice: "Page was successfully created."
       else
         render action: :new
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @page.update(page_params)
-        redirect_to admin_pages_path, notice: 'Page was successfully updated.'
+        redirect_to admin_pages_path, notice: "Page was successfully updated."
       else
         render action: :edit
       end
@@ -53,7 +53,7 @@ module Admin
     end
 
     def set_title
-      @title = 'Administrate pages'
+      @title = "Administrate pages"
     end
 
     def page_params

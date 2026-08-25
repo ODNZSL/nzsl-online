@@ -1,119 +1,119 @@
 # frozen_string_literal: true
 
-source 'https://rubygems.org'
-ruby File.read('.ruby-version')
+source "https://rubygems.org"
+ruby File.read(".ruby-version")
 
-gem 'rails', '~> 8.1.1'
+gem "rails", "~> 8.1.1"
 
 # Use Postgresql as the database for Active Record
-gem 'pg', '~>1.3'
+gem "pg", "~>1.3"
 
 # Use SQLite to access signs from a Signbank dictionary export
-gem 'sqlite3'
+gem "sqlite3"
 
-gem 'aws-sdk-s3'
-gem 'bootsnap', '>= 1.1.0', require: false
-gem 'csv'
-gem 'haml'
-gem 'jquery-rails'
-gem 'lograge', '~> 0.11.2'
-gem 'nokogiri', '~> 1.19.4'
-gem 'pandoc-ruby'
-gem 'sprockets-rails'
-gem 'whenever'
+gem "aws-sdk-s3"
+gem "bootsnap", ">= 1.1.0", require: false
+gem "csv"
+gem "haml"
+gem "jquery-rails"
+gem "lograge", "~> 0.11.2"
+gem "nokogiri", "~> 1.19.4"
+gem "pandoc-ruby"
+gem "sprockets-rails"
+gem "whenever"
 
-gem 'autoprefixer-rails'
+gem "autoprefixer-rails"
 
-gem 'ckeditor_rails'
+gem "ckeditor_rails"
 
-gem 'dalli'
-gem 'foundation-rails', '~> 6.6.2.0'
-gem 'i18n'
-gem 'mail'
-gem 'mini_racer', platforms: :ruby
-gem 'modernizr-rails'
-gem 'puma'
-gem 'rack-canonical-host', '~> 1.0.0'
+gem "dalli"
+gem "foundation-rails", "~> 6.6.2.0"
+gem "i18n"
+gem "mail"
+gem "mini_racer", platforms: :ruby
+gem "modernizr-rails"
+gem "puma"
+gem "rack-canonical-host", "~> 1.0.0"
 
 # For attaching files on the feedback form
 # on Feedback model
-gem 'paperclip'
+gem "paperclip"
 
-gem 'responders', '~> 3.0'
-gem 'videojs_rails'
+gem "responders", "~> 3.0"
+gem "videojs_rails"
 
 # records crashes
-gem 'raygun4ruby'
+gem "raygun4ruby"
 
 # pagination
-gem 'will_paginate'
+gem "will_paginate"
 
 # Rest/http library
-gem 'faraday'
-gem 'faraday_middleware'
+gem "faraday"
+gem "faraday_middleware"
 
-gem 'rails_cloudflare_turnstile'
+gem "rails_cloudflare_turnstile"
 
 # logins
-gem 'devise'
+gem "devise"
 
 # Application performance monitoring
-gem 'newrelic_rpm'
-gem 'skylight'
+gem "newrelic_rpm"
+gem "skylight"
 
-gem 'sassc-rails'
-gem 'uglifier'
+gem "sassc-rails"
+gem "uglifier"
 
 # Bundle gems for the local environment. Make sure to
 # put test-only gems in this group so their generators
 # and rake tasks are available in development mode:
 group :development, :test do
-  gem 'dotenv-rails'
-  gem 'rspec-rails'
+  gem "dotenv-rails"
+  gem "rspec-rails"
 
   # for debugging
-  gem 'pry-byebug'
-  gem 'pry-rails'
-  gem 'rb-readline'
-  gem 'simplecov', require: false
+  gem "pry-byebug"
+  gem "pry-rails"
+  gem "rb-readline"
+  gem "simplecov", require: false
 
   # for checking images in specs
-  gem 'fastimage'
+  gem "fastimage"
 
   ##
   # We want to use the same version of rubocop as Codeclimate does - see
   # .codeclimate.yml and https://docs.codeclimate.com/docs/rubocop
-  gem 'rubocop', require: false
-  gem 'rubocop-performance', require: false
-  gem 'rubocop-rails', require: false
+  gem "rubocop", require: false
+  gem "rubocop-performance", require: false
+  gem "rubocop-rails", require: false
 
   # catches email sending, and logs instead
-  gem 'letter_opener'
+  gem "letter_opener"
 
   # scans code for silly mistakes
-  gem 'brakeman'
+  gem "brakeman"
 
   # reruns the specs on code change
-  gem 'rerun'
+  gem "rerun"
 
   # factories
-  gem 'factory_bot_rails'
+  gem "factory_bot_rails"
 
   # For real looking data in tests
-  gem 'faker'
+  gem "faker"
 end
 
 group :development do
-  gem 'bundle-audit', require: false
-  gem 'listen'
+  gem "bundle-audit", require: false
+  gem "listen"
 end
 
 group :test do
-  gem 'capybara'
-  gem 'capybara-screenshot'
-  gem 'capybara-selenium'
-  gem 'database_cleaner-active_record'
-  gem 'percy-capybara', '~> 4.3.2'
-  gem 'rails-controller-testing'
-  gem 'selenium-webdriver'
+  gem "capybara"
+  gem "capybara-screenshot"
+  gem "capybara-selenium"
+  gem "database_cleaner-active_record"
+  gem "percy-capybara", "~> 4.3.2"
+  gem "rails-controller-testing"
+  gem "selenium-webdriver"
 end

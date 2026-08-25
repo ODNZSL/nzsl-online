@@ -1,26 +1,26 @@
 namespace :dictionary do # rubocop:disable Metrics/BlockLength
-  desc 'Updates the NZSL dictionary packaged with the application to the latest release from Signbank'
+  desc "Updates the NZSL dictionary packaged with the application to the latest release from Signbank"
   task :update do # rubocop:disable Rails/RakeEnvironment - we need to place this file before the app can start
-    database_s3_location = URI.parse(ENV.fetch('DICTIONARY_DATABASE_S3_LOCATION') || '')
-    raise 'DICTIONARY_DATABASE_S3_LOCATION must be an S3 URI' unless database_s3_location.scheme == 's3'
+    database_s3_location = URI.parse(ENV.fetch("DICTIONARY_DATABASE_S3_LOCATION") || "")
+    raise "DICTIONARY_DATABASE_S3_LOCATION must be an S3 URI" unless database_s3_location.scheme == "s3"
 
-    download_s3_uri(database_s3_location, 'db/new-dictionary.sqlite3')
+    download_s3_uri(database_s3_location, "db/new-dictionary.sqlite3")
 
-    database = SQLite3::Database.open('db/new-dictionary.sqlite3')
-    raise 'Database does not pass integrity check' unless database.integrity_check == [['ok']]
+    database = SQLite3::Database.open("db/new-dictionary.sqlite3")
+    raise "Database does not pass integrity check" unless database.integrity_check == [["ok"]]
 
-    version = database.get_int_pragma('user_version')
+    version = database.get_int_pragma("user_version")
 
-    FileUtils.mv('db/new-dictionary.sqlite3', 'db/dictionary.sqlite3')
+    FileUtils.mv("db/new-dictionary.sqlite3", "db/dictionary.sqlite3")
 
     puts "Updated db/dictionary.sqlite3 to #{version}"
   end
 
   def s3_client
     @s3_client ||= Aws::S3::Client.new({
-      region: ENV.fetch('DICTIONARY_AWS_REGION', ENV.fetch('AWS_REGION', nil)),
-      access_key_id: ENV.fetch('DICTIONARY_AWS_ACCESS_KEY_ID', nil),
-      secret_access_key: ENV.fetch('DICTIONARY_AWS_SECRET_ACCESS_KEY', nil)
+      region: ENV.fetch("DICTIONARY_AWS_REGION", ENV.fetch("AWS_REGION", nil)),
+      access_key_id: ENV.fetch("DICTIONARY_AWS_ACCESS_KEY_ID", nil),
+      secret_access_key: ENV.fetch("DICTIONARY_AWS_SECRET_ACCESS_KEY", nil)
     }.compact)
   end
 

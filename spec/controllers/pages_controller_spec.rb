@@ -1,24 +1,24 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe PagesController, type: :controller do
-  describe '#random_sign' do
+  describe "#random_sign" do
     before do
-      FactoryBot.create(:page, slug: '/')
+      FactoryBot.create(:page, slug: "/")
 
       get(:random_sign)
     end
 
-    it 'returns HTTP 200' do
+    it "returns HTTP 200" do
       expect(response).to have_http_status(:ok)
     end
 
-    it 'sets @page to the home page' do
-      expect(assigns(:page)).to eq Page.find_by(slug: '/')
+    it "sets @page to the home page" do
+      expect(assigns(:page)).to eq Page.find_by(slug: "/")
     end
 
-    it 'assigns @sign to a sign' do
+    it "assigns @sign to a sign" do
       expect(assigns(:sign)).to respond_to(:gloss_main)
     end
   end

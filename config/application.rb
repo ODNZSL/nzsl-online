@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'boot'
+require_relative "boot"
 
-require 'rails/all'
-require 'ckeditor-rails/engine'
+require "rails/all"
+require "ckeditor-rails/engine"
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -18,8 +18,8 @@ module NzslOnline
     # pull the secret_key_base from our app config
     config.secret_key_base = config.app.secret_key_base
 
-    config.app_domain_name = ENV['APP_DOMAIN_NAME']
-    config.app_protocol = ENV['APP_PROTOCOL']
+    config.app_domain_name = ENV["APP_DOMAIN_NAME"]
+    config.app_protocol = ENV["APP_PROTOCOL"]
     config.base_url = "#{config.app_protocol}://#{config.app_domain_name}/"
 
     ##
@@ -44,11 +44,11 @@ module NzslOnline
     #
     # More details: https://github.com/tylerhunt/rack-canonical-host
     #
-    if ENV['CANONICAL_HOST']
+    if ENV["CANONICAL_HOST"]
       config.middleware.insert_before(Rack::Sendfile,
                                       Rack::CanonicalHost,
-                                      ENV['CANONICAL_HOST'],
-                                      cache_control: 'max-age=3600')
+                                      ENV["CANONICAL_HOST"],
+                                      cache_control: "max-age=3600")
     end
 
     # Settings in config/environments/* take precedence over those specified here.

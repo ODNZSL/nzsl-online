@@ -38,14 +38,14 @@ class SignPaginationService
   end
 
   def prepare_for_presentation(page_num)
-    return wrap_without_link('...')       if page_num_should_be_replaced_with_elipsis?(page_num)
+    return wrap_without_link("...")       if page_num_should_be_replaced_with_elipsis?(page_num)
     return wrap_as_current_page(page_num) if current_page?(page_num)
 
     wrap_with_link(page_num)
   end
 
   def wrap_as_current_page(page_num)
-    wrap_in_li(tag.span(page_num, class: 'current a'))
+    wrap_in_li(tag.span(page_num, class: "current a"))
   end
 
   def wrap_with_link(page_num, text: page_num)
@@ -56,7 +56,7 @@ class SignPaginationService
   end
 
   def wrap_without_link(text)
-    wrap_in_li(tag.span(text, class: 'a'))
+    wrap_in_li(tag.span(text, class: "a"))
   end
 
   def wrap_in_li(content)
@@ -96,15 +96,15 @@ class SignPaginationService
   end
 
   def prev_link
-    return wrap_without_link(I18n.t('pagination.previous')) if current_page_is_first_page?
+    return wrap_without_link(I18n.t("pagination.previous")) if current_page_is_first_page?
 
-    wrap_with_link(@current_page_number - 1, text: I18n.t('pagination.previous'))
+    wrap_with_link(@current_page_number - 1, text: I18n.t("pagination.previous"))
   end
 
   def next_link
-    return wrap_without_link(I18n.t('pagination.next')) if current_page_is_last_page?
+    return wrap_without_link(I18n.t("pagination.next")) if current_page_is_last_page?
 
-    wrap_with_link(@current_page_number + 1, text: I18n.t('pagination.next'))
+    wrap_with_link(@current_page_number + 1, text: I18n.t("pagination.next"))
   end
 
   ##

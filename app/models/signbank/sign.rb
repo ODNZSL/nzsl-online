@@ -36,7 +36,7 @@ module Signbank
     end
 
     def self.random
-      safe_for_work.order('RANDOM()').first
+      safe_for_work.order("RANDOM()").first
     end
 
     def picture_url
@@ -58,7 +58,7 @@ module Signbank
     # Because of this, we just look up locations by their name, not their identifier.
     # This will work so long as location names remain unique.
     def location
-      super.gsub(' - ', '.')
+      super.gsub(" - ", ".")
     end
   end
 end

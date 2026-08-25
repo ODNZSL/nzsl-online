@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe VocabSheetsController, type: :controller do
   let(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
@@ -11,86 +11,86 @@ RSpec.describe VocabSheetsController, type: :controller do
     { vocab_sheet: { name: new_name } }
   end
 
-  describe '#show' do
+  describe "#show" do
     before { get :show }
 
     it { expect(response).to have_http_status(:ok) }
   end
 
-  describe '#download_pdf' do
+  describe "#download_pdf" do
     before { get :download_pdf }
 
     it { expect(response).to have_http_status(:ok) }
   end
 
-  describe '#update' do
-    context 'new vocab sheet' do
+  describe "#update" do
+    context "new vocab sheet" do
       before { patch :update, params: valid_attributes }
 
       it { expect(assigns(:sheet)) }
       it { expect(response).to redirect_to root_path }
     end
 
-    context 'existing vocab sheet' do
+    context "existing vocab sheet" do
       before { patch :update, params: valid_attributes, session: }
 
-      it 'updates the sheet instance variable' do
+      it "updates the sheet instance variable" do
         expect(assigns(:sheet)).to eq(vocab_sheet)
       end
 
-      it 'updates the sheet name' do
+      it "updates the sheet name" do
         vocab_sheet.reload
         expect(vocab_sheet.name).to eq(new_name)
       end
 
-      it 'redirects to the homepage' do
+      it "redirects to the homepage" do
         expect(response).to redirect_to root_path
       end
     end
 
-    context 'successful update' do
-      it 'displays a success flash message' do
+    context "successful update" do
+      it "displays a success flash message" do
         patch(:update, params: valid_attributes, session:)
-        expect(flash[:notice]).to eq I18n.t('vocab_sheet.sheet.update_success')
+        expect(flash[:notice]).to eq I18n.t("vocab_sheet.sheet.update_success")
       end
     end
   end
 
-  describe '#destroy' do
+  describe "#destroy" do
     let!(:vocab_sheet) { FactoryBot.create(:vocab_sheet) }
     let(:valid_request) { delete :destroy, params: { id: vocab_sheet.id } }
     let(:invalid_request) do
       delete :destroy, params: { id: vocab_sheet.id + 100 }
     end
 
-    context 'successful deletion' do
-      it 'decrements the vocab_sheet count' do
+    context "successful deletion" do
+      it "decrements the vocab_sheet count" do
         expect { valid_request }.to change(VocabSheet, :count).by(-1)
       end
 
-      it 'deletes the vocab_sheet specified' do
+      it "deletes the vocab_sheet specified" do
         valid_request
         expect(VocabSheet.find_by(id: vocab_sheet.id)).to be_nil
       end
 
-      it 'displays a success flash message' do
+      it "displays a success flash message" do
         valid_request
-        expect(flash[:notice]).to eq I18n.t('vocab_sheet.delete_success')
+        expect(flash[:notice]).to eq I18n.t("vocab_sheet.delete_success")
       end
     end
 
-    context 'unsuccessful deletion' do
-      it 'does not change the VocabSheet count' do
+    context "unsuccessful deletion" do
+      it "does not change the VocabSheet count" do
         expect { invalid_request }.not_to change(VocabSheet, :count)
       end
 
-      it 'displays an error flash message' do
+      it "displays an error flash message" do
         invalid_request
-        expect(flash[:error]).to eq I18n.t('vocab_sheet.delete_failure')
+        expect(flash[:error]).to eq I18n.t("vocab_sheet.delete_failure")
       end
     end
 
-    it 'redirects to the homepage' do
+    it "redirects to the homepage" do
       # it redirects to the homepage for valid or invalid requests
       [valid_request, invalid_request].each do |request|
         request
