@@ -1,28 +1,28 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Item, type: :model do
-  let(:sign_id) { '1234' }
-  let(:name) { 'Some name' }
-  let(:maori_name) { 'Some maori name' }
-  let(:drawing) { 'foo.jpg' }
-  let(:sign) { instance_double('Sign', id: sign_id, gloss_maori: maori_name, gloss_main: name, picture_url: drawing) }
+  let(:sign_id) { "1234" }
+  let(:name) { "Some name" }
+  let(:maori_name) { "Some maori name" }
+  let(:drawing) { "foo.jpg" }
+  let(:sign) { instance_double("Sign", id: sign_id, gloss_maori: maori_name, gloss_main: name, picture_url: drawing) }
 
-  subject { described_class.new('sign_id' => sign_id) }
+  subject { described_class.new("sign_id" => sign_id) }
 
   before do
     allow(Signbank::Sign).to receive(:find).and_return(sign)
   end
 
-  describe '.new' do
-    context 'using a stubbed call to Signbank' do
+  describe ".new" do
+    context "using a stubbed call to Signbank" do
       before do
         allow(Signbank::Sign).to receive(:find).and_return(sign)
       end
 
-      it 'initializes successfully given just a sign_id' do
-        item = described_class.new('sign_id' => sign_id)
+      it "initializes successfully given just a sign_id" do
+        item = described_class.new("sign_id" => sign_id)
         expect(item.valid?).to eq(true)
 
         expect(item.name).to eq(name)
@@ -30,14 +30,14 @@ RSpec.describe Item, type: :model do
         expect(item.drawing).to eq(drawing)
       end
 
-      it 'respects the attributes given and does not overwrite them from the Sign' do
-        attr_name = 'my name'
-        attr_maori_name = 'my maori name'
+      it "respects the attributes given and does not overwrite them from the Sign" do
+        attr_name = "my name"
+        attr_maori_name = "my maori name"
 
         attrs = {
-          'sign_id' => sign_id,
-          'name' => attr_name,
-          'maori_name' => attr_maori_name
+          "sign_id" => sign_id,
+          "name" => attr_name,
+          "maori_name" => attr_maori_name
         }
 
         item = described_class.new(attrs)
@@ -49,14 +49,14 @@ RSpec.describe Item, type: :model do
     end
   end
 
-  describe '#to_param' do
-    context 'using a stubbed call to Signbank' do
+  describe "#to_param" do
+    context "using a stubbed call to Signbank" do
       before do
         allow(Signbank::Sign).to receive(:first).and_return(sign)
       end
 
-      it 'returns the sign_id' do
-        item = described_class.new('sign_id' => sign_id)
+      it "returns the sign_id" do
+        item = described_class.new("sign_id" => sign_id)
         expect(item.to_param).to eq(sign_id)
       end
     end

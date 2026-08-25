@@ -2,16 +2,16 @@
 
 module PagesHelper
   def mp4_source(page)
-    source_path(page) << '.mp4'
+    source_path(page) << ".mp4"
   end
 
   def webm_source(page)
-    source_path(page) << '.webm'
+    source_path(page) << ".webm"
   end
 
   def all_sources_present?(page)
     sources = source_path(page, false)
-    sources.exclude?(nil) && sources.exclude?('')
+    sources.exclude?(nil) && sources.exclude?("")
   end
 
   private

@@ -4,7 +4,7 @@ module Admin
   class PagePartsController < ApplicationController
     before_action :authenticate_user!, :fetch_page, :set_title
     before_action :fetch_page_part, only: %i[edit update destroy]
-    layout 'admin'
+    layout "admin"
     protect_from_forgery except: [:reorder]
 
     def index
@@ -21,7 +21,7 @@ module Admin
       @page_part = PagePart.new(page_part_params)
       @page_part.page = @page
       if @page_part.save
-        redirect_to edit_admin_page_path(@page), notice: 'Page part was successfully created.'
+        redirect_to edit_admin_page_path(@page), notice: "Page part was successfully created." # rubocop:todo Rails/I18nLocaleTexts
       else
         render action: :new
       end
@@ -29,7 +29,7 @@ module Admin
 
     def update
       if @page_part.update(page_part_params)
-        redirect_to edit_admin_page_path(@page), notice: 'Page part was successfully updated.'
+        redirect_to edit_admin_page_path(@page), notice: "Page part was successfully updated." # rubocop:todo Rails/I18nLocaleTexts
       else
         render action: :edit
       end
@@ -58,7 +58,7 @@ module Admin
     end
 
     def set_title
-      @title = 'Administrate page parts'
+      @title = "Administrate page parts"
     end
 
     def page_part_params

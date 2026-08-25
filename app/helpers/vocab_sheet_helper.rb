@@ -2,11 +2,11 @@
 
 module VocabSheetHelper
   def vocab_sheet?
-    return nil if @sheet.blank? # rubocop:disable Rails/HelperInstanceVariable
-    return nil if @sheet.items.empty? # rubocop:disable Rails/HelperInstanceVariable
-    return nil if params[:controller] == 'vocab_sheets'
+    return false if @sheet.blank? # rubocop:disable Rails/HelperInstanceVariable
+    return false if @sheet.items.empty? # rubocop:disable Rails/HelperInstanceVariable
+    return false if params[:controller] == "vocab_sheets"
 
-    'vocab_sheet_background'
+    "vocab_sheet_background"
   end
 
   def vocab_sheet_offset_multiple

@@ -8,14 +8,14 @@ class PagesController < ApplicationController
     return render_404 unless @page
 
     @title = @page.title
-    @feedback = Feedback.new if @page.template == 'feedback'
+    @feedback = Feedback.new if @page.template == "feedback"
     @sign = Signbank::SignOfTheDay.find
 
     render template: "pages/#{@page.template}"
   end
 
   def random_sign
-    @page = Page.find_by(slug: '/')
+    @page = Page.find_by(slug: "/")
     @title = @page.title
     @sign = Signbank::Sign.random
 
@@ -25,6 +25,6 @@ class PagesController < ApplicationController
   private
 
   def slug_param
-    params[:slug].presence || '/'
+    params[:slug].presence || "/"
   end
 end

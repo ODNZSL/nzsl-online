@@ -6,7 +6,7 @@ class PdfRenderingService
   class ChromeTimeoutError < Error; end
 
   # Create a place for us to work under the Rails `tmp/` dir
-  TMP_DIR_PATH = Rails.root.join('tmp', 'pdf_rendering').to_s.freeze
+  TMP_DIR_PATH = Rails.root.join("tmp", "pdf_rendering").to_s.freeze
 
   # Set a maximum amount of time we will allow Chrome to attempt to render the
   # PDF
@@ -59,7 +59,7 @@ class PdfRenderingService
     # Create some empty temporary files
     pdf_path = create_empty_pdf_file
     html_path = create_empty_html_file
-    credentials = { username: ENV['HTTP_BASIC_AUTH_USERNAME'], password: ENV['HTTP_BASIC_AUTH_PASSWORD'] }
+    credentials = { username: ENV.fetch("HTTP_BASIC_AUTH_USERNAME", nil), password: ENV.fetch("HTTP_BASIC_AUTH_PASSWORD", nil) }
 
     # Write the HTML we received to a file for Chrome to consume (Chrome does
     # not support rendering from STDIN)
@@ -97,14 +97,14 @@ class PdfRenderingService
 
   def render_as_pdf(input_html_path:, output_pdf_path:, credentials:)
     cmd = [
-      'node',
-      Rails.root.join('bin', 'render-pdf.js').to_s,
+      "node",
+      Rails.root.join("bin", "render-pdf.js").to_s,
       input_html_path,
       output_pdf_path,
       credentials[:username].to_s,
       credentials[:password].to_s
     ]
-    Rails.logger.info(cmd.join(' '))
+    Rails.logger.info(cmd.join(" "))
 
     error_msg = "Chrome did not complete the PDF conversion within the #{PDF_CONVERSION_TIMEOUT_SECONDS} second timeout"
 
@@ -121,15 +121,15 @@ class PdfRenderingService
   end
 
   def create_tmp_dir_if_required
-    FileUtils.mkdir_p(TMP_DIR_PATH) unless Dir.exist?(TMP_DIR_PATH)
+    FileUtils.mkdir_p(TMP_DIR_PATH)
   end
 
   def google_chrome_path
     case Gem::Platform.local.os
-    when 'darwin' # macOS
-      Shellwords.escape('/Applications/Google Chrome.app/Contents/MacOS/Google Chrome')
-    when 'linux'
-      Shellwords.escape('google-chrome-stable')
+    when "darwin" # macOS
+      Shellwords.escape("/Applications/Google Chrome.app/Contents/MacOS/Google Chrome")
+    when "linux"
+      Shellwords.escape("google-chrome-stable")
     else
       raise MissingChromeBinaryError
     end
@@ -142,7 +142,7 @@ class PdfRenderingService
     #
     # We add the <base ... /> tag just after <head> - it must be added before
     # any <style> or <script></script> tags.
-    @html.sub!(/#{Regexp.quote('<head>')}/, "<head>#{base_tag}")
+    @html.sub!(/#{Regexp.quote("<head>")}/, "<head>#{base_tag}")
   end
 
   def base_tag

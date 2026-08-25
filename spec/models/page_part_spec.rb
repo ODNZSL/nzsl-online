@@ -1,8 +1,8 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
-RSpec.describe 'PagePart', type: :model do
+RSpec.describe "PagePart", type: :model do
   subject { page_part }
 
   let!(:page_part) { FactoryBot.build(:page_part) }

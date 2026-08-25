@@ -1,44 +1,44 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Admin::SettingsController, type: :controller do
   include Devise::Test::ControllerHelpers
   let(:user) { FactoryBot.create :user }
 
   let!(:setting) { FactoryBot.create(:setting) }
-  let(:valid_params) { { setting.key => 'newvalue' } }
+  let(:valid_params) { { setting.key => "newvalue" } }
 
-  context 'user is signed' do
+  context "user is signed" do
     before { sign_in user }
 
-    describe 'GET #edit' do
+    describe "GET #edit" do
       before { get :edit }
 
       it { expect(response).to have_http_status(:success) }
       it { expect(response).to render_template(:edit) }
     end
 
-    describe '#update' do
+    describe "#update" do
       before { patch :update, params: { settings: valid_params } }
 
       it { expect(response).to have_http_status(:found) }
-      it 'updates the setting' do
+      it "updates the setting" do
         setting.reload
-        expect(setting.value).to eq('newvalue')
+        expect(setting.value).to eq("newvalue")
       end
     end
   end
 
-  context 'user it not signed in' do
-    describe '#edit' do
+  context "user it not signed in" do
+    describe "#edit" do
       before { get :edit }
 
       it { expect(response).to have_http_status(:found) }
       it { expect(response).not_to render_template(:edit) }
     end
 
-    describe '#update' do
+    describe "#update" do
       before { patch :update }
 
       it { expect(response).to have_http_status(:found) }

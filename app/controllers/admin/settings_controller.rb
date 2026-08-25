@@ -2,7 +2,7 @@
 
 module Admin
   class SettingsController < ApplicationController
-    layout 'admin'
+    layout "admin"
     before_action :authenticate_user!, :set_title
 
     def show
@@ -12,18 +12,18 @@ module Admin
     def edit; end
 
     def update
-      flash[:notice] = 'Settings were successfully saved.' if Setting.update_all_settings(settings_params)
+      flash[:notice] = "Settings were successfully saved." if Setting.update_all_settings(settings_params) # rubocop:todo Rails/I18nLocaleTexts
       redirect_to edit_admin_settings_path
     end
 
     private
 
     def set_title
-      @title = 'Administrate Settings'
+      @title = "Administrate Settings"
     end
 
     def settings_params
-      params.require(:settings).permit('help', 'glossary', '404', 'footer')
+      params.require(:settings).permit("help", "glossary", "404", "footer")
     end
   end
 end

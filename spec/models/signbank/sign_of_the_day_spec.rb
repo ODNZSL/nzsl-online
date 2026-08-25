@@ -1,8 +1,8 @@
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe Signbank::SignOfTheDay, type: :model do
-  describe '#find' do
-    it 'fetches a random sign to populate the cache for 24 hours' do
+  describe "#find" do
+    it "fetches a random sign to populate the cache for 24 hours" do
       expect(Signbank::Sign).to receive(:random)
       # Make sure there isn't already a cache entry
       Rails.cache.delete(described_class::CACHE_KEY)

@@ -11,7 +11,7 @@ class SitemapsController < ApplicationController
   private
 
   def init_sitemap
-    headers['Content-Type'] = 'application/xml'
+    headers["Content-Type"] = "application/xml"
   end
 
   def sitemap_builder

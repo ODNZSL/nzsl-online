@@ -6,7 +6,7 @@ class SearchQuerySanitizationService
   ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX = /[^[[:alnum:]]āēīōūĀĒĪŌŪ\-,() ']+/
 
   MAX_QUERY_TERM_LENGTH = 50 # characters
-  DELIMITER = ';;'
+  DELIMITER = ";;"
 
   ##
   # @param [ActionController::Parameters] params
@@ -15,14 +15,14 @@ class SearchQuerySanitizationService
   def sanitize_for_standard_search(params)
     return {} if params.nil?
 
-    result = HashWithIndifferentAccess.new
+    result = ActiveSupport::HashWithIndifferentAccess.new
 
-    result['s']     = [sanitize_search_term(params['s'])].compact_blank
-    result['hs']    = sanitize_handshape(params['hs'])
-    result['l']     = sanitize_body_location_fields(params['l'])
-    result['lg']    = sanitize_body_location_groups(params['lg'])
-    result['usage'] = sanitize_usage(params['usage'])
-    result['tag']   = sanitize_tag(params['tag'])
+    result["s"]     = [sanitize_search_term(params["s"])].compact_blank
+    result["hs"]    = sanitize_handshape(params["hs"])
+    result["l"]     = sanitize_body_location_fields(params["l"])
+    result["lg"]    = sanitize_body_location_groups(params["lg"])
+    result["usage"] = sanitize_usage(params["usage"])
+    result["tag"]   = sanitize_tag(params["tag"])
 
     result.compact_blank
   end
@@ -38,12 +38,12 @@ class SearchQuerySanitizationService
   # @return [String]
   #
   def sanitize_search_term(term)
-    return '' if term.nil?
+    return "" if term.nil?
 
     term
-      .gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, '')
+      .gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, "")
       .strip
-      .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+      .truncate(MAX_QUERY_TERM_LENGTH, omission: "")
   end
 
   ##
@@ -51,12 +51,12 @@ class SearchQuerySanitizationService
   # @return [String]
   #
   def sanitize_handshape(handshape)
-    return '' if handshape.nil?
+    return "" if handshape.nil?
 
     handshape.strip
-             .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+             .truncate(MAX_QUERY_TERM_LENGTH, omission: "")
              .split(DELIMITER)
-             .map { |hs| hs.gsub(ANYTHING_EXCEPT_NUMBERS_PERIOD_REGEX, '') }
+             .map { |hs| hs.gsub(ANYTHING_EXCEPT_NUMBERS_PERIOD_REGEX, "") }
              .compact_blank
   end
 
@@ -65,12 +65,12 @@ class SearchQuerySanitizationService
   # @return [String]
   #
   def sanitize_body_location_fields(body_location_fields)
-    return '' if body_location_fields.nil?
+    return "" if body_location_fields.nil?
 
     body_location_fields.strip
-                        .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+                        .truncate(MAX_QUERY_TERM_LENGTH, omission: "")
                         .split(DELIMITER)
-                        .map { |blf| blf.gsub(ANYTHING_EXCEPT_NUMBERS_REGEX, '') }
+                        .map { |blf| blf.gsub(ANYTHING_EXCEPT_NUMBERS_REGEX, "") }
                         .compact_blank
   end
 
@@ -79,12 +79,12 @@ class SearchQuerySanitizationService
   # @return [String]
   #
   def sanitize_body_location_groups(body_location_groups)
-    return '' if body_location_groups.nil?
+    return "" if body_location_groups.nil?
 
     body_location_groups.strip
-                        .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+                        .truncate(MAX_QUERY_TERM_LENGTH, omission: "")
                         .split(DELIMITER)
-                        .map { |blg| blg.gsub(ANYTHING_EXCEPT_NUMBERS_REGEX, '') }
+                        .map { |blg| blg.gsub(ANYTHING_EXCEPT_NUMBERS_REGEX, "") }
                         .compact_blank
   end
 
@@ -93,12 +93,12 @@ class SearchQuerySanitizationService
   # @return [String]
   #
   def sanitize_usage(usage)
-    return '' if usage.nil?
+    return "" if usage.nil?
 
     usage.strip
-         .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+         .truncate(MAX_QUERY_TERM_LENGTH, omission: "")
          .split(DELIMITER)
-         .map { |usg| usg.gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, '') }
+         .map { |usg| usg.gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, "") }
          .compact_blank
   end
 
@@ -107,12 +107,12 @@ class SearchQuerySanitizationService
   # @return [String]
   #
   def sanitize_tag(tag)
-    return '' if tag.nil?
+    return "" if tag.nil?
 
     tag.strip
-       .truncate(MAX_QUERY_TERM_LENGTH, omission: '')
+       .truncate(MAX_QUERY_TERM_LENGTH, omission: "")
        .split(DELIMITER)
-       .map { |tg| tg.gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, '') }
+       .map { |tg| tg.gsub(ANYTHING_EXCEPT_LETTERS_NUMBERS_COMMON_PUNCTUATION_REGEX, "") }
        .compact_blank
   end
 end

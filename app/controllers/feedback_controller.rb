@@ -10,10 +10,10 @@ class FeedbackController < ApplicationController
   end
 
   def create
-    if !cloudflare_turnstile_ok?
-      flash.now[:feedback_error] = t('feedback.failure')
-    else
+    if cloudflare_turnstile_ok?
       process_feedback
+    else
+      flash.now[:feedback_error] = t("feedback.failure")
     end
 
     @feedback = Feedback.new
@@ -30,12 +30,12 @@ class FeedbackController < ApplicationController
 
     if feedback.valid?
       feedback.send_email
-      flash.now[:feedback_notice] = t('feedback.success')
+      flash.now[:feedback_notice] = t("feedback.success")
     else
-      flash.now[:feedback_error] = t('feedback.failure')
+      flash.now[:feedback_error] = t("feedback.failure")
     end
   rescue StandardError
-    flash.now[:feedback_error] = t('feedback.failure')
+    flash.now[:feedback_error] = t("feedback.failure")
   end
 
   def feedback_params

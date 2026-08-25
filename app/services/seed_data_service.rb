@@ -20,7 +20,7 @@ class SeedDataService
   end
 
   def self.csv_filename(data_type)
-    filename = Rails.root.join('db', 'seeds', "#{data_type.to_s.pluralize}.csv")
+    filename = Rails.root.join("db", "seeds", "#{data_type.to_s.pluralize}.csv")
     Rails.logger.info "Loading settings from #{filename}..."
     filename
   end

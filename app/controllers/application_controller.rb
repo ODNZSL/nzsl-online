@@ -17,7 +17,7 @@ class ApplicationController < ActionController::Base
   end
 
   def layout_by_resource
-    devise_controller? ? 'admin' : 'application'
+    devise_controller? ? "admin" : "application"
   end
 
   def find_or_create_vocab_sheet
@@ -54,11 +54,11 @@ class ApplicationController < ActionController::Base
   end
 
   def render_404
-    @page = Page.find(Setting.get(:'404'))
+    @page = Page.find(Setting.get(:"404"))
     if @page
       render template: "pages/#{@page.template}", status: :not_found, formats: :html
     else
-      render text: '404 - page not found', status: :not_found
+      render text: "404 - page not found", status: :not_found
     end
   end
 
@@ -67,8 +67,8 @@ class ApplicationController < ActionController::Base
   def staging_http_auth
     return unless staging_env?
 
-    authenticate_or_request_with_http_basic('Username and Password please') do |username, password|
-      username == ENV['HTTP_BASIC_AUTH_USERNAME'] && password == ENV['HTTP_BASIC_AUTH_PASSWORD']
+    authenticate_or_request_with_http_basic("Username and Password please") do |username, password|
+      username == ENV["HTTP_BASIC_AUTH_USERNAME"] && password == ENV["HTTP_BASIC_AUTH_PASSWORD"]
     end
   end
 

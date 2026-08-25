@@ -14,16 +14,16 @@ module FeatureFlags
     def self.enabled?
       return false if Rails.env.test?
 
-      ENV['FEATURE_CACHE_ITEMS_ENABLED'] == 'true'
+      ENV["FEATURE_CACHE_ITEMS_ENABLED"] == "true"
     end
 
     def self.cache_timeout
       # cache for 24 hours but allow env variable to override this at runtime
-      Integer(ENV.fetch('FEATURE_CACHE_ITEMS_NUM_HOURS', 24))
+      Integer(ENV.fetch("FEATURE_CACHE_ITEMS_NUM_HOURS", 24))
     end
 
     def self.status_msg
-      "#{self} is #{enabled? ? 'enabled' : 'not enabled'} (cache timeout: #{cache_timeout} hours)"
+      "#{self} is #{enabled? ? "enabled" : "not enabled"} (cache timeout: #{cache_timeout} hours)"
     end
   end
 end

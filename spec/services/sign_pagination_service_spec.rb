@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-require 'rails_helper'
+require "rails_helper"
 
 RSpec.describe SignPaginationService do
-  describe '#pagination_links_html' do
-    let(:valid_query) { { 'tag' => '6' } }
+  describe "#pagination_links_html" do
+    let(:valid_query) { { "tag" => "6" } }
 
-    it 'generates expected output (showing page 1 of 10 results)' do
+    it "generates expected output (showing page 1 of 10 results)" do
       subject = described_class.new(current_page_number: 1, total_num_results: 10, route_params: valid_query)
       result = subject.pagination_links_html
       expected = <<~EO_EXPECTED
@@ -18,7 +18,7 @@ RSpec.describe SignPaginationService do
       expect(result).to eq(expected)
     end
 
-    it 'generates expected output (showing page 2 of 100 results)' do
+    it "generates expected output (showing page 2 of 100 results)" do
       subject = described_class.new(current_page_number: 2, total_num_results: 100, route_params: valid_query)
       result = subject.pagination_links_html
       expected = <<~EO_EXPECTED
@@ -34,7 +34,7 @@ RSpec.describe SignPaginationService do
       expect(result).to eq(expected)
     end
 
-    it 'generates expected output (showing page 1 of 1000 results)' do
+    it "generates expected output (showing page 1 of 1000 results)" do
       subject = described_class.new(current_page_number: 1, total_num_results: 1000, route_params: valid_query)
       result = subject.pagination_links_html
       expected = <<~EO_EXPECTED
@@ -52,7 +52,7 @@ RSpec.describe SignPaginationService do
       expect(result).to eq(expected)
     end
 
-    it 'generates expected output (showing page 3 of 1000 results)' do
+    it "generates expected output (showing page 3 of 1000 results)" do
       subject = described_class.new(current_page_number: 3, total_num_results: 1000, route_params: valid_query)
       result = subject.pagination_links_html
       expected = <<~EO_EXPECTED
@@ -70,7 +70,7 @@ RSpec.describe SignPaginationService do
       expect(result).to eq(expected)
     end
 
-    it 'generates expected output (showing page 40 of 1000 results)' do
+    it "generates expected output (showing page 40 of 1000 results)" do
       subject = described_class.new(current_page_number: 40, total_num_results: 1000, route_params: valid_query)
       result = subject.pagination_links_html
       expected = <<~EO_EXPECTED
