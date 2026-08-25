@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "jquery-ui": "^1.13.2",
-    "puppeteer": "^21.0.0"
+    "puppeteer": "^25.0.0"
   },
   "devDependencies": {
     "eslint": "^9.39.2"
