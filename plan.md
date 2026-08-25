@@ -64,7 +64,11 @@ The dependency bump is the easy part; deployment is the risk:
 
 - `google_chrome_path` in `PdfRenderingService` is unused dead code — Puppeteer manages its own binary.
 
+## Jira
+
+- [CC-2722](https://ackama.atlassian.net/browse/CC-2722) — NZSL Online: upgrade Puppeteer to resolve security vulnerability (Important P2, CLIENT:NZSL)
+
 ## Next steps
 
-1. Create CC board Jira ticket for the upgrade work.
-2. When executing: review/extend `origin/update-puppeteer`, verify Heroku buildpacks on staging, deploy and QA PDF download before production.
+1. When executing: review/extend `origin/update-puppeteer`, verify Heroku buildpacks on staging, deploy and QA PDF download before production.
+2. Keep CC-2722 updated with findings during the Heroku validation pass.
