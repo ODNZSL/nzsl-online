@@ -10,13 +10,10 @@
 
 const puppeteer = require("puppeteer");
 
-const [
-  ,,
-  inputPath,
-  outputPath,
-  basicAuthUsername,
-  basicAuthPassword,
-] = process.argv
+const inputPath = `file://${process.argv[2]}`;
+const outputPath = process.argv[3];
+const basic_auth_username = process.argv[4];
+const basic_auth_password = process.argv[5];
 
 console.log("Input path:", inputPath);
 console.log("Output path:", outputPath);
@@ -25,35 +22,23 @@ console.log("Output path:", outputPath);
 but due to issues getting it running on Heroku this option is required. */
 
 (async () => {
-  const browser = await puppeteer.launch({
-    args: ["--no-sandbox", "--disable-web-security", "--disable-setuid-sandbox"],
-    headless: "new"
-  });
-  try {
-    const page = await browser.newPage();
+  const browser = await puppeteer.launch({args: ["--no-sandbox"]});
+  const page = await browser.newPage();
 
-    if (basicAuthUsername) {
-      await page.authenticate({ username: basicAuthUsername, password: basicAuthPassword });
-    }
-
-    await page.setDefaultTimeout(0);
-
-    console.log("Starting PDF conversion");
-    // https://github.com/GoogleChrome/puppeteer/blob/v1.4.0/docs/api.md#pagegotourl-options
-    await page.goto(inputPath, { waitUntil: "load" });
-
-    // https://github.com/GoogleChrome/puppeteer/blob/v1.4.0/docs/api.md#pagepdfoptions
-    await page.pdf({
-      path: outputPath,
-      format: "A4"
-    });
-
-    console.log("PDF conversion complete");
-  } finally {
-    await browser.close();
+  if (basic_auth_username) {
+    await page.authenticate({username: basic_auth_username, password: basic_auth_password});
   }
-})().catch(error => {
-  console.error(error)
 
-  process.exitCode = 1
-});
+  console.log("Starting PDF conversion");
+  // https://github.com/GoogleChrome/puppeteer/blob/v1.4.0/docs/api.md#pagegotourl-options
+  await page.goto(inputPath, { waitUntil: "load" });
+
+  // https://github.com/GoogleChrome/puppeteer/blob/v1.4.0/docs/api.md#pagepdfoptions
+  await page.pdf({
+    path: outputPath,
+    format: "A4"
+  });
+
+  console.log("PDF conversion complete");
+  await browser.close();
+})();

@@ -7,8 +7,7 @@
     "doc": "doc"
   },
   "scripts": {
-    "eslint": "ESLINT_USE_FLAT_CONFIG=false ./node_modules/.bin/eslint .",
-    "heroku-postbuild": "mkdir ./.cache && mv /app/.cache/puppeteer ./.cache"
+    "eslint": "ESLINT_USE_FLAT_CONFIG=false ./node_modules/.bin/eslint ."
   },
   "repository": {
     "type": "git",
@@ -25,7 +24,7 @@
   },
   "dependencies": {
     "jquery-ui": "^1.13.2",
-    "puppeteer": "^25.0.0"
+    "puppeteer": "^2.0.0"
   },
   "devDependencies": {
     "eslint": "^9.39.2"
