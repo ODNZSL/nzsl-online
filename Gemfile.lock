@@ -280,7 +280,8 @@ GEM
       timeout
     net-smtp (0.5.1)
       net-protocol
-    newrelic_rpm (8.2.0)
+    newrelic_rpm (10.7.1)
+      logger
     nio4r (2.7.5)
     nokogiri (1.19.4)
       mini_portile2 (~> 2.8.2)
@@ -457,8 +458,6 @@ GEM
       json (>= 1.8, < 3)
       simplecov-html (~> 0.10.0)
     simplecov-html (0.10.2)
-    skylight (5.1.1)
-      activesupport (>= 5.2.0)
     sprockets (4.2.2)
       concurrent-ruby (~> 1.0)
       logger
@@ -563,7 +562,6 @@ DEPENDENCIES
   sassc-rails
   selenium-webdriver
   simplecov
-  skylight
   sprockets-rails
   sqlite3
   uglifier
