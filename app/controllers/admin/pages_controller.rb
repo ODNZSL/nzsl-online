@@ -20,7 +20,7 @@ module Admin
     def create
       @page = Page.new(page_params)
       if @page.save
-        redirect_to admin_pages_path, notice: "Page was successfully created."
+        redirect_to admin_pages_path, notice: "Page was successfully created." # rubocop:todo Rails/I18nLocaleTexts
       else
         render action: :new
       end
@@ -28,7 +28,7 @@ module Admin
 
     def update
       if @page.update(page_params)
-        redirect_to admin_pages_path, notice: "Page was successfully updated."
+        redirect_to admin_pages_path, notice: "Page was successfully updated." # rubocop:todo Rails/I18nLocaleTexts
       else
         render action: :edit
       end

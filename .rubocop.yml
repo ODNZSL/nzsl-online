@@ -5,6 +5,9 @@ require:
   - rubocop-performance
 
 AllCops:
+  NewCops: enable
+  DisplayCopNames: true
+  DisplayStyleGuide: true
   Exclude:
     - 'vendor/**/*'
     - 'node_modules/**/*'

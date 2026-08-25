@@ -1,3 +1,3 @@
 # frozen_string_literal: true
 
-ActiveRecord::Base.include ActiveModel::ForbiddenAttributesProtection
+ActiveSupport.on_load(:active_record) { include ActiveModel::ForbiddenAttributesProtection }

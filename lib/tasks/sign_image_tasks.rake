@@ -2,7 +2,7 @@
 
 require "fileutils"
 
-DIMENSIONS_REGEXP = Regexp.new(/(\d{1,4})x(\d{1,4})/)
+DIMENSIONS_REGEXP = /(\d{1,4})x(\d{1,4})/
 
 namespace :sign_images do
   desc "Clears the cache by deleting all files inside the sign image directory"

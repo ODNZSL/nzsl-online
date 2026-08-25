@@ -12,7 +12,7 @@ module Admin
     def edit; end
 
     def update
-      flash[:notice] = "Settings were successfully saved." if Setting.update_all_settings(settings_params)
+      flash[:notice] = "Settings were successfully saved." if Setting.update_all_settings(settings_params) # rubocop:todo Rails/I18nLocaleTexts
       redirect_to edit_admin_settings_path
     end
 

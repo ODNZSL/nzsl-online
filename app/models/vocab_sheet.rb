@@ -93,10 +93,8 @@ class VocabSheet < ApplicationRecord
   def reorder_items(item_ids: [])
     return nil unless item_ids.is_a?(Array)
 
-    new_raw_items = []
-
-    item_ids.uniq.each do |id|
-      new_raw_items << raw_item_attrs.find { |item| item["id"] == id }
+    new_raw_items = item_ids.uniq.map do |id|
+      raw_item_attrs.find { |item| item["id"] == id }
     end
 
     self.raw_item_attrs = new_raw_items

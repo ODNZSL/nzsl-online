@@ -62,7 +62,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
   # Sign Attribute is Selected?
 
   def handshape_selected?(shape)
-    return if @query[:hs].blank?
+    return false if @query[:hs].blank?
 
     query_hs = @query[:hs]
 
@@ -182,7 +182,7 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
   end
 
   def search_term(key)
-    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].reject(&:blank?).blank?)
+    return if @query[key].blank? || (@query[key].is_a?(Array) && @query[key].compact_blank.blank?)
 
     h @query[key].join(SearchQuerySanitizationService::DELIMITER)
   end

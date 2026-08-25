@@ -59,7 +59,7 @@ class PdfRenderingService
     # Create some empty temporary files
     pdf_path = create_empty_pdf_file
     html_path = create_empty_html_file
-    credentials = { username: ENV["HTTP_BASIC_AUTH_USERNAME"], password: ENV["HTTP_BASIC_AUTH_PASSWORD"] }
+    credentials = { username: ENV.fetch("HTTP_BASIC_AUTH_USERNAME", nil), password: ENV.fetch("HTTP_BASIC_AUTH_PASSWORD", nil) }
 
     # Write the HTML we received to a file for Chrome to consume (Chrome does
     # not support rendering from STDIN)
@@ -121,7 +121,7 @@ class PdfRenderingService
   end
 
   def create_tmp_dir_if_required
-    FileUtils.mkdir_p(TMP_DIR_PATH) unless Dir.exist?(TMP_DIR_PATH)
+    FileUtils.mkdir_p(TMP_DIR_PATH)
   end
 
   def google_chrome_path
