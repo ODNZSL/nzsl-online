@@ -15,7 +15,7 @@ class SearchQuerySanitizationService
   def sanitize_for_standard_search(params)
     return {} if params.nil?
 
-    result = HashWithIndifferentAccess.new
+    result = ActiveSupport::HashWithIndifferentAccess.new
 
     result["s"]     = [sanitize_search_term(params["s"])].compact_blank
     result["hs"]    = sanitize_handshape(params["hs"])

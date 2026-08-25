@@ -39,14 +39,14 @@ class VocabSheetsController < ApplicationController
   def update
     @sheet.name = params[:vocab_sheet][:name]
     if @sheet.save
-      flash[:notice] = t("vocab_sheet.sheet.update_success")
+      flash.now[:notice] = t("vocab_sheet.sheet.update_success")
     else
-      flash[:error] = t("vocab_sheet.sheet.update_failure")
+      flash.now[:error] = t("vocab_sheet.sheet.update_failure")
     end
 
     return respond_with_json_or_redirect(@sheet) unless request.xhr?
 
-    flash[:notice] = flash[:error] = nil
+    flash.now[:notice] = flash.now[:error] = nil
     render json: @sheet
   end
 

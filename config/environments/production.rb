@@ -56,11 +56,7 @@ Rails.application.configure do
   ##
   # `force_ssl` defaults to on. Turn off `force_ssl` if (and only if) RAILS_FORCE_SSL=false.
   #
-  config.force_ssl = if ENV.fetch("RAILS_FORCE_SSL", "").casecmp("false").zero?
-                       false
-                     else
-                       true
-                     end
+  config.force_ssl = !ENV.fetch("RAILS_FORCE_SSL", "").casecmp("false").zero?
 
   config.log_level = :info
 
@@ -91,8 +87,8 @@ Rails.application.configure do
   if ENV["MEMCACHEDCLOUD_SERVERS"]
     config.cache_store = :mem_cache_store,
                          ENV["MEMCACHEDCLOUD_SERVERS"].split(","),
-                         { username: ENV["MEMCACHEDCLOUD_USERNAME"],
-                           password: ENV["MEMCACHEDCLOUD_PASSWORD"] }
+                         { username: ENV.fetch("MEMCACHEDCLOUD_USERNAME", nil),
+                           password: ENV.fetch("MEMCACHEDCLOUD_PASSWORD", nil) }
   end
 
   # Use a real queuing backend for Active Job (and separate queues per environment)
@@ -116,7 +112,7 @@ Rails.application.configure do
   }
   config.action_mailer.asset_host = "https://#{ENV.fetch("HOSTNAME", nil)}"
 
-  config.action_mailer.default_url_options = { host: ENV["MAILER_URL"], protocol: "https" }
+  config.action_mailer.default_url_options = { host: ENV.fetch("MAILER_URL", nil), protocol: "https" }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -126,7 +122,7 @@ Rails.application.configure do
   config.active_support.deprecation = :notify
 
   # Use default logging formatter so that PID and timestamp are not suppressed.
-  config.log_formatter = ::Logger::Formatter.new
+  config.log_formatter = Logger::Formatter.new
 
   # Use a different logger for distributed setups.
   # require 'syslog/logger'

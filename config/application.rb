@@ -18,8 +18,8 @@ module NzslOnline
     # pull the secret_key_base from our app config
     config.secret_key_base = config.app.secret_key_base
 
-    config.app_domain_name = ENV["APP_DOMAIN_NAME"]
-    config.app_protocol = ENV["APP_PROTOCOL"]
+    config.app_domain_name = ENV.fetch("APP_DOMAIN_NAME", nil)
+    config.app_protocol = ENV.fetch("APP_PROTOCOL", nil)
     config.base_url = "#{config.app_protocol}://#{config.app_domain_name}/"
 
     ##

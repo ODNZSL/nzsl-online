@@ -94,11 +94,11 @@ class SignSearchService
     location_groups = @query[:lg] || []
     location_ids = @query[:l] || []
     location_ids += location_groups.flat_map do |lg_id|
-      Signbank::SignMenu.locations.flatten.map do |location_identifier|
+      Signbank::SignMenu.locations.flatten.filter_map do |location_identifier|
         next unless location_identifier.starts_with?("#{lg_id}.")
 
         location_identifier.match(/\A\d{1}\.(\d{1,2})\./)[1]
-      end.compact
+      end
     end
 
     return relation if location_ids.empty?
