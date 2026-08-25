@@ -1,6 +1,5 @@
 # Built-in config:
 # https://github.com/bbatsov/rubocop/blob/master/config/default.yml
-
 require:
   - rubocop-rails
   - rubocop-performance
@@ -11,53 +10,103 @@ AllCops:
     - 'node_modules/**/*'
     - 'db/schema.rb'
 
-Rails/WhereNot:
+Layout/EmptyLinesAroundAttributeAccessor:
   Enabled: true
 
-Performance/Sum:
+Layout/LineLength:
+  Max: 130
+
+Layout/SpaceAroundMethodCallOperator:
+  Enabled: true
+
+Lint/BinaryOperatorWithIdenticalOperands:
+  Enabled: true
+
+Lint/DeprecatedOpenSSLConstant:
+  Enabled: true
+
+Lint/DuplicateElsifCondition:
   Enabled: true
 
 Lint/DuplicateRequire:
   Enabled: true
 
+Lint/DuplicateRescueException:
+  Enabled: true
+
+Lint/EmptyConditionalBody:
+  Enabled: true
+
 Lint/EmptyFile:
+  Enabled: true
+
+Lint/FloatComparison:
+  Enabled: true
+
+Lint/MissingSuper:
+  Enabled: true
+
+Lint/MixedRegexpCaptureTypes:
+  Enabled: true
+
+Lint/OutOfRangeRegexpRef:
+  Enabled: true
+
+Lint/RaiseException:
+  Enabled: true
+
+Lint/SelfAssignment:
+  Enabled: true
+
+Lint/StructNewOverride:
+  Enabled: true
+
+Lint/TopLevelReturnWithArgument:
   Enabled: true
 
 Lint/TrailingCommaInAttributeDeclaration:
   Enabled: true
 
+Lint/UnreachableLoop:
+  Enabled: true
+
 Lint/UselessMethodDefinition:
   Enabled: true
 
-Style/CombinableLoops:
-  Enabled: true
+Lint/Void:
+  Enabled: false # see spec/controllers/vocab_sheet_controller_spec.rb
 
-Style/KeywordParametersOrder:
-  Enabled: true
+Metrics/AbcSize:
+  Max: 26
 
-Style/RedundantSelfAssignment:
-  Enabled: true
+Metrics/BlockLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
+    - 'config/**/*.rb'
 
-Style/SoleNestedConditional:
-  Enabled: true
+Metrics/ClassLength:
+  Max: 150
 
-Rails/AfterCommitOverride:
-  Enabled: true
+Metrics/CyclomaticComplexity:
+  Max: 12
 
-Rails/SquishedSQLHeredocs:
-  Enabled: true
+Metrics/MethodLength:
+  Max: 20
 
-Style/AccessorGrouping:
-  Enabled: true
+Metrics/ModuleLength:
+  Exclude:
+    - 'spec/**/*_spec.rb'
 
-Style/BisectedAttrAccessor:
-  Enabled: true
+Metrics/PerceivedComplexity:
+  Max: 12
 
-Style/RedundantAssignment:
-  Enabled: true
+Naming/FileName:
+  Exclude:
+    - Gemfile
+    - Gemfile.lock
 
-Style/RedundantFetchBlock:
-  Enabled: true
+Naming/VariableNumber:
+  EnforcedStyle: snake_case
 
 Performance/AncestorsInclude:
   Enabled: true
@@ -83,91 +132,20 @@ Performance/Squeeze:
 Performance/StringInclude:
   Enabled: true
 
-Lint/Void:
-  Enabled: false # see spec/controllers/vocab_sheet_controller_spec.rb
-
-Layout/SpaceAroundMethodCallOperator:
+Performance/Sum:
   Enabled: true
-
-Lint/RaiseException:
-  Enabled: true
-
-Lint/StructNewOverride:
-  Enabled: true
-
-Style/ExponentialNotation:
-  Enabled: true
-
-Style/HashEachMethods:
-  Enabled: true
-
-Naming/VariableNumber:
-  EnforcedStyle: snake_case
-
-Style/HashTransformKeys:
-  Enabled: true
-
-Style/HashTransformValues:
-  Enabled: true
-
-Style/Documentation:
-  Enabled: false
-
-Layout/LineLength:
-  Max: 130
-
-Metrics/ClassLength:
-  Max: 150
-
-Metrics/MethodLength:
-  Max: 20
-
-Metrics/AbcSize:
-  Max: 26
-
-Metrics/PerceivedComplexity:
-  Max: 12
-
-Rails/FilePath:
-  EnforcedStyle: arguments
-
-Metrics/CyclomaticComplexity:
-  Max: 12
-
-Metrics/ModuleLength:
-  Exclude:
-    - 'spec/**/*_spec.rb'
 
 Performance/UnfreezeString:
   Enabled: false
 
-Style/FrozenStringLiteralComment:
-  Enabled: false
-
-Metrics/BlockLength:
-  Exclude:
-    - 'spec/**/*_spec.rb'
-    - 'config/**/*.rb'
-
-Style/PercentLiteralDelimiters:
-  Enabled: false
-
-Naming/FileName:
-  Exclude:
-    - Gemfile
-    - Gemfile.lock
-
-Layout/EmptyLinesAroundAttributeAccessor:
-  Enabled: true
-
-Lint/DeprecatedOpenSSLConstant:
-  Enabled: true
-
-Style/SlicingWithRange:
-  Enabled: true
-
 Rails/ActiveRecordCallbacksOrder:
   Enabled: true
+
+Rails/AfterCommitOverride:
+  Enabled: true
+
+Rails/FilePath:
+  EnforcedStyle: arguments
 
 Rails/FindById:
   Enabled: true
@@ -199,50 +177,41 @@ Rails/RenderPlainText:
 Rails/ShortI18n:
   Enabled: true
 
+Rails/SquishedSQLHeredocs:
+  Enabled: true
+
 Rails/WhereExists:
   Enabled: true
 
-Lint/BinaryOperatorWithIdenticalOperands:
+Rails/WhereNot:
   Enabled: true
 
-Lint/DuplicateElsifCondition:
-  Enabled: true
-
-Lint/DuplicateRescueException:
-  Enabled: true
-
-Lint/EmptyConditionalBody:
-  Enabled: true
-
-Lint/FloatComparison:
-  Enabled: true
-
-Lint/MissingSuper:
-  Enabled: true
-
-Lint/MixedRegexpCaptureTypes:
-  Enabled: true
-
-Lint/OutOfRangeRegexpRef:
-  Enabled: true
-
-Lint/SelfAssignment:
-  Enabled: true
-
-Lint/TopLevelReturnWithArgument:
-  Enabled: true
-
-Lint/UnreachableLoop:
+Style/AccessorGrouping:
   Enabled: true
 
 Style/ArrayCoercion:
   Enabled: true
 
+Style/BisectedAttrAccessor:
+  Enabled: true
+
 Style/CaseLikeIf:
   Enabled: true
 
+Style/CombinableLoops:
+  Enabled: true
+
+Style/Documentation:
+  Enabled: false
+
 Style/ExplicitBlockArgument:
   Enabled: true
+
+Style/ExponentialNotation:
+  Enabled: true
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
 
 Style/GlobalStdStream:
   Enabled: true
@@ -250,11 +219,32 @@ Style/GlobalStdStream:
 Style/HashAsLastArrayItem:
   Enabled: true
 
+Style/HashEachMethods:
+  Enabled: true
+
 Style/HashLikeCase:
+  Enabled: true
+
+Style/HashTransformKeys:
+  Enabled: true
+
+Style/HashTransformValues:
+  Enabled: true
+
+Style/KeywordParametersOrder:
   Enabled: true
 
 Style/OptionalBooleanParameter:
   Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
+
+Style/RedundantAssignment:
+  Enabled: true
+
+Style/RedundantFetchBlock:
+  Enabled: true
 
 Style/RedundantFileExtensionInRequire:
   Enabled: true
@@ -265,7 +255,16 @@ Style/RedundantRegexpCharacterClass:
 Style/RedundantRegexpEscape:
   Enabled: true
 
+Style/RedundantSelfAssignment:
+  Enabled: true
+
 Style/SingleArgumentDig:
+  Enabled: true
+
+Style/SlicingWithRange:
+  Enabled: true
+
+Style/SoleNestedConditional:
   Enabled: true
 
 Style/StringConcatenation:
