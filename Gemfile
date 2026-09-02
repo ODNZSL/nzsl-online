@@ -59,7 +59,6 @@ gem "devise"
 
 # Application performance monitoring
 gem "newrelic_rpm"
-gem "skylight"
 
 gem "sassc-rails"
 gem "uglifier"

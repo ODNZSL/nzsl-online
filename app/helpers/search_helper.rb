@@ -42,9 +42,9 @@ module SearchHelper # rubocop:disable Metrics/ModuleLength,
     size = attribute == :location && in_menu ? "72" : "42"
     output = tag.div class: classes_for_sign_attribute(attribute, main) do
       safe_join([
-                  tag.span(value_for_sign_attribute(number, attribute, main), class: "value"),
-                  image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(%r{[ /]}, "_")}.png")
-                ])
+        tag.span(value_for_sign_attribute(number, attribute, main), class: "value"),
+        image_tag("#{attribute}s/#{size}/#{attribute}.#{number.downcase.gsub(%r{[ /]}, "_")}.png")
+      ])
     end
     output << number.split(".").last if attribute == :location && in_menu
     output
