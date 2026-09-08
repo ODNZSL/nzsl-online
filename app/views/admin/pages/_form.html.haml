@@ -22,9 +22,8 @@
         = f.text_field :label, class: "text-input"
         %small.inline-hints In the navigation -should be short.
     .small-6.column-block
-      %label
-        %input{ type: "checkbox" }
-        = f.label :show_in_nav, "Show in navigation"
+      = f.check_box :show_in_nav
+      = f.label :show_in_nav, "Show in navigation"
     .small-6.text_input
       %label.required
         = f.label :template
