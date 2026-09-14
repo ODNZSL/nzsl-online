@@ -9,9 +9,6 @@ RSpec.describe "Feedback", type: :model do
 
   it { is_expected.to have_attribute :name }
   it { is_expected.to have_attribute :message }
-  it { is_expected.to have_attribute :video_file_name }
-  it { is_expected.to have_attribute :video_file_size }
-  it { is_expected.to have_attribute :video_updated_at }
   it { is_expected.to have_attribute :email }
   it { is_expected.to have_attribute :hearing_level }
   it { is_expected.to have_attribute :nzsl_level }
@@ -26,6 +23,26 @@ RSpec.describe "Feedback", type: :model do
   it { is_expected.to have_attribute :change_sign_entry }
   it { is_expected.to have_attribute :change_comments }
   it { is_expected.to have_attribute :technical_fault }
+
+  describe "video attachment" do
+    let!(:feedback) { Feedback.create(name: "Name", message: "Message") }
+
+    it "is valid without a video" do
+      expect(feedback).to be_valid
+    end
+
+    it "is invalid when the video exceeds 50 megabytes" do
+      feedback.video.attach(
+        io: StringIO.new("x"),
+        filename: "video.mp4",
+        content_type: "video/mp4"
+      )
+      allow(feedback.video.blob).to receive(:byte_size).and_return(51.megabytes)
+
+      expect(feedback).not_to be_valid
+      expect(feedback.errors[:video]).to include("is too large")
+    end
+  end
 
   describe "#send_email" do
     subject { super().send_email }
