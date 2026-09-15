@@ -24,6 +24,6 @@ class Feedback < ApplicationRecord
   def video_size_within_limit
     return unless video.attached?
 
-    errors.add(:video, "is too large") if video.blob.byte_size > 50.megabytes
+    errors.add(:video, "is too large") if video.blob.byte_size >= 50.megabytes
   end
 end
