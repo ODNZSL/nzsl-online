@@ -1,11 +1,6 @@
-# frozen_string_literal: true
-
-class MigrateFeedbackVideosToActiveStorage < ActiveRecord::Migration[8.1]
-  class Feedback < ActiveRecord::Base # rubocop:disable Rails/ApplicationRecord
-    has_one_attached :video
-  end
-
-  def up
+namespace :feedback_videos do
+  desc "Migrates feedback videos from paperclip to activestorage"
+  task migrate_to_activestorage: :environment do    
     Feedback.where.not(video_file_name: nil).find_each do |feedback|
       path = Rails.root.join("data", "uploaded", "feedback", feedback.id.to_s, feedback.video_file_name)
       next unless File.exist?(path)
@@ -16,11 +11,7 @@ class MigrateFeedbackVideosToActiveStorage < ActiveRecord::Migration[8.1]
           filename: feedback.video_file_name,
           content_type: feedback.video_content_type
         )
-      end
+      end 
     end
-  end
-
-  def down
-    Feedback.find_each { |feedback| feedback.video.purge }
   end
 end
