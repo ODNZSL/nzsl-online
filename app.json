@@ -39,9 +39,6 @@
     "RAILS_SERVE_STATIC_FILES": {
       "required": true
     },
-    "RAYGUN_APIKEY": {
-      "required": true
-    },
     "S3_BUCKET": {
       "required": true
     },
@@ -55,6 +52,9 @@
       "required": true
     },
     "SENDGRID_USERNAME": {
+      "required": true
+    },
+    "SENTRY_DSN": {
       "required": true
     },
     "DEVISE_SECRET_KEY": {
