@@ -43,7 +43,8 @@ gem "responders", "~> 3.0"
 gem "videojs_rails"
 
 # records crashes
-gem "raygun4ruby"
+gem "sentry-rails"
+gem "sentry-ruby"
 
 # pagination
 gem "will_paginate"
