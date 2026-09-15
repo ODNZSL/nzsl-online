@@ -208,10 +208,6 @@ GEM
       temple (>= 0.8.2)
       thor
       tilt
-    httparty (0.24.2)
-      csv
-      mini_mime (>= 1.0.0)
-      multi_xml (>= 0.5.2)
     i18n (1.14.8)
       concurrent-ruby (~> 1.0)
     io-console (0.8.2)
@@ -268,8 +264,6 @@ GEM
       prism (~> 1.5)
     modernizr-rails (2.7.1)
     msgpack (1.8.2)
-    multi_xml (0.8.1)
-      bigdecimal (>= 3.1, < 5)
     multipart-post (2.4.1)
     net-imap (0.6.6)
       date
@@ -370,11 +364,6 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.4.2)
-    raygun4ruby (3.2.6)
-      concurrent-ruby
-      httparty (> 0.13.7)
-      json
-      rack
     rb-fsevent (0.11.0)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
@@ -453,6 +442,13 @@ GEM
       rexml (~> 3.2, >= 3.2.5)
       rubyzip (>= 1.2.2, < 3.0)
       websocket (~> 1.0)
+    sentry-rails (7.0.0)
+      railties (>= 5.2.0)
+      sentry-ruby (~> 7.0.0)
+    sentry-ruby (7.0.0)
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      logger
     simplecov (0.13.0)
       docile (~> 1.1.0)
       json (>= 1.8, < 3)
@@ -551,7 +547,6 @@ DEPENDENCIES
   rails (~> 8.1.1)
   rails-controller-testing
   rails_cloudflare_turnstile
-  raygun4ruby
   rb-readline
   rerun
   responders (~> 3.0)
@@ -561,6 +556,8 @@ DEPENDENCIES
   rubocop-rails
   sassc-rails
   selenium-webdriver
+  sentry-rails
+  sentry-ruby
   simplecov
   sprockets-rails
   sqlite3
