@@ -57,6 +57,9 @@
     "SENTRY_DSN": {
       "required": true
     },
+    "SENTRY_ENV": {
+      "required": false
+    },
     "DEVISE_SECRET_KEY": {
       "required": true
     }
