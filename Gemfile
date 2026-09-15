@@ -35,10 +35,6 @@ gem "modernizr-rails"
 gem "puma"
 gem "rack-canonical-host", "~> 1.0.0"
 
-# For attaching files on the feedback form
-# on Feedback model
-gem "paperclip"
-
 gem "responders", "~> 3.0"
 gem "videojs_rails"
 
@@ -111,6 +107,7 @@ group :test do
   gem "capybara"
   gem "capybara-screenshot"
   gem "capybara-selenium"
+  gem "climate_control"
   gem "database_cleaner-active_record"
   gem "percy-capybara", "~> 4.3.2"
   gem "rails-controller-testing"

@@ -12,6 +12,7 @@ default: &default
   secret_key_base: <%= ENV["NZSL_ONLINE_SECRET_KEY_BASE"] %>
   s3_bucket_url:   <%= ENV['S3_BUCKET_URL'] %>
   track_search_requests?:  <%= ENV['TRACK_SEARCH_REQUESTS'] || false %>
+  mail_from: <%= ENV['MAIL_FROM'] %>
 
 development:
   <<: *default
@@ -24,7 +25,6 @@ staging:
 
 production:
   <<: *default
-  mail_from: <%= ENV['MAIL_FROM'] %>
   smtp_hostname: <%= ENV['SMTP_HOSTNAME'] %>
   smtp_user_name: <%= ENV['SMTP_USER_NAME'] %>
   smtp_password: <%= ENV['SMTP_PASSWORD'] %>
