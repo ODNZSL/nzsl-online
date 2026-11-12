@@ -13,7 +13,7 @@ echo "*************************"
 echo "Running Javascript linter"
 echo "*************************"
 
-yarn run eslint
+npm run eslint
 
 echo "*******************************************************"
 echo "Checking Ruby dependencies for security vulnerabilities"
