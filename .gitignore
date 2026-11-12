@@ -24,7 +24,7 @@ coverage/*
 postgres/*
 
 node_modules
-yarn-error.log
+npm-error.log
 public/packs
 
 
