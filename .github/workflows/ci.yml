@@ -40,10 +40,10 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: '.node-version'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install required JS packages
-        run: yarn install
+        run: npm ci
       - name: Run JS linting
         run: npm run eslint
 
@@ -79,7 +79,7 @@ jobs:
         uses: actions/setup-node@v6
         with:
           node-version-file: '.node-version'
-          cache: 'yarn'
+          cache: 'npm'
 
       - name: Install Ruby (version given by .ruby-version) and Bundler
         uses: ruby/setup-ruby@v1
@@ -88,7 +88,7 @@ jobs:
 
       - name: Install required JS packages
         run: |
-          yarn install
+          npm ci
 
       - name: Prepare database for testing
         env:

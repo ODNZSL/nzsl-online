@@ -73,7 +73,7 @@ $ bundle exec rspec
 brakeman --run-all-checks --exit-on-warn --format plain .
 
 # Javascript linter
-yarn run eslint
+npm run eslint
 
 # Ruby dependency security vulnerability check
 bundle exec bundle-audit check --update
