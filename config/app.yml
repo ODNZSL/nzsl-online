@@ -10,7 +10,7 @@ default: &default
   # no regular words, or you'll be exposed to dictionary attacks.
   # You can use `rails secret` to generate a secure secret key.
   secret_key_base: <%= ENV["NZSL_ONLINE_SECRET_KEY_BASE"] %>
-  s3_bucket_url:   <%= ENV['S3_BUCKET_URL'] %>
+  assets_host: <%= ENV['ASSETS_HOST'] %>
   track_search_requests?:  <%= ENV['TRACK_SEARCH_REQUESTS'] || false %>
 
 development:

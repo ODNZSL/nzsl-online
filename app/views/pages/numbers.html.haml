@@ -6,8 +6,8 @@
     .clearfix_left.column-block
       .translation_video{"data-ratio" => "0.75", style: "display: none;"}
         %video.video-js.vjs-default-skin{controls: "controls", controlslist: "nodownload", loop: "loop", preload: "metadata"}
-          %source{src: "http://s3-ap-southeast-2.amazonaws.com/nzsl-assets/number-signs.mp4", type: "video/mp4"}
-            %source{src: "http://s3-ap-southeast-2.amazonaws.com/nzsl-assets/number-signs.webm", type: "video/webm"}
+          %source{src: "#{Rails.application.config.app.assets_host}number-signs.mp4", type: "video/mp4"}
+            %source{src: "#{Rails.application.config.app.assets_host}number-signs.webm", type: "video/webm"}
       %a.button.translation_button{href: "javascript:void(0);"}
         %i.fi-play>
         Play this page in NZSL
