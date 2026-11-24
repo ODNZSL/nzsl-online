@@ -18,7 +18,7 @@ module PagesHelper
 
   def source_path_components(page)
     {
-      s3_bucket_url: Rails.application.config.app[:s3_bucket_url],
+      assets_host: Rails.application.config.app.assets_host,
       translation_path: page.first_part.try(:translation_path)
     }
   end
