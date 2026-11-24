@@ -6,6 +6,9 @@
     "postdeploy": "bundle exec rails db:migrate db:seed"
   },
   "env": {
+    "ASSETS_HOST": {
+      "required": true
+    },
     "AWS_ACCESS_KEY_ID": {
       "required": true
     },
@@ -37,12 +40,6 @@
       "required": true
     },
     "RAILS_SERVE_STATIC_FILES": {
-      "required": true
-    },
-    "S3_BUCKET": {
-      "required": true
-    },
-    "S3_BUCKET_URL": {
       "required": true
     },
     "SECRET_KEY_BASE": {
